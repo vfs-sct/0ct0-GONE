@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine.LowLevel;
 using UnityEngine.SceneManagement;
 using UnityEngine.Scripting;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "GameFramework/Core/GameManager")]
@@ -38,22 +37,21 @@ public class GameFrameworkManager : ScriptableObject
     struct GameStateData
     {
         public bool Enabled;
+
+        public bool CheckCondition;
         public bool IsLinkedToScene;
         public string LinkedScene;
         public GameState State;
 
-        public GameStateData(bool E,bool L, string LS, GameState GM)
+        public GameStateData(bool E,bool CC, bool L, string LS, GameState GM)
         {
             Enabled = E;
+            CheckCondition = CC;
             IsLinkedToScene = L;
             LinkedScene = LS;
             State = GM;
         }
     }
-
-
-
-
 
     private void DummyGMDelegate(GameFrameworkManager GameManager)
     {
@@ -81,11 +79,32 @@ public class GameFrameworkManager : ScriptableObject
     void GameStateUpdate()
     {
         if (!Application.isPlaying) return;
-
+        CheckStateConditions(); //check game state conditions
         if (ActiveState && ActiveState.CanTick) 
         {
             ActiveState.OnUpdate();
         }
+    }
+
+    void CheckStateConditions()
+    {
+        foreach (var State in CachedGameStates)
+        {
+            if (State.ConditionCheck(this))
+            {
+                ChangeGameState(State);
+                break;
+            }
+        }
+    }
+
+
+    public void ChangeGameState(GameState _GameState)
+    {
+        ActiveState.OnDeactivate(_GameState);
+        GameState LastState = ActiveState;
+        ActiveState = _GameState;
+        ActiveState.OnActivate(LastState);
     }
    
 
@@ -99,7 +118,7 @@ public class GameFrameworkManager : ScriptableObject
             {
                 Debug.Log("Initializing "+ StateData.State + ":\n");
                 StateData.State.Initalize();
-                CachedGameStates.Add(StateData.State);
+                if (StateData.CheckCondition) CachedGameStates.Add(StateData.State);
             }
         }
     }
