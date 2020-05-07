@@ -8,7 +8,7 @@ using UnityEngine;
 public class ModuleManager : ScriptableObject
 {
     [SerializeField] 
-    private GameFrameworkManager gameManager;
+    private GameFrameworkManager _GameManager;
 
     delegate void TickModuleUpdateDelegate();
     delegate void OnSceneLoadedDelegate();
@@ -34,9 +34,9 @@ public class ModuleManager : ScriptableObject
     {
         if (!Application.isPlaying) return;
         if (StopTicking) return;
-        foreach (TickModuleUpdateDelegate moduleTickFunc in tickingModules)
+        foreach (TickModuleUpdateDelegate ModuleTickFunc in tickingModules)
         {
-            moduleTickFunc();
+            ModuleTickFunc();
         }
     }
 
@@ -45,14 +45,12 @@ public class ModuleManager : ScriptableObject
         sceneLoadedDelegate();
     }
 
-
     public void Initialize()
     {
         Debug.Log("-= Loading Game framework modules =-\n");
         LoadModules();
         Debug.Log("-Module initalization Complete-\n");
     }
-
 
     public void LoadModules()
     {
@@ -90,7 +88,6 @@ public class ModuleManager : ScriptableObject
         sceneLoadedDelegate += emptyDelegate;//to prevent null pointer
     }
 
-
  public T GetModule<T>() where T : Module
     {
         foreach (var item in moduleList)
@@ -99,7 +96,4 @@ public class ModuleManager : ScriptableObject
         }
         return default(T);
     }
-
-
-
 }

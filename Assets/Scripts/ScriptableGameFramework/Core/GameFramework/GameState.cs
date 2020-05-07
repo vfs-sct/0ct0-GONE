@@ -4,19 +4,19 @@ using UnityEngine;
 
 public abstract class GameState : ScriptableObject
 {
-    public GameFrameworkManager Manager;
-
     [SerializeField] public bool CanTick;
-    [SerializeField] public long tickRate;
+    [SerializeField] public long TickRate;
+    [SerializeField] private bool LoadWithScene;
 
-    public abstract void OnActivate(GameState lastState);
+    public abstract bool ConditionCheck(GameFrameworkManager GameManager);
 
-    public abstract void OnDeactivate(GameState newState);
+    public abstract void OnActivate(GameState LastState);
+
+    public abstract void OnDeactivate(GameState NewState);
 
     public abstract void Reset();
 
     public virtual void OnUpdate(){}
 
     public virtual void Initalize(){}
-
 }

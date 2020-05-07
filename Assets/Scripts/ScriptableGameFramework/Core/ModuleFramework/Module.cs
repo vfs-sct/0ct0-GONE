@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Module: ScriptableObject
 {
     [SerializeField]
-    public ModuleManager moduleManager;
+    public ModuleManager _ModuleManager;
 
     [SerializeField]
     public bool RunUpdate = false;

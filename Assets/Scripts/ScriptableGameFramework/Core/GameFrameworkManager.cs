@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.LowLevel;
 using UnityEngine.SceneManagement;
 using UnityEngine.Scripting;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "GameFramework/Core/GameManager")]
@@ -13,16 +14,11 @@ public class GameFrameworkManager : ScriptableObject
     public ModuleManager moduleManager{get =>LinkedModuleManager;}
 
     [Header("Game State System")]
-    [SerializeField]
-    private List<GameState> gameStates = new  List<GameState>();
+
 
     [SerializeField]
-    private List<GameStateCondition> stateCondition;
-
-    [SerializeField]
-    private List<GameState> systemGameStates = new  List<GameState>();
-
-    [SerializeField] public GameState InitialGameState;
+    private List<GameStateData> GameStates = new List<GameStateData>();
+    private List<GameState> CachedGameStates = new  List<GameState>();
 
     private GameState ActiveState;
     private Scene ActiveScene;
@@ -32,8 +28,37 @@ public class GameFrameworkManager : ScriptableObject
     private bool Paused = false;
     public bool isPaused{get => Paused;}
 
+    delegate void GameManagerDelegate(GameFrameworkManager GameManager);
+    private GameManagerDelegate OnExitGame;
+    private GameManagerDelegate OnPauseGame;
+    private GameManagerDelegate OnResumeGame;
 
-    delegate void OnSceneLoadedDelegate();
+
+    [System.Serializable]
+    struct GameStateData
+    {
+        public bool Enabled;
+        public bool IsLinkedToScene;
+        public string LinkedScene;
+        public GameState State;
+
+        public GameStateData(bool E,bool L, string LS, GameState GM)
+        {
+            Enabled = E;
+            IsLinkedToScene = L;
+            LinkedScene = LS;
+            State = GM;
+        }
+    }
+
+
+
+
+
+    private void DummyGMDelegate(GameFrameworkManager GameManager)
+    {
+        
+    }
 
     public void Pause()
     {
@@ -41,6 +66,7 @@ public class GameFrameworkManager : ScriptableObject
         Time.timeScale = 0;
         moduleManager.StopTicking = true;
         Paused = true;
+        if (OnPauseGame != null) OnPauseGame(this);
     }
 
     public void UnPause()
@@ -48,6 +74,7 @@ public class GameFrameworkManager : ScriptableObject
         Time.timeScale = 1;
         moduleManager.StopTicking = false;
         Paused = false;
+        if (OnPauseGame != null) OnResumeGame(this);
     }
 
     
@@ -59,21 +86,24 @@ public class GameFrameworkManager : ScriptableObject
         {
             ActiveState.OnUpdate();
         }
+    }
+   
 
-        for (int i = 0; i < gameStates.Count; i++)
+    private void GameStatesInit()
+    {
+        CachedGameStates.Clear(); //clear the old cached gamestates
+        if (GameStates.Count == 0) return;//exit out if gamestates are empty
+        foreach (var StateData in GameStates)
         {
-            if (stateCondition[i].ConditionCheck(ActiveState))
+            if (StateData.State != null)
             {
-                if (stateCondition[i] && (!ActiveState.Equals(gameStates[i]))){
-                    gameStates[i].OnActivate(ActiveState);
-                    ActiveState.OnDeactivate(gameStates[i]);
-                    ActiveState = gameStates[i];
-                    break; //break out of the for loop if there is a state change
-                }
+                Debug.Log("Initializing "+ StateData.State + ":\n");
+                StateData.State.Initalize();
+                CachedGameStates.Add(StateData.State);
             }
         }
     }
-   
+
 
     private void MainLoopInit()
     {
@@ -109,17 +139,24 @@ public class GameFrameworkManager : ScriptableObject
     private void OnEnable()
     {
 
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
         if (!Application.isEditor) return;
-         Initalize();
-         Debug.Log("Running GameManager in Editor");
+        Initalize();
+        Debug.Log("Running GameManager in Editor");
     }
 
     private void Awake()
     {
         if (Application.isEditor) return;
-         Initalize();
-         Debug.Log("Running GameManager in Build");
+        Initalize();
+        Debug.Log("Running GameManager in Build");
+    }
+
+    private void CoreEventsInit()
+    {
+        OnExitGame += DummyGMDelegate;
+        OnPauseGame += DummyGMDelegate;
+        OnResumeGame += DummyGMDelegate;
     }
 
     private void Initalize()
@@ -130,30 +167,15 @@ public class GameFrameworkManager : ScriptableObject
         LinkedModuleManager.Initialize();
 
         Debug.Log("----------------------------------\n");
+        Debug.Log("Linking Core Events\n");
+        CoreEventsInit();
+        Debug.Log("Finished Linking Core Events\n");
+
         Debug.Log("Loading Gamestates\n");
-        
-        bool hasValidStates = stateCondition.Count >= 0;
-        
-        if (stateCondition.Count != gameStates.Count) 
-        {
-            Debug.LogError("Error: mismatching gamestates and conditions\n");
-            hasValidStates = false;
-        }
-        
-        int index = 0;
-        while (hasValidStates && index < gameStates.Count)
-        {
-            gameStates[index].Manager = this;
-            gameStates[index].Initalize();
-            if (stateCondition[index] == null || gameStates[index] == null)
-            {
-                Debug.LogError("Error: A gamestate or condition is undefined!\n");
-                hasValidStates = false;
-            }
-            index++;
-        }
+        GameStatesInit();
         Debug.Log("Finished Loading Gamestates\n");
-        Debug.Log("Adding Delegates to UnityUpdate\n");
+
+        Debug.Log("Injecting Delegates into to Unity Player Loop\n");
         MainLoopInit();
         Debug.Log("Done\n");
 
@@ -162,21 +184,11 @@ public class GameFrameworkManager : ScriptableObject
         Debug.Log("===============================\n");
     }
 
-
     public void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("SceneLoaded");
         
         moduleManager.ModuleStartOnLoad();
-    }
-
-
-    public void SwitchSystemGameState(int index)
-    {
-        GameState lastState = ActiveState;
-        ActiveState.OnDeactivate(ActiveState);
-        ActiveState = systemGameStates[index];
-        //ActiveState.OnActivate(lastState);
     }
 
     public void Start()
@@ -186,6 +198,7 @@ public class GameFrameworkManager : ScriptableObject
 
     public void QuitGame()
     {
+        OnExitGame(this);
         Application.Quit();
     }
 
@@ -193,4 +206,9 @@ public class GameFrameworkManager : ScriptableObject
     {
         return LinkedModuleManager.GetModule<T>();
     }
+
+
+
+
+
 }
