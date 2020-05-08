@@ -9,7 +9,7 @@ using UnityEngine;
 public class GameFrameworkManager : ScriptableObject
 {   
     [SerializeField] 
-    private ModuleManager LinkedModuleManager;
+    private ModuleManager LinkedModuleManager = null;
     public ModuleManager moduleManager{get =>LinkedModuleManager;}
 
     [Header("Game State System")]

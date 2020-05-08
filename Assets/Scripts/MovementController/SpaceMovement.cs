@@ -5,18 +5,33 @@ using UnityEngine;
 public class SpaceMovement : MovementComponent
 {
     
-    [SerializeField] private float ThrusterImpulse;
+    [SerializeField] private float ThrusterImpulse = 10;
     [SerializeField] private float VelocityMax = -1.0f;
 
     [SerializeField] private float ThrottleSensitivity = 1; //meters per s per frame
 
     private float _VelocityMax;
 
+    Rigidbody AnchorTarget = null;
+
+
     private Rigidbody _Rigidbody;
     private float Mass;
 
+
+    public void SetAnchorTarget(GameObject Target)
+    {
+        AnchorTarget = Target.GetComponent<Rigidbody>();
+    }
+
+    public void ClearAnchorTarget()
+    {
+        SetAnchorTarget(null);
+    }
+
     private void CoupledTranslate(MovementController controller, Vector3 Input)
     {
+        
         TargetVelocity = Input * _VelocityMax;
     }
 
@@ -41,16 +56,20 @@ public class SpaceMovement : MovementComponent
     {
         Vector3 Impulse = new Vector3();
         float MaxDeltaV = ThrusterImpulse /_Rigidbody.mass;
-        Vector3 DeltaV = TargetVelocity-_Rigidbody.velocity;
+
+
+        Vector3 DeltaV = (TargetVelocity)-_Rigidbody.velocity; 
+        if (AnchorTarget != null) //velocity anchoring
+        {
+            DeltaV = (TargetVelocity+AnchorTarget.velocity)-_Rigidbody.velocity;
+        }
         for (int i = 0; i < 3; i++)
         {
-            
-
-
-
+            Impulse[i] = (MaxDeltaV/DeltaV[i]);
+            Mathf.Clamp(Impulse[i],-1f,1f);
+            Impulse[i] = Impulse[i] * ThrusterImpulse;
         }
-
-
+        return Impulse;
     }
 
     public override void Translate(MovementController Controller,Vector3 Input,byte MovementSubMode)
@@ -71,6 +90,6 @@ public class SpaceMovement : MovementComponent
     }
     public override void MovementUpdate(MovementController Controller,byte MovementSubMode)
     {
-        
+        _Rigidbody.AddForce(CalculateImpulse(Controller), ForceMode.Impulse);
     }
 }

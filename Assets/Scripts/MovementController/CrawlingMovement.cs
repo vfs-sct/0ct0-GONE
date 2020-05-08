@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrawlingMovement : MovementComponent
 {
-    public override void MovementUpdate(MovementController Controller,Rigidbody RB,byte MovementSubMode)
+    public override void MovementUpdate(MovementController Controller, byte MovementSubMode)
     {
         
     }
