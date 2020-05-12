@@ -9,9 +9,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameFrameworkManager GameManager  = null;
-    [SerializeField] private InputModule _InputManager = null;
-
-    public InputModule InputManager{get =>_InputManager;}
 
     private MovementController LinkedMovementController;
 
@@ -23,7 +20,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         LinkedMovementController = GetComponent<MovementController>();
-        LinkedMovementController.SetInputManager(InputManager);
     }
 
 

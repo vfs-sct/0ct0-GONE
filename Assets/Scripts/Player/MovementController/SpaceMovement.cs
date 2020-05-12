@@ -51,7 +51,7 @@ public class SpaceMovement : MovementComponent
         }
         if (ThrottleSensitivity <=0) ThrottleSensitivity = 0.001f;//minimum throttle sensitivity that can be set
         _Rigidbody = Controller.gameObject.GetComponent<Rigidbody>();
-        Debug.Assert(_Rigidbody == null); //Assert if rigid body is undefined
+        Debug.Assert(_Rigidbody != null); //Assert if rigid body is undefined
 
     }
 
@@ -66,9 +66,16 @@ public class SpaceMovement : MovementComponent
         {
             DeltaV = (TargetVelocity+AnchorTarget.velocity)-_Rigidbody.velocity;
         }
+
         for (int i = 0; i < 3; i++)
         {
-            Impulse[i] = (MaxDeltaV/DeltaV[i]);
+            if (DeltaV[i] ==  0) {
+                Impulse[i] = 0;
+            }
+            else 
+            {
+                Impulse[i] = (MaxDeltaV/DeltaV[i]);
+            }
             Mathf.Clamp(Impulse[i],-1f,1f);
             Impulse[i] = Impulse[i] * ThrusterImpulse;
         }
@@ -93,6 +100,7 @@ public class SpaceMovement : MovementComponent
     }
     public override void MovementUpdate(MovementController Controller,byte MovementSubMode)
     {
+        Debug.Log(CalculateImpulse(Controller));
         _Rigidbody.AddForce(CalculateImpulse(Controller), ForceMode.Impulse);
     }
 }
