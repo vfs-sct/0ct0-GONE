@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Module: ScriptableObject
 {
+
+    [Header("Module Settings")]
     [SerializeField]
     public ModuleManager _ModuleManager;
 

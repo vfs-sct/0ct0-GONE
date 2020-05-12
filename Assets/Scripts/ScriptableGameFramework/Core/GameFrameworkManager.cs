@@ -9,7 +9,7 @@ using UnityEngine;
 public class GameFrameworkManager : ScriptableObject
 {   
     [SerializeField] 
-    private ModuleManager LinkedModuleManager;
+    private ModuleManager LinkedModuleManager = null;
     public ModuleManager moduleManager{get =>LinkedModuleManager;}
 
     [Header("Game State System")]
@@ -128,7 +128,7 @@ public class GameFrameworkManager : ScriptableObject
     {
         PlayerLoopSystem unityMainLoop = PlayerLoop.GetDefaultPlayerLoop();
         PlayerLoopSystem[] unityCoreSubSystems = unityMainLoop.subSystemList;
-        PlayerLoopSystem[] unityCoreUpdate = unityCoreSubSystems[4].subSystemList;
+        PlayerLoopSystem[] unityCoreUpdate = unityCoreSubSystems[5].subSystemList;
         PlayerLoopSystem ScriptModuleUpdate = new PlayerLoopSystem()
         {
             updateDelegate = LinkedModuleManager.ModuleUpdateTick,
@@ -147,8 +147,9 @@ public class GameFrameworkManager : ScriptableObject
         newCoreUpdate[2] = unityCoreUpdate[0];
         newCoreUpdate[3] = unityCoreUpdate[1];
         newCoreUpdate[4] = unityCoreUpdate[2];
+        newCoreUpdate[5] = unityCoreUpdate[3];
 
-        unityCoreSubSystems[4].subSystemList = newCoreUpdate;
+        unityCoreSubSystems[5].subSystemList = newCoreUpdate;
 
         PlayerLoopSystem systemRoot = new PlayerLoopSystem();
         systemRoot.subSystemList = unityCoreSubSystems;

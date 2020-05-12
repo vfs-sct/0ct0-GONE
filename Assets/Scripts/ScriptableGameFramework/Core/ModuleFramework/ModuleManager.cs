@@ -14,7 +14,7 @@ public class ModuleManager : ScriptableObject
     delegate void OnSceneLoadedDelegate();
 
     [SerializeField]
-    private List<Module> ActiveModules;
+    private List<Module> ActiveModules = new List<Module>();
     private Dictionary<System.Type,Module> moduleList = new Dictionary<System.Type,Module>();
     public Dictionary<System.Type,Module> List {get => moduleList;}
     

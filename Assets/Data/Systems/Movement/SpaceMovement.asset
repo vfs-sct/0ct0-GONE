@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ea96606c6d9a15449245685c49d00f7, type: 3}
-  m_Name: UI Module
+  m_Script: {fileID: 11500000, guid: 4bf161ed099e57342bcd041a38d97e40, type: 3}
+  m_Name: SpaceMovement
   m_EditorClassIdentifier: 
-  _ModuleManager: {fileID: 0}
-  RunUpdate: 0
-  StartOnSceneLoad: 0
-  ActiveInterfaces: []
+  ThrusterImpulse: 10
+  VelocityMax: -1
+  ThrottleSensitivity: 1
