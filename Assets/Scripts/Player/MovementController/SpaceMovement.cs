@@ -47,7 +47,7 @@ public class SpaceMovement : MovementComponent
     public override void Initialize(MovementController Controller)
     {
         if (VelocityMax <= 0){
-            _VelocityMax = 9999999;
+            _VelocityMax = 99999;
         }
         if (ThrottleSensitivity <=0) ThrottleSensitivity = 0.001f;//minimum throttle sensitivity that can be set
         _Rigidbody = Controller.gameObject.GetComponent<Rigidbody>();
@@ -60,25 +60,26 @@ public class SpaceMovement : MovementComponent
         Vector3 Impulse = new Vector3();
         float MaxDeltaV = ThrusterImpulse /_Rigidbody.mass;
 
-
+        //------velocity anchoring---------
         Vector3 DeltaV = (TargetVelocity)-_Rigidbody.velocity; 
-        if (AnchorTarget != null) //velocity anchoring
+        if (AnchorTarget != null) 
         {
             DeltaV = (TargetVelocity+AnchorTarget.velocity)-_Rigidbody.velocity;
         }
 
-        for (int i = 0; i < 3; i++)
-        {
-            if (DeltaV[i] ==  0) {
-                Impulse[i] = 0;
-            }
-            else 
-            {
-                Impulse[i] = (MaxDeltaV/DeltaV[i]);
-            }
-            Mathf.Clamp(Impulse[i],-1f,1f);
-            Impulse[i] = Impulse[i] * ThrusterImpulse;
-        }
+
+
+        for (int i = 0; i < 3; ++i)
+	    {
+		    if (DeltaV[i] == 0) //prevent division by 0
+		    {
+			    Impulse[i] = 0;
+		    }
+		    else
+		    {
+			    Impulse[i] = Mathf.Clamp((DeltaV[i] / MaxDeltaV), -1f, 1)* ThrusterImpulse;	//calculate target throttle
+		    }
+	    }
         return Impulse;
     }
 

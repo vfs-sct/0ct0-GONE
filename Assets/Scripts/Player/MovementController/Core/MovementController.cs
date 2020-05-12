@@ -28,11 +28,11 @@ public class MovementController : MonoBehaviour
     public void OnHorizontalTranslate(InputValue value)
     {
         _RawInput.x = value.Get<Vector2>().x;
-        _RawInput.z = value.Get<Vector2>().x;
+        _RawInput.z = value.Get<Vector2>().y;
     }
     public void OnVerticalTranslate(InputValue value)
     {
-        _RawInput.z = value.Get<float>();
+        _RawInput.y = value.Get<float>();
     }
 
     private void NormalizeInputs()
