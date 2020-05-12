@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+[CreateAssetMenu(menuName = "Systems/Movement/SpaceMovement")]
 public class SpaceMovement : MovementComponent
 {
     
