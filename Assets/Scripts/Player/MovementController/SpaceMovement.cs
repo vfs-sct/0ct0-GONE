@@ -101,7 +101,7 @@ public class SpaceMovement : MovementComponent
     }
     public override void MovementUpdate(MovementController Controller,byte MovementSubMode)
     {
-        Debug.Log(CalculateImpulse(Controller));
+//        Debug.Log(CalculateImpulse(Controller));
         _Rigidbody.AddForce(CalculateImpulse(Controller), ForceMode.Impulse);
     }
 }
