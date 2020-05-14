@@ -5,41 +5,75 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Systems/Resources/New Resource")]
 public class Resource : ScriptableObject
 {
-    public delegate void ResourceEvent(ResourceBehavior Caller);
-
-    public delegate void ResourceEventDelta(ResourceBehavior Caller,float ResourceDelta);
-
-
-    [System.Serializable]
-    public struct ResourceData
+    struct ResourceData_Internal
     {
-        public Resource resource;
-        public float Amount;
-
         public float Min;
-
         public float Max;
-        public ResourceData(Resource R, float A,float M,float MX)
+        public float Value;
+        public ResourceData_Internal(float Mn,float val,float Mx)
         {
-            resource = R;
-            Amount = A;
-            Min = M;
-            Max = MX;
+            Min = Mn;
+            Max = Mx;
+            Value = val;
         }
-        public void AddAmount(float _amount)
+        public void SetValue(float val)
         {
-            Amount += _amount;
+            Value = val;
         }
-        public void SubAmount(float _amount)
-        {
-            AddAmount(-_amount);
-        }
-        public void SetAmount(float newAmount)
-        {
-            Amount = newAmount;
-        }
+
     }
 
-    public string Name{get=>this.ToString();}
 
+
+
+
+    [SerializeField] private float Minimum = 0 ;
+    [SerializeField] private float DefaultValue = 0;
+    [SerializeField] private float Maximum = 100;
+
+    Dictionary<ResourceBehavior,ResourceData_Internal> Data = new Dictionary<ResourceBehavior, ResourceData_Internal>();
+
+
+    public void RegisterInstance(ResourceModule.ResourceData DataIn,ResourceBehavior owner)
+    {
+        Debug.Assert(!Data.ContainsKey(owner));
+        Data.Add(owner,new ResourceData_Internal(DataIn.min,DataIn.value,DataIn.max));
+    }
+
+
+    public void RegisterInstance(ResourceBehavior owner)
+    {
+        Debug.Assert(!Data.ContainsKey(owner));
+        Data.Add(owner,new ResourceData_Internal(Minimum,DefaultValue,Maximum));
+    }
+
+    public void RemoveInstance(ResourceBehavior owner)
+    {
+        Data.Remove(owner);
+    }
+
+
+    public float GetInstanceValue(ResourceBehavior owner)
+    {
+        Debug.Assert(Data.ContainsKey(owner));
+        return Data[owner].Value;
+    }
+
+    public void SetInstanceValue(ResourceBehavior owner,float value)
+    {
+        Data[owner].SetValue(value);
+    }
+
+    public void AddInstanceValue(ResourceBehavior owner,float valueToAdd)
+    {   
+        Data[owner].SetValue(Mathf.Clamp(Data[owner].Value+ valueToAdd,Minimum,Maximum));
+    }
+    public void SubInstanceValue(ResourceBehavior owner,float valueToSub)
+    {
+        AddInstanceValue(owner,-valueToSub);
+    }
+    public void Reset()
+    {
+        Data.Clear();
+    }
 }

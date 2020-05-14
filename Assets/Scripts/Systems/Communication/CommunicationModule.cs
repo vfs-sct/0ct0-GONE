@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Systems/CommRelayModule")]
+[CreateAssetMenu(menuName = "Systems/ComRelay/CommunicationsModule")]
 public class CommunicationModule : Module
 {
 
