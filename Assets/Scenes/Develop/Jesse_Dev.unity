@@ -539,7 +539,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!4 &556553910
 Transform:
@@ -549,7 +549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556553906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2502103, y: -1.5784435, z: -0.78874487}
+  m_LocalPosition: {x: -2.2502103, y: -1.83, z: -0.78874487}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 305554996}
@@ -600,15 +600,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35215f6ef2c16d244857908585185b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Resources:
+  ResourceManager: {fileID: 11400000, guid: 24e38bf2ba3270840b60b88238072079, type: 2}
+  ActiveResources:
   - resource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
-    Amount: 500
-    Min: 0
-    Max: 5000
+    min: 0
+    max: 5000
+    value: 2100
   - resource: {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
-    Amount: 0
-    Min: 0
-    Max: 1000
+    min: 0
+    max: 100
+    value: 100
 --- !u!1 &1208236051
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,13 +866,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116837991}
-  m_LocalRotation: {x: 0.17322259, y: -0, z: -0, w: 0.9848828}
-  m_LocalPosition: {x: 0, y: 2.23, z: -3.2799997}
+  m_LocalRotation: {x: 0.12290792, y: -0, z: -0, w: 0.9924181}
+  m_LocalPosition: {x: 0, y: 1.621, z: -3.478}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 556553910}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 19.95, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.120001, y: 0, z: 0}
 --- !u!81 &2116837993
 AudioListener:
   m_ObjectHideFlags: 0
