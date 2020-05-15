@@ -10,17 +10,18 @@ public class SpaceMovement : MovementComponent
     
     [SerializeField] private float ThrusterImpulse = 10;
     [SerializeField] private float VelocityMax = -1.0f;
-
     [SerializeField] private float ThrottleSensitivity = 1; //meters per s per frame
+    [SerializeField] private Resource FuelResource = null;
+    [SerializeField] private float FuelPerImpulseUnit = 0.2f;
 
+    [SerializeField] private float FuelEfficency = 100;
     private float _VelocityMax;
-
     Rigidbody AnchorTarget = null;
-
 
     private Rigidbody _Rigidbody;
     private float Mass;
 
+    private ResourceBehavior LinkedResourceBehavior;
 
     public void SetAnchorTarget(GameObject Target)
     {
@@ -49,10 +50,10 @@ public class SpaceMovement : MovementComponent
         if (VelocityMax <= 0){
             _VelocityMax = 99999;
         }
+        LinkedResourceBehavior = Controller.gameObject.GetComponent<ResourceBehavior>();
         if (ThrottleSensitivity <=0) ThrottleSensitivity = 0.001f;//minimum throttle sensitivity that can be set
         _Rigidbody = Controller.gameObject.GetComponent<Rigidbody>();
         Debug.Assert(_Rigidbody != null); //Assert if rigid body is undefined
-
     }
 
     private Vector3 CalculateImpulse(MovementController Controller)
@@ -78,7 +79,10 @@ public class SpaceMovement : MovementComponent
 		    else
 		    {
 			    Impulse[i] = Mathf.Clamp((DeltaV[i] / MaxDeltaV), -1f, 1)* ThrusterImpulse;	//calculate target throttle
-		    }
+		    }            
+            //Debug.Log(Mathf.Abs(Impulse[i] *FuelPerImpulseUnit));
+            LinkedResourceBehavior.RemoveResource(FuelResource,Mathf.Abs(Impulse[i] *(FuelPerImpulseUnit/FuelEfficency)));
+            Debug.Log(LinkedResourceBehavior.GetResource(FuelResource));
 	    }
         return Impulse;
     }
@@ -101,7 +105,7 @@ public class SpaceMovement : MovementComponent
     }
     public override void MovementUpdate(MovementController Controller,byte MovementSubMode)
     {
-        Debug.Log(CalculateImpulse(Controller));
+//        Debug.Log(CalculateImpulse(Controller));
         _Rigidbody.AddForce(CalculateImpulse(Controller), ForceMode.Impulse);
     }
 }
