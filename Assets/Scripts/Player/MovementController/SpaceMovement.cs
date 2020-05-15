@@ -13,6 +13,8 @@ public class SpaceMovement : MovementComponent
     [SerializeField] private float ThrottleSensitivity = 1; //meters per s per frame
     [SerializeField] private Resource FuelResource = null;
     [SerializeField] private float FuelPerImpulseUnit = 0.2f;
+
+    [SerializeField] private float FuelEfficency = 100;
     private float _VelocityMax;
     Rigidbody AnchorTarget = null;
 
@@ -77,8 +79,10 @@ public class SpaceMovement : MovementComponent
 		    else
 		    {
 			    Impulse[i] = Mathf.Clamp((DeltaV[i] / MaxDeltaV), -1f, 1)* ThrusterImpulse;	//calculate target throttle
-		    }
-            //LinkedResourceBehavior.Remove(0,Mathf.Abs(Impulse[i] *FuelPerImpulseUnit));
+		    }            
+            //Debug.Log(Mathf.Abs(Impulse[i] *FuelPerImpulseUnit));
+            LinkedResourceBehavior.RemoveResource(FuelResource,Mathf.Abs(Impulse[i] *(FuelPerImpulseUnit/FuelEfficency)));
+            Debug.Log(LinkedResourceBehavior.GetResource(FuelResource));
 	    }
         return Impulse;
     }

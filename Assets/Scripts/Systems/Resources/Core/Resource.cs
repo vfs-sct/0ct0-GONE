@@ -20,7 +20,6 @@ public class Resource : ScriptableObject
         {
             Value = val;
         }
-
     }
 
 
@@ -61,12 +60,12 @@ public class Resource : ScriptableObject
 
     public void SetInstanceValue(ResourceBehavior owner,float value)
     {
-        Data[owner].SetValue(value);
+        Data[owner] = new ResourceData_Internal(Data[owner].Min,value,Data[owner].Max);
     }
 
     public void AddInstanceValue(ResourceBehavior owner,float valueToAdd)
     {   
-        Data[owner].SetValue(Mathf.Clamp(Data[owner].Value+ valueToAdd,Minimum,Maximum));
+        SetInstanceValue(owner,(Mathf.Clamp(Data[owner].Value + valueToAdd,Minimum,Maximum)));
     }
     public void SubInstanceValue(ResourceBehavior owner,float valueToSub)
     {

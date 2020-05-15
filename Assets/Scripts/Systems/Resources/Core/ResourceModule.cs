@@ -10,9 +10,7 @@ public class ResourceModule : Module
 
     public delegate void ResourceEvent(ResourceBehavior Caller);
 
-    public delegate void ResourceEventDelta(ResourceBehavior Caller,float ResourceDelta);
-
-
+    public delegate void ResourceEventDelta(ResourceBehavior Caller);
 
     [System.Serializable]
     public struct ResourceData

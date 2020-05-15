@@ -18,6 +18,27 @@ public class ResourceBehavior : MonoBehaviour
         }
     }
 
+    public void RemoveResource(Resource resource, float amount)
+    {
+        resource.SubInstanceValue(this,amount);
+    }
+
+    public void AddResource(Resource resource, float amount)
+    {
+        resource.AddInstanceValue(this,amount);
+    }
+
+    public void SetResource(Resource resource, float amount)
+    {
+        resource.SetInstanceValue(this,amount);
+    }
+
+    public float GetResource(Resource resource)
+    {
+        return resource.GetInstanceValue(this);
+    }
+
+
     // Update is called once per frame
     void Update()
     {
