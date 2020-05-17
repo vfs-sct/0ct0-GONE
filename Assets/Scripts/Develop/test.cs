@@ -8,13 +8,22 @@ using System.Text;
 
 public class test : MonoBehaviour
 {
+[SerializeField] private static bool ShowPlayerLoop = false;
+
+
+
+
 [RuntimeInitializeOnLoadMethod]
 private static void AppStart()
 {
-    var def = PlayerLoop.GetDefaultPlayerLoop();
-    var sb = new StringBuilder();
-    RecursivePlayerLoopPrint(def, sb, 0);
-    Debug.Log(sb.ToString());
+    if (ShowPlayerLoop)
+    {
+        var def = PlayerLoop.GetDefaultPlayerLoop();
+        var sb = new StringBuilder();
+        RecursivePlayerLoopPrint(def, sb, 0);
+        Debug.Log(sb.ToString());
+    }
+    
 }
 
 

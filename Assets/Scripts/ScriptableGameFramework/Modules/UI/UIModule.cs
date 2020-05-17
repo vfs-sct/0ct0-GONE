@@ -9,7 +9,6 @@ public class UIModule : Module
     [SerializeField] 
     public List<ScriptedUI> ActiveInterfaces = new List<ScriptedUI>(); //list of interfaces that can be referenced
 
-
     private GameObject linkedEventSystem;
 
     public GameObject LinkedEventSystem{get => linkedEventSystem;}

@@ -6,7 +6,6 @@ public abstract class GameState : ScriptableObject
 {
     [SerializeField] public bool CanTick;
     [SerializeField] public long TickRate;
-    [SerializeField] private bool LoadWithScene;
 
     public abstract bool ConditionCheck(GameFrameworkManager GameManager);
 

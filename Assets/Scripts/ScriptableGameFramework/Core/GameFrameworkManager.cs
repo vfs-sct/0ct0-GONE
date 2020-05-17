@@ -15,9 +15,10 @@ public class GameFrameworkManager : ScriptableObject
     [Header("Game State System")]
 
 
-    [SerializeField]
-    private List<GameStateData> GameStates = new List<GameStateData>();
-    private List<GameState> CachedGameStates = new  List<GameState>();
+    [SerializeField] private List<GameStateData> GameStates = new List<GameStateData>();
+    private List<GameState> UpdatingGameStates = new  List<GameState>();
+
+    Dictionary<string,GameState> StateSceneLinkDict = new Dictionary<string, GameState>();
 
     private GameState ActiveState;
     private Scene ActiveScene;
@@ -38,7 +39,7 @@ public class GameFrameworkManager : ScriptableObject
     {
         public bool Enabled;
 
-        public bool CheckCondition;
+        public bool ShouldCheckCondition;
         public bool IsLinkedToScene;
         public string LinkedScene;
         public GameState State;
@@ -46,7 +47,7 @@ public class GameFrameworkManager : ScriptableObject
         public GameStateData(bool E,bool CC, bool L, string LS, GameState GM)
         {
             Enabled = E;
-            CheckCondition = CC;
+            ShouldCheckCondition = CC;
             IsLinkedToScene = L;
             LinkedScene = LS;
             State = GM;
@@ -75,12 +76,19 @@ public class GameFrameworkManager : ScriptableObject
         if (OnPauseGame != null) OnResumeGame(this);
     }
 
+    public void LoadSceneByName(string SceneName)
+    {
+        SceneManager.LoadScene(SceneName,LoadSceneMode.Single);
+    }
+
+
+
     
     void GameStateUpdate()
     {
         if (!Application.isPlaying) return;
         CheckStateConditions(); //check game state conditions
-        if (ActiveState && ActiveState.CanTick) 
+        if (ActiveState != null && ActiveState.CanTick) 
         {
             ActiveState.OnUpdate();
         }
@@ -88,7 +96,7 @@ public class GameFrameworkManager : ScriptableObject
 
     void CheckStateConditions()
     {
-        foreach (var State in CachedGameStates)
+        foreach (var State in UpdatingGameStates)
         {
             if (State.ConditionCheck(this))
             {
@@ -101,24 +109,37 @@ public class GameFrameworkManager : ScriptableObject
 
     public void ChangeGameState(GameState _GameState)
     {
-        ActiveState.OnDeactivate(_GameState);
-        GameState LastState = ActiveState;
-        ActiveState = _GameState;
-        ActiveState.OnActivate(LastState);
+        if (ActiveState != null)
+        {
+            Debug.Log(ActiveState);
+            ActiveState.OnDeactivate(_GameState);
+            GameState LastState = ActiveState;
+            ActiveState = _GameState;
+            ActiveState.OnActivate(LastState);
+        }
+            ActiveState = _GameState;
+            //ActiveState.OnActivate(null);
+            return;
+        
     }
    
 
     private void GameStatesInit()
     {
-        CachedGameStates.Clear(); //clear the old cached gamestates
-        if (GameStates.Count == 0) return;//exit out if gamestates are empty
+        UpdatingGameStates.Clear(); //clear the old cached gamestates
+        StateSceneLinkDict.Clear(); //clear scene-gamestate dictionary
+        //if (GameStates.Count == 0) return;//exit out if gamestates are empty
         foreach (var StateData in GameStates)
         {
             if (StateData.State != null)
             {
                 Debug.Log("Initializing "+ StateData.State + ":\n");
                 StateData.State.Initalize();
-                if (StateData.CheckCondition) CachedGameStates.Add(StateData.State);
+                if (StateData.IsLinkedToScene)
+                {
+                    StateSceneLinkDict.Add(StateData.LinkedScene,StateData.State);
+                }
+                if (StateData.ShouldCheckCondition) UpdatingGameStates.Add(StateData.State);
             }
         }
     }
@@ -209,6 +230,12 @@ public class GameFrameworkManager : ScriptableObject
         Debug.Log("SceneLoaded");
         
         moduleManager.ModuleStartOnLoad();
+
+        
+        if (StateSceneLinkDict.ContainsKey(SceneManager.GetActiveScene().name))
+        {
+            ChangeGameState(StateSceneLinkDict[SceneManager.GetActiveScene().name]);
+        }
     }
 
     public void Start()
