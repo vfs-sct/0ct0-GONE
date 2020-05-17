@@ -7,7 +7,7 @@ public class SoundSliders : MonoBehaviour
     [SerializeField] public Slider volumeSlider;
     [SerializeField] public float defaultVolume = 0.5f;
     [SerializeField] public string WWiseChannel;
-    public float newVolume;
+    private float newVolume;
 
     private void Start()
     {
