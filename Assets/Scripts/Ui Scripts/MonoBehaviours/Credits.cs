@@ -7,6 +7,7 @@ public class Credits : MonoBehaviour
     [SerializeField] GameObject MainMenuPrefab;
     [SerializeField] TextMeshProUGUI content;
 
+    //type credits in here to add to game. Can be any size, so add as many as you want
     public string[] credits = new string[] 
     { 
         "Josh Paquette",
@@ -19,6 +20,7 @@ public class Credits : MonoBehaviour
 
     private void Start()
     {
+        //goes through the screen and adds each one to the text object in the credits screen
         foreach (var credit in credits)
         {
             content.SetText(content.text + $"\n{credit}");

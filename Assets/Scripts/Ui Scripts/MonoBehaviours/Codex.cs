@@ -8,7 +8,7 @@ using TMPro;
 public class Codex : MonoBehaviour
 {
     [SerializeField] GameObject PausePrefab;
-    [SerializeField] VerticalLayoutGroup content;
+    [SerializeField] VerticalLayoutGroup contentGroup;
     [SerializeField] GameObject defaultHeader;
     [SerializeField] GameObject defaultButton;
     [SerializeField] TextMeshProUGUI entryTitleText;
@@ -27,11 +27,36 @@ public class Codex : MonoBehaviour
         {"Log Eight", "Log eight text"},
     };
 
-    public Button[] tutorialEntries;
+    Dictionary<string, string> tutorialEntries = new Dictionary<string, string>
+    {
+        {"Movement", "Log one text"},
+        {"Tools", "Log two text"},
+        {"Resources", "Log three text"},
+        {"Etc", "Log four text"},
+    };
 
     private void Start()
     {
-        
+        AddNewHeader("Memory Logs");
+
+        foreach (var kvp in logEntries)
+        {
+
+        }
+
+        AddNewHeader("User Manual");
+
+        foreach (var kvp in logEntries)
+        {
+
+        }
+    }
+
+    public void AddNewHeader(string headerText)
+    {
+        var newHeader = Instantiate(defaultHeader);
+        newHeader.transform.SetParent(contentGroup.transform);
+        newHeader.GetComponentInChildren<TextMeshProUGUI>().SetText(headerText);
     }
 
     public void OnEsc(InputValue value)
