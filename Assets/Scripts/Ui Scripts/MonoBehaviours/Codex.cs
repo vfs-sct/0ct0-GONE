@@ -41,14 +41,14 @@ public class Codex : MonoBehaviour
 
         foreach (var kvp in logEntries)
         {
-
+            AddNewButton(kvp.Key);
         }
 
         AddNewHeader("User Manual");
 
-        foreach (var kvp in logEntries)
+        foreach (var kvp in tutorialEntries)
         {
-
+            AddNewButton(kvp.Key);
         }
     }
 
@@ -57,6 +57,13 @@ public class Codex : MonoBehaviour
         var newHeader = Instantiate(defaultHeader);
         newHeader.transform.SetParent(contentGroup.transform);
         newHeader.GetComponentInChildren<TextMeshProUGUI>().SetText(headerText);
+    }
+
+    public void AddNewButton(string buttonText)
+    {
+        var newButton = Instantiate(defaultButton);
+        newButton.transform.SetParent(contentGroup.transform);
+        newButton.GetComponentInChildren<TextMeshProUGUI>().SetText(buttonText);
     }
 
     public void OnEsc(InputValue value)
