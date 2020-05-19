@@ -15,23 +15,39 @@ public class ToolController : MonoBehaviour
     {
         Debug.Assert(ToolIndex < EquiptTools.Count && ToolIndex >= 0);
         if (CurrentToolIsActive) return; //dont switch tools if the current tool is in use
+        if (CurrentTool != null)  CurrentTool.Deselect(this);
         CurrentTool = EquiptTools[ToolIndex];
+        CurrentTool.Select(this);
+    }
+
+    public void DeselectTool()
+    {
+        if (CurrentToolIsActive) 
+        {
+            DeactiveTool_Internal();
+        }
+        if (CurrentTool != null) CurrentTool.Deselect(this);
+        CurrentTool = null;
     }
 
     public void ActivateTool()
     {
-        if (CurrentTool == null) return;
-        CurrentToolIsActive = true;
-        CurrentTool.Activate(this);
+        if (CurrentTool == null | CurrentToolIsActive) return;
+        CurrentToolIsActive = CurrentTool.Activate(this,null);
     }
 
     public void DeactivateTool()
     {
         if (CurrentTool == null) return;
-        CurrentToolIsActive = false;
-        CurrentTool.Deactivate(this);
+        CurrentToolIsActive = !CurrentTool.Deactivate(this,null);
+        
     }
-
+    private void DeactiveTool_Internal()
+    {
+        if (CurrentTool == null) return;
+        CurrentTool.Deactivate(this,null);
+        CurrentToolIsActive = false;
+    }
 
 
     void Start()
@@ -42,9 +58,14 @@ public class ToolController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CurrentToolIsActive)
-        {
-            CurrentTool.WhileActive(this);
-        }
+        //if (CurrentToolIsActive)
+        //{
+        //    if (!CurrentTool.WhileActive(this))
+        //    {
+        //        DeactiveTool_Internal();
+        //        return;
+        //    }
+        //    CurrentTool.WhileActive(this);
+        //}
     }
 }

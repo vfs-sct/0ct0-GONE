@@ -82,7 +82,7 @@ public class SpaceMovement : MovementComponent
 		    }            
             //Debug.Log(Mathf.Abs(Impulse[i] *FuelPerImpulseUnit));
             LinkedResourceBehavior.RemoveResource(FuelResource,Mathf.Abs(Impulse[i] *(FuelPerImpulseUnit/FuelEfficency)));
-            Debug.Log(LinkedResourceBehavior.GetResource(FuelResource));
+            //Debug.Log(LinkedResourceBehavior.GetResource(FuelResource));
 	    }
         return Impulse;
     }
