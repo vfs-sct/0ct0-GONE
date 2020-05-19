@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.InputSystem;
+//using UnityEngine.UI;
 
 public class UIAwake : MonoBehaviour
 {
+    [SerializeField] GameObject DebugPrefab;
     [SerializeField] public float gammaDefault = 2.2f;
     // Start is called before the first frame update
     void Start()
@@ -22,5 +24,13 @@ public class UIAwake : MonoBehaviour
             Shader.SetGlobalFloat("gamma", gammaDefault);
         }
 
+    }
+
+    public void OnDebug(InputValue value)
+    {
+        if (!DebugPrefab.activeSelf)
+        {
+            DebugPrefab.SetActive(true);
+        }
     }
 }

@@ -391,6 +391,14 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Debug"",
+                    ""type"": ""Button"",
+                    ""id"": ""63319c69-2f7a-4b8b-8518-229419aaccf5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -822,6 +830,17 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""action"": ""Esc"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a44b9745-dcd3-4cbe-926c-2d82c766b5f3"",
+                    ""path"": ""<Keyboard>/F1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Debug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -914,6 +933,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_Esc = m_UI.FindAction("Esc", throwIfNotFound: true);
+        m_UI_Debug = m_UI.FindAction("Debug", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1079,6 +1099,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_Esc;
+    private readonly InputAction m_UI_Debug;
     public struct UIActions
     {
         private @OctoGoneControls m_Wrapper;
@@ -1094,6 +1115,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @Esc => m_Wrapper.m_UI_Esc;
+        public InputAction @Debug => m_Wrapper.m_UI_Debug;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1136,6 +1158,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Esc.started -= m_Wrapper.m_UIActionsCallbackInterface.OnEsc;
                 @Esc.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnEsc;
                 @Esc.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnEsc;
+                @Debug.started -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
+                @Debug.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
+                @Debug.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1173,6 +1198,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Esc.started += instance.OnEsc;
                 @Esc.performed += instance.OnEsc;
                 @Esc.canceled += instance.OnEsc;
+                @Debug.started += instance.OnDebug;
+                @Debug.performed += instance.OnDebug;
+                @Debug.canceled += instance.OnDebug;
             }
         }
     }
@@ -1248,5 +1276,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnEsc(InputAction.CallbackContext context);
+        void OnDebug(InputAction.CallbackContext context);
     }
 }
