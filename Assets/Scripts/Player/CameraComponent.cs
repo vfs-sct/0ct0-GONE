@@ -5,9 +5,9 @@ public class CameraComponent : MonoBehaviour
 {
     [Header("Camera Control")]
     [SerializeField]
-    private Transform _CamPivot;
+    private Transform _CamPivot = null;
     [SerializeField]
-    private Transform _MainCamera;
+    private Transform _MainCamera = null;
     [SerializeField]
     private float _MaxZoom = 1.7f;
     [SerializeField]

@@ -4,8 +4,8 @@ using TMPro;
 
 public class Credits : MonoBehaviour
 {
-    [SerializeField] GameObject MainMenuPrefab;
-    [SerializeField] TextMeshProUGUI content;
+    [SerializeField] GameObject MainMenuPrefab = null;
+    [SerializeField] TextMeshProUGUI content = null;
 
     //type credits in here to add to game. Can be any size, so add as many as you want
     public string[] credits = new string[] 

@@ -8,11 +8,11 @@ using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] GameObject OptionsPrefab;
-    [SerializeField] GameObject CreditsPrefab;
-    [SerializeField] GameObject ConfirmationPrefab;
+    [SerializeField] GameObject OptionsPrefab = null;
+    [SerializeField] GameObject CreditsPrefab = null;
+    [SerializeField] GameObject ConfirmationPrefab = null;
 
-    [SerializeField] string nextScene;
+    [SerializeField] string nextScene = null;
 
     public void OnClickPlay()
     {

@@ -7,13 +7,13 @@ using TMPro;
 
 public class Options : MonoBehaviour
 {
-    [SerializeField] Button AudioTabButton;
-    [SerializeField] Button VideoTabButton;
-    [SerializeField] Button ControlTabButton;
+    [SerializeField] Button AudioTabButton = null;
+    [SerializeField] Button VideoTabButton = null;
+    [SerializeField] Button ControlTabButton = null;
 
-    [SerializeField] GameObject AudioTabPanel;
-    [SerializeField] GameObject VideoTabPanel;
-    [SerializeField] GameObject ControlTabPanel;
+    [SerializeField] GameObject AudioTabPanel = null;
+    [SerializeField] GameObject VideoTabPanel = null;
+    [SerializeField] GameObject ControlTabPanel = null;
 
     //[SerializeField] GameObject PausePrefab;
 

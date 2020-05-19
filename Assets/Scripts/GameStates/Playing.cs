@@ -6,11 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Core/Gamemode/Playing")]
 public class Playing : GameState
 {
-    [SerializeField] private ScriptedUI OptionsUI = null;
-    [SerializeField] private ScriptedUI GameHUDUI = null;
-    [SerializeField] private ScriptedUI PauseUI = null;
-    [SerializeField] private ScriptedUI CodexUI = null;
-    [SerializeField] private ScriptedUI ConfirmationUI = null;
+    //[SerializeField] private ScriptedUI OptionsUI = null;
+    //[SerializeField] private ScriptedUI GameHUDUI = null;
+    //[SerializeField] private ScriptedUI PauseUI = null;
+    //[SerializeField] private ScriptedUI CodexUI = null;
+    //[SerializeField] private ScriptedUI ConfirmationUI = null;
 
     public override bool ConditionCheck(GameFrameworkManager GameManager)
     {

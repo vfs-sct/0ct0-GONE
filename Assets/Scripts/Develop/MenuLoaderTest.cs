@@ -5,8 +5,8 @@ using UnityEngine;
 public class MenuLoaderTest : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private GameFrameworkManager Gamemanager;
-    [SerializeField] private string SceneName;
+    [SerializeField] private GameFrameworkManager Gamemanager = null;
+    [SerializeField] private string SceneName = null;
     void Start()
     {
         Gamemanager.LoadSceneByName(SceneName);

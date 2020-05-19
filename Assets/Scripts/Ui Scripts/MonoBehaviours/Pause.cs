@@ -9,15 +9,18 @@ using UnityEditor;
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField] GameObject CodexPrefab;
-    [SerializeField] GameObject OptionsPrefab;
-    [SerializeField] GameObject ConfirmationPrefab;
+    [SerializeField] GameFrameworkManager GameManager = null;
+    [SerializeField] GameObject CodexPrefab = null;
+    [SerializeField] GameObject OptionsPrefab = null;
+    [SerializeField] GameObject ConfirmationPrefab = null;
 
-    [SerializeField] string menuScene;
+    [SerializeField] string menuScene = null;
 
     public void OnClickResume()
     {
+        GameManager.UnPause();
         gameObject.SetActive(false);
+        Debug.Log("Unpaused");
     }
 
     public void OnClickCodex()
@@ -86,7 +89,9 @@ public class Pause : MonoBehaviour
 
     public void OnEsc(InputValue value)
     {
-        gameObject.SetActive(false);
+         GameManager.UnPause();
+         gameObject.SetActive(false);
+         Debug.Log("Unpaused");
     }
 
     public void SwitchViewTo(GameObject newPanel)

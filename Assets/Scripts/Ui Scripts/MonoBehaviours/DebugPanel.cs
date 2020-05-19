@@ -5,9 +5,9 @@ using TMPro;
 
 public class DebugPanel : MonoBehaviour
 {
-    [SerializeField] VerticalLayoutGroup vLayoutGroup;
-    [SerializeField] GameObject defaultText;
-    [SerializeField] GameObject defaultButton;
+    [SerializeField] VerticalLayoutGroup vLayoutGroup = null;
+    [SerializeField] GameObject defaultText = null;
+    [SerializeField] GameObject defaultButton = null;
 
     void Start()
     {

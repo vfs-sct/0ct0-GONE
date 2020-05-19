@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Core/Gamemode/GameOver")]
 public class GameOverState : GameState
 {
-    [SerializeField] private ScriptedUI GameoverUI = null;
+    //[SerializeField] private ScriptedUI GameoverUI = null;
     public override bool ConditionCheck(GameFrameworkManager GameManager)
     {
         return false;

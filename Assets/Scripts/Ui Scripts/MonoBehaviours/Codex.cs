@@ -8,18 +8,18 @@ using TMPro;
 
 public class Codex : MonoBehaviour
 {
-    [SerializeField] GameObject PausePrefab;
+    [SerializeField] GameObject PausePrefab = null;
     //contentGroup is a navigation bar I have on the side to contain all my buttons to entries
-    [SerializeField] VerticalLayoutGroup contentGroup;
+    [SerializeField] VerticalLayoutGroup contentGroup = null;
 
     //defaultHeader and defaultButton are game object prefabs I have in unity with all the style settings I want for a button or section header
-    [SerializeField] GameObject defaultHeader;
-    [SerializeField] GameObject defaultButton;
+    [SerializeField] GameObject defaultHeader = null;
+    [SerializeField] GameObject defaultButton = null;
 
     //entryTitleText and entryBodyText are the text areas where I'm displaying the codex entry content.
     //I'll just rewrite the text here whenever the user clicks a new entry button to display that entry.
-    [SerializeField] TextMeshProUGUI entryTitleText;
-    [SerializeField] TextMeshProUGUI entryBodyText;
+    [SerializeField] TextMeshProUGUI entryTitleText = null;
+    [SerializeField] TextMeshProUGUI entryBodyText = null;
 
     //Here we'll put all our codex entries in a string Dictionary. The first string will be the title of the entry,
     //and the second will be the body

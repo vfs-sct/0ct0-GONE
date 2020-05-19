@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class UIAwake : MonoBehaviour
 {
-    [SerializeField] GameObject DebugPrefab;
+    [SerializeField] GameObject DebugPrefab = null;
     [SerializeField] public float gammaDefault = 2.2f;
     // Start is called before the first frame update
     void Start()

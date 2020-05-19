@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class UITesting : MonoBehaviour
 {
-    [SerializeField] private UIModule UiManager = null;
-    [SerializeField] private ScriptedUI MenuUI = null;
-    [SerializeField] private ScriptedUI CreditsUI = null;
-    [SerializeField] private ScriptedUI OptionsUI = null;
+    //[SerializeField] private UIModule UiManager = null;
+    //[SerializeField] private ScriptedUI MenuUI = null;
+    //[SerializeField] private ScriptedUI CreditsUI = null;
+    //[SerializeField] private ScriptedUI OptionsUI = null;
     void Start()
     {
         //UiManager.CreateInstance(MenuUI);

@@ -8,9 +8,9 @@ using UnityEditor;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] GameObject ConfirmationPrefab;
+    [SerializeField] GameObject ConfirmationPrefab = null;
 
-    [SerializeField] string menuScene;
+    [SerializeField] string menuScene = null;
 
     public void OnClickLoad()
     {

@@ -3,11 +3,16 @@ using UnityEngine.InputSystem;
 
 public class GameHUD : MonoBehaviour
 {
-    [SerializeField] GameObject PausePrefab;
+    [SerializeField] GameObject PausePrefab = null;
+    [SerializeField] GameFrameworkManager GameManager = null;
     public void OnEsc(InputValue value)
     {
-        //TODO: Needs a check for if gamestate is currently paused
-        PausePrefab.SetActive(true);
+        if (!GameManager.isPaused)
+        {
+            PausePrefab.SetActive(true);
+            GameManager.Pause();
+            Debug.Log("Paused");
+        }
     }
 
     public void SwitchViewTo(GameObject newPanel)
