@@ -97,6 +97,14 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Value"",
+                    ""id"": ""e4ac7d6a-38a8-4657-bad9-0fa3e74ef490"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -295,6 +303,17 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""DeactivateTool"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""375ec6cb-e843-4f0d-99fd-297e3aef2bcb"",
+                    ""path"": ""<Pointer>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse;Touch"",
+                    ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -920,6 +939,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         m_Player_SelectTool5 = m_Player.FindAction("SelectTool5", throwIfNotFound: true);
         m_Player_ActivateTool = m_Player.FindAction("ActivateTool", throwIfNotFound: true);
         m_Player_DeactivateTool = m_Player.FindAction("DeactivateTool", throwIfNotFound: true);
+        m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -993,6 +1013,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_SelectTool5;
     private readonly InputAction m_Player_ActivateTool;
     private readonly InputAction m_Player_DeactivateTool;
+    private readonly InputAction m_Player_Zoom;
     public struct PlayerActions
     {
         private @OctoGoneControls m_Wrapper;
@@ -1007,6 +1028,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         public InputAction @SelectTool5 => m_Wrapper.m_Player_SelectTool5;
         public InputAction @ActivateTool => m_Wrapper.m_Player_ActivateTool;
         public InputAction @DeactivateTool => m_Wrapper.m_Player_DeactivateTool;
+        public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1046,6 +1068,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @DeactivateTool.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDeactivateTool;
                 @DeactivateTool.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDeactivateTool;
                 @DeactivateTool.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDeactivateTool;
+                @Zoom.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoom;
+                @Zoom.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoom;
+                @Zoom.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoom;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1080,6 +1105,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @DeactivateTool.started += instance.OnDeactivateTool;
                 @DeactivateTool.performed += instance.OnDeactivateTool;
                 @DeactivateTool.canceled += instance.OnDeactivateTool;
+                @Zoom.started += instance.OnZoom;
+                @Zoom.performed += instance.OnZoom;
+                @Zoom.canceled += instance.OnZoom;
             }
         }
     }
@@ -1262,6 +1290,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         void OnSelectTool5(InputAction.CallbackContext context);
         void OnActivateTool(InputAction.CallbackContext context);
         void OnDeactivateTool(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
