@@ -14,7 +14,6 @@ public class Codex : MonoBehaviour
     [SerializeField] TextMeshProUGUI entryTitleText;
     [SerializeField] TextMeshProUGUI entryBodyText;
 
-
     Dictionary<string, string> logEntries = new Dictionary<string, string>
     {
         {"Log One", "Log one text"},
@@ -41,14 +40,14 @@ public class Codex : MonoBehaviour
 
         foreach (var kvp in logEntries)
         {
-            AddNewButton(kvp.Key);
+            AddNewButton(logEntries, kvp.Key);
         }
 
         AddNewHeader("User Manual");
 
         foreach (var kvp in tutorialEntries)
         {
-            AddNewButton(kvp.Key);
+            AddNewButton(tutorialEntries, kvp.Key);
         }
     }
 
@@ -59,11 +58,17 @@ public class Codex : MonoBehaviour
         newHeader.GetComponentInChildren<TextMeshProUGUI>().SetText(headerText);
     }
 
-    public void AddNewButton(string buttonText)
+    public void AddNewButton(Dictionary<string, string> dict, string buttonText)
     {
         var newButton = Instantiate(defaultButton);
         newButton.transform.SetParent(contentGroup.transform);
         newButton.GetComponentInChildren<TextMeshProUGUI>().SetText(buttonText);
+
+        newButton.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            entryTitleText.SetText(buttonText);
+            entryBodyText.SetText(dict[buttonText]);
+        });
     }
 
     public void OnEsc(InputValue value)
