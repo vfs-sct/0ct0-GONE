@@ -30,44 +30,54 @@ public class Resource : ScriptableObject
     [SerializeField] private float DefaultValue = 0;
     [SerializeField] private float Maximum = 100;
 
-    Dictionary<ResourceBehavior,ResourceData_Internal> Data = new Dictionary<ResourceBehavior, ResourceData_Internal>();
+    Dictionary<ResourceInventory,ResourceData_Internal> Data = new Dictionary<ResourceInventory, ResourceData_Internal>();
 
 
-    public void RegisterInstance(ResourceModule.ResourceData DataIn,ResourceBehavior owner)
+    public void RegisterInstance(ResourceModule.ResourceData DataIn,ResourceInventory owner)
     {
         Debug.Assert(!Data.ContainsKey(owner));
         Data.Add(owner,new ResourceData_Internal(DataIn.min,DataIn.value,DataIn.max));
     }
 
 
-    public void RegisterInstance(ResourceBehavior owner)
+    public void RegisterInstance(ResourceInventory owner)
     {
         Debug.Assert(!Data.ContainsKey(owner));
         Data.Add(owner,new ResourceData_Internal(Minimum,DefaultValue,Maximum));
     }
 
-    public void RemoveInstance(ResourceBehavior owner)
+    public void RemoveInstance(ResourceInventory owner)
     {
         Data.Remove(owner);
     }
 
 
-    public float GetInstanceValue(ResourceBehavior owner)
+    public float GetInstanceValue(ResourceInventory owner)
     {
         Debug.Assert(Data.ContainsKey(owner));
         return Data[owner].Value;
     }
 
-    public void SetInstanceValue(ResourceBehavior owner,float value)
+    public void SetInstanceValue(ResourceInventory owner,float value)
     {
         Data[owner] = new ResourceData_Internal(Data[owner].Min,value,Data[owner].Max);
     }
 
-    public void AddInstanceValue(ResourceBehavior owner,float valueToAdd)
+    public bool CanSubtract(ResourceInventory owner,float value)
+    {  
+        return Data[owner].Value+value <= Data[owner].Max;
+    }
+
+    public bool CanAdd(ResourceInventory owner,float value)
+    {
+        return Data[owner].Value-value >= Data[owner].Min;
+    }
+
+    public void AddInstanceValue(ResourceInventory owner,float valueToAdd)
     {   
         SetInstanceValue(owner,(Mathf.Clamp(Data[owner].Value + valueToAdd,Minimum,Maximum)));
     }
-    public void SubInstanceValue(ResourceBehavior owner,float valueToSub)
+    public void SubInstanceValue(ResourceInventory owner,float valueToSub)
     {
         AddInstanceValue(owner,-valueToSub);
     }

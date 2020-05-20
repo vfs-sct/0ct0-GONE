@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceBehavior : MonoBehaviour
+public class ResourceInventory : MonoBehaviour
 {
     [SerializeField] private ResourceModule ResourceManager = null;
     
@@ -17,6 +17,16 @@ public class ResourceBehavior : MonoBehaviour
             ResourceManager.CreateResourceInstance(resource,this);
         }
     }
+
+    public bool HasResource(Resource resourceToCheck)
+    {
+        foreach (var ResourceData in ActiveResources)
+        {
+            if (ResourceData.resource == resourceToCheck) return true;
+        }
+        return false;
+    }
+
 
     public void RemoveResource(Resource resource, float amount)
     {

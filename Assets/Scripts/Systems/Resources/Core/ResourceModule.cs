@@ -8,9 +8,9 @@ public class ResourceModule : Module
 {
     [SerializeField] private List<Resource> ActiveResources = new List<Resource>();
 
-    public delegate void ResourceEvent(ResourceBehavior Caller);
+    public delegate void ResourceEvent(ResourceInventory Caller);
 
-    public delegate void ResourceEventDelta(ResourceBehavior Caller);
+    public delegate void ResourceEventDelta(ResourceInventory Caller);
 
     [System.Serializable]
     public struct ResourceData
@@ -32,14 +32,14 @@ public class ResourceModule : Module
 
 
 
-    public void CreateResourceInstance(ResourceData resourceData, ResourceBehavior owner)
+    public void CreateResourceInstance(ResourceData resourceData, ResourceInventory owner)
     {
 
         resourceData.resource.RegisterInstance(resourceData,owner);
     }
 
 
-    public void CreateResourceInstance(Resource resource, ResourceBehavior owner)
+    public void CreateResourceInstance(Resource resource, ResourceInventory owner)
     {
         foreach (var EnabledResource in ActiveResources)
         {
