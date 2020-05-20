@@ -17,13 +17,13 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: c0f85af3f7a2604bbfb74e92a1e506b9
     GuidInternal: 
-    m_lastTime: -8586117510561953176
+    m_lastTime: -8586116592056215654
     List: []
   - PhysicalPath: Virtual Acoustics\Factory Reflect Acoustic Textures.wwu
     ParentPhysicalPath: 
     guid: 6b663d46a83ca54f8b4a5fef12b883f6
     GuidInternal: 
-    m_lastTime: -8586117510562903471
+    m_lastTime: -8586116592056205691
     List:
     - name: Acoustic_Banner
       guid: f2532d2fccda8e408b8898b1b52a26d6
@@ -184,20 +184,20 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: f900c26f10d8334a9904ef23286ce5ab
     GuidInternal: 
-    m_lastTime: -8586117510512570052
+    m_lastTime: -8586116592062967614
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: d049f23b4e880a4eadcd9d0858402286
     GuidInternal: 
-    m_lastTime: -8586117510494874371
+    m_lastTime: -8586116592056385214
     List: []
   - PhysicalPath: SoundBanks\Wwise_Octo_Main.wwu
     ParentPhysicalPath: 
     guid: 4b09c945823b784db271dddea9bdc8f6
     GuidInternal: 
-    m_lastTime: -8586117510495834588
+    m_lastTime: -8586116592056355287
     List:
     - name: Wwise_Octo_Main
       guid: 6708afac6d9ee04db998d6093e51fc97
@@ -210,16 +210,102 @@ MonoBehaviour:
       Path: Wwise_Octo_Main\Wwise_Octo_Main
   EventWwu:
   - PhysicalPath: Events\Ambience.wwu
-    ParentPhysicalPath: Events\Octo_Main.wwu
-    guid: 38a44ebe1a16b24682598a1681c6ba2f
+    ParentPhysicalPath: Events\Ambience.wwu
+    guid: ab5bcd69c7847147a7e4dc88181e0059
     GuidInternal: 
-    m_lastTime: -8586117510498865274
+    m_lastTime: -8586116592063645801
+    List:
+    - name: Env_01_Start
+      guid: 23c8d5e57b48ca449d5a1ec4c67a0338
+      id: 1545542569
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 12
+      - ElementName: Env_01_Start
+        ObjectType: 3
+      Path: Octo_Main\Ambience\Ambience\Env_01_Start
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Env_01_Stop
+      guid: 30bb1eaead7f4c4cb5f14ea08f40b12f
+      id: 3085466819
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 12
+      - ElementName: Env_01_Stop
+        ObjectType: 3
+      Path: Octo_Main\Ambience\Ambience\Env_01_Stop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: System_Sounds
+      guid: 052f26e9389de941b09295f58ba76ee3
+      id: 2357789153
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 12
+      - ElementName: System_Sounds
+        ObjectType: 3
+      Path: Octo_Main\Ambience\Ambience\System_Sounds
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Thrusters
+      guid: ba39fbcb6a87de458e70ae005f3acb6d
+      id: 1944582317
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 12
+      - ElementName: Thrusters
+        ObjectType: 3
+      Path: Octo_Main\Ambience\Ambience\Thrusters
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: White_Noise_Spaceship
+      guid: 7339927ee146944f9d7df8495cf87789
+      id: 1630925514
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 12
+      - ElementName: White_Noise_Spaceship
+        ObjectType: 3
+      Path: Octo_Main\Ambience\Ambience\White_Noise_Spaceship
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  - PhysicalPath: Events\Characters.wwu
+    ParentPhysicalPath: Events\Octo_Main.wwu
+    guid: c86910c84b6743438fd566dc929dbe39
+    GuidInternal: 
+    m_lastTime: -8586116592063635828
     List: []
   - PhysicalPath: Events\Credits.wwu
     ParentPhysicalPath: Events\MainMenu.wwu
     guid: 4c0513ba17a7d0448a9c2e2fb9499469
     GuidInternal: 
-    m_lastTime: -8586117510504605980
+    m_lastTime: -8586116592063625848
     List:
     - name: Credits_Button_Back
       guid: 8379c27c624a3145af608fce61d7f516
@@ -243,43 +329,145 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 43680066c1cba2428a61a2fe35611ff9
     GuidInternal: 
-    m_lastTime: -8586117510502670583
+    m_lastTime: -8586116592063625848
     List: []
-  - PhysicalPath: Events\Environment01.wwu
-    ParentPhysicalPath: Events\Ambience.wwu
-    guid: ab5bcd69c7847147a7e4dc88181e0059
+  - PhysicalPath: Events\Environment.wwu
+    ParentPhysicalPath: Events\Octo_Main.wwu
+    guid: 38a44ebe1a16b24682598a1681c6ba2f
     GuidInternal: 
-    m_lastTime: -8586117510500745685
+    m_lastTime: -8586116592063615881
+    List: []
+  - PhysicalPath: Events\Environmental.wwu
+    ParentPhysicalPath: Events\Environment.wwu
+    guid: e2e00994021ec5448e7eae839c8e59ed
+    GuidInternal: 
+    m_lastTime: -8586116592063615881
     List:
-    - name: Env_01_Start
-      guid: 23c8d5e57b48ca449d5a1ec4c67a0338
-      id: 1545542569
+    - name: Asteroid_Collision
+      guid: a20f3376e4f6c148937981d5812cceb0
+      id: 494181607
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
-      - ElementName: Ambience
+      - ElementName: Environment
         ObjectType: 12
-      - ElementName: Environment01
+      - ElementName: Environmental
         ObjectType: 12
-      - ElementName: Env_01_Start
+      - ElementName: Asteroid_Collision
         ObjectType: 3
-      Path: Octo_Main\Ambience\Environment01\Env_01_Start
+      Path: Octo_Main\Environment\Environmental\Asteroid_Collision
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Env_01_Stop
-      guid: 30bb1eaead7f4c4cb5f14ea08f40b12f
-      id: 3085466819
+      maxDuration: 0
+      minDuration: 0
+    - name: Asteroid_Moving
+      guid: 7bd52ddce36cb947afb6bf9680620454
+      id: 376042431
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
-      - ElementName: Ambience
+      - ElementName: Environment
         ObjectType: 12
-      - ElementName: Environment01
+      - ElementName: Environmental
         ObjectType: 12
-      - ElementName: Env_01_Stop
+      - ElementName: Asteroid_Moving
         ObjectType: 3
-      Path: Octo_Main\Ambience\Environment01\Env_01_Stop
+      Path: Octo_Main\Environment\Environmental\Asteroid_Moving
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Electricity
+      guid: a0c975288fd27848956d7f3b06de19f7
+      id: 2917121896
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Electricity
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Electricity
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Explosion
+      guid: f316b6f45145c542b9a6cfaff501ef24
+      id: 13776098
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Explosion
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Explosion
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Fire
+      guid: c4fa23d0c5781341af7dabb4de5986f5
+      id: 2678880713
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Fire
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Fire
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Gas
+      guid: e0d6c4d2a08d2b4087f2d63d21535349
+      id: 579662040
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Gas
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Gas
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Impact
+      guid: 3c8a6482fb1af44e8d6b931595c18637
+      id: 3257506471
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Impact
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Impact
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Metal_Collision
+      guid: 0b7204e969ae9443940b135432007b5f
+      id: 1341439083
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Metal_Collision
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Metal_Collision
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -287,7 +475,137 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: e4e00594cb77244792e32fe6eabf1c1d
     GuidInternal: 
-    m_lastTime: -8586117510497835042
+    m_lastTime: -8586116592063605901
+    List: []
+  - PhysicalPath: Events\In_Game.wwu
+    ParentPhysicalPath: Events\Music.wwu
+    guid: c19ebc8ffd40c6468b4fd4abfc1e6c6f
+    GuidInternal: 
+    m_lastTime: -8586116592063605901
+    List:
+    - name: Game_Over
+      guid: 78c404d5ad39ae4d90f72180a88cf609
+      id: 1432716332
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: In_Game
+        ObjectType: 12
+      - ElementName: Game_Over
+        ObjectType: 3
+      Path: Octo_Main\Music\In_Game\Game_Over
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: In_Game_Theme
+      guid: f56ccdaa020bc4458cf0ad4dcc5e914e
+      id: 4011822115
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: In_Game
+        ObjectType: 12
+      - ElementName: In_Game_Theme
+        ObjectType: 3
+      Path: Octo_Main\Music\In_Game\In_Game_Theme
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Threat_Theme
+      guid: 752fd9a7d6eaec44bd6c545c91d13966
+      id: 2900252007
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: In_Game
+        ObjectType: 12
+      - ElementName: Threat_Theme
+        ObjectType: 3
+      Path: Octo_Main\Music\In_Game\Threat_Theme
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  - PhysicalPath: Events\Main_Menu.wwu
+    ParentPhysicalPath: Events\Music.wwu
+    guid: 4dab92772dccf44eb60cec9dbdf6b3ee
+    GuidInternal: 
+    m_lastTime: -8586116592063595923
+    List:
+    - name: Credits
+      guid: 92452b3fddcfb44aa209218110de2aae
+      id: 2201105581
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: Main_Menu
+        ObjectType: 12
+      - ElementName: Credits
+        ObjectType: 3
+      Path: Octo_Main\Music\Main_Menu\Credits
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Ending_Cinematic
+      guid: bcfd9bfffe99b04a8727f704e5f6e32d
+      id: 3221693214
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: Main_Menu
+        ObjectType: 12
+      - ElementName: Ending_Cinematic
+        ObjectType: 3
+      Path: Octo_Main\Music\Main_Menu\Ending_Cinematic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Main_Menu
+      guid: 1933fe8dfbcbc54b97642dbdd10d93d3
+      id: 2005704188
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: Main_Menu
+        ObjectType: 12
+      - ElementName: Main_Menu
+        ObjectType: 3
+      Path: Octo_Main\Music\Main_Menu\Main_Menu
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Title_Screen
+      guid: 71a96f56d8aad54c9b67f21237f45407
+      id: 3853285476
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: Main_Menu
+        ObjectType: 12
+      - ElementName: Title_Screen
+        ObjectType: 3
+      Path: Octo_Main\Music\Main_Menu\Title_Screen
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  - PhysicalPath: Events\MainMenu.wwu
+    ParentPhysicalPath: Events\FE.wwu
+    guid: f1570b83852e0f4992eb4ee6b133eb97
+    GuidInternal: 
+    m_lastTime: -8586116592063566014
     List:
     - name: MainMenu_All_Button_Hover
       guid: 8575c8b077e0924fba3e405769e6aca1
@@ -337,6 +655,22 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.513333
       minDuration: 0.513333
+    - name: MainMenu_Button_Play
+      guid: 9af673c10634cc419c9cc19935cfd886
+      id: 574491607
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: FE
+        ObjectType: 12
+      - ElementName: MainMenu
+        ObjectType: 12
+      - ElementName: MainMenu_Button_Play
+        ObjectType: 3
+      Path: Octo_Main\FE\MainMenu\MainMenu_Button_Play
+      maxAttenuation: 0
+      maxDuration: 0.513333
+      minDuration: 0.513333
     - name: MainMenu_Button_Quit
       guid: 59b075a3d81bb343b1c354ef4e89ef32
       id: 2978081472
@@ -369,39 +703,505 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.858667
       minDuration: 2.858667
-  - PhysicalPath: Events\MainMenu.wwu
-    ParentPhysicalPath: Events\FE.wwu
-    guid: f1570b83852e0f4992eb4ee6b133eb97
+  - PhysicalPath: Events\Music.wwu
+    ParentPhysicalPath: Events\Octo_Main.wwu
+    guid: 600f4cd3cd56114abfd30b5150b1c1e0
     GuidInternal: 
-    m_lastTime: -8586117510503643673
+    m_lastTime: -8586116592063575980
+    List: []
+  - PhysicalPath: Events\Oakley.wwu
+    ParentPhysicalPath: Events\Characters.wwu
+    guid: adf6d36ce72ced4eb04c57e83f3fdefd
+    GuidInternal: 
+    m_lastTime: -8586116592063566014
     List:
-    - name: MainMenu_Button_Play
-      guid: 9af673c10634cc419c9cc19935cfd886
-      id: 574491607
+    - name: Voice_Log_01
+      guid: 04856fbed675c34a99fc2c390e1f86cc
+      id: 2903534464
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
-      - ElementName: FE
+      - ElementName: Characters
         ObjectType: 12
-      - ElementName: MainMenu
+      - ElementName: Oakley
         ObjectType: 12
-      - ElementName: MainMenu_Button_Play
+      - ElementName: Voice_Log_01
         ObjectType: 3
-      Path: Octo_Main\FE\MainMenu\MainMenu_Button_Play
+      Path: Octo_Main\Characters\Oakley\Voice_Log_01
       maxAttenuation: 0
-      maxDuration: 0.513333
-      minDuration: 0.513333
+      maxDuration: 0
+      minDuration: 0
+    - name: Voice_Log_02
+      guid: 7441477035dc854cbc2a1d0e68ed9bcf
+      id: 2903534467
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Oakley
+        ObjectType: 12
+      - ElementName: Voice_Log_02
+        ObjectType: 3
+      Path: Octo_Main\Characters\Oakley\Voice_Log_02
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Voice_Log_03
+      guid: ac310745e37c7e4bb595a6dfc627d84b
+      id: 2903534466
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Oakley
+        ObjectType: 12
+      - ElementName: Voice_Log_03
+        ObjectType: 3
+      Path: Octo_Main\Characters\Oakley\Voice_Log_03
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Voice_Log_04
+      guid: 5c235b0789c80e44a6e5530bf10b190f
+      id: 2903534469
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Oakley
+        ObjectType: 12
+      - ElementName: Voice_Log_04
+        ObjectType: 3
+      Path: Octo_Main\Characters\Oakley\Voice_Log_04
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Voice_Log_05
+      guid: d7b5661783c16b4e8eb58d228d042f10
+      id: 2903534468
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Oakley
+        ObjectType: 12
+      - ElementName: Voice_Log_05
+        ObjectType: 3
+      Path: Octo_Main\Characters\Oakley\Voice_Log_05
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Voice_Log_06
+      guid: adfc23d2785024498bb3f7347bec661f
+      id: 2903534471
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Oakley
+        ObjectType: 12
+      - ElementName: Voice_Log_06
+        ObjectType: 3
+      Path: Octo_Main\Characters\Oakley\Voice_Log_06
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Voice_Log_07
+      guid: 4ed5cedd6237c248b6639fb6da023085
+      id: 2903534470
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Oakley
+        ObjectType: 12
+      - ElementName: Voice_Log_07
+        ObjectType: 3
+      Path: Octo_Main\Characters\Oakley\Voice_Log_07
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Voice_Log_08
+      guid: c975b966f9cb6a4db375c76c5517e830
+      id: 2903534473
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Oakley
+        ObjectType: 12
+      - ElementName: Voice_Log_08
+        ObjectType: 3
+      Path: Octo_Main\Characters\Oakley\Voice_Log_08
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  - PhysicalPath: Events\Octo.wwu
+    ParentPhysicalPath: Events\Characters.wwu
+    guid: f634a635af0cc44cb82677937ae1b49a
+    GuidInternal: 
+    m_lastTime: -8586116592063556040
+    List:
+    - name: Complete_Objective
+      guid: 3f1ebf0eeb5f854bad04bcbec4244fed
+      id: 3263450676
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Voice
+        ObjectType: 4
+      - ElementName: Complete_Objective
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Voice\Complete_Objective
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Crafting_Failure
+      guid: 4f9afba5c1bbe84e9635d8c6f2893046
+      id: 2185317076
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Voice
+        ObjectType: 4
+      - ElementName: Crafting_Failure
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Voice\Crafting_Failure
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Crafting_Success
+      guid: c297eb16073b284ab2dab9ce54b1fcca
+      id: 507489755
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Voice
+        ObjectType: 4
+      - ElementName: Crafting_Success
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Voice\Crafting_Success
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Damage
+      guid: 3699151b2b31cf40babbf1e542dbd807
+      id: 1786804762
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Voice
+        ObjectType: 4
+      - ElementName: Damage
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Voice\Damage
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Death
+      guid: 83ca1cbe0537a3448ab3f04fe383a46f
+      id: 779278001
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Voice
+        ObjectType: 4
+      - ElementName: Death
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Voice\Death
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Low_Fuel
+      guid: 7ef514f0ca49ea4ab7244fb430a4bdee
+      id: 4123804492
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Voice
+        ObjectType: 4
+      - ElementName: Low_Fuel
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Voice\Low_Fuel
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Low_Supply
+      guid: 647d64532db70840ab209e6239dad671
+      id: 973306129
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Voice
+        ObjectType: 4
+      - ElementName: Low_Supply
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Voice\Low_Supply
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Not_Enough_Resources
+      guid: 8da0671479266a4c86f3f63755eaee0e
+      id: 853073649
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Voice
+        ObjectType: 4
+      - ElementName: Not_Enough_Resources
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Voice\Not_Enough_Resources
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Octo_Damage_Metal
+      guid: b891293d1f0a0f4289c5582f380286fe
+      id: 1805563388
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_Damage_Metal
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_Damage_Metal
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Octo_Damage_Rock
+      guid: 2a627dfe83f9b44f9e3d7e4883414655
+      id: 3567146260
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_Damage_Rock
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_Damage_Rock
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Octo_DownThrusters
+      guid: da247d2bf9244e4e8e63d86a6bef0c7b
+      id: 1967397267
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_DownThrusters
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_DownThrusters
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Octo_GooGlue
+      guid: f96c4d291f2fac479f0fe864aa693e1e
+      id: 269952755
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_GooGlue
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_GooGlue
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Octo_Grab
+      guid: 0549e01b7a318743814c19dbda393914
+      id: 2765733061
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_Grab
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_Grab
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Octo_HoriThrusters
+      guid: ab4e965cefc77a43bc3d1b5260ea3c1e
+      id: 702990819
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_HoriThrusters
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_HoriThrusters
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Octo_LaserCutter
+      guid: f48c6cf94ae5d54e85d09aed4a574c16
+      id: 1507525885
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_LaserCutter
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_LaserCutter
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Octo_Moving
+      guid: b1f2942db8fc1d49926a8f309a576498
+      id: 2120872765
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_Moving
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_Moving
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Octo_Tether
+      guid: 5d3a01fd31a241459e750bafda3c416d
+      id: 1089170435
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_Tether
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_Tether
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Octo_UpThrusters
+      guid: 882b55f01d835845ad1b375295da4bef
+      id: 761624014
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_UpThrusters
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_UpThrusters
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Remembering_Oakley
+      guid: c2408e5af8a9f14e93bfc7118e9a451c
+      id: 3812427620
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Voice
+        ObjectType: 4
+      - ElementName: Remembering_Oakley
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Voice\Remembering_Oakley
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
   - PhysicalPath: Events\Octo_Main.wwu
     ParentPhysicalPath: 
     guid: 5fe02299154012418e883a6d761122fe
     GuidInternal: 
-    m_lastTime: -8586117510496874824
+    m_lastTime: -8586116592063556040
     List: []
   - PhysicalPath: Events\Options.wwu
     ParentPhysicalPath: Events\MainMenu.wwu
     guid: dbf25d695cd1684696e76688dbd1751a
     GuidInternal: 
-    m_lastTime: -8586117510507652229
+    m_lastTime: -8586116592063546063
     List:
     - name: Options_Button_Audio
       guid: 97d26d6bebf22944b498ba105d18126f
@@ -461,7 +1261,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Options.wwu
     guid: 7d0b0691aacf35469db81562e9997cb4
     GuidInternal: 
-    m_lastTime: -8586117510506677761
+    m_lastTime: -8586116592063546063
     List:
     - name: Options_Audio_Button_Back
       guid: 494045431f54974fa46907a1b42684d4
@@ -547,7 +1347,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Options.wwu
     guid: ca06a73a4c220b43a6084be28aa54eb8
     GuidInternal: 
-    m_lastTime: -8586117510505636216
+    m_lastTime: -8586116592063536091
     List:
     - name: Options_Video_Button_Back
       guid: 1ebad7ce0855df4b81527cf2de822b21
@@ -613,7 +1413,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Options_Video.wwu
     guid: ba9d31dd72cc494899fff6635283f2c1
     GuidInternal: 
-    m_lastTime: -8586117510499805479
+    m_lastTime: -8586116592063536091
     List:
     - name: Options_Video_Resolution_Button_Apply
       guid: d75942eae376ff4aabcbc81c35818be9
@@ -663,7 +1463,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\MainMenu.wwu
     guid: 1ac863669e80814f9c659d54b7bf3e99
     GuidInternal: 
-    m_lastTime: -8586117510501715898
+    m_lastTime: -8586116592063526105
     List:
     - name: Quit_Button_No
       guid: ea893dccefe96344b772e51ecb2c15a6
@@ -701,18 +1501,216 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.513333
       minDuration: 0.513333
+  - PhysicalPath: Events\Satellite.wwu
+    ParentPhysicalPath: Events\Environment.wwu
+    guid: 001220ee6376c9419a2982aa893f2257
+    GuidInternal: 
+    m_lastTime: -8586116592063526105
+    List:
+    - name: Communications_Array
+      guid: 5383a836cb190343b222608847f64f94
+      id: 2894345104
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Communications_Array
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Communications_Array
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Fuel_Restoration
+      guid: bf88d9b05278614ebb21386b2ae8d6a4
+      id: 678929340
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Fuel_Restoration
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Fuel_Restoration
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Satellite_Component
+      guid: 1952b8583f1df94c97cb7986b7be0052
+      id: 1580704404
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Satellite_Component
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Satellite_Component
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Satellite_Crafting
+      guid: 3e813c968a0f5746961b50ed0d932a3c
+      id: 2901737241
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Satellite_Crafting
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Satellite_Crafting
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Satellite_Foundry
+      guid: 28a4dfcf1553ca4487bacad4ba606d75
+      id: 3028867906
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Satellite_Foundry
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Satellite_Foundry
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Satellite_Fuel_Station
+      guid: a8d4aef2cb3f49439bfa5c50ee17e8ce
+      id: 62827578
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Satellite_Fuel_Station
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Satellite_Fuel_Station
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Satellite_Idle
+      guid: 13ff6f5c7823714fb9d268c5cce04f8b
+      id: 1040610669
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Satellite_Idle
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Satellite_Idle
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Satellite_Incinerator
+      guid: 80820196caacbd4faf32e16775dd8d52
+      id: 3336320773
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Satellite_Incinerator
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Satellite_Incinerator
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Satellite_Radar
+      guid: 1cb775cb2735c5439e1e02c3dd4af972
+      id: 1479001789
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Satellite_Radar
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Satellite_Radar
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  - PhysicalPath: Events\UI.wwu
+    ParentPhysicalPath: Events\Octo_Main.wwu
+    guid: be40750790b97640a0e9ad908753cb5c
+    GuidInternal: 
+    m_lastTime: -8586116592063506170
+    List:
+    - name: Asteroid_Warning
+      guid: 7f62ec02d2a7ce42bcb75bf508749265
+      id: 1329011239
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 12
+      - ElementName: Asteroid_Warning
+        ObjectType: 3
+      Path: Octo_Main\UI\Asteroid_Warning
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Electrical_Spark_Warning
+      guid: 550bca1649fd1240b6d3c776689b35c8
+      id: 3147538972
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 12
+      - ElementName: Electrical_Spark_Warning
+        ObjectType: 3
+      Path: Octo_Main\UI\Electrical_Spark_Warning
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Gas_Warning
+      guid: 9ce370b29ee4764d99a0c9e0820a5299
+      id: 3096260197
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 12
+      - ElementName: Gas_Warning
+        ObjectType: 3
+      Path: Octo_Main\UI\Gas_Warning
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 16ab4c859cf4d549a5c53e9b19139d92
     GuidInternal: 
-    m_lastTime: -8586117510530901296
+    m_lastTime: -8586116592063496200
     List: []
   - PhysicalPath: Game Parameters\Factory Motion.wwu
     ParentPhysicalPath: 
     guid: 225213d7dbd1d042adc0930743567776
     GuidInternal: 
-    m_lastTime: -8586117510529890938
+    m_lastTime: -8586116592063486224
     List:
     - name: Playback_Rate
       guid: e37e38283ac11643b9c3db5c521624af
@@ -736,7 +1734,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 5577163b42fb8b4598bf96f557afb3b9
     GuidInternal: 
-    m_lastTime: -8586117510531891249
+    m_lastTime: -8586116592063476249
     List:
     - name: SS_Air_Fear
       guid: 59062ef746431c4ea1b1dab46a05101e
@@ -832,7 +1830,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 97bdcb0b5177774a85bb6ac940f8cc3f
     GuidInternal: 
-    m_lastTime: -8586117510532961529
+    m_lastTime: -8586116592063466282
     List:
     - name: Density_FA_SSGrain
       guid: 9ef2b363f3048748ba1a4d7694644b24
@@ -888,26 +1886,74 @@ MonoBehaviour:
       - ElementName: Simulation_FA_SSGrain
         ObjectType: 13
       Path: Factory SoundSeed Grain\Simulation_FA_SSGrain
+  - PhysicalPath: Game Parameters\Octo.wwu
+    ParentPhysicalPath: 
+    guid: cb8b8ab241089f479f32a560a1e5b2a3
+    GuidInternal: 
+    m_lastTime: -8586116592063476249
+    List:
+    - name: Intensity
+      guid: ac54fd2b5b86ef438b4d8250ed545ee3
+      id: 2470328564
+      PathAndIcons:
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Intensity
+        ObjectType: 13
+      Path: Octo\Intensity
+  - PhysicalPath: Game Parameters\Volume.wwu
+    ParentPhysicalPath: 
+    guid: 295e2b7d85002742b4d603debe586bd2
+    GuidInternal: 
+    m_lastTime: -8586116592063466282
+    List:
+    - name: MasterVolume
+      guid: 6fd4b45692a2184d9b8d7b65b0ccc99f
+      id: 2918011349
+      PathAndIcons:
+      - ElementName: Volume
+        ObjectType: 12
+      - ElementName: MasterVolume
+        ObjectType: 13
+      Path: Volume\MasterVolume
+    - name: MusicVolume
+      guid: 9e7e663a9efa7f48a811e5471cea9770
+      id: 2346531308
+      PathAndIcons:
+      - ElementName: Volume
+        ObjectType: 12
+      - ElementName: MusicVolume
+        ObjectType: 13
+      Path: Volume\MusicVolume
+    - name: SFXVolume
+      guid: 8fe71228445f0a478e6379ec190d8d1e
+      id: 988953028
+      PathAndIcons:
+      - ElementName: Volume
+        ObjectType: 12
+      - ElementName: SFXVolume
+        ObjectType: 13
+      Path: Volume\SFXVolume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 3290f5b3d2459c44aa1897e488ca86d7
     GuidInternal: 
-    m_lastTime: -8586117510513820330
+    m_lastTime: -8586116592056285475
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 045bd47c7e38be48814aad03c073d255
     GuidInternal: 
-    m_lastTime: -8586117510833358714
+    m_lastTime: -8586116592056275507
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 708e6d5e28a6a641afefd78e7205d578
     GuidInternal: 
-    m_lastTime: -8586117510802450989
+    m_lastTime: -8586116592056265531
     List: []
   ExpandedItems:
   - /WWise_OctoGone_SD95
