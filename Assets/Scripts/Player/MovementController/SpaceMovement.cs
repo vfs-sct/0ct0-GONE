@@ -21,7 +21,7 @@ public class SpaceMovement : MovementComponent
     private Rigidbody _Rigidbody;
     private float Mass;
 
-    private ResourceBehavior LinkedResourceBehavior;
+    private ResourceInventory LinkedResourceBehavior;
 
     public void SetAnchorTarget(GameObject Target)
     {
@@ -50,7 +50,7 @@ public class SpaceMovement : MovementComponent
         if (VelocityMax <= 0){
             _VelocityMax = 99999;
         }
-        LinkedResourceBehavior = Controller.gameObject.GetComponent<ResourceBehavior>();
+        LinkedResourceBehavior = Controller.gameObject.GetComponent<ResourceInventory>();
         if (ThrottleSensitivity <=0) ThrottleSensitivity = 0.001f;//minimum throttle sensitivity that can be set
         _Rigidbody = Controller.gameObject.GetComponent<Rigidbody>();
         Debug.Assert(_Rigidbody != null); //Assert if rigid body is undefined
