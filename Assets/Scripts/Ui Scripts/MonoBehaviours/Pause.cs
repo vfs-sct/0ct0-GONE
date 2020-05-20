@@ -60,7 +60,8 @@ public class Pause : MonoBehaviour
     //used by the Confirmation screen
     void DoMainMenu()
     {
-        SceneManager.LoadScene($"{menuScene}");
+        GameManager.LoadScene($"{menuScene}");
+        GameManager.UnPause();
     }
 
     public void OnClickQuit()

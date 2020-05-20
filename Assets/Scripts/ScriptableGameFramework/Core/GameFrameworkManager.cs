@@ -23,10 +23,9 @@ public class GameFrameworkManager : ScriptableObject
     private GameState ActiveState;
     private Scene ActiveScene;
 
-    private float lastTimescale = 1;
 
-    private bool Paused = false;
-    public bool isPaused{get => Paused;}
+
+    public bool isPaused{get => Time.timeScale == 0;}
 
     delegate void GameManagerDelegate(GameFrameworkManager GameManager);
     private GameManagerDelegate OnExitGame;
@@ -61,10 +60,8 @@ public class GameFrameworkManager : ScriptableObject
 
     public void Pause()
     {
-        lastTimescale = Time.timeScale;
         Time.timeScale = 0;
         moduleManager.StopTicking = true;
-        Paused = true;
         if (OnPauseGame != null) OnPauseGame(this);
     }
 
@@ -72,11 +69,10 @@ public class GameFrameworkManager : ScriptableObject
     {
         Time.timeScale = 1;
         moduleManager.StopTicking = false;
-        Paused = false;
         if (OnPauseGame != null) OnResumeGame(this);
     }
 
-    public void LoadSceneByName(string SceneName)
+    public void LoadScene(string SceneName)
     {
         SceneManager.LoadScene(SceneName,LoadSceneMode.Single);
     }

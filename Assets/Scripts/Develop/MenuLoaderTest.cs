@@ -9,7 +9,7 @@ public class MenuLoaderTest : MonoBehaviour
     [SerializeField] private string SceneName = null;
     void Start()
     {
-        Gamemanager.LoadSceneByName(SceneName);
+        Gamemanager.LoadScene(SceneName);
     }
 
     // Update is called once per frame

@@ -8,6 +8,7 @@ using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private GameFrameworkManager GameManager;
     [SerializeField] GameObject OptionsPrefab = null;
     [SerializeField] GameObject CreditsPrefab = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
@@ -16,7 +17,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnClickPlay()
     {
-        SceneManager.LoadScene($"{nextScene}");
+        GameManager.LoadScene($"{nextScene}");
     }
 
     public void OnClickOptions()
