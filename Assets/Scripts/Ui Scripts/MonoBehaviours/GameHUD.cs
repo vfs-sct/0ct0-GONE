@@ -25,7 +25,6 @@ public class GameHUD : MonoBehaviour
     {
         if (!GameManager.isPaused)
         {
-            PausePrefab.SetActive(true);
             GameManager.Pause();
             Debug.Log("Paused");
         }

@@ -179,7 +179,8 @@ public class GameFrameworkManager : ScriptableObject
 
     private void OnEnable()
     {
-
+        //prevent timescale editor bug
+        UnPause();
         //Application.targetFrameRate = 60;
         if (!Application.isEditor) return;
         Initalize();
