@@ -8,6 +8,7 @@ using UnityEditor;
 
 public class GameOver : MonoBehaviour
 {
+    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
 
     [SerializeField] string menuScene = null;
@@ -20,6 +21,10 @@ public class GameOver : MonoBehaviour
     //used by the Confirmation screen
     void DoMainMenu()
     {
+        if (GameManager.isPaused)
+        {
+            GameManager.UnPause();
+        }
         SceneManager.LoadScene($"{menuScene}");
     }
 
