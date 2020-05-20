@@ -13,9 +13,9 @@ public class SoundSliders : MonoBehaviour
     {
         volumeSlider.value = defaultVolume;
     }
-    public void SetVolumeSlider(string channel)
+    public void SetVolumeSlider()
     {
         newVolume = volumeSlider.value;
-        AkSoundEngine.SetRTPCValue($"{WWiseChannel}", newVolume);
+        AkSoundEngine.SetRTPCValue(WWiseChannel, newVolume);
     }
 }
