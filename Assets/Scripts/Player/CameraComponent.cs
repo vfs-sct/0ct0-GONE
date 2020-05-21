@@ -5,6 +5,8 @@ public class CameraComponent : MonoBehaviour
 {
     [Header("Camera Control")]
     [SerializeField]
+    public GameFrameworkManager GameManager;
+    [SerializeField]
     private Transform _CamPivot = null;
     [SerializeField]
     private Transform _MainCamera = null;
@@ -28,24 +30,19 @@ public class CameraComponent : MonoBehaviour
         return _MainCamera;
     }
 
-    // Start is called before the first frame update
-    //void Start()
-    //{
-        
-    //}
-
     // Update is called once per frame
     void Update()
     {
-        //don't take inputs when the game's paused
-        //if(MenuManager.isPaused == true)
-        //{
-        //    return;
-        //}
+        if (GameManager.isPaused)
+        {
+            return;
+        }
+
         UpdateZoom();
         UpdateRotations();
     }
 
+    //OnZoom is the scroll wheel input from the input system
     void OnZoom(InputValue input)
     {
         zoomAmount += input.Get<Vector2>().y;
@@ -107,7 +104,7 @@ public class CameraComponent : MonoBehaviour
         var mouseX = mouseAxis.x;
         var mouseY = mouseAxis.y;
         //rotate character, multiplied by cam speed. Should be kept slow-ish for a space-y feel
-        transform.Rotate(0f, mouseX * _CameraSpeed, 0f);
+        transform.Rotate(-mouseY * _CameraSpeed, mouseX * _CameraSpeed, 0f);
         //rotate camera
         _CamPivot.Rotate(-mouseY * _CameraSpeed, 0f, 0f);
 
@@ -115,21 +112,21 @@ public class CameraComponent : MonoBehaviour
         var pitch = _CamPivot.eulerAngles.x;
 
         //clamp how high/low character can look. Possibly not necessary in space if we want the char to do a vertical 360 just by looking upward/downward?
-        if (pitch > 40 && pitch < 180)
-        {
-            pitch = 40;
-        }
-        else if (pitch < 325 && pitch > 180)
-        {
-            pitch = 325;
-        }
+        //if (pitch > 40 && pitch < 180)
+        //{
+        //    pitch = 40;
+        //}
+        //else if (pitch < 325 && pitch > 180)
+        //{
+        //    pitch = 325;
+        //}
 
         //store new pitch in a variable, because you can't change just the X position on the camera directly
-        var euler_angles = _CamPivot.eulerAngles;
-        euler_angles.x = pitch;
+        //var euler_angles = _CamPivot.eulerAngles;
+        //euler_angles.x = pitch;
 
         //update camera rotation with new value
-        _CamPivot.eulerAngles = euler_angles;
+        //_CamPivot.eulerAngles = euler_angles;
 
         //uncomment to see numerical value of pitch angle change in real time
         //Debug.Log(pitch);

@@ -27,6 +27,11 @@ public class ResourceInventory : MonoBehaviour
         return false;
     }
 
+    public void TryAdd(Resource resource, float amount)
+    {
+        if (!HasResource(resource)) ResourceManager.CreateResourceInstance(resource,this);//create the resource if it isn't present
+        AddResource(resource,amount);
+    }
 
     public void RemoveResource(Resource resource, float amount)
     {
