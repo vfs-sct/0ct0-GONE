@@ -10,7 +10,7 @@ public class ResourcePanel : MonoBehaviour
     [SerializeField] public VerticalLayoutGroup contentGroup = null;
     [SerializeField] public GameObject defaultText = null;
 
-    Dictionary<Resource, GameObject> resourceList;
+    Dictionary<Resource, GameObject> resourceList = new Dictionary<Resource, GameObject>();
     
     // Start is called before the first frame update
     void Awake()
