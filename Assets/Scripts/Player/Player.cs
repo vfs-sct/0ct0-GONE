@@ -10,10 +10,20 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameFrameworkManager GameManager  = null;
+    [SerializeField] private LayerMask TargetableMask;
+
+    [SerializeField] private Camera PlayerCamera;
+
+    [SerializeField] private float TargetingDistance = 1000.0f;
+
 
     private MovementController LinkedMovementController;
     private ToolController LinkedToolController;
 
+    private Collider _TargetCollider;
+
+    
+    
     private int LastToolSelectedIndex = -1;
 
     public void OnSelectTool1()//goo glue
@@ -74,11 +84,38 @@ public class Player : MonoBehaviour
         LinkedToolController.DeselectTool();
     }
 
-
     private void OnEnable()
     {
         
     }
+
+    public void OnLockTarget()
+    {
+        TryTarget();
+    }
+
+    private void TryTarget()
+    {
+        RaycastHit TargetHit; 
+        if (Physics.Raycast(PlayerCamera.transform.position,PlayerCamera.transform.forward,out TargetHit,TargetingDistance,TargetableMask))
+        {
+            _TargetCollider = TargetHit.collider;
+        }  
+        else 
+        {
+            _TargetCollider = null;
+        }
+        Debug.Log(_TargetCollider);
+        if (_TargetCollider!= null) 
+        {
+            LinkedToolController.SetTarget(_TargetCollider.gameObject);
+        }
+        else
+        {
+            LinkedToolController.SetTarget(null);
+        }
+    }
+
 
     private void Start()
     {

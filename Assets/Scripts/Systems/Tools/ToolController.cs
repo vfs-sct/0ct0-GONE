@@ -7,10 +7,15 @@ public class ToolController : MonoBehaviour
 
     [SerializeField] private List<Tool> EquiptTools = new List<Tool>();
 
+    
+
+
     private Tool CurrentTool = null;
 
     private bool CurrentToolIsActive = false;
 
+    private Player _LinkedPlayer;
+    public Player LinkedPlayer{get=>_LinkedPlayer;}
     private GameObject _Target;
     public GameObject Target{get=>_Target;}
 
@@ -56,28 +61,29 @@ public class ToolController : MonoBehaviour
     }
     private void DeactiveTool_Internal()
     {
+        CurrentToolIsActive = false;
         if (CurrentTool == null) return;
         CurrentTool.Deactivate(this,_Target);
-        CurrentToolIsActive = false;
+        
     }
 
 
     void Start()
     {
-        
+        _LinkedPlayer = gameObject.GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (CurrentToolIsActive)
-        //{
-        //    if (!CurrentTool.WhileActive(this))
-        //    {
-        //        DeactiveTool_Internal();
-        //        return;
-        //    }
-        //    CurrentTool.WhileActive(this);
-        //}
+        if (CurrentToolIsActive)
+        {
+            if (!CurrentTool.WhileActive(this,_Target))
+            {
+                DeactiveTool_Internal();
+                return;
+            }
+            CurrentTool.WhileActive(this,_Target);
+        }
     }
 }

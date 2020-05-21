@@ -31,7 +31,6 @@ public class ResourceModule : Module
 
 
 
-
     public void CreateResourceInstance(ResourceData resourceData, ResourceInventory owner)
     {
 
@@ -43,7 +42,7 @@ public class ResourceModule : Module
     {
         foreach (var EnabledResource in ActiveResources)
         {
-            if (EnabledResource == owner)
+            if (EnabledResource == resource)
             {
                 resource.RegisterInstance(owner);
                 return;
