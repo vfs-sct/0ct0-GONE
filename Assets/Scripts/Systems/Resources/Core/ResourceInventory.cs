@@ -76,7 +76,11 @@ public class ResourceInventory : MonoBehaviour
 
     public float GetResource(Resource resource)
     {
-        return resource.GetInstanceValue(this);
+        if (HasResource(resource))
+        {
+            return resource.GetInstanceValue(this);
+        }
+        return 0;
     }
 
 
