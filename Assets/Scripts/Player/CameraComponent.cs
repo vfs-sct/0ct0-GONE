@@ -28,24 +28,14 @@ public class CameraComponent : MonoBehaviour
         return _MainCamera;
     }
 
-    // Start is called before the first frame update
-    //void Start()
-    //{
-        
-    //}
-
     // Update is called once per frame
     void Update()
     {
-        //don't take inputs when the game's paused
-        //if(MenuManager.isPaused == true)
-        //{
-        //    return;
-        //}
         UpdateZoom();
         UpdateRotations();
     }
 
+    //OnZoom is the scroll wheel input from the input system
     void OnZoom(InputValue input)
     {
         zoomAmount += input.Get<Vector2>().y;
@@ -107,7 +97,7 @@ public class CameraComponent : MonoBehaviour
         var mouseX = mouseAxis.x;
         var mouseY = mouseAxis.y;
         //rotate character, multiplied by cam speed. Should be kept slow-ish for a space-y feel
-        transform.Rotate(0f, mouseX * _CameraSpeed, 0f);
+        transform.Rotate(-mouseY * _CameraSpeed, mouseX * _CameraSpeed, 0f);
         //rotate camera
         _CamPivot.Rotate(-mouseY * _CameraSpeed, 0f, 0f);
 
