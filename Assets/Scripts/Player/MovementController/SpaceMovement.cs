@@ -33,13 +33,12 @@ public class SpaceMovement : MovementComponent
         SetAnchorTarget(null);
     }
 
-    private void CoupledTranslate(MovementController controller, Vector3 Input)
+    private void CoupledTranslate(MovementController Controller, Vector3 Input)
     {
-        
         TargetVelocity = Input * _VelocityMax;
     }
 
-    private void CruiseTranslate(MovementController controller, Vector3 Input)
+    private void CruiseTranslate(MovementController Controller, Vector3 Input)
     {
         TargetVelocity += Input *ThrottleSensitivity;
     }
@@ -62,10 +61,11 @@ public class SpaceMovement : MovementComponent
         float MaxDeltaV = ThrusterImpulse /_Rigidbody.mass;
 
         //------velocity anchoring---------
-        Vector3 DeltaV = (TargetVelocity)-_Rigidbody.velocity; 
+        Vector3 DeltaV = ((TargetVelocity)-Controller.transform.InverseTransformDirection(_Rigidbody.velocity)); 
+
         if (AnchorTarget != null) 
         {
-            DeltaV = (TargetVelocity+AnchorTarget.velocity)-_Rigidbody.velocity;
+            DeltaV = (TargetVelocity+AnchorTarget.velocity)-Controller.transform.InverseTransformDirection(_Rigidbody.velocity);
         }
 
 
@@ -84,7 +84,7 @@ public class SpaceMovement : MovementComponent
             LinkedResourceBehavior.RemoveResource(FuelResource,Mathf.Abs(Impulse[i] *(FuelPerImpulseUnit/FuelEfficency)));
             //Debug.Log(LinkedResourceBehavior.GetResource(FuelResource));
 	    }
-        return Impulse;
+        return Controller.transform.TransformDirection(Impulse);
     }
 
     public override void Translate(MovementController Controller,Vector3 Input,byte MovementSubMode)

@@ -6,30 +6,56 @@ public class ResourceInventory : MonoBehaviour
 {
     [SerializeField] private ResourceModule ResourceManager = null;
     
-    [SerializeField] private List<ResourceModule.ResourceData> ActiveResources = new List<ResourceModule.ResourceData>();
+    [SerializeField] private List<Resource> ActiveResources = new List<Resource>();
+
+    [SerializeField] private bool UseOverrides = false;
+
+    [SerializeField] private List<ResourceModule.ResourceData> OverrideValues;
 
 
 
     void Start()
     {
-        foreach (var resource in ActiveResources)
+        List<Resource> OverridenResources;
+        if (UseOverrides)
         {
-            ResourceManager.CreateResourceInstance(resource,this);
+            OverridenResources = new List<Resource>();
+            foreach (var OverrideData in OverrideValues)
+            {
+                if (!ActiveResources.Contains(OverrideData.resource)) Debug.LogError("Cannot override InActive Resource!");
+                OverridenResources.Add(OverrideData.resource);
+                ResourceManager.CreateResourceInstance(OverrideData,this);
+            }
+            foreach (var resource in ActiveResources)
+            {
+                if (!OverridenResources.Contains(resource))
+                {
+                    ResourceManager.CreateResourceInstance(resource,this); //create resource with default values
+                }
+            }
         }
+        else
+        {
+            foreach (var resource in ActiveResources)
+            {
+                ResourceManager.CreateResourceInstance(resource,this); //create resource with default values
+            }
+        }
+       
     }
 
     public bool HasResource(Resource resourceToCheck)
     {
-        foreach (var ResourceData in ActiveResources)
-        {
-            if (ResourceData.resource == resourceToCheck) return true;
-        }
-        return false;
+        return ActiveResources.Contains(resourceToCheck);
     }
 
     public void TryAdd(Resource resource, float amount)
     {
-        if (!HasResource(resource)) ResourceManager.CreateResourceInstance(resource,this);//create the resource if it isn't present
+        Debug.Log(!HasResource(resource));
+        if (!HasResource(resource)) {
+            ResourceManager.CreateResourceInstance(resource,this);//create the resource if it isn't present
+            ActiveResources.Add(resource);
+        }
         AddResource(resource,amount);
     }
 

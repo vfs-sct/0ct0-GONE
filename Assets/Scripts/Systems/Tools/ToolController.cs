@@ -7,10 +7,27 @@ public class ToolController : MonoBehaviour
 
     [SerializeField] private List<Tool> EquiptTools = new List<Tool>();
 
+    
+
+
     private Tool CurrentTool = null;
 
     private bool CurrentToolIsActive = false;
 
+    private Player _LinkedPlayer;
+    public Player LinkedPlayer{get=>_LinkedPlayer;}
+    private GameObject _Target;
+    public GameObject Target{get=>_Target;}
+
+    public void SetTarget(GameObject NewTarget)
+    {
+        _Target = NewTarget;
+    }
+
+    public void ClearTarget()
+    {
+        SetTarget(null);
+    }
     public void SwitchTool(int ToolIndex)
     {
         Debug.Assert(ToolIndex < EquiptTools.Count && ToolIndex >= 0);
@@ -33,39 +50,40 @@ public class ToolController : MonoBehaviour
     public void ActivateTool()
     {
         if (CurrentTool == null | CurrentToolIsActive) return;
-        CurrentToolIsActive = CurrentTool.Activate(this,null);
+        CurrentToolIsActive = CurrentTool.Activate(this,_Target);
     }
 
     public void DeactivateTool()
     {
         if (CurrentTool == null) return;
-        CurrentToolIsActive = !CurrentTool.Deactivate(this,null);
+        CurrentToolIsActive = !CurrentTool.Deactivate(this,_Target);
         
     }
     private void DeactiveTool_Internal()
     {
-        if (CurrentTool == null) return;
-        CurrentTool.Deactivate(this,null);
         CurrentToolIsActive = false;
+        if (CurrentTool == null) return;
+        CurrentTool.Deactivate(this,_Target);
+        
     }
 
 
     void Start()
     {
-        
+        _LinkedPlayer = gameObject.GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (CurrentToolIsActive)
-        //{
-        //    if (!CurrentTool.WhileActive(this))
-        //    {
-        //        DeactiveTool_Internal();
-        //        return;
-        //    }
-        //    CurrentTool.WhileActive(this);
-        //}
+        if (CurrentToolIsActive)
+        {
+            if (!CurrentTool.WhileActive(this,_Target))
+            {
+                DeactiveTool_Internal();
+                return;
+            }
+            CurrentTool.WhileActive(this,_Target);
+        }
     }
 }
