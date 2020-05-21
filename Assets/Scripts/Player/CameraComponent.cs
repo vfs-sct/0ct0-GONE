@@ -5,6 +5,8 @@ public class CameraComponent : MonoBehaviour
 {
     [Header("Camera Control")]
     [SerializeField]
+    public GameFrameworkManager GameManager;
+    [SerializeField]
     private Transform _CamPivot = null;
     [SerializeField]
     private Transform _MainCamera = null;
@@ -31,6 +33,11 @@ public class CameraComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.isPaused)
+        {
+            return;
+        }
+
         UpdateZoom();
         UpdateRotations();
     }

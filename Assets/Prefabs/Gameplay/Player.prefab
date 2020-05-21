@@ -276,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementModes:
   - {fileID: 11400000, guid: fd5fca18eb6645f409cc0bab0c4b41b0, type: 2}
-  - {fileID: 11400000, guid: 0ec70043dae13d6459ca88abc15fd226, type: 2}
+  - {fileID: 0}
   MovementMode: 0
   NormalizeInput: 1
 --- !u!114 &489913433233796650
@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bfcdd4c9529204e9597c4ec6975b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
   _CamPivot: {fileID: 5267203579931695048}
   _MainCamera: {fileID: 489913431673510641}
   _MaxZoom: 1.7
