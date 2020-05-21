@@ -22,10 +22,6 @@ public class Resource : ScriptableObject
         }
     }
 
-
-
-
-
     [SerializeField] private float Minimum = 0 ;
     [SerializeField] private float DefaultValue = 0;
     [SerializeField] private float Maximum = 100;

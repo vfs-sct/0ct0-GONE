@@ -30,7 +30,7 @@ public class ResourcePanel : MonoBehaviour
         }
     }
 
-    void UpdateResourceAmount(Resource resource, float newAmount)
+    public void UpdateResourceAmount(Resource resource, float newAmount)
     {
         var updateLine = resourceList[resource];
 
