@@ -11,6 +11,18 @@ public class ToolController : MonoBehaviour
 
     private bool CurrentToolIsActive = false;
 
+    private GameObject _Target;
+    public GameObject Target{get=>_Target;}
+
+    public void SetTarget(GameObject NewTarget)
+    {
+        _Target = NewTarget;
+    }
+
+    public void ClearTarget()
+    {
+        SetTarget(null);
+    }
     public void SwitchTool(int ToolIndex)
     {
         Debug.Assert(ToolIndex < EquiptTools.Count && ToolIndex >= 0);
@@ -33,19 +45,19 @@ public class ToolController : MonoBehaviour
     public void ActivateTool()
     {
         if (CurrentTool == null | CurrentToolIsActive) return;
-        CurrentToolIsActive = CurrentTool.Activate(this,null);
+        CurrentToolIsActive = CurrentTool.Activate(this,_Target);
     }
 
     public void DeactivateTool()
     {
         if (CurrentTool == null) return;
-        CurrentToolIsActive = !CurrentTool.Deactivate(this,null);
+        CurrentToolIsActive = !CurrentTool.Deactivate(this,_Target);
         
     }
     private void DeactiveTool_Internal()
     {
         if (CurrentTool == null) return;
-        CurrentTool.Deactivate(this,null);
+        CurrentTool.Deactivate(this,_Target);
         CurrentToolIsActive = false;
     }
 

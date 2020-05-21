@@ -12,8 +12,9 @@ public class MovementController : MonoBehaviour
 
     private MovementComponent ActiveMode = null;
 
-    private Vector3 _RawInput;
-    private Vector3 _NormalizedInput;
+    private Vector3 _RawInput = new Vector3();
+    private Vector3 _NormalizedInput= new Vector3();
+
 
     public Vector3 RawInput{get => _RawInput;}
     public Vector3 NormalizedInput{get => _NormalizedInput;}
@@ -27,8 +28,8 @@ public class MovementController : MonoBehaviour
 
     public void OnHorizontalTranslate(InputValue value)
     {
-        _RawInput.x = value.Get<Vector2>().x;
-        _RawInput.z = value.Get<Vector2>().y;
+        _RawInput.z = -value.Get<Vector2>().x;
+        _RawInput.x = value.Get<Vector2>().y;
     }
     public void OnVerticalTranslate(InputValue value)
     {
