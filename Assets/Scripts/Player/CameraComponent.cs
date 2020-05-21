@@ -105,21 +105,21 @@ public class CameraComponent : MonoBehaviour
         var pitch = _CamPivot.eulerAngles.x;
 
         //clamp how high/low character can look. Possibly not necessary in space if we want the char to do a vertical 360 just by looking upward/downward?
-        if (pitch > 40 && pitch < 180)
-        {
-            pitch = 40;
-        }
-        else if (pitch < 325 && pitch > 180)
-        {
-            pitch = 325;
-        }
+        //if (pitch > 40 && pitch < 180)
+        //{
+        //    pitch = 40;
+        //}
+        //else if (pitch < 325 && pitch > 180)
+        //{
+        //    pitch = 325;
+        //}
 
         //store new pitch in a variable, because you can't change just the X position on the camera directly
-        var euler_angles = _CamPivot.eulerAngles;
-        euler_angles.x = pitch;
+        //var euler_angles = _CamPivot.eulerAngles;
+        //euler_angles.x = pitch;
 
         //update camera rotation with new value
-        _CamPivot.eulerAngles = euler_angles;
+        //_CamPivot.eulerAngles = euler_angles;
 
         //uncomment to see numerical value of pitch angle change in real time
         //Debug.Log(pitch);
