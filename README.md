@@ -11,7 +11,7 @@ CONTROLS
 ===================
 W/S - Move forward/back
 A/D - Move left/right
-Ctrl/Alt - Move up/down
+Space/Ctrl - Move up/down
 Mouse - Look around
 Scroll - Zoom
 Esc - Pause/Unpause/Close Menu
