@@ -29,6 +29,7 @@ public class Resource : ScriptableObject
     [SerializeField] private float Minimum = 0 ;
     [SerializeField] private float DefaultValue = 0;
     [SerializeField] private float Maximum = 100;
+    [SerializeField] public string DisplayName = "";
 
     Dictionary<ResourceInventory,ResourceData_Internal> Data = new Dictionary<ResourceInventory, ResourceData_Internal>();
 
