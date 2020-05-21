@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3012017732064287526}
   - component: {fileID: 2248995898677861795}
   - component: {fileID: -4006947206401739224}
+  - component: {fileID: 5007389028406960399}
   m_Layer: 0
   m_Name: Scrap1
   m_TagString: Untagged
@@ -46,11 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ResourceManager: {fileID: 11400000, guid: 24e38bf2ba3270840b60b88238072079, type: 2}
-  ActiveResources:
-  - resource: {fileID: 11400000, guid: 76659a960dc2d114a847e7be12923991, type: 2}
-    min: 0
-    max: 50
-    value: 50
+  ActiveResources: []
+  UseOverrides: 0
+  OverrideValues: []
 --- !u!114 &-4006947206401739224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +62,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cbfc9dc3323e6442958f93ada007dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HarvestingTool: {fileID: 0}
+  _HarvestingTool: {fileID: 11400000, guid: 41cedef85c35ccb428399bdbd6368a25, type: 2}
+  _LinkedSalvage: {fileID: 11400000, guid: 00aaec184ef968d4abc354be0a21e1c2, type: 2}
+  SalvagePercentage: 0
+--- !u!135 &5007389028406960399
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767867292494933302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2946579196363031922
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 2946579196363031922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3265, y: 1.3265, z: 3.3824425}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3012017732064287526}
   m_RootOrder: 0
