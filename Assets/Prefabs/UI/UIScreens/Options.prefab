@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 2069883305492005166}
+  defaultVolume: 0.5
   WWiseChannel: 
 --- !u!1 &2784390251950434574
 GameObject:
@@ -125,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 2784390251887959423}
+  defaultVolume: 0.5
   WWiseChannel: MasterVolume
 --- !u!1 &2784390252222734504
 GameObject:
@@ -640,6 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 7475452991561839811}
+  defaultVolume: 0.5
   WWiseChannel: MusicVolume
 --- !u!114 &2310913303765994497
 MonoBehaviour:
@@ -667,6 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 7475452992921621475}
+  defaultVolume: 0.5
   WWiseChannel: SFXVolume
 --- !u!1001 &683076843878316312
 PrefabInstance:
@@ -1419,12 +1423,12 @@ PrefabInstance:
     - target: {fileID: 4691062843725985682, guid: 5de41d4144fcc314bab2ae4c7e3372db,
         type: 3}
       propertyPath: m_MaxValue
-      value: 2.8
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 4691062843725985682, guid: 5de41d4144fcc314bab2ae4c7e3372db,
         type: 3}
       propertyPath: m_MinValue
-      value: 1.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4691062844331291360, guid: 5de41d4144fcc314bab2ae4c7e3372db,
         type: 3}
