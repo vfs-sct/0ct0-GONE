@@ -5,13 +5,15 @@ public class SoundSliders : MonoBehaviour
 {
     //NOTE: Slider values operate on a scale of 0 to 1
     [SerializeField] public Slider volumeSlider;
-    [SerializeField] public float defaultVolume = 0.5f;
     [SerializeField] public string WWiseChannel;
     private float newVolume;
 
     private void Start()
     {
-        volumeSlider.value = defaultVolume;
+        float value = 0;
+        int value_type = 0;
+        AkSoundEngine.GetRTPCValue(WWiseChannel, null, 0, out value, ref value_type);
+        volumeSlider.value = value;
     }
     public void SetVolumeSlider()
     {
