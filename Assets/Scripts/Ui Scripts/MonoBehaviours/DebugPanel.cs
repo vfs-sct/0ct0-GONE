@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
@@ -9,8 +10,27 @@ public class DebugPanel : MonoBehaviour
     [SerializeField] GameObject defaultText = null;
     [SerializeField] GameObject defaultButton = null;
 
-    void Start()
+    [SerializeField] Resource[] resourceList = null;
+    [SerializeField] TMP_Dropdown resourceDropDown = null;
+
+
+    [SerializeField] List<string> resourceNamesList = new List<string>();
+
+    void Awake()
     {
+        foreach (var resource in resourceList)
+        {
+            resourceNamesList.Add(resource.DisplayName);
+        }
+        resourceDropDown.options.Clear();
+
+
+        resourceDropDown.AddOptions(resourceNamesList);
+
+
+        
+        //dropDown..AddOptions(resourceNamesList);
+
         //EXAMPLE
         AddNewText("Debug info here!");
         AddNewText("Stat:" + " 400");
