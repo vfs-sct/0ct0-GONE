@@ -1,29 +1,50 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
 public class ObjectivePanel : MonoBehaviour
 {
-    [SerializeField] VerticalLayoutGroup vLayoutGroup = null;
+    [SerializeField] VerticalLayoutGroup contentGroup = null;
     [SerializeField] GameObject defaultObjectiveText = null;
 
-    private int currentEvent = 0;
+    public int currentEvent = 0;
 
-    Dictionary<string, string> narrativeObjectives = new Dictionary<string, string>
+    private string[][] events = new string[][]
     {
-        {"Objective01", "Repair the destroyed ship"},
+        //OBJECTIVE ONE
+        new string[]
+        {
+            "- Repair the broken space ship",
+        },
+
+        //OBJECTIVE TWO
+        new string[]
+        {
+            "Example",
+            "Example",
+            "Example",
+        },
     };
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        LoadObjectives(events[currentEvent]);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LoadObjectives(string[] narrativeSet)
     {
-        
-    }
+        //TODO - code to delete objectives leftover in the display before putting the new ones in
+        //foreach()
+        //{
+        //}
 
+        foreach (var objective in narrativeSet)
+        {
+            var newHeader = Instantiate(defaultObjectiveText);
+
+            newHeader.transform.SetParent(contentGroup.transform);
+            newHeader.GetComponentInChildren<TextMeshProUGUI>().SetText(objective);
+        }
+    }
 }
