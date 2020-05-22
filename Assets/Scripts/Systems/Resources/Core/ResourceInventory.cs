@@ -39,7 +39,6 @@ public class ResourceInventory : MonoBehaviour
                 ResourceManager.CreateResourceInstance(resource,this); //create resource with default values
             }
         }
-       Debug.Log(this + " Finished Initializing");
     }
 
     public bool HasResource(Resource resourceToCheck)

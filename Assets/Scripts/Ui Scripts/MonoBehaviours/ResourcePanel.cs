@@ -37,8 +37,6 @@ public class ResourcePanel : MonoBehaviour
     public void UpdateResourceAmount(Resource resource, float DeltaValue)
     {
         var updateLine = resourceList[resource];
-        Debug.Log("We live in a society");
-
         updateLine.GetComponent<TextMeshProUGUI>().SetText(resource.DisplayName + ": " + playerInventory.GetResource(resource));
     }
 }
