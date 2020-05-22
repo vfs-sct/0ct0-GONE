@@ -19,6 +19,7 @@ public class Playing : GameState
 
     public override void OnActivate(GameState LastState)
     {
+        Debug.Log("GameplayState");
     }
 
     public override void OnDeactivate(GameState NewState)
