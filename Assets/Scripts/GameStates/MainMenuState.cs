@@ -19,6 +19,7 @@ public class MainMenuState : GameState
 
     public override void OnActivate(GameState LastState)
     {
+        Debug.Log("Main Menu");
         //Debug.Log("I'm alive");
         //UIManager.CreateInstance(MainMenuUI);
         //UIManager.Show(MainMenuUI, 0);

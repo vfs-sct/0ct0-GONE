@@ -9,10 +9,13 @@ public class ResourcePanel : MonoBehaviour
     [SerializeField] private Resource[] resources = null;
     [SerializeField] public VerticalLayoutGroup contentGroup = null;
     [SerializeField] public GameObject defaultText = null;
-
+    [SerializeField] private ResourceModule ResourceController;
     Dictionary<Resource, GameObject> resourceList = new Dictionary<Resource, GameObject>();
     
     // Start is called before the first frame update
+
+
+
     void Awake()
     {
         foreach(var resource in resources)
@@ -27,13 +30,15 @@ public class ResourcePanel : MonoBehaviour
             //save an association between the resource and the new entry we've created so we can pick out
             //specific resources to update later
             resourceList.Add(resource, newLine);
+            ResourceController.RegisterOnAddDelegate(resource,playerInventory,UpdateResourceAmount);
         }
     }
 
-    public void UpdateResourceAmount(Resource resource, float newAmount)
+    public void UpdateResourceAmount(Resource resource, float DeltaValue)
     {
         var updateLine = resourceList[resource];
+        Debug.Log("We live in a society");
 
-        updateLine.GetComponent<TextMeshProUGUI>().SetText(resource.DisplayName + ": " + newAmount);
+        updateLine.GetComponent<TextMeshProUGUI>().SetText(resource.DisplayName + ": " + playerInventory.GetResource(resource));
     }
 }

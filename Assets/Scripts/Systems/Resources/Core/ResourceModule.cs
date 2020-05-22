@@ -10,7 +10,7 @@ public class ResourceModule : Module
 
     public delegate void ResourceEvent(ResourceInventory Caller);
 
-    public delegate void ResourceEventDelta(ResourceInventory Caller);
+    public delegate void ResourceEventDelta(Resource resource,float amount);
 
     [System.Serializable]
     public struct ResourceData
@@ -30,11 +30,21 @@ public class ResourceModule : Module
     }
 
 
-
+    //Add a new resource type to the inventory (helper for when passing overides)
     public void CreateResourceInstance(ResourceData resourceData, ResourceInventory owner)
     {
 
         resourceData.resource.RegisterInstance(resourceData,owner);
+    }
+
+    public void RegisterOnAddDelegate(Resource resource, ResourceInventory owner, ResourceEventDelta newDelegate)
+    {
+        resource.RegisterOnAddDelegate(owner,newDelegate);
+    }
+
+    public void RegisterOnRemoveDelegate(Resource resource, ResourceInventory owner, ResourceEventDelta newDelegate)
+    {
+        resource.RegisterOnRemoveDelegate(owner,newDelegate);
     }
 
 

@@ -107,7 +107,6 @@ public class GameFrameworkManager : ScriptableObject
     {
         if (ActiveState != null)
         {
-            Debug.Log(ActiveState);
             ActiveState.OnDeactivate(_GameState);
             GameState LastState = ActiveState;
             ActiveState = _GameState;
