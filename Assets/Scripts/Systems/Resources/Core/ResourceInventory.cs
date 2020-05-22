@@ -12,7 +12,8 @@ public class ResourceInventory : MonoBehaviour
 
     [SerializeField] private List<ResourceModule.ResourceData> OverrideValues;
 
-
+    //Drag the gameobject called "ResourcePanel" under UIRoot->GameHUD to hook up the player's inventory to the resource UI
+    [SerializeField] public ResourcePanel ResourceUI = null;
 
     void Start()
     {
@@ -67,6 +68,7 @@ public class ResourceInventory : MonoBehaviour
     public void AddResource(Resource resource, float amount)
     {
         resource.AddInstanceValue(this,amount);
+        ResourceUI.UpdateResourceAmount(resource, amount);
     }
 
     public void SetResource(Resource resource, float amount)
@@ -76,7 +78,11 @@ public class ResourceInventory : MonoBehaviour
 
     public float GetResource(Resource resource)
     {
-        return resource.GetInstanceValue(this);
+        if (HasResource(resource))
+        {
+            return resource.GetInstanceValue(this);
+        }
+        return 0;
     }
 
 
