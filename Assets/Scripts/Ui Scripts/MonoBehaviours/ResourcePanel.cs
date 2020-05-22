@@ -30,6 +30,7 @@ public class ResourcePanel : MonoBehaviour
             //save an association between the resource and the new entry we've created so we can pick out
             //specific resources to update later
             resourceList.Add(resource, newLine);
+
             ResourceController.RegisterOnAddDelegate(resource,playerInventory,UpdateResourceAmount);
         }
     }

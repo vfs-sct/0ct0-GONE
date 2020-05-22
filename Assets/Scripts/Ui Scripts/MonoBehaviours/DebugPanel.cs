@@ -12,35 +12,53 @@ public class DebugPanel : MonoBehaviour
     [SerializeField] GameObject defaultButton = null;
 
     [SerializeField] Resource[] resourceList = null;
-    [SerializeField] TMP_Dropdown resourceDropDown = null;
+    [SerializeField] TMP_Dropdown DropDown = null;
 
 
     [SerializeField] List<string> resourceNamesList = new List<string>();
 
     private ResourceInventory playerInventory;
 
+    private Resource fuel;
+
     void Awake()
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
 
+        AddNewText("Select resource from dropdown to add 100 of that resource");
+
+        var resourceDropDown = Instantiate(DropDown);
+        resourceDropDown.transform.SetParent(vLayoutGroup.transform);
+
         foreach (var resource in resourceList)
         {
             resourceNamesList.Add(resource.DisplayName);
+
+            if (resource.DisplayName == "Thruster Fuel")
+            {
+                fuel = resource;
+            }
         }
+        
         resourceDropDown.options.Clear();
 
-
         resourceDropDown.AddOptions(resourceNamesList);
+        resourceDropDown.onValueChanged.AddListener(evt =>
+        {
+            playerInventory.TryAdd(resourceList[resourceDropDown.value], 100);
+        });
 
+        AddNewButton("Kill Octo", () => { playerInventory.SetResource(fuel, 0f); });
+    }
 
-        
-        //dropDown..AddOptions(resourceNamesList);
+    public void KillOcto()
+    {
+        if (fuel == null)
+        {
+            return;
+        }
 
-        //EXAMPLE
-        AddNewText("Debug info here!");
-        AddNewText("Stat:" + " 400");
-        AddNewButton("Do thing!", () => { });
-        AddNewButton("Something else!", () => { });
+        playerInventory.SetResource(fuel, 0f);
     }
 
     public void AddNewText(string headerText)
