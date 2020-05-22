@@ -1,10 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class ObjectivePanel : MonoBehaviour
 {
+    [SerializeField] VerticalLayoutGroup vLayoutGroup = null;
+    [SerializeField] GameObject defaultObjectiveText = null;
 
+    private int currentEvent = 0;
 
     Dictionary<string, string> narrativeObjectives = new Dictionary<string, string>
     {
@@ -21,4 +25,5 @@ public class ObjectivePanel : MonoBehaviour
     {
         
     }
+
 }
