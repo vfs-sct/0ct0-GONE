@@ -324,6 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugPrefab: {fileID: 3179040607336433361}
   gammaDefault: 2.2
+  player: {fileID: 0}
 --- !u!114 &4422741092593645867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,6 +965,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30,
         type: 2}
+    - target: {fileID: 6906676684867671565, guid: e32103666bfb55a44855f8295710373c,
+        type: 3}
+      propertyPath: UIRoot
+      value: 
+      objectReference: {fileID: 1171884305357751754}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e32103666bfb55a44855f8295710373c, type: 3}
 --- !u!224 &2078278899719991113 stripped
@@ -1361,6 +1367,17 @@ PrefabInstance:
       propertyPath: resources.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5292568386286416493, guid: 6f4cfe79b19c0e34fa7a603cce0cdb1b,
+        type: 3}
+      propertyPath: UIRoot
+      value: 
+      objectReference: {fileID: 1171884305357751754}
+    - target: {fileID: 5292568386286416493, guid: 6f4cfe79b19c0e34fa7a603cce0cdb1b,
+        type: 3}
+      propertyPath: ResourceController
+      value: 
+      objectReference: {fileID: 11400000, guid: 24e38bf2ba3270840b60b88238072079,
+        type: 2}
     - target: {fileID: 6829231279917719795, guid: 6f4cfe79b19c0e34fa7a603cce0cdb1b,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1737,6 +1754,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7288517042348984342, guid: c5366ed1a2eec514da73d89054a5564a,
+        type: 3}
+      propertyPath: UIRoot
+      value: 
+      objectReference: {fileID: 1171884305357751754}
     - target: {fileID: 7288517042348984343, guid: c5366ed1a2eec514da73d89054a5564a,
         type: 3}
       propertyPath: m_LocalPosition.x

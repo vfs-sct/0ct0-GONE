@@ -6,6 +6,7 @@ using TMPro;
 
 public class DebugPanel : MonoBehaviour
 {
+    [SerializeField] UIAwake UIRoot = null;
     [SerializeField] VerticalLayoutGroup vLayoutGroup = null;
     [SerializeField] GameObject defaultText = null;
     [SerializeField] GameObject defaultButton = null;
@@ -16,8 +17,12 @@ public class DebugPanel : MonoBehaviour
 
     [SerializeField] List<string> resourceNamesList = new List<string>();
 
+    private ResourceInventory playerInventory;
+
     void Awake()
     {
+        playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
+
         foreach (var resource in resourceList)
         {
             resourceNamesList.Add(resource.DisplayName);

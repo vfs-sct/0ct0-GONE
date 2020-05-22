@@ -3,16 +3,16 @@ using UnityEngine.UI;
 
 public class FillBar : MonoBehaviour
 {
-    [SerializeField] public ResourceInventory playerInventory = null;
+    [SerializeField] public UIAwake UIRoot = null;
     [SerializeField] public Resource fuel = null;
-
-    // the stat we're displaying
-    //[SerializeField] private float charStat;
 
     [SerializeField] public Image barFill = null;
 
+    private ResourceInventory playerInventory;
+
     private void Start()
     {
+        playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
     }
 
     private void Update()

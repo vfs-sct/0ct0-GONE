@@ -5,20 +5,20 @@ using System.Collections.Generic;
 
 public class ResourcePanel : MonoBehaviour
 {
-    [SerializeField] public ResourceInventory playerInventory = null;
+    [SerializeField] public UIAwake UIRoot = null;
     [SerializeField] private Resource[] resources = null;
     [SerializeField] public VerticalLayoutGroup contentGroup = null;
     [SerializeField] public GameObject defaultText = null;
-    [SerializeField] private ResourceModule ResourceController;
+    [SerializeField] private ResourceModule ResourceController = null;
     Dictionary<Resource, GameObject> resourceList = new Dictionary<Resource, GameObject>();
-    
-    // Start is called before the first frame update
 
-
+    private ResourceInventory playerInventory;
 
     void Awake()
     {
-        foreach(var resource in resources)
+        playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
+
+        foreach (var resource in resources)
         {
             var currentAmount = playerInventory.GetResource(resource);
             var newLine = Instantiate(defaultText);
@@ -37,7 +37,6 @@ public class ResourcePanel : MonoBehaviour
     public void UpdateResourceAmount(Resource resource, float DeltaValue)
     {
         var updateLine = resourceList[resource];
-        Debug.Log("We live in a society");
 
         updateLine.GetComponent<TextMeshProUGUI>().SetText(resource.DisplayName + ": " + playerInventory.GetResource(resource));
     }
