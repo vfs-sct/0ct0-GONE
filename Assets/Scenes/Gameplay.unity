@@ -221,6 +221,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927,
         type: 2}
+    - target: {fileID: 489913433233796641, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: ResourceUI
+      value: 
+      objectReference: {fileID: 507625422}
     - target: {fileID: 489913433233796650, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: SalvageRegion
@@ -344,6 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 489913431673510640, guid: 7de9c50c04b650e4fa5a1b2c16083f87, type: 3}
+    - {fileID: 489913433233796641, guid: 7de9c50c04b650e4fa5a1b2c16083f87, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7de9c50c04b650e4fa5a1b2c16083f87, type: 3}
 --- !u!1001 &389313936
 PrefabInstance:
@@ -640,6 +646,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4164511204261677510, guid: 7a40043a15a6c1b4ead6c6a227ee3e2f, type: 3}
+--- !u!114 &507625422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8814695352032611815, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1639616309}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ad914eba7cc0e40aa8e3ede7f1bf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &508235367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4473984409997532297, guid: 7a40043a15a6c1b4ead6c6a227ee3e2f,
@@ -913,11 +931,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 307403186}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &849435026 stripped
+--- !u!114 &849435026
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 489913433233796641, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
-    type: 3}
-  m_PrefabInstance: {fileID: 307403186}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849435022}
   m_Enabled: 1
@@ -925,6 +943,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35215f6ef2c16d244857908585185b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResourceManager: {fileID: 11400000, guid: 24e38bf2ba3270840b60b88238072079, type: 2}
+  ActiveResources:
+  - {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
+  - {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
+  - {fileID: 11400000, guid: 76659a960dc2d114a847e7be12923991, type: 2}
+  - {fileID: 11400000, guid: 15e45efacb3bbb44fb88b1ca1ddf4341, type: 2}
+  - {fileID: 11400000, guid: d0f3fb827fbca7945947aa9d0abafa14, type: 2}
+  - {fileID: 11400000, guid: 64120bba6752ad34f8d00578d69e5c66, type: 2}
+  UseOverrides: 0
+  OverrideValues: []
 --- !u!136 &849435031
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2406,6 +2434,12 @@ PrefabInstance:
       propertyPath: resources.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: 64120bba6752ad34f8d00578d69e5c66,
+        type: 2}
+    - target: {fileID: 8814695352032611815, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: ResourceController
+      value: 
+      objectReference: {fileID: 11400000, guid: 24e38bf2ba3270840b60b88238072079,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3219ccd55e0001b4c8703f7dc571d41e, type: 3}

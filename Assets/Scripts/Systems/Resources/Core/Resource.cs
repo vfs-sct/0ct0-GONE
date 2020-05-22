@@ -10,8 +10,12 @@ public class Resource : ScriptableObject
         public float Min;
         public float Max;
         public float Value;
-        public ResourceData_Internal(float Mn,float val,float Mx)
+        public ResourceModule.ResourceEventDelta OnAddResource;
+        public ResourceModule.ResourceEventDelta OnRemoveResource;
+        public ResourceData_Internal(float Mn,float val,float Mx,ResourceModule.ResourceEventDelta OA, ResourceModule.ResourceEventDelta OR)
         {
+            OnAddResource = OA;
+            OnRemoveResource = OR;
             Min = Mn;
             Max = Mx;
             Value = val;
@@ -29,55 +33,92 @@ public class Resource : ScriptableObject
 
     Dictionary<ResourceInventory,ResourceData_Internal> Data = new Dictionary<ResourceInventory, ResourceData_Internal>();
 
+    /*  
+    //
+    //*********** Warning: These functions are internal and should not be called from outside the resource system! ****************
+    //                      Use either the ResourceInventory or Resource Module Classes instead!
+    */
 
+
+    //Create a new resource type in an inventory, overriding default values
     public void RegisterInstance(ResourceModule.ResourceData DataIn,ResourceInventory owner)
     {
         Debug.Assert(!Data.ContainsKey(owner));
-        Data.Add(owner,new ResourceData_Internal(DataIn.min,DataIn.value,DataIn.max));
+        Data.Add(owner,new ResourceData_Internal(DataIn.min,DataIn.value,DataIn.max,null,null));
     }
 
 
+    //register a new delegate to call when a resource is added
+    public void RegisterOnAddDelegate(ResourceInventory owner, ResourceModule.ResourceEventDelta newDelegate)
+    {
+        Debug.Assert(Data.ContainsKey(owner));
+        Data[owner] = new ResourceData_Internal(Data[owner].Min,Data[owner].Value,Data[owner].Max,Data[owner].OnAddResource + newDelegate,Data[owner].OnRemoveResource);
+    }
+
+    //register a new delegate to call when a resource is subtracted
+    public void RegisterOnRemoveDelegate(ResourceInventory owner, ResourceModule.ResourceEventDelta newDelegate) 
+    {
+        Debug.Assert(Data.ContainsKey(owner));
+        Data[owner] = new ResourceData_Internal(Data[owner].Min,Data[owner].Value,Data[owner].Max,Data[owner].OnAddResource,Data[owner].OnRemoveResource + newDelegate);
+    }
+
+
+
+    //Create a new resource type in an inventory using default values
     public void RegisterInstance(ResourceInventory owner)
     {
         Debug.Assert(!Data.ContainsKey(owner));
-        Data.Add(owner,new ResourceData_Internal(Minimum,DefaultValue,Maximum));
+        Data.Add(owner,new ResourceData_Internal(Minimum,DefaultValue,Maximum,null,null));
     }
 
+
+    //Remove a resource type from an inventory
     public void RemoveInstance(ResourceInventory owner)
     {
         Data.Remove(owner);
     }
 
-
+    //Get the current amount of a resource in an inventory
     public float GetInstanceValue(ResourceInventory owner)
     {
         Debug.Assert(Data.ContainsKey(owner));
         return Data[owner].Value;
     }
 
+    //Set the current amount of resource in an inventory
     public void SetInstanceValue(ResourceInventory owner,float value)
     {
-        Data[owner] = new ResourceData_Internal(Data[owner].Min,value,Data[owner].Max);
+        Data[owner] = new ResourceData_Internal(Data[owner].Min,value,Data[owner].Max,Data[owner].OnAddResource,Data[owner].OnRemoveResource);
     }
 
+
+    //Does the inventory contain atleast {value} amount
     public bool CanSubtract(ResourceInventory owner,float value)
     {  
         return Data[owner].Value+value <= Data[owner].Max;
     }
 
+    //Does the inventory contain atleast {value} free space
     public bool CanAdd(ResourceInventory owner,float value)
     {
         return Data[owner].Value-value >= Data[owner].Min;
     }
 
+    //Add {valueToAdd} amount of a resource to an inventory
     public void AddInstanceValue(ResourceInventory owner,float valueToAdd)
     {   
         SetInstanceValue(owner,(Mathf.Clamp(Data[owner].Value + valueToAdd,Minimum,Maximum)));
+        if (Data[owner].OnAddResource!=null)  Data[owner].OnAddResource(this,valueToAdd);
     }
+
+     //Subtract {valueToSub} amount of a resource to an inventory (Wrapper for add)
     public void SubInstanceValue(ResourceInventory owner,float valueToSub)
     {
         AddInstanceValue(owner,-valueToSub);
+        if (Data[owner].OnRemoveResource !=null) Data[owner].OnRemoveResource(this,valueToSub);
     }
+
+    //Required scriptableModule behavior
     public void Reset()
     {
         Data.Clear();
