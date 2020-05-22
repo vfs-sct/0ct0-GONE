@@ -21,11 +21,13 @@ public class DebugPanel : MonoBehaviour
 
     private Resource fuel;
 
+    private GameObject fuelStat;
+
     void Awake()
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
 
-        AddNewText("Select resource from dropdown to add 100 of that resource");
+        AddNewText("Select resource from dropdown to add 50 of that resource");
 
         var resourceDropDown = Instantiate(DropDown);
         resourceDropDown.transform.SetParent(vLayoutGroup.transform);
@@ -45,10 +47,12 @@ public class DebugPanel : MonoBehaviour
         resourceDropDown.AddOptions(resourceNamesList);
         resourceDropDown.onValueChanged.AddListener(evt =>
         {
-            playerInventory.TryAdd(resourceList[resourceDropDown.value], 100);
+            playerInventory.TryAdd(resourceList[resourceDropDown.value], 50);
         });
 
         AddNewButton("Kill Octo", () => { playerInventory.SetResource(fuel, 0f); });
+
+        fuelStat = AddNewText("Fuel Stat: " + playerInventory.GetResource(fuel));
     }
 
     public void KillOcto()
@@ -61,11 +65,13 @@ public class DebugPanel : MonoBehaviour
         playerInventory.SetResource(fuel, 0f);
     }
 
-    public void AddNewText(string headerText)
+    GameObject AddNewText(string headerText)
     {
         var newHeader = Instantiate(defaultText);
         newHeader.transform.SetParent(vLayoutGroup.transform);
         newHeader.GetComponentInChildren<TextMeshProUGUI>().SetText(headerText);
+
+        return newHeader;
     }
 
     //add a button with a label and onclick function
@@ -81,6 +87,11 @@ public class DebugPanel : MonoBehaviour
             //pass in the function you want the button to do when clicked
             buttonFunction();
         });
+    }
+
+    private void Update()
+    {
+        fuelStat.GetComponent<TextMeshProUGUI>().SetText("Fuel Stat: " + playerInventory.GetResource(fuel));
     }
 
     //tilde to close
