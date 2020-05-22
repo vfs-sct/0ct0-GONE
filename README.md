@@ -47,6 +47,8 @@ SOUND
 -WWise integration completed.
 -Stubbed in WIP button sounds. Sounds will be replaced but currently demonstrate functionality.
 -Separate busses exist for Master, Music, SFX and Dialogue.
+
+BUG: Sound is loaded along with it's respective banks, however, decides to only play after tabbing in and out of the program. 
 ===================
 
 ART
