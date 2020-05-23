@@ -3,16 +3,16 @@ using UnityEngine.UI;
 
 public class FillBar : MonoBehaviour
 {
-    [SerializeField] public ResourceInventory playerInventory = null;
+    [SerializeField] public UIAwake UIRoot = null;
     [SerializeField] public Resource fuel = null;
-
-    // the stat we're displaying
-    //[SerializeField] private float charStat;
 
     [SerializeField] public Image barFill = null;
 
+    private ResourceInventory playerInventory;
+
     private void Start()
     {
+        playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
     }
 
     private void Update()
@@ -20,6 +20,7 @@ public class FillBar : MonoBehaviour
         float charStat = fuel.GetInstanceValue(playerInventory);
 
         // set fill to health percentage
-        barFill.fillAmount = charStat;
+        //needs a way to get the max value from the resource instead of hardcoding division number
+        barFill.fillAmount = charStat/5000;
     }
 }

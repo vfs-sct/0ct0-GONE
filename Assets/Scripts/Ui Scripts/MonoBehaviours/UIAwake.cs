@@ -6,7 +6,18 @@ public class UIAwake : MonoBehaviour
 {
     [SerializeField] GameObject DebugPrefab = null;
     [SerializeField] public float gammaDefault = 2.2f;
+    [SerializeField] public GameObject player = null;
     // Start is called before the first frame update
+   
+    public GameObject GetPlayer()
+    {
+        if (player == null)
+        {
+            Debug.Log("Player gameobject is null!");
+        }
+        return player;
+    }
+
     void Start()
     {
         var camera = Camera.main;
