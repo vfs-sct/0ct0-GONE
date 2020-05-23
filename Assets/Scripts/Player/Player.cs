@@ -16,6 +16,11 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float TargetingDistance = 1000.0f;
 
+    [SerializeField] private Resource FuelResource;
+
+    [SerializeField] private ResourceInventory LinkedInventory;
+
+    [SerializeField] private GameOver GameOverScreen;
 
     private MovementController LinkedMovementController;
     private ToolController LinkedToolController;
@@ -116,6 +121,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void GameOver()
+    {
+        GameManager.Pause();
+        GameOverScreen.gameObject.SetActive(true);
+    }
+
 
     private void Start()
     {
@@ -125,7 +136,12 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
-        
+        Debug.Log("PlayerFuel = "+LinkedInventory.GetResource(FuelResource));
+        if (LinkedInventory.GetResource(FuelResource) == 0)
+        {
+
+            GameOver();
+        }
     }
 
 
