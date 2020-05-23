@@ -37,7 +37,9 @@ UI
 -Pause Menu, Options, Back, Controls, Exit Game implemented and functional.
 -Player can return to main menu from gameplay and game over.
 -Functional Gamma slider.
+	-Saves using PlayerPrefs.
 -Functional Sound sliders.
+	-Saves using PlayerPrefs.
 	-Note: There is no music or dialogue implemented, so MUSIC and DIALOGUE sliders will not appear to affect anything.
 -Functional Codex menu that populates buttons/page text based off entries added codeside.
 	-Originally slotted for M2. M2 will now focus on adding a lock/unlock system.
