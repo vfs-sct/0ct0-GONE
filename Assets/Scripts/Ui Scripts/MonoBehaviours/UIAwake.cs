@@ -9,6 +9,13 @@ public class UIAwake : MonoBehaviour
     
     private Player player = null;
     // Start is called before the first frame update
+
+    public string[] VolumePrefs = new string[]
+    {
+        "MasterVolume",
+        "MusicVolume",
+        "SFXVolume",
+    };
    
     public Player GetPlayer()
     {
@@ -40,6 +47,15 @@ public class UIAwake : MonoBehaviour
         else
         {
             Shader.SetGlobalFloat("gamma", PlayerPrefs.GetFloat("Gamma"));     
+        }
+
+
+        foreach (var volumePref in VolumePrefs)
+        {
+            if (PlayerPrefs.HasKey(volumePref))
+            {
+                AkSoundEngine.SetRTPCValue(volumePref, PlayerPrefs.GetFloat(volumePref));
+            }
         }
 
     }

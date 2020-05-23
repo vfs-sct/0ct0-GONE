@@ -7,17 +7,28 @@ public class SoundSliders : MonoBehaviour
     [SerializeField] public Slider volumeSlider;
     [SerializeField] public string WWiseChannel;
     private float newVolume;
+    private float value;
 
     private void Start()
     {
-        float value = 0;
-        int value_type = 0;
-        AkSoundEngine.GetRTPCValue(WWiseChannel, null, 0, out value, ref value_type);
+        if (PlayerPrefs.HasKey(WWiseChannel))
+        {
+            value = PlayerPrefs.GetFloat(WWiseChannel);
+        }
+        else
+        {
+            value = 0;
+        }
+        //int value_type = 0;
+        //AkSoundEngine.GetRTPCValue(WWiseChannel, null, 0, out value, ref value_type);
         volumeSlider.value = value;
     }
     public void SetVolumeSlider()
     {
         newVolume = volumeSlider.value;
         AkSoundEngine.SetRTPCValue(WWiseChannel, newVolume);
+
+        PlayerPrefs.SetFloat(WWiseChannel, newVolume);
+        PlayerPrefs.Save();
     }
 }
