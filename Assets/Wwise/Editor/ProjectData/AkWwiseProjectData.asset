@@ -17,13 +17,13 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: c0f85af3f7a2604bbfb74e92a1e506b9
     GuidInternal: 
-    m_lastTime: -8586116592056215654
+    m_lastTime: -8586116575707385691
     List: []
   - PhysicalPath: Virtual Acoustics\Factory Reflect Acoustic Textures.wwu
     ParentPhysicalPath: 
     guid: 6b663d46a83ca54f8b4a5fef12b883f6
     GuidInternal: 
-    m_lastTime: -8586116592056205691
+    m_lastTime: -8586114315581786527
     List:
     - name: Acoustic_Banner
       guid: f2532d2fccda8e408b8898b1b52a26d6
@@ -184,20 +184,20 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: f900c26f10d8334a9904ef23286ce5ab
     GuidInternal: 
-    m_lastTime: -8586116592062967614
+    m_lastTime: -8586116575715372622
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: d049f23b4e880a4eadcd9d0858402286
     GuidInternal: 
-    m_lastTime: -8586116592056385214
+    m_lastTime: -8586114315581816544
     List: []
   - PhysicalPath: SoundBanks\Wwise_Octo_Main.wwu
     ParentPhysicalPath: 
     guid: 4b09c945823b784db271dddea9bdc8f6
     GuidInternal: 
-    m_lastTime: -8586116592056355287
+    m_lastTime: -8586116575707525725
     List:
     - name: Wwise_Octo_Main
       guid: 6708afac6d9ee04db998d6093e51fc97
@@ -210,10 +210,10 @@ MonoBehaviour:
       Path: Wwise_Octo_Main\Wwise_Octo_Main
   EventWwu:
   - PhysicalPath: Events\Ambience.wwu
-    ParentPhysicalPath: Events\Ambience.wwu
+    ParentPhysicalPath: Events\Environment.wwu
     guid: ab5bcd69c7847147a7e4dc88181e0059
     GuidInternal: 
-    m_lastTime: -8586116592063645801
+    m_lastTime: -8586116575716214214
     List:
     - name: Env_01_Start
       guid: 23c8d5e57b48ca449d5a1ec4c67a0338
@@ -221,13 +221,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
-      - ElementName: Ambience
+      - ElementName: Environment
         ObjectType: 12
       - ElementName: Ambience
         ObjectType: 12
       - ElementName: Env_01_Start
         ObjectType: 3
-      Path: Octo_Main\Ambience\Ambience\Env_01_Start
+      Path: Octo_Main\Environment\Ambience\Env_01_Start
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -237,13 +237,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
-      - ElementName: Ambience
+      - ElementName: Environment
         ObjectType: 12
       - ElementName: Ambience
         ObjectType: 12
       - ElementName: Env_01_Stop
         ObjectType: 3
-      Path: Octo_Main\Ambience\Ambience\Env_01_Stop
+      Path: Octo_Main\Environment\Ambience\Env_01_Stop
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -253,13 +253,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
-      - ElementName: Ambience
+      - ElementName: Environment
         ObjectType: 12
       - ElementName: Ambience
         ObjectType: 12
       - ElementName: System_Sounds
         ObjectType: 3
-      Path: Octo_Main\Ambience\Ambience\System_Sounds
+      Path: Octo_Main\Environment\Ambience\System_Sounds
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -269,13 +269,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
-      - ElementName: Ambience
+      - ElementName: Environment
         ObjectType: 12
       - ElementName: Ambience
         ObjectType: 12
       - ElementName: Thrusters
         ObjectType: 3
-      Path: Octo_Main\Ambience\Ambience\Thrusters
+      Path: Octo_Main\Environment\Ambience\Thrusters
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -285,13 +285,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
-      - ElementName: Ambience
+      - ElementName: Environment
         ObjectType: 12
       - ElementName: Ambience
         ObjectType: 12
       - ElementName: White_Noise_Spaceship
         ObjectType: 3
-      Path: Octo_Main\Ambience\Ambience\White_Noise_Spaceship
+      Path: Octo_Main\Environment\Ambience\White_Noise_Spaceship
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -299,13 +299,13 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: c86910c84b6743438fd566dc929dbe39
     GuidInternal: 
-    m_lastTime: -8586116592063635828
+    m_lastTime: -8586116575716204209
     List: []
   - PhysicalPath: Events\Credits.wwu
     ParentPhysicalPath: Events\MainMenu.wwu
     guid: 4c0513ba17a7d0448a9c2e2fb9499469
     GuidInternal: 
-    m_lastTime: -8586116592063625848
+    m_lastTime: -8586116575716194214
     List:
     - name: Credits_Button_Back
       guid: 8379c27c624a3145af608fce61d7f516
@@ -329,19 +329,19 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 43680066c1cba2428a61a2fe35611ff9
     GuidInternal: 
-    m_lastTime: -8586116592063625848
+    m_lastTime: -8586114315582076606
     List: []
   - PhysicalPath: Events\Environment.wwu
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: 38a44ebe1a16b24682598a1681c6ba2f
     GuidInternal: 
-    m_lastTime: -8586116592063615881
+    m_lastTime: -8586116575716164202
     List: []
   - PhysicalPath: Events\Environmental.wwu
     ParentPhysicalPath: Events\Environment.wwu
     guid: e2e00994021ec5448e7eae839c8e59ed
     GuidInternal: 
-    m_lastTime: -8586116592063615881
+    m_lastTime: -8586116575716154196
     List:
     - name: Asteroid_Collision
       guid: a20f3376e4f6c148937981d5812cceb0
@@ -475,13 +475,13 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: e4e00594cb77244792e32fe6eabf1c1d
     GuidInternal: 
-    m_lastTime: -8586116592063605901
+    m_lastTime: -8586116575716144203
     List: []
   - PhysicalPath: Events\In_Game.wwu
     ParentPhysicalPath: Events\Music.wwu
     guid: c19ebc8ffd40c6468b4fd4abfc1e6c6f
     GuidInternal: 
-    m_lastTime: -8586116592063605901
+    m_lastTime: -8586116575716134193
     List:
     - name: Game_Over
       guid: 78c404d5ad39ae4d90f72180a88cf609
@@ -535,7 +535,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Music.wwu
     guid: 4dab92772dccf44eb60cec9dbdf6b3ee
     GuidInternal: 
-    m_lastTime: -8586116592063595923
+    m_lastTime: -8586116575716114172
     List:
     - name: Credits
       guid: 92452b3fddcfb44aa209218110de2aae
@@ -605,7 +605,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\FE.wwu
     guid: f1570b83852e0f4992eb4ee6b133eb97
     GuidInternal: 
-    m_lastTime: -8586116592063566014
+    m_lastTime: -8586114315582066599
     List:
     - name: MainMenu_All_Button_Hover
       guid: 8575c8b077e0924fba3e405769e6aca1
@@ -707,13 +707,13 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: 600f4cd3cd56114abfd30b5150b1c1e0
     GuidInternal: 
-    m_lastTime: -8586116592063575980
+    m_lastTime: -8586116575716104190
     List: []
   - PhysicalPath: Events\Oakley.wwu
     ParentPhysicalPath: Events\Characters.wwu
     guid: adf6d36ce72ced4eb04c57e83f3fdefd
     GuidInternal: 
-    m_lastTime: -8586116592063566014
+    m_lastTime: -8586116575716104190
     List:
     - name: Voice_Log_01
       guid: 04856fbed675c34a99fc2c390e1f86cc
@@ -847,7 +847,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Characters.wwu
     guid: f634a635af0cc44cb82677937ae1b49a
     GuidInternal: 
-    m_lastTime: -8586116592063556040
+    m_lastTime: -8586116575716084191
     List:
     - name: Complete_Objective
       guid: 3f1ebf0eeb5f854bad04bcbec4244fed
@@ -1195,13 +1195,13 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 5fe02299154012418e883a6d761122fe
     GuidInternal: 
-    m_lastTime: -8586116592063556040
+    m_lastTime: -8586116575716084191
     List: []
   - PhysicalPath: Events\Options.wwu
     ParentPhysicalPath: Events\MainMenu.wwu
     guid: dbf25d695cd1684696e76688dbd1751a
     GuidInternal: 
-    m_lastTime: -8586116592063546063
+    m_lastTime: -8586116575716074182
     List:
     - name: Options_Button_Audio
       guid: 97d26d6bebf22944b498ba105d18126f
@@ -1261,7 +1261,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Options.wwu
     guid: 7d0b0691aacf35469db81562e9997cb4
     GuidInternal: 
-    m_lastTime: -8586116592063546063
+    m_lastTime: -8586116575716064180
     List:
     - name: Options_Audio_Button_Back
       guid: 494045431f54974fa46907a1b42684d4
@@ -1347,7 +1347,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Options.wwu
     guid: ca06a73a4c220b43a6084be28aa54eb8
     GuidInternal: 
-    m_lastTime: -8586116592063536091
+    m_lastTime: -8586116575716064180
     List:
     - name: Options_Video_Button_Back
       guid: 1ebad7ce0855df4b81527cf2de822b21
@@ -1413,7 +1413,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Options_Video.wwu
     guid: ba9d31dd72cc494899fff6635283f2c1
     GuidInternal: 
-    m_lastTime: -8586116592063536091
+    m_lastTime: -8586116575716054183
     List:
     - name: Options_Video_Resolution_Button_Apply
       guid: d75942eae376ff4aabcbc81c35818be9
@@ -1463,7 +1463,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\MainMenu.wwu
     guid: 1ac863669e80814f9c659d54b7bf3e99
     GuidInternal: 
-    m_lastTime: -8586116592063526105
+    m_lastTime: -8586116575716034177
     List:
     - name: Quit_Button_No
       guid: ea893dccefe96344b772e51ecb2c15a6
@@ -1505,7 +1505,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Environment.wwu
     guid: 001220ee6376c9419a2982aa893f2257
     GuidInternal: 
-    m_lastTime: -8586116592063526105
+    m_lastTime: -8586116575716044181
     List:
     - name: Communications_Array
       guid: 5383a836cb190343b222608847f64f94
@@ -1655,7 +1655,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: be40750790b97640a0e9ad908753cb5c
     GuidInternal: 
-    m_lastTime: -8586116592063506170
+    m_lastTime: -8586116575716024174
     List:
     - name: Asteroid_Warning
       guid: 7f62ec02d2a7ce42bcb75bf508749265
@@ -1704,13 +1704,13 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 16ab4c859cf4d549a5c53e9b19139d92
     GuidInternal: 
-    m_lastTime: -8586116592063496200
+    m_lastTime: -8586116575715984121
     List: []
   - PhysicalPath: Game Parameters\Factory Motion.wwu
     ParentPhysicalPath: 
     guid: 225213d7dbd1d042adc0930743567776
     GuidInternal: 
-    m_lastTime: -8586116592063486224
+    m_lastTime: -8586114315582056598
     List:
     - name: Playback_Rate
       guid: e37e38283ac11643b9c3db5c521624af
@@ -1734,7 +1734,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 5577163b42fb8b4598bf96f557afb3b9
     GuidInternal: 
-    m_lastTime: -8586116592063476249
+    m_lastTime: -8586114315582036593
     List:
     - name: SS_Air_Fear
       guid: 59062ef746431c4ea1b1dab46a05101e
@@ -1830,7 +1830,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 97bdcb0b5177774a85bb6ac940f8cc3f
     GuidInternal: 
-    m_lastTime: -8586116592063466282
+    m_lastTime: -8586114315582026593
     List:
     - name: Density_FA_SSGrain
       guid: 9ef2b363f3048748ba1a4d7694644b24
@@ -1890,7 +1890,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: cb8b8ab241089f479f32a560a1e5b2a3
     GuidInternal: 
-    m_lastTime: -8586116592063476249
+    m_lastTime: -8586116575716004176
     List:
     - name: Intensity
       guid: ac54fd2b5b86ef438b4d8250ed545ee3
@@ -1905,7 +1905,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 295e2b7d85002742b4d603debe586bd2
     GuidInternal: 
-    m_lastTime: -8586116592063466282
+    m_lastTime: -8586116575715974149
     List:
     - name: MasterVolume
       guid: 6fd4b45692a2184d9b8d7b65b0ccc99f
@@ -1939,21 +1939,21 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 3290f5b3d2459c44aa1897e488ca86d7
     GuidInternal: 
-    m_lastTime: -8586116592056285475
+    m_lastTime: -8586116575707465706
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 045bd47c7e38be48814aad03c073d255
     GuidInternal: 
-    m_lastTime: -8586116592056275507
+    m_lastTime: -8586116575707435705
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 708e6d5e28a6a641afefd78e7205d578
     GuidInternal: 
-    m_lastTime: -8586116592056265531
+    m_lastTime: -8586116575707405697
     List: []
   ExpandedItems:
   - /WWise_OctoGone_SD95
