@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729913b660bf88343aa18f4f609696fd, type: 3}
   m_Name: GameManager
   m_EditorClassIdentifier: 
-  LinkedModuleManager: {fileID: 0}
-  gameStates: []
-  stateCondition: []
-  systemGameStates: []
-  InitialGameState: {fileID: 0}
+  LinkedModuleManager: {fileID: 11400000, guid: a8ad8f5b34e76a8419a49041976582b5,
+    type: 2}
+  GameStates:
+  - Enabled: 1
+    ShouldCheckCondition: 0
+    IsLinkedToScene: 1
+    LinkedScene: MainMenu
+    State: {fileID: 11400000, guid: 3036eb10fbdaa624591736a150d0d492, type: 2}
+  - Enabled: 1
+    ShouldCheckCondition: 0
+    IsLinkedToScene: 1
+    LinkedScene: Gameplay
+    State: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
