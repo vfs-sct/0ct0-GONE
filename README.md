@@ -11,9 +11,10 @@ CONTROLS
 ===================
 W/S - Move forward/back
 A/D - Move left/right
-Space/Ctrl - Move up/down
+Space/Shift - Move up/down
 Mouse - Look around
 Scroll - Zoom
+1 - Select scavenger tool
 Esc - Pause/Unpause/Close Menu
 F1 - Debug menu
 ====================
@@ -25,6 +26,8 @@ GAMEPLAY
 -Movement system. The player can move in six degrees of freedom.
 -Tool framework. The system for swapping tools has been set up and implemented and is awaiting tool scriptable objects to be slotted in.
 -Resource economy.
+-Loss state. Player loses when Octo runs out of thruster fuel.
+-Win state. Gather metal alloy and repair the space ship.
 ===================
 
 UI
@@ -32,14 +35,22 @@ UI
 -Basic UI Framework. All menu screens are navigable and the player can close the application.
 -Start Game takes player into gameplay scene.
 -Pause Menu, Options, Back, Controls, Exit Game implemented and functional.
+-Player can return to main menu from gameplay and game over.
 -Functional Gamma slider.
 -Functional Sound sliders.
 	-Note: There is no music or dialogue implemented, so MUSIC and DIALOGUE sliders will not appear to affect anything.
--Functional Codex menu that generates buttons/page text based off entries added codeside.
+-Functional Codex menu that populates buttons/page text based off entries added codeside.
 	-Originally slotted for M2. M2 will now focus on adding a lock/unlock system.
 -Credit screen that generates credits codeside.
+-WIP Inventory panel in player HUD
+	-Updates as player collects resources
+-WIP Fuel bar in player HUD
+	-Updates as player gains/loses fuel for flying
+-Objective panel in player HUD
+	-Has code to update the player's story objectives, however no objectives currently exist.
 -Debug Menu
-	-Note: There is currently no gameplay to debug, but functions exist to quickly slot in stats for read-only text or create buttons, ie, for spawning objects
+	-Add fuel and other resources to Octo using a dropdown menu
+	-Kill Octo instantly
 ===================
 
 SOUND
@@ -48,7 +59,7 @@ SOUND
 -Stubbed in WIP button sounds. Sounds will be replaced but currently demonstrate functionality.
 -Separate busses exist for Master, Music, SFX and Dialogue.
 
-BUG: Sound is loaded along with it's respective banks, however, decides to only play after tabbing in and out of the program. 
+BUG: Sound is loaded along with its respective banks, however, decides to only play after tabbing in and out of the program. 
 ===================
 
 ART
@@ -59,6 +70,8 @@ ART
 
 DEBUG
 ===================
--UI screen and codeside framework set up.
-	-Note: While the screen can be opened, the debug menu has no functionality currently.
+-Screen and code framework set up. Open with F1
+-Add fuel and other resources to Octo using a dropdown menu
+-Kill Octo instantly
+-View current value of Octo's fuel tank
 ===================
