@@ -118,6 +118,11 @@ public class Codex : MonoBehaviour
     //Below is just stuff to open/close the codex
     public void OnEsc(InputValue value)
     {
+        Close();
+    }
+
+    public void Close()
+    {
         SwitchViewTo(PausePrefab);
     }
 

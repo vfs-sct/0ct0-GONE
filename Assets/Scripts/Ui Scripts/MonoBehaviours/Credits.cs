@@ -29,6 +29,11 @@ public class Credits : MonoBehaviour
 
     public void OnEsc(InputValue value)
     {
+        Close();
+    }
+
+    public void Close()
+    {
         SwitchViewTo(MainMenuPrefab);
     }
 

@@ -23,6 +23,11 @@ public class Options : MonoBehaviour
 
     public void OnEsc(InputValue value)
     {
+        Close();
+    }
+
+    public void Close()
+    {
         closeCallback();
 
         closeCallback = null;
