@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
-        Debug.Log("PlayerFuel = "+LinkedInventory.GetResource(FuelResource));
+        //Debug.Log("PlayerFuel = "+LinkedInventory.GetResource(FuelResource));
         if (LinkedInventory.GetResource(FuelResource) == 0)
         {
 
