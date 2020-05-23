@@ -20,6 +20,7 @@ public class FillBar : MonoBehaviour
         float charStat = fuel.GetInstanceValue(playerInventory);
 
         // set fill to health percentage
-        barFill.fillAmount = charStat;
+        //needs a way to get the max value from the resource instead of hardcoding division number
+        barFill.fillAmount = charStat/5000;
     }
 }
