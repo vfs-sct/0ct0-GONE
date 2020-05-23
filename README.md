@@ -41,6 +41,7 @@ UI
 	-Note: There is no music or dialogue implemented, so MUSIC and DIALOGUE sliders will not appear to affect anything.
 -Functional Codex menu that populates buttons/page text based off entries added codeside.
 	-Originally slotted for M2. M2 will now focus on adding a lock/unlock system.
+-NON-functional look sensitivity slider (has not been hooked up)
 -Credit screen that generates credits codeside.
 -WIP Inventory panel in player HUD
 	-Updates as player collects resources
