@@ -15,6 +15,7 @@ public class UIAwake : MonoBehaviour
         "MasterVolume",
         "MusicVolume",
         "SFXVolume",
+        "DialogueVolume",
     };
    
     public Player GetPlayer()
@@ -51,10 +52,18 @@ public class UIAwake : MonoBehaviour
 
 
         foreach (var volumePref in VolumePrefs)
-        {
+        {     
             if (PlayerPrefs.HasKey(volumePref))
             {
-                AkSoundEngine.SetRTPCValue(volumePref, PlayerPrefs.GetFloat(volumePref));
+                var value = PlayerPrefs.GetFloat(volumePref);
+                AkSoundEngine.SetRTPCValue(volumePref, value);
+            }
+            else
+            {
+                float defaultValue = .75f;
+                AkSoundEngine.SetRTPCValue(volumePref, defaultValue);
+                PlayerPrefs.SetFloat(volumePref, defaultValue);
+                PlayerPrefs.Save();
             }
         }
 
