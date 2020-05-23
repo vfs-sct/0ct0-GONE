@@ -21,10 +21,12 @@ public class Credits : MonoBehaviour
     private void Start()
     {
         //goes through the screen and adds each one to the text object in the credits screen
+        string text = "";
         foreach (var credit in credits)
         {
-            content.SetText(content.text + $"\n{credit}");
+            text = text + $"\n{credit}";
         }
+        content.SetText(text);
     }
 
     public void OnEsc(InputValue value)
