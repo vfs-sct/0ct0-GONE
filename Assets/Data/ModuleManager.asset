@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95060addd9dec643966872c32cf2d03, type: 3}
   m_Name: ModuleManager
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  ActiveModules: []
-  StopTicking: 1
+  _GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  ActiveModules:
+  - {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
+  - {fileID: 11400000, guid: 4b06e9352e2fd884dac2415878899387, type: 2}
+  - {fileID: 11400000, guid: 24e38bf2ba3270840b60b88238072079, type: 2}
+  - {fileID: 11400000, guid: 09fdc9f42b0fd174489a218af0e73d3c, type: 2}
+  StopTicking: 0
