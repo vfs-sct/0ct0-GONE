@@ -25,34 +25,37 @@ public class DebugPanel : MonoBehaviour
 
     void Awake()
     {
-        playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
-
-        AddNewText("Select resource from dropdown to add 50 of that resource");
-
-        var resourceDropDown = Instantiate(DropDown);
-        resourceDropDown.transform.SetParent(vLayoutGroup.transform);
-
-        foreach (var resource in resourceList)
+        if (UIRoot.GetPlayer() != null)
         {
-            resourceNamesList.Add(resource.DisplayName);
+            playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
 
-            if (resource.DisplayName == "Thruster Fuel")
+            AddNewText("Select resource from dropdown to add 50 of that resource");
+
+            var resourceDropDown = Instantiate(DropDown);
+            resourceDropDown.transform.SetParent(vLayoutGroup.transform);
+
+            foreach (var resource in resourceList)
             {
-                fuel = resource;
+                resourceNamesList.Add(resource.DisplayName);
+
+                if (resource.DisplayName == "Thruster Fuel")
+                {
+                    fuel = resource;
+                }
             }
+
+            resourceDropDown.options.Clear();
+
+            resourceDropDown.AddOptions(resourceNamesList);
+            resourceDropDown.onValueChanged.AddListener(evt =>
+            {
+                playerInventory.TryAdd(resourceList[resourceDropDown.value], 50);
+            });
+
+            AddNewButton("Kill Octo", () => { playerInventory.SetResource(fuel, 0f); });
+
+            fuelStat = AddNewText("Fuel Stat: " + playerInventory.GetResource(fuel));
         }
-        
-        resourceDropDown.options.Clear();
-
-        resourceDropDown.AddOptions(resourceNamesList);
-        resourceDropDown.onValueChanged.AddListener(evt =>
-        {
-            playerInventory.TryAdd(resourceList[resourceDropDown.value], 50);
-        });
-
-        AddNewButton("Kill Octo", () => { playerInventory.SetResource(fuel, 0f); });
-
-        fuelStat = AddNewText("Fuel Stat: " + playerInventory.GetResource(fuel));
     }
 
     public void KillOcto()
@@ -91,12 +94,20 @@ public class DebugPanel : MonoBehaviour
 
     private void Update()
     {
-        fuelStat.GetComponent<TextMeshProUGUI>().SetText("Fuel Stat: " + playerInventory.GetResource(fuel));
+        if (UIRoot.GetPlayer() != null)
+        {
+            fuelStat.GetComponent<TextMeshProUGUI>().SetText("Fuel Stat: " + playerInventory.GetResource(fuel));
+        }
     }
 
-    //tilde to close
-    public void OnDebug(InputValue value)
+    public void Close()
     {
         gameObject.SetActive(false);
+    }
+
+    //F1 to close
+    public void OnDebug(InputValue value)
+    {
+        Close();
     }
 }
