@@ -31,9 +31,15 @@ public class UIAwake : MonoBehaviour
 
         camera.gameObject.AddComponent<PostProcessing>().material = Resources.Load<Material>("GammaMaterial");
 
-        if (Shader.GetGlobalFloat("gamma") == 0)
+        if (!PlayerPrefs.HasKey("Gamma"))
         {
+            PlayerPrefs.SetFloat("Gamma", gammaDefault);
             Shader.SetGlobalFloat("gamma", gammaDefault);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            Shader.SetGlobalFloat("gamma", PlayerPrefs.GetFloat("Gamma"));     
         }
 
     }
