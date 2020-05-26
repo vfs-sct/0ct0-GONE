@@ -5,11 +5,11 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/WWise_OctoGone_SD95_20200516/",
-   "SourceFilesRoot": "/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/WWise_OctoGone_SD95_20200516/.cache/Windows/",
-   "SoundBanksRoot": "/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/WWise_OctoGone_SD95_20200516/GeneratedSoundBanks/Windows/",
+   "ProjectRoot": "C:\\Users\\evanl\\Documents\\Octo-G0ne\\0ct0-GONE\\WWise_OctoGone_SD95_20200521\\WWise_OctoGone_SD95_20200521\\",
+   "SourceFilesRoot": "C:\\Users\\evanl\\Documents\\Octo-G0ne\\0ct0-GONE\\WWise_OctoGone_SD95_20200521\\WWise_OctoGone_SD95_20200521\\.cache\\Windows\\",
+   "SoundBanksRoot": "C:\\Users\\evanl\\Documents\\Octo-G0ne\\0ct0-GONE\\WWise_OctoGone_SD95_20200521\\WWise_OctoGone_SD95_20200521\\GeneratedSoundBanks\\Windows\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/WWise_OctoGone_SD95_20200516/GeneratedSoundBanks/Windows"
+   "ExternalSourcesOutputRoot": "C:\\Users\\evanl\\Documents\\Octo-G0ne\\0ct0-GONE\\WWise_OctoGone_SD95_20200521\\WWise_OctoGone_SD95_20200521\\GeneratedSoundBanks\\Windows"
   },
   "DialogueEvents": [],
   "StreamedFiles": [],
@@ -62,10 +62,17 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "2894345104",
-      "Name": "Communications_Array",
-      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Communications_Array",
+      "Id": "4137153305",
+      "Name": "Communications_Array_Play",
+      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Communications_Array_Play",
       "GUID": "{36A88353-19CB-4303-B222-608847F64F94}",
+      "DurationType": "Infinite"
+     },
+     {
+      "Id": "2433250911",
+      "Name": "Communications_Array_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Communications_Array_Stop",
+      "GUID": "{CF5687F1-9335-4229-B2FA-794EBDC21B5A}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -96,16 +103,6 @@
       "Name": "Crafting_Success",
       "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\Voice\\Crafting_Success",
       "GUID": "{16EB97C2-3B07-4A28-B2DA-B9CE54B1FCCA}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
-     },
-     {
-      "Id": "2201105581",
-      "Name": "Credits",
-      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\Credits",
-      "GUID": "{3F2B4592-CFDD-4AB4-A209-218110DE2AAE}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -161,16 +158,6 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "3221693214",
-      "Name": "Ending_Cinematic",
-      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\Ending_Cinematic",
-      "GUID": "{FF9BFDBC-99FE-4AB0-8727-F704E5F6E32D}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
-     },
-     {
       "Id": "1545542569",
       "Name": "Env_01_Start",
       "ObjectPath": "\\Events\\Octo_Main\\Environment\\Ambience\\Env_01_Start",
@@ -212,20 +199,9 @@
       "Name": "Fuel_Restoration",
       "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Fuel_Restoration",
       "GUID": "{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}",
-      "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
-     },
-     {
-      "Id": "1432716332",
-      "Name": "Game_Over",
-      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\Game_Over",
-      "GUID": "{D504C478-39AD-4DAE-90F7-2180A88CF609}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
+      "DurationMin": "6.773334",
+      "DurationMax": "6.773334"
      },
      {
       "Id": "579662040",
@@ -258,16 +234,6 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "4011822115",
-      "Name": "In_Game_Theme",
-      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\In_Game_Theme",
-      "GUID": "{AACD6CF5-0B02-45C4-8CF0-AD4DCC5E914E}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
-     },
-     {
       "Id": "4123804492",
       "Name": "Low_Fuel",
       "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\Voice\\Low_Fuel",
@@ -282,16 +248,6 @@
       "Name": "Low_Supply",
       "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\Voice\\Low_Supply",
       "GUID": "{53647D64-B72D-4008-AB20-9E6239DAD671}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
-     },
-     {
-      "Id": "2005704188",
-      "Name": "Main_Menu",
-      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\Main_Menu",
-      "GUID": "{8DFE3319-CBFB-4BC5-9764-2DBDD10D93D3}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -362,6 +318,143 @@
       "DurationMax": "0.000000"
      },
      {
+      "Id": "2050132162",
+      "Name": "MUS_Credits_Play",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\MUS_Credits_Play",
+      "GUID": "{3F2B4592-CFDD-4AB4-A209-218110DE2AAE}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "2651671324",
+      "Name": "MUS_Credits_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\MUS_Credits_Stop",
+      "GUID": "{DA887167-FDCB-471D-8593-2A5C8B301611}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "2827360435",
+      "Name": "MUS_Ending_Cinematic_Play",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\MUS_Ending_Cinematic_Play",
+      "GUID": "{FF9BFDBC-99FE-4AB0-8727-F704E5F6E32D}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "1915802521",
+      "Name": "MUS_Ending_Cinematic_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\MUS_Ending_Cinematic_Stop",
+      "GUID": "{1A0EEF21-598B-49AA-8B02-D38AFBA0607E}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "2925456689",
+      "Name": "MUS_Game_Over_Play",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\MUS_Game_Over_Play",
+      "GUID": "{D504C478-39AD-4DAE-90F7-2180A88CF609}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "4176975079",
+      "Name": "MUS_Game_Over_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\MUS_Game_Over_Stop",
+      "GUID": "{FAE5DEAC-0597-4F19-BC6B-8DD31ADB9E19}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "3318620896",
+      "Name": "MUS_In_Game_Theme_Play",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\MUS_In_Game_Theme_Play",
+      "GUID": "{AACD6CF5-0B02-45C4-8CF0-AD4DCC5E914E}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "1661983074",
+      "Name": "MUS_In_Game_Theme_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\MUS_In_Game_Theme_Stop",
+      "GUID": "{BF3139C0-1181-47AC-BFCB-4AE97C6BCB75}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "1399729489",
+      "Name": "MUS_Main_Menu_Play",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\MUS_Main_Menu_Play",
+      "GUID": "{8DFE3319-CBFB-4BC5-9764-2DBDD10D93D3}",
+      "DurationType": "Infinite"
+     },
+     {
+      "Id": "2651144455",
+      "Name": "MUS_Main_Menu_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\MUS_Main_Menu_Stop",
+      "GUID": "{C02BEA90-B06F-478A-9AF4-48F50062298B}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "2791264084",
+      "Name": "MUS_Threat_Theme_Play",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\MUS_Threat_Theme_Play",
+      "GUID": "{A7D92F75-EAD6-44EC-BD6C-545C91D13966}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "158725678",
+      "Name": "MUS_Threat_Theme_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\MUS_Threat_Theme_Stop",
+      "GUID": "{7E032387-5CEC-4F87-9080-236A380CE896}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "225712585",
+      "Name": "MUS_Title_Screen_Play",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\MUS_Title_Screen_Play",
+      "GUID": "{566FA971-AAD8-4CD5-9B67-F21237F45407}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
+      "Id": "1748232687",
+      "Name": "MUS_Title_Screen_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\MUS_Title_Screen_Stop",
+      "GUID": "{9E57C68F-2319-4E32-9048-0A3621B91F73}",
+      "MaxAttenuation": "0.000000",
+      "DurationType": "OneShot",
+      "DurationMin": "0.000000",
+      "DurationMax": "0.000000"
+     },
+     {
       "Id": "853073649",
       "Name": "Not_Enough_Resources",
       "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\Voice\\Not_Enough_Resources",
@@ -392,16 +485,6 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "1967397267",
-      "Name": "Octo_DownThrusters",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_DownThrusters",
-      "GUID": "{2B7D24DA-24F9-4E4E-8E63-D86A6BEF0C7B}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
-     },
-     {
       "Id": "269952755",
       "Name": "Octo_GooGlue",
       "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_GooGlue",
@@ -416,16 +499,6 @@
       "Name": "Octo_Grab",
       "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_Grab",
       "GUID": "{1BE04905-317A-4387-814C-19DBDA393914}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
-     },
-     {
-      "Id": "702990819",
-      "Name": "Octo_HoriThrusters",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_HoriThrusters",
-      "GUID": "{5C964EAB-C7EF-437A-BC3D-1B5260EA3C1E}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -462,10 +535,17 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "761624014",
-      "Name": "Octo_UpThrusters",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_UpThrusters",
+      "Id": "3778246708",
+      "Name": "Octo_Thrusters_Play",
+      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_Thrusters_Play",
       "GUID": "{F0552B88-831D-4558-AD1B-375295DA4BEF}",
+      "DurationType": "Infinite"
+     },
+     {
+      "Id": "1187285006",
+      "Name": "Octo_Thrusters_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_Thrusters_Stop",
+      "GUID": "{4F81146E-5B91-41F1-A03E-C42FE491B36E}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -648,10 +728,17 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "1040610669",
-      "Name": "Satellite_Idle",
-      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Satellite_Idle",
+      "Id": "3335895774",
+      "Name": "Satellite_Idle_Play",
+      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Satellite_Idle_Play",
       "GUID": "{5C6FFF13-2378-4F71-B9D2-68C5CCE04F8B}",
+      "DurationType": "Infinite"
+     },
+     {
+      "Id": "78924448",
+      "Name": "Satellite_Idle_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Satellite_Idle_Stop",
+      "GUID": "{8D4D1954-D1DE-4ED2-9B16-656C85CA8623}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -668,10 +755,17 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "1479001789",
-      "Name": "Satellite_Radar",
-      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Satellite_Radar",
+      "Id": "361354428",
+      "Name": "Satellite_Radar_Start",
+      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Satellite_Radar_Start",
       "GUID": "{CB75B71C-3527-43C5-9E1E-02C3DD4AF972}",
+      "DurationType": "Infinite"
+     },
+     {
+      "Id": "2866339600",
+      "Name": "Satellite_Radar_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Satellite_Radar_Stop",
+      "GUID": "{2033BB77-A3E6-4E1C-8738-9AAA2C0BBBEE}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -688,30 +782,10 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "2900252007",
-      "Name": "Threat_Theme",
-      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\Threat_Theme",
-      "GUID": "{A7D92F75-EAD6-44EC-BD6C-545C91D13966}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
-     },
-     {
       "Id": "1944582317",
       "Name": "Thrusters",
       "ObjectPath": "\\Events\\Octo_Main\\Environment\\Ambience\\Thrusters",
       "GUID": "{CBFB39BA-876A-45DE-8E70-AE005F3ACB6D}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
-     },
-     {
-      "Id": "3853285476",
-      "Name": "Title_Screen",
-      "ObjectPath": "\\Events\\Octo_Main\\Music\\Main_Menu\\Title_Screen",
-      "GUID": "{566FA971-AAD8-4CD5-9B67-F21237F45407}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -810,28 +884,100 @@
     ],
     "IncludedMemoryFiles": [
      {
+      "Id": "76273273",
+      "Language": "SFX",
+      "ShortName": "William\\Ambience\\Octo_Amb_Loop_01.wav",
+      "Path": "SFX\\William\\Ambience\\Octo_Amb_Loop_01_D79FB2B7.wem"
+     },
+     {
+      "Id": "85947394",
+      "Language": "SFX",
+      "ShortName": "William\\Ambience\\Octo_Satellite_Radar_01.wav",
+      "Path": "SFX\\William\\Ambience\\Octo_Satellite_Radar_01_D79FB2B7.wem"
+     },
+     {
+      "Id": "146736869",
+      "Language": "SFX",
+      "ShortName": "Oct0_theme_sample.wav",
+      "Path": "SFX\\Oct0_theme_sample_C5579977.wem"
+     },
+     {
       "Id": "287153768",
       "Language": "SFX",
       "ShortName": "Patrick\\SFX\\UI\\MAIN_MENU\\TEMP_SFX_Button_Press_V2.wav",
-      "Path": "SFX/Patrick/SFX/UI/MAIN_MENU/TEMP_SFX_Button_Press_V2_10C4C929.wem"
+      "Path": "SFX\\Patrick\\SFX\\UI\\MAIN_MENU\\TEMP_SFX_Button_Press_V2_10C4C929.wem"
+     },
+     {
+      "Id": "487365530",
+      "Language": "SFX",
+      "ShortName": "Patrick\\SFX\\Characters\\Octo\\TEMP_SFX_Characters_Octo_HoriThrusters3_DroneOnly.wav",
+      "Path": "SFX\\Patrick\\SFX\\Characters\\Octo\\TEMP_SFX_Characters_Octo_HoriThrusters3_DroneOnly_0C38345C.wem"
+     },
+     {
+      "Id": "500734584",
+      "Language": "SFX",
+      "ShortName": "William\\Ambience\\Octo_Satellite_Idle_01.wav",
+      "Path": "SFX\\William\\Ambience\\Octo_Satellite_Idle_01_D79FB2B7.wem"
      },
      {
       "Id": "501136152",
       "Language": "SFX",
       "ShortName": "Patrick\\SFX\\UI\\MAIN_MENU\\TEMP_SFX_Button_Hover.wav",
-      "Path": "SFX/Patrick/SFX/UI/MAIN_MENU/TEMP_SFX_Button_Hover_10C4C929.wem"
+      "Path": "SFX\\Patrick\\SFX\\UI\\MAIN_MENU\\TEMP_SFX_Button_Hover_10C4C929.wem"
+     },
+     {
+      "Id": "547392518",
+      "Language": "SFX",
+      "ShortName": "Patrick\\SFX\\Characters\\Octo\\TEMP_SFX_Characters_Octo_HoriThrustersDrone.wav",
+      "Path": "SFX\\Patrick\\SFX\\Characters\\Octo\\TEMP_SFX_Characters_Octo_HoriThrustersDrone_FEAFA903.wem"
+     },
+     {
+      "Id": "573377507",
+      "Language": "SFX",
+      "ShortName": "William\\Ambience\\GA_Collab_BG_Space.wav",
+      "Path": "SFX\\William\\Ambience\\GA_Collab_BG_Space_D79FB2B7.wem"
      },
      {
       "Id": "620159721",
       "Language": "SFX",
       "ShortName": "Patrick\\SFX\\UI\\MAIN_MENU\\TEMP_SFX_Menu_Transition.wav",
-      "Path": "SFX/Patrick/SFX/UI/MAIN_MENU/TEMP_SFX_Menu_Transition_10C4C929.wem"
+      "Path": "SFX\\Patrick\\SFX\\UI\\MAIN_MENU\\TEMP_SFX_Menu_Transition_10C4C929.wem"
      },
      {
-      "Id": "971696740",
+      "Id": "717610840",
       "Language": "SFX",
-      "ShortName": "Patrick\\Ambience\\TEMP_Amb_Robot_Pulse.wav",
-      "Path": "SFX/Patrick/Ambience/TEMP_Amb_Robot_Pulse_B4CB74CD.wem"
+      "ShortName": "Patrick\\SFX\\Characters\\Octo\\TEMP_SFX_Characters_Octo_HoriThrusters3.wav",
+      "Path": "SFX\\Patrick\\SFX\\Characters\\Octo\\TEMP_SFX_Characters_Octo_HoriThrusters3_10C4C929.wem"
+     },
+     {
+      "Id": "738501797",
+      "Language": "SFX",
+      "ShortName": "Patrick\\SFX\\Characters\\Octo\\TEMP_SFX_Characters_Octo_HoriThrusters02.wav",
+      "Path": "SFX\\Patrick\\SFX\\Characters\\Octo\\TEMP_SFX_Characters_Octo_HoriThrusters02_F6B880A9.wem"
+     },
+     {
+      "Id": "800700247",
+      "Language": "SFX",
+      "ShortName": "William\\Ambience\\Octo_Comms_Array_01.wav",
+      "Path": "SFX\\William\\Ambience\\Octo_Comms_Array_01_D79FB2B7.wem"
+     },
+     {
+      "Id": "853983173",
+      "Language": "SFX",
+      "ShortName": "Patrick\\SFX\\Characters\\Octo\\TEMP_SFX_Characters_Octo_HoriThrusters3_NoDrone.wav",
+      "Path": "SFX\\Patrick\\SFX\\Characters\\Octo\\TEMP_SFX_Characters_Octo_HoriThrusters3_NoDrone_C0458FBC.wem"
+     },
+     {
+      "Id": "866752823",
+      "Language": "SFX",
+      "ShortName": "William\\Ambience\\Octo_Comms_Array_02.wav",
+      "Path": "SFX\\William\\Ambience\\Octo_Comms_Array_02_D79FB2B7.wem"
+     },
+     {
+      "Id": "969775143",
+      "Language": "SFX",
+      "ShortName": "Patrick\\SFX\\Satellite\\TEMP_SFX_Satellite_FuelRestore.wav",
+      "Path": "SFX\\Patrick\\SFX\\Satellite\\TEMP_SFX_Satellite_FuelRestore_10C4C929.wem"
      }
     ]
    }

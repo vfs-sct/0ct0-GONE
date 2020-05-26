@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/WWise_OctoGone_SD95_20200516/</ProjectRoot>
-		<SourceFilesRoot>/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/WWise_OctoGone_SD95_20200516/.cache/Windows/</SourceFilesRoot>
-		<SoundBanksRoot>/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/WWise_OctoGone_SD95_20200516/GeneratedSoundBanks/Windows/</SoundBanksRoot>
+		<ProjectRoot>C:\Users\evanl\Documents\Octo-G0ne\0ct0-GONE\WWise_OctoGone_SD95_20200521\WWise_OctoGone_SD95_20200521\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\evanl\Documents\Octo-G0ne\0ct0-GONE\WWise_OctoGone_SD95_20200521\WWise_OctoGone_SD95_20200521\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\evanl\Documents\Octo-G0ne\0ct0-GONE\WWise_OctoGone_SD95_20200521\WWise_OctoGone_SD95_20200521\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/WWise_OctoGone_SD95_20200516/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\evanl\Documents\Octo-G0ne\0ct0-GONE\WWise_OctoGone_SD95_20200521\WWise_OctoGone_SD95_20200521\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -24,30 +24,26 @@
 				<Event Id="494181607" Name="Asteroid_Collision" ObjectPath="\Events\Octo_Main\Environment\Environmental\Asteroid_Collision" GUID="{76330FA2-F6E4-48C1-9379-81D5812CCEB0}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="376042431" Name="Asteroid_Moving" ObjectPath="\Events\Octo_Main\Environment\Environmental\Asteroid_Moving" GUID="{DC2DD57B-6CE3-47B9-AFB6-BF9680620454}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1329011239" Name="Asteroid_Warning" ObjectPath="\Events\Octo_Main\UI\Asteroid_Warning" GUID="{02EC627F-A7D2-42CE-BCB7-5BF508749265}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2894345104" Name="Communications_Array" ObjectPath="\Events\Octo_Main\Environment\Satellite\Communications_Array" GUID="{36A88353-19CB-4303-B222-608847F64F94}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4137153305" Name="Communications_Array_Play" ObjectPath="\Events\Octo_Main\Environment\Satellite\Communications_Array_Play" GUID="{36A88353-19CB-4303-B222-608847F64F94}" DurationType="Infinite"/>
+				<Event Id="2433250911" Name="Communications_Array_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Communications_Array_Stop" GUID="{CF5687F1-9335-4229-B2FA-794EBDC21B5A}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3263450676" Name="Complete_Objective" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Complete_Objective" GUID="{0EBF1E3F-5FEB-4B85-AD04-BCBEC4244FED}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2185317076" Name="Crafting_Failure" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Crafting_Failure" GUID="{A5FB9A4F-BBC1-4EE8-9635-D8C6F2893046}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="507489755" Name="Crafting_Success" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Crafting_Success" GUID="{16EB97C2-3B07-4A28-B2DA-B9CE54B1FCCA}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2201105581" Name="Credits" ObjectPath="\Events\Octo_Main\Music\Main_Menu\Credits" GUID="{3F2B4592-CFDD-4AB4-A209-218110DE2AAE}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1158635394" Name="Credits_Button_Back" ObjectPath="\Events\Octo_Main\FE\MainMenu\Credits\Credits_Button_Back" GUID="{7CC27983-4A62-4531-AF60-8FCE61D7F516}" DurationType="OneShot" DurationMin="0.513333" DurationMax="0.513333"/>
 				<Event Id="1786804762" Name="Damage" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Damage" GUID="{1B159936-312B-40CF-BABB-F1E542DBD807}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="779278001" Name="Death" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Death" GUID="{BE1CCA83-3705-44A3-8AB3-F04FE383A46F}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3147538972" Name="Electrical_Spark_Warning" ObjectPath="\Events\Octo_Main\UI\Electrical_Spark_Warning" GUID="{16CA0B55-FD49-4012-B6D3-C776689B35C8}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2917121896" Name="Electricity" ObjectPath="\Events\Octo_Main\Environment\Environmental\Electricity" GUID="{2875C9A0-D28F-4878-956D-7F3B06DE19F7}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3221693214" Name="Ending_Cinematic" ObjectPath="\Events\Octo_Main\Music\Main_Menu\Ending_Cinematic" GUID="{FF9BFDBC-99FE-4AB0-8727-F704E5F6E32D}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1545542569" Name="Env_01_Start" ObjectPath="\Events\Octo_Main\Environment\Ambience\Env_01_Start" GUID="{E5D5C823-487B-44CA-9D5A-1EC4C67A0338}" DurationType="Infinite"/>
 				<Event Id="3085466819" Name="Env_01_Stop" ObjectPath="\Events\Octo_Main\Environment\Ambience\Env_01_Stop" GUID="{AE1EBB30-7FAD-4C4C-B5F1-4EA08F40B12F}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="13776098" Name="Explosion" ObjectPath="\Events\Octo_Main\Environment\Environmental\Explosion" GUID="{F4B616F3-4551-42C5-B9A6-CFAFF501EF24}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2678880713" Name="Fire" ObjectPath="\Events\Octo_Main\Environment\Environmental\Fire" GUID="{D023FAC4-78C5-4113-AF7D-ABB4DE5986F5}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="678929340" Name="Fuel_Restoration" ObjectPath="\Events\Octo_Main\Environment\Satellite\Fuel_Restoration" GUID="{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1432716332" Name="Game_Over" ObjectPath="\Events\Octo_Main\Music\In_Game\Game_Over" GUID="{D504C478-39AD-4DAE-90F7-2180A88CF609}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="678929340" Name="Fuel_Restoration" ObjectPath="\Events\Octo_Main\Environment\Satellite\Fuel_Restoration" GUID="{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}" DurationType="OneShot" DurationMin="6.773334" DurationMax="6.773334"/>
 				<Event Id="579662040" Name="Gas" ObjectPath="\Events\Octo_Main\Environment\Environmental\Gas" GUID="{D2C4D6E0-8DA0-402B-87F2-D63D21535349}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3096260197" Name="Gas_Warning" ObjectPath="\Events\Octo_Main\UI\Gas_Warning" GUID="{B270E39C-E49E-4D76-99A0-C9E0820A5299}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3257506471" Name="Impact" ObjectPath="\Events\Octo_Main\Environment\Environmental\Impact" GUID="{82648A3C-1AFB-4EF4-8D6B-931595C18637}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="4011822115" Name="In_Game_Theme" ObjectPath="\Events\Octo_Main\Music\In_Game\In_Game_Theme" GUID="{AACD6CF5-0B02-45C4-8CF0-AD4DCC5E914E}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4123804492" Name="Low_Fuel" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Low_Fuel" GUID="{F014F57E-49CA-4AEA-B724-4FB430A4BDEE}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="973306129" Name="Low_Supply" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Low_Supply" GUID="{53647D64-B72D-4008-AB20-9E6239DAD671}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2005704188" Name="Main_Menu" ObjectPath="\Events\Octo_Main\Music\Main_Menu\Main_Menu" GUID="{8DFE3319-CBFB-4BC5-9764-2DBDD10D93D3}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2586944717" Name="MainMenu_All_Button_Hover" ObjectPath="\Events\Octo_Main\FE\MainMenu\MainMenu_All_Button_Hover" GUID="{B0C87585-E077-4F92-BA3E-405769E6ACA1}" DurationType="OneShot" DurationMin="0.085500" DurationMax="0.085500"/>
 				<Event Id="1462477445" Name="MainMenu_Button_Credits" ObjectPath="\Events\Octo_Main\FE\MainMenu\MainMenu_Button_Credits" GUID="{ED5397F9-0B44-49C3-9E29-9DD70FAEE0C0}" DurationType="OneShot" DurationMin="0.513333" DurationMax="0.513333"/>
 				<Event Id="3362106049" Name="MainMenu_Button_Options" ObjectPath="\Events\Octo_Main\FE\MainMenu\MainMenu_Button_Options" GUID="{9D94F341-DF38-42E0-B5B8-85837E08E2F7}" DurationType="OneShot" DurationMin="0.513333" DurationMax="0.513333"/>
@@ -55,17 +51,30 @@
 				<Event Id="2978081472" Name="MainMenu_Button_Quit" ObjectPath="\Events\Octo_Main\FE\MainMenu\MainMenu_Button_Quit" GUID="{A375B059-1BD8-43B3-B1C3-54EF4E89EF32}" DurationType="OneShot" DurationMin="0.513333" DurationMax="0.513333"/>
 				<Event Id="575977795" Name="MainMenu_Transition" ObjectPath="\Events\Octo_Main\FE\MainMenu\MainMenu_Transition" GUID="{A3A00D96-D858-4DA0-AE88-4A8F4B81792D}" DurationType="OneShot" DurationMin="2.858667" DurationMax="2.858667"/>
 				<Event Id="1341439083" Name="Metal_Collision" ObjectPath="\Events\Octo_Main\Environment\Environmental\Metal_Collision" GUID="{E904720B-AE69-4394-940B-135432007B5F}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2050132162" Name="MUS_Credits_Play" ObjectPath="\Events\Octo_Main\Music\Main_Menu\MUS_Credits_Play" GUID="{3F2B4592-CFDD-4AB4-A209-218110DE2AAE}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2651671324" Name="MUS_Credits_Stop" ObjectPath="\Events\Octo_Main\Music\Main_Menu\MUS_Credits_Stop" GUID="{DA887167-FDCB-471D-8593-2A5C8B301611}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2827360435" Name="MUS_Ending_Cinematic_Play" ObjectPath="\Events\Octo_Main\Music\Main_Menu\MUS_Ending_Cinematic_Play" GUID="{FF9BFDBC-99FE-4AB0-8727-F704E5F6E32D}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1915802521" Name="MUS_Ending_Cinematic_Stop" ObjectPath="\Events\Octo_Main\Music\Main_Menu\MUS_Ending_Cinematic_Stop" GUID="{1A0EEF21-598B-49AA-8B02-D38AFBA0607E}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2925456689" Name="MUS_Game_Over_Play" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_Game_Over_Play" GUID="{D504C478-39AD-4DAE-90F7-2180A88CF609}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4176975079" Name="MUS_Game_Over_Stop" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_Game_Over_Stop" GUID="{FAE5DEAC-0597-4F19-BC6B-8DD31ADB9E19}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3318620896" Name="MUS_In_Game_Theme_Play" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_In_Game_Theme_Play" GUID="{AACD6CF5-0B02-45C4-8CF0-AD4DCC5E914E}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1661983074" Name="MUS_In_Game_Theme_Stop" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_In_Game_Theme_Stop" GUID="{BF3139C0-1181-47AC-BFCB-4AE97C6BCB75}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1399729489" Name="MUS_Main_Menu_Play" ObjectPath="\Events\Octo_Main\Music\Main_Menu\MUS_Main_Menu_Play" GUID="{8DFE3319-CBFB-4BC5-9764-2DBDD10D93D3}" DurationType="Infinite"/>
+				<Event Id="2651144455" Name="MUS_Main_Menu_Stop" ObjectPath="\Events\Octo_Main\Music\Main_Menu\MUS_Main_Menu_Stop" GUID="{C02BEA90-B06F-478A-9AF4-48F50062298B}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2791264084" Name="MUS_Threat_Theme_Play" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_Threat_Theme_Play" GUID="{A7D92F75-EAD6-44EC-BD6C-545C91D13966}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="158725678" Name="MUS_Threat_Theme_Stop" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_Threat_Theme_Stop" GUID="{7E032387-5CEC-4F87-9080-236A380CE896}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="225712585" Name="MUS_Title_Screen_Play" ObjectPath="\Events\Octo_Main\Music\Main_Menu\MUS_Title_Screen_Play" GUID="{566FA971-AAD8-4CD5-9B67-F21237F45407}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1748232687" Name="MUS_Title_Screen_Stop" ObjectPath="\Events\Octo_Main\Music\Main_Menu\MUS_Title_Screen_Stop" GUID="{9E57C68F-2319-4E32-9048-0A3621B91F73}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="853073649" Name="Not_Enough_Resources" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Not_Enough_Resources" GUID="{1467A08D-2679-4C6A-86F3-F63755EAEE0E}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1805563388" Name="Octo_Damage_Metal" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Damage_Metal" GUID="{3D2991B8-0A1F-420F-89C5-582F380286FE}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3567146260" Name="Octo_Damage_Rock" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Damage_Rock" GUID="{FE7D622A-F983-4FB4-9E3D-7E4883414655}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1967397267" Name="Octo_DownThrusters" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_DownThrusters" GUID="{2B7D24DA-24F9-4E4E-8E63-D86A6BEF0C7B}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="269952755" Name="Octo_GooGlue" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_GooGlue" GUID="{294D6CF9-2F1F-47AC-9F0F-E864AA693E1E}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2765733061" Name="Octo_Grab" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Grab" GUID="{1BE04905-317A-4387-814C-19DBDA393914}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="702990819" Name="Octo_HoriThrusters" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_HoriThrusters" GUID="{5C964EAB-C7EF-437A-BC3D-1B5260EA3C1E}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1507525885" Name="Octo_LaserCutter" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_LaserCutter" GUID="{F96C8CF4-E54A-4ED5-85D0-9AED4A574C16}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2120872765" Name="Octo_Moving" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Moving" GUID="{2D94F2B1-FCB8-491D-926A-8F309A576498}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1089170435" Name="Octo_Tether" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Tether" GUID="{FD013A5D-A231-4541-9E75-0BAFDA3C416D}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="761624014" Name="Octo_UpThrusters" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_UpThrusters" GUID="{F0552B88-831D-4558-AD1B-375295DA4BEF}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3778246708" Name="Octo_Thrusters_Play" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Thrusters_Play" GUID="{F0552B88-831D-4558-AD1B-375295DA4BEF}" DurationType="Infinite"/>
+				<Event Id="1187285006" Name="Octo_Thrusters_Stop" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Thrusters_Stop" GUID="{4F81146E-5B91-41F1-A03E-C42FE491B36E}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4155334453" Name="Options_Audio_Button_Back" ObjectPath="\Events\Octo_Main\FE\MainMenu\Options\Options_Audio\Options_Audio_Button_Back" GUID="{43454049-541F-4F97-A469-07A1B42684D4}" DurationType="OneShot" DurationMin="0.513333" DurationMax="0.513333"/>
 				<Event Id="4073980316" Name="Options_Audio_Volume_Master" ObjectPath="\Events\Octo_Main\FE\MainMenu\Options\Options_Audio\Options_Audio_Volume_Master" GUID="{AC34CC84-77ED-4D26-9B26-6AE1F766922D}" DurationType="OneShot" DurationMin="0.513333" DurationMax="0.513333"/>
 				<Event Id="1189984679" Name="Options_Audio_Volume_Music" ObjectPath="\Events\Octo_Main\FE\MainMenu\Options\Options_Audio\Options_Audio_Volume_Music" GUID="{416DCFA6-CBEC-421D-BFE2-EB035794A0E4}" DurationType="OneShot" DurationMin="0.513333" DurationMax="0.513333"/>
@@ -85,13 +94,13 @@
 				<Event Id="2901737241" Name="Satellite_Crafting" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Crafting" GUID="{963C813E-0F8A-4657-961B-50ED0D932A3C}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3028867906" Name="Satellite_Foundry" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Foundry" GUID="{CFDFA428-5315-44CA-87BA-CAD4BA606D75}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="62827578" Name="Satellite_Fuel_Station" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Fuel_Station" GUID="{F2AED4A8-3FCB-4349-9BFA-5C50EE17E8CE}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1040610669" Name="Satellite_Idle" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Idle" GUID="{5C6FFF13-2378-4F71-B9D2-68C5CCE04F8B}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3335895774" Name="Satellite_Idle_Play" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Idle_Play" GUID="{5C6FFF13-2378-4F71-B9D2-68C5CCE04F8B}" DurationType="Infinite"/>
+				<Event Id="78924448" Name="Satellite_Idle_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Idle_Stop" GUID="{8D4D1954-D1DE-4ED2-9B16-656C85CA8623}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3336320773" Name="Satellite_Incinerator" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Incinerator" GUID="{96018280-ACCA-4FBD-AF32-E16775DD8D52}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1479001789" Name="Satellite_Radar" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Radar" GUID="{CB75B71C-3527-43C5-9E1E-02C3DD4AF972}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="361354428" Name="Satellite_Radar_Start" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Radar_Start" GUID="{CB75B71C-3527-43C5-9E1E-02C3DD4AF972}" DurationType="Infinite"/>
+				<Event Id="2866339600" Name="Satellite_Radar_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Radar_Stop" GUID="{2033BB77-A3E6-4E1C-8738-9AAA2C0BBBEE}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2357789153" Name="System_Sounds" ObjectPath="\Events\Octo_Main\Environment\Ambience\System_Sounds" GUID="{E9262F05-9D38-41E9-B092-95F58BA76EE3}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2900252007" Name="Threat_Theme" ObjectPath="\Events\Octo_Main\Music\In_Game\Threat_Theme" GUID="{A7D92F75-EAD6-44EC-BD6C-545C91D13966}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1944582317" Name="Thrusters" ObjectPath="\Events\Octo_Main\Environment\Ambience\Thrusters" GUID="{CBFB39BA-876A-45DE-8E70-AE005F3ACB6D}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3853285476" Name="Title_Screen" ObjectPath="\Events\Octo_Main\Music\Main_Menu\Title_Screen" GUID="{566FA971-AAD8-4CD5-9B67-F21237F45407}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2903534464" Name="Voice_Log_01" ObjectPath="\Events\Octo_Main\Characters\Oakley\Voice_Log_01" GUID="{BE6F8504-75D6-4AC3-99FC-2C390E1F86CC}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2903534467" Name="Voice_Log_02" ObjectPath="\Events\Octo_Main\Characters\Oakley\Voice_Log_02" GUID="{70474174-DC35-4C85-BC2A-1D0E68ED9BCF}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2903534466" Name="Voice_Log_03" ObjectPath="\Events\Octo_Main\Characters\Oakley\Voice_Log_03" GUID="{450731AC-7CE3-4B7E-B595-A6DFC627D84B}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -103,21 +112,69 @@
 				<Event Id="1630925514" Name="White_Noise_Spaceship" ObjectPath="\Events\Octo_Main\Environment\Ambience\White_Noise_Spaceship" GUID="{7E923973-46E1-4F94-9D7D-F8495CF87789}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="76273273" Language="SFX">
+					<ShortName>William\Ambience\Octo_Amb_Loop_01.wav</ShortName>
+					<Path>SFX\William\Ambience\Octo_Amb_Loop_01_D79FB2B7.wem</Path>
+				</File>
+				<File Id="85947394" Language="SFX">
+					<ShortName>William\Ambience\Octo_Satellite_Radar_01.wav</ShortName>
+					<Path>SFX\William\Ambience\Octo_Satellite_Radar_01_D79FB2B7.wem</Path>
+				</File>
+				<File Id="146736869" Language="SFX">
+					<ShortName>Oct0_theme_sample.wav</ShortName>
+					<Path>SFX\Oct0_theme_sample_C5579977.wem</Path>
+				</File>
 				<File Id="287153768" Language="SFX">
 					<ShortName>Patrick\SFX\UI\MAIN_MENU\TEMP_SFX_Button_Press_V2.wav</ShortName>
-					<Path>SFX/Patrick/SFX/UI/MAIN_MENU/TEMP_SFX_Button_Press_V2_10C4C929.wem</Path>
+					<Path>SFX\Patrick\SFX\UI\MAIN_MENU\TEMP_SFX_Button_Press_V2_10C4C929.wem</Path>
+				</File>
+				<File Id="487365530" Language="SFX">
+					<ShortName>Patrick\SFX\Characters\Octo\TEMP_SFX_Characters_Octo_HoriThrusters3_DroneOnly.wav</ShortName>
+					<Path>SFX\Patrick\SFX\Characters\Octo\TEMP_SFX_Characters_Octo_HoriThrusters3_DroneOnly_0C38345C.wem</Path>
+				</File>
+				<File Id="500734584" Language="SFX">
+					<ShortName>William\Ambience\Octo_Satellite_Idle_01.wav</ShortName>
+					<Path>SFX\William\Ambience\Octo_Satellite_Idle_01_D79FB2B7.wem</Path>
 				</File>
 				<File Id="501136152" Language="SFX">
 					<ShortName>Patrick\SFX\UI\MAIN_MENU\TEMP_SFX_Button_Hover.wav</ShortName>
-					<Path>SFX/Patrick/SFX/UI/MAIN_MENU/TEMP_SFX_Button_Hover_10C4C929.wem</Path>
+					<Path>SFX\Patrick\SFX\UI\MAIN_MENU\TEMP_SFX_Button_Hover_10C4C929.wem</Path>
+				</File>
+				<File Id="547392518" Language="SFX">
+					<ShortName>Patrick\SFX\Characters\Octo\TEMP_SFX_Characters_Octo_HoriThrustersDrone.wav</ShortName>
+					<Path>SFX\Patrick\SFX\Characters\Octo\TEMP_SFX_Characters_Octo_HoriThrustersDrone_FEAFA903.wem</Path>
+				</File>
+				<File Id="573377507" Language="SFX">
+					<ShortName>William\Ambience\GA_Collab_BG_Space.wav</ShortName>
+					<Path>SFX\William\Ambience\GA_Collab_BG_Space_D79FB2B7.wem</Path>
 				</File>
 				<File Id="620159721" Language="SFX">
 					<ShortName>Patrick\SFX\UI\MAIN_MENU\TEMP_SFX_Menu_Transition.wav</ShortName>
-					<Path>SFX/Patrick/SFX/UI/MAIN_MENU/TEMP_SFX_Menu_Transition_10C4C929.wem</Path>
+					<Path>SFX\Patrick\SFX\UI\MAIN_MENU\TEMP_SFX_Menu_Transition_10C4C929.wem</Path>
 				</File>
-				<File Id="971696740" Language="SFX">
-					<ShortName>Patrick\Ambience\TEMP_Amb_Robot_Pulse.wav</ShortName>
-					<Path>SFX/Patrick/Ambience/TEMP_Amb_Robot_Pulse_B4CB74CD.wem</Path>
+				<File Id="717610840" Language="SFX">
+					<ShortName>Patrick\SFX\Characters\Octo\TEMP_SFX_Characters_Octo_HoriThrusters3.wav</ShortName>
+					<Path>SFX\Patrick\SFX\Characters\Octo\TEMP_SFX_Characters_Octo_HoriThrusters3_10C4C929.wem</Path>
+				</File>
+				<File Id="738501797" Language="SFX">
+					<ShortName>Patrick\SFX\Characters\Octo\TEMP_SFX_Characters_Octo_HoriThrusters02.wav</ShortName>
+					<Path>SFX\Patrick\SFX\Characters\Octo\TEMP_SFX_Characters_Octo_HoriThrusters02_F6B880A9.wem</Path>
+				</File>
+				<File Id="800700247" Language="SFX">
+					<ShortName>William\Ambience\Octo_Comms_Array_01.wav</ShortName>
+					<Path>SFX\William\Ambience\Octo_Comms_Array_01_D79FB2B7.wem</Path>
+				</File>
+				<File Id="853983173" Language="SFX">
+					<ShortName>Patrick\SFX\Characters\Octo\TEMP_SFX_Characters_Octo_HoriThrusters3_NoDrone.wav</ShortName>
+					<Path>SFX\Patrick\SFX\Characters\Octo\TEMP_SFX_Characters_Octo_HoriThrusters3_NoDrone_C0458FBC.wem</Path>
+				</File>
+				<File Id="866752823" Language="SFX">
+					<ShortName>William\Ambience\Octo_Comms_Array_02.wav</ShortName>
+					<Path>SFX\William\Ambience\Octo_Comms_Array_02_D79FB2B7.wem</Path>
+				</File>
+				<File Id="969775143" Language="SFX">
+					<ShortName>Patrick\SFX\Satellite\TEMP_SFX_Satellite_FuelRestore.wav</ShortName>
+					<Path>SFX\Patrick\SFX\Satellite\TEMP_SFX_Satellite_FuelRestore_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
