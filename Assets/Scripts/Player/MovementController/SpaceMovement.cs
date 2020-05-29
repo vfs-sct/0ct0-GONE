@@ -20,6 +20,7 @@ public class SpaceMovement : MovementComponent
 
     private Rigidbody _Rigidbody;
     private float Mass;
+    Vector3 Impulse = new Vector3();
 
     private ResourceInventory LinkedResourceBehavior;
 
@@ -57,18 +58,16 @@ public class SpaceMovement : MovementComponent
 
     private Vector3 CalculateImpulse(MovementController Controller)
     {
-        Vector3 Impulse = new Vector3();
         float MaxDeltaV = ThrusterImpulse /_Rigidbody.mass;
 
         //------velocity anchoring---------
-        Vector3 DeltaV = ((TargetVelocity)-Controller.transform.InverseTransformDirection(_Rigidbody.velocity)); 
+        Vector3 DeltaV = ((TargetVelocity)-Controller.transform.InverseTransformDirection(_Rigidbody.velocity));
+        Impulse = Vector3.zero;
 
         if (AnchorTarget != null) 
         {
             DeltaV = (TargetVelocity+AnchorTarget.velocity)-Controller.transform.InverseTransformDirection(_Rigidbody.velocity);
         }
-
-
 
         for (int i = 0; i < 3; ++i)
 	    {
@@ -79,12 +78,28 @@ public class SpaceMovement : MovementComponent
 		    else
 		    {
 			    Impulse[i] = Mathf.Clamp((DeltaV[i] / MaxDeltaV), -1f, 1)* ThrusterImpulse;	//calculate target throttle
+
+
 		    }            
             //Debug.Log(Mathf.Abs(Impulse[i] *FuelPerImpulseUnit));
             LinkedResourceBehavior.RemoveResource(FuelResource,Mathf.Abs(Impulse[i] *(FuelPerImpulseUnit/FuelEfficency)));
             //Debug.Log(LinkedResourceBehavior.GetResource(FuelResource));
 	    }
         return Controller.transform.TransformDirection(Impulse);
+    }
+    
+    //FOR EVAN
+    //return float between -1 and 1 for single direction axis
+    public float GetAxisImpulse(int impulseIndex)
+    {
+        return Impulse[impulseIndex] / ThrusterImpulse;
+    }
+
+    //FOR EVAN
+    //return float between -1 and 1 for entire impulse
+    public float GetVector3Impulse()
+    {
+        return new Vector3(Impulse[0], Impulse[1], Impulse[2]).magnitude / ThrusterImpulse;
     }
 
     public override void Translate(MovementController Controller,Vector3 Input,byte MovementSubMode)
