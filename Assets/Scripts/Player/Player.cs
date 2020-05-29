@@ -10,8 +10,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameFrameworkManager GameManager  = null;
+    [SerializeField] private Playing PlayingState;
     [SerializeField] private LayerMask TargetableMask;
-
     [SerializeField] private Camera PlayerCamera;
 
     [SerializeField] private float TargetingDistance = 1000.0f;
@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Resource FuelResource;
 
     [SerializeField] private ResourceInventory LinkedInventory;
+    public ResourceInventory Inventory{get=>LinkedInventory;}
 
     [SerializeField] private GameOver GameOverScreen;
 
@@ -121,10 +122,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         GameManager.Pause();
         GameOverScreen.gameObject.SetActive(true);
+    }
+
+
+    private void Awake()
+    {
+        PlayingState.RegisterPlayer(this);
     }
 
 
@@ -136,12 +143,6 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
-        //Debug.Log("PlayerFuel = "+LinkedInventory.GetResource(FuelResource));
-        if (LinkedInventory.GetResource(FuelResource) == 0)
-        {
-
-            GameOver();
-        }
     }
 
 

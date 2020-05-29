@@ -7,7 +7,15 @@ public abstract class GameState : ScriptableObject
     [SerializeField] public bool CanTick;
     [SerializeField] public long TickRate;
 
-    public abstract bool ConditionCheck(GameFrameworkManager GameManager);
+    public virtual bool ConditionCheck(GameFrameworkManager GameManager)
+    {
+        return true;
+    }
+
+    public virtual bool TransitionCheck(GameFrameworkManager GameManager)
+    {
+        return true;
+    }
 
     public abstract void OnActivate(GameState LastState);
 
