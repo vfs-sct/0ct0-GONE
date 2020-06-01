@@ -13,6 +13,8 @@ public class Pause : MonoBehaviour
     [SerializeField] GameObject CodexPrefab = null;
     [SerializeField] GameObject OptionsPrefab = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
+    [SerializeField] GameObject AudioReferences = null;
+    [SerializeField] GameObject AudioReferences2 = null;
 
     [SerializeField] string menuScene = null;
 
@@ -62,6 +64,8 @@ public class Pause : MonoBehaviour
     {
         GameManager.LoadScene($"{menuScene}");
         GameManager.UnPause();
+        AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
+        AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
     }
 
     public void OnClickQuit()

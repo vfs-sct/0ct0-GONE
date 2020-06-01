@@ -12,12 +12,14 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject OptionsPrefab = null;
     [SerializeField] GameObject CreditsPrefab = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
+    [SerializeField] GameObject AudioReferences = null;
 
     [SerializeField] string nextScene = null;
 
     public void OnClickPlay()
     {
         GameManager.LoadScene($"{nextScene}");
+        AkSoundEngine.PostEvent("MUS_Main_Menu_Stop", AudioReferences);
     }
 
     public void OnClickOptions()
