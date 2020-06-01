@@ -21,12 +21,11 @@ public class CommRelaySatellite : PlayerSatellite
         throw new System.NotImplementedException();
     }
 
-    public override void Start(PlayerSatelliteBehavior Parent)
+    public override void Init(PlayerSatelliteBehavior Parent)
     {
-        Parent.gameObject.AddComponent<CommunicationZone>(); //check if in range
     }
 
-    public override void Update(PlayerSatelliteBehavior Parent)
+    public override void UpdateSat(PlayerSatelliteBehavior Parent)
     {
         
     }

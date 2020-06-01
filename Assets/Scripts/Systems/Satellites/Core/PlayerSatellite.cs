@@ -6,8 +6,14 @@ using UnityEngine;
 //[CreateAssetMenu(menuName = "Systems/Satellite/New Satellite")]
 public abstract class PlayerSatellite : ScriptableObject
 {
-    [SerializeField] protected GameObject _Prefab;
-    public GameObject Prefab{get =>_Prefab;}
+    [SerializeField] protected GameObject _PlacementPrefab;
+    public GameObject PlacementPrefab {get =>_PlacementPrefab;}
+
+    [SerializeField] protected GameObject _CarryingPrefab;
+    public GameObject CarryingPrefab {get =>_CarryingPrefab;}
+
+    [SerializeField] protected float _Mass = 10f;
+    public float Mass{get => _Mass;}
 
     [SerializeField] protected bool _CanUpdate = false;
     public bool CanUpdate{get => _CanUpdate;}
@@ -17,7 +23,7 @@ public abstract class PlayerSatellite : ScriptableObject
     [SerializeField] protected bool _CanPickup = true;
     public bool CanPickup{get => _CanPickup;}
 
-    public abstract void Update(PlayerSatelliteBehavior Parent);
+    public abstract void UpdateSat(PlayerSatelliteBehavior Parent);
 
     public virtual bool Interact(PlayerSatelliteBehavior Parent)
     {
@@ -27,7 +33,7 @@ public abstract class PlayerSatellite : ScriptableObject
     protected virtual void InteractEffect(PlayerSatellite Parent)
     {
     }
-    public abstract void Start(PlayerSatelliteBehavior Parent);
+    public abstract void Init(PlayerSatelliteBehavior Parent);
     public abstract bool PlacementCondition(PlayerSatelliteBehavior Parent);
     public abstract GameObject Place(PlayerSatelliteHolder Parent);
     public abstract void Pickup(PlayerSatelliteBehavior Parent,GameObject NewSat);

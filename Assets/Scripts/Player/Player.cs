@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask TargetableMask;
     [SerializeField] private Camera PlayerCamera;
 
+    [SerializeField] private PlayerSatelliteHolder SatHolder;
+
     [SerializeField] private float TargetingDistance = 1000.0f;
 
     [SerializeField] private Resource FuelResource;
@@ -77,6 +79,9 @@ public class Player : MonoBehaviour
     public void OnActivateTool()
     {
         LinkedToolController.ActivateTool();
+
+        //testing code for satellite placement
+        //if (LastToolSelectedIndex == -1) SatHolder.Place();
     }
 
     public void OnDeactiveTool()

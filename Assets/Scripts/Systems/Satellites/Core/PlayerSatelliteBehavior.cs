@@ -11,13 +11,6 @@ public class PlayerSatelliteBehavior : MonoBehaviour
 
     private void Start()
     {
-        if (SatelliteType == null)
-        {
-            Debug.LogAssertion(this.name +" is without a type!");
-            return;
-        }
-        SatelliteType.Start(this);
-
     }
 
     private void SetType(PlayerSatellite Type)
@@ -28,7 +21,8 @@ public class PlayerSatelliteBehavior : MonoBehaviour
 
     private void Update()
     {
-        if (SatelliteType.CanUpdate) SatelliteType.Update(this);
+        if (_SatelliteType == null) return;
+        if (SatelliteType.CanUpdate) SatelliteType.UpdateSat(this);
     }
 
     public bool Interact()

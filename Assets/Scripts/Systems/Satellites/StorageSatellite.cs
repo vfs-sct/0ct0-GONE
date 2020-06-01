@@ -23,11 +23,11 @@ public class StorageSatellite : PlayerSatellite
         return true;
     }
 
-    public override void Start(PlayerSatelliteBehavior Parent)
+    public override void Init(PlayerSatelliteBehavior Parent)
     {
     }
 
-    public override void Update(PlayerSatelliteBehavior Parent)
+    public override void UpdateSat(PlayerSatelliteBehavior Parent)
     {
     }
 }
