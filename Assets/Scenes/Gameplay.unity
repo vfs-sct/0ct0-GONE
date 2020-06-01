@@ -311,6 +311,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 41cedef85c35ccb428399bdbd6368a25,
         type: 2}
+    - target: {fileID: 489913431673510643, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913431673510643, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913431673510643, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: field of view
+      value: 26.991467
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913431673510643, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913431673510643, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 489913432411053741, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -364,6 +389,12 @@ PrefabInstance:
       propertyPath: LinkedInventory
       value: 
       objectReference: {fileID: 849435026}
+    - target: {fileID: 489913433233796650, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: PlayingState
+      value: 
+      objectReference: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152,
+        type: 2}
     - target: {fileID: 489913433233796651, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_Name
@@ -413,22 +444,22 @@ PrefabInstance:
     - target: {fileID: 489913433233796655, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 489913433233796655, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.43903956
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 489913433233796655, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 489913433233796655, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.8984678
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 489913433233796655, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
@@ -443,7 +474,7 @@ PrefabInstance:
     - target: {fileID: 489913433233796655, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -307.915
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 489913433233796655, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
@@ -2131,6 +2162,19 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &1546038029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546038025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db363457cf7553a41aea543bfbbb2d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkyboxCamera: {fileID: 0}
 --- !u!1 &1568646688 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7862266657549267658, guid: 7a40043a15a6c1b4ead6c6a227ee3e2f,

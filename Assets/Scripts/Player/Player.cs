@@ -10,15 +10,18 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameFrameworkManager GameManager  = null;
+    [SerializeField] private Playing PlayingState;
     [SerializeField] private LayerMask TargetableMask;
-
     [SerializeField] private Camera PlayerCamera;
+
+    [SerializeField] private PlayerSatelliteHolder SatHolder;
 
     [SerializeField] private float TargetingDistance = 1000.0f;
 
     [SerializeField] private Resource FuelResource;
 
     [SerializeField] private ResourceInventory LinkedInventory;
+    public ResourceInventory Inventory{get=>LinkedInventory;}
 
     [SerializeField] private GameOver GameOverScreen;
 
@@ -76,6 +79,9 @@ public class Player : MonoBehaviour
     public void OnActivateTool()
     {
         LinkedToolController.ActivateTool();
+
+        //testing code for satellite placement
+        //if (LastToolSelectedIndex == -1) SatHolder.Place();
     }
 
     public void OnDeactiveTool()
@@ -121,10 +127,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         GameManager.Pause();
         GameOverScreen.gameObject.SetActive(true);
+    }
+
+
+    private void Awake()
+    {
+        PlayingState.RegisterPlayer(this);
     }
 
 
@@ -136,12 +148,6 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
-        //Debug.Log("PlayerFuel = "+LinkedInventory.GetResource(FuelResource));
-        if (LinkedInventory.GetResource(FuelResource) == 0)
-        {
-
-            GameOver();
-        }
     }
 
 

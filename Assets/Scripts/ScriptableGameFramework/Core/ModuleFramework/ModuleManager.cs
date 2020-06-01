@@ -90,10 +90,6 @@ public class ModuleManager : ScriptableObject
 
  public T GetModule<T>() where T : Module
     {
-        foreach (var item in moduleList)
-        {
-            if (item.Key == typeof(T)) return (T)item.Value;
-        }
-        return default(T);
+        return (T)moduleList[typeof(T)];
     }
 }

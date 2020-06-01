@@ -42,6 +42,14 @@ public class ResourceModule : Module
         resource.RegisterOnAddDelegate(owner,newDelegate);
     }
 
+    public void MoveInventory( ResourceInventory OldInv, ResourceInventory NewInv)
+    {
+        for (int i = 0; i < OldInv.Resources.Count; i++)
+        {
+            OldInv.Resources[i].MoveInventory(OldInv,NewInv);
+        }
+    }
+
     public void RegisterOnRemoveDelegate(Resource resource, ResourceInventory owner, ResourceEventDelta newDelegate)
     {
         resource.RegisterOnRemoveDelegate(owner,newDelegate);
