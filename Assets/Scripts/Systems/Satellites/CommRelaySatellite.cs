@@ -6,15 +6,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Systems/Satellite/New CommRelay")]
 public class CommRelaySatellite : PlayerSatellite
 {
-    public override bool Pickup(PlayerSatelliteBehavior Parent)
+    public override void Pickup(PlayerSatelliteBehavior Parent,GameObject NewSat)
     {
         throw new System.NotImplementedException();
     }
 
-    public override bool Place(PlayerSatelliteBehavior Parent)
+    public override GameObject Place(PlayerSatelliteHolder Parent)
     {
-        Parent.gameObject.AddComponent<CommunicationZone>(); //check if in range
-        return true;
+        return null;
     }
 
     public override bool PlacementCondition(PlayerSatelliteBehavior Parent)
@@ -24,7 +23,7 @@ public class CommRelaySatellite : PlayerSatellite
 
     public override void Start(PlayerSatelliteBehavior Parent)
     {
-        
+        Parent.gameObject.AddComponent<CommunicationZone>(); //check if in range
     }
 
     public override void Update(PlayerSatelliteBehavior Parent)

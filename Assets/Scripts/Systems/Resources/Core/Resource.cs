@@ -47,6 +47,11 @@ public class Resource : ScriptableObject
         Data.Add(owner,new ResourceData_Internal(DataIn.min,DataIn.value,DataIn.max,null,null));
     }
 
+    private void RegisterInstance_internal(ResourceInventory owner,ResourceData_Internal RSData)
+    {
+        Data.Add(owner,RSData);
+    }
+
 
     //register a new delegate to call when a resource is added
     public void RegisterOnAddDelegate(ResourceInventory owner, ResourceModule.ResourceEventDelta newDelegate)
@@ -89,6 +94,13 @@ public class Resource : ScriptableObject
     public void SetInstanceValue(ResourceInventory owner,float value)
     {
         Data[owner] = new ResourceData_Internal(Data[owner].Min,value,Data[owner].Max,Data[owner].OnAddResource,Data[owner].OnRemoveResource);
+    }
+
+    public void MoveInventory(ResourceInventory OldInv, ResourceInventory NewInv)
+    {
+        ResourceData_Internal ResourceData= Data[OldInv]; 
+        RemoveInstance(OldInv);
+        RegisterInstance_internal(OldInv,ResourceData);
     }
 
 

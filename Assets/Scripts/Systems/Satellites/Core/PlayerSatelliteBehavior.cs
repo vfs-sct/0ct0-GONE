@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerSatelliteBehavior : MonoBehaviour
 {
-    [SerializeField] private PlayerSatellite SatelliteType;
+    [SerializeField] private PlayerSatellite _SatelliteType;
+    public PlayerSatellite SatelliteType{get => _SatelliteType;}
+
+    public bool CanPickup{get => SatelliteType.CanPickup;}
 
     private void Start()
     {
@@ -14,9 +17,15 @@ public class PlayerSatelliteBehavior : MonoBehaviour
             return;
         }
         SatelliteType.Start(this);
-        SatelliteType.Place(this);
 
     }
+
+    private void SetType(PlayerSatellite Type)
+    {
+        _SatelliteType = Type;
+    }
+
+
     private void Update()
     {
         if (SatelliteType.CanUpdate) SatelliteType.Update(this);
@@ -28,9 +37,11 @@ public class PlayerSatelliteBehavior : MonoBehaviour
         return false;
     }
 
-    public void Pickup()
+
+
+    public void Pickup(PlayerSatelliteHolder Parent,GameObject NewSat)
     {
-        SatelliteType.Pickup(this);
+        SatelliteType.Pickup(this,NewSat);
         Destroy(gameObject);
     }
 }

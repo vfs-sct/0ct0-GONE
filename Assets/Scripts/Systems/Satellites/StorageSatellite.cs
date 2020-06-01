@@ -3,30 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Systems/Satellite/New Storage")]
+
 public class StorageSatellite : PlayerSatellite
 {
-    public override bool Pickup(PlayerSatelliteBehavior Parent)
+    [SerializeField] private ResourceModule ResourceManager;
+    public override void Pickup(PlayerSatelliteBehavior Parent,GameObject NewSat)
     {
-        throw new System.NotImplementedException();
+        ResourceInventory NewInv = NewSat.AddComponent<ResourceInventory>();
+        ResourceManager.MoveInventory()
     }
 
-    public override bool Place(PlayerSatelliteBehavior Parent)
+    public override GameObject Place(PlayerSatelliteHolder Parent)
     {
-        throw new System.NotImplementedException();
+        return null;
     }
 
     public override bool PlacementCondition(PlayerSatelliteBehavior Parent)
     {
-        throw new System.NotImplementedException();
+        return true;
     }
 
     public override void Start(PlayerSatelliteBehavior Parent)
     {
-        throw new System.NotImplementedException();
     }
 
     public override void Update(PlayerSatelliteBehavior Parent)
     {
-        throw new System.NotImplementedException();
     }
 }

@@ -7,6 +7,7 @@ public class ResourceInventory : MonoBehaviour
     [SerializeField] private ResourceModule ResourceManager = null;
     
     [SerializeField] private List<Resource> ActiveResources = new List<Resource>();
+    public List<Resource> Resources{get =>ActiveResources;}
 
     [SerializeField] private bool UseOverrides = false;
 
