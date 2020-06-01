@@ -10,6 +10,8 @@ public class GameOver : MonoBehaviour
 {
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
+    [SerializeField] GameObject AudioReferences = null;
+    [SerializeField] GameObject AudioReferences2 = null;
 
     [SerializeField] string menuScene = null;
 
@@ -26,6 +28,12 @@ public class GameOver : MonoBehaviour
             GameManager.UnPause();
         }
         SceneManager.LoadScene($"{menuScene}");
+
+        // ========================
+        //          AUDIO
+        // ========================
+        AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
+        AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
     }
 
     public void OnClickMainMenu()
