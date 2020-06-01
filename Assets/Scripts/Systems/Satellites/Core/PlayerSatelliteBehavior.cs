@@ -15,10 +15,17 @@ public class PlayerSatelliteBehavior : MonoBehaviour
         }
         SatelliteType.Start(this);
         SatelliteType.Place(this);
+
     }
     private void Update()
     {
-        SatelliteType.Update(this);
+        if (SatelliteType.CanUpdate) SatelliteType.Update(this);
+    }
+
+    public bool Interact()
+    {
+        if (SatelliteType.CanInteract) return SatelliteType.Interact(this);
+        return false;
     }
 
     public void Pickup()
