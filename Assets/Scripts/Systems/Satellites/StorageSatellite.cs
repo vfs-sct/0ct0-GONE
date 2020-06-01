@@ -10,7 +10,7 @@ public class StorageSatellite : PlayerSatellite
     public override void Pickup(PlayerSatelliteBehavior Parent,GameObject NewSat)
     {
         ResourceInventory NewInv = NewSat.AddComponent<ResourceInventory>();
-        ResourceManager.MoveInventory()
+        ResourceManager.MoveInventory(Parent.GetComponentInChildren<ResourceInventory>(),NewInv);
     }
 
     public override GameObject Place(PlayerSatelliteHolder Parent)
