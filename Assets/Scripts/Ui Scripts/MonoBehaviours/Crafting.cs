@@ -8,20 +8,16 @@ public class Crafting : MonoBehaviour
 {
     [SerializeField] UIAwake UIRoot = null; 
     [SerializeField] GameObject HUDPrefab = null;
+
+    [SerializeField] Button[] tabButtons = null;
+    [SerializeField] GameObject[] contentGroups = null;
+
+    [SerializeField] ScriptableObject[] T0Recipes;
     [SerializeField] ScriptableObject[] T1Recipes;
-    // Start is called before the first frame update
+    [SerializeField] ScriptableObject[] T2Recipes;
+    [SerializeField] ScriptableObject[] T3Recipes;
 
     [SerializeField] Button RecipeButton = null;
-    
-    //tier tabs
-    [SerializeField] GameObject T1Panel = null;
-    //[SerializeField] GameObject T2Panel = null;
-    //[SerializeField] GameObject T3Panel = null;
-
-    //panel that shows the recipes for each tab
-    [SerializeField] Button T1TabButton = null;
-    //[SerializeField] Button T2TabButton = null;
-    //[SerializeField] Button T3TabButton = null;
 
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
 
@@ -30,17 +26,20 @@ public class Crafting : MonoBehaviour
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
 
-        //associate the tab with its panel
-        PanelToButton[T1Panel] = T1TabButton;
+        //correlate tab panels with tab buttons - note, buttons and content groups need to be in the correct order in editor
+        for(int i = 0; i < tabButtons.Length; i++)
+        {
+            PanelToButton[contentGroups[i]] = tabButtons[i];
+        }
 
         //fill in the panel
-        foreach(var recipe in T1Recipes)
+        foreach (var recipe in T0Recipes)
         {
-            AddNewButton(recipe.name, T1Panel.GetComponent<VerticalLayoutGroup>());
+            AddNewButton(recipe.name, contentGroups[0].GetComponent<VerticalLayoutGroup>());
         }
 
         //set the default panel to active
-        SwitchActiveTab(T1Panel);
+        SwitchActiveTab(contentGroups[0]);
     }
 
     //update numbers related to player inventory here
