@@ -5,8 +5,11 @@ using UnityEngine;
 public abstract class MovementComponent : ScriptableObject
 {
 
-    protected Vector3 TargetVelocity; //target velocity in m/s
-    protected Vector3 TargetAngularVelocity; //target angular velocity in rad/s
+    protected Vector3 TargetVelocityWorld  = new Vector3(); //target velocity in m/s in world space
+
+    protected Vector3 TargetVelocityLocal = new Vector3(); //target velocity in m/s in local space
+
+    protected Vector3 TargetAngle  = new Vector3(); //target angular in degrees
 
     public virtual void Translate(MovementController Controller,Vector3 Input,byte MovementSubMode){}
     public virtual void Rotate(MovementController Controller,Vector3 Input,byte MovementSubMode){}

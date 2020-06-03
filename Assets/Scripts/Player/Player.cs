@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 
 [RequireComponent(typeof(Rigidbody))]
@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Resource FuelResource;
 
+    [SerializeField] private PlayerCamera CameraScript;
+
     [SerializeField] private ResourceInventory LinkedInventory;
     public ResourceInventory Inventory{get=>LinkedInventory;}
 
@@ -29,6 +31,8 @@ public class Player : MonoBehaviour
     private ToolController LinkedToolController;
 
     private Collider _TargetCollider;
+
+    private Vector3 RotationInput = new Vector3();
 
     
     
@@ -75,6 +79,29 @@ public class Player : MonoBehaviour
         LastToolSelectedIndex = 3;
         LinkedToolController.SwitchTool(3);
     }
+
+    public void OnRoll(InputValue value)
+    {
+        RotationInput.z = value.Get<float>();
+    }
+
+    public void OnLook(InputValue value)
+    {
+        RotationInput.y = value.Get<Vector2>().x;
+        RotationInput.x = value.Get<Vector2>().y;
+    }
+
+    private void UpdateCamera()
+    {
+        CameraScript.RotateCamera(RotationInput);
+    }
+
+
+    private void UpdateCharacterRotation()
+    {
+        LinkedMovementController.SetRotationTarget(CameraScript.Root.transform.rotation.eulerAngles);
+    }
+
 
     public void OnActivateTool()
     {
@@ -146,8 +173,13 @@ public class Player : MonoBehaviour
         LinkedToolController = GetComponent<ToolController>();
     }
     
+
+
+
     private void Update()
     {
+        UpdateCamera();
+        UpdateCharacterRotation();
     }
 
 
