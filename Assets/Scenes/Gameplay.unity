@@ -314,12 +314,42 @@ PrefabInstance:
     - target: {fileID: 489913431673510641, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.81
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 489913431673510641, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913431673510641, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913431673510641, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913431673510641, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913431673510641, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913431673510641, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913431673510641, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 489913431673510643, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
@@ -334,7 +364,7 @@ PrefabInstance:
     - target: {fileID: 489913431673510643, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: field of view
-      value: 26.991467
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 489913431673510643, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
@@ -405,6 +435,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152,
         type: 2}
+    - target: {fileID: 489913433233796650, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: CameraScript
+      value: 
+      objectReference: {fileID: 1546038030}
     - target: {fileID: 489913433233796651, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_Name
@@ -425,6 +460,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 489913433233796652, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 489913433233796653, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: MovementModes.Array.data[1]
@@ -436,6 +476,11 @@ PrefabInstance:
       propertyPath: NormalizeInput
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 489913433233796653, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: _CameraScript
+      value: 
+      objectReference: {fileID: 1546038030}
     - target: {fileID: 489913433233796654, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_NeverAutoSwitchControlSchemes
@@ -519,12 +564,12 @@ PrefabInstance:
     - target: {fileID: 5267203579931695048, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5267203579931695048, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.394
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 489913431673510640, guid: 7de9c50c04b650e4fa5a1b2c16083f87, type: 3}
@@ -2420,6 +2465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkyboxCamera: {fileID: 971202842}
+  CameraScript: {fileID: 1546038030}
 --- !u!114 &1546038030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2434,6 +2480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraManager: {fileID: 11400000, guid: 6c6d304eeddc9e34aa9f48a92dfb163b, type: 2}
   PlayerCam: {fileID: 1661616899}
+  CameraRoot: {fileID: 2112553890}
 --- !u!1 &1568646688 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7862266657549267658, guid: 7a40043a15a6c1b4ead6c6a227ee3e2f,
@@ -3030,6 +3077,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3861478300804232965, guid: 7a40043a15a6c1b4ead6c6a227ee3e2f, type: 3}
+--- !u!1 &2112553890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4150338873668326980, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+    type: 3}
+  m_PrefabInstance: {fileID: 307403186}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2146632889 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5984388485589536855, guid: 7a40043a15a6c1b4ead6c6a227ee3e2f,
