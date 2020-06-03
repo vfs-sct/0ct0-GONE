@@ -66,6 +66,8 @@ public class SpaceMovement : MovementComponent
         //get the difference between our desired velocity and our current velocity
         Vector3 DeltaV = (Controller.CameraScript.Root.transform.TransformDirection(TargetVelocityWorld))-_Rigidbody.velocity; 
 
+        float fuelUsage = 0;
+
         //add our target's velocity onto our desired velocity if we have a target
         if (AnchorTarget != null)  DeltaV += AnchorTarget.velocity;
         
@@ -78,14 +80,15 @@ public class SpaceMovement : MovementComponent
             Impulse[i] = Mathf.Clamp(Impulse[i],-ThrusterImpulse,ThrusterImpulse);
 
             Throttle[i] = Impulse[i]/ThrusterImpulse; //get the throttle value for sound and vfx
+            fuelUsage += Impulse[i]*(FuelPerImpulseUnit/FuelEfficency);
         }
-
+        LinkedResourceBehavior.RemoveResource(FuelResource,fuelUsage);
         return Impulse;
     }
 
     public override void Rotate(MovementController Controller, Vector3 Angle, byte MovementSubMode)
     {
-        TargetAngle = new Vector3(0,0,0);
+        TargetAngle = Angle;
     }
 
 
@@ -106,15 +109,18 @@ public class SpaceMovement : MovementComponent
     {
         Vector3 Torques = new Vector3();
         float AngleDelta = 0;
+        float fuelUsage = 0;
         for (int i = 0; i < 3; i++)
         {
             AngleDelta = Mathf.Clamp(Mathf.DeltaAngle(TargetAngle[i], _Rigidbody.rotation.eulerAngles[i]),-20,20);
             Torques[i] = Mathf.Clamp(AngleDelta,-ThrusterTorque,ThrusterTorque);
+            fuelUsage += Torques[i]*(FuelPerTorqueUnit/FuelEfficency);
         }
 
         _Rigidbody.AddRelativeTorque(new Vector3(-1,0,0) * Torques.x,ForceMode.Impulse);
         _Rigidbody.AddRelativeTorque(new Vector3(0,-1,0) * Torques.y,ForceMode.Impulse);
         _Rigidbody.AddRelativeTorque(new Vector3(0,0,-1) * Torques.z,ForceMode.Impulse);
+        LinkedResourceBehavior.RemoveResource(FuelResource,fuelUsage);
     }
 
 
@@ -136,9 +142,7 @@ public class SpaceMovement : MovementComponent
     }
     public override void MovementUpdate(MovementController Controller,byte MovementSubMode)
     {
-//        Debug.Log(CalculateImpulse(Controller));
         _Rigidbody.AddForce(CalculateImpulse(Controller), ForceMode.Impulse);
-        //_Rigidbody.angularVelocity = CalculateRotation(Controller);
         ApplyTorque(Controller);
      
         

@@ -18,16 +18,16 @@ public class MovementController : MonoBehaviour
 
     private Vector3 _RawInput = new Vector3();
 
-    private Vector3  _RotationInput = new Vector3();
+    private Vector3  _RotationTarget = new Vector3();
     private Vector3 _NormalizedInput= new Vector3();
 
 
     public Vector3 RawInput{get => _RawInput;}
     public Vector3 NormalizedInput{get => _NormalizedInput;}
 
-    public void SetRotationInput(Vector3 NewRotationIn)
+    public void SetRotationTarget(Vector3 NewRotationIn)
     {
-        _RotationInput = NewRotationIn;
+        _RotationTarget = NewRotationIn;
     }
 
 
@@ -75,7 +75,7 @@ public class MovementController : MonoBehaviour
         {
             ActiveMode.Translate(this,_RawInput,MovementMode);
         }
-        ActiveMode.Rotate(this,_RotationInput,MovementMode);
+        ActiveMode.Rotate(this,_RotationTarget,MovementMode);
         ActiveMode.MovementUpdate(this,MovementMode);
     }
 }

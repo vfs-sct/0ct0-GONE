@@ -99,9 +99,7 @@ public class Player : MonoBehaviour
 
     private void UpdateCharacterRotation()
     {
-        Vector3 RotationDelta = (CameraScript.RotationVector - gameObject.transform.rotation.eulerAngles) / 90;
-        LinkedMovementController.SetRotationInput(RotationDelta);
-
+        LinkedMovementController.SetRotationTarget(CameraScript.Root.transform.rotation.eulerAngles);
     }
 
 
