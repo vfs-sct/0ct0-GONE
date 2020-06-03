@@ -6,6 +6,7 @@ using TMPro;
 
 public class Crafting : MonoBehaviour
 {
+    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] UIAwake UIRoot = null; 
     [SerializeField] GameObject HUDPrefab = null;
 
@@ -17,8 +18,10 @@ public class Crafting : MonoBehaviour
     [SerializeField] ScriptableObject[] T2Recipes;
     [SerializeField] ScriptableObject[] T3Recipes;
 
+    //default button used to make all the buttons in the recipe tabs
     [SerializeField] Button RecipeButton = null;
 
+    //associate tab buttons with their tab panel
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
 
     private ResourceInventory playerInventory;
@@ -61,8 +64,14 @@ public class Crafting : MonoBehaviour
         Close();
     }
 
+    public void OnCraftHotkey(InputValue value)
+    {
+        Close();
+    }
+
     public void Close()
     {
+        GameManager.UnPause();
         SwitchViewTo(HUDPrefab);
     }
 

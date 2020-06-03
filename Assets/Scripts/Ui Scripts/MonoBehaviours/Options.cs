@@ -15,8 +15,6 @@ public class Options : MonoBehaviour
     [SerializeField] GameObject VideoTabPanel = null;
     [SerializeField] GameObject ControlTabPanel = null;
 
-    //[SerializeField] GameObject PausePrefab;
-
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
 
     public System.Action closeCallback;

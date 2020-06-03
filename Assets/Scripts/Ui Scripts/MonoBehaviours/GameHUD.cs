@@ -10,7 +10,12 @@ public class GameHUD : MonoBehaviour
 
     public void OnCraftHotkey(InputValue value)
     {
-        SwitchViewTo(CraftingPrefab);
+        if (!GameManager.isPaused)
+        {
+            SwitchViewTo(CraftingPrefab);
+            GameManager.Pause();
+            Debug.Log("Paused");
+        }
     }
 
     public void OnEsc(InputValue value)
