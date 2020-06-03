@@ -14,7 +14,7 @@ public class PlayerCamera : MonoBehaviour
     
 
     public Vector3 RotationVector{get=>CameraRotation.eulerAngles;}
-   
+    public Quaternion Rotation{get=>CameraRotation;}
 
     public void RotateCamera(Vector3 NewRotation)
     {
