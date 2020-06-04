@@ -13,13 +13,16 @@ public class Crafting : MonoBehaviour
     [SerializeField] Button[] tabButtons = null;
     [SerializeField] GameObject[] contentGroups = null;
 
-    [SerializeField] ScriptableObject[] T0Recipes;
-    [SerializeField] ScriptableObject[] T1Recipes;
-    [SerializeField] ScriptableObject[] T2Recipes;
-    [SerializeField] ScriptableObject[] T3Recipes;
+    [SerializeField] CraftingRecipe[] T0Recipes;
+    [SerializeField] CraftingRecipe[] T1Recipes;
+    [SerializeField] CraftingRecipe[] T2Recipes;
+    [SerializeField] CraftingRecipe[] T3Recipes;
 
     //default button used to make all the buttons in the recipe tabs
     [SerializeField] Button RecipeButton = null;
+
+    [SerializeField] Button CraftButton = null;
+    [SerializeField] TextMeshProUGUI TitleText = null;
 
     //associate tab buttons with their tab panel
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
@@ -35,11 +38,11 @@ public class Crafting : MonoBehaviour
             PanelToButton[contentGroups[i]] = tabButtons[i];
         }
 
-        //fill in the panel
-        foreach (var recipe in T0Recipes)
-        {
-            AddNewButton(recipe.name, contentGroups[0].GetComponent<VerticalLayoutGroup>());
-        }
+        //fill in each of the panels
+        PopulateRecipePanel(T0Recipes);
+        PopulateRecipePanel(T1Recipes);
+        PopulateRecipePanel(T2Recipes);
+        PopulateRecipePanel(T3Recipes);
 
         //set the default panel to active
         SwitchActiveTab(contentGroups[0]);
@@ -59,6 +62,7 @@ public class Crafting : MonoBehaviour
 
     public System.Action closeCallback;
 
+    //crafting screen can either be closed with ESC or the hotkey to open it (or clicking the close button on the panel)
     public void OnEsc(InputValue value)
     {
         Close();
@@ -92,7 +96,20 @@ public class Crafting : MonoBehaviour
         }
     }
 
-    public void AddNewButton(string buttonText, VerticalLayoutGroup contentGroup)
+    public void PopulateRecipePanel(CraftingRecipe[] recipeList)
+    {
+        foreach (var recipe in recipeList)
+        {
+            var newButton = AddNewButton(recipe.DisplayName, contentGroups[0].GetComponent<VerticalLayoutGroup>());
+
+            newButton.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                TitleText.SetText(recipe.DisplayName);
+            });
+        }
+    }
+
+    public Button AddNewButton(string buttonText, VerticalLayoutGroup contentGroup)
     {
         //Here we create an instance of the template button we serialized at the top and save it into a variable
         var newButton = Instantiate(RecipeButton);
@@ -104,16 +121,7 @@ public class Crafting : MonoBehaviour
         //Finally we get the text on the button from its children and set the text to the name of the codex entry
         newButton.GetComponentInChildren<TextMeshProUGUI>().SetText(buttonText);
 
-        //Unlike the header, we must also add functionality to the button. My prefab is actually a game object, so we have to get the button from it 
-        //first using GetComponent.
-        //Buttons have a built-in "onClick" function and we'll add a listener to wait for the player to click the button to pop up our codex entry text.
-        newButton.GetComponent<Button>().onClick.AddListener(() =>
-        {
-            //Use the dictionary key to set the entry title
-            //entryTitleText.SetText(buttonText);
-            //Use the dictionary key to get the dictionary value, then set the body text
-            //entryBodyText.SetText(dict[buttonText]);
-        });
+        return newButton;
     }
 
     public void SwitchViewTo(GameObject newPanel)
