@@ -7,6 +7,7 @@ using TMPro;
 public class Crafting : MonoBehaviour
 {
     [SerializeField] GameFrameworkManager GameManager = null;
+    [SerializeField] CraftingModule CraftingModule = null;
     [SerializeField] UIAwake UIRoot = null; 
     [SerializeField] GameObject HUDPrefab = null;
 
@@ -135,6 +136,13 @@ public class Crafting : MonoBehaviour
                     var ingredient = Instantiate(Ingredient);
                     ingredient.transform.SetParent(IngredientGroup.transform);
                 }
+
+                //change what the craft button does
+                CraftButton.onClick.RemoveAllListeners();
+                CraftButton.onClick.AddListener(() =>
+                {
+                    CraftingModule.CraftItem(playerInventory, playerInventory, recipe);
+                });
 
             });
         }
