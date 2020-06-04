@@ -13,16 +13,22 @@ public class Crafting : MonoBehaviour
     [SerializeField] Button[] tabButtons = null;
     [SerializeField] GameObject[] contentGroups = null;
 
+    [SerializeField] Button CraftButton = null;
+    [SerializeField] TextMeshProUGUI TitleText = null;
+    [SerializeField] HorizontalLayoutGroup ProductGroup = null;
+    [SerializeField] HorizontalLayoutGroup IngredientGroup = null;
+
+    [Header("Recipe Tiers")]
     [SerializeField] CraftingRecipe[] T0Recipes;
     [SerializeField] CraftingRecipe[] T1Recipes;
     [SerializeField] CraftingRecipe[] T2Recipes;
     [SerializeField] CraftingRecipe[] T3Recipes;
 
+    [Header("Code Generated Object Templates")]
     //default button used to make all the buttons in the recipe tabs
     [SerializeField] Button RecipeButton = null;
-
-    [SerializeField] Button CraftButton = null;
-    [SerializeField] TextMeshProUGUI TitleText = null;
+    [SerializeField] GameObject Product = null;
+    [SerializeField] GameObject Ingredient = null;
 
     //associate tab buttons with their tab panel
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
@@ -40,9 +46,9 @@ public class Crafting : MonoBehaviour
 
         //fill in each of the panels
         PopulateRecipePanel(T0Recipes);
-        PopulateRecipePanel(T1Recipes);
-        PopulateRecipePanel(T2Recipes);
-        PopulateRecipePanel(T3Recipes);
+        //PopulateRecipePanel(T1Recipes);
+        //PopulateRecipePanel(T2Recipes);
+        //PopulateRecipePanel(T3Recipes);
 
         //set the default panel to active
         SwitchActiveTab(contentGroups[0]);
@@ -105,6 +111,31 @@ public class Crafting : MonoBehaviour
             newButton.GetComponent<Button>().onClick.AddListener(() =>
             {
                 TitleText.SetText(recipe.DisplayName);
+
+                int childCount = ProductGroup.transform.childCount;
+
+                for (int i = 0; i < childCount; i++)
+                {
+                    Destroy(ProductGroup.transform.GetChild(0).gameObject);
+                }
+
+                childCount = IngredientGroup.transform.childCount;
+
+                for (int i = 0; i < childCount; i++)
+                {
+                    Destroy(IngredientGroup.transform.GetChild(0).gameObject);
+                }
+
+                //add new inputs and outputs
+                var product = Instantiate(Product);
+                product.transform.SetParent(ProductGroup.transform);
+
+                foreach (var input in recipe.Input)
+                {
+                    var ingredient = Instantiate(Ingredient);
+                    ingredient.transform.SetParent(IngredientGroup.transform);
+                }
+
             });
         }
     }

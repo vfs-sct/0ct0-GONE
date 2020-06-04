@@ -119,6 +119,10 @@ MonoBehaviour:
   - {fileID: 7549787933540464520}
   - {fileID: 3523042863002369422}
   - {fileID: 867974140553187506}
+  CraftButton: {fileID: 338128450338464420}
+  TitleText: {fileID: 2111392821909969018}
+  ProductGroup: {fileID: 8048171323964478079}
+  IngredientGroup: {fileID: 4891525370550205375}
   T0Recipes:
   - {fileID: 11400000, guid: f613308476769334f8898118cec7c27d, type: 2}
   - {fileID: 11400000, guid: 9d821ed2642348c49b740375b61c03c0, type: 2}
@@ -127,6 +131,9 @@ MonoBehaviour:
   T2Recipes: []
   T3Recipes: []
   RecipeButton: {fileID: 8353823431443514812, guid: ab49bdcecf87e184b8b7859c55336eb9,
+    type: 3}
+  Product: {fileID: 1878242424384748449, guid: cefda4e311558fa4b90a4210837397af, type: 3}
+  Ingredient: {fileID: 2391953084933469528, guid: 3355187ef89a8914cb248d4d1f3334ef,
     type: 3}
 --- !u!114 &7468369897657989605
 MonoBehaviour:
@@ -570,7 +577,7 @@ PrefabInstance:
     - target: {fileID: 2837397407077944973, guid: 94fc170bffd4d894f968662dd2cb90bd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00004509769
+      value: 0.0006615623
       objectReference: {fileID: 0}
     - target: {fileID: 3014983889637137708, guid: 94fc170bffd4d894f968662dd2cb90bd,
         type: 3}
@@ -781,6 +788,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033786006654332639, guid: 94fc170bffd4d894f968662dd2cb90bd,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033786006654332639, guid: 94fc170bffd4d894f968662dd2cb90bd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033786006654332639, guid: 94fc170bffd4d894f968662dd2cb90bd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033786006654332639, guid: 94fc170bffd4d894f968662dd2cb90bd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5073939821166449644, guid: 94fc170bffd4d894f968662dd2cb90bd,
         type: 3}
@@ -1350,3 +1377,51 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5388963481464059313}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2111392821909969018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6306267812112854475, guid: 94fc170bffd4d894f968662dd2cb90bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5388963481464059313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8048171323964478079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2700374794931857358, guid: 94fc170bffd4d894f968662dd2cb90bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5388963481464059313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4891525370550205375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 660694151230328334, guid: 94fc170bffd4d894f968662dd2cb90bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5388963481464059313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &338128450338464420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5654330581599065877, guid: 94fc170bffd4d894f968662dd2cb90bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5388963481464059313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
