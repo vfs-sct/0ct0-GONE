@@ -59,9 +59,10 @@ public class CraftingModule : Module
         }
         if (!Target.HasResource(Recipe.Output.resource)) //create a resource instance if one is not present already
         {
-            Debug.Log("Resource created");
+            Debug.Log("Resource instance created");
             ResourceManager.CreateResourceInstance(Recipe.Output.resource,Target);
         }
+        Debug.Log("Resource crafted");
         Target.AddResource(Recipe.Output.resource,Recipe.Output.amount);
     }
 

@@ -17,6 +17,7 @@ public class Crafting : MonoBehaviour
     [SerializeField] Button CraftButton = null;
     [SerializeField] TextMeshProUGUI TitleText = null;
     [SerializeField] HorizontalLayoutGroup ProductGroup = null;
+    [SerializeField] GameObject RequiresText = null;
     [SerializeField] HorizontalLayoutGroup IngredientGroup = null;
 
     [Header("Recipe Tiers")]
@@ -112,6 +113,7 @@ public class Crafting : MonoBehaviour
             newButton.GetComponent<Button>().onClick.AddListener(() =>
             {
                 TitleText.SetText(recipe.DisplayName);
+                RequiresText.SetActive(true);
 
                 int childCount = ProductGroup.transform.childCount;
 
@@ -137,6 +139,7 @@ public class Crafting : MonoBehaviour
                     ingredient.transform.SetParent(IngredientGroup.transform);
                 }
 
+                CraftButton.gameObject.SetActive(true);
                 //change what the craft button does
                 CraftButton.onClick.RemoveAllListeners();
                 CraftButton.onClick.AddListener(() =>
