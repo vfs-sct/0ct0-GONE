@@ -16,6 +16,14 @@ public class PlayerCamera : MonoBehaviour
     public Vector3 RotationVector{get=>CameraRotation.eulerAngles;}
     public Quaternion Rotation{get=>CameraRotation;}
 
+    //gets the transform of the camera root
+    public Transform GetRootTransform()
+    {
+        CameraRoot.transform.rotation = CameraRotation;
+        return CameraRoot.transform;
+    }
+    //gets the transform of the camera root with the position shifted to NewPos
+
     public void RotateCamera(Vector3 NewRotation)
     {
         Quaternion AddRot = new Quaternion();
