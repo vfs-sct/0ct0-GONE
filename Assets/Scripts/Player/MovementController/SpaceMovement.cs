@@ -4,25 +4,44 @@ using UnityEngine;
 
 
 
-[CreateAssetMenu(menuName = "Systems/Movement/SpaceMovement")]
+[CreateAssetMenu(menuName = "Systems/Movement/SpaceMovement-Old")]
 public class SpaceMovement : MovementComponent
 {
     
     [SerializeField] private float ThrusterImpulse = 10;
+
+    [SerializeField] private float ThrusterTorque = 10f;
     [SerializeField] private float VelocityMax = -1.0f;
     [SerializeField] private float ThrottleSensitivity = 1; //meters per s per frame
     [SerializeField] private Resource FuelResource = null;
     [SerializeField] private float FuelPerImpulseUnit = 0.2f;
-
+    [SerializeField] private float FuelPerTorqueUnit = 0.2f;
     [SerializeField] private float FuelEfficency = 100;
     private float _VelocityMax;
     Rigidbody AnchorTarget = null;
 
+    Vector3 Throttle = new Vector3();
+
     private Rigidbody _Rigidbody;
     private float Mass;
-    Vector3 Impulse = new Vector3();
 
     private ResourceInventory LinkedResourceBehavior;
+
+    public override void Initialize(MovementController Controller)
+    {
+        if (VelocityMax <= 0) 
+        {
+            _VelocityMax = 99999;
+        }
+        else
+        {
+            _VelocityMax = VelocityMax;
+        }
+        LinkedResourceBehavior = Controller.gameObject.GetComponent<ResourceInventory>();
+        if (ThrottleSensitivity <=0) ThrottleSensitivity = 0.001f;//minimum throttle sensitivity that can be set
+        _Rigidbody = Controller.gameObject.GetComponent<Rigidbody>();
+        Debug.Assert(_Rigidbody != null); //Assert if rigid body is undefined
+    }
 
     public void SetAnchorTarget(GameObject Target)
     {
@@ -36,71 +55,80 @@ public class SpaceMovement : MovementComponent
 
     private void CoupledTranslate(MovementController Controller, Vector3 Input)
     {
-        TargetVelocity = Input * _VelocityMax;
+        TargetVelocityLocal = Input * _VelocityMax;
     }
 
     private void CruiseTranslate(MovementController Controller, Vector3 Input)
     {
-        TargetVelocity += Input *ThrottleSensitivity;
+        TargetVelocityLocal += Input *ThrottleSensitivity;
     }
 
 
-    public override void Initialize(MovementController Controller)
-    {
-        if (VelocityMax <= 0){
-            _VelocityMax = 99999;
-        }
-        LinkedResourceBehavior = Controller.gameObject.GetComponent<ResourceInventory>();
-        if (ThrottleSensitivity <=0) ThrottleSensitivity = 0.001f;//minimum throttle sensitivity that can be set
-        _Rigidbody = Controller.gameObject.GetComponent<Rigidbody>();
-        Debug.Assert(_Rigidbody != null); //Assert if rigid body is undefined
-    }
+    
 
     private Vector3 CalculateImpulse(MovementController Controller)
     {
-        float MaxDeltaV = ThrusterImpulse /_Rigidbody.mass;
+        Vector3 Impulse = new Vector3();
+       
+        //get the difference between our desired velocity and our current velocity (relative to the camera)
+        Vector3 DeltaV = TargetVelocityLocal - Controller.CameraScript.GetRootTransform().InverseTransformVector(_Rigidbody.velocity); 
+        float fuelUsage = 0;
 
-        //------velocity anchoring---------
-        Vector3 DeltaV = ((TargetVelocity)-Controller.transform.InverseTransformDirection(_Rigidbody.velocity));
-        Impulse = Vector3.zero;
+        //add our target's velocity(relative to camera) onto our desired velocity if we have a target
+        if (AnchorTarget != null)  DeltaV +=  Controller.CameraScript.GetRootTransform().InverseTransformVector(AnchorTarget.velocity);
+        
+        //calculate unadjusted impulse
+        Impulse = _Rigidbody.mass * DeltaV;
 
-        if (AnchorTarget != null) 
+       
+        for (int i = 0; i < 3; i++)
+        { //componentwise clamp of impulse to maximum thruster values
+            Impulse[i] = Mathf.Clamp(Impulse[i],-ThrusterImpulse,ThrusterImpulse);
+
+            Throttle[i] = Impulse[i]/ThrusterImpulse; //get the throttle value for sound and vfx
+            fuelUsage += Impulse[i]*(FuelPerImpulseUnit/FuelEfficency);
+        }
+        LinkedResourceBehavior.RemoveResource(FuelResource,fuelUsage);
+        return Impulse;
+    }
+
+    public override void Rotate(MovementController Controller, Vector3 Angle, byte MovementSubMode)
+    {
+        TargetAngle = Angle;
+    }
+
+
+    private Vector3 CalculateRotation(MovementController Controller)
+    {
+        Vector3 AngularVelocity = new Vector3();
+        Vector3 DeltaAngle = (TargetAngle - Controller.transform.rotation.eulerAngles) * Mathf.Deg2Rad;
+        AngularVelocity = (DeltaAngle * ThrusterTorque)/50;
+        return AngularVelocity;
+    }
+
+
+    //private CalculateVelocityChange(MovementController Controller)
+    //{
+    //}
+
+    private void ApplyTorque(MovementController Controller)
+    {
+        Vector3 Torques = new Vector3();
+        float AngleDelta = 0;
+        float fuelUsage = 0;
+        for (int i = 0; i < 3; i++)
         {
-            DeltaV = (TargetVelocity+AnchorTarget.velocity)-Controller.transform.InverseTransformDirection(_Rigidbody.velocity);
+            AngleDelta = Mathf.Clamp(Mathf.DeltaAngle(TargetAngle[i], _Rigidbody.rotation.eulerAngles[i]),-20,20);
+            Torques[i] = Mathf.Clamp(AngleDelta,-ThrusterTorque,ThrusterTorque);
+            fuelUsage += Torques[i]*(FuelPerTorqueUnit/FuelEfficency);
         }
 
-        for (int i = 0; i < 3; ++i)
-	    {
-		    if (DeltaV[i] == 0) //prevent division by 0
-		    {
-			    Impulse[i] = 0;
-		    }
-		    else
-		    {
-			    Impulse[i] = Mathf.Clamp((DeltaV[i] / MaxDeltaV), -1f, 1)* ThrusterImpulse;	//calculate target throttle
-
-
-		    }            
-            //Debug.Log(Mathf.Abs(Impulse[i] *FuelPerImpulseUnit));
-            LinkedResourceBehavior.RemoveResource(FuelResource,Mathf.Abs(Impulse[i] *(FuelPerImpulseUnit/FuelEfficency)));
-            //Debug.Log(LinkedResourceBehavior.GetResource(FuelResource));
-	    }
-        return Controller.transform.TransformDirection(Impulse);
-    }
-    
-    //FOR EVAN
-    //return float between -1 and 1 for single direction axis
-    public float GetAxisImpulse(int impulseIndex)
-    {
-        return Impulse[impulseIndex] / ThrusterImpulse;
+        _Rigidbody.AddRelativeTorque(new Vector3(-1,0,0) * Torques.x,ForceMode.Impulse);
+        _Rigidbody.AddRelativeTorque(new Vector3(0,-1,0) * Torques.y,ForceMode.Impulse);
+        _Rigidbody.AddRelativeTorque(new Vector3(0,0,-1) * Torques.z,ForceMode.Impulse);
+        LinkedResourceBehavior.RemoveResource(FuelResource,fuelUsage);
     }
 
-    //FOR EVAN
-    //return float between -1 and 1 for entire impulse
-    public float GetVector3Impulse()
-    {
-        return new Vector3(Impulse[0], Impulse[1], Impulse[2]).magnitude / ThrusterImpulse;
-    }
 
     public override void Translate(MovementController Controller,Vector3 Input,byte MovementSubMode)
     {
@@ -120,7 +148,9 @@ public class SpaceMovement : MovementComponent
     }
     public override void MovementUpdate(MovementController Controller,byte MovementSubMode)
     {
-//        Debug.Log(CalculateImpulse(Controller));
-        _Rigidbody.AddForce(CalculateImpulse(Controller), ForceMode.Impulse);
+        _Rigidbody.AddRelativeForce(CalculateImpulse(Controller), ForceMode.Impulse);
+        ApplyTorque(Controller);
+     
+        
     }
 }
