@@ -29,7 +29,14 @@ public class SpaceMovement : MovementComponent
 
     public override void Initialize(MovementController Controller)
     {
-        if (VelocityMax <= 0) _VelocityMax = 99999;
+        if (VelocityMax <= 0) 
+        {
+            _VelocityMax = 99999;
+        }
+        else
+        {
+            _VelocityMax = VelocityMax;
+        }
         LinkedResourceBehavior = Controller.gameObject.GetComponent<ResourceInventory>();
         if (ThrottleSensitivity <=0) ThrottleSensitivity = 0.001f;//minimum throttle sensitivity that can be set
         _Rigidbody = Controller.gameObject.GetComponent<Rigidbody>();
@@ -48,12 +55,12 @@ public class SpaceMovement : MovementComponent
 
     private void CoupledTranslate(MovementController Controller, Vector3 Input)
     {
-        TargetVelocityWorld = Input * _VelocityMax;
+        TargetVelocityLocal = Input * _VelocityMax;
     }
 
     private void CruiseTranslate(MovementController Controller, Vector3 Input)
     {
-        TargetVelocityWorld += Input *ThrottleSensitivity;
+        TargetVelocityLocal += Input *ThrottleSensitivity;
     }
 
 
@@ -63,13 +70,12 @@ public class SpaceMovement : MovementComponent
     {
         Vector3 Impulse = new Vector3();
        
-        //get the difference between our desired velocity and our current velocity
-        Vector3 DeltaV = (Controller.CameraScript.Root.transform.TransformDirection(TargetVelocityWorld))-_Rigidbody.velocity; 
-
+        //get the difference between our desired velocity and our current velocity (relative to the camera)
+        Vector3 DeltaV = TargetVelocityLocal - Controller.CameraScript.GetRootTransform().InverseTransformVector(_Rigidbody.velocity); 
         float fuelUsage = 0;
 
-        //add our target's velocity onto our desired velocity if we have a target
-        if (AnchorTarget != null)  DeltaV += AnchorTarget.velocity;
+        //add our target's velocity(relative to camera) onto our desired velocity if we have a target
+        if (AnchorTarget != null)  DeltaV +=  Controller.CameraScript.GetRootTransform().InverseTransformVector(AnchorTarget.velocity);
         
         //calculate unadjusted impulse
         Impulse = _Rigidbody.mass * DeltaV;
@@ -142,7 +148,7 @@ public class SpaceMovement : MovementComponent
     }
     public override void MovementUpdate(MovementController Controller,byte MovementSubMode)
     {
-        _Rigidbody.AddForce(CalculateImpulse(Controller), ForceMode.Impulse);
+        _Rigidbody.AddRelativeForce(CalculateImpulse(Controller), ForceMode.Impulse);
         ApplyTorque(Controller);
      
         

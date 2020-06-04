@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class MovementComponent : ScriptableObject
 {
 
-    protected Vector3 TargetVelocityWorld  = new Vector3(); //target velocity in m/s in world space
+    protected Vector3 TargetVelocityLocal  = new Vector3(); //target velocity in m/s in world space
 
-    protected Vector3 TargetVelocityLocal = new Vector3(); //target velocity in m/s in local space
+    protected Vector3 TargetVelocityWorld = new Vector3(); //target velocity in m/s in local space
 
     protected Vector3 TargetAngle  = new Vector3(); //target angular in degrees
 
