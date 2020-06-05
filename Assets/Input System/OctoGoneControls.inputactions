@@ -424,6 +424,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "CraftHotkey",
+                    "type": "Button",
+                    "id": "bdf3e23d-7fd1-4ba4-a2d4-0273565a8de3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -864,6 +872,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Debug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe763df5-c8c3-44e7-944c-fd8208106673",
+                    "path": "<Keyboard>/C",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "CraftHotkey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
