@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     public void OnClickPlay()
     {
         GameManager.LoadScene($"{nextScene}");
-        AkSoundEngine.PostEvent("MUS_Main_Menu_Stop", AudioReferences);
+        AkSoundEngine.PostEvent("MUS_Stop", AudioReferences);
     }
 
     public void OnClickOptions()
