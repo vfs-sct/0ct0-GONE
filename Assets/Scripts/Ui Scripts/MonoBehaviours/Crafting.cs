@@ -35,6 +35,8 @@ public class Crafting : MonoBehaviour
     //associate tab buttons with their tab panel
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
 
+    private CraftingRecipe currentRecipe;
+
     private ResourceInventory playerInventory;
     void Awake()
     {
@@ -65,7 +67,14 @@ public class Crafting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(currentRecipe != null && CraftingModule.CanCraft(playerInventory, playerInventory, currentRecipe))
+        {
+            CraftButton.interactable = true;
+        }
+        else
+        {
+            CraftButton.interactable = false;
+        }
     }
 
     public System.Action closeCallback;
@@ -132,11 +141,27 @@ public class Crafting : MonoBehaviour
                 //add new inputs and outputs
                 var product = Instantiate(Product);
                 product.transform.SetParent(ProductGroup.transform);
+                var outputText = product.GetComponentsInChildren<TextMeshProUGUI>();
+                outputText[0].SetText(recipe.DisplayName);
+                outputText[1].SetText("x" + recipe.Output.amount.ToString());
 
                 foreach (var input in recipe.Input)
                 {
+                    //create ingredient box
                     var ingredient = Instantiate(Ingredient);
                     ingredient.transform.SetParent(IngredientGroup.transform);
+
+                    //set the icon on the box to the resource icon
+                    var resourceIcon = input.resource.resourceIcon;
+                    if (resourceIcon != null)
+                    {
+                        ingredient.GetComponentInChildren<Image>().sprite = resourceIcon;
+                    }
+
+                    var inputText = ingredient.GetComponentsInChildren<TextMeshProUGUI>();
+
+                    inputText[0].SetText(input.resource.DisplayName);
+                    inputText[1].SetText("x" + input.amount.ToString());
                 }
 
                 CraftButton.gameObject.SetActive(true);
@@ -144,6 +169,7 @@ public class Crafting : MonoBehaviour
                 CraftButton.onClick.RemoveAllListeners();
                 CraftButton.onClick.AddListener(() =>
                 {
+                    currentRecipe = recipe;
                     CraftingModule.CraftItem(playerInventory, playerInventory, recipe);
                 });
 
