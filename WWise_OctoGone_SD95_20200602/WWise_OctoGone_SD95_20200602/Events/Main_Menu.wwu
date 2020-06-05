@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{7792AB4D-CC2D-4EF4-B60C-EC9DBDF6B3EE}" SchemaVersion="94" RootDocumentID="{9922E05F-4015-4112-8E88-3A6D761122FE}">
+	<Events>
+		<WorkUnit Name="Main_Menu" ID="{7792AB4D-CC2D-4EF4-B60C-EC9DBDF6B3EE}" OwnerID="{D34C0F60-56CD-4A11-BFD3-0B5150B1C1E0}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="MUS_Play" ID="{8DFE3319-CBFB-4BC5-9764-2DBDD10D93D3}">
+					<ChildrenList>
+						<Action Name="" ID="{F79D473C-7311-4861-816F-16EA92746E3F}" ShortID="756026867">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{63076504-B5F4-49D7-8BEA-940E9F2D88D2}" WorkUnitID="{2230AAF3-8446-4285-96C6-A7C78C6543D0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MUS_Pause" ID="{3F2B4592-CFDD-4AB4-A209-218110DE2AAE}">
+					<ChildrenList>
+						<Action Name="" ID="{E645F7FB-B9B1-40D6-8886-7F8B9E631BE3}" ShortID="981466137">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{63076504-B5F4-49D7-8BEA-940E9F2D88D2}" WorkUnitID="{2230AAF3-8446-4285-96C6-A7C78C6543D0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MUS_Resume" ID="{DA887167-FDCB-471D-8593-2A5C8B301611}">
+					<ChildrenList>
+						<Action Name="" ID="{B85ABCD0-9238-45E6-85CF-EAC08A75472E}" ShortID="358941246">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BackEnd" ID="{197298B5-30D2-4185-9728-E48CA7C59AEE}" WorkUnitID="{2230AAF3-8446-4285-96C6-A7C78C6543D0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MUS_Stop" ID="{C02BEA90-B06F-478A-9AF4-48F50062298B}">
+					<ChildrenList>
+						<Action Name="" ID="{F461555E-33DA-49E9-9139-A55A67C90D4B}" ShortID="329093360">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{63076504-B5F4-49D7-8BEA-940E9F2D88D2}" WorkUnitID="{2230AAF3-8446-4285-96C6-A7C78C6543D0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

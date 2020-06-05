@@ -113,6 +113,14 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Roll"",
+                    ""type"": ""Value"",
+                    ""id"": ""db646e0b-05ba-4cb7-ad5f-26957fb2f818"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -335,6 +343,39 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""action"": ""LockTarget"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""6248be99-a288-49d1-a2d1-e38d8a88d075"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""92dec995-c63b-406f-8dcc-945750e16101"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""972c07ff-bbef-4651-99b9-2a21628f3c11"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -979,6 +1020,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         m_Player_DeactivateTool = m_Player.FindAction("DeactivateTool", throwIfNotFound: true);
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
         m_Player_LockTarget = m_Player.FindAction("LockTarget", throwIfNotFound: true);
+        m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1055,6 +1097,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_DeactivateTool;
     private readonly InputAction m_Player_Zoom;
     private readonly InputAction m_Player_LockTarget;
+    private readonly InputAction m_Player_Roll;
     public struct PlayerActions
     {
         private @OctoGoneControls m_Wrapper;
@@ -1071,6 +1114,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         public InputAction @DeactivateTool => m_Wrapper.m_Player_DeactivateTool;
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
         public InputAction @LockTarget => m_Wrapper.m_Player_LockTarget;
+        public InputAction @Roll => m_Wrapper.m_Player_Roll;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1116,6 +1160,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @LockTarget.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockTarget;
                 @LockTarget.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockTarget;
                 @LockTarget.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockTarget;
+                @Roll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
+                @Roll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
+                @Roll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1156,6 +1203,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @LockTarget.started += instance.OnLockTarget;
                 @LockTarget.performed += instance.OnLockTarget;
                 @LockTarget.canceled += instance.OnLockTarget;
+                @Roll.started += instance.OnRoll;
+                @Roll.performed += instance.OnRoll;
+                @Roll.canceled += instance.OnRoll;
             }
         }
     }
@@ -1348,6 +1398,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         void OnDeactivateTool(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnLockTarget(InputAction.CallbackContext context);
+        void OnRoll(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -100,6 +100,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Roll",
+                    "type": "Value",
+                    "id": "db646e0b-05ba-4cb7-ad5f-26957fb2f818",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -322,6 +330,39 @@
                     "action": "LockTarget",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "6248be99-a288-49d1-a2d1-e38d8a88d075",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "92dec995-c63b-406f-8dcc-945750e16101",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "972c07ff-bbef-4651-99b9-2a21628f3c11",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

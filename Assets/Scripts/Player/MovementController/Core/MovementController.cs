@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 public class MovementController : MonoBehaviour
 {
     [SerializeField] private List<MovementComponent> MovementModes = new List<MovementComponent>();
+
+    [SerializeField] private PlayerCamera _CameraScript;
+    public PlayerCamera CameraScript{get=>_CameraScript;}
+
     [SerializeField] private byte MovementMode;
     [SerializeField] private bool NormalizeInput = true;
     
@@ -13,11 +17,19 @@ public class MovementController : MonoBehaviour
     private MovementComponent ActiveMode = null;
 
     private Vector3 _RawInput = new Vector3();
+
+    private Vector3  _RotationTarget = new Vector3();
     private Vector3 _NormalizedInput= new Vector3();
 
 
     public Vector3 RawInput{get => _RawInput;}
     public Vector3 NormalizedInput{get => _NormalizedInput;}
+
+    public void SetRotationTarget(Vector3 NewRotationIn)
+    {
+        _RotationTarget = NewRotationIn;
+    }
+
 
     public void SwitchMode(byte NewMovementMode)
     {
@@ -52,7 +64,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         NormalizeInputs();
         if (NormalizeInput)
@@ -63,6 +75,7 @@ public class MovementController : MonoBehaviour
         {
             ActiveMode.Translate(this,_RawInput,MovementMode);
         }
+        ActiveMode.Rotate(this,_RotationTarget,MovementMode);
         ActiveMode.MovementUpdate(this,MovementMode);
     }
 }
