@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,30 +7,32 @@ using UnityEngine.EventSystems;
 [CreateAssetMenu(menuName = "GameFramework/SubSystems/UIModule")]
 public class UIModule : Module
 {
-    [SerializeField] 
+    [SerializeField]
     public List<ScriptedUI> ActiveInterfaces = new List<ScriptedUI>(); //list of interfaces that can be referenced
 
     private GameObject linkedEventSystem;
 
-    public GameObject LinkedEventSystem{get => linkedEventSystem;}
+    public GameObject LinkedEventSystem { get => linkedEventSystem; }
 
     delegate void functionDelegate();
-    
+
     functionDelegate tickDelegate;
     functionDelegate startDelegate;
+
+    public UIRoot UIRoot = null;
 
     public override void Start()
     {
         CreateUnityEventSystem();
         startDelegate();
     }
-    
+
     public override void Update()
     {
         tickDelegate();
     }
 
-    private void dummyFunc(){}
+    private void dummyFunc() { }
 
 
     private void AddUpdateDelegate(functionDelegate newdelegate)
@@ -60,26 +63,27 @@ public class UIModule : Module
     {
         startDelegate += dummyFunc;
         tickDelegate += dummyFunc;
-            
+
     }
 
     public int CreateInstance(ScriptedUI newUI)
     {
         int index = ActiveInterfaces.IndexOf(newUI);
-        if (index < 0){
-            Debug.LogError("Interface "+newUI +" Not in active List");
+        if (index < 0)
+        {
+            Debug.LogError("Interface " + newUI + " Not in active List");
             return -1;
-        } 
+        }
 
         if (newUI.CanTick)
-            {
-                tickDelegate += newUI.Update;
-            }  
+        {
+            tickDelegate += newUI.Update;
+        }
 
         if (newUI.RunOnSceneLoad)
-            {
-                startDelegate += newUI.Start;
-            }  
+        {
+            startDelegate += newUI.Start;
+        }
         return ActiveInterfaces[index].CreateUIInstance();
     }
 
@@ -89,23 +93,23 @@ public class UIModule : Module
         int index = ActiveInterfaces.IndexOf(uiToDestroy);
         if (index < 0) return;
 
-         if (uiToDestroy.CanTick)
-            {
-                tickDelegate -= uiToDestroy.Update;
-            }  
+        if (uiToDestroy.CanTick)
+        {
+            tickDelegate -= uiToDestroy.Update;
+        }
 
         if (uiToDestroy.RunOnSceneLoad)
-            {
-                startDelegate -= uiToDestroy.Start;
-            }  
+        {
+            startDelegate -= uiToDestroy.Start;
+        }
         ActiveInterfaces[index].DestroyInstance(instanceId);
     }
 
-    private void Toggle(ScriptedUI ui, int instanceId,bool state)
-    {   
+    private void Toggle(ScriptedUI ui, int instanceId, bool state)
+    {
         int index = ActiveInterfaces.IndexOf(ui);
         if (index < 0) return;
-        ActiveInterfaces[index].ToggleUI(instanceId,state);
+        ActiveInterfaces[index].ToggleUI(instanceId, state);
 
     }
 
@@ -113,14 +117,14 @@ public class UIModule : Module
 
 
 
-    public void Show(ScriptedUI ui, int instanceId) 
+    public void Show(ScriptedUI ui, int instanceId)
     {
-        Toggle(ui,instanceId, true);
+        Toggle(ui, instanceId, true);
     }
 
-    public void Hide(ScriptedUI ui, int instanceId) 
+    public void Hide(ScriptedUI ui, int instanceId)
     {
-        Toggle(ui,instanceId, false);
+        Toggle(ui, instanceId, false);
     }
 
     private void CreateUnityEventSystem()
@@ -128,22 +132,22 @@ public class UIModule : Module
         linkedEventSystem = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
     }
 
-    public Vector3 CursorToWorld(Camera thisCamera,int layermask)
+    public Vector3 CursorToWorld(Camera thisCamera, int layermask)
     {
         Ray ray = thisCamera.ScreenPointToRay(Input.mousePosition);
-        
+
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layermask))
         {
             return hit.point;
         }
-        return new Vector3(0,0,0);
+        return new Vector3(0, 0, 0);
     }
 
-    public RaycastHit CursorRaycast(Camera thisCamera,int layermask)
+    public RaycastHit CursorRaycast(Camera thisCamera, int layermask)
     {
         Ray ray = thisCamera.ScreenPointToRay(Input.mousePosition);
-        
+
         RaycastHit hit;
         Physics.Raycast(ray, out hit, Mathf.Infinity, layermask);
         return hit;
@@ -151,6 +155,6 @@ public class UIModule : Module
 
     public override void Reset()
     {
-        
+        UIRoot = null;
     }
 }

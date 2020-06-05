@@ -6,7 +6,7 @@ public class UIAwake : MonoBehaviour
 {
     [SerializeField] GameObject DebugPrefab = null;
     [SerializeField] public float gammaDefault = 2.2f;
-    
+
     private Player player = null;
     // Start is called before the first frame update
 
@@ -17,7 +17,7 @@ public class UIAwake : MonoBehaviour
         "SFXVolume",
         "DialogueVolume",
     };
-   
+
     public Player GetPlayer()
     {
         if (player == null)
@@ -47,12 +47,12 @@ public class UIAwake : MonoBehaviour
         }
         else
         {
-            Shader.SetGlobalFloat("gamma", PlayerPrefs.GetFloat("Gamma"));     
+            Shader.SetGlobalFloat("gamma", PlayerPrefs.GetFloat("Gamma"));
         }
 
 
         foreach (var volumePref in VolumePrefs)
-        {     
+        {
             if (PlayerPrefs.HasKey(volumePref))
             {
                 var value = PlayerPrefs.GetFloat(volumePref);
