@@ -32,8 +32,15 @@ public class GameOver : MonoBehaviour
         // ========================
         //          AUDIO
         // ========================
-        AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
-        AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
+        if (AudioReferences == null || AudioReferences2)
+        {
+            Debug.LogError("One or both sound references has not been hooked up on the GameOver prefab");
+        }
+        else
+        {
+            AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
+            AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
+        }
     }
 
     public void OnClickMainMenu()
