@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
 
     //used by UI/playerprefs to invert camera
     public int invertedCam;
+    public float lookSensitivity;
 
     public void OnSelectTool1()//goo glue
     {
@@ -91,8 +92,8 @@ public class Player : MonoBehaviour
 
     public void OnLook(InputValue value)
     {
-        RotationInput.y = value.Get<Vector2>().x;
-        RotationInput.x = value.Get<Vector2>().y * invertedCam;
+        RotationInput.y = value.Get<Vector2>().x * lookSensitivity;
+        RotationInput.x = value.Get<Vector2>().y * invertedCam * lookSensitivity;
     }
 
     private void UpdateCamera()

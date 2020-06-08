@@ -17,6 +17,7 @@ public class Options : MonoBehaviour
     [SerializeField] GameObject ControlTabPanel = null;
 
     [SerializeField] Toggle InvertCamToggle = null;
+    [SerializeField] public Slider lookSensitivitySlider;
     [SerializeField] TextMeshProUGUI ControlsText = null;
 
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
@@ -60,6 +61,8 @@ public class Options : MonoBehaviour
             InvertCamToggle.isOn = true;
         }
 
+        lookSensitivitySlider.value = PlayerPrefs.GetFloat("LookSensitivity");
+
         PanelToButton[AudioTabPanel] = AudioTabButton;
         PanelToButton[VideoTabPanel] = VideoTabButton;
         PanelToButton[ControlTabPanel] = ControlTabButton;
@@ -90,6 +93,13 @@ public class Options : MonoBehaviour
     public void ClickControlsTab()
     {
         SwitchActiveTab(ControlTabPanel);
+    }
+
+    public void SetSensitivitySlider()
+    {
+        PlayerPrefs.SetFloat("LookSensitivity", lookSensitivitySlider.value);
+        PlayerPrefs.Save();
+        UIAwake.UpdateLookSensitivity();
     }
 
     public void SetInvertCam()

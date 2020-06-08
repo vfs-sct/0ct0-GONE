@@ -11,7 +11,8 @@ public class PlayerCamera : MonoBehaviour
 
     [SerializeField] private GameObject CameraRoot;
     public GameObject Root{get=>CameraRoot;}
-    
+    public float lookSensitivity = 0.1f;
+
 
     public Vector3 RotationVector{get=>CameraRotation.eulerAngles;}
     public Quaternion Rotation{get=>CameraRotation;}
