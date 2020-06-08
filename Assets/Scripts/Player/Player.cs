@@ -34,9 +34,10 @@ public class Player : MonoBehaviour
 
     private Vector3 RotationInput = new Vector3();
 
-    
-    
     private int LastToolSelectedIndex = -1;
+
+    private GameObject targetObject = null;
+    private Material lastTargetMat = null;
 
     public void OnSelectTool1()//goo glue
     {
@@ -147,9 +148,18 @@ public class Player : MonoBehaviour
         if (_TargetCollider!= null) 
         {
             LinkedToolController.SetTarget(_TargetCollider.gameObject);
+            targetObject = _TargetCollider.gameObject;
+            lastTargetMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
+            _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
         }
         else
         {
+            if(targetObject != null)
+            {
+                targetObject.GetComponent<MeshRenderer>().material = lastTargetMat;
+            }
+            targetObject = null;
+            lastTargetMat = null;
             LinkedToolController.SetTarget(null);
         }
     }
