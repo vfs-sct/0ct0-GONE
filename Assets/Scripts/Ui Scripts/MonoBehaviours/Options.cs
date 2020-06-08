@@ -7,6 +7,7 @@ using TMPro;
 
 public class Options : MonoBehaviour
 {
+    [SerializeField] UIAwake UIAwake = null;
     [SerializeField] Button AudioTabButton = null;
     [SerializeField] Button VideoTabButton = null;
     [SerializeField] Button ControlTabButton = null;
@@ -15,6 +16,7 @@ public class Options : MonoBehaviour
     [SerializeField] GameObject VideoTabPanel = null;
     [SerializeField] GameObject ControlTabPanel = null;
 
+    [SerializeField] Toggle InvertCamToggle = null;
     [SerializeField] TextMeshProUGUI ControlsText = null;
 
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
@@ -33,7 +35,6 @@ public class Options : MonoBehaviour
         "<b>TAB</b> - Target hovered object",
         "<b>LEFT CLICK</b> - Salvage target",
         "<b>ESC</b> - Pause"
-
     };
 
     public void OnEsc(InputValue value)
@@ -50,6 +51,15 @@ public class Options : MonoBehaviour
 
     void Awake()
     {
+        if(PlayerPrefs.GetInt("InvertedCam") == -1)
+        {
+            InvertCamToggle.isOn = false;
+        }
+        else
+        {
+            InvertCamToggle.isOn = true;
+        }
+
         PanelToButton[AudioTabPanel] = AudioTabButton;
         PanelToButton[VideoTabPanel] = VideoTabButton;
         PanelToButton[ControlTabPanel] = ControlTabButton;
@@ -80,6 +90,22 @@ public class Options : MonoBehaviour
     public void ClickControlsTab()
     {
         SwitchActiveTab(ControlTabPanel);
+    }
+
+    public void SetInvertCam()
+    {
+        if (InvertCamToggle.isOn)
+        {
+            //1 makes the camera inverted
+            PlayerPrefs.SetInt("InvertedCam", 1);
+        }
+        else
+        {
+            //-1 makes the camera not inverted
+            PlayerPrefs.SetInt("InvertedCam", -1);
+        }
+        PlayerPrefs.Save();
+        UIAwake.UpdateInvertCam();
     }
 
     public void SwitchViewTo(GameObject newPanel)

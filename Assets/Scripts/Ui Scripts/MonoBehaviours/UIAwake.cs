@@ -8,7 +8,6 @@ public class UIAwake : MonoBehaviour
     [SerializeField] public float gammaDefault = 2.2f;
 
     private Player player = null;
-    // Start is called before the first frame update
 
     public string[] VolumePrefs = new string[]
     {
@@ -27,6 +26,11 @@ public class UIAwake : MonoBehaviour
         return player;
     }
 
+    public void UpdateInvertCam()
+    {
+        player.invertedCam = PlayerPrefs.GetInt("InvertedCam");
+    }
+
     void Start()
     {
         var camera = Camera.main;
@@ -39,6 +43,18 @@ public class UIAwake : MonoBehaviour
 
         camera.gameObject.AddComponent<PostProcessing>().material = Resources.Load<Material>("GammaMaterial");
 
+        //set camera inversion base on player prefs, or set to default
+        if (PlayerPrefs.HasKey("InvertedCam"))
+        {
+            UpdateInvertCam();
+        }
+        else
+        {
+            //set to inverted by default
+            player.invertedCam = 1;
+        }
+
+        //set gamma based on saved player prefs, or set to default
         if (!PlayerPrefs.HasKey("Gamma"))
         {
             PlayerPrefs.SetFloat("Gamma", gammaDefault);

@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameFrameworkManager GameManager  = null;
     [SerializeField] private Playing PlayingState;
     [SerializeField] private LayerMask TargetableMask;
-    [SerializeField] private Camera PlayerCamera;
+    [SerializeField] public Camera PlayerCamera;
 
     [SerializeField] private PlayerSatelliteHolder SatHolder;
 
@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
 
     private GameObject targetObject = null;
     private Material lastTargetMat = null;
+
+    //used by UI/playerprefs to invert camera
+    public int invertedCam;
 
     public void OnSelectTool1()//goo glue
     {
@@ -89,7 +92,7 @@ public class Player : MonoBehaviour
     public void OnLook(InputValue value)
     {
         RotationInput.y = value.Get<Vector2>().x;
-        RotationInput.x = value.Get<Vector2>().y;
+        RotationInput.x = value.Get<Vector2>().y * invertedCam;
     }
 
     private void UpdateCamera()
