@@ -15,9 +15,26 @@ public class Options : MonoBehaviour
     [SerializeField] GameObject VideoTabPanel = null;
     [SerializeField] GameObject ControlTabPanel = null;
 
+    [SerializeField] TextMeshProUGUI ControlsText = null;
+
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
 
     public System.Action closeCallback;
+
+    public string[] controls = new string[]
+    {
+        "<b>CONTROLS</b>\n-------",
+        "<b>MOUSE</b> - Look",
+        "<b>W/S</b> - Move forward/back",
+        "<b>A/D</b> - Move left/right",
+        "<b>Q/E</b> - Rotate left/right",
+        "<b>SPACE/CTRL</b> - Move up/down",
+        "<b>1</b> - Select salvage tool",
+        "<b>TAB</b> - Target hovered object",
+        "<b>LEFT CLICK</b> - Salvage target",
+        "<b>ESC</b> - Pause"
+
+    };
 
     public void OnEsc(InputValue value)
     {
@@ -38,6 +55,16 @@ public class Options : MonoBehaviour
         PanelToButton[ControlTabPanel] = ControlTabButton;
 
         SwitchActiveTab(AudioTabPanel);
+    }
+
+    private void Start()
+    {
+        string text = "";
+        foreach (var control in controls)
+        {
+            text = text + $"\n{control}";
+        }
+        ControlsText.SetText(text);
     }
 
     public void ClickAudioTab()
