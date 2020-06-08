@@ -18,7 +18,6 @@ public class MainMenu : MonoBehaviour
 
     public void OnClickPlay()
     {
-        GameManager.LoadScene($"{nextScene}");
         if(AudioReferences == null)
         {
             Debug.LogError("A sound reference has not been hooked up on the UI Main Menu prefab");
@@ -27,6 +26,7 @@ public class MainMenu : MonoBehaviour
         {
             AkSoundEngine.PostEvent("MUS_Stop", AudioReferences);
         }
+        GameManager.LoadScene($"{nextScene}");
     }
 
     public void OnClickOptions()
