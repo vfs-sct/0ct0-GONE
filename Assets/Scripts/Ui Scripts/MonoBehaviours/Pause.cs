@@ -62,10 +62,21 @@ public class Pause : MonoBehaviour
     //used by the Confirmation screen
     void DoMainMenu()
     {
+        // ========================
+        //          AUDIO
+        // ========================
+        if (AudioReferences == null || AudioReferences2 == null)
+        {
+            Debug.LogError("One or both sound references has not been hooked up on the GameOver prefab");
+        }
+        else
+        {
+            AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
+            AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
+        }
+
         GameManager.LoadScene($"{menuScene}");
         GameManager.UnPause();
-        AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
-        AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
     }
 
     public void OnClickQuit()

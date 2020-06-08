@@ -6,11 +6,69 @@
 				<Event Name="Asteroid_Moving" ID="{DC2DD57B-6CE3-47B9-AFB6-BF9680620454}"/>
 				<Event Name="Asteroid_Collision" ID="{76330FA2-F6E4-48C1-9379-81D5812CCEB0}"/>
 				<Event Name="Metal_Collision" ID="{E904720B-AE69-4394-940B-135432007B5F}"/>
-				<Event Name="Fire" ID="{D023FAC4-78C5-4113-AF7D-ABB4DE5986F5}"/>
-				<Event Name="Gas" ID="{D2C4D6E0-8DA0-402B-87F2-D63D21535349}"/>
+				<Event Name="Fire_Play" ID="{D023FAC4-78C5-4113-AF7D-ABB4DE5986F5}">
+					<ChildrenList>
+						<Action Name="" ID="{63F179E8-A597-4324-BF84-F735C0DC6512}" ShortID="116754646">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Environment_Fire_01" ID="{10B35DC0-138E-4CB2-9682-E0940D1ABE67}" WorkUnitID="{7DFC4985-0107-4473-9A6E-8E02C955DA47}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Gas_Play" ID="{D2C4D6E0-8DA0-402B-87F2-D63D21535349}">
+					<ChildrenList>
+						<Action Name="" ID="{69F45289-FDDF-4880-A682-EC49371AF8B7}" ShortID="901194255">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Environment_Gas_01" ID="{934C7259-2386-4436-A7C3-93C099C81DD6}" WorkUnitID="{7DFC4985-0107-4473-9A6E-8E02C955DA47}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="Electricity" ID="{2875C9A0-D28F-4878-956D-7F3B06DE19F7}"/>
 				<Event Name="Impact" ID="{82648A3C-1AFB-4EF4-8D6B-931595C18637}"/>
-				<Event Name="Explosion" ID="{F4B616F3-4551-42C5-B9A6-CFAFF501EF24}"/>
+				<Event Name="Explosion" ID="{F4B616F3-4551-42C5-B9A6-CFAFF501EF24}">
+					<ChildrenList>
+						<Action Name="" ID="{B5767795-219A-4B98-AC7E-CBADE5EAB964}" ShortID="692698548">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Environment_Explosion" ID="{0D0C68D2-435C-45EA-8515-0F38B0892987}" WorkUnitID="{CDCA7459-3087-4044-BB3E-CE0DB0D9EF09}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Fire_Stop" ID="{D60A14B6-4717-44B0-B45E-343E716B5495}">
+					<ChildrenList>
+						<Action Name="" ID="{94C0756D-6450-4FB6-8C20-C5B05C9040D7}" ShortID="162122639">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Environment_Fire_01" ID="{10B35DC0-138E-4CB2-9682-E0940D1ABE67}" WorkUnitID="{7DFC4985-0107-4473-9A6E-8E02C955DA47}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Gas_Stop" ID="{77F072F4-517A-48B7-80CF-991587DAAB55}">
+					<ChildrenList>
+						<Action Name="" ID="{7C7EF67B-AD55-4CBC-B9AE-ED087DEC9EF4}" ShortID="722287802">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Environment_Gas_01" ID="{934C7259-2386-4436-A7C3-93C099C81DD6}" WorkUnitID="{7DFC4985-0107-4473-9A6E-8E02C955DA47}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
