@@ -144,23 +144,31 @@ public class Player : MonoBehaviour
         {
             _TargetCollider = null;
         }
-        Debug.Log(_TargetCollider);
-        if (_TargetCollider!= null) 
+        
+        if (_TargetCollider!= null && _TargetCollider.name != "Player") 
         {
-            LinkedToolController.SetTarget(_TargetCollider.gameObject);
+            if (targetObject != null)
+            {
+                Debug.Log("Old target: " + targetObject);
+                targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
+            }
             targetObject = _TargetCollider.gameObject;
+            LinkedToolController.SetTarget(targetObject);
+            Debug.Log("Targeted: " + targetObject);
+
             lastTargetMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
             _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
         }
         else
         {
-            if(targetObject != null)
+            Debug.Log("No target selected");
+            if (targetObject != null)
             {
-                targetObject.GetComponent<MeshRenderer>().material = lastTargetMat;
+                targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
             }
             targetObject = null;
             lastTargetMat = null;
-            LinkedToolController.SetTarget(null);
+            LinkedToolController.ClearTarget();
         }
     }
 
