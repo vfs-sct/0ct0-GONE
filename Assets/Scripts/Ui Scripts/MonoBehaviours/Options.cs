@@ -75,7 +75,7 @@ public class Options : MonoBehaviour
         string text = "";
         foreach (var control in controls)
         {
-            text = text + $"\n{control}";
+            text = text + $"{control}\n";
         }
         ControlsText.SetText(text);
     }
