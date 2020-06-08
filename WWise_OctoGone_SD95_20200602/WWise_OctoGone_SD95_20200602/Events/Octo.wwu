@@ -101,15 +101,105 @@
 				</Folder>
 				<Folder Name="Voice" ID="{E976A66A-528F-4182-9598-867F4CCDD9F3}" ShortID="964914634">
 					<ChildrenList>
-						<Event Name="Complete_Objective" ID="{0EBF1E3F-5FEB-4B85-AD04-BCBEC4244FED}"/>
-						<Event Name="Damage" ID="{1B159936-312B-40CF-BABB-F1E542DBD807}"/>
-						<Event Name="Death" ID="{BE1CCA83-3705-44A3-8AB3-F04FE383A46F}"/>
-						<Event Name="Crafting_Success" ID="{16EB97C2-3B07-4A28-B2DA-B9CE54B1FCCA}"/>
-						<Event Name="Crafting_Failure" ID="{A5FB9A4F-BBC1-4EE8-9635-D8C6F2893046}"/>
-						<Event Name="Low_Fuel" ID="{F014F57E-49CA-4AEA-B724-4FB430A4BDEE}"/>
-						<Event Name="Low_Supply" ID="{53647D64-B72D-4008-AB20-9E6239DAD671}"/>
-						<Event Name="Not_Enough_Resources" ID="{1467A08D-2679-4C6A-86F3-F63755EAEE0E}"/>
-						<Event Name="Remembering_Oakley" ID="{5A8E40C2-A9F8-4EF1-93BF-C7118E9A451C}"/>
+						<Event Name="Complete_Objective" ID="{0EBF1E3F-5FEB-4B85-AD04-BCBEC4244FED}">
+							<ChildrenList>
+								<Action Name="" ID="{86B94739-A7CC-4004-A6E6-71DDA17A6E5F}" ShortID="181505548">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TEMP_VO_Chatacters_Octo_Complete-01" ID="{70BC860E-AB5F-48A7-9BB6-CA1ED70A7801}" WorkUnitID="{9C35A8A8-4D5D-45E8-8865-4618706A4EB0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Damage" ID="{1B159936-312B-40CF-BABB-F1E542DBD807}">
+							<ChildrenList>
+								<Action Name="" ID="{53F00D63-3961-4FF2-82E8-9C2386EEC595}" ShortID="879171438">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TEMP_VO_Characters_Octo_Hurt-01" ID="{07672AD1-14E6-4CC5-B0B6-82E240661ECE}" WorkUnitID="{9C35A8A8-4D5D-45E8-8865-4618706A4EB0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Death" ID="{BE1CCA83-3705-44A3-8AB3-F04FE383A46F}">
+							<ChildrenList>
+								<Action Name="" ID="{2BA7A86C-0A7A-44B6-AB01-CF412B05F588}" ShortID="558892445">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TEMP_VO_Characters_Octo_Death-01" ID="{D13C36A6-BFF9-4DAA-ABD0-889B68E4732E}" WorkUnitID="{9C35A8A8-4D5D-45E8-8865-4618706A4EB0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Crafting_Success" ID="{16EB97C2-3B07-4A28-B2DA-B9CE54B1FCCA}">
+							<ChildrenList>
+								<Action Name="" ID="{E741DDF1-541F-4DFE-B44E-8665FE027017}" ShortID="156383039">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TEMP_VO_Characters_Octo_CraftSuccess" ID="{E03673CE-FEAA-4E6B-8166-CA498A4FFE81}" WorkUnitID="{9C35A8A8-4D5D-45E8-8865-4618706A4EB0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Crafting_Failure" ID="{A5FB9A4F-BBC1-4EE8-9635-D8C6F2893046}">
+							<ChildrenList>
+								<Action Name="" ID="{F652C351-52ED-4634-BFF1-DBA443E947CC}" ShortID="157155269">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TEMP_VO_Characters_Octo_CraftFail" ID="{3C650C80-F4CA-4CB6-B47A-E20460ADD849}" WorkUnitID="{9C35A8A8-4D5D-45E8-8865-4618706A4EB0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Low_Fuel" ID="{F014F57E-49CA-4AEA-B724-4FB430A4BDEE}">
+							<ChildrenList>
+								<Action Name="" ID="{5B529023-0499-4E21-9FE4-2A22419AA88D}" ShortID="917202986">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TEMP_VO_Chatacters_Octo_Low_1-01" ID="{43D6DD73-06E2-497C-BA22-0D57798E2F03}" WorkUnitID="{9C35A8A8-4D5D-45E8-8865-4618706A4EB0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Low_Supply" ID="{53647D64-B72D-4008-AB20-9E6239DAD671}">
+							<ChildrenList>
+								<Action Name="" ID="{1C141F5C-88D3-47F5-B8B1-A3B5434FF33F}" ShortID="152585438">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TEMP_VO_Chatacters_Octo_Low_2" ID="{D941A77B-CED0-4EF5-979A-DEA36993B484}" WorkUnitID="{9C35A8A8-4D5D-45E8-8865-4618706A4EB0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Not_Enough_Resources" ID="{1467A08D-2679-4C6A-86F3-F63755EAEE0E}">
+							<ChildrenList>
+								<Action Name="" ID="{756343B0-6A78-4ECC-AC62-398F64D1C5DD}" ShortID="842850636">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TEMP_VO_Characters_Octo_NoResc" ID="{E60A5F90-88F6-477A-915C-B1B7B603C1BD}" WorkUnitID="{9C35A8A8-4D5D-45E8-8865-4618706A4EB0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Remembering_Oakley" ID="{5A8E40C2-A9F8-4EF1-93BF-C7118E9A451C}">
+							<ChildrenList>
+								<Action Name="" ID="{B904631C-22DD-42E3-BDE9-C188755EA966}" ShortID="709409916">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TEMP_VO_Characters_Octo_Remembered" ID="{94541264-96D2-4514-8373-054D15B4D7B4}" WorkUnitID="{9C35A8A8-4D5D-45E8-8865-4618706A4EB0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
