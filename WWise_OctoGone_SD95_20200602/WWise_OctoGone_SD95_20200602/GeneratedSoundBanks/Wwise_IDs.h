@@ -26,12 +26,14 @@ namespace AK
         static const AkUniqueID DEATH = 779278001U;
         static const AkUniqueID ELECTRICAL_SPARK_WARNING = 3147538972U;
         static const AkUniqueID ELECTRICITY = 2917121896U;
-        static const AkUniqueID ENV_01_START = 1545542569U;
+        static const AkUniqueID ENV_01_PLAY = 1660813893U;
         static const AkUniqueID ENV_01_STOP = 3085466819U;
         static const AkUniqueID EXPLOSION = 13776098U;
-        static const AkUniqueID FIRE = 2678880713U;
+        static const AkUniqueID FIRE_PLAY = 1379753762U;
+        static const AkUniqueID FIRE_STOP = 1981293180U;
         static const AkUniqueID FUEL_RESTORATION = 678929340U;
-        static const AkUniqueID GAS = 579662040U;
+        static const AkUniqueID GAS_PLAY = 609952641U;
+        static const AkUniqueID GAS_STOP = 2929912663U;
         static const AkUniqueID GAS_WARNING = 3096260197U;
         static const AkUniqueID IMPACT = 3257506471U;
         static const AkUniqueID LOW_FUEL = 4123804492U;
@@ -42,6 +44,8 @@ namespace AK
         static const AkUniqueID MAINMENU_BUTTON_PLAY = 574491607U;
         static const AkUniqueID MAINMENU_BUTTON_QUIT = 2978081472U;
         static const AkUniqueID MAINMENU_TRANSITION = 575977795U;
+        static const AkUniqueID MENU_ACTIVATION = 2470499543U;
+        static const AkUniqueID MENU_DEACTIVATION = 3752642990U;
         static const AkUniqueID METAL_COLLISION = 1341439083U;
         static const AkUniqueID MUS_GAME_OVER_PLAY = 2925456689U;
         static const AkUniqueID MUS_GAME_OVER_STOP = 4176975079U;
@@ -79,16 +83,18 @@ namespace AK
         static const AkUniqueID QUIT_BUTTON_YES = 2275034407U;
         static const AkUniqueID REMEMBERING_OAKLEY = 3812427620U;
         static const AkUniqueID SATELLITE_COMPONENT = 1580704404U;
-        static const AkUniqueID SATELLITE_CRAFTING = 2901737241U;
+        static const AkUniqueID SATELLITE_CRAFTING_PLAY = 4216614258U;
+        static const AkUniqueID SATELLITE_CRAFTING_STOP = 1633307628U;
         static const AkUniqueID SATELLITE_FOUNDRY = 3028867906U;
-        static const AkUniqueID SATELLITE_FUEL_STATION = 62827578U;
+        static const AkUniqueID SATELLITE_FUEL_STATION_PLAY = 2944926723U;
+        static const AkUniqueID SATELLITE_FUEL_STATION_STOP = 1006400969U;
         static const AkUniqueID SATELLITE_IDLE_PLAY = 3335895774U;
         static const AkUniqueID SATELLITE_IDLE_STOP = 78924448U;
-        static const AkUniqueID SATELLITE_INCINERATOR = 3336320773U;
-        static const AkUniqueID SATELLITE_RADAR_START = 361354428U;
+        static const AkUniqueID SATELLITE_INCINERATOR_PLAY = 1016344566U;
+        static const AkUniqueID SATELLITE_INCINERATOR_STOP = 1788458376U;
+        static const AkUniqueID SATELLITE_RADAR_PLAY = 1823223854U;
         static const AkUniqueID SATELLITE_RADAR_STOP = 2866339600U;
         static const AkUniqueID SYSTEM_SOUNDS = 2357789153U;
-        static const AkUniqueID THRUSTERS = 1944582317U;
         static const AkUniqueID VOICE_LOG_01 = 2903534464U;
         static const AkUniqueID VOICE_LOG_02 = 2903534467U;
         static const AkUniqueID VOICE_LOG_03 = 2903534466U;
@@ -97,7 +103,8 @@ namespace AK
         static const AkUniqueID VOICE_LOG_06 = 2903534471U;
         static const AkUniqueID VOICE_LOG_07 = 2903534470U;
         static const AkUniqueID VOICE_LOG_08 = 2903534473U;
-        static const AkUniqueID WHITE_NOISE_SPACESHIP = 1630925514U;
+        static const AkUniqueID WHITE_NOISE_SPACESHIP_PLAY = 41405203U;
+        static const AkUniqueID WHITE_NOISE_SPACESHIP_STOP = 3466494713U;
     } // namespace EVENTS
 
     namespace STATES
@@ -157,10 +164,10 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
-        static const AkUniqueID INTENSITY = 2470328564U;
         static const AkUniqueID MASTERVOLUME = 2918011349U;
         static const AkUniqueID MUSICVOLUME = 2346531308U;
         static const AkUniqueID SFXVOLUME = 988953028U;
+        static const AkUniqueID THRUSTERIMPULSE = 1095169091U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
