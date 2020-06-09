@@ -6,6 +6,7 @@ public class GameHUD : MonoBehaviour
     [SerializeField] GameObject PausePrefab = null;
     [SerializeField] GameObject GameoverPrefab = null;
     [SerializeField] GameObject CraftingPrefab = null;
+    [SerializeField] GameObject selectedToolText = null;
     [SerializeField] GameFrameworkManager GameManager = null;
 
     public void OnCraftHotkey(InputValue value)
