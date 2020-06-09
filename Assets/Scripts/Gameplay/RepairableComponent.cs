@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class RepairableComponent : MonoBehaviour
 {
     public delegate void RepairEvent(RepairableComponent parent);
@@ -14,22 +14,32 @@ public class RepairableComponent : MonoBehaviour
         public Resource resource;
         public int requiredAmount;
         public int currentAmount;
+        public int amountPerRepair;
         public RepairRequirements(Resource Rs,int RA)
         {
             resource = Rs;
             requiredAmount = RA;
             currentAmount = 0;
+            amountPerRepair = 1;
         }
-         public RepairRequirements(Resource Rs,int RA,int CA)
+        public RepairRequirements(Resource Rs,int RA,int CA,int APR)
         {
             resource = Rs;
             requiredAmount = RA;
             currentAmount = CA;
+            amountPerRepair = APR;
+        }
+        public RepairRequirements(Resource Rs,int RA,int CA)
+        {
+            resource = Rs;
+            requiredAmount = RA;
+            currentAmount = CA;
+            amountPerRepair = 1;
         }
     }
     [SerializeField] private List<RepairRequirements> RequiredResources = new List<RepairRequirements>();
 
-
+    public UnityEvent OnRepair = new UnityEvent(); 
     private RepairEvent OnFullRepair;
     private bool _Repaired = false;
     public bool Repaired{get =>_Repaired;}
@@ -55,8 +65,8 @@ public class RepairableComponent : MonoBehaviour
                 if (ResourceStorage > 0)
                 {
                     RepairCycle = true;
-                    RepairInventory.RemoveResource(RequiredResources[i].resource,1);
-                    AddRepairResource(i,1);
+                    RepairInventory.RemoveResource(RequiredResources[i].resource,RequiredResources[i].amountPerRepair);
+                    AddRepairResource(i,RequiredResources[i].amountPerRepair);
                 }
             }
             else
@@ -64,8 +74,12 @@ public class RepairableComponent : MonoBehaviour
                 MetRequirements ++;
             }
         }
-        _Repaired = 
-        if (_Repaired) OnFullRepair(this);
+        _Repaired = (MetRequirements == RequiredResources.Count -1);
+        if (_Repaired)
+        {
+            OnFullRepair(this);
+            OnRepair.Invoke();
+        }
         return RepairCycle;
     }    
 
