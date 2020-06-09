@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[CreateAssetMenu(menuName = "Systems/Tools/Repair Tool")]
 public class RepairTool : Tool
 {
     private RepairableComponent repairableComponent;
@@ -36,12 +38,12 @@ public class RepairTool : Tool
 
     protected override void OnDeselect(ToolController owner)
     {
-        
+        Debug.Log("Repair Tool Selected");
     }
 
     protected override void OnSelect(ToolController owner)
     {
-        
+        Debug.Log("Repair Tool DeSelected");
     }
 
     protected override void OnWhileActive(ToolController owner, GameObject target)

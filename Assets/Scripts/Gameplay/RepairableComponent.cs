@@ -52,6 +52,7 @@ public class RepairableComponent : MonoBehaviour
 
     public bool DoRepair(ResourceInventory RepairInventory)
     {
+        Debug.Log("Repairing "+ this);
         if (_Repaired) return false;
         bool RepairCycle = false;
         int MetRequirements = 0;
@@ -77,6 +78,7 @@ public class RepairableComponent : MonoBehaviour
         _Repaired = (MetRequirements == RequiredResources.Count -1);
         if (_Repaired)
         {
+            Debug.Log(this + " Repaired");
             OnFullRepair(this);
             OnRepair.Invoke();
         }
