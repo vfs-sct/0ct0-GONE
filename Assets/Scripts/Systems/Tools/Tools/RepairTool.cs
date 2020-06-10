@@ -23,28 +23,30 @@ public class RepairTool : Tool
     {
 
         repairableComponent = target.GetComponent<RepairableComponent>();
+        Debug.Log(repairableComponent);
         return repairableComponent.DoRepair(inventoryComponent);
     }
 
     protected override void OnActivate(ToolController owner, GameObject target)
     {
-        inventoryComponent = owner.GetComponent<ResourceInventory>();
+       
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
     {
         repairableComponent = null;
-        inventoryComponent = null;
     }
 
     protected override void OnDeselect(ToolController owner)
     {
         Debug.Log("Repair Tool DeSelected");
+        inventoryComponent = null;
     }
 
     protected override void OnSelect(ToolController owner)
     {
         Debug.Log("Repair Tool Selected");
+        inventoryComponent = owner.GetComponent<ResourceInventory>();
     }
 
     protected override void OnWhileActive(ToolController owner, GameObject target)

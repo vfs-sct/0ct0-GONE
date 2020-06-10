@@ -196,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4070623360010055441}
   - component: {fileID: 4048923994025884463}
+  - component: {fileID: 7501707192338308797}
   m_Layer: 0
   m_Name: TestRepairable
   m_TagString: Untagged
@@ -241,3 +242,16 @@ MonoBehaviour:
       m_Calls: []
   BrokenModel: {fileID: 3962254590476947973}
   RepairedModel: {fileID: 1154308752238230259}
+--- !u!135 &7501707192338308797
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4847648208552251650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8
+  m_Center: {x: 0, y: 0, z: 0}
