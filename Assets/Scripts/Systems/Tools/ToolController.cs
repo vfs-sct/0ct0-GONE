@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ToolController : MonoBehaviour
 {
 
     [SerializeField] private List<Tool> EquiptTools = new List<Tool>();
-
+    [SerializeField] public TextMeshProUGUI toolText = null;
     
 
 
@@ -35,6 +36,14 @@ public class ToolController : MonoBehaviour
         if (CurrentTool != null)  CurrentTool.Deselect(this);
         CurrentTool = EquiptTools[ToolIndex];
         CurrentTool.Select(this);
+        if (toolText != null)
+        {
+            toolText.SetText(CurrentTool.displayName);
+        }
+        else
+        {
+            Debug.Log("A reference to the tool text in UI has not been hooked up on the player.");
+        }
     }
 
     public void DeselectTool()
