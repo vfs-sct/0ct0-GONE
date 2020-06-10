@@ -10,7 +10,7 @@ public class FadeIn : MonoBehaviour
     private Color lerpToColor;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         lerpToColor = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, 0f);
     }
