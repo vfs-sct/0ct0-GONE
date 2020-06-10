@@ -44,9 +44,9 @@ public class RepairableComponent : MonoBehaviour
     protected bool _Repaired = false;
     public bool Repaired{get =>_Repaired;}
 
-    public void AddRepairResource(int index,int amount)
+    public void AddRepairResource(int i,int amount)
     {
-        RequiredResources[index] = new RepairRequirements(RequiredResources[index].resource,RequiredResources[index].requiredAmount,RequiredResources[index].currentAmount+amount);
+        RequiredResources[i] = new RepairRequirements(RequiredResources[i].resource,RequiredResources[i].requiredAmount,RequiredResources[i].currentAmount+amount,RequiredResources[i].amountPerRepair);
     }
     public bool DoRepair(ResourceInventory RepairInventory)
     {
@@ -69,9 +69,9 @@ public class RepairableComponent : MonoBehaviour
             {
                 MetRequirements ++;
             }
-            
+
         }
-        _Repaired = (MetRequirements == RequiredResources.Count -1);
+        _Repaired = (MetRequirements == RequiredResources.Count);
         if (_Repaired)
         {
             Debug.Log(this + " Repaired");
