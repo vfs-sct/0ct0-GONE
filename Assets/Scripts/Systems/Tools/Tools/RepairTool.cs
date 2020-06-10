@@ -21,13 +21,14 @@ public class RepairTool : Tool
 
     protected override bool LoopCondition(ToolController owner, GameObject target)
     {
+
+        repairableComponent = target.GetComponent<RepairableComponent>();
         return repairableComponent.DoRepair(inventoryComponent);
     }
 
     protected override void OnActivate(ToolController owner, GameObject target)
     {
         inventoryComponent = owner.GetComponent<ResourceInventory>();
-        repairableComponent = target.GetComponent<RepairableComponent>();
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
@@ -38,16 +39,16 @@ public class RepairTool : Tool
 
     protected override void OnDeselect(ToolController owner)
     {
-        Debug.Log("Repair Tool Selected");
+        Debug.Log("Repair Tool DeSelected");
     }
 
     protected override void OnSelect(ToolController owner)
     {
-        Debug.Log("Repair Tool DeSelected");
+        Debug.Log("Repair Tool Selected");
     }
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
-        
+        Debug.Log("Repairing Target");
     }
 }

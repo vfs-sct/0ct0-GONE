@@ -37,33 +37,28 @@ public class RepairableComponent : MonoBehaviour
             amountPerRepair = 1;
         }
     }
-    [SerializeField] private List<RepairRequirements> RequiredResources = new List<RepairRequirements>();
+    [SerializeField] protected List<RepairRequirements> RequiredResources = new List<RepairRequirements>();
 
-    public UnityEvent OnRepair = new UnityEvent(); 
-    private RepairEvent OnFullRepair;
-    private bool _Repaired = false;
+    public UnityEvent OnRepairEvent = new UnityEvent(); 
+    protected RepairEvent OnFullRepair;
+    protected bool _Repaired = false;
     public bool Repaired{get =>_Repaired;}
 
     public void AddRepairResource(int index,int amount)
     {
         RequiredResources[index] = new RepairRequirements(RequiredResources[index].resource,RequiredResources[index].requiredAmount,RequiredResources[index].currentAmount+amount);
     }
-
-
     public bool DoRepair(ResourceInventory RepairInventory)
     {
+        if (Repaired) return false;
         Debug.Log("Repairing "+ this);
-        if (_Repaired) return false;
         bool RepairCycle = false;
         int MetRequirements = 0;
-
-        float ResourceStorage = 0;
         for (int i = 0; i < RequiredResources.Count; i++)
         {
-            if (RequiredResources[i].currentAmount < RequiredResources[i].requiredAmount)
+            if (RequiredResources[i].requiredAmount > RequiredResources[i].currentAmount)
             {
-                ResourceStorage = RepairInventory.GetResource(RequiredResources[i].resource);
-                if (ResourceStorage > 0)
+                if (RepairInventory.GetResource(RequiredResources[i].resource) >= RequiredResources[i].amountPerRepair)
                 {
                     RepairCycle = true;
                     RepairInventory.RemoveResource(RequiredResources[i].resource,RequiredResources[i].amountPerRepair);
@@ -74,16 +69,22 @@ public class RepairableComponent : MonoBehaviour
             {
                 MetRequirements ++;
             }
+            
         }
         _Repaired = (MetRequirements == RequiredResources.Count -1);
         if (_Repaired)
         {
             Debug.Log(this + " Repaired");
-            OnFullRepair(this);
-            OnRepair.Invoke();
+            if (OnFullRepair != null) OnFullRepair(this);
+            OnRepairEvent.Invoke();
+            OnRepair(this);
+            RepairCycle = false;
         }
         return RepairCycle;
     }    
 
+    protected virtual void OnRepair(RepairableComponent parent)
+    {
 
+    }
 }
