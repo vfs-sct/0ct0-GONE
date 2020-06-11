@@ -10,6 +10,7 @@ public class UIAwake : MonoBehaviour
     //currently set to inverted by default
     [SerializeField] public int invertedCamDefault = 1;
     [SerializeField] public float lookSensitivityDefault = 0.9f;
+    [SerializeField] public GameObject fadeIn = null;
 
     private Player player = null;
 
@@ -58,6 +59,7 @@ public class UIAwake : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         var camera = Camera.main;
 
         foreach (var canvas in GameObject.FindObjectsOfType<Canvas>())
@@ -67,6 +69,8 @@ public class UIAwake : MonoBehaviour
         }
 
         camera.gameObject.AddComponent<PostProcessing>().material = Resources.Load<Material>("GammaMaterial");
+
+        fadeIn.SetActive(true);
 
         //set camera inversion base on player prefs, or set to default
         if (PlayerPrefs.HasKey("InvertedCam"))

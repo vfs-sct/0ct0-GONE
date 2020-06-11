@@ -165,11 +165,11 @@ public class Crafting : MonoBehaviour
                 }
 
                 CraftButton.gameObject.SetActive(true);
+                currentRecipe = recipe;
                 //change what the craft button does
                 CraftButton.onClick.RemoveAllListeners();
                 CraftButton.onClick.AddListener(() =>
                 {
-                    currentRecipe = recipe;
                     CraftingModule.CraftItem(playerInventory, playerInventory, recipe);
                 });
 
