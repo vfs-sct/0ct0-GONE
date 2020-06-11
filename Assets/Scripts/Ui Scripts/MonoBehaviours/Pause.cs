@@ -20,9 +20,15 @@ public class Pause : MonoBehaviour
 
     public void OnClickResume()
     {
+        Cursor.visible = false;
         GameManager.UnPause();
         gameObject.SetActive(false);
         Debug.Log("Unpaused");
+    }
+
+    public void OnEsc(InputValue value)
+    {
+        OnClickResume();
     }
 
     public void OnClickCodex()
@@ -101,13 +107,6 @@ public class Pause : MonoBehaviour
         Application.Quit();   
 #endif
 
-    }
-
-    public void OnEsc(InputValue value)
-    {
-         GameManager.UnPause();
-         gameObject.SetActive(false);
-         Debug.Log("Unpaused");
     }
 
     public void SwitchViewTo(GameObject newPanel)
