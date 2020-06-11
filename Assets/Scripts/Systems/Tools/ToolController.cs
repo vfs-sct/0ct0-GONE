@@ -36,14 +36,7 @@ public class ToolController : MonoBehaviour
         if (CurrentTool != null)  CurrentTool.Deselect(this);
         CurrentTool = EquiptTools[ToolIndex];
         CurrentTool.Select(this);
-        if (toolText != null)
-        {
-            toolText.SetText(CurrentTool.displayName);
-        }
-        else
-        {
-            Debug.Log("A reference to the tool text in UI has not been hooked up on the player.");
-        }
+        toolText.SetText(CurrentTool.displayName);
     }
 
     public void DeselectTool()
@@ -54,6 +47,7 @@ public class ToolController : MonoBehaviour
         }
         if (CurrentTool != null) CurrentTool.Deselect(this);
         CurrentTool = null;
+        toolText.SetText("No Tool Selected");
     }
 
     public void ActivateTool()
@@ -81,6 +75,12 @@ public class ToolController : MonoBehaviour
     void Start()
     {
         _LinkedPlayer = gameObject.GetComponent<Player>();
+        
+    }
+
+    void OnEnable()
+    {
+        Debug.Assert(toolText != null);
     }
 
     // Update is called once per frame
