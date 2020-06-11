@@ -59,6 +59,7 @@ public class CommunicationModule : Module
     {
         GameObject NewIndicator = GameObject.Instantiate(CommRelayRangeIndicatorPrefab);
         NewIndicator.transform.SetPositionAndRotation(NewZone.transform.position,NewZone.transform.rotation);
+        NewIndicator.transform.localScale = new Vector3(NewZone.Radius,NewZone.Radius,NewZone.Radius);
         NewIndicator.SetActive(false);
         Zones.Add(new CommRelayData(NewZone,NewZone.Radius,NewZone.enabled,NewIndicator));
         return Zones.Count-1;
