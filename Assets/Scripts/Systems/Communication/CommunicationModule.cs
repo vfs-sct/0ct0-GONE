@@ -9,27 +9,40 @@ public class CommunicationModule : Module
 
     public delegate void CommRelayEvent(CommunicationZone ActiveZone);
 
-    private struct CommRelayModule
+    private struct CommRelayData
     {
         public CommunicationZone LinkedObject;
         public float Radius;
         public bool IsActive;
 
-        public CommRelayModule(CommunicationZone G,float R, bool A)
+        public GameObject RangeIndicator;
+
+        public CommRelayData(CommunicationZone G,float R, bool A)
         {
             LinkedObject = G;
             Radius = R;
             IsActive = A;
+            RangeIndicator = null;
+        }
+        public CommRelayData(CommunicationZone G,float R, bool A,GameObject RA)
+        {
+            LinkedObject = G;
+            Radius = R;
+            IsActive = A;
+            RangeIndicator = RA;
         }
     }
 
     private CommRelayEvent OnLoseConnection = null;
     private GameObject PlayerObject = null;
     private bool PlayerInRange = true;
+    public bool InRange{get=>PlayerInRange;}
     private CommunicationZone NearestRelay = null;
     private float NearestRelayDistance = 999999;
 
-    private List<CommRelayModule> Zones = new List<CommRelayModule>();
+    private List<CommRelayData> Zones = new List<CommRelayData>();
+
+    [SerializeField] private GameObject CommRelayRangeIndicatorPrefab;
 
     public override void Initialize()
     {
@@ -44,7 +57,10 @@ public class CommunicationModule : Module
 
     public int AddZone(CommunicationZone NewZone)
     {
-        Zones.Add(new CommRelayModule(NewZone,NewZone.Radius,NewZone.enabled));
+        GameObject NewIndicator = GameObject.Instantiate(CommRelayRangeIndicatorPrefab);
+        NewIndicator.transform.SetPositionAndRotation(NewZone.transform.position,NewZone.transform.rotation);
+        NewIndicator.SetActive(false);
+        Zones.Add(new CommRelayData(NewZone,NewZone.Radius,NewZone.enabled,NewIndicator));
         return Zones.Count-1;
     }
 
