@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b8d5435ff3f5941b32c7c95f0b28e1, type: 3}
+  m_Name: MetalAlloyCollection
+  m_EditorClassIdentifier: 
+  EventName: CollectMetalEvent
+  EventText: -Collect 100 Metal Alloy
+  CompletionText: 
+  EventEffectDelegates:
+    m_PersistentCalls:
+      m_Calls: []
+  EventTrigger: 0
+  CollectResource:
+  - {fileID: 11400000, guid: 76659a960dc2d114a847e7be12923991, type: 2}
+  ResourceAmount: 64000000
+  ResourceController: {fileID: 11400000, guid: 24e38bf2ba3270840b60b88238072079, type: 2}
