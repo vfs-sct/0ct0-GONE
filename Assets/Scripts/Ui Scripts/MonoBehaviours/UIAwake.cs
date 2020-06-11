@@ -59,6 +59,7 @@ public class UIAwake : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         var camera = Camera.main;
 
         foreach (var canvas in GameObject.FindObjectsOfType<Canvas>())
