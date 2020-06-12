@@ -68,6 +68,11 @@ public class ResourceModule : Module
         }
     }
 
+    public ResourceInventory GetInventory(ResourceInventory inventory)
+    {
+        return inventory;
+    }
+
     public override void Initialize()
     {
        

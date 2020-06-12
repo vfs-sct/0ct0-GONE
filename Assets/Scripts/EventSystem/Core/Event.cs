@@ -5,7 +5,6 @@ using UnityEngine.Events;
 //[CreateAssetMenu(menuName = "Systems/Events/New Event")]
 public abstract class Event : ScriptableObject
 {
-
     public string EventName;
     public string EventText;
     public string CompletionText;

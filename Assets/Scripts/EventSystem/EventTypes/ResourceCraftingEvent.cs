@@ -7,6 +7,7 @@ public class ResourceCraftingEvent : Event
     public bool EventTrigger = false;
     [SerializeField] Resource[] CollectResource;
     [SerializeField] int[] ResourceAmount;
+    [SerializeField] private ResourceModule ResourceController = null;
 
     public override bool Condition(GameObject target)
     {

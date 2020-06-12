@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Playing PlayingState;
     [SerializeField] private LayerMask TargetableMask;
     [SerializeField] public Camera PlayerCamera;
+    [SerializeField] public EventModule EventModule;
 
     [SerializeField] private PlayerSatelliteHolder SatHolder;
 
@@ -204,6 +205,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
+        EventModule.CheckSequenceConditions(gameObject);
         UpdateCamera();
         UpdateCharacterRotation();
     }

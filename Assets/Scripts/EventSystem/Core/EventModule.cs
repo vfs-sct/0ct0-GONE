@@ -17,13 +17,12 @@ public class EventModule : Module
 
     public override void Start()
     {
+        _CurrentEvent = EventSequence[0];
         foreach (var item in EventSequence)
         {
             EventQueue.Enqueue(item);
         }
     }
-
-
 
     //gets the next event in the stack
     private void NextEvent(GameObject target)
@@ -54,7 +53,6 @@ public class EventModule : Module
             NextEvent(target);
         }
     }
-
 
 
     public override void Reset()
