@@ -10,7 +10,6 @@ public class Playing : GameState
 
 
     [SerializeField] private Player _ActivePlayer;
-    [SerializeField] private CommunicationModule RelayController;
     public Player ActivePlayer{get=>_ActivePlayer;}
 
     public void RegisterPlayer(Player newPlayer)
@@ -21,8 +20,6 @@ public class Playing : GameState
     public override void OnActivate(GameState LastState)
     {
         Debug.Log("Starting Gameplay");
-        RelayController.SetPlayer(_ActivePlayer.gameObject);
-        RelayController.Start();
     }
 
     public override void OnDeactivate(GameState NewState)

@@ -9,40 +9,27 @@ public class CommunicationModule : Module
 
     public delegate void CommRelayEvent(CommunicationZone ActiveZone);
 
-    private struct CommRelayData
+    private struct CommRelayModule
     {
         public CommunicationZone LinkedObject;
         public float Radius;
         public bool IsActive;
 
-        public GameObject RangeIndicator;
-
-        public CommRelayData(CommunicationZone G,float R, bool A)
+        public CommRelayModule(CommunicationZone G,float R, bool A)
         {
             LinkedObject = G;
             Radius = R;
             IsActive = A;
-            RangeIndicator = null;
-        }
-        public CommRelayData(CommunicationZone G,float R, bool A,GameObject RA)
-        {
-            LinkedObject = G;
-            Radius = R;
-            IsActive = A;
-            RangeIndicator = RA;
         }
     }
 
     private CommRelayEvent OnLoseConnection = null;
     private GameObject PlayerObject = null;
     private bool PlayerInRange = true;
-    public bool InRange{get=>PlayerInRange;}
     private CommunicationZone NearestRelay = null;
     private float NearestRelayDistance = 999999;
 
-    private List<CommRelayData> Zones = new List<CommRelayData>();
-
-    [SerializeField] private GameObject CommRelayRangeIndicatorPrefab;
+    private List<CommRelayModule> Zones = new List<CommRelayModule>();
 
     public override void Initialize()
     {
@@ -57,11 +44,7 @@ public class CommunicationModule : Module
 
     public int AddZone(CommunicationZone NewZone)
     {
-        GameObject NewIndicator = GameObject.Instantiate(CommRelayRangeIndicatorPrefab);
-        NewIndicator.transform.SetPositionAndRotation(NewZone.transform.position,NewZone.transform.rotation);
-        NewIndicator.transform.localScale = new Vector3(NewZone.Radius,NewZone.Radius,NewZone.Radius);
-        NewIndicator.SetActive(false);
-        Zones.Add(new CommRelayData(NewZone,NewZone.Radius,NewZone.enabled,NewIndicator));
+        Zones.Add(new CommRelayModule(NewZone,NewZone.Radius,NewZone.enabled));
         return Zones.Count-1;
     }
 

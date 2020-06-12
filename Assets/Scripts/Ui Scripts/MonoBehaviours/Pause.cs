@@ -18,22 +18,11 @@ public class Pause : MonoBehaviour
 
     [SerializeField] string menuScene = null;
 
-    private void OnEnable()
-    {
-        Cursor.visible = true;
-    }
-
     public void OnClickResume()
     {
-        Cursor.visible = false;
         GameManager.UnPause();
         gameObject.SetActive(false);
         Debug.Log("Unpaused");
-    }
-
-    public void OnEsc(InputValue value)
-    {
-        OnClickResume();
     }
 
     public void OnClickCodex()
@@ -73,21 +62,10 @@ public class Pause : MonoBehaviour
     //used by the Confirmation screen
     void DoMainMenu()
     {
-        // ========================
-        //          AUDIO
-        // ========================
-        if (AudioReferences == null || AudioReferences2 == null)
-        {
-            Debug.LogError("One or both sound references has not been hooked up on the GameOver prefab");
-        }
-        else
-        {
-            AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
-            AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
-        }
-
         GameManager.LoadScene($"{menuScene}");
         GameManager.UnPause();
+        AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
+        AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
     }
 
     public void OnClickQuit()
@@ -112,6 +90,13 @@ public class Pause : MonoBehaviour
         Application.Quit();   
 #endif
 
+    }
+
+    public void OnEsc(InputValue value)
+    {
+         GameManager.UnPause();
+         gameObject.SetActive(false);
+         Debug.Log("Unpaused");
     }
 
     public void SwitchViewTo(GameObject newPanel)

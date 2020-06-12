@@ -13,9 +13,6 @@ public abstract class MovementComponent : ScriptableObject
 
     public virtual void Translate(MovementController Controller,Vector3 Input,byte MovementSubMode){}
     public virtual void Rotate(MovementController Controller,Vector3 Input,byte MovementSubMode){}
-
-
-    public virtual void OnFrameUpdate(MovementController Controller){}
     
     public abstract void MovementUpdate(MovementController Controller,byte MovementSubMode);
 

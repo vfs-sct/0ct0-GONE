@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameFrameworkManager GameManager  = null;
     [SerializeField] private Playing PlayingState;
     [SerializeField] private LayerMask TargetableMask;
-    [SerializeField] public Camera PlayerCamera;
+    [SerializeField] private Camera PlayerCamera;
 
     [SerializeField] private PlayerSatelliteHolder SatHolder;
 
@@ -34,14 +34,9 @@ public class Player : MonoBehaviour
 
     private Vector3 RotationInput = new Vector3();
 
+    
+    
     private int LastToolSelectedIndex = -1;
-
-    private GameObject targetObject = null;
-    private Material lastTargetMat = null;
-
-    //used by UI/playerprefs to invert camera
-    public int invertedCam;
-    public float lookSensitivity;
 
     public void OnSelectTool1()//goo glue
     {
@@ -92,8 +87,8 @@ public class Player : MonoBehaviour
 
     public void OnLook(InputValue value)
     {
-        RotationInput.y = value.Get<Vector2>().x * lookSensitivity;
-        RotationInput.x = value.Get<Vector2>().y * invertedCam * lookSensitivity;
+        RotationInput.y = value.Get<Vector2>().x;
+        RotationInput.x = value.Get<Vector2>().y;
     }
 
     private void UpdateCamera()
@@ -148,31 +143,14 @@ public class Player : MonoBehaviour
         {
             _TargetCollider = null;
         }
-        
-        if (_TargetCollider!= null && _TargetCollider.name != "Player") 
+        Debug.Log(_TargetCollider);
+        if (_TargetCollider!= null) 
         {
-            if (targetObject != null)
-            {
-                Debug.Log("Old target: " + targetObject);
-                targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
-            }
-            targetObject = _TargetCollider.gameObject;
-            LinkedToolController.SetTarget(targetObject);
-            Debug.Log("Targeted: " + targetObject);
-
-            lastTargetMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
-            _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
+            LinkedToolController.SetTarget(_TargetCollider.gameObject);
         }
         else
         {
-            Debug.Log("No target selected");
-            if (targetObject != null)
-            {
-                targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
-            }
-            targetObject = null;
-            lastTargetMat = null;
-            LinkedToolController.ClearTarget();
+            LinkedToolController.SetTarget(null);
         }
     }
 
@@ -200,10 +178,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.isPaused)
-        {
-            return;
-        }
         UpdateCamera();
         UpdateCharacterRotation();
     }

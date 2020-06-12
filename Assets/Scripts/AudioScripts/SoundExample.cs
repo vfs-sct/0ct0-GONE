@@ -24,7 +24,6 @@ public class SoundExample : MonoBehaviour
     {
         // ? This is for calling the sound from Wwise
         // gameObject in this context references the Object this script is attatched to.
-        AkBankManager.LoadBank("Wwise_Octo_Main", true, false);
         Env_01_Start.Post(gameObject);
 
     }

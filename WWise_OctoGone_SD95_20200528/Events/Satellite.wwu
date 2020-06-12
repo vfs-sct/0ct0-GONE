@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{EE201200-7663-41C9-9A29-82AA893F2257}" SchemaVersion="94" RootDocumentID="{9922E05F-4015-4112-8E88-3A6D761122FE}">
+	<Events>
+		<WorkUnit Name="Satellite" ID="{EE201200-7663-41C9-9A29-82AA893F2257}" OwnerID="{BE4EA438-161A-46B2-8259-8A1681C6BA2F}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="Satellite_Idle_Play" ID="{5C6FFF13-2378-4F71-B9D2-68C5CCE04F8B}">
+					<ChildrenList>
+						<Action Name="" ID="{B4857DAD-D0EC-48EA-9B77-1B2C3D7E146A}" ShortID="504236901">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Satellite_Idle" ID="{BC009BA8-8DBF-4162-9B32-118C82FD6C55}" WorkUnitID="{2FAE63C2-DBFE-4373-9458-327895E39B7D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Satellite_Incinerator" ID="{96018280-ACCA-4FBD-AF32-E16775DD8D52}"/>
+				<Event Name="Satellite_Foundry" ID="{CFDFA428-5315-44CA-87BA-CAD4BA606D75}"/>
+				<Event Name="Satellite_Radar_Start" ID="{CB75B71C-3527-43C5-9E1E-02C3DD4AF972}">
+					<ChildrenList>
+						<Action Name="" ID="{972CFD4D-F4B8-4FDC-9AE0-3946DD452822}" ShortID="839088087">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Satellite_Radar" ID="{78E40839-A60E-4C01-B55A-6D90751191DD}" WorkUnitID="{2FAE63C2-DBFE-4373-9458-327895E39B7D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Satellite_Fuel_Station" ID="{F2AED4A8-3FCB-4349-9BFA-5C50EE17E8CE}"/>
+				<Event Name="Communications_Array_Play" ID="{36A88353-19CB-4303-B222-608847F64F94}">
+					<ChildrenList>
+						<Action Name="" ID="{B4311192-B3A6-456A-9978-606B4C2DF8F2}" ShortID="937765121">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Satellite_Comm" ID="{051E12CA-43C5-4763-9522-6C793388AF6E}" WorkUnitID="{2FAE63C2-DBFE-4373-9458-327895E39B7D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Satellite_Component" ID="{58B85219-1D3F-4CF9-97CB-7986B7BE0052}"/>
+				<Event Name="Fuel_Restoration" ID="{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}">
+					<ChildrenList>
+						<Action Name="" ID="{5CB2B310-8168-4724-8D9E-DFA846CCBD7C}" ShortID="1054137382">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Satellite_FuelRestore" ID="{86652084-393A-44C5-B375-DA00629BB6C3}" WorkUnitID="{AA8E6544-8E4C-4A5B-9EB9-12DC520C37DF}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Satellite_Crafting" ID="{963C813E-0F8A-4657-961B-50ED0D932A3C}"/>
+				<Event Name="Communications_Array_Stop" ID="{CF5687F1-9335-4229-B2FA-794EBDC21B5A}">
+					<ChildrenList>
+						<Action Name="" ID="{BE33540B-74D8-42F3-BBCC-943D832DD41C}" ShortID="748660997">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Satellite_Comm" ID="{051E12CA-43C5-4763-9522-6C793388AF6E}" WorkUnitID="{2FAE63C2-DBFE-4373-9458-327895E39B7D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Satellite_Idle_Stop" ID="{8D4D1954-D1DE-4ED2-9B16-656C85CA8623}">
+					<ChildrenList>
+						<Action Name="" ID="{8CD6FBE2-0482-45D9-A8AB-1E3584AEC984}" ShortID="51331115">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Satellite_Idle" ID="{BC009BA8-8DBF-4162-9B32-118C82FD6C55}" WorkUnitID="{2FAE63C2-DBFE-4373-9458-327895E39B7D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Satellite_Radar_Stop" ID="{2033BB77-A3E6-4E1C-8738-9AAA2C0BBBEE}">
+					<ChildrenList>
+						<Action Name="" ID="{06AC3D24-5D34-47C3-9296-64F96E5BC428}" ShortID="982828760">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Satellite_Radar" ID="{78E40839-A60E-4C01-B55A-6D90751191DD}" WorkUnitID="{2FAE63C2-DBFE-4373-9458-327895E39B7D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

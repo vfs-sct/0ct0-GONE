@@ -46,23 +46,16 @@ public class CraftingModule : Module
 
     public void CraftItem(ResourceInventory Source, ResourceInventory Target, CraftingRecipe Recipe)
     {
-        if (!CanCraft(Source, Target, Recipe))
-        {
-            Debug.Log("Can't craft");
-            return; //exit out if can't craft item
-        }
+        if (CanCraft(Source,Target,Recipe)) return; //exit out if can't craft item
 
         foreach (var RecipeData in Recipe.Input)
         {
-            Debug.Log("Resource removed");
             Source.RemoveResource(RecipeData.resource,RecipeData.amount);
         }
         if (!Target.HasResource(Recipe.Output.resource)) //create a resource instance if one is not present already
         {
-            Debug.Log("Resource instance created");
             ResourceManager.CreateResourceInstance(Recipe.Output.resource,Target);
         }
-        Debug.Log("Resource crafted");
         Target.AddResource(Recipe.Output.resource,Recipe.Output.amount);
     }
 

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Systems/Resources/New Resource")]
 public class Resource : ScriptableObject
@@ -31,7 +30,6 @@ public class Resource : ScriptableObject
     [SerializeField] private float DefaultValue = 0;
     [SerializeField] private float Maximum = 100;
     [SerializeField] public string DisplayName = "";
-    [SerializeField] public Sprite resourceIcon = null;
 
     Dictionary<ResourceInventory,ResourceData_Internal> Data = new Dictionary<ResourceInventory, ResourceData_Internal>();
 

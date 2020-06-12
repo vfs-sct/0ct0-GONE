@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class ToolController : MonoBehaviour
 {
 
     [SerializeField] private List<Tool> EquiptTools = new List<Tool>();
-    [SerializeField] public TextMeshProUGUI toolText = null;
+
     
 
 
@@ -36,7 +35,6 @@ public class ToolController : MonoBehaviour
         if (CurrentTool != null)  CurrentTool.Deselect(this);
         CurrentTool = EquiptTools[ToolIndex];
         CurrentTool.Select(this);
-        toolText.SetText(CurrentTool.displayName);
     }
 
     public void DeselectTool()
@@ -47,7 +45,6 @@ public class ToolController : MonoBehaviour
         }
         if (CurrentTool != null) CurrentTool.Deselect(this);
         CurrentTool = null;
-        toolText.SetText("No Tool Selected");
     }
 
     public void ActivateTool()
@@ -64,7 +61,6 @@ public class ToolController : MonoBehaviour
     }
     private void DeactiveTool_Internal()
     {
-        Debug.Log("Deactivating Tool " + CurrentTool);
         CurrentToolIsActive = false;
         if (CurrentTool == null) return;
         CurrentTool.Deactivate(this,_Target);
@@ -75,12 +71,6 @@ public class ToolController : MonoBehaviour
     void Start()
     {
         _LinkedPlayer = gameObject.GetComponent<Player>();
-        
-    }
-
-    void OnEnable()
-    {
-        Debug.Assert(toolText != null);
     }
 
     // Update is called once per frame
