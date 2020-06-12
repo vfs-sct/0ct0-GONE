@@ -21,7 +21,7 @@ public class ResourceCollectionEvent : Event
         //TODO: this should really only be done when theres a change to the text
         if (UIRootModule.UIRoot != null)
         {
-            string objectiveUpdate = $"- {actionVerb} {ResourceAmount} {CollectResource.DisplayName} ({totalAdded}/{ResourceAmount})";
+            string objectiveUpdate = $"{totalAdded}/{ResourceAmount} - {actionVerb} {CollectResource.DisplayName}";
             UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
         }
         
