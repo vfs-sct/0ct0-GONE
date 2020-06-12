@@ -9,7 +9,7 @@ public class EventModule : Module
 
     //List of events that are called in sequence
     [SerializeField] private List<Event> EventSequence = new List<Event>();
-
+    
     private Queue<Event> EventQueue = new Queue<Event>();
     private Event _CurrentEvent;
     public Event CurrentEvent{get=>_CurrentEvent;}

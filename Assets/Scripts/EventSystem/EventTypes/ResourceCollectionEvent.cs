@@ -5,10 +5,12 @@
 public class ResourceCollectionEvent : Event
 {
     public bool EventTrigger = false;
+    [SerializeField] protected UIModule UIRootModule = null;
     [SerializeField] Resource CollectResource;
     [SerializeField] float ResourceAmount;
     [SerializeField] private string audioLog = null;
     [SerializeField] public GameObject soundPlayer = null;
+    [SerializeField] public string actionVerb = "Collect";
 
     private float previousAmount = -1000f;
     private float totalAdded;
@@ -16,11 +18,17 @@ public class ResourceCollectionEvent : Event
     public override bool Condition(GameObject target)
     {
         var currentAmount = target.GetComponent<ResourceInventory>().GetResource(CollectResource);
+        //TODO: this should really only be done when theres a change to the text
+        if (UIRootModule.UIRoot != null)
+        {
+            string objectiveUpdate = $"- {actionVerb} {ResourceAmount} {CollectResource.DisplayName} ({totalAdded}/{ResourceAmount})";
+            UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
+        }
         
         //initialize previousAmount if we're looping through for the first time
-        if(previousAmount == -1000f)
+        if (previousAmount == -1000f)
         {
-            previousAmount = currentAmount;
+            previousAmount = currentAmount; 
         }
 
         //exit early if no change
@@ -36,6 +44,7 @@ public class ResourceCollectionEvent : Event
             {
                 //if resource was added, add to the total added amount
                 totalAdded = totalAdded + delta;
+                //UIRootModule.UIRoot.GetScreen<ObjectivePanel>().objectiveText.SetText($"- {actionVerb} {ResourceAmount} {CollectResource.DisplayName} ({totalAdded}/{ResourceAmount}");
             }
 
             //update previous amount for next tick
