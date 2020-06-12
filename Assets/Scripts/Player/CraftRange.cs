@@ -18,14 +18,13 @@ public class CraftRange : MonoBehaviour
 
     public void OnCraftHotkey(InputValue value)
     {
-        canCraft = Player.CanCraft(canCraft);
-        
+        canCraft = Player.StationInRange(canCraft);  
 
-        if(canCraft == false)
+        if(canCraft == false || GameManager.isPaused)
         {
             return;
         }
-        else if(!GameManager.isPaused)
+        else
         {
             CraftingPrefab.SetActive(true);
             GameManager.Pause();

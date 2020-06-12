@@ -149,30 +149,39 @@ public class Player : MonoBehaviour
 
         if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud") 
         {
-            //is there an already targeted object that needs to be untargeted
-            if (targetObject != null)
+            var root = mouseCollision.gameObject.transform;
+            while (root.parent != null)
             {
-                Debug.Log("Old target: " + targetObject);
-                targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
+                root = root.parent;
             }
-
-            if (_TargetCollider.gameObject == highlightObject)
+            //don't target crafting stations
+            if (root.tag != "Refuel")
             {
-                lastTargetMat = lastHighlightMat;
-                
-                lastHighlightMat = null;
-            }
-            else
-            {
-                lastTargetMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
-            }
+                //is there an already targeted object that needs to be untargeted
+                if (targetObject != null)
+                {
+                    Debug.Log("Old target: " + targetObject);
+                    targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
+                }
 
-            highlightObject = null;
-            targetObject = _TargetCollider.gameObject;
-            LinkedToolController.SetTarget(targetObject);
-            Debug.Log("Targeted: " + targetObject);
+                if (_TargetCollider.gameObject == highlightObject)
+                {
+                    lastTargetMat = lastHighlightMat;
 
-            _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
+                    lastHighlightMat = null;
+                }
+                else
+                {
+                    lastTargetMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
+                }
+
+                highlightObject = null;
+                targetObject = _TargetCollider.gameObject;
+                LinkedToolController.SetTarget(targetObject);
+                Debug.Log("Targeted: " + targetObject);
+
+                _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
+            }
         }
         else
         {
@@ -244,7 +253,7 @@ public class Player : MonoBehaviour
             lastHighlightMat = null;
         }
     }
-    public bool CanCraft(bool canCraft)
+    public bool StationInRange(bool canCraft)
     {
         if (mouseCollision != null)
         {
