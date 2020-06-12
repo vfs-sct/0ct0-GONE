@@ -10,8 +10,8 @@ public class GameOver : MonoBehaviour
 {
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
-    [SerializeField] GameObject AudioReferences = null;
-    [SerializeField] GameObject AudioReferences2 = null;
+    [SerializeField] GameObject AudioReferences;
+    [SerializeField] GameObject AudioReferences2;
 
     [SerializeField] string menuScene = null;
 
@@ -23,17 +23,25 @@ public class GameOver : MonoBehaviour
     //used by the Confirmation screen
     void DoMainMenu()
     {
+        // ========================
+        //          AUDIO
+        // ========================
+        if (AudioReferences == null || AudioReferences2 == null)
+        {
+            Debug.LogError("One or both sound references has not been hooked up on the GameOver prefab");
+        }
+        else
+        {
+            AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
+            AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
+        }
+
         if (GameManager.isPaused)
         {
             GameManager.UnPause();
         }
-        SceneManager.LoadScene($"{menuScene}");
 
-        // ========================
-        //          AUDIO
-        // ========================
-        AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
-        AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
+        SceneManager.LoadScene($"{menuScene}");
     }
 
     public void OnClickMainMenu()

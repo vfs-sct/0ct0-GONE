@@ -5,12 +5,20 @@ public class GameHUD : MonoBehaviour
 {
     [SerializeField] GameObject PausePrefab = null;
     [SerializeField] GameObject GameoverPrefab = null;
+    [SerializeField] GameObject CraftingPrefab = null;
+    [SerializeField] GameObject selectedToolText = null;
     [SerializeField] GameFrameworkManager GameManager = null;
 
-    private void Update()
+    public void OnCraftHotkey(InputValue value)
     {
-        
+        if (!GameManager.isPaused)
+        {
+            SwitchViewTo(CraftingPrefab);
+            GameManager.Pause();
+            Debug.Log("Paused");
+        }
     }
+
     public void OnEsc(InputValue value)
     {
         if (!GameManager.isPaused)
