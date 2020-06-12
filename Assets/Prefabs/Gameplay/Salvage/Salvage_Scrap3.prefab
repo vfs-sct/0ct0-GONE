@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1177146424779885327}
   - component: {fileID: 4124352786646662336}
   - component: {fileID: 4049967346508616502}
+  - component: {fileID: 916444373360835814}
   m_Layer: 0
   m_Name: Salvage_Scrap3
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   ActiveResources: []
   UseOverrides: 0
   OverrideValues: []
+  resourceAddedPopTxt: {fileID: 0}
 --- !u!114 &-7656822720602049944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +111,23 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0.68, z: 0}
+--- !u!114 &916444373360835814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049115481071579171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a383b9ec6f1a454d87ac445661c5df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 63df456d802c37d45ab8343304528447,
+      type: 2}
 --- !u!1001 &1427978060588445980
 PrefabInstance:
   m_ObjectHideFlags: 0
