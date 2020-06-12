@@ -22,8 +22,8 @@ public class ThrusterAudioPlayer : MonoBehaviour
     {
         // Calculations for how loud the sound will be based on how long the player is holding the movement key down is handled here.
         ThrusterImpulseRTPC.SetGlobalValue(Mathf.Abs(Movement.Throttle.x) + Mathf.Abs(Movement.Throttle.y) + Mathf.Abs(Movement.Throttle.z) / 3);
-        Debug.Log(ThrusterImpulseRTPC.GetGlobalValue());
-        Debug.Log("==== Setting RTCP ====");
+        //Debug.Log(ThrusterImpulseRTPC.GetGlobalValue());
+        //Debug.Log("==== Setting RTCP ====");
     }
 
     private void OnDestroy()

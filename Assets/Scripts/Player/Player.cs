@@ -47,6 +47,8 @@ public class Player : MonoBehaviour
     public int invertedCam;
     public float lookSensitivity;
 
+    public Collider mouseCollision = null;
+
     public void OnSelectTool1()//goo glue
     {
         if (LastToolSelectedIndex == 0)
@@ -143,20 +145,7 @@ public class Player : MonoBehaviour
 
     private void TryTarget()
     {
-        RaycastHit TargetHit; 
-        if (Physics.Raycast(PlayerCamera.transform.position,PlayerCamera.transform.forward,out TargetHit,TargetingDistance,TargetableMask))
-        {
-            _TargetCollider = TargetHit.collider;
-
-            if (_TargetCollider.GetComponentInChildren<MeshRenderer>() == null)
-            {
-                _TargetCollider = null;
-            }
-        }  
-        else 
-        {
-            _TargetCollider = null;
-        } 
+        _TargetCollider = mouseCollision;
 
         if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud") 
         {
@@ -231,6 +220,61 @@ public class Player : MonoBehaviour
 
     private void TryHighlight()
     {
+        //just bc i dont wanna rename everything rn
+        _TargetCollider = mouseCollision;
+
+        if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud" && _TargetCollider.gameObject != targetObject)
+        {
+            //is there a previously highlighted object that needs to be unhighlighted
+            if (highlightObject != null)
+            {
+                //Debug.Log("Old highlight: " + highlightObject);
+                highlightObject.GetComponentInChildren<MeshRenderer>().material = lastHighlightMat;
+            }
+            highlightObject = _TargetCollider.gameObject;
+            //Debug.Log("Highlighted: " + highlightObject);
+
+            lastHighlightMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
+            _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("HoverHighlightMaterial");
+        }
+        else if(_TargetCollider != null && _TargetCollider.gameObject != targetObject)
+        {
+            RevertMaterial(highlightObject, lastHighlightMat);
+            highlightObject = null;
+            lastHighlightMat = null;
+        }
+    }
+    public bool CanCraft(bool canCraft)
+    {
+        if (mouseCollision != null)
+        {
+            var root = mouseCollision.gameObject.transform;
+            while(root.parent != null)
+            {
+                root = root.parent;
+            }
+
+            Debug.Log($"CRAFT COLLISION: {root.tag}, {root.name}");
+
+            if(root.tag == "Refuel")
+            {
+                canCraft = true;
+            }
+            else
+            {
+                canCraft = false;
+            }
+        }
+        else
+        {
+            canCraft = false;
+        }
+
+        return canCraft;
+    }
+
+    public Collider GetMouseCollision()
+    {
         RaycastHit TargetHit;
         if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out TargetHit, TargetingDistance, TargetableMask))
         {
@@ -246,26 +290,7 @@ public class Player : MonoBehaviour
             _TargetCollider = null;
         }
 
-        if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud" && _TargetCollider.gameObject != targetObject)
-        {
-            //is there a previously highlighted object that needs to be unhighlighted
-            if (highlightObject != null)
-            {
-                Debug.Log("Old highlight: " + highlightObject);
-                highlightObject.GetComponentInChildren<MeshRenderer>().material = lastHighlightMat;
-            }
-            highlightObject = _TargetCollider.gameObject;
-            Debug.Log("Highlighted: " + highlightObject);
-
-            lastHighlightMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
-            _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("HoverHighlightMaterial");
-        }
-        else if(_TargetCollider != null && _TargetCollider.gameObject != targetObject)
-        {
-            RevertMaterial(highlightObject, lastHighlightMat);
-            highlightObject = null;
-            lastHighlightMat = null;
-        }
+        return _TargetCollider;
     }
 
 
@@ -275,6 +300,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
+        mouseCollision = GetMouseCollision();
         TryHighlight();
         EventModule.UpdateEvents(gameObject);
         UpdateCamera();
