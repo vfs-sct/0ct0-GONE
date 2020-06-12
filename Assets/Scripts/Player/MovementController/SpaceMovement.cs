@@ -17,10 +17,12 @@ public class SpaceMovement : MovementComponent
     [SerializeField] private float FuelPerImpulseUnit = 0.2f;
     [SerializeField] private float FuelPerTorqueUnit = 0.2f;
     [SerializeField] private float FuelEfficency = 100;
+    
+    
     private float _VelocityMax;
     Rigidbody AnchorTarget = null;
 
-    Vector3 Throttle = new Vector3();
+    public Vector3 Throttle = new Vector3();
 
     private Rigidbody _Rigidbody;
     private float Mass;
@@ -149,14 +151,13 @@ public class SpaceMovement : MovementComponent
 
     public override void OnFrameUpdate(MovementController Controller)
     {
-
+    
     }
+
 
     public override void MovementUpdate(MovementController Controller,byte MovementSubMode)
     {
         _Rigidbody.AddRelativeForce(CalculateImpulse(Controller), ForceMode.Impulse);
         ApplyTorque(Controller);
-     
-        
     }
 }
