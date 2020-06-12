@@ -47,7 +47,7 @@ public class ResourceCollectionEvent : Event
         {
             Debug.Log("EVENT COMPLETE");
             EventTrigger = true;
-            //reset
+            //reset the scriptableobject values
             totalAdded = 0;
             previousAmount = -1000f;
         }

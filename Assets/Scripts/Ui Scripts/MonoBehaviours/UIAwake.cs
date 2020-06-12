@@ -40,7 +40,7 @@ public class UIAwake : MonoBehaviour
         else
         {
             //main menu doesnt have a player so theres nothing to update
-            Debug.Log("Did not update camera inversion because player reference is null. Are you in Main Menu, or Gameplay?");
+            Debug.Log("Did not update camera inversion because player reference is null. Are you in Main Menu?");
         }
     }
 
@@ -53,7 +53,7 @@ public class UIAwake : MonoBehaviour
         else
         {
             //main menu doesnt have a player so theres nothing to update
-            Debug.Log("Did not update look sensitivity because player reference is null. Are you in Main Menu, or Gameplay?");
+            Debug.Log("Did not update look sensitivity because player reference is null. Are you in Main Menu?");
         }
     }
 
@@ -78,7 +78,12 @@ public class UIAwake : MonoBehaviour
         }
         else
         {
-            player.invertedCam = invertedCamDefault;
+            if (player != null)
+            {
+                player.invertedCam = invertedCamDefault;
+            }
+            PlayerPrefs.SetFloat("InvertedCam", invertedCamDefault);
+            PlayerPrefs.Save();
         }
 
         //set camera inversion base on player prefs, or set to default
@@ -88,15 +93,20 @@ public class UIAwake : MonoBehaviour
         }
         else
         {
-            //default sensitivity
-            player.lookSensitivity = lookSensitivityDefault;
+            if (player != null)
+            {
+                //default sensitivity
+                player.lookSensitivity = lookSensitivityDefault;
+            }
+            PlayerPrefs.SetFloat("LookSensitivity", lookSensitivityDefault);
+            PlayerPrefs.Save();
         }
 
         //set gamma based on saved player prefs, or set to default
         if (!PlayerPrefs.HasKey("Gamma"))
-        {
-            PlayerPrefs.SetFloat("Gamma", gammaDefault);
+        {   
             Shader.SetGlobalFloat("gamma", gammaDefault);
+            PlayerPrefs.SetFloat("Gamma", gammaDefault);
             PlayerPrefs.Save();
         }
         else
