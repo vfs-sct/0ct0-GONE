@@ -22,6 +22,7 @@ public class EventModule : Module
 
     public override void Start()
     {
+        Reset();
         bool is_first = true;
         foreach (var item in EventSequence)
         {

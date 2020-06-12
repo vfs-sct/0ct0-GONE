@@ -9,7 +9,7 @@ public class Playing : GameState
 
 
 
-    [SerializeField] private Player _ActivePlayer;
+    private Player _ActivePlayer;
     [SerializeField] private CommunicationModule RelayController;
     public Player ActivePlayer{get=>_ActivePlayer;}
 
@@ -27,11 +27,11 @@ public class Playing : GameState
 
     public override void OnDeactivate(GameState NewState)
     {
-
+        RelayController.Reset();
     }
 
     public override void Reset()
     {
-
+        _ActivePlayer = null;
     }
 }

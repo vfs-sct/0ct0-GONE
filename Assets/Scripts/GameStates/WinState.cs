@@ -9,9 +9,11 @@ public class WinState : GameState
     private Player _ActivePlayer = null;
     [SerializeField] private EventModule EventManager;
 
-    public override bool ConditionCheck(GameFrameworkManager GameManager)
+    [SerializeField] private GameFrameworkManager GameManager;
+
+    public override bool ConditionCheck(GameFrameworkManager GameManager)//TODO: pass the active state as a parameter
     {
-        return (GameManager.ActiveGameState.GetType() == typeof(Playing)) && (EventManager.EventListComplete);
+        return (GameManager.ActiveGameState.GetType() == typeof(Playing)) && (EventManager.EventListComplete); 
     }
     public override void OnActivate(GameState LastState)
     {
@@ -25,11 +27,12 @@ public class WinState : GameState
 
     public override void OnDeactivate(GameState NewState)
     {
-        
+        GameManager.UnPause();
+        Reset();
     }
 
     public override void Reset()
     {
-        
+        _ActivePlayer = null;
     }
 }
