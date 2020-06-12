@@ -64,11 +64,6 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         NormalizeInputs();

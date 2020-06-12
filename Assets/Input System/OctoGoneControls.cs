@@ -345,17 +345,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""3bac6b83-8134-4e1e-b67a-51ad7edc6119"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LockTarget"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""1D Axis"",
                     ""id"": ""6248be99-a288-49d1-a2d1-e38d8a88d075"",
                     ""path"": ""1DAxis"",
@@ -486,14 +475,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""name"": ""Debug"",
                     ""type"": ""Button"",
                     ""id"": ""63319c69-2f7a-4b8b-8518-229419aaccf5"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""CraftHotkey"",
-                    ""type"": ""Button"",
-                    ""id"": ""bdf3e23d-7fd1-4ba4-a2d4-0273565a8de3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -939,17 +920,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""action"": ""Debug"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fe763df5-c8c3-44e7-944c-fd8208106673"",
-                    ""path"": ""<Keyboard>/C"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""CraftHotkey"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1046,7 +1016,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_Esc = m_UI.FindAction("Esc", throwIfNotFound: true);
         m_UI_Debug = m_UI.FindAction("Debug", throwIfNotFound: true);
-        m_UI_CraftHotkey = m_UI.FindAction("CraftHotkey", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1237,7 +1206,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_Esc;
     private readonly InputAction m_UI_Debug;
-    private readonly InputAction m_UI_CraftHotkey;
     public struct UIActions
     {
         private @OctoGoneControls m_Wrapper;
@@ -1254,7 +1222,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @Esc => m_Wrapper.m_UI_Esc;
         public InputAction @Debug => m_Wrapper.m_UI_Debug;
-        public InputAction @CraftHotkey => m_Wrapper.m_UI_CraftHotkey;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1300,9 +1267,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Debug.started -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
                 @Debug.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
                 @Debug.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
-                @CraftHotkey.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
-                @CraftHotkey.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
-                @CraftHotkey.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1343,9 +1307,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Debug.started += instance.OnDebug;
                 @Debug.performed += instance.OnDebug;
                 @Debug.canceled += instance.OnDebug;
-                @CraftHotkey.started += instance.OnCraftHotkey;
-                @CraftHotkey.performed += instance.OnCraftHotkey;
-                @CraftHotkey.canceled += instance.OnCraftHotkey;
             }
         }
     }
@@ -1425,6 +1386,5 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnEsc(InputAction.CallbackContext context);
         void OnDebug(InputAction.CallbackContext context);
-        void OnCraftHotkey(InputAction.CallbackContext context);
     }
 }
