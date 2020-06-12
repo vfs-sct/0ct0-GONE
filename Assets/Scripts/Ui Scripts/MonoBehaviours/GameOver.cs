@@ -16,6 +16,11 @@ public class GameOver : MonoBehaviour
 
     [SerializeField] string menuScene = null;
 
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+    }
+
     public void OnClickLoad()
     {
         Debug.Log("No save data to load");
