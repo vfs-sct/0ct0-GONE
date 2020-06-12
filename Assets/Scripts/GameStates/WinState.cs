@@ -11,7 +11,7 @@ public class WinState : GameState
 
     public override bool ConditionCheck(GameFrameworkManager GameManager)
     {
-        return EventManager.EventListComplete;
+        return (GameManager.ActiveGameState.GetType() == typeof(Playing)) && (EventManager.EventListComplete);
     }
     public override void OnActivate(GameState LastState)
     {

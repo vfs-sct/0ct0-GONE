@@ -21,7 +21,8 @@ public class GameFrameworkManager : ScriptableObject
 
     Dictionary<string,GameState> StateSceneLinkDict = new Dictionary<string, GameState>();
 
-    private GameState ActiveState;
+    private GameState _ActiveState;
+    public GameState ActiveGameState{get => _ActiveState;}
     private Scene ActiveScene;
 
 
@@ -85,9 +86,9 @@ public class GameFrameworkManager : ScriptableObject
     {
         if (!Application.isPlaying) return;
         CheckStateConditions(); //check game state conditions
-        if (ActiveState != null && ActiveState.CanTick) 
+        if (_ActiveState != null && _ActiveState.CanTick) 
         {
-            ActiveState.OnUpdate();
+            _ActiveState.OnUpdate();
         }
     }
 
@@ -106,14 +107,14 @@ public class GameFrameworkManager : ScriptableObject
 
     public void ChangeGameState(GameState _GameState)
     {
-        if (ActiveState != null)
+        if (_ActiveState != null)
         {
-            ActiveState.OnDeactivate(_GameState);
-            GameState LastState = ActiveState;
-            ActiveState = _GameState;
-            ActiveState.OnActivate(LastState);
+            _ActiveState.OnDeactivate(_GameState);
+            GameState LastState = _ActiveState;
+            _ActiveState = _GameState;
+            _ActiveState.OnActivate(LastState);
         }
-            ActiveState = _GameState;
+            _ActiveState = _GameState;
             //ActiveState.OnActivate(null);
             return;
         
