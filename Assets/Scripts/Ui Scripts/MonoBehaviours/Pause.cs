@@ -18,6 +18,11 @@ public class Pause : MonoBehaviour
 
     [SerializeField] string menuScene = null;
 
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+    }
+
     public void OnClickResume()
     {
         Cursor.visible = false;

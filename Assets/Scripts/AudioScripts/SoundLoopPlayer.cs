@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿// Evan Landry | Copyright 2020 © All rights reserved
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ using UnityEngine;
 // Step 1
 [RequireComponent(typeof(Rigidbody))]   // Makes sure a Rigidbody is available for the AK Object
 
-public class SoundExample : MonoBehaviour
+public class SoundLoopPlayer : MonoBehaviour
 {
     // Step 2
     // ---------------------------------------

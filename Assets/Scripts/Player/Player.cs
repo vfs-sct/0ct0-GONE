@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public ResourceInventory Inventory{get=>LinkedInventory;}
 
     [SerializeField] private GameOver GameOverScreen;
+    [SerializeField] private GameOver WinScreen;
 
     private MovementController LinkedMovementController;
     private ToolController LinkedToolController;
@@ -207,6 +208,12 @@ public class Player : MonoBehaviour
     {
         GameManager.Pause();
         GameOverScreen.gameObject.SetActive(true);
+    }
+
+    public void Win()
+    {
+        GameManager.Pause();
+        WinScreen.gameObject.SetActive(true);
     }
 
 

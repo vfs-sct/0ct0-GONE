@@ -1,4 +1,5 @@
-﻿//using System.Collections;
+﻿//Kristin Ruff-Frederickson | Copyright 2020©
+//using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,11 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject AudioReferences2;
 
     [SerializeField] string menuScene = null;
+
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+    }
 
     public void OnClickLoad()
     {

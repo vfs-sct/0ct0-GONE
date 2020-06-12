@@ -15,11 +15,14 @@ public class EventModule : Module
     //root events directly
     private Queue<Event> EventQueue = new Queue<Event>();
     private Event _CurrentEvent;
+    private bool _EventListComplete = false;
+    public bool EventListComplete{get =>_EventListComplete;}
     public Event CurrentEvent{get=>_CurrentEvent;}
 
 
     public override void Start()
     {
+        Reset();
         bool is_first = true;
         foreach (var item in EventSequence)
         {
@@ -48,6 +51,7 @@ public class EventModule : Module
         else 
         {
             _CurrentEvent = null;
+            _EventListComplete = true;
         }
     }
 
@@ -71,5 +75,6 @@ public class EventModule : Module
     public override void Reset()
     {
         EventQueue.Clear();
+        _EventListComplete = false;
     }
 }
