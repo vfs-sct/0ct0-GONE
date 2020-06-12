@@ -146,6 +146,12 @@ public class SpaceMovement : MovementComponent
             }
         }
     }
+
+    public override void OnFrameUpdate(MovementController Controller)
+    {
+
+    }
+
     public override void MovementUpdate(MovementController Controller,byte MovementSubMode)
     {
         _Rigidbody.AddRelativeForce(CalculateImpulse(Controller), ForceMode.Impulse);

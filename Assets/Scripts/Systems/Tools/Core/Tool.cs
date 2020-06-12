@@ -11,6 +11,7 @@ public abstract class Tool : ScriptableObject
     public delegate void ToolEvent(ToolController owner,GameObject target);
 
     [SerializeField] private bool _ActivateIsToggle = false;
+    [SerializeField] public string displayName = "";
     public bool ActivateIsToggle{get=>_ActivateIsToggle;}
 
     public ToolEvent OnActivateEvent;

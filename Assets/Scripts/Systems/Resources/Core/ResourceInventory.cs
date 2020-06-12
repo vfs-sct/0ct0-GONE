@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using TMPro;
 
 public class ResourceInventory : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class ResourceInventory : MonoBehaviour
     [SerializeField] private bool UseOverrides = false;
 
     [SerializeField] private List<ResourceModule.ResourceData> OverrideValues;
+
+    [SerializeField] private GameObject resourceAddedPopTxt = null;
 
     void Awake()
     {
@@ -64,7 +68,14 @@ public class ResourceInventory : MonoBehaviour
 
     public void AddResource(Resource resource, float amount)
     {
+        var popText = Instantiate(resourceAddedPopTxt);
+        popText.GetComponentInChildren<TextMeshProUGUI>().SetText("+" + amount.ToString() + " " + resource.DisplayName);
         resource.AddInstanceValue(this,amount);
+    }
+
+    public void GenerateResourceText()
+    {
+
     }
 
     public void SetResource(Resource resource, float amount)

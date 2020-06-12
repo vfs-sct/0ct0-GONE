@@ -12,7 +12,7 @@ public class TestSatelliteSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SatelliteHolder.CreateNewHeldSatellite(SatelliteToSpawn);
+        //SatelliteHolder.CreateNewHeldSatellite(SatelliteToSpawn);
     }
 
     // Update is called once per frame
