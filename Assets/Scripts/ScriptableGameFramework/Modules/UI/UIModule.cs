@@ -1,6 +1,4 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -35,7 +33,6 @@ public class UIModule : Module
 
     private void dummyFunc() { }
 
-
     private void AddUpdateDelegate(functionDelegate newdelegate)
     {
         tickDelegate += newdelegate;
@@ -56,9 +53,6 @@ public class UIModule : Module
     {
         startDelegate -= newdelegate;
     }
-
-
-
 
     private void OnEnable()
     {
@@ -113,10 +107,6 @@ public class UIModule : Module
         ActiveInterfaces[index].ToggleUI(instanceId, state);
 
     }
-
-
-
-
 
     public void Show(ScriptedUI ui, int instanceId)
     {

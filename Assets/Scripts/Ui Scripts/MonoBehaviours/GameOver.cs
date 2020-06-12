@@ -1,4 +1,5 @@
-﻿//using System.Collections;
+﻿//Kristin Ruff-Frederickson | Copyright 2020©
+//using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

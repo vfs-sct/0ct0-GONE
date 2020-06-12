@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿//Kristin Ruff-Frederickson | Copyright 2020©
+using UnityEngine;
 
+//this code is used to allow the scriptable object framework to have access to the prefab monobehaviour UI
 public class UIRoot : MonoBehaviour
 {
     [SerializeField] UIModule UIModule = null;
