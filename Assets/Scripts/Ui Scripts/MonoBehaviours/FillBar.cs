@@ -21,6 +21,6 @@ public class FillBar : MonoBehaviour
 
         // set fill to health percentage
         //needs a way to get the max value from the resource instead of hardcoding division number
-        barFill.fillAmount = charStat/750;
+        barFill.fillAmount = charStat / fuel.GetMaximum();
     }
 }

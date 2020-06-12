@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CraftRange : MonoBehaviour
@@ -30,16 +28,5 @@ public class CraftRange : MonoBehaviour
             GameManager.Pause();
             Debug.Log("Paused");
         }
-    }
-
-    public void OpenCrafting()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

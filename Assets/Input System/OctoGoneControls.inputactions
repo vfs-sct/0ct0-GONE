@@ -22,6 +22,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "RefuelHotkey",
+                    "type": "Button",
+                    "id": "6b1b0ad6-0daa-4f5d-b77c-ff3031345272",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "VerticalTranslate",
                     "type": "Value",
                     "id": "5ca766d4-8d7a-4b76-80e1-5d18a0713ceb",
@@ -391,6 +399,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "CraftHotkey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "beed9d93-3163-47f5-a7da-8e1d5d30ffec",
+                    "path": "<Keyboard>/F",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "RefuelHotkey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
