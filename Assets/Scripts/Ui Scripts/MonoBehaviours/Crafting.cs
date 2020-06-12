@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿//Kristin Ruff-Frederickson | Copyright 2020©
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -58,12 +59,6 @@ public class Crafting : MonoBehaviour
         SwitchActiveTab(contentGroups[0]);
     }
 
-    //update numbers related to player inventory here
-    private void OnEnable()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -76,8 +71,6 @@ public class Crafting : MonoBehaviour
             CraftButton.interactable = false;
         }
     }
-
-    public System.Action closeCallback;
 
     //crafting screen can either be closed with ESC or the hotkey to open it (or clicking the close button on the panel)
     public void OnEsc(InputValue value)
@@ -113,12 +106,15 @@ public class Crafting : MonoBehaviour
         }
     }
 
+    //use an array of recipe objects to generate crafting screen buttons & their associated functionality
     public void PopulateRecipePanel(CraftingRecipe[] recipeList)
     {
         foreach (var recipe in recipeList)
         {
             var newButton = AddNewButton(recipe.DisplayName, contentGroups[0].GetComponent<VerticalLayoutGroup>());
 
+            //set up what the recipe button does when you click it - used to fill in all the
+            //recipe info on the crafting panel (# of ingredients, names, amount needed, etc)
             newButton.GetComponent<Button>().onClick.AddListener(() =>
             {
                 TitleText.SetText(recipe.DisplayName);
@@ -177,16 +173,13 @@ public class Crafting : MonoBehaviour
         }
     }
 
+    //instantiate a new button and put it in the sidebar
     public Button AddNewButton(string buttonText, VerticalLayoutGroup contentGroup)
     {
-        //Here we create an instance of the template button we serialized at the top and save it into a variable
         var newButton = Instantiate(RecipeButton);
 
-        //Now using that variable we put the button into the navigation bar, which has settings in the editor
-        //to automatically layout and space any buttons it contains
         newButton.transform.SetParent(contentGroup.transform);
 
-        //Finally we get the text on the button from its children and set the text to the name of the codex entry
         newButton.GetComponentInChildren<TextMeshProUGUI>().SetText(buttonText);
 
         return newButton;

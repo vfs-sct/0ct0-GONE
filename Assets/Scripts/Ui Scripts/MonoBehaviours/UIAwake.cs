@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+﻿//Kristin Ruff-Frederickson | Copyright 2020©
+using UnityEngine;
 using UnityEngine.InputSystem;
-//using UnityEngine.UI;
 
 public class UIAwake : MonoBehaviour
 {
     [SerializeField] GameObject DebugPrefab = null;
     [SerializeField] public float gammaDefault = 2.2f;
-    //inverted default must be 1 or -1
-    //currently set to inverted by default
+    //invertedCamDefault must be either 1 or -1
+    //If it is set to 1, the camera will be inverted by default
     [SerializeField] public int invertedCamDefault = 1;
     [SerializeField] public float lookSensitivityDefault = 0.9f;
     [SerializeField] public GameObject fadeIn = null;
@@ -59,6 +59,7 @@ public class UIAwake : MonoBehaviour
 
     void Start()
     {
+        //find and set the camera so we can apply gamma changes
         var camera = Camera.main;
 
         foreach (var canvas in GameObject.FindObjectsOfType<Canvas>())
@@ -69,6 +70,7 @@ public class UIAwake : MonoBehaviour
 
         camera.gameObject.AddComponent<PostProcessing>().material = Resources.Load<Material>("GammaMaterial");
 
+        //fade in from black when switching screens
         fadeIn.SetActive(true);
 
         //set camera inversion base on player prefs, or set to default
@@ -114,7 +116,7 @@ public class UIAwake : MonoBehaviour
             Shader.SetGlobalFloat("gamma", PlayerPrefs.GetFloat("Gamma"));
         }
 
-
+        //loop through the saved prefs for each audio channel (master/music/sfx/dialogue) and set the volumes, or set to defaults
         foreach (var volumePref in VolumePrefs)
         {
             if (PlayerPrefs.HasKey(volumePref))
@@ -133,6 +135,7 @@ public class UIAwake : MonoBehaviour
 
     }
 
+    //open the debug panel when associated input is pressed
     public void OnDebug(InputValue value)
     {
         if (!DebugPrefab.activeSelf)

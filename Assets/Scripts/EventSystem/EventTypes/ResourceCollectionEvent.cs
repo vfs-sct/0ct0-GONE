@@ -8,8 +8,9 @@ public class ResourceCollectionEvent : Event
     [SerializeField] protected UIModule UIRootModule = null;
     [SerializeField] Resource CollectResource;
     [SerializeField] float ResourceAmount;
-    [SerializeField] private string audioLog = null;
-    [SerializeField] public GameObject soundPlayer = null;
+    //revisit when we have recordings from the sound actors
+    //[SerializeField] private string audioLog = null;
+    //[SerializeField] public GameObject soundPlayer = null;
     [SerializeField] public string actionVerb = "Collect";
 
     private float previousAmount = -1000f;
@@ -44,7 +45,6 @@ public class ResourceCollectionEvent : Event
             {
                 //if resource was added, add to the total added amount
                 totalAdded = totalAdded + delta;
-                //UIRootModule.UIRoot.GetScreen<ObjectivePanel>().objectiveText.SetText($"- {actionVerb} {ResourceAmount} {CollectResource.DisplayName} ({totalAdded}/{ResourceAmount}");
             }
 
             //update previous amount for next tick
