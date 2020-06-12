@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
 
     private GameObject targetObject = null;
     private Material lastTargetMat = null;
+    private GameObject highlightObject = null;
+    private Material lastHighlightMat = null;
 
     //used by UI/playerprefs to invert camera
     public int invertedCam;
@@ -144,36 +146,60 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(PlayerCamera.transform.position,PlayerCamera.transform.forward,out TargetHit,TargetingDistance,TargetableMask))
         {
             _TargetCollider = TargetHit.collider;
+
+            if (_TargetCollider.GetComponentInChildren<MeshRenderer>() == null)
+            {
+                _TargetCollider = null;
+            }
         }  
         else 
         {
             _TargetCollider = null;
-        }
-        
-        if (_TargetCollider!= null && _TargetCollider.name != "Player") 
+        } 
+
+        if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud") 
         {
+            //is there an already targeted object that needs to be untargeted
             if (targetObject != null)
             {
                 Debug.Log("Old target: " + targetObject);
                 targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
             }
+
+            if (_TargetCollider.gameObject == highlightObject)
+            {
+                lastTargetMat = lastHighlightMat;
+                
+                lastHighlightMat = null;
+            }
+            else
+            {
+                lastTargetMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
+            }
+
+            highlightObject = null;
             targetObject = _TargetCollider.gameObject;
             LinkedToolController.SetTarget(targetObject);
             Debug.Log("Targeted: " + targetObject);
 
-            lastTargetMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
             _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
         }
         else
         {
-            Debug.Log("No target selected");
-            if (targetObject != null)
-            {
-                targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
-            }
+            RevertMaterial(targetObject, lastTargetMat);
             targetObject = null;
             lastTargetMat = null;
             LinkedToolController.ClearTarget();
+        }
+    }
+
+    //used to put the default shader back on a highlighted or targeted object once it is no longer highlighted/targeted
+    public void RevertMaterial(GameObject prevObj, Material prevMat)
+    {
+        Debug.Log("No target highlighted/selected");
+        if (prevObj != null)
+        {
+            prevObj.GetComponentInChildren<MeshRenderer>().material = prevMat;
         }
     }
 
@@ -195,8 +221,45 @@ public class Player : MonoBehaviour
         LinkedMovementController = GetComponent<MovementController>();
         LinkedToolController = GetComponent<ToolController>();
     }
-    
 
+    private void TryHighlight()
+    {
+        RaycastHit TargetHit;
+        if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out TargetHit, TargetingDistance, TargetableMask))
+        {
+            _TargetCollider = TargetHit.collider;
+
+            if (_TargetCollider.GetComponentInChildren<MeshRenderer>() == null)
+            {
+                _TargetCollider = null;
+            }
+        }
+        else
+        {
+            _TargetCollider = null;
+        }
+
+        if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud" && _TargetCollider.gameObject != targetObject)
+        {
+            //is there a previously highlighted object that needs to be unhighlighted
+            if (highlightObject != null)
+            {
+                Debug.Log("Old highlight: " + highlightObject);
+                highlightObject.GetComponentInChildren<MeshRenderer>().material = lastHighlightMat;
+            }
+            highlightObject = _TargetCollider.gameObject;
+            Debug.Log("Highlighted: " + highlightObject);
+
+            lastHighlightMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
+            _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("HoverHighlightMaterial");
+        }
+        else if(_TargetCollider != null && _TargetCollider.gameObject != targetObject)
+        {
+            RevertMaterial(highlightObject, lastHighlightMat);
+            highlightObject = null;
+            lastHighlightMat = null;
+        }
+    }
 
 
     private void Update()
@@ -205,6 +268,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
+        TryHighlight();
         EventModule.UpdateEvents(gameObject);
         UpdateCamera();
         UpdateCharacterRotation();
