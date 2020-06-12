@@ -4,7 +4,7 @@
 [CreateAssetMenu(menuName = "Systems/Events/Resource Collection Event")]
 public class ResourceCollectionEvent : Event
 {
-    public bool EventTrigger = false;
+    private bool EventTrigger = false;
     [SerializeField] protected UIModule UIRootModule = null;
     [SerializeField] Resource CollectResource;
     [SerializeField] float ResourceAmount;
@@ -54,7 +54,7 @@ public class ResourceCollectionEvent : Event
         //quest complete?
         if(totalAdded >= ResourceAmount)
         {
-            Debug.Log("EVENT COMPLETE");
+            Debug.Log("EVENT CONDITION MET");
             EventTrigger = true;
             //reset the scriptableobject values
             totalAdded = 0;
@@ -67,9 +67,9 @@ public class ResourceCollectionEvent : Event
     protected override void Effect(GameObject target)
     {
         //no effect, this uses unity events for any effects
-        if(audioLog != null)
-        {
-            AkSoundEngine.PostEvent(audioLog, soundPlayer);
-        }
+        //if(audioLog != null)
+        //{
+        //    AkSoundEngine.PostEvent(audioLog, soundPlayer);
+        //}
     }
 }

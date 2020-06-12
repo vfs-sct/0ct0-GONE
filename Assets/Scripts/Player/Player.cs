@@ -205,7 +205,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        EventModule.CheckSequenceConditions(gameObject);
+        EventModule.UpdateEvents(gameObject);
         UpdateCamera();
         UpdateCharacterRotation();
     }
