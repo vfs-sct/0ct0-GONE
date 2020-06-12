@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 
 //[CreateAssetMenu(menuName = "Systems/Events/New Event")]
 public abstract class Event : ScriptableObject
 {
-
     public string EventName;
     public string EventText;
     public string CompletionText;

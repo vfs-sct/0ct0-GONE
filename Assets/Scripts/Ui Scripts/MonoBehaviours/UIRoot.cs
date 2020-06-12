@@ -2,6 +2,14 @@
 
 public class UIRoot : MonoBehaviour
 {
+    [SerializeField] UIModule UIModule = null;
+
+    //UI root gives itself to the UI module once its awake, so that the scriptable object system can use the prefab UI stuff
+    private void Awake()
+    {
+        UIModule.UIRoot = this;
+    }
+
     //grab a screen by the component - so if the name of a screen changes the code doesn't break
     public T GetScreen<T>() where T : MonoBehaviour
     {

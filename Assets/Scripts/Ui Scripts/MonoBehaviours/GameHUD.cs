@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 using UnityEngine.InputSystem;
 
 public class GameHUD : MonoBehaviour
@@ -8,6 +9,12 @@ public class GameHUD : MonoBehaviour
     [SerializeField] GameObject CraftingPrefab = null;
     [SerializeField] GameObject selectedToolText = null;
     [SerializeField] GameFrameworkManager GameManager = null;
+    public TextMeshProUGUI objectiveText = null;
+
+    public void SetObjectiveText(string updateObjective)
+    {
+        objectiveText.SetText(updateObjective);
+    }
 
     public void OnCraftHotkey(InputValue value)
     {

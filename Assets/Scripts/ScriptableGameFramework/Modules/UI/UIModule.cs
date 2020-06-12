@@ -19,6 +19,7 @@ public class UIModule : Module
     functionDelegate tickDelegate;
     functionDelegate startDelegate;
 
+    //will remain null until a UIRoot prefab has run Awake()
     public UIRoot UIRoot = null;
 
     public override void Start()

@@ -49,7 +49,9 @@ MonoBehaviour:
   PausePrefab: {fileID: 0}
   GameoverPrefab: {fileID: 0}
   CraftingPrefab: {fileID: 0}
+  selectedToolText: {fileID: 0}
   GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  objectiveText: {fileID: 0}
 --- !u!114 &3327703698444481078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +460,11 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3309311795552604295, guid: 1b8cc150856df4e43b9fe002ecff0d66,
+        type: 3}
+      propertyPath: gameHUD
+      value: 
+      objectReference: {fileID: 2819043128949330628}
     - target: {fileID: 7270035108463892271, guid: 1b8cc150856df4e43b9fe002ecff0d66,
         type: 3}
       propertyPath: m_LocalPosition.x
