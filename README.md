@@ -42,6 +42,7 @@ Press and hold F to refuel Octo. If Octo runs out of fuel, the game is lost.
 BUGS/WARNINGS
 ===================
 -Octo can continue gaining fuel after his fuelbar has been filled. This does not harm the game.
+-Numerical keys above 2 have no associated tool and will break the game if used.
 -The crafting screen has several object recipes implemented, but few are complete. The recipes that are not complete
 have no required ingredients and can be crafted infinitely. Crafting these items will not harm the game, but serves no purpose.
 -The player will need to get quite close to the space ship currently to activate crafting/refuelling.
@@ -127,6 +128,14 @@ Old:
 
 DEBUG
 ===================
+M2
+---------------------------------------------------------------------------------------------
+
+
+Old:
+---------------------------------------------------------------------------------------------
+-Add 50 resources of any type using drop-down menu
+-Kill Octo
+-View how much fuel Octo has (in numbers)
 -UI screen and codeside framework set up.
-	-Note: While the screen can be opened, the debug menu has no functionality currently.
 ===================
