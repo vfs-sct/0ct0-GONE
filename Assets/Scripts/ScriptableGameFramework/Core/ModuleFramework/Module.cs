@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//Copyright Jesse Rougeau, 2020 ©
 using UnityEngine;
 
+//abstract for modules
+
+//[CreateAssetMenu(menuName = "Systems/<systemName>/<systemName>Module")]
 public abstract class Module: ScriptableObject
 {
 

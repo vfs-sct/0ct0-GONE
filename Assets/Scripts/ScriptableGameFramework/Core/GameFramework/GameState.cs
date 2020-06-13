@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//Copyright Jesse Rougeau, 2020 ©
+
 using UnityEngine;
 
+//[CreateAssetMenu(menuName = "Systems/<StateName>/<StateName>State")]
 public abstract class GameState : ScriptableObject
 {
     [SerializeField] public bool CanTick;

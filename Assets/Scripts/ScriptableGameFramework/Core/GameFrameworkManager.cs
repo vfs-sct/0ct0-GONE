@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//Copyright Jesse Rougeau, 2020 ©
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.LowLevel;
 using UnityEngine.SceneManagement;
@@ -36,7 +39,7 @@ public class GameFrameworkManager : ScriptableObject
 
 
     [System.Serializable]
-    struct GameStateData
+    struct GameStateData //struct for editing game state properties in the editor
     {
         public bool Enabled;
 
@@ -55,7 +58,7 @@ public class GameFrameworkManager : ScriptableObject
         }
     }
 
-    private void DummyGMDelegate(GameFrameworkManager GameManager)
+    private void DummyGMDelegate(GameFrameworkManager GameManager) //dummy delegate to avoid doing a nullcheck
     {
         
     }
@@ -92,6 +95,7 @@ public class GameFrameworkManager : ScriptableObject
         }
     }
 
+    //check the conditions of all the gamestates
     void CheckStateConditions()
     {
         foreach (var State in UpdatingGameStates)
@@ -104,7 +108,7 @@ public class GameFrameworkManager : ScriptableObject
         }
     }
 
-
+    //force a game state change
     public void ChangeGameState(GameState _GameState)
     {
         if (_ActiveState != null)
@@ -141,13 +145,16 @@ public class GameFrameworkManager : ScriptableObject
         }
     }
 
-
+    //initialize the main player loop
     private void MainLoopInit()
     {
-        PrintPlayerLoop();
-        PlayerLoopSystem unityMainLoop = PlayerLoop.GetCurrentPlayerLoop();
+        PrintPlayerLoop(); //debugging info on unity player loop
+
+        //get the current update subsystem from the player loop
+        PlayerLoopSystem unityMainLoop = PlayerLoop.GetCurrentPlayerLoop(); 
         PlayerLoopSystem[] unityCoreSubSystems = unityMainLoop.subSystemList;
         PlayerLoopSystem[] unityCoreUpdate = unityCoreSubSystems[4].subSystemList;
+        
         PlayerLoopSystem ScriptModuleUpdate = new PlayerLoopSystem()
         {
             updateDelegate = LinkedModuleManager.ModuleUpdateTick,
@@ -159,7 +166,7 @@ public class GameFrameworkManager : ScriptableObject
             updateDelegate = GameStateUpdate,
             type = typeof(PlayerLoop)
         };
-
+        //create our new subsystem and replace the old one
         PlayerLoopSystem[] newCoreUpdate = new PlayerLoopSystem[6];
         newCoreUpdate[0] = unityCoreUpdate[0]; 
         newCoreUpdate[1] = ScriptModuleUpdate;
@@ -172,7 +179,7 @@ public class GameFrameworkManager : ScriptableObject
 
         PlayerLoopSystem systemRoot = new PlayerLoopSystem();
         systemRoot.subSystemList = unityCoreSubSystems;
-        PlayerLoop.SetPlayerLoop(systemRoot);
+        PlayerLoop.SetPlayerLoop(systemRoot); //override the old player loop with our new one
     }
 
     private void OnEnable()
@@ -189,6 +196,8 @@ public class GameFrameworkManager : ScriptableObject
         Initalize();
     }
 
+
+    //initialize core gameframework delegates
     private void CoreEventsInit()
     {
         OnExitGame += DummyGMDelegate;
@@ -196,6 +205,7 @@ public class GameFrameworkManager : ScriptableObject
         OnResumeGame += DummyGMDelegate;
     }
 
+    //main initialization
     private void Initalize()
     {
 
@@ -221,6 +231,7 @@ public class GameFrameworkManager : ScriptableObject
         Debug.Log("===============================\n");
     }
 
+    //wrapper for scene loading
     public void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("SceneLoaded");
@@ -234,6 +245,8 @@ public class GameFrameworkManager : ScriptableObject
         }
     }
 
+
+    //debug print code based off of https://medium.com/@thebeardphantom/unity-2018-and-playerloop-5c46a12a677
     public static void PrintPlayerLoop()
     {
     var def = PlayerLoop.GetCurrentPlayerLoop();
@@ -241,6 +254,8 @@ public class GameFrameworkManager : ScriptableObject
     RecursivePlayerLoopPrint(def, sb, 0);
     Debug.Log(sb.ToString());    
     }
+
+    //debug print code based off of https://medium.com/@thebeardphantom/unity-2018-and-playerloop-5c46a12a677
     public static void PrintDefaultPlayerLoop()
     {
     var def = PlayerLoop.GetDefaultPlayerLoop();
@@ -249,6 +264,7 @@ public class GameFrameworkManager : ScriptableObject
     Debug.Log(sb.ToString());    
     }
     
+    //debug print code based off of https://medium.com/@thebeardphantom/unity-2018-and-playerloop-5c46a12a677
     private static void RecursivePlayerLoopPrint(PlayerLoopSystem def, StringBuilder sb, int depth)
     {
     if (depth == 0)
@@ -280,6 +296,7 @@ public class GameFrameworkManager : ScriptableObject
 
     }
 
+    //exit the game
     public void QuitGame()
     {
         OnExitGame(this);
