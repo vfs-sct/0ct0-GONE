@@ -79,4 +79,9 @@ public class MainMenu : MonoBehaviour
         newPanel.SetActive(true);
         gameObject.SetActive(false);
     }
+
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+    }
 }
