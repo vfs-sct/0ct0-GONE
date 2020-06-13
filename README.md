@@ -1,7 +1,9 @@
 0ct0-GONE M2
 ---------------------------------------------------
+Git Link for Code Review: https://github.com/vfs-sct/0ct0-GONE/tree/172418532-release/Milestone2
 
-This is the Milestone One submission for 0CT0-GONE.
+
+This is the Milestone Two submission for 0CT0-GONE.
 
 Josh Paquette			Jesse Rougeau
 Evan Landry			Kristin Ruff-Frederickson
