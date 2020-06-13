@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿//Copyright Jesse Rougeau, 2020 ©
+
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
