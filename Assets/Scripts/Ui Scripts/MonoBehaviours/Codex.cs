@@ -126,6 +126,11 @@ public class Codex : MonoBehaviour
         SwitchViewTo(PausePrefab);
     }
 
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+    }
+
     public void SwitchViewTo(GameObject newPanel)
     {
         newPanel.SetActive(true);

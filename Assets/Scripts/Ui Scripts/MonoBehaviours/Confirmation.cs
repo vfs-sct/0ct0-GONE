@@ -1,7 +1,6 @@
 ﻿//using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 
@@ -11,6 +10,11 @@ public class Confirmation : MonoBehaviour
     [SerializeField] public TMP_Text bodyText;
 
     public System.Action clickConfirmCallback;
+
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+    }
 
     public void OnEsc(InputValue value)
     {

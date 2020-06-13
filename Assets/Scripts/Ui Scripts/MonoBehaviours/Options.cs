@@ -38,6 +38,11 @@ public class Options : MonoBehaviour
         "<b>ESC</b> - Pause"
     };
 
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+    }
+
     public void OnEsc(InputValue value)
     {
         Close();

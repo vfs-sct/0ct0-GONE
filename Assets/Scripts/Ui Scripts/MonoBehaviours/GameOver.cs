@@ -21,6 +21,11 @@ public class GameOver : MonoBehaviour
         Cursor.visible = true;
     }
 
+    private void OnDisable()
+    {
+        Cursor.visible = false;
+    }
+
     public void OnClickLoad()
     {
         Debug.Log("No save data to load");
