@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameOver WinScreen;
     [SerializeField] private GameObject CraftingTooltip = null;
     [SerializeField] private GameObject RefuellingTooltip = null;
+    [SerializeField] private GameObject TargetingTooltip = null;
 
     [Header("PlayerPref Options:")]
     //used by UI/playerprefs to invert camera
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
 
     [Header("Do not touch:")]
     public Collider mouseCollision = null;
+    public GameObject mouseCollisionRoot = null;
 
     private MovementController LinkedMovementController;
     private ToolController LinkedToolController;
@@ -157,13 +159,8 @@ public class Player : MonoBehaviour
 
         if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud") 
         {
-            var root = mouseCollision.gameObject.transform;
-            while (root.parent != null)
-            {
-                root = root.parent;
-            }
             //don't target crafting stations
-            if (root.tag != "Refuel")
+            if (mouseCollisionRoot.tag != "Refuel")
             {
                 //is there an already targeted object that needs to be untargeted
                 if (targetObject != null)
@@ -266,17 +263,23 @@ public class Player : MonoBehaviour
 
         if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud" && _TargetCollider.gameObject != targetObject)
         {
-            //is there a previously highlighted object that needs to be unhighlighted
+            //is there a previously highlighted object that needs to be unhighlighted?
             if (highlightObject != null)
             {
                 //Debug.Log("Old highlight: " + highlightObject);
                 highlightObject.GetComponentInChildren<MeshRenderer>().material = lastHighlightMat;
             }
+
             highlightObject = _TargetCollider.gameObject;
             //Debug.Log("Highlighted: " + highlightObject);
 
             lastHighlightMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
             _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("HoverHighlightMaterial");
+
+            if(mouseCollisionRoot.tag != "Refuel")
+            {
+                TargetingTooltip.SetActive(true);
+            }
         }
         else if(_TargetCollider != null && _TargetCollider.gameObject != targetObject)
         {
@@ -284,20 +287,19 @@ public class Player : MonoBehaviour
             highlightObject = null;
             lastHighlightMat = null;
         }
+
+        if (_TargetCollider == null || _TargetCollider.gameObject == targetObject || mouseCollisionRoot.tag == "Refuel")
+        {
+            TargetingTooltip.SetActive(false);
+        }
     }
     public bool StationInRange(bool canCraft)
     {
         if (mouseCollision != null)
         {
-            var root = mouseCollision.gameObject.transform;
-            while(root.parent != null)
-            {
-                root = root.parent;
-            }
+            Debug.Log($"CRAFT COLLISION: {mouseCollisionRoot.tag}, {mouseCollisionRoot.name}");
 
-            Debug.Log($"CRAFT COLLISION: {root.tag}, {root.name}");
-
-            if(root.tag == "Refuel")
+            if(mouseCollisionRoot.tag == "Refuel")
             {
                 canCraft = true;
             }
@@ -312,6 +314,22 @@ public class Player : MonoBehaviour
         }
 
         return canCraft;
+    }
+
+    public GameObject GetMouseCollisionRoot(Collider mouseCollision)
+    {
+        if (mouseCollision != null)
+        {
+            var root = mouseCollision.gameObject.transform;
+            while (root.parent != null)
+            {
+                root = root.parent;
+            }
+
+            return root.gameObject;
+        }
+
+        return null;
     }
 
     public Collider GetMouseCollision()
@@ -342,6 +360,7 @@ public class Player : MonoBehaviour
             return;
         }
         mouseCollision = GetMouseCollision();
+        mouseCollisionRoot = GetMouseCollisionRoot(mouseCollision);
         TryHighlight();
         ShowTooltips();
         EventModule.UpdateEvents(gameObject);
