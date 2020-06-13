@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameOver GameOverScreen;
     [SerializeField] private GameOver WinScreen;
+    [SerializeField] private GameObject CraftingTooltip = null;
+    [SerializeField] private GameObject RefuellingTooltip = null;
 
     private MovementController LinkedMovementController;
     private ToolController LinkedToolController;
@@ -227,6 +229,30 @@ public class Player : MonoBehaviour
         LinkedToolController = GetComponent<ToolController>();
     }
 
+    public void ShowTooltips()
+    {
+        //exit early
+        if(mouseCollision == null)
+        {
+            CraftingTooltip.SetActive(false);
+            RefuellingTooltip.SetActive(false);
+            return;
+        }
+
+        //get the parent of our collision if there is one
+        var root = mouseCollision.gameObject.transform;
+        while (root.parent != null)
+        {
+            root = root.parent;
+        }
+
+        if (root.tag == "Refuel")
+        {
+            CraftingTooltip.SetActive(true);
+            RefuellingTooltip.SetActive(true);
+        }
+    }
+
     private void TryHighlight()
     {
         //just bc i dont wanna rename everything rn
@@ -311,6 +337,7 @@ public class Player : MonoBehaviour
         }
         mouseCollision = GetMouseCollision();
         TryHighlight();
+        ShowTooltips();
         EventModule.UpdateEvents(gameObject);
         UpdateCamera();
         UpdateCharacterRotation();
