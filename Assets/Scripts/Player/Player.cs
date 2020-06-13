@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(ToolController))]
 public class Player : MonoBehaviour
 {
+    [Header("Game:")]
     [SerializeField] private GameFrameworkManager GameManager  = null;
     [SerializeField] private Playing PlayingState;
     [SerializeField] private LayerMask TargetableMask;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private PlayerSatelliteHolder SatHolder;
 
+    [Header("Player:")]
     [SerializeField] private float TargetingDistance = 1000.0f;
 
     [SerializeField] private Resource FuelResource;
@@ -26,10 +28,19 @@ public class Player : MonoBehaviour
     [SerializeField] private ResourceInventory LinkedInventory;
     public ResourceInventory Inventory{get=>LinkedInventory;}
 
+    [Header("UI Elements:")]
     [SerializeField] private GameOver GameOverScreen;
     [SerializeField] private GameOver WinScreen;
     [SerializeField] private GameObject CraftingTooltip = null;
     [SerializeField] private GameObject RefuellingTooltip = null;
+
+    [Header("PlayerPref Options:")]
+    //used by UI/playerprefs to invert camera
+    public int invertedCam;
+    public float lookSensitivity;
+
+    [Header("Do not touch:")]
+    public Collider mouseCollision = null;
 
     private MovementController LinkedMovementController;
     private ToolController LinkedToolController;
@@ -40,16 +51,11 @@ public class Player : MonoBehaviour
 
     private int LastToolSelectedIndex = -1;
 
+    //used for revertin mats on target/highlight objects when theyre deselected
     private GameObject targetObject = null;
     private Material lastTargetMat = null;
     private GameObject highlightObject = null;
     private Material lastHighlightMat = null;
-
-    //used by UI/playerprefs to invert camera
-    public int invertedCam;
-    public float lookSensitivity;
-
-    public Collider mouseCollision = null;
 
     public void OnSelectTool1()//goo glue
     {
