@@ -71,7 +71,7 @@ M2
 ---------------------------------------------------------------------------------------------
 -Added Crafting screen for converting collected resources into items.
 -Added Look Inversion and Look Sensitivity options, saved using PlayerPrefs.
--Tooltips now display when approaching a space station.
+-Tooltips now display when approaching a space station or highlighting an object.
 -Added pop up text when resources are added to the inventory.
 -WIP HUD widget for displaying what tool is equipped.
 -Targeting now visually highlights objects using a shader.
@@ -128,12 +128,6 @@ Old:
 
 DEBUG
 ===================
-M2
----------------------------------------------------------------------------------------------
-
-
-Old:
----------------------------------------------------------------------------------------------
 -Add 50 resources of any type using drop-down menu
 -Kill Octo
 -View how much fuel Octo has (in numbers)
