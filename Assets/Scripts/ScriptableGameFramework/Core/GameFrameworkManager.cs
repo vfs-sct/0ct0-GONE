@@ -1,7 +1,11 @@
-﻿using System.Collections;
+﻿//Copyright Jesse Rougeau, 2020 ©
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.LowLevel;
 using UnityEngine.SceneManagement;
+using System.Text;
 using UnityEngine.Scripting;
 using UnityEngine;
 
@@ -20,7 +24,8 @@ public class GameFrameworkManager : ScriptableObject
 
     Dictionary<string,GameState> StateSceneLinkDict = new Dictionary<string, GameState>();
 
-    private GameState ActiveState;
+    private GameState _ActiveState;
+    public GameState ActiveGameState{get => _ActiveState;}
     private Scene ActiveScene;
 
 
@@ -34,7 +39,7 @@ public class GameFrameworkManager : ScriptableObject
 
 
     [System.Serializable]
-    struct GameStateData
+    struct GameStateData //struct for editing game state properties in the editor
     {
         public bool Enabled;
 
@@ -53,7 +58,7 @@ public class GameFrameworkManager : ScriptableObject
         }
     }
 
-    private void DummyGMDelegate(GameFrameworkManager GameManager)
+    private void DummyGMDelegate(GameFrameworkManager GameManager) //dummy delegate to avoid doing a nullcheck
     {
         
     }
@@ -84,12 +89,13 @@ public class GameFrameworkManager : ScriptableObject
     {
         if (!Application.isPlaying) return;
         CheckStateConditions(); //check game state conditions
-        if (ActiveState != null && ActiveState.CanTick) 
+        if (_ActiveState != null && _ActiveState.CanTick) 
         {
-            ActiveState.OnUpdate();
+            _ActiveState.OnUpdate();
         }
     }
 
+    //check the conditions of all the gamestates
     void CheckStateConditions()
     {
         foreach (var State in UpdatingGameStates)
@@ -102,17 +108,17 @@ public class GameFrameworkManager : ScriptableObject
         }
     }
 
-
+    //force a game state change
     public void ChangeGameState(GameState _GameState)
     {
-        if (ActiveState != null)
+        if (_ActiveState != null)
         {
-            ActiveState.OnDeactivate(_GameState);
-            GameState LastState = ActiveState;
-            ActiveState = _GameState;
-            ActiveState.OnActivate(LastState);
+            _ActiveState.OnDeactivate(_GameState);
+            GameState LastState = _ActiveState;
+            _ActiveState = _GameState;
+            _ActiveState.OnActivate(LastState);
         }
-            ActiveState = _GameState;
+            _ActiveState = _GameState;
             //ActiveState.OnActivate(null);
             return;
         
@@ -139,12 +145,16 @@ public class GameFrameworkManager : ScriptableObject
         }
     }
 
-
+    //initialize the main player loop
     private void MainLoopInit()
     {
-        PlayerLoopSystem unityMainLoop = PlayerLoop.GetDefaultPlayerLoop();
+        PrintPlayerLoop(); //debugging info on unity player loop
+
+        //get the current update subsystem from the player loop
+        PlayerLoopSystem unityMainLoop = PlayerLoop.GetCurrentPlayerLoop(); 
         PlayerLoopSystem[] unityCoreSubSystems = unityMainLoop.subSystemList;
-        PlayerLoopSystem[] unityCoreUpdate = unityCoreSubSystems[5].subSystemList;
+        PlayerLoopSystem[] unityCoreUpdate = unityCoreSubSystems[4].subSystemList;
+        
         PlayerLoopSystem ScriptModuleUpdate = new PlayerLoopSystem()
         {
             updateDelegate = LinkedModuleManager.ModuleUpdateTick,
@@ -156,20 +166,20 @@ public class GameFrameworkManager : ScriptableObject
             updateDelegate = GameStateUpdate,
             type = typeof(PlayerLoop)
         };
-
-        PlayerLoopSystem[] newCoreUpdate = new PlayerLoopSystem[(unityCoreUpdate.Length+1)];
-        newCoreUpdate[0] = gameStateUpdate;
+        //create our new subsystem and replace the old one
+        PlayerLoopSystem[] newCoreUpdate = new PlayerLoopSystem[6];
+        newCoreUpdate[0] = unityCoreUpdate[0]; 
         newCoreUpdate[1] = ScriptModuleUpdate;
-        newCoreUpdate[2] = unityCoreUpdate[0];
+        newCoreUpdate[2] = gameStateUpdate;
         newCoreUpdate[3] = unityCoreUpdate[1];
         newCoreUpdate[4] = unityCoreUpdate[2];
         newCoreUpdate[5] = unityCoreUpdate[3];
 
-        unityCoreSubSystems[5].subSystemList = newCoreUpdate;
+        unityCoreSubSystems[4].subSystemList = newCoreUpdate;
 
         PlayerLoopSystem systemRoot = new PlayerLoopSystem();
         systemRoot.subSystemList = unityCoreSubSystems;
-        PlayerLoop.SetPlayerLoop(systemRoot);
+        PlayerLoop.SetPlayerLoop(systemRoot); //override the old player loop with our new one
     }
 
     private void OnEnable()
@@ -177,18 +187,17 @@ public class GameFrameworkManager : ScriptableObject
         //prevent timescale editor bug
         UnPause();
         //Application.targetFrameRate = 60;
-        if (!Application.isEditor) return;
         Initalize();
-        Debug.Log("Running GameManager in Editor");
     }
 
     private void Awake()
     {
         if (Application.isEditor) return;
         Initalize();
-        Debug.Log("Running GameManager in Build");
     }
 
+
+    //initialize core gameframework delegates
     private void CoreEventsInit()
     {
         OnExitGame += DummyGMDelegate;
@@ -196,6 +205,7 @@ public class GameFrameworkManager : ScriptableObject
         OnResumeGame += DummyGMDelegate;
     }
 
+    //main initialization
     private void Initalize()
     {
 
@@ -221,6 +231,7 @@ public class GameFrameworkManager : ScriptableObject
         Debug.Log("===============================\n");
     }
 
+    //wrapper for scene loading
     public void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("SceneLoaded");
@@ -234,11 +245,58 @@ public class GameFrameworkManager : ScriptableObject
         }
     }
 
+
+    //debug print code based off of https://medium.com/@thebeardphantom/unity-2018-and-playerloop-5c46a12a677
+    public static void PrintPlayerLoop()
+    {
+    var def = PlayerLoop.GetCurrentPlayerLoop();
+    var sb = new StringBuilder();
+    RecursivePlayerLoopPrint(def, sb, 0);
+    Debug.Log(sb.ToString());    
+    }
+
+    //debug print code based off of https://medium.com/@thebeardphantom/unity-2018-and-playerloop-5c46a12a677
+    public static void PrintDefaultPlayerLoop()
+    {
+    var def = PlayerLoop.GetDefaultPlayerLoop();
+    var sb = new StringBuilder();
+    RecursivePlayerLoopPrint(def, sb, 0);
+    Debug.Log(sb.ToString());    
+    }
+    
+    //debug print code based off of https://medium.com/@thebeardphantom/unity-2018-and-playerloop-5c46a12a677
+    private static void RecursivePlayerLoopPrint(PlayerLoopSystem def, StringBuilder sb, int depth)
+    {
+    if (depth == 0)
+    {
+        sb.AppendLine("ROOT NODE");
+    }
+    else if (def.type != null)
+    {
+        for (int i = 0; i < depth; i++)
+        {
+            sb.Append("\t");
+        }
+        sb.AppendLine(def.type.Name);
+    }
+    if (def.subSystemList != null)
+    {
+        depth++;
+        foreach (var s in def.subSystemList)
+        {
+            RecursivePlayerLoopPrint(s, sb, depth);
+        }
+        depth--;
+    }
+    }
+
+
     public void Start()
     {
 
     }
 
+    //exit the game
     public void QuitGame()
     {
         OnExitGame(this);

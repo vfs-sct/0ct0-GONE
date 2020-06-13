@@ -25,14 +25,14 @@ public class Codex : MonoBehaviour
     //and the second will be the body
     Dictionary<string, string> logEntries = new Dictionary<string, string>
     {
-        {"Log One", "Log one text"},
-        {"Log Two", "Log two text"},
-        {"Log Three", "Log three text"},
-        {"Log Four", "Log four text"},
-        {"Log Five", "Log five text"},
-        {"Log Six", "Log six text"},
-        {"Log Seven", "Log seven text"},
-        {"Log Eight", "Log eight text"},
+        {"Log One", "ROBOT VOICE:\nDiagnostics complete. Unit identified as model 0CT0-314. Tool and movement systems functional.\n\nROBOT VOICE:\nWARNING. Memory corruption at 77.5%. Please return unit to user for further instruction."},
+        {"Log Two", "OAKLEY:\nHmm, where's that screwdriver...\n\nOCTO:\nWrrr bwu!\n\nOAKLEY:\nThanks, Octo.\n\nRUSTLING. BOLTS TURNING. A metal panel being SHUT.\n\nOAKLEY:\nThere we go, that should get you moving again... But what you really need is a new gyroscope.\n\nOCTO:\n(Inquisitive whir)\n\nOAKLEY:\nYou up for some scavenging today?\n\nOCTO:\nBwee!"},
+        {"Log Three", "OAKLEY:\n(speaking on the phone)\nMhm. Mhm. The power grid-- Then how are they recycling air?\n\nMURMURING.\n\nOAKLEY:\nThat's a lot of people.\n\nSound of an electronic door OPENING and CLOSING.\n\nOCTO:\nBWEE-BUH-WEE.\n\nOAKLEY:\nOh, hey buddy, just give me a sec to finish up.\n\nOAKLEY:\nIf I'm not there in two minutes you can have my dessert.\n\nOCTO:\nBWUUU!\n\nSound of an electronic door OPENING and CLOSING.\n\nOAKLEY:\nYeah. I'll take the job."},
+        {"Log Four", "OAKLEY:\nBetter start packing, we head out bright and early tomorrow.\n\nOCTO:\nBwu?\n\nOAKLEY:\nWe're going to the Exodus Field!\n\nOCTO:\nZZRT.\n\nOAKLEY:\nHey! Don't tell me you're worried.\n\nOAKLEY:\nOck, look... I know it's not the safest place in the galaxy, but this job's different from our usual gigs.\n\nOAKLEY:\nIt's... important.\n\nOCTO:\n(skeptical whir)\n\nOAKLEY:\nC'mon, think about it for a sec. The scrap there hasn’t been touched in decades.\n\nOCTO: ...\n\n\nOAKLEY:\nYou never did get a new gyroscope.\n\nOCTO:\n...BWEE!"},
+        {"Log Five", "OAKLEY:\nWould you look at these sensors! The whole panel's lit up like a Christmas tree.\n\nOAKLEY:\nWhy don't we scavenge out here more often, hey pal?\n\nOCTO:\nB-bwee.\n\nOCTO:\nbbbbBBWU-BWU-BWU-BWU!\n\nOAKLEY:\nHuh? Oh you're right, I bet we could pull a whole ship's worth of metal outta that thing! Hmm, let's not forget why we're here, though.\n\nOAKLEY:\nJust about... and... there! There's the reactor. Alright, let's head in."},
+        {"Log Six", "OAKLEY:\n(filtered)\nCan you laser that bit free for me?\n\nSound of a LASER CUTTING.\n\nOAKLEY:\n(filtered)\nThanks. Ok, that should about do it, and-- wait, what's that on the sensor?\n\nTHUNK.\n\nOCTO:\nBwuh?\n\nTHUNK... THUNK.\n\nTHUNK.\n\nOAKLEY:\n(filtered)\nOCTO--!\n\nCRUNCH."},
+        {"Log Seven", "OAKLEY:\n(filtered)\nOck, can you hear me?\n\nOAKLEY:\n(filtered)\nDon't worry, I'll get you fixed up. Listen, you’re gonna hard reset in a moment and you'll lose memory, but you have to remember one thing.\n\nOAKLEY:\n(filtered)\nGet a message home. A lot of people are depending on the reactor on that ship, and they need to know where to find it.\n\nA COUGH.\n\nOAKLEY:\n(filtered)\nGet the message home, pal. I know I can count on you.\n\nOakley pats Octo's hull."},
+        {"Log Eight", "OAKLEY:\nI know the galaxy can seem pretty broken at times, pal...\n\nOAKLEY:\nbut you just gotta keep fixin' what's in front of you.\n\nOAKLEY:\nThe rest will follow."},
     };
 
     //I also have tutorial entries that I want to keep separate from story entries.
@@ -124,6 +124,11 @@ public class Codex : MonoBehaviour
     public void Close()
     {
         SwitchViewTo(PausePrefab);
+    }
+
+    private void OnEnable()
+    {
+        Cursor.visible = true;
     }
 
     public void SwitchViewTo(GameObject newPanel)

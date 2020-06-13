@@ -1,16 +1,21 @@
-﻿using System.Collections;
+﻿//Copyright Jesse Rougeau, 2020 ©
+
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ResourceInventory : MonoBehaviour
 {
     [SerializeField] private ResourceModule ResourceManager = null;
     
     [SerializeField] private List<Resource> ActiveResources = new List<Resource>();
+    public List<Resource> Resources{get =>ActiveResources;}
 
     [SerializeField] private bool UseOverrides = false;
 
     [SerializeField] private List<ResourceModule.ResourceData> OverrideValues;
+
+    [SerializeField] private GameObject resourceAddedPopTxt = null;
 
     void Awake()
     {
@@ -63,7 +68,14 @@ public class ResourceInventory : MonoBehaviour
 
     public void AddResource(Resource resource, float amount)
     {
+        var popText = Instantiate(resourceAddedPopTxt);
+        popText.GetComponentInChildren<TextMeshProUGUI>().SetText("+" + amount.ToString() + " " + resource.DisplayName);
         resource.AddInstanceValue(this,amount);
+    }
+
+    public void GenerateResourceText()
+    {
+
     }
 
     public void SetResource(Resource resource, float amount)

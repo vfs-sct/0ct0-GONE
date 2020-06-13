@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: SpaceMovement
   m_EditorClassIdentifier: 
   ThrusterImpulse: 5
-  VelocityMax: -1
+  ThrusterTorque: 1
+  VelocityMax: 1000
   ThrottleSensitivity: 1
   FuelResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
   FuelPerImpulseUnit: 0.2
+  FuelPerTorqueUnit: 0.13
   FuelEfficency: 100
+  Throttle: {x: -6.433351e-29, y: -2.6822182e-30, z: 1.8190447e-28}

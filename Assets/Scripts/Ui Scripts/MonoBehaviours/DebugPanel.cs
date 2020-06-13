@@ -58,6 +58,16 @@ public class DebugPanel : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+    }
+
+    private void OnDisable()
+    {
+        Cursor.visible = false;
+    }
+
     public void KillOcto()
     {
         if (fuel == null)

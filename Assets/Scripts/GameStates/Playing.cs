@@ -6,28 +6,32 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Core/Gamemode/Playing")]
 public class Playing : GameState
 {
-    //[SerializeField] private ScriptedUI OptionsUI = null;
-    //[SerializeField] private ScriptedUI GameHUDUI = null;
-    //[SerializeField] private ScriptedUI PauseUI = null;
-    //[SerializeField] private ScriptedUI CodexUI = null;
-    //[SerializeField] private ScriptedUI ConfirmationUI = null;
 
-    public override bool ConditionCheck(GameFrameworkManager GameManager)
+
+
+    private Player _ActivePlayer;
+    [SerializeField] private CommunicationModule RelayController;
+    public Player ActivePlayer{get=>_ActivePlayer;}
+
+    public void RegisterPlayer(Player newPlayer)
     {
-        return false;
+        _ActivePlayer = newPlayer;
     }
 
     public override void OnActivate(GameState LastState)
     {
-        Debug.Log("GameplayState");
+        Debug.Log("Starting Gameplay");
+        RelayController.SetPlayer(_ActivePlayer.gameObject);
+        RelayController.Start();
     }
 
     public override void OnDeactivate(GameState NewState)
     {
+        RelayController.Reset();
     }
 
     public override void Reset()
     {
-
+        _ActivePlayer = null;
     }
 }

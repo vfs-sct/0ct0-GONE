@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿//Kristin Ruff-Frederickson | Copyright 2020©
+using UnityEngine;
 using UnityEngine.InputSystem;
-//using UnityEngine.UI;
 
 public class UIAwake : MonoBehaviour
 {
     [SerializeField] GameObject DebugPrefab = null;
     [SerializeField] public float gammaDefault = 2.2f;
-    
+    //invertedCamDefault must be either 1 or -1
+    //If it is set to 1, the camera will be inverted by default
+    [SerializeField] public int invertedCamDefault = 1;
+    [SerializeField] public float lookSensitivityDefault = 0.9f;
+    [SerializeField] public GameObject fadeIn = null;
+
     private Player player = null;
-    // Start is called before the first frame update
 
     public string[] VolumePrefs = new string[]
     {
@@ -17,7 +21,7 @@ public class UIAwake : MonoBehaviour
         "SFXVolume",
         "DialogueVolume",
     };
-   
+
     public Player GetPlayer()
     {
         if (player == null)
@@ -27,8 +31,35 @@ public class UIAwake : MonoBehaviour
         return player;
     }
 
+    public void UpdateInvertCam()
+    {
+        if (player != null)
+        {
+            player.invertedCam = PlayerPrefs.GetInt("InvertedCam");
+        }
+        else
+        {
+            //main menu doesnt have a player so theres nothing to update
+            Debug.Log("Did not update camera inversion because player reference is null. Are you in Main Menu?");
+        }
+    }
+
+    public void UpdateLookSensitivity()
+    {
+        if (player != null)
+        {
+            player.lookSensitivity = PlayerPrefs.GetFloat("LookSensitivity");
+        }
+        else
+        {
+            //main menu doesnt have a player so theres nothing to update
+            Debug.Log("Did not update look sensitivity because player reference is null. Are you in Main Menu?");
+        }
+    }
+
     void Start()
     {
+        //find and set the camera so we can apply gamma changes
         var camera = Camera.main;
 
         foreach (var canvas in GameObject.FindObjectsOfType<Canvas>())
@@ -39,20 +70,55 @@ public class UIAwake : MonoBehaviour
 
         camera.gameObject.AddComponent<PostProcessing>().material = Resources.Load<Material>("GammaMaterial");
 
-        if (!PlayerPrefs.HasKey("Gamma"))
+        //fade in from black when switching screens
+        fadeIn.SetActive(true);
+
+        //set camera inversion base on player prefs, or set to default
+        if (PlayerPrefs.HasKey("InvertedCam"))
         {
-            PlayerPrefs.SetFloat("Gamma", gammaDefault);
+            UpdateInvertCam();
+        }
+        else
+        {
+            if (player != null)
+            {
+                player.invertedCam = invertedCamDefault;
+            }
+            PlayerPrefs.SetFloat("InvertedCam", invertedCamDefault);
+            PlayerPrefs.Save();
+        }
+
+        //set camera inversion base on player prefs, or set to default
+        if (PlayerPrefs.HasKey("LookSensitivity"))
+        {
+            UpdateLookSensitivity();
+        }
+        else
+        {
+            if (player != null)
+            {
+                //default sensitivity
+                player.lookSensitivity = lookSensitivityDefault;
+            }
+            PlayerPrefs.SetFloat("LookSensitivity", lookSensitivityDefault);
+            PlayerPrefs.Save();
+        }
+
+        //set gamma based on saved player prefs, or set to default
+        if (!PlayerPrefs.HasKey("Gamma"))
+        {   
             Shader.SetGlobalFloat("gamma", gammaDefault);
+            PlayerPrefs.SetFloat("Gamma", gammaDefault);
             PlayerPrefs.Save();
         }
         else
         {
-            Shader.SetGlobalFloat("gamma", PlayerPrefs.GetFloat("Gamma"));     
+            Shader.SetGlobalFloat("gamma", PlayerPrefs.GetFloat("Gamma"));
         }
 
-
+        //loop through the saved prefs for each audio channel (master/music/sfx/dialogue) and set the volumes, or set to defaults
         foreach (var volumePref in VolumePrefs)
-        {     
+        {
             if (PlayerPrefs.HasKey(volumePref))
             {
                 var value = PlayerPrefs.GetFloat(volumePref);
@@ -69,6 +135,7 @@ public class UIAwake : MonoBehaviour
 
     }
 
+    //open the debug panel when associated input is pressed
     public void OnDebug(InputValue value)
     {
         if (!DebugPrefab.activeSelf)

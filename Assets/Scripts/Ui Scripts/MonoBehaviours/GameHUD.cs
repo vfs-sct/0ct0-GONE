@@ -1,16 +1,22 @@
-﻿using UnityEngine;
+﻿//Kristin Ruff-Frederickson | Copyright 2020©
+using UnityEngine;
+using TMPro;
 using UnityEngine.InputSystem;
 
 public class GameHUD : MonoBehaviour
 {
     [SerializeField] GameObject PausePrefab = null;
     [SerializeField] GameObject GameoverPrefab = null;
+    [SerializeField] GameObject CraftingPrefab = null;
+    [SerializeField] GameObject selectedToolText = null;
     [SerializeField] GameFrameworkManager GameManager = null;
+    public TextMeshProUGUI objectiveText = null;
 
-    private void Update()
+    public void SetObjectiveText(string updateObjective)
     {
-        
+        objectiveText.SetText(updateObjective);
     }
+
     public void OnEsc(InputValue value)
     {
         if (!GameManager.isPaused)

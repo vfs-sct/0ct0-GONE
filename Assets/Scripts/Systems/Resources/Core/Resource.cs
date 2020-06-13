@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿//Copyright Jesse Rougeau, 2020 ©
+
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Systems/Resources/New Resource")]
 public class Resource : ScriptableObject
@@ -30,6 +32,7 @@ public class Resource : ScriptableObject
     [SerializeField] private float DefaultValue = 0;
     [SerializeField] private float Maximum = 100;
     [SerializeField] public string DisplayName = "";
+    [SerializeField] public Sprite resourceIcon = null;
 
     Dictionary<ResourceInventory,ResourceData_Internal> Data = new Dictionary<ResourceInventory, ResourceData_Internal>();
 
@@ -47,6 +50,16 @@ public class Resource : ScriptableObject
         Data.Add(owner,new ResourceData_Internal(DataIn.min,DataIn.value,DataIn.max,null,null));
     }
 
+    private void RegisterInstance_internal(ResourceInventory owner,ResourceData_Internal RSData)
+    {
+        Data.Add(owner,RSData);
+    }
+
+    //used for fuel bar HUD
+    public float GetMaximum()
+    {
+        return Maximum;
+    }
 
     //register a new delegate to call when a resource is added
     public void RegisterOnAddDelegate(ResourceInventory owner, ResourceModule.ResourceEventDelta newDelegate)
@@ -89,6 +102,13 @@ public class Resource : ScriptableObject
     public void SetInstanceValue(ResourceInventory owner,float value)
     {
         Data[owner] = new ResourceData_Internal(Data[owner].Min,value,Data[owner].Max,Data[owner].OnAddResource,Data[owner].OnRemoveResource);
+    }
+
+    public void MoveInventory(ResourceInventory OldInv, ResourceInventory NewInv)
+    {
+        ResourceData_Internal ResourceData= Data[OldInv]; 
+        RemoveInstance(OldInv);
+        RegisterInstance_internal(OldInv,ResourceData);
     }
 
 

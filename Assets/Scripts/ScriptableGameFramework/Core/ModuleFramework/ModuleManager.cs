@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Copyright Jesse Rougeau, 2020 ©
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -25,11 +27,13 @@ public class ModuleManager : ScriptableObject
     private OnSceneLoadedDelegate sceneLoadedDelegate;
 
 
-    private void emptyDelegate()
+    private void emptyDelegate() //dummy delegate to avoid having to do a nullcheck
     {
         
     }
 
+
+    //module update tick, this uses the playerloop to update NOT mono updates or fixedupdates
     public void ModuleUpdateTick()
     {
         if (!Application.isPlaying) return;
@@ -52,6 +56,8 @@ public class ModuleManager : ScriptableObject
         Debug.Log("-Module initalization Complete-\n");
     }
 
+
+    //build the modulelist and initialize each module
     public void LoadModules()
     {
         moduleList.Clear();
@@ -90,10 +96,6 @@ public class ModuleManager : ScriptableObject
 
  public T GetModule<T>() where T : Module
     {
-        foreach (var item in moduleList)
-        {
-            if (item.Key == typeof(T)) return (T)item.Value;
-        }
-        return default(T);
+        return (T)moduleList[typeof(T)];
     }
 }

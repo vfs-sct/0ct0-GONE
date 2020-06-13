@@ -8,10 +8,18 @@ public class GammaSlider : MonoBehaviour
 
     private void Start()
     {
-        gammaSlider.value = PlayerPrefs.GetFloat("Gamma");
+        if (PlayerPrefs.HasKey("Gamma"))
+        {
+            gammaSlider.value = PlayerPrefs.GetFloat("Gamma");
+        }
+        else
+        {
+            gammaSlider.value = Shader.GetGlobalFloat("gamma");
+        }
     }
     public void SetGammaSlider()
     {
+        Debug.Log(Shader.GetGlobalFloat("gamma").ToString());
         var newGamma = gammaSlider.value;
         Shader.SetGlobalFloat("gamma", newGamma);
         PlayerPrefs.SetFloat("Gamma", newGamma);

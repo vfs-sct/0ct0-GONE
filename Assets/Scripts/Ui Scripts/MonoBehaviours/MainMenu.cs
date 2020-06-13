@@ -12,11 +12,20 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject OptionsPrefab = null;
     [SerializeField] GameObject CreditsPrefab = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
+    [SerializeField] GameObject AudioReferences = null;
 
     [SerializeField] string nextScene = null;
 
     public void OnClickPlay()
     {
+        if(AudioReferences == null)
+        {
+            Debug.LogError("A sound reference has not been hooked up on the UI Main Menu prefab");
+        }
+        else
+        {
+            AkSoundEngine.PostEvent("MUS_Stop", AudioReferences);
+        }
         GameManager.LoadScene($"{nextScene}");
     }
 
@@ -69,5 +78,10 @@ public class MainMenu : MonoBehaviour
     {
         newPanel.SetActive(true);
         gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        Cursor.visible = true;
     }
 }
