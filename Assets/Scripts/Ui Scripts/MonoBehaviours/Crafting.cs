@@ -59,6 +59,11 @@ public class Crafting : MonoBehaviour
         SwitchActiveTab(contentGroups[0]);
     }
 
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -85,6 +90,7 @@ public class Crafting : MonoBehaviour
 
     public void Close()
     {
+        Cursor.visible = false;
         GameManager.UnPause();
         SwitchViewTo(HUDPrefab);
     }

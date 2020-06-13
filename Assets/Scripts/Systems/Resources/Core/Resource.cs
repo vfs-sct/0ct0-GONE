@@ -54,6 +54,11 @@ public class Resource : ScriptableObject
         Data.Add(owner,RSData);
     }
 
+    //used for fuel bar HUD
+    public float GetMaximum()
+    {
+        return Maximum;
+    }
 
     //register a new delegate to call when a resource is added
     public void RegisterOnAddDelegate(ResourceInventory owner, ResourceModule.ResourceEventDelta newDelegate)

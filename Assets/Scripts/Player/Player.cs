@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameOver GameOverScreen;
     [SerializeField] private GameOver WinScreen;
+    [SerializeField] private GameObject CraftingTooltip = null;
+    [SerializeField] private GameObject RefuellingTooltip = null;
 
     private MovementController LinkedMovementController;
     private ToolController LinkedToolController;
@@ -46,6 +48,8 @@ public class Player : MonoBehaviour
     //used by UI/playerprefs to invert camera
     public int invertedCam;
     public float lookSensitivity;
+
+    public Collider mouseCollision = null;
 
     public void OnSelectTool1()//goo glue
     {
@@ -143,47 +147,43 @@ public class Player : MonoBehaviour
 
     private void TryTarget()
     {
-        RaycastHit TargetHit; 
-        if (Physics.Raycast(PlayerCamera.transform.position,PlayerCamera.transform.forward,out TargetHit,TargetingDistance,TargetableMask))
-        {
-            _TargetCollider = TargetHit.collider;
-
-            if (_TargetCollider.GetComponentInChildren<MeshRenderer>() == null)
-            {
-                _TargetCollider = null;
-            }
-        }  
-        else 
-        {
-            _TargetCollider = null;
-        } 
+        _TargetCollider = mouseCollision;
 
         if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud") 
         {
-            //is there an already targeted object that needs to be untargeted
-            if (targetObject != null)
+            var root = mouseCollision.gameObject.transform;
+            while (root.parent != null)
             {
-                Debug.Log("Old target: " + targetObject);
-                targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
+                root = root.parent;
             }
-
-            if (_TargetCollider.gameObject == highlightObject)
+            //don't target crafting stations
+            if (root.tag != "Refuel")
             {
-                lastTargetMat = lastHighlightMat;
-                
-                lastHighlightMat = null;
-            }
-            else
-            {
-                lastTargetMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
-            }
+                //is there an already targeted object that needs to be untargeted
+                if (targetObject != null)
+                {
+                    Debug.Log("Old target: " + targetObject);
+                    targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
+                }
 
-            highlightObject = null;
-            targetObject = _TargetCollider.gameObject;
-            LinkedToolController.SetTarget(targetObject);
-            Debug.Log("Targeted: " + targetObject);
+                if (_TargetCollider.gameObject == highlightObject)
+                {
+                    lastTargetMat = lastHighlightMat;
 
-            _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
+                    lastHighlightMat = null;
+                }
+                else
+                {
+                    lastTargetMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
+                }
+
+                highlightObject = null;
+                targetObject = _TargetCollider.gameObject;
+                LinkedToolController.SetTarget(targetObject);
+                Debug.Log("Targeted: " + targetObject);
+
+                _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
+            }
         }
         else
         {
@@ -229,7 +229,86 @@ public class Player : MonoBehaviour
         LinkedToolController = GetComponent<ToolController>();
     }
 
+    public void ShowTooltips()
+    {
+        //exit early
+        if(mouseCollision == null)
+        {
+            CraftingTooltip.SetActive(false);
+            RefuellingTooltip.SetActive(false);
+            return;
+        }
+
+        //get the parent of our collision if there is one
+        var root = mouseCollision.gameObject.transform;
+        while (root.parent != null)
+        {
+            root = root.parent;
+        }
+
+        if (root.tag == "Refuel")
+        {
+            CraftingTooltip.SetActive(true);
+            RefuellingTooltip.SetActive(true);
+        }
+    }
+
     private void TryHighlight()
+    {
+        //just bc i dont wanna rename everything rn
+        _TargetCollider = mouseCollision;
+
+        if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud" && _TargetCollider.gameObject != targetObject)
+        {
+            //is there a previously highlighted object that needs to be unhighlighted
+            if (highlightObject != null)
+            {
+                //Debug.Log("Old highlight: " + highlightObject);
+                highlightObject.GetComponentInChildren<MeshRenderer>().material = lastHighlightMat;
+            }
+            highlightObject = _TargetCollider.gameObject;
+            //Debug.Log("Highlighted: " + highlightObject);
+
+            lastHighlightMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
+            _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("HoverHighlightMaterial");
+        }
+        else if(_TargetCollider != null && _TargetCollider.gameObject != targetObject)
+        {
+            RevertMaterial(highlightObject, lastHighlightMat);
+            highlightObject = null;
+            lastHighlightMat = null;
+        }
+    }
+    public bool StationInRange(bool canCraft)
+    {
+        if (mouseCollision != null)
+        {
+            var root = mouseCollision.gameObject.transform;
+            while(root.parent != null)
+            {
+                root = root.parent;
+            }
+
+            Debug.Log($"CRAFT COLLISION: {root.tag}, {root.name}");
+
+            if(root.tag == "Refuel")
+            {
+                canCraft = true;
+            }
+            else
+            {
+                canCraft = false;
+            }
+        }
+        else
+        {
+            canCraft = false;
+        }
+
+        return canCraft;
+    }
+
+    public Collider GetMouseCollision()
     {
         RaycastHit TargetHit;
         if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out TargetHit, TargetingDistance, TargetableMask))
@@ -246,26 +325,7 @@ public class Player : MonoBehaviour
             _TargetCollider = null;
         }
 
-        if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud" && _TargetCollider.gameObject != targetObject)
-        {
-            //is there a previously highlighted object that needs to be unhighlighted
-            if (highlightObject != null)
-            {
-                Debug.Log("Old highlight: " + highlightObject);
-                highlightObject.GetComponentInChildren<MeshRenderer>().material = lastHighlightMat;
-            }
-            highlightObject = _TargetCollider.gameObject;
-            Debug.Log("Highlighted: " + highlightObject);
-
-            lastHighlightMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
-            _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("HoverHighlightMaterial");
-        }
-        else if(_TargetCollider != null && _TargetCollider.gameObject != targetObject)
-        {
-            RevertMaterial(highlightObject, lastHighlightMat);
-            highlightObject = null;
-            lastHighlightMat = null;
-        }
+        return _TargetCollider;
     }
 
 
@@ -275,7 +335,9 @@ public class Player : MonoBehaviour
         {
             return;
         }
+        mouseCollision = GetMouseCollision();
         TryHighlight();
+        ShowTooltips();
         EventModule.UpdateEvents(gameObject);
         UpdateCamera();
         UpdateCharacterRotation();

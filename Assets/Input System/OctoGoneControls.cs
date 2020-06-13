@@ -27,6 +27,22 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""CraftHotkey"",
+                    ""type"": ""Button"",
+                    ""id"": ""1cbd281f-f5ef-46fd-92e4-f4d80b105341"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RefuelHotkey"",
+                    ""type"": ""Button"",
+                    ""id"": ""6b1b0ad6-0daa-4f5d-b77c-ff3031345272"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""VerticalTranslate"",
                     ""type"": ""Value"",
                     ""id"": ""5ca766d4-8d7a-4b76-80e1-5d18a0713ceb"",
@@ -387,6 +403,28 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49e5c688-ff45-4f00-a8ab-85ef27c1f134"",
+                    ""path"": ""<Keyboard>/C"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""CraftHotkey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""beed9d93-3163-47f5-a7da-8e1d5d30ffec"",
+                    ""path"": ""<Keyboard>/F"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""RefuelHotkey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -399,6 +437,14 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""6ba5cd02-b83e-4b3f-849d-fc60784de81f"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""CraftHotkey"",
+                    ""type"": ""Button"",
+                    ""id"": ""034a7873-6505-479d-9dc2-97484d37fbe0"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -486,14 +532,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""name"": ""Debug"",
                     ""type"": ""Button"",
                     ""id"": ""63319c69-2f7a-4b8b-8518-229419aaccf5"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""CraftHotkey"",
-                    ""type"": ""Button"",
-                    ""id"": ""bdf3e23d-7fd1-4ba4-a2d4-0273565a8de3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -942,7 +980,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fe763df5-c8c3-44e7-944c-fd8208106673"",
+                    ""id"": ""3ab2bedc-00a9-441f-85af-941efc95bdc7"",
                     ""path"": ""<Keyboard>/C"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1020,6 +1058,8 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_HorizontalTranslate = m_Player.FindAction("HorizontalTranslate", throwIfNotFound: true);
+        m_Player_CraftHotkey = m_Player.FindAction("CraftHotkey", throwIfNotFound: true);
+        m_Player_RefuelHotkey = m_Player.FindAction("RefuelHotkey", throwIfNotFound: true);
         m_Player_VerticalTranslate = m_Player.FindAction("VerticalTranslate", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_SelectTool1 = m_Player.FindAction("SelectTool1", throwIfNotFound: true);
@@ -1035,6 +1075,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
+        m_UI_CraftHotkey = m_UI.FindAction("CraftHotkey", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
@@ -1046,7 +1087,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_Esc = m_UI.FindAction("Esc", throwIfNotFound: true);
         m_UI_Debug = m_UI.FindAction("Debug", throwIfNotFound: true);
-        m_UI_CraftHotkey = m_UI.FindAction("CraftHotkey", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1097,6 +1137,8 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_HorizontalTranslate;
+    private readonly InputAction m_Player_CraftHotkey;
+    private readonly InputAction m_Player_RefuelHotkey;
     private readonly InputAction m_Player_VerticalTranslate;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_SelectTool1;
@@ -1114,6 +1156,8 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         private @OctoGoneControls m_Wrapper;
         public PlayerActions(@OctoGoneControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @HorizontalTranslate => m_Wrapper.m_Player_HorizontalTranslate;
+        public InputAction @CraftHotkey => m_Wrapper.m_Player_CraftHotkey;
+        public InputAction @RefuelHotkey => m_Wrapper.m_Player_RefuelHotkey;
         public InputAction @VerticalTranslate => m_Wrapper.m_Player_VerticalTranslate;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @SelectTool1 => m_Wrapper.m_Player_SelectTool1;
@@ -1138,6 +1182,12 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @HorizontalTranslate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalTranslate;
                 @HorizontalTranslate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalTranslate;
                 @HorizontalTranslate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalTranslate;
+                @CraftHotkey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCraftHotkey;
+                @CraftHotkey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCraftHotkey;
+                @CraftHotkey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCraftHotkey;
+                @RefuelHotkey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRefuelHotkey;
+                @RefuelHotkey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRefuelHotkey;
+                @RefuelHotkey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRefuelHotkey;
                 @VerticalTranslate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalTranslate;
                 @VerticalTranslate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalTranslate;
                 @VerticalTranslate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalTranslate;
@@ -1181,6 +1231,12 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @HorizontalTranslate.started += instance.OnHorizontalTranslate;
                 @HorizontalTranslate.performed += instance.OnHorizontalTranslate;
                 @HorizontalTranslate.canceled += instance.OnHorizontalTranslate;
+                @CraftHotkey.started += instance.OnCraftHotkey;
+                @CraftHotkey.performed += instance.OnCraftHotkey;
+                @CraftHotkey.canceled += instance.OnCraftHotkey;
+                @RefuelHotkey.started += instance.OnRefuelHotkey;
+                @RefuelHotkey.performed += instance.OnRefuelHotkey;
+                @RefuelHotkey.canceled += instance.OnRefuelHotkey;
                 @VerticalTranslate.started += instance.OnVerticalTranslate;
                 @VerticalTranslate.performed += instance.OnVerticalTranslate;
                 @VerticalTranslate.canceled += instance.OnVerticalTranslate;
@@ -1226,6 +1282,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Navigate;
+    private readonly InputAction m_UI_CraftHotkey;
     private readonly InputAction m_UI_Submit;
     private readonly InputAction m_UI_Cancel;
     private readonly InputAction m_UI_Point;
@@ -1237,12 +1294,12 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_Esc;
     private readonly InputAction m_UI_Debug;
-    private readonly InputAction m_UI_CraftHotkey;
     public struct UIActions
     {
         private @OctoGoneControls m_Wrapper;
         public UIActions(@OctoGoneControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
+        public InputAction @CraftHotkey => m_Wrapper.m_UI_CraftHotkey;
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
         public InputAction @Point => m_Wrapper.m_UI_Point;
@@ -1254,7 +1311,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @Esc => m_Wrapper.m_UI_Esc;
         public InputAction @Debug => m_Wrapper.m_UI_Debug;
-        public InputAction @CraftHotkey => m_Wrapper.m_UI_CraftHotkey;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1267,6 +1323,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Navigate.started -= m_Wrapper.m_UIActionsCallbackInterface.OnNavigate;
                 @Navigate.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnNavigate;
                 @Navigate.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnNavigate;
+                @CraftHotkey.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
+                @CraftHotkey.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
+                @CraftHotkey.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
                 @Submit.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
                 @Submit.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
                 @Submit.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
@@ -1300,9 +1359,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Debug.started -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
                 @Debug.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
                 @Debug.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
-                @CraftHotkey.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
-                @CraftHotkey.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
-                @CraftHotkey.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1310,6 +1366,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Navigate.started += instance.OnNavigate;
                 @Navigate.performed += instance.OnNavigate;
                 @Navigate.canceled += instance.OnNavigate;
+                @CraftHotkey.started += instance.OnCraftHotkey;
+                @CraftHotkey.performed += instance.OnCraftHotkey;
+                @CraftHotkey.canceled += instance.OnCraftHotkey;
                 @Submit.started += instance.OnSubmit;
                 @Submit.performed += instance.OnSubmit;
                 @Submit.canceled += instance.OnSubmit;
@@ -1343,9 +1402,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Debug.started += instance.OnDebug;
                 @Debug.performed += instance.OnDebug;
                 @Debug.canceled += instance.OnDebug;
-                @CraftHotkey.started += instance.OnCraftHotkey;
-                @CraftHotkey.performed += instance.OnCraftHotkey;
-                @CraftHotkey.canceled += instance.OnCraftHotkey;
             }
         }
     }
@@ -1398,6 +1454,8 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnHorizontalTranslate(InputAction.CallbackContext context);
+        void OnCraftHotkey(InputAction.CallbackContext context);
+        void OnRefuelHotkey(InputAction.CallbackContext context);
         void OnVerticalTranslate(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnSelectTool1(InputAction.CallbackContext context);
@@ -1414,6 +1472,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     public interface IUIActions
     {
         void OnNavigate(InputAction.CallbackContext context);
+        void OnCraftHotkey(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
@@ -1425,6 +1484,5 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnEsc(InputAction.CallbackContext context);
         void OnDebug(InputAction.CallbackContext context);
-        void OnCraftHotkey(InputAction.CallbackContext context);
     }
 }

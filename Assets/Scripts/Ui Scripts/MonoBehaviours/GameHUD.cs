@@ -17,16 +17,6 @@ public class GameHUD : MonoBehaviour
         objectiveText.SetText(updateObjective);
     }
 
-    public void OnCraftHotkey(InputValue value)
-    {
-        if (!GameManager.isPaused)
-        {
-            SwitchViewTo(CraftingPrefab);
-            GameManager.Pause();
-            Debug.Log("Paused");
-        }
-    }
-
     public void OnEsc(InputValue value)
     {
         if (!GameManager.isPaused)
