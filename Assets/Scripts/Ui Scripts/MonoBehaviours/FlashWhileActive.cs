@@ -113,12 +113,37 @@ public class FlashWhileActive : MonoBehaviour
 
     public void EnableFlash()
     {
+        for (int i = 0; i < textColours.Count; i++)
+        {
+            Color lerpToColor = new Color(textColours[i].color.r, textColours[i].color.g, textColours[i].color.b, maxTextOpacity);
+
+            textColours[i].color = Color.Lerp(textColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
+        }
+
+        for (int i = 0; i < imageColours.Count; i++)
+        {
+            Color lerpToColor = new Color(imageColours[i].color.r, imageColours[i].color.g, imageColours[i].color.b, maxImageOpacity);
+
+            imageColours[i].color = Color.Lerp(imageColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
+        }
 
     }
 
     public void DisableFlash()
     {
+        for (int i = 0; i < textColours.Count; i++)
+        {
+            Color lerpToColor = new Color(textColours[i].color.r, textColours[i].color.g, textColours[i].color.b, minOpacity);
 
+            textColours[i].color = Color.Lerp(textColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
+        }
+
+        for (int i = 0; i < imageColours.Count; i++)
+        {
+            Color lerpToColor = new Color(imageColours[i].color.r, imageColours[i].color.g, imageColours[i].color.b, minOpacity);
+
+            imageColours[i].color = Color.Lerp(imageColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
+        }
     }
 
     // Update is called once per frame
