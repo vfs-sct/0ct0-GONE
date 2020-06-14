@@ -297,7 +297,7 @@ public class Player : MonoBehaviour
     {
         if (mouseCollision != null)
         {
-            Debug.Log($"CRAFT COLLISION: {mouseCollisionRoot.tag}, {mouseCollisionRoot.name}");
+            //Debug.Log($"CRAFT COLLISION: {mouseCollisionRoot.tag}, {mouseCollisionRoot.name}");
 
             if(mouseCollisionRoot.tag == "Refuel")
             {

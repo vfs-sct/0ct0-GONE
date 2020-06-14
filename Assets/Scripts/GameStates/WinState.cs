@@ -7,9 +7,9 @@ public class WinState : GameState
 {
     
     private Player _ActivePlayer = null;
-    [SerializeField] private EventModule EventManager;
+    [SerializeField] private EventModule EventManager = null;
 
-    [SerializeField] private GameFrameworkManager GameManager;
+    [SerializeField] private GameFrameworkManager GameManager = null;
 
     public override bool ConditionCheck(GameFrameworkManager GameManager)//TODO: pass the active state as a parameter
     {

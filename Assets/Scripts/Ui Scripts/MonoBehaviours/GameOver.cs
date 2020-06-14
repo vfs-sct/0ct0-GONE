@@ -11,8 +11,8 @@ public class GameOver : MonoBehaviour
 {
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
-    [SerializeField] GameObject AudioReferences;
-    [SerializeField] GameObject AudioReferences2;
+    [SerializeField] GameObject AudioReferences = null;
+    [SerializeField] GameObject AudioReferences2 = null;
 
     [SerializeField] string menuScene = null;
 

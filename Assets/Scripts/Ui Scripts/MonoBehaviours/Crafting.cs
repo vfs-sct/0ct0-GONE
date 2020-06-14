@@ -22,10 +22,10 @@ public class Crafting : MonoBehaviour
     [SerializeField] HorizontalLayoutGroup IngredientGroup = null;
 
     [Header("Recipe Tiers")]
-    [SerializeField] CraftingRecipe[] T0Recipes;
-    [SerializeField] CraftingRecipe[] T1Recipes;
-    [SerializeField] CraftingRecipe[] T2Recipes;
-    [SerializeField] CraftingRecipe[] T3Recipes;
+    [SerializeField] CraftingRecipe[] T0Recipes = null;
+    [SerializeField] CraftingRecipe[] T1Recipes = null;
+    [SerializeField] CraftingRecipe[] T2Recipes = null;
+    [SerializeField] CraftingRecipe[] T3Recipes = null;
 
     [Header("Code Generated Object Templates")]
     //default button used to make all the buttons in the recipe tabs
