@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 
@@ -11,26 +9,26 @@ public class Player : MonoBehaviour
 {
     [Header("Game:")]
     [SerializeField] private GameFrameworkManager GameManager  = null;
-    [SerializeField] private Playing PlayingState;
+    [SerializeField] private Playing PlayingState = null;
     [SerializeField] private LayerMask TargetableMask;
-    [SerializeField] public Camera PlayerCamera;
-    [SerializeField] public EventModule EventModule;
+    [SerializeField] public Camera PlayerCamera = null;
+    [SerializeField] public EventModule EventModule = null;
 
-    [SerializeField] private PlayerSatelliteHolder SatHolder;
+    [SerializeField] private PlayerSatelliteHolder SatHolder = null;
 
     [Header("Player:")]
     [SerializeField] private float TargetingDistance = 1000.0f;
 
-    [SerializeField] private Resource FuelResource;
+    [SerializeField] private Resource FuelResource = null;
 
-    [SerializeField] private PlayerCamera CameraScript;
+    [SerializeField] private PlayerCamera CameraScript = null;
 
-    [SerializeField] private ResourceInventory LinkedInventory;
+    [SerializeField] private ResourceInventory LinkedInventory = null;
     public ResourceInventory Inventory{get=>LinkedInventory;}
 
     [Header("UI Elements:")]
-    [SerializeField] private GameOver GameOverScreen;
-    [SerializeField] private GameOver WinScreen;
+    [SerializeField] private GameOver GameOverScreen = null;
+    [SerializeField] private GameOver WinScreen = null;
     [SerializeField] private GameObject CraftingTooltip = null;
     [SerializeField] private GameObject RefuellingTooltip = null;
     [SerializeField] private GameObject TargetingTooltip = null;
@@ -143,11 +141,6 @@ public class Player : MonoBehaviour
         LinkedToolController.DeselectTool();
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
     public void OnLockTarget()
     {
         TryTarget();
@@ -155,9 +148,7 @@ public class Player : MonoBehaviour
 
     private void TryTarget()
     {
-        _TargetCollider = mouseCollision;
-
-        if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud") 
+        if (mouseCollision != null && mouseCollision.name != "Player" && mouseCollision.tag != "Cloud") 
         {
             //don't target crafting stations
             if (mouseCollisionRoot.tag != "Refuel")
@@ -169,7 +160,7 @@ public class Player : MonoBehaviour
                     targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
                 }
 
-                if (_TargetCollider.gameObject == highlightObject)
+                if (mouseCollision.gameObject == highlightObject)
                 {
                     lastTargetMat = lastHighlightMat;
 
@@ -177,15 +168,15 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    lastTargetMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
+                    lastTargetMat = mouseCollision.GetComponentInChildren<MeshRenderer>().material;
                 }
 
                 highlightObject = null;
-                targetObject = _TargetCollider.gameObject;
+                targetObject = mouseCollision.gameObject;
                 LinkedToolController.SetTarget(targetObject);
                 Debug.Log("Targeted: " + targetObject);
 
-                _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
+                mouseCollision.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
             }
         }
         else
@@ -219,12 +210,10 @@ public class Player : MonoBehaviour
         WinScreen.gameObject.SetActive(true);
     }
 
-
     private void Awake()
     {
         PlayingState.RegisterPlayer(this);
     }
-
 
     private void Start()
     {
@@ -258,10 +247,7 @@ public class Player : MonoBehaviour
 
     private void TryHighlight()
     {
-        //just bc i dont wanna rename everything rn
-        _TargetCollider = mouseCollision;
-
-        if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud" && _TargetCollider.gameObject != targetObject)
+        if (mouseCollision != null && mouseCollision.name != "Player" && mouseCollision.tag != "Cloud" && mouseCollision.gameObject != targetObject)
         {
             //is there a previously highlighted object that needs to be unhighlighted?
             if (highlightObject != null)
@@ -270,25 +256,25 @@ public class Player : MonoBehaviour
                 highlightObject.GetComponentInChildren<MeshRenderer>().material = lastHighlightMat;
             }
 
-            highlightObject = _TargetCollider.gameObject;
+            highlightObject = mouseCollision.gameObject;
             //Debug.Log("Highlighted: " + highlightObject);
 
-            lastHighlightMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
-            _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("HoverHighlightMaterial");
+            lastHighlightMat = mouseCollision.GetComponentInChildren<MeshRenderer>().material;
+            mouseCollision.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("HoverHighlightMaterial");
 
             if(mouseCollisionRoot.tag != "Refuel")
             {
                 TargetingTooltip.SetActive(true);
             }
         }
-        else if(_TargetCollider != null && _TargetCollider.gameObject != targetObject)
+        else if(mouseCollision != null && mouseCollision.gameObject != targetObject)
         {
             RevertMaterial(highlightObject, lastHighlightMat);
             highlightObject = null;
             lastHighlightMat = null;
         }
 
-        if (_TargetCollider == null || _TargetCollider.gameObject == targetObject || mouseCollisionRoot.tag == "Refuel")
+        if (mouseCollision == null || mouseCollision.gameObject == targetObject || mouseCollisionRoot.tag == "Refuel")
         {
             TargetingTooltip.SetActive(false);
         }
@@ -297,7 +283,7 @@ public class Player : MonoBehaviour
     {
         if (mouseCollision != null)
         {
-            Debug.Log($"CRAFT COLLISION: {mouseCollisionRoot.tag}, {mouseCollisionRoot.name}");
+            //Debug.Log($"CRAFT COLLISION: {mouseCollisionRoot.tag}, {mouseCollisionRoot.name}");
 
             if(mouseCollisionRoot.tag == "Refuel")
             {
@@ -352,14 +338,15 @@ public class Player : MonoBehaviour
         return _TargetCollider;
     }
 
-
     private void Update()
     {
         if (GameManager.isPaused)
         {
             return;
         }
+        //one raycast is done and then passed to everything that needs to use it (tooltips, highlight, target, etc)
         mouseCollision = GetMouseCollision();
+        //if the thing hit by the raycast is a child, mouseCollisionRoot will get the top level parent gameobject
         mouseCollisionRoot = GetMouseCollisionRoot(mouseCollision);
         TryHighlight();
         ShowTooltips();
@@ -367,6 +354,4 @@ public class Player : MonoBehaviour
         UpdateCamera();
         UpdateCharacterRotation();
     }
-
-
 }

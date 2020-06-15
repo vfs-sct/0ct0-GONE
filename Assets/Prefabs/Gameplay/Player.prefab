@@ -98,9 +98,12 @@ GameObject:
   - component: {fileID: 489913433233796650}
   - component: {fileID: 489913433233796641}
   - component: {fileID: -2061200388978773683}
-  - component: {fileID: 3030200923987079885}
   - component: {fileID: 796327338046920781}
   - component: {fileID: 3611293218675261714}
+  - component: {fileID: 1239658988473444085}
+  - component: {fileID: 4701804487490555839}
+  - component: {fileID: 8777384577728220895}
+  - component: {fileID: 1055163990866216047}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -135,12 +138,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1.5
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!114 &489913433233796654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementModes:
   - {fileID: 11400000, guid: fd5fca18eb6645f409cc0bab0c4b41b0, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: be83411f01f12af42828965a0a8aad1e, type: 2}
   _CameraScript: {fileID: 0}
   MovementMode: 0
   NormalizeInput: 1
@@ -203,20 +206,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
-  PlayingState: {fileID: 0}
+  PlayingState: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
   TargetableMask:
     serializedVersion: 2
-    m_Bits: 0
-  PlayerCamera: {fileID: 0}
+    m_Bits: 51
+  PlayerCamera: {fileID: 489913431673510643}
   EventModule: {fileID: 11400000, guid: e1c895b8e1e4ed04e90570c9d886c7fb, type: 2}
-  SatHolder: {fileID: 0}
-  TargetingDistance: 1000
-  FuelResource: {fileID: 0}
+  SatHolder: {fileID: 3611293218675261714}
+  TargetingDistance: 25
+  FuelResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
   CameraScript: {fileID: 0}
-  LinkedInventory: {fileID: 0}
+  LinkedInventory: {fileID: 4701804487490555839}
   GameOverScreen: {fileID: 0}
-  invertedCam: 0
-  lookSensitivity: 0
+  WinScreen: {fileID: 0}
+  CraftingTooltip: {fileID: 0}
+  RefuellingTooltip: {fileID: 0}
+  TargetingTooltip: {fileID: 0}
+  invertedCam: 1
+  lookSensitivity: 0.6
+  mouseCollision: {fileID: 0}
+  mouseCollisionRoot: {fileID: 0}
 --- !u!114 &489913433233796641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,28 +258,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EquiptTools:
-  - {fileID: 11400000, guid: c95b1a2b07d0ed047a426ec0abed841c, type: 2}
+  - {fileID: 11400000, guid: 41cedef85c35ccb428399bdbd6368a25, type: 2}
+  - {fileID: 11400000, guid: ca59628b57f88144ca9eb049e6609693, type: 2}
   toolText: {fileID: 0}
---- !u!114 &3030200923987079885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0bfcdd4c9529204e9597c4ec6975b10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
-  _CamPivot: {fileID: 5267203579931695048}
-  _MainCamera: {fileID: 489913431673510641}
-  _MaxZoom: 1.7
-  _MinZoom: -1
-  _ZoomSpeed: 2.5
-  _CameraZoomEase: 1
-  _CameraSpeed: 0.05
+  gameHUD: {fileID: 0}
 --- !u!114 &796327338046920781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,10 +288,93 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447c59921b5bfd74683fe86b025e9aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseSatellitePrefab: {fileID: 0}
+  BaseSatellitePrefab: {fileID: 1950318475809308425, guid: 3bab321989831534da7cdec6ecb0c2ad,
+    type: 3}
   HeldSatellite: {fileID: 0}
   HeldSatModel: {fileID: 0}
   DefaultPlacementPos: {fileID: 4803411458936969254}
+--- !u!114 &1239658988473444085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7321ce763d63f3249911b59d0d699152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  CraftingPrefab: {fileID: 0}
+  Player: {fileID: 489913433233796650}
+--- !u!114 &4701804487490555839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35215f6ef2c16d244857908585185b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResourceManager: {fileID: 11400000, guid: 24e38bf2ba3270840b60b88238072079, type: 2}
+  ActiveResources:
+  - {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
+  - {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
+  - {fileID: 11400000, guid: 76659a960dc2d114a847e7be12923991, type: 2}
+  - {fileID: 11400000, guid: 15e45efacb3bbb44fb88b1ca1ddf4341, type: 2}
+  - {fileID: 11400000, guid: d0f3fb827fbca7945947aa9d0abafa14, type: 2}
+  - {fileID: 11400000, guid: 64120bba6752ad34f8d00578d69e5c66, type: 2}
+  UseOverrides: 0
+  OverrideValues: []
+  resourceAddedPopTxt: {fileID: 8981721532894141398, guid: 6082956a558828445afc6a77b3e25ac6,
+    type: 3}
+--- !u!114 &8777384577728220895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77bc88eadc6f711489dbfa0f4badbb28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 489913433233796650}
+  fuel: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
+  amountAdd: 5
+--- !u!114 &1055163990866216047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306d79e12713e2c49bee69a0b1bfaa5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayThrusterAudio:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9749cda497372d74c9f49b51fc49dc74,
+      type: 2}
+  StopThrusterAudio:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: db241fbe26f277b4faa8297cfef01062,
+      type: 2}
+  ThrusterImpulseRTPC:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 507e7857a4f93db42bc0b72bcadd5dc4,
+      type: 2}
+  Movement: {fileID: 11400000, guid: fd5fca18eb6645f409cc0bab0c4b41b0, type: 2}
 --- !u!1 &4150338873668326980
 GameObject:
   m_ObjectHideFlags: 0

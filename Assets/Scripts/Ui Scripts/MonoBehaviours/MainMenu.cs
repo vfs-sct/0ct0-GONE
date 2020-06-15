@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameFrameworkManager GameManager;
+    [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] GameObject OptionsPrefab = null;
     [SerializeField] GameObject CreditsPrefab = null;
     [SerializeField] GameObject ConfirmationPrefab = null;

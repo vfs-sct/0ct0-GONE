@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class ToolController : MonoBehaviour
 {
-
     [SerializeField] private List<Tool> EquiptTools = new List<Tool>();
     [SerializeField] public TextMeshProUGUI toolText = null;
-    
-
+    [SerializeField] public GameHUD gameHUD = null;
 
     private Tool CurrentTool = null;
 
@@ -19,6 +16,11 @@ public class ToolController : MonoBehaviour
     public Player LinkedPlayer{get=>_LinkedPlayer;}
     private GameObject _Target;
     public GameObject Target{get=>_Target;}
+
+    public List<Tool> GetEquiptTools()
+    {
+        return EquiptTools;
+    }
 
     public void SetTarget(GameObject NewTarget)
     {
@@ -37,6 +39,8 @@ public class ToolController : MonoBehaviour
         CurrentTool = EquiptTools[ToolIndex];
         CurrentTool.Select(this);
         toolText.SetText(CurrentTool.displayName);
+        //update the tools in the toolbar to reflect which is selected
+        gameHUD.SwitchActiveTool(ToolIndex);
     }
 
     public void DeselectTool()
@@ -48,6 +52,8 @@ public class ToolController : MonoBehaviour
         if (CurrentTool != null) CurrentTool.Deselect(this);
         CurrentTool = null;
         toolText.SetText("No Tool Selected");
+        //make all tools in the toolbar appear enabled
+        gameHUD.NoToolSelected();
     }
 
     public void ActivateTool()

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//Kristin Ruff-Frederickson | Copyright 2020©
 using UnityEngine;
 using UnityEngine.UI;
 

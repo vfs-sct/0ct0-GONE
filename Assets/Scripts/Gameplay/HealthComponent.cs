@@ -9,9 +9,9 @@ public class HealthComponent : MonoBehaviour
     public delegate void HealthEventDeltaDelegate(HealthComponent parent,float delta);
 
 
-    private HealthEventDelegate OnDamage;
-    private HealthEventDelegate OnHeal;
-    private HealthEventDeltaDelegate OnDelta;
+    private HealthEventDelegate OnDamage = null;
+    private HealthEventDelegate OnHeal = null;
+    private HealthEventDeltaDelegate OnDelta = null;
 
     float _Health;
     [SerializeField] private float StartingHealth = 0f;
