@@ -32,13 +32,10 @@ public class FlashWhileActive : MonoBehaviour
     }
 
     private FlashType flash = FlashType.fOut;
-    private float opacityMax;
 
     // Start is called before the first frame update
     void Awake()
     {
-        opacityMax = Math.Max(maxTextOpacity, maxImageOpacity);
-
         Image[] imageChildren = flashObject.GetComponentsInChildren<Image>();
         foreach (Image child in imageChildren)
         {
@@ -62,7 +59,7 @@ public class FlashWhileActive : MonoBehaviour
     {
         for (int i = 0; i < imageColours.Count; i++)
         {
-            CheckDirection(imageColours[i].color.a);
+            CheckDirection(imageColours[i].color.a, maxImageOpacity);
             if (flash == FlashType.fIn)
             {
                 endAlpha = maxImageOpacity;
@@ -81,7 +78,7 @@ public class FlashWhileActive : MonoBehaviour
     {
         for (int i = 0; i < textColours.Count; i++)
         {
-            CheckDirection(textColours[i].color.a);
+            CheckDirection(textColours[i].color.a, maxTextOpacity);
             if (flash == FlashType.fIn)
             {
                 endAlpha = maxTextOpacity;
@@ -97,10 +94,10 @@ public class FlashWhileActive : MonoBehaviour
         }
     }
 
-    void CheckDirection(float opacity)
+    void CheckDirection(float opacity, float maxOpacity)
     {
         //going toward 1, switches to going toward 0
-        if(flash == FlashType.fIn && opacity >= (opacityMax - 0.1f))
+        if(flash == FlashType.fIn && opacity >= (maxOpacity - 0.1f))
         {
             flash = FlashType.fOut;
         }
@@ -111,54 +108,56 @@ public class FlashWhileActive : MonoBehaviour
         }
     }
 
-    public void EnableFlash()
-    {
-        for (int i = 0; i < textColours.Count; i++)
-        {
-            Color lerpToColor = new Color(textColours[i].color.r, textColours[i].color.g, textColours[i].color.b, maxTextOpacity);
+    //public void EnableFlash()
+    //{
+    //    for (int i = 0; i < textColours.Count; i++)
+    //    {
+    //        Color lerpToColor = new Color(textColours[i].color.r, textColours[i].color.g, textColours[i].color.b, maxTextOpacity);
 
-            textColours[i].color = Color.Lerp(textColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
-        }
+    //        textColours[i].color = Color.Lerp(textColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
+    //    }
 
-        for (int i = 0; i < imageColours.Count; i++)
-        {
-            Color lerpToColor = new Color(imageColours[i].color.r, imageColours[i].color.g, imageColours[i].color.b, maxImageOpacity);
+    //    for (int i = 0; i < imageColours.Count; i++)
+    //    {
+    //        Color lerpToColor = new Color(imageColours[i].color.r, imageColours[i].color.g, imageColours[i].color.b, maxImageOpacity);
 
-            imageColours[i].color = Color.Lerp(imageColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
-        }
+    //        imageColours[i].color = Color.Lerp(imageColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
+    //    }
 
-    }
+    //}
 
-    public void DisableFlash()
-    {
-        for (int i = 0; i < textColours.Count; i++)
-        {
-            Color lerpToColor = new Color(textColours[i].color.r, textColours[i].color.g, textColours[i].color.b, minOpacity);
+    //public void DisableFlash()
+    //{
+    //    for (int i = 0; i < textColours.Count; i++)
+    //    {
+    //        Color lerpToColor = new Color(textColours[i].color.r, textColours[i].color.g, textColours[i].color.b, minOpacity);
 
-            textColours[i].color = Color.Lerp(textColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
-        }
+    //        textColours[i].color = Color.Lerp(textColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
+    //    }
 
-        for (int i = 0; i < imageColours.Count; i++)
-        {
-            Color lerpToColor = new Color(imageColours[i].color.r, imageColours[i].color.g, imageColours[i].color.b, minOpacity);
+    //    for (int i = 0; i < imageColours.Count; i++)
+    //    {
+    //        Color lerpToColor = new Color(imageColours[i].color.r, imageColours[i].color.g, imageColours[i].color.b, minOpacity);
 
-            imageColours[i].color = Color.Lerp(imageColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
-        }
-    }
+    //        imageColours[i].color = Color.Lerp(imageColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()
     {
-        if (isEnabling == true)
-        {
-            EnableFlash();
-            return;
-        }
-        if (isDisabling == true)
-        {
-            DisableFlash();
-            return;
-        }
+        //if (isEnabling != false || isDisabling != false)
+        //{
+        //    if (isEnabling == true)
+        //    {
+        //        EnableFlash();
+        //    }
+        //    if (isDisabling == true)
+        //    {
+        //        DisableFlash();
+        //    }
+        //    return;
+        //}
 
         if (disableImageFlash == false)
         {
