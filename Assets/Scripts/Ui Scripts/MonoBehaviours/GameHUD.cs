@@ -15,6 +15,7 @@ public class GameHUD : MonoBehaviour
 
     [Header("Tools")]
     [SerializeField] ToolController playerTools = null;
+    [SerializeField] GameObject gooGlueBar = null;
     [SerializeField] HorizontalLayoutGroup contentGroup = null;
     [SerializeField] GameObject defaultToolBox = null;
     [SerializeField] Color enabledBGColour;
@@ -75,7 +76,7 @@ public class GameHUD : MonoBehaviour
         newToolObj.GetToolText().color = disabledTextColour;
         newToolObj.GetHotkeyText().color = disabledTextColour;
         prevTool = newToolObj.GetToolText().text;
-        newToolObj.GetToolText().SetText("In Use");
+        newToolObj.GetToolText().SetText("Active");
 
         currentTool = newTool;
     }
