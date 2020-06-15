@@ -12,9 +12,12 @@ public class Crafting : MonoBehaviour
     [SerializeField] UIAwake UIRoot = null; 
     [SerializeField] GameObject HUDPrefab = null;
 
+    [Header("Recipe Panels and Tabs")]
+    //arrays for the tier tabs and their associated recipe button panels
     [SerializeField] Button[] tabButtons = null;
     [SerializeField] GameObject[] contentGroups = null;
 
+    [Header("Crafting Panel")]
     [SerializeField] Button CraftButton = null;
     [SerializeField] TextMeshProUGUI TitleText = null;
     [SerializeField] HorizontalLayoutGroup ProductGroup = null;
@@ -22,10 +25,10 @@ public class Crafting : MonoBehaviour
     [SerializeField] HorizontalLayoutGroup IngredientGroup = null;
 
     [Header("Recipe Tiers")]
-    [SerializeField] CraftingRecipe[] T0Recipes = null;
     [SerializeField] CraftingRecipe[] T1Recipes = null;
     [SerializeField] CraftingRecipe[] T2Recipes = null;
     [SerializeField] CraftingRecipe[] T3Recipes = null;
+    [SerializeField] CraftingRecipe[] SatRecipes = null;
 
     [Header("Code Generated Object Templates")]
     //default button used to make all the buttons in the recipe tabs
@@ -50,10 +53,10 @@ public class Crafting : MonoBehaviour
         }
 
         //fill in each of the panels
-        PopulateRecipePanel(T0Recipes);
-        //PopulateRecipePanel(T1Recipes);
-        //PopulateRecipePanel(T2Recipes);
-        //PopulateRecipePanel(T3Recipes);
+        PopulateRecipePanel(T1Recipes, 0);
+        PopulateRecipePanel(T2Recipes, 1);
+        PopulateRecipePanel(T3Recipes, 2);
+        PopulateRecipePanel(SatRecipes, 3);
 
         //set the default panel to active
         SwitchActiveTab(contentGroups[0]);
@@ -99,8 +102,11 @@ public class Crafting : MonoBehaviour
         SwitchViewTo(HUDPrefab);
     }
 
-    public void SwitchActiveTab(GameObject active_panel)
+    //this function is used in-editor on the tab buttons directly
+    public void SwitchActiveTab(Object active_panel)
     {
+        //turn on the panel we want and turn off its associated button
+        //anything that isn't the panel we want gets turned off and turns its button on
         foreach (var kvp in PanelToButton)
         {
             if (kvp.Key == active_panel)
@@ -117,11 +123,11 @@ public class Crafting : MonoBehaviour
     }
 
     //use an array of recipe objects to generate crafting screen buttons & their associated functionality
-    public void PopulateRecipePanel(CraftingRecipe[] recipeList)
+    public void PopulateRecipePanel(CraftingRecipe[] recipeList, int contentGroup)
     {
         foreach (var recipe in recipeList)
         {
-            var newButton = AddNewButton(recipe.DisplayName, contentGroups[0].GetComponent<VerticalLayoutGroup>());
+            var newButton = AddNewButton(recipe.DisplayName, contentGroups[contentGroup].GetComponent<VerticalLayoutGroup>());
 
             //set up what the recipe button does when you click it - used to fill in all the
             //recipe info on the crafting panel (# of ingredients, names, amount needed, etc)
@@ -132,6 +138,8 @@ public class Crafting : MonoBehaviour
 
                 int childCount = ProductGroup.transform.childCount;
 
+                //REFRESH CRAFTING PANEL AFTER CLICKING A RECIPE
+                //remove the "products" of the previous recipe
                 for (int i = 0; i < childCount; i++)
                 {
                     Destroy(ProductGroup.transform.GetChild(0).gameObject);
@@ -139,14 +147,16 @@ public class Crafting : MonoBehaviour
 
                 childCount = IngredientGroup.transform.childCount;
 
+                //remove the "ingredients" of the previous recipe
                 for (int i = 0; i < childCount; i++)
                 {
                     Destroy(IngredientGroup.transform.GetChild(0).gameObject);
                 }
 
-                //add new inputs and outputs
+                //add new products and ingredients
                 var product = Instantiate(Product);
                 product.transform.SetParent(ProductGroup.transform);
+                //there's two text portions on the UI element, the name and the amount
                 var outputText = product.GetComponentsInChildren<TextMeshProUGUI>();
                 outputText[0].SetText(recipe.DisplayName);
                 outputText[1].SetText("x" + recipe.Output.amount.ToString());

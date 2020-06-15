@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 
@@ -11,26 +9,26 @@ public class Player : MonoBehaviour
 {
     [Header("Game:")]
     [SerializeField] private GameFrameworkManager GameManager  = null;
-    [SerializeField] private Playing PlayingState;
+    [SerializeField] private Playing PlayingState = null;
     [SerializeField] private LayerMask TargetableMask;
-    [SerializeField] public Camera PlayerCamera;
-    [SerializeField] public EventModule EventModule;
+    [SerializeField] public Camera PlayerCamera = null;
+    [SerializeField] public EventModule EventModule = null;
 
-    [SerializeField] private PlayerSatelliteHolder SatHolder;
+    [SerializeField] private PlayerSatelliteHolder SatHolder = null;
 
     [Header("Player:")]
     [SerializeField] private float TargetingDistance = 1000.0f;
 
-    [SerializeField] private Resource FuelResource;
+    [SerializeField] private Resource FuelResource = null;
 
-    [SerializeField] private PlayerCamera CameraScript;
+    [SerializeField] private PlayerCamera CameraScript = null;
 
-    [SerializeField] private ResourceInventory LinkedInventory;
+    [SerializeField] private ResourceInventory LinkedInventory = null;
     public ResourceInventory Inventory{get=>LinkedInventory;}
 
     [Header("UI Elements:")]
-    [SerializeField] private GameOver GameOverScreen;
-    [SerializeField] private GameOver WinScreen;
+    [SerializeField] private GameOver GameOverScreen = null;
+    [SerializeField] private GameOver WinScreen = null;
     [SerializeField] private GameObject CraftingTooltip = null;
     [SerializeField] private GameObject RefuellingTooltip = null;
     [SerializeField] private GameObject TargetingTooltip = null;

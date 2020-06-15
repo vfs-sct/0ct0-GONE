@@ -45,7 +45,7 @@ public class GameHUD : MonoBehaviour
     private void PopulateToolbar()
     {
         int hotkey = 1;
-        Debug.Log(playerTools.GetEquiptTools().Count);
+        //Debug.Log(playerTools.GetEquiptTools().Count);
         foreach (var tool in playerTools.GetEquiptTools())
         {
             var newTool = CreateToolBox();

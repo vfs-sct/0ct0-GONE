@@ -18,7 +18,7 @@ public class CraftingModule : Module
     }
 
     [SerializeField] private List<CraftingRecipe> ActiveRecipes = new List<CraftingRecipe>();
-    [SerializeField] private ResourceModule ResourceManager;
+    [SerializeField] private ResourceModule ResourceManager = null;
 
     public List<CraftingRecipe> GetRecipes(Resource ResourceToCheck)
     {

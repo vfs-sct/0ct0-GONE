@@ -127,6 +127,11 @@ public class Resource : ScriptableObject
     //Add {valueToAdd} amount of a resource to an inventory
     public void AddInstanceValue(ResourceInventory owner,float valueToAdd)
     {   
+        //if(Data[owner].Value == null)
+        //{
+        //    Debug.LogWarning("The AddInstanceValue function was given a null owner parameter");
+        //    return;
+        //}
         SetInstanceValue(owner,(Mathf.Clamp(Data[owner].Value + valueToAdd,Minimum,Maximum)));
         if (Data[owner].OnAddResource!=null)  Data[owner].OnAddResource(this,valueToAdd);
     }
