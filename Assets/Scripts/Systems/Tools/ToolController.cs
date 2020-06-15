@@ -7,6 +7,7 @@ public class ToolController : MonoBehaviour
 {
     [SerializeField] private List<Tool> EquiptTools = new List<Tool>();
     [SerializeField] public TextMeshProUGUI toolText = null;
+    [SerializeField] public GameHUD gameHUD = null;
 
     private Tool CurrentTool = null;
 
@@ -39,6 +40,8 @@ public class ToolController : MonoBehaviour
         CurrentTool = EquiptTools[ToolIndex];
         CurrentTool.Select(this);
         toolText.SetText(CurrentTool.displayName);
+        //update the tools in the toolbar to reflect which is selected
+        gameHUD.SwitchActiveTool(ToolIndex);
     }
 
     public void DeselectTool()
@@ -50,6 +53,8 @@ public class ToolController : MonoBehaviour
         if (CurrentTool != null) CurrentTool.Deselect(this);
         CurrentTool = null;
         toolText.SetText("No Tool Selected");
+        //make all tools in the toolbar appear enabled
+        gameHUD.NoToolSelected();
     }
 
     public void ActivateTool()
