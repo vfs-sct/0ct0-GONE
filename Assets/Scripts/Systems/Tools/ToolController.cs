@@ -5,11 +5,8 @@ using TMPro;
 
 public class ToolController : MonoBehaviour
 {
-
     [SerializeField] private List<Tool> EquiptTools = new List<Tool>();
     [SerializeField] public TextMeshProUGUI toolText = null;
-    
-
 
     private Tool CurrentTool = null;
 
@@ -19,6 +16,11 @@ public class ToolController : MonoBehaviour
     public Player LinkedPlayer{get=>_LinkedPlayer;}
     private GameObject _Target;
     public GameObject Target{get=>_Target;}
+
+    public List<Tool> GetEquiptTools()
+    {
+        return EquiptTools;
+    }
 
     public void SetTarget(GameObject NewTarget)
     {

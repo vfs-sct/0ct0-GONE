@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
-
+﻿using UnityEngine;
 
 //[CreateAssetMenu(menuName = "Systems/Tools/<Toolname>")]
 public abstract class Tool : ScriptableObject
@@ -12,6 +7,7 @@ public abstract class Tool : ScriptableObject
 
     [SerializeField] private bool _ActivateIsToggle = false;
     [SerializeField] public string displayName = "";
+    [SerializeField] public Sprite toolIcon = null;
     public bool ActivateIsToggle{get=>_ActivateIsToggle;}
 
     public ToolEvent OnActivateEvent;
