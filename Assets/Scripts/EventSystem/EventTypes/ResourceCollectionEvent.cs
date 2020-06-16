@@ -18,7 +18,15 @@ public class ResourceCollectionEvent : Event
 
     public override bool Condition(GameObject target)
     {
-        var currentAmount = target.GetComponent<ResourceInventory>().GetResource(CollectResource);
+        float currentAmount;
+        if (target.GetComponent<ResourceInventory>() != null)
+        {
+            currentAmount = target.GetComponent<ResourceInventory>().GetResource(CollectResource);
+        }
+        else
+        {
+            return false;
+        }
         //TODO: this should really only be done when theres a change to the text
         if (UIRootModule.UIRoot != null)
         {

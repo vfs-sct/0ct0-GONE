@@ -93,6 +93,7 @@ public class GameFrameworkManager : ScriptableObject
         {
             _ActiveState.OnUpdate();
         }
+        Debug.Log(ActiveGameState);
     }
 
     //check the conditions of all the gamestates

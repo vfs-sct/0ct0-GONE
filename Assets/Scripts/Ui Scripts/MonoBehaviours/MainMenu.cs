@@ -9,6 +9,7 @@ using UnityEditor;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameFrameworkManager GameManager = null;
+    [SerializeField] private GameState MainMenuState = null;
     [SerializeField] GameObject OptionsPrefab = null;
     [SerializeField] GameObject CreditsPrefab = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
@@ -82,6 +83,7 @@ public class MainMenu : MonoBehaviour
 
     private void OnEnable()
     {
+        GameManager.ChangeGameState(MainMenuState);
         Cursor.visible = true;
     }
 }

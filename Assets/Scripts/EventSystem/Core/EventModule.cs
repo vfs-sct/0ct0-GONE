@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Systems/Events/Event Module")]
 public class EventModule : Module
 {
-
+    [SerializeField] GameFrameworkManager gameManager = null;
     //NEVER ALTER OR TOUCH THINGS IN THESE EVENTS:
     [SerializeField] private List<Event> EventSequence = new List<Event>();
     
@@ -58,7 +58,14 @@ public class EventModule : Module
     //check the conditions of the current event
     public bool CheckSequenceConditions(GameObject target)
     {
-        return _CurrentEvent.Condition(target);
+        if(gameManager.ActiveGameState.GetType() == typeof(Playing))
+        {
+            return _CurrentEvent.Condition(target);
+        }
+        else
+        {
+            return false;
+        }
     }    
 
 
