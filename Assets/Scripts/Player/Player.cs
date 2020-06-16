@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
     [Header("PlayerPref Options:")]
     //used by UI/playerprefs to invert camera
-    public int invertedCam;
+    public int invertedCam = 1;
     public float lookSensitivity;
 
     [Header("Do not touch:")]
@@ -106,6 +106,7 @@ public class Player : MonoBehaviour
 
     public void OnLook(InputValue value)
     {
+        Debug.Log(invertedCam);
         RotationInput.y = value.Get<Vector2>().x * lookSensitivity;
         RotationInput.x = value.Get<Vector2>().y * invertedCam * lookSensitivity;
     }
@@ -213,6 +214,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         PlayingState.RegisterPlayer(this);
+        invertedCam = PlayerPrefs.GetInt("InvertedCam");
     }
 
     private void Start()
