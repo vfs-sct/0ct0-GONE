@@ -193,7 +193,7 @@ public class Player : MonoBehaviour
     //used to put the default shader back on a highlighted or targeted object once it is no longer highlighted/targeted
     public void RevertMaterial(GameObject prevObj, Material prevMat)
     {
-        Debug.Log("No target highlighted/selected");
+        //Debug.Log("No target highlighted/selected");
         if (prevObj != null)
         {
             prevObj.GetComponentInChildren<MeshRenderer>().material = prevMat;
