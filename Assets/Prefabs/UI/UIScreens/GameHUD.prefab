@@ -567,6 +567,7 @@ MonoBehaviour:
   PausePrefab: {fileID: 0}
   GameoverPrefab: {fileID: 0}
   CraftingPrefab: {fileID: 0}
+  objectDistance: {fileID: 1671884071639719781}
   playerTools: {fileID: 0}
   gooGlueBar: {fileID: 0}
   contentGroup: {fileID: 4517539259996033212}
@@ -1614,8 +1615,65 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reticle
       objectReference: {fileID: 0}
+    - target: {fileID: 5357093547058016676, guid: 6a211f2639884474da2f75aec41dd0c9,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357093547058016676, guid: 6a211f2639884474da2f75aec41dd0c9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357093547058016676, guid: 6a211f2639884474da2f75aec41dd0c9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -12.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357093547058016676, guid: 6a211f2639884474da2f75aec41dd0c9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357093547058016676, guid: 6a211f2639884474da2f75aec41dd0c9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448142967847743695, guid: 6a211f2639884474da2f75aec41dd0c9,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 514
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448142967847743695, guid: 6a211f2639884474da2f75aec41dd0c9,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448142967847743695, guid: 6a211f2639884474da2f75aec41dd0c9,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448142967847743695, guid: 6a211f2639884474da2f75aec41dd0c9,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a211f2639884474da2f75aec41dd0c9, type: 3}
+--- !u!114 &1671884071639719781 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7448142967847743695, guid: 6a211f2639884474da2f75aec41dd0c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8101596560151506858}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8971267529836578614 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 931963016088168604, guid: 6a211f2639884474da2f75aec41dd0c9,

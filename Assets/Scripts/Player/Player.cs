@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using UnityEngine.InputSystem;
 
 
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
     [Header("Do not touch:")]
     public Collider mouseCollision = null;
     public GameObject mouseCollisionRoot = null;
+    public float collisionDistance;
 
     private MovementController LinkedMovementController;
     private ToolController LinkedToolController;
@@ -302,6 +304,7 @@ public class Player : MonoBehaviour
         return canCraft;
     }
 
+    //if the collision object is a child, find the parent and return it
     public GameObject GetMouseCollisionRoot(Collider mouseCollision)
     {
         if (mouseCollision != null)
@@ -318,11 +321,14 @@ public class Player : MonoBehaviour
         return null;
     }
 
+    //raycast to see if mouse is hovering anything
     public Collider GetMouseCollision()
     {
         RaycastHit TargetHit;
         if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out TargetHit, TargetingDistance, TargetableMask))
         {
+            //collision distance is used by the HUD to display how far away the object the player is looking at is
+            collisionDistance = (float)(Math.Round(TargetHit.distance, 1));
             _TargetCollider = TargetHit.collider;
 
             if (_TargetCollider.GetComponentInChildren<MeshRenderer>() == null)

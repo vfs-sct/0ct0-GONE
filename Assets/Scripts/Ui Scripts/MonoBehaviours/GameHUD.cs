@@ -12,6 +12,7 @@ public class GameHUD : MonoBehaviour
     [SerializeField] GameObject PausePrefab = null;
     [SerializeField] GameObject GameoverPrefab = null;
     [SerializeField] GameObject CraftingPrefab = null;
+    [SerializeField] TextMeshProUGUI objectDistance = null;
 
     [Header("Tools")]
     [SerializeField] ToolController playerTools = null;
@@ -31,6 +32,18 @@ public class GameHUD : MonoBehaviour
     private List<GameObject> toolList = new List<GameObject>();
     private int currentTool = -1;
     private string prevTool = null;
+
+    private void Update()
+    {
+        if(player.mouseCollision == null)
+        {
+            objectDistance.SetText("");
+        }
+        else
+        {
+            objectDistance.SetText(player.collisionDistance.ToString() + "m");
+        }
+    }
 
     private void Start()
     {
