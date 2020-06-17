@@ -53,7 +53,7 @@ public class ResourceInventory : MonoBehaviour
 
     public void TryAdd(Resource resource, float amount)
     {
-        Debug.Log(!HasResource(resource));
+        //Debug.Log(!HasResource(resource));
         if (!HasResource(resource)) {
             ResourceManager.CreateResourceInstance(resource,this);//create the resource if it isn't present
             ActiveResources.Add(resource);

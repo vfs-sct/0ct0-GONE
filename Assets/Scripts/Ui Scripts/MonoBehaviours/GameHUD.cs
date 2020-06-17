@@ -83,8 +83,8 @@ public class GameHUD : MonoBehaviour
 
     public void SwitchActiveTool(int newTool)
     {
-        Debug.Log("New Tool Index: " + newTool);
-        Debug.Log("Goo Glue Index: " + gooGlueIndex);
+        //Debug.Log("New Tool Index: " + newTool);
+        //Debug.Log("Goo Glue Index: " + gooGlueIndex);
         if(currentTool != -1)
         {
             if(currentTool == gooGlueIndex)

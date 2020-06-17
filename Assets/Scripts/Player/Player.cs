@@ -176,7 +176,7 @@ public class Player : MonoBehaviour
                 highlightObject = null;
                 targetObject = mouseCollision.gameObject;
                 LinkedToolController.SetTarget(targetObject);
-                Debug.Log("Targeted: " + targetObject);
+                //Debug.Log("Targeted: " + targetObject);
 
                 mouseCollision.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
             }
