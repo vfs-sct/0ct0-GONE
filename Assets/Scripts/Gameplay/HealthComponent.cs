@@ -15,9 +15,10 @@ public class HealthComponent : MonoBehaviour
 
     float _Health;
     [SerializeField] private float StartingHealth = 0f;
-    [SerializeField] private float MaxHealth = 100f;
+    [SerializeField] private float _MaxHealth = 100f;
 
     public float Health{get=>_Health;}
+    public float MaxHealth { get => _MaxHealth; }
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class HealthComponent : MonoBehaviour
     private void SetHealth_Internal(float healthValue)
     {
         float OldHealth = _Health;
-        _Health = Mathf.Clamp(healthValue,0,MaxHealth);
+        _Health = Mathf.Clamp(healthValue,0,_MaxHealth);
         OnDelta(this,OldHealth-_Health);
     }
 
