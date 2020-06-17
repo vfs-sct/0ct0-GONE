@@ -16,7 +16,6 @@ public abstract class Tool : ScriptableObject
     public ToolEvent OnSelectEvent;
     public ToolEvent OnDeselectEvent;
 
-    protected string ToolName = "";
     protected abstract void OnActivate(ToolController owner,GameObject target);
     protected abstract void OnDeactivate(ToolController owner,GameObject target);
     protected abstract void OnWhileActive(ToolController owner,GameObject target);
