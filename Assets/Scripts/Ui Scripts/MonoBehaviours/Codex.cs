@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
+using System.Linq;
 
 public class Codex : MonoBehaviour
 {
@@ -35,6 +36,90 @@ public class Codex : MonoBehaviour
         {"Log Eight", "OAKLEY:\nI know the galaxy can seem pretty broken at times, pal...\n\nOAKLEY:\nbut you just gotta keep fixin' what's in front of you.\n\nOAKLEY:\nThe rest will follow."},
     };
 
+    private bool[] isLocked = new bool[]
+    {
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+    };
+
+    List<GameObject> entryButtons = new List<GameObject>();
+
+    public void OnCraftHotkey(InputValue value)
+    {
+        UnlockAllCodex();
+    }
+
+    //make all entries locked
+    public void ResetCodexLocks()
+    {
+        for (int i = 0; i < isLocked.Length; i++)
+        {
+            isLocked[i] = true;
+        }
+        UpdateButtons();
+    }
+
+    //make all entries unlocked
+    public void UnlockAllCodex()
+    {
+        for (int i = 0; i < isLocked.Length; i++)
+        {
+            isLocked[i] = false;
+        }
+        UpdateButtons();
+    }
+
+    //unlock a specific entry using the index (0-7)
+    public void UnlockSpecificEntry(int index)
+    {
+        if(isLocked[index] == true)
+        {
+            Debug.Log($"Codex entry {index} already unlocked");
+        }
+        else
+        {
+            isLocked[index] = true;
+            UpdateButtons();
+        }
+    }
+
+    //find the next entry that is locked and unlocked it
+    public void UnlockNextEntry()
+    {
+        int unlockedCount = 0;
+        for (int i = 0; i < isLocked.Length; i++)
+        {
+            if(isLocked[i] == true)
+            {
+                isLocked[i] = false;
+                UpdateButtons();
+                return;
+            }
+        }
+        if(unlockedCount == isLocked.Length)
+        {
+            Debug.LogWarning("UnlockNextEntry was called, but all codex entries are already unlocked.");
+        }
+    }
+
+    private void UpdateButtons()
+    {
+        for(int i = 0; i < isLocked.Length; i++)
+        {
+            if(isLocked[i] == false)
+            {
+                entryButtons[i].GetComponentInChildren<TextMeshProUGUI>().SetText(logEntries.Keys.ElementAt(i));
+                entryButtons[i].GetComponent<Button>().interactable = true;
+            }
+        }
+    }
+
     //I also have tutorial entries that I want to keep separate from story entries.
     //We can create a dictionary for each section.
     Dictionary<string, string> tutorialEntries = new Dictionary<string, string>
@@ -50,12 +135,20 @@ public class Codex : MonoBehaviour
         //I have a scrollable content view in my codex that creates all the buttons to specific entries. Here I have a function
         //that creates an unclickable header to break up the sections. Code for header down below.
         AddNewHeader("Memory Logs");
-        
+
         //Now I'm going to populate the Memory Logs section with buttons to the content in the logEntries dictionary
         //Using a foreach we'll loop through every pair in the logEntries dictionary and create a button for it
+        int index = 0;
         foreach (var kvp in logEntries)
         {
-            AddNewButton(logEntries, kvp.Key);
+            var newButton = AddNewButton(logEntries, kvp.Key);
+            entryButtons.Add(newButton);
+            
+            if (isLocked[index] == true)
+            {
+                newButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Memory Corrupt");
+                newButton.GetComponent<Button>().interactable = false;
+            }
         }
 
         //New section header
@@ -83,7 +176,7 @@ public class Codex : MonoBehaviour
     }
 
     //Code to create a button to a codex entry
-    public void AddNewButton(Dictionary<string, string> dict, string buttonText)
+    public GameObject AddNewButton(Dictionary<string, string> dict, string buttonText)
     {
         //Here we create an instance of the template button we serialized at the top and save it into a variable
         var newButton = Instantiate(defaultButton);
@@ -105,6 +198,7 @@ public class Codex : MonoBehaviour
             //Use the dictionary key to get the dictionary value, then set the body text
             entryBodyText.SetText(dict[buttonText]);
         });
+        return newButton;
     }
 
     //NOTE: This setup is good for getting a codex into a game quick, but is not a good final setup if the game requires localization.
