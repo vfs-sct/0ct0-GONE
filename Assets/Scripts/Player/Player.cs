@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
 
     public void OnLook(InputValue value)
     {
-        Debug.Log(invertedCam);
+        //Debug.Log(invertedCam);
         RotationInput.y = value.Get<Vector2>().x * lookSensitivity;
         RotationInput.x = value.Get<Vector2>().y * invertedCam * lookSensitivity;
     }
