@@ -229,8 +229,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Environment\Environmental\Electricity_Play
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Electricity_Stop
       guid: c1182a839e80424493d35b0317481464
       id: 1894282823
@@ -245,8 +245,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Environment\Environmental\Electricity_Stop
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Explosion
       guid: f316b6f45145c542b9a6cfaff501ef24
       id: 13776098
@@ -385,8 +385,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Music\In_Game\MUS_In_Game_Pause
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: MUS_In_Game_Play
       guid: f56ccdaa020bc4458cf0ad4dcc5e914e
       id: 2465552598
@@ -417,8 +417,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Music\In_Game\MUS_In_Game_Resume
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: MUS_In_Game_Stop
       guid: 8f9816f1e7c5a244bdd6cdfa5dfbed08
       id: 3237563496
@@ -433,8 +433,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Music\In_Game\MUS_In_Game_Stop
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
   - PhysicalPath: Events\Main_Menu.wwu
     ParentPhysicalPath: Events\Music.wwu
     guid: 4dab92772dccf44eb60cec9dbdf6b3ee
@@ -967,8 +967,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Characters\Octo\SFX\Octo_Grab
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.834667
+      minDuration: 1.834667
     - name: Octo_Moving
       guid: b1f2942db8fc1d49926a8f309a576498
       id: 2120872765
@@ -1003,8 +1003,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Characters\Octo\SFX\Octo_Salvage
       maxAttenuation: 0
-      maxDuration: 5.334667
-      minDuration: 5.334667
+      maxDuration: 4.421333
+      minDuration: 4.421333
     - name: Octo_Tether
       guid: 5d3a01fd31a241459e750bafda3c416d
       id: 1089170435
@@ -1439,8 +1439,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Environment\Satellite\Fuel_Restoration
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 22.52975
+      minDuration: 22.52975
     - name: Satellite_Component
       guid: 1952b8583f1df94c97cb7986b7be0052
       id: 1580704404
@@ -1487,8 +1487,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Environment\Satellite\Satellite_Crafting_Stop
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Satellite_Foundry
       guid: 28a4dfcf1553ca4487bacad4ba606d75
       id: 3028867906
@@ -1937,10 +1937,8 @@ MonoBehaviour:
   - /WWise_OctoGone_SD95
   - /WWise_OctoGone_SD95/Events
   - /WWise_OctoGone_SD95/Events/Octo_Main
-  - /WWise_OctoGone_SD95/Events/Octo_Main/Characters
-  - /WWise_OctoGone_SD95/Events/Octo_Main/Characters/Octo
-  - /WWise_OctoGone_SD95/Events/Octo_Main/Characters/Octo/SFX
   - /WWise_OctoGone_SD95/Events/Octo_Main/Environment
+  - /WWise_OctoGone_SD95/Events/Octo_Main/Environment/Environmental
   - /WWise_OctoGone_SD95/Events/Octo_Main/FE
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
