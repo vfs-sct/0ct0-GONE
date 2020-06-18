@@ -16,6 +16,7 @@ public abstract class Event : ScriptableObject
 
     public void TriggerEffect(GameObject target)
     {
+        //CodexProgression();
         EventEffectDelegates.Invoke();
         Effect(target);
     }

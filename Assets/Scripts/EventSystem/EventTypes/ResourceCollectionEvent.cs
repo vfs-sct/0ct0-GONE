@@ -5,10 +5,11 @@
 public class ResourceCollectionEvent : Event
 {
     private bool EventTrigger = false;
-    [SerializeField] protected UIModule UIRootModule = null;
     [SerializeField] Resource CollectResource;
     [SerializeField] float ResourceAmount;
     [SerializeField] public string actionVerb = "Collect";
+
+    [SerializeField] protected UIModule UIRootModule = null;
 
     private float previousAmount = -1000f;
     private float totalAdded;
@@ -70,17 +71,12 @@ public class ResourceCollectionEvent : Event
         return EventTrigger;
     }
 
-    protected void CodexProgression()
+    private void CodexProgression()
     {
         UIRootModule.UIRoot.GetScreen<Codex>().UnlockNextEntry();
     }
 
     protected override void Effect(GameObject target)
     {
-        //no effect, this uses unity events for any effects
-        //if(audioLog != null)
-        //{
-        //    AkSoundEngine.PostEvent(audioLog, soundPlayer);
-        //}
     }
 }

@@ -50,10 +50,11 @@ public class Codex : MonoBehaviour
 
     List<GameObject> entryButtons = new List<GameObject>();
 
-    public void OnCraftHotkey(InputValue value)
-    {
-        UnlockAllCodex();
-    }
+    //enable to debug unlock all entries with "C"
+    //public void OnCraftHotkey(InputValue value)
+    //{
+    //    UnlockAllCodex();
+    //}
 
     //make all entries locked
     public void ResetCodexLocks()
@@ -112,7 +113,7 @@ public class Codex : MonoBehaviour
     {
         for(int i = 0; i < isLocked.Length; i++)
         {
-            if(isLocked[i] == false)
+            if (isLocked[i] == false)
             {
                 entryButtons[i].GetComponentInChildren<TextMeshProUGUI>().SetText(logEntries.Keys.ElementAt(i));
                 entryButtons[i].GetComponent<Button>().interactable = true;
