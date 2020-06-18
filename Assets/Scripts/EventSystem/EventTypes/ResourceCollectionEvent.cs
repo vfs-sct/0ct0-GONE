@@ -8,9 +8,6 @@ public class ResourceCollectionEvent : Event
     [SerializeField] protected UIModule UIRootModule = null;
     [SerializeField] Resource CollectResource;
     [SerializeField] float ResourceAmount;
-    //revisit when we have recordings from the sound actors
-    //[SerializeField] private string audioLog = null;
-    //[SerializeField] public GameObject soundPlayer = null;
     [SerializeField] public string actionVerb = "Collect";
 
     private float previousAmount = -1000f;
@@ -64,12 +61,18 @@ public class ResourceCollectionEvent : Event
         {
             Debug.Log("EVENT CONDITION MET");
             EventTrigger = true;
+            CodexProgression();
             //reset the scriptableobject values
             totalAdded = 0;
             previousAmount = -1000f;
         }
 
         return EventTrigger;
+    }
+
+    protected void CodexProgression()
+    {
+        UIRootModule.UIRoot.GetScreen<Codex>().UnlockNextEntry();
     }
 
     protected override void Effect(GameObject target)

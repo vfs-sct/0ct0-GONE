@@ -8,6 +8,7 @@ public abstract class Event : ScriptableObject
     public string EventName;
     public string EventText;
     public string CompletionText;
+    protected GameFrameworkManager GameManager = null;
 
     public abstract bool Condition(GameObject target);
 
