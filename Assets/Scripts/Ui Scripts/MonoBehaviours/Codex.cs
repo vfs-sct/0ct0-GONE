@@ -96,14 +96,18 @@ public class Codex : MonoBehaviour
         int unlockedCount = 0;
         for (int i = 0; i < isLocked.Length; i++)
         {
+            //find a locked entry
             if(isLocked[i] == true)
             {
+                //make it unlocked
                 isLocked[i] = false;
-                UpdateButtons();
+                //UpdateButtons();
+                unlockedCount++;
+                //exit out
                 return;
             }
         }
-        if(unlockedCount == isLocked.Length)
+        if(unlockedCount == isLocked.Length - 1)
         {
             Debug.LogWarning("UnlockNextEntry was called, but all codex entries are already unlocked.");
         }
@@ -131,7 +135,8 @@ public class Codex : MonoBehaviour
         {"Etc", "Log four text"},
     };
 
-    private void Start()
+    //called by UIAwake on scene start
+    private void Awake()
     {
         //I have a scrollable content view in my codex that creates all the buttons to specific entries. Here I have a function
         //that creates an unclickable header to break up the sections. Code for header down below.
@@ -151,6 +156,7 @@ public class Codex : MonoBehaviour
                 newButton.GetComponent<Button>().interactable = false;
             }
         }
+        //Debug.Log("Number of buttons created" + entryButtons.Count);
 
         //New section header
         AddNewHeader("User Manual");
@@ -223,6 +229,7 @@ public class Codex : MonoBehaviour
 
     private void OnEnable()
     {
+        UpdateButtons();
         Cursor.visible = true;
     }
 

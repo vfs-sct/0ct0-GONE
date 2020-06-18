@@ -21,5 +21,7 @@ public abstract class Event : ScriptableObject
         Effect(target);
     }
 
+    virtual public void InitializeEvent(){}
+
     protected abstract void Effect(GameObject target);
 }

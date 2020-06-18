@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "Systems/Events/Resource Collection Event")]
@@ -13,62 +14,74 @@ public class ResourceCollectionEvent : Event
 
     private float previousAmount = -1000f;
     private float totalAdded;
+    private bool isInitialized = false;
+    private bool isUpdating = false;
 
     public override bool Condition(GameObject target)
     {
-        float currentAmount;
-        if (target.GetComponent<ResourceInventory>() != null)
+        if(isInitialized == true)
         {
-            currentAmount = target.GetComponent<ResourceInventory>().GetResource(CollectResource);
+            previousAmount = target.GetComponent<ResourceInventory>().GetResource(CollectResource);
+            isUpdating = true;
+            isInitialized = false;
         }
-        else
+        if (isUpdating == true)
         {
-            return false;
-        }
-        //TODO: this should really only be done when theres a change to the text
-        if (UIRootModule.UIRoot != null)
-        {
-            string objectiveUpdate = $"{totalAdded}/{ResourceAmount} - {actionVerb} {CollectResource.DisplayName}";
-            UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
-        }
-        
-        //initialize previousAmount if we're looping through for the first time
-        if (previousAmount == -1000f)
-        {
-            previousAmount = currentAmount; 
-        }
-
-        //exit early if no change
-        if (currentAmount == previousAmount)
-        {
-            return EventTrigger;
-        }
-        else
-        {
-            //find out if the amount we have now is higher than the previous amount to see if any resource was added
-            var delta = currentAmount - previousAmount;
-            if(delta > 0)
+            float currentAmount;
+            if (target.GetComponent<ResourceInventory>() != null)
             {
-                //if resource was added, add to the total added amount
-                totalAdded = totalAdded + delta;
+                currentAmount = target.GetComponent<ResourceInventory>().GetResource(CollectResource);
+            }
+            else
+            {
+                return false;
+            }
+            //TODO: this should really only be done when theres a change to the text
+            if (UIRootModule.UIRoot != null)
+            {
+                string objectiveUpdate = $"{totalAdded}/{ResourceAmount} - {actionVerb} {CollectResource.DisplayName}";
+                UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
             }
 
-            //update previous amount for next tick
-            previousAmount = currentAmount;
-        }
+            //exit early if no change
+            if (currentAmount == previousAmount)
+            {
+                return EventTrigger;
+            }
+            else
+            {
+                //find out if the amount we have now is higher than the previous amount to see if any resource was added
+                var delta = (float)Math.Floor(currentAmount - previousAmount);
+                if (delta > 0)
+                {
+                    //if resource was added, add to the total added amount
+                    totalAdded = totalAdded + delta;
+                }
 
-        //quest complete?
-        if(totalAdded >= ResourceAmount)
-        {
-            Debug.Log("EVENT CONDITION MET");
-            EventTrigger = true;
-            CodexProgression();
-            //reset the scriptableobject values
-            totalAdded = 0;
-            previousAmount = -1000f;
+                //update previous amount for next tick
+                previousAmount = currentAmount;
+            }
+
+            //quest complete?
+            if (totalAdded >= ResourceAmount)
+            {
+                Debug.Log("EVENT CONDITION MET");
+                EventTrigger = true;
+                CodexProgression();
+                //reset the scriptableobject values
+                totalAdded = 0;
+                previousAmount = -1000f;
+                isInitialized = false;
+                isUpdating = false;
+            }
         }
 
         return EventTrigger;
+    }
+
+    public override void InitializeEvent()
+    {
+        isInitialized = true;
     }
 
     private void CodexProgression()
