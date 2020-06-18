@@ -11,6 +11,7 @@ public class UIAwake : MonoBehaviour
     [SerializeField] public int invertedCamDefault = 1;
     [SerializeField] public float lookSensitivityDefault = 0.9f;
     [SerializeField] public GameObject fadeIn = null;
+    [SerializeField] public Codex codex = null;
 
     private Player player = null;
 
@@ -106,7 +107,7 @@ public class UIAwake : MonoBehaviour
 
         //set gamma based on saved player prefs, or set to default
         if (!PlayerPrefs.HasKey("Gamma"))
-        {   
+        {
             Shader.SetGlobalFloat("gamma", gammaDefault);
             PlayerPrefs.SetFloat("Gamma", gammaDefault);
             PlayerPrefs.Save();
@@ -132,6 +133,13 @@ public class UIAwake : MonoBehaviour
                 PlayerPrefs.Save();
             }
         }
+
+        //populate the buttons in the codex list
+        //ensures that codex entries can be unlocked even if the players never opened the codex screen before
+        //if (codex != null)
+        //{
+        //    codex.GenerateEntries();
+        //}
 
     }
 

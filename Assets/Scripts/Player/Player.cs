@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 {
     [Header("Game:")]
     [SerializeField] private GameFrameworkManager GameManager  = null;
+    //[SerializeField] protected UIModule UIRootModule = null;
     [SerializeField] private Playing PlayingState = null;
     [SerializeField] private LayerMask TargetableMask;
     [SerializeField] public Camera PlayerCamera = null;
@@ -211,6 +212,7 @@ public class Player : MonoBehaviour
     {
         GameManager.Pause();
         WinScreen.gameObject.SetActive(true);
+        //UIRootModule.UIRoot.GetScreen<Codex>().ResetCodexLocks();
     }
 
     private void Awake()
