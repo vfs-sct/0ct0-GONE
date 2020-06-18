@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemInventory : MonoBehaviour
+public class InventoryController : MonoBehaviour
 {
     [System.Serializable]
     public struct ItemBucket
@@ -56,6 +56,18 @@ public class ItemInventory : MonoBehaviour
             ResourceBuckets_Dict.Add(item.ItemResource,new ItemBucket(item.Cap));
         }
     }
+
+    public bool CanAddItem(int BucketIndex,Item itemToAdd)
+    {
+        
+        return ItemBuckets[BucketIndex].FillAmount + itemToAdd.Size <= ItemBuckets[BucketIndex].ItemCap;
+    }
+
+    public bool CanAddResource(Resource resource,Item itemToAdd)
+    {
+        return ResourceBuckets_Dict[resource].FillAmount + itemToAdd.Size <= ResourceBuckets_Dict[resource].ItemCap;
+    }
+
 
     public bool AddToItemBucket(int BucketIndex,Item itemToAdd)
     {

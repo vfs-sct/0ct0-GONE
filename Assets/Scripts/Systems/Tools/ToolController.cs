@@ -14,6 +14,11 @@ public class ToolController : MonoBehaviour
 
     private Player _LinkedPlayer;
     public Player LinkedPlayer{get=>_LinkedPlayer;}
+
+    [SerializeField] private InventoryController _PlayerInventory;
+    public InventoryController PlayerInventory{get=>_PlayerInventory;}
+
+
     private GameObject _Target;
     public GameObject Target{get=>_Target;}
 

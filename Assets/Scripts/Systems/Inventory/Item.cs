@@ -15,4 +15,5 @@ public class Item : ScriptableObject
     [SerializeField] private float _Mass;
     public float Mass{get =>_Mass;}
     [SerializeField] private Resource _ResourceType;
+    public Resource ResourceType{get=>_ResourceType;}
 }
