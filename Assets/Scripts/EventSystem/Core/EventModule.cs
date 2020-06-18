@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Systems/Events/Event Module")]
 public class EventModule : Module
 {
-
+    [SerializeField] GameFrameworkManager gameManager = null;
     //NEVER ALTER OR TOUCH THINGS IN THESE EVENTS:
     [SerializeField] private List<Event> EventSequence = new List<Event>();
     
@@ -23,6 +23,7 @@ public class EventModule : Module
     public override void Start()
     {
         Reset();
+        //making copy of event list so we dont alter the original
         bool is_first = true;
         foreach (var item in EventSequence)
         {
@@ -31,6 +32,7 @@ public class EventModule : Module
             {
                 is_first = false;
                 _CurrentEvent = item_copy;
+                _CurrentEvent.InitializeEvent();
             }
             else
             {
@@ -46,7 +48,9 @@ public class EventModule : Module
         _CurrentEvent.TriggerEffect(target);
         if (EventQueue.Count != 0)
         {
-           _CurrentEvent = EventQueue.Dequeue(); 
+           _CurrentEvent = EventQueue.Dequeue();
+            //initialize new event
+           _CurrentEvent.InitializeEvent();
         } 
         else 
         {
@@ -58,7 +62,14 @@ public class EventModule : Module
     //check the conditions of the current event
     public bool CheckSequenceConditions(GameObject target)
     {
-        return _CurrentEvent.Condition(target);
+        if(gameManager.ActiveGameState.GetType() == typeof(Playing))
+        {
+            return _CurrentEvent.Condition(target);
+        }
+        else
+        {
+            return false;
+        }
     }    
 
 

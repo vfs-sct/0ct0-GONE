@@ -82,9 +82,6 @@ public class GameFrameworkManager : ScriptableObject
         SceneManager.LoadScene(SceneName,LoadSceneMode.Single);
     }
 
-
-
-    
     void GameStateUpdate()
     {
         if (!Application.isPlaying) return;
@@ -93,6 +90,7 @@ public class GameFrameworkManager : ScriptableObject
         {
             _ActiveState.OnUpdate();
         }
+        //Debug.Log(ActiveGameState);
     }
 
     //check the conditions of all the gamestates

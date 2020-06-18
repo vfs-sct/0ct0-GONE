@@ -14,7 +14,9 @@ public class GameOverState : GameState
     bool OutOfFuel = false;
 
     public override bool ConditionCheck(GameFrameworkManager GameManager)
-    {     
+    {
+        //Debug.Log(PlayingState.ActivePlayer.Inventory.GetResource(FuelResource));
+        //Debug.Log(RelayController.InRange);
         if (PlayingState.ActivePlayer == null) return false; //Do not go to gameover if the player is null, Prevents error spam
         return (
             (PlayingState.ActivePlayer.Inventory.GetResource(FuelResource) == 0) //check if the player is out of fuel
