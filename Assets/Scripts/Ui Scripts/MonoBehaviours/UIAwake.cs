@@ -134,12 +134,9 @@ public class UIAwake : MonoBehaviour
             }
         }
 
-        //populate the buttons in the codex list
-        //ensures that codex entries can be unlocked even if the players never opened the codex screen before
-        //if (codex != null)
-        //{
-        //    codex.GenerateEntries();
-        //}
+        //Try to get player right off the bat and pass it to UIAwake
+        //Means anything using UIModule can get the player through the UIRoot variable
+        gameObject.GetComponent<UIRoot>().player = GetPlayer();
 
     }
 

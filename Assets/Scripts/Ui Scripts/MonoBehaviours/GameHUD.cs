@@ -12,6 +12,7 @@ public class GameHUD : MonoBehaviour
     [SerializeField] GameObject PausePrefab = null;
     [SerializeField] GameObject GameoverPrefab = null;
     [SerializeField] GameObject CraftingPrefab = null;
+    [SerializeField] public GameObject GasCloudAlertPrefab = null;
     [SerializeField] TextMeshProUGUI objectDistance = null;
 
     [Header("Tools")]
@@ -19,6 +20,8 @@ public class GameHUD : MonoBehaviour
     [SerializeField] GameObject gooGlueBar = null;
     [SerializeField] HorizontalLayoutGroup contentGroup = null;
     [SerializeField] GameObject defaultToolBox = null;
+    [SerializeField] Sprite enabledSprite = null;
+    [SerializeField] Sprite disabledSprite = null;
     [SerializeField] Color enabledBGColour;
     [SerializeField] Color disabledBGColour;
     [SerializeField] Color enabledTextColour;
@@ -74,7 +77,9 @@ public class GameHUD : MonoBehaviour
             var getObject = newTool.GetComponent<GetObjects>();
             getObject.GetToolText().SetText(tool.displayName);
             getObject.GetHotkeyText().SetText("[ " + hotkey.ToString() + " ]");
-            getObject.GetToolIcon().sprite = tool.toolIcon;
+            getObject.GetButtonImage().sprite = enabledSprite;
+            //getObject.GetToolIcon().sprite = tool.toolIcon;
+            getObject.GetToolIcon().color = disabledTextColour;
 
             toolList.Add(newTool);
             hotkey++;
@@ -92,9 +97,11 @@ public class GameHUD : MonoBehaviour
                 gooGlueBar.SetActive(false);
             }
             var lastToolObj = toolList[currentTool].GetComponent<GetObjects>();
-            lastToolObj.GetToolIcon().color = enabledBGColour;
+            lastToolObj.GetButtonImage().color = enabledBGColour;
+            lastToolObj.GetButtonImage().sprite = enabledSprite;
             lastToolObj.GetToolText().color = enabledTextColour;
             lastToolObj.GetHotkeyText().color = enabledTextColour;
+            lastToolObj.GetToolIcon().color = enabledTextColour;
             lastToolObj.GetToolText().SetText(prevTool);
         }
 
@@ -105,9 +112,11 @@ public class GameHUD : MonoBehaviour
         }
 
         var newToolObj = toolList[newTool].GetComponent<GetObjects>();
-        newToolObj.GetToolIcon().color = disabledBGColour;
+        newToolObj.GetButtonImage().color = disabledBGColour;
+        newToolObj.GetButtonImage().sprite = disabledSprite;
         newToolObj.GetToolText().color = disabledTextColour;
         newToolObj.GetHotkeyText().color = disabledTextColour;
+        newToolObj.GetToolIcon().color = disabledTextColour;
         prevTool = newToolObj.GetToolText().text;
         newToolObj.GetToolText().SetText("Active");
 
@@ -119,7 +128,7 @@ public class GameHUD : MonoBehaviour
         if (currentTool != -1)
         {
             var lastToolObj = toolList[currentTool].GetComponent<GetObjects>();
-            lastToolObj.GetToolIcon().color = enabledBGColour;
+            lastToolObj.GetButtonImage().color = enabledBGColour;
             lastToolObj.GetToolText().color = enabledTextColour;
             lastToolObj.GetHotkeyText().color = enabledTextColour;
             lastToolObj.GetToolText().SetText(prevTool);
