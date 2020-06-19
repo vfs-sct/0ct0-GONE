@@ -62,44 +62,56 @@ public class Player : MonoBehaviour
 
     public void OnSelectTool1()//goo glue
     {
-        if (LastToolSelectedIndex == 0)
+        if (!GameManager.isPaused)
         {
-            ResetSelectedTool();
-            return;
+            if (LastToolSelectedIndex == 0)
+            {
+                ResetSelectedTool();
+                return;
+            }
+            LastToolSelectedIndex = 0;
+            LinkedToolController.SwitchTool(0);
         }
-        LastToolSelectedIndex = 0;
-        LinkedToolController.SwitchTool(0);
     }
     public void OnSelectTool2()//ScrewDriver
     {
-        if (LastToolSelectedIndex == 1)
+        if (!GameManager.isPaused)
         {
-            ResetSelectedTool();
-            return;
+            if (LastToolSelectedIndex == 1)
+            {
+                ResetSelectedTool();
+                return;
+            }
+            LastToolSelectedIndex = 1;
+            LinkedToolController.SwitchTool(1);
         }
-        LastToolSelectedIndex = 1;
-        LinkedToolController.SwitchTool(1);
     }
     public void OnSelectTool3()//Claw
     {
-        if (LastToolSelectedIndex == 2)
+        if (!GameManager.isPaused)
         {
-            ResetSelectedTool();
-            return;
+            if (LastToolSelectedIndex == 2)
+            {
+                ResetSelectedTool();
+                return;
+            }
+            LastToolSelectedIndex = 2;
+            LinkedToolController.SwitchTool(2);
         }
-        LastToolSelectedIndex = 2;
-        LinkedToolController.SwitchTool(2);
     }
 
     public void OnSelectTool4()//Laser Cutter
     {
-        if (LastToolSelectedIndex == 3)
+        if (!GameManager.isPaused)
         {
-            ResetSelectedTool();
-            return;
+            if (LastToolSelectedIndex == 3)
+            {
+                ResetSelectedTool();
+                return;
+            }
+            LastToolSelectedIndex = 3;
+            LinkedToolController.SwitchTool(3);
         }
-        LastToolSelectedIndex = 3;
-        LinkedToolController.SwitchTool(3);
     }
 
     public void OnRoll(InputValue value)

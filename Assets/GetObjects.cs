@@ -8,6 +8,7 @@ public class GetObjects : MonoBehaviour
     [SerializeField] public TextMeshProUGUI toolText = null;
     [SerializeField] public TextMeshProUGUI hotkeyText = null;
     [SerializeField] public Image toolIcon = null;
+    [SerializeField] public Image buttonImage = null;
 
     public TextMeshProUGUI GetToolText()
     {
@@ -22,6 +23,11 @@ public class GetObjects : MonoBehaviour
     public Image GetToolIcon()
     {
         return toolIcon;
+    }
+
+    public Image GetButtonImage()
+    {
+        return buttonImage;
     }
 
 }
