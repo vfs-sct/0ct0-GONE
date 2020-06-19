@@ -17,27 +17,27 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: c0f85af3f7a2604bbfb74e92a1e506b9
     GuidInternal: 
-    m_lastTime: -8586098489723175289
+    m_lastTime: -8586090944499570444
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: f900c26f10d8334a9904ef23286ce5ab
     GuidInternal: 
-    m_lastTime: -8586098489828867667
+    m_lastTime: -8586090944122249009
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: d049f23b4e880a4eadcd9d0858402286
     GuidInternal: 
-    m_lastTime: -8586098489723385337
+    m_lastTime: -8586090944041384007
     List: []
   - PhysicalPath: SoundBanks\Wwise_Octo_Main.wwu
     ParentPhysicalPath: 
     guid: 4b09c945823b784db271dddea9bdc8f6
     GuidInternal: 
-    m_lastTime: -8586098489723365294
+    m_lastTime: -8586090944046553216
     List:
     - name: Wwise_Octo_Main
       guid: 6708afac6d9ee04db998d6093e51fc97
@@ -53,7 +53,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Environment.wwu
     guid: ab5bcd69c7847147a7e4dc88181e0059
     GuidInternal: 
-    m_lastTime: -8586098489829587835
+    m_lastTime: -8586090944068464360
     List:
     - name: Env_01_Play
       guid: 23c8d5e57b48ca449d5a1ec4c67a0338
@@ -139,13 +139,13 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: c86910c84b6743438fd566dc929dbe39
     GuidInternal: 
-    m_lastTime: -8586098489829577840
+    m_lastTime: -8586090944059741558
     List: []
   - PhysicalPath: Events\Credits.wwu
     ParentPhysicalPath: Events\MainMenu.wwu
     guid: 4c0513ba17a7d0448a9c2e2fb9499469
     GuidInternal: 
-    m_lastTime: -8586098489829557832
+    m_lastTime: -8586090944092257402
     List:
     - name: Credits_Button_Back
       guid: 8379c27c624a3145af608fce61d7f516
@@ -169,19 +169,19 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 43680066c1cba2428a61a2fe35611ff9
     GuidInternal: 
-    m_lastTime: -8586098489829547830
+    m_lastTime: -8586090944086259908
     List: []
   - PhysicalPath: Events\Environment.wwu
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: 38a44ebe1a16b24682598a1681c6ba2f
     GuidInternal: 
-    m_lastTime: -8586098489829537827
+    m_lastTime: -8586090944087485425
     List: []
   - PhysicalPath: Events\Environmental.wwu
     ParentPhysicalPath: Events\Environment.wwu
     guid: e2e00994021ec5448e7eae839c8e59ed
     GuidInternal: 
-    m_lastTime: -8586098489829487816
+    m_lastTime: -8586090944103102464
     List:
     - name: Asteroid_Collision
       guid: a20f3376e4f6c148937981d5812cceb0
@@ -215,9 +215,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: Electricity
+    - name: Electricity_Play
       guid: a0c975288fd27848956d7f3b06de19f7
-      id: 2917121896
+      id: 642867601
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -225,9 +225,25 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Environmental
         ObjectType: 12
-      - ElementName: Electricity
+      - ElementName: Electricity_Play
         ObjectType: 3
-      Path: Octo_Main\Environment\Environmental\Electricity
+      Path: Octo_Main\Environment\Environmental\Electricity_Play
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Electricity_Stop
+      guid: c1182a839e80424493d35b0317481464
+      id: 1894282823
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Electricity_Stop
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Electricity_Stop
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -347,17 +363,17 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: e4e00594cb77244792e32fe6eabf1c1d
     GuidInternal: 
-    m_lastTime: -8586098489829507819
+    m_lastTime: -8586090944061571971
     List: []
   - PhysicalPath: Events\In_Game.wwu
     ParentPhysicalPath: Events\Music.wwu
     guid: c19ebc8ffd40c6468b4fd4abfc1e6c6f
     GuidInternal: 
-    m_lastTime: -8586098489829497820
+    m_lastTime: -8586090944082903629
     List:
-    - name: MUS_Game_Over_Play
-      guid: 78c404d5ad39ae4d90f72180a88cf609
-      id: 2925456689
+    - name: MUS_In_Game_Pause
+      guid: aa865762566331458df50619f4bcc497
+      id: 1832975494
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -365,31 +381,15 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: In_Game
         ObjectType: 12
-      - ElementName: MUS_Game_Over_Play
+      - ElementName: MUS_In_Game_Pause
         ObjectType: 3
-      Path: Octo_Main\Music\In_Game\MUS_Game_Over_Play
+      Path: Octo_Main\Music\In_Game\MUS_In_Game_Pause
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: MUS_Game_Over_Stop
-      guid: acdee5fa9705194fbc6b8dd31adb9e19
-      id: 4176975079
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Music
-        ObjectType: 12
-      - ElementName: In_Game
-        ObjectType: 12
-      - ElementName: MUS_Game_Over_Stop
-        ObjectType: 3
-      Path: Octo_Main\Music\In_Game\MUS_Game_Over_Stop
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: MUS_In_Game_Theme_Play
+    - name: MUS_In_Game_Play
       guid: f56ccdaa020bc4458cf0ad4dcc5e914e
-      id: 3318620896
+      id: 2465552598
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -397,15 +397,31 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: In_Game
         ObjectType: 12
-      - ElementName: MUS_In_Game_Theme_Play
+      - ElementName: MUS_In_Game_Play
         ObjectType: 3
-      Path: Octo_Main\Music\In_Game\MUS_In_Game_Theme_Play
+      Path: Octo_Main\Music\In_Game\MUS_In_Game_Play
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: MUS_In_Game_Resume
+      guid: 2f021006a3d43c45913bfd4de68f3f39
+      id: 581076801
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: In_Game
+        ObjectType: 12
+      - ElementName: MUS_In_Game_Resume
+        ObjectType: 3
+      Path: Octo_Main\Music\In_Game\MUS_In_Game_Resume
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: MUS_In_Game_Theme_Stop
-      guid: c03931bf8111ac47bfcb4ae97c6bcb75
-      id: 1661983074
+    - name: MUS_In_Game_Stop
+      guid: 8f9816f1e7c5a244bdd6cdfa5dfbed08
+      id: 3237563496
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -413,41 +429,9 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: In_Game
         ObjectType: 12
-      - ElementName: MUS_In_Game_Theme_Stop
+      - ElementName: MUS_In_Game_Stop
         ObjectType: 3
-      Path: Octo_Main\Music\In_Game\MUS_In_Game_Theme_Stop
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: MUS_Threat_Theme_Play
-      guid: 752fd9a7d6eaec44bd6c545c91d13966
-      id: 2791264084
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Music
-        ObjectType: 12
-      - ElementName: In_Game
-        ObjectType: 12
-      - ElementName: MUS_Threat_Theme_Play
-        ObjectType: 3
-      Path: Octo_Main\Music\In_Game\MUS_Threat_Theme_Play
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: MUS_Threat_Theme_Stop
-      guid: 8723037eec5c874f9080236a380ce896
-      id: 158725678
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Music
-        ObjectType: 12
-      - ElementName: In_Game
-        ObjectType: 12
-      - ElementName: MUS_Threat_Theme_Stop
-        ObjectType: 3
-      Path: Octo_Main\Music\In_Game\MUS_Threat_Theme_Stop
+      Path: Octo_Main\Music\In_Game\MUS_In_Game_Stop
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -455,7 +439,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Music.wwu
     guid: 4dab92772dccf44eb60cec9dbdf6b3ee
     GuidInternal: 
-    m_lastTime: -8586098489829467816
+    m_lastTime: -8586090944099291620
     List:
     - name: MUS_Pause
       guid: 92452b3fddcfb44aa209218110de2aae
@@ -525,7 +509,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\FE.wwu
     guid: f1570b83852e0f4992eb4ee6b133eb97
     GuidInternal: 
-    m_lastTime: -8586098489829457809
+    m_lastTime: -8586090944089384874
     List:
     - name: MainMenu_All_Button_Hover
       guid: 8575c8b077e0924fba3e405769e6aca1
@@ -627,13 +611,13 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: 600f4cd3cd56114abfd30b5150b1c1e0
     GuidInternal: 
-    m_lastTime: -8586098489829447807
+    m_lastTime: -8586090944078965272
     List: []
   - PhysicalPath: Events\Oakley.wwu
     ParentPhysicalPath: Events\Characters.wwu
     guid: adf6d36ce72ced4eb04c57e83f3fdefd
     GuidInternal: 
-    m_lastTime: -8586098489829427800
+    m_lastTime: -8586090944062631860
     List:
     - name: Voice_Log_01
       guid: 04856fbed675c34a99fc2c390e1f86cc
@@ -767,7 +751,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Characters.wwu
     guid: f634a635af0cc44cb82677937ae1b49a
     GuidInternal: 
-    m_lastTime: -8586098489829417789
+    m_lastTime: -8586090944107743784
     List:
     - name: Complete_Objective
       guid: 3f1ebf0eeb5f854bad04bcbec4244fed
@@ -983,8 +967,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Characters\Octo\SFX\Octo_Grab
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.834667
+      minDuration: 1.834667
     - name: Octo_Moving
       guid: b1f2942db8fc1d49926a8f309a576498
       id: 2120872765
@@ -1019,8 +1003,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Characters\Octo\SFX\Octo_Salvage
       maxAttenuation: 0
-      maxDuration: 5.334667
-      minDuration: 5.334667
+      maxDuration: 4.421333
+      minDuration: 4.421333
     - name: Octo_Tether
       guid: 5d3a01fd31a241459e750bafda3c416d
       id: 1089170435
@@ -1097,13 +1081,13 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 5fe02299154012418e883a6d761122fe
     GuidInternal: 
-    m_lastTime: -8586098489829407795
+    m_lastTime: -8586090944054180293
     List: []
   - PhysicalPath: Events\Options.wwu
     ParentPhysicalPath: Events\MainMenu.wwu
     guid: dbf25d695cd1684696e76688dbd1751a
     GuidInternal: 
-    m_lastTime: -8586098489829387797
+    m_lastTime: -8586090944102052241
     List:
     - name: Options_Button_Audio
       guid: 97d26d6bebf22944b498ba105d18126f
@@ -1163,7 +1147,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Options.wwu
     guid: 7d0b0691aacf35469db81562e9997cb4
     GuidInternal: 
-    m_lastTime: -8586098489829377784
+    m_lastTime: -8586090944098109209
     List:
     - name: Options_Audio_Button_Back
       guid: 494045431f54974fa46907a1b42684d4
@@ -1249,7 +1233,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Options.wwu
     guid: ca06a73a4c220b43a6084be28aa54eb8
     GuidInternal: 
-    m_lastTime: -8586098489829367790
+    m_lastTime: -8586090944095423832
     List:
     - name: Options_Video_Button_Back
       guid: 1ebad7ce0855df4b81527cf2de822b21
@@ -1315,7 +1299,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Options_Video.wwu
     guid: ba9d31dd72cc494899fff6635283f2c1
     GuidInternal: 
-    m_lastTime: -8586098489829347774
+    m_lastTime: -8586090944081806486
     List:
     - name: Options_Video_Resolution_Button_Apply
       guid: d75942eae376ff4aabcbc81c35818be9
@@ -1365,7 +1349,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\MainMenu.wwu
     guid: 1ac863669e80814f9c659d54b7bf3e99
     GuidInternal: 
-    m_lastTime: -8586098489829337782
+    m_lastTime: -8586090944085174150
     List:
     - name: Quit_Button_No
       guid: ea893dccefe96344b772e51ecb2c15a6
@@ -1407,7 +1391,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Environment.wwu
     guid: 001220ee6376c9419a2982aa893f2257
     GuidInternal: 
-    m_lastTime: -8586098489829327775
+    m_lastTime: -8586090944083933868
     List:
     - name: Communications_Array_Play
       guid: 5383a836cb190343b222608847f64f94
@@ -1455,8 +1439,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Environment\Satellite\Fuel_Restoration
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 22.52975
+      minDuration: 22.52975
     - name: Satellite_Component
       guid: 1952b8583f1df94c97cb7986b7be0052
       id: 1580704404
@@ -1503,8 +1487,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Environment\Satellite\Satellite_Crafting_Stop
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Satellite_Foundry
       guid: 28a4dfcf1553ca4487bacad4ba606d75
       id: 3028867906
@@ -1653,7 +1637,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: be40750790b97640a0e9ad908753cb5c
     GuidInternal: 
-    m_lastTime: -8586098489829307773
+    m_lastTime: -8586090944096848928
     List:
     - name: Asteroid_Warning
       guid: 7f62ec02d2a7ce42bcb75bf508749265
@@ -1730,13 +1714,13 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 16ab4c859cf4d549a5c53e9b19139d92
     GuidInternal: 
-    m_lastTime: -8586098489829297771
+    m_lastTime: -8586090944237321425
     List: []
   - PhysicalPath: Game Parameters\Octo.wwu
     ParentPhysicalPath: 
     guid: cb8b8ab241089f479f32a560a1e5b2a3
     GuidInternal: 
-    m_lastTime: -8586098489829287769
+    m_lastTime: -8586090944238421676
     List:
     - name: ThrusterImpulse
       guid: ac54fd2b5b86ef438b4d8250ed545ee3
@@ -1751,7 +1735,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 295e2b7d85002742b4d603debe586bd2
     GuidInternal: 
-    m_lastTime: -8586098489829267769
+    m_lastTime: -8586090944236261191
     List:
     - name: MasterVolume
       guid: 6fd4b45692a2184d9b8d7b65b0ccc99f
@@ -1785,13 +1769,13 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 3290f5b3d2459c44aa1897e488ca86d7
     GuidInternal: 
-    m_lastTime: -8586098489723275316
+    m_lastTime: -8586090944126289916
     List: []
   - PhysicalPath: States\Music.wwu
     ParentPhysicalPath: 
     guid: 31b003b25aa463438a044a6258588903
     GuidInternal: 
-    m_lastTime: -8586098489723245314
+    m_lastTime: -8586090944123909384
     List:
     - name: BackEnd
       guid: 24809a1fb11b624e9008c3a9c89d2383
@@ -1903,13 +1887,13 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 045bd47c7e38be48814aad03c073d255
     GuidInternal: 
-    m_lastTime: -8586098489723235304
+    m_lastTime: -8586090945138598418
     List: []
   - PhysicalPath: Switches\Octo.wwu
     ParentPhysicalPath: 
     guid: 240ab87661f7c44cbfd791e468498e16
     GuidInternal: 
-    m_lastTime: -8586098489723215299
+    m_lastTime: -8586090945139678664
     List:
     - name: Damage
       guid: c21f7fb83101244ca84579d69792d75a
@@ -1947,16 +1931,14 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 708e6d5e28a6a641afefd78e7205d578
     GuidInternal: 
-    m_lastTime: -8586098489723205295
+    m_lastTime: -8586090945098589416
     List: []
   ExpandedItems:
   - /WWise_OctoGone_SD95
   - /WWise_OctoGone_SD95/Events
   - /WWise_OctoGone_SD95/Events/Octo_Main
-  - /WWise_OctoGone_SD95/Events/Octo_Main/Characters
-  - /WWise_OctoGone_SD95/Events/Octo_Main/Characters/Octo
-  - /WWise_OctoGone_SD95/Events/Octo_Main/Characters/Octo/SFX
   - /WWise_OctoGone_SD95/Events/Octo_Main/Environment
+  - /WWise_OctoGone_SD95/Events/Octo_Main/Environment/Environmental
   - /WWise_OctoGone_SD95/Events/Octo_Main/FE
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

@@ -11,16 +11,6 @@ public class Salvage : ScriptableObject
 
     public void DoSalvage(Salvagable Source,ResourceInventory Target, float Percentage,float multiplier)
     {
-        float NewPrecent = Source.SalvagePercentage+Percentage;
-        if (NewPrecent > 1.0f) Percentage = Percentage-(NewPrecent-1.0f);
-        foreach (var ResourceData in SalvageResources)
-        {
-            Target.TryAdd(ResourceData.resource,ResourceData.amount); // TODO prevent overfill
-            Debug.Log("Salvaged: "+ ResourceData.amount + " of "+ ResourceData.resource.name);
-        }
-        if (Percentage >= 1.0f)
-        {
-            Destroy(Source.gameObject);
-        }
+      
     }
 }

@@ -1446,6 +1446,11 @@ PrefabInstance:
       propertyPath: gameHUD
       value: 
       objectReference: {fileID: 1398691973}
+    - target: {fileID: -2061200388978773683, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: _PlayerInventory
+      value: 
+      objectReference: {fileID: 849435024}
     - target: {fileID: 474012255534931523, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1662,6 +1667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.247
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701804487490555839, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: ActiveResources.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5267203579931695048, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
@@ -7682,6 +7692,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SatelliteToSpawn: {fileID: 0}
   SatelliteHolder: {fileID: 849435032}
+--- !u!114 &849435024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849435022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f4607a98cb38948abb19e35d98df54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemBuckets: []
+  ResourceBuckets:
+  - ItemResource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
+    Cap: 50
+    StoredAmount: 0
+  - ItemResource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
+    Cap: 50
+    StoredAmount: 0
 --- !u!136 &849435031
 CapsuleCollider:
   m_ObjectHideFlags: 0

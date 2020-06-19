@@ -5,11 +5,8 @@ public class SalvageTool : Tool
 {
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
-        if (target == null ) return false;
-        Salvagable SalvageObj = target.GetComponent<Salvagable>();
-        if (SalvageObj == null) return false;
-        Debug.Log(SalvageObj.HarvestingTool);
-        return (SalvageObj.HarvestingTool == this); //only activate if the target is salvagable
+        if (target.GetComponent<Salvagable>() != null) Debug.Log("Salvage Found");
+        return (target.GetComponent<Salvagable>() != null);
     }
 
     protected override bool DeactivateCondition(ToolController owner, GameObject target)
@@ -24,11 +21,24 @@ public class SalvageTool : Tool
 
     protected override void OnActivate(ToolController owner, GameObject target)
     {
-        Salvagable SalvageObj = target.GetComponent<Salvagable>();
-        float SalvageMultiplier = SalvageObj.LinkedSalvage.BaseMult;
-        Debug.Log("Salvager Activated");
-        SalvageObj.LinkedSalvage.DoSalvage(SalvageObj,owner.GetComponent<ResourceInventory>(),1.0f,SalvageMultiplier);
-
+        Salvagable SalvComp = target.GetComponent<Salvagable>();
+        if (SalvComp.SalvageItem.IsResourceItem)
+        {
+            if (owner.PlayerInventory.AddToResourceBucket(SalvComp.SalvageItem.ResourceType,SalvComp.SalvageItem))
+            {
+                Destroy(target);
+                Debug.Log("Salvaged Object");
+                return;
+            }
+            Debug.Log("Not enough space");
+        }
+        else 
+        {
+            Debug.Log("Could not salvage");
+            Debug.Log(SalvComp.SalvageItem + " is not a resource");
+        }
+        
+        
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
