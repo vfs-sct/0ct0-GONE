@@ -118,11 +118,14 @@ public class SpaceMovement : MovementComponent
         Vector3 Torques = new Vector3();
         float AngleDelta = 0;
         float fuelUsage = 0;        
+        var TargetRot = new Quaternion();
+        TargetRot.eulerAngles = TargetAngle;
+        var DeltaRot = Quaternion.Inverse(_Rigidbody.rotation)*TargetRot;
+
         for (int i = 0; i < 3; i++)
         {
-            AngleDelta = Mathf.Clamp(Mathf.DeltaAngle(_Rigidbody.rotation.eulerAngles[i],TargetAngle[i] ),-20,20);
-            Debug.Log(AngleDelta);
-            Debug.Log(AngleDelta > 0);
+            AngleDelta = DeltaRot.eulerAngles[i];
+            if (AngleDelta > 180) AngleDelta = -((AngleDelta)-180);
             Torques[i] = Mathf.Clamp(AngleDelta,-ThrusterTorque,ThrusterTorque);
             fuelUsage += Torques[i]*(FuelPerTorqueUnit/FuelEfficency);
         }
