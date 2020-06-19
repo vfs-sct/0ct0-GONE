@@ -30,6 +30,8 @@ public class GasCloudPostProcessing : MonoBehaviour
         fOut = -1,
     }
 
+    private FlashType flash = FlashType.fOut;
+
     void Awake()
     {
         post.profile.TryGetSettings<Vignette>(out vignette);
@@ -75,10 +77,38 @@ public class GasCloudPostProcessing : MonoBehaviour
         }
     }
 
-    private void Flash()
-    {
+    //private void Flash()
+    //{
 
-    }
+    //        CheckDirection(textColours[i].color.a, maxTextOpacity);
+    //        if (flash == FlashType.fIn)
+    //        {
+    //            endAlpha = maxTextOpacity;
+    //        }
+    //        else
+    //        {
+    //            endAlpha = minOpacity;
+    //        }
+
+    //        Color lerpToColor = new Color(textColours[i].color.r, textColours[i].color.g, textColours[i].color.b, endAlpha);
+
+    //        textColours[i].color = Color.Lerp(textColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
+    //    }
+    //}
+
+    //void CheckDirection(float opacity, float maxOpacity)
+    //{
+    //    //going toward 1, switches to going toward 0
+    //    if (flash == FlashType.fIn && opacity >= (maxOpacity - 0.1f))
+    //    {
+    //        flash = FlashType.fOut;
+    //    }
+    //    //going toward 0, switches to going toward 1
+    //    else if (flash == FlashType.fOut && opacity <= (minOpacity + 0.1f))
+    //    {
+    //        flash = FlashType.fIn;
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()

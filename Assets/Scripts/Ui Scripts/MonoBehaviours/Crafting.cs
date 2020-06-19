@@ -42,7 +42,7 @@ public class Crafting : MonoBehaviour
     private CraftingRecipe currentRecipe;
 
     private ResourceInventory playerInventory;
-    void Awake()
+    void Start()
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
 
