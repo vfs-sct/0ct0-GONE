@@ -12,6 +12,7 @@ public class GameHUD : MonoBehaviour
     [SerializeField] GameObject PausePrefab = null;
     [SerializeField] GameObject GameoverPrefab = null;
     [SerializeField] GameObject CraftingPrefab = null;
+    [SerializeField] public GameObject GasCloudAlertPrefab = null;
     [SerializeField] TextMeshProUGUI objectDistance = null;
 
     [Header("Tools")]

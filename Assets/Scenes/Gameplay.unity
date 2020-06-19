@@ -1435,12 +1435,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1569355660}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &297861807 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3593725904329803966, guid: 3219ccd55e0001b4c8703f7dc571d41e,
-    type: 3}
-  m_PrefabInstance: {fileID: 376850737}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &307403186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2172,6 +2166,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1005546952822184233, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 849435033}
     - target: {fileID: 1069589873764245559, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: AudioReferences2
@@ -2955,7 +2954,12 @@ PrefabInstance:
     - target: {fileID: 3593725904329803961, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593725904329803961, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_Name
+      value: GasCloudAlert
       objectReference: {fileID: 0}
     - target: {fileID: 3593725904396127085, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
@@ -7296,6 +7300,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447c59921b5bfd74683fe86b025e9aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &849435033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 489913433233796650, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+    type: 3}
+  m_PrefabInstance: {fileID: 307403186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849435022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f63eee57f8ff0419004c5a724a9f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &850982752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 600268465557183985, guid: 660c1ddcdfa77a342acca5d8f41ad301,
@@ -9337,75 +9353,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 969535681}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1448894218
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1448894221}
-  - component: {fileID: 1448894222}
-  - component: {fileID: 1448894219}
-  m_Layer: 9
-  m_Name: GasCloudHud
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1448894219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448894218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: d6430a63a06f23049af894e00470069d, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
---- !u!4 &1448894221
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448894218}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 702.5, y: -371.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 297861807}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1448894222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448894218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a66b26666fcfb4f9a788e51ff95f8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  post: {fileID: 1448894219}
-  flashSpeed: 5
-  vigMax: 0.4
-  vigMin: 0.373
-  chromAbMax: 0.35
-  chromAbMin: 0.115
-  colorgradMax: {r: 0.9811321, g: 0.29803923, b: 0.29803923, a: 0}
-  colorgradMin: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1001 &1454173048
 PrefabInstance:
   m_ObjectHideFlags: 0

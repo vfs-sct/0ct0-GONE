@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6681912487209306908}
   - component: {fileID: 5091213236160326726}
+  - component: {fileID: 2319565417507608860}
   - component: {fileID: 4144336670913185133}
   - component: {fileID: 7044093091500494202}
   - component: {fileID: 6317834930839916112}
@@ -17,7 +18,7 @@ GameObject:
   - component: {fileID: 9014880558626749635}
   m_Layer: 0
   m_Name: ==== Ambient Gas Cloud ====
-  m_TagString: Untagged
+  m_TagString: Cloud
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +50,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 28
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2319565417507608860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750713189171903235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1d67fb53bbb43409eefc93fc13629a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
+  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  playing: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
+  warningType: GasCloud
 --- !u!114 &4144336670913185133
 MonoBehaviour:
   m_ObjectHideFlags: 0
