@@ -14,8 +14,8 @@ public class MovementController : MonoBehaviour
     [SerializeField] private bool NormalizeInput = true;
     
 
-    private MovementComponent ActiveMode = null;
-
+    private MovementComponent _ActiveMode = null;
+    public MovementComponent ActiveMode{get=>_ActiveMode;}
     private Vector3 _RawInput = new Vector3();
 
     private Vector3  _RotationTarget = new Vector3();
@@ -35,7 +35,7 @@ public class MovementController : MonoBehaviour
     {
         Debug.Assert((NewMovementMode < MovementModes.Count)| MovementModes[NewMovementMode]!= null);
         MovementMode = NewMovementMode;
-        ActiveMode = MovementModes[NewMovementMode];
+        _ActiveMode = MovementModes[NewMovementMode];
     }
 
     public void OnHorizontalTranslate(InputValue value)
@@ -57,7 +57,7 @@ public class MovementController : MonoBehaviour
     {
         //register input listeners
         
-        ActiveMode = MovementModes[MovementMode];
+        _ActiveMode = MovementModes[MovementMode];
         foreach (var MovementMode in MovementModes)
         {
             MovementMode.Initialize(this);
@@ -74,13 +74,13 @@ public class MovementController : MonoBehaviour
         NormalizeInputs();
         if (NormalizeInput)
         {
-            ActiveMode.Translate(this,_NormalizedInput,MovementMode);
+            _ActiveMode.Translate(this,_NormalizedInput,MovementMode);
         }
         else
         {
-            ActiveMode.Translate(this,_RawInput,MovementMode);
+            _ActiveMode.Translate(this,_RawInput,MovementMode);
         }
-        ActiveMode.Rotate(this,_RotationTarget,MovementMode);
-        ActiveMode.MovementUpdate(this,MovementMode);
+        _ActiveMode.Rotate(this,_RotationTarget,MovementMode);
+        _ActiveMode.MovementUpdate(this,MovementMode);
     }
 }

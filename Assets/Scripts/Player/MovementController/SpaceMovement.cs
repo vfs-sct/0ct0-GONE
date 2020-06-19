@@ -88,7 +88,7 @@ public class SpaceMovement : MovementComponent
             Impulse[i] = Mathf.Clamp(Impulse[i],-ThrusterImpulse,ThrusterImpulse);
 
             Throttle[i] = Impulse[i]/ThrusterImpulse; //get the throttle value for sound and vfx
-            fuelUsage += Impulse[i]*(FuelPerImpulseUnit/FuelEfficency);
+            fuelUsage += Mathf.Abs(Impulse[i])*(FuelPerImpulseUnit/FuelEfficency);
         }
         LinkedResourceBehavior.RemoveResource(FuelResource,fuelUsage);
         return Impulse;
@@ -127,7 +127,7 @@ public class SpaceMovement : MovementComponent
             AngleDelta = DeltaRot.eulerAngles[i];
             if (AngleDelta > 180) AngleDelta = -((AngleDelta)-180);
             Torques[i] = Mathf.Clamp(AngleDelta,-ThrusterTorque,ThrusterTorque);
-            fuelUsage += Torques[i]*(FuelPerTorqueUnit/FuelEfficency);
+            fuelUsage += Mathf.Abs(Torques[i])*(FuelPerTorqueUnit/FuelEfficency);
         }
 
         _Rigidbody.AddRelativeTorque(new Vector3(1,0,0) * Torques.x,ForceMode.Impulse);

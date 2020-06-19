@@ -9,12 +9,10 @@ public class ThrusterAudioPlayer : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayThrusterAudio;
     [SerializeField] private AK.Wwise.Event StopThrusterAudio;
     [SerializeField] private AK.Wwise.RTPC ThrusterImpulseRTPC;
+    [SerializeField] private MovementController Movement;
 
-    [SerializeField] private SpaceMovement Movement;
-
-    [SerializeField] private float increment = 0.05f;
-    [SerializeField] private float decrement = 0.05f;
-
+    private Vector3 throttle;
+    float ThrusterVolume;
     private void Start()
     {
         // I play the sound to the Object this script is attatched to here. 
@@ -23,17 +21,16 @@ public class ThrusterAudioPlayer : MonoBehaviour
 
     private void Update()
     {
-        // Calculations for how loud the sound will be based on how long the player is holding the movement key down is handled here.
-        // ThrusterImpulseRTPC.SetGlobalValue(Mathf.Abs(Movement.Throttle.x) + Mathf.Abs(Movement.Throttle.y) + Mathf.Abs(Movement.Throttle.z) / 3);
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        throttle = (Movement.ActiveMode as SpaceMovement).Throttle;
+        ThrusterVolume = 0;
+
+        for (int i = 0; i < 3; i++) //use the largest throttle value for the sound
         {
-            ThrusterImpulseRTPC.SetGlobalValue(ThrusterImpulseRTPC.GetGlobalValue() + increment);
-            // Mathf.Abs(Movement.Throttle.x) + Mathf.Abs(Movement.Throttle.y) + Mathf.Abs(Movement.Throttle.z) / 3
+            throttle[i] = Mathf.Abs(throttle[i]);
+            if (ThrusterVolume < throttle[i]) ThrusterVolume = throttle[i];
         }
-        else
-        {
-            ThrusterImpulseRTPC.SetGlobalValue(ThrusterImpulseRTPC.GetGlobalValue() - decrement);
-        }
+        Debug.Log(ThrusterVolume);
+        ThrusterImpulseRTPC.SetGlobalValue(ThrusterVolume);
     }
 
     private void OnDestroy()
