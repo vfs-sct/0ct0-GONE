@@ -134,7 +134,8 @@ public class UIAwake : MonoBehaviour
             }
         }
 
-        //try to get player right off the bat
+        //Try to get player right off the bat and pass it to UIAwake
+        //Means anything using UIModule can get the player through the UIRoot variable
         gameObject.GetComponent<UIRoot>().player = GetPlayer();
 
     }

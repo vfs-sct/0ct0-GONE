@@ -22,22 +22,29 @@ public class EnterAreaWarning : MonoBehaviour
         player = UIModule.UIRoot.player;
     }
 
-    private void Update()
-    {
-        if(GameManager.ActiveGameState == playing && player == null)
-        {
-            player = UIModule.UIRoot.player;
-        }
-    }
+    //private void Update()
+    //{
+    //    if(GameManager.ActiveGameState == playing && player == null)
+    //    {
+    //        player = UIModule.UIRoot.player;
+    //    }
+    //}
 
+    //turn on warning when you enter
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player.gameObject)
+        if(player == null)
+        {
+            Debug.Log("EnterAreaWarning did not find a player");
+        }
+        else if (other.gameObject == player.gameObject)
         {
             alert.SetActive(true);
         }
     }
 
+    //turn off warning when you leave
+    //NOTE: currently turns warning off abruptly, no fading
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == player.gameObject)
