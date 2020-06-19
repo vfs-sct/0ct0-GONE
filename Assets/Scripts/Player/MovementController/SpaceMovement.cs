@@ -117,17 +117,19 @@ public class SpaceMovement : MovementComponent
     {
         Vector3 Torques = new Vector3();
         float AngleDelta = 0;
-        float fuelUsage = 0;
+        float fuelUsage = 0;        
         for (int i = 0; i < 3; i++)
         {
-            AngleDelta = Mathf.Clamp(Mathf.DeltaAngle(TargetAngle[i], _Rigidbody.rotation.eulerAngles[i]),-20,20);
+            AngleDelta = Mathf.Clamp(Mathf.DeltaAngle(_Rigidbody.rotation.eulerAngles[i],TargetAngle[i] ),-20,20);
+            Debug.Log(AngleDelta);
+            Debug.Log(AngleDelta > 0);
             Torques[i] = Mathf.Clamp(AngleDelta,-ThrusterTorque,ThrusterTorque);
             fuelUsage += Torques[i]*(FuelPerTorqueUnit/FuelEfficency);
         }
 
-        _Rigidbody.AddRelativeTorque(new Vector3(-1,0,0) * Torques.x,ForceMode.Impulse);
-        _Rigidbody.AddRelativeTorque(new Vector3(0,-1,0) * Torques.y,ForceMode.Impulse);
-        _Rigidbody.AddRelativeTorque(new Vector3(0,0,-1) * Torques.z,ForceMode.Impulse);
+        _Rigidbody.AddRelativeTorque(new Vector3(1,0,0) * Torques.x,ForceMode.Impulse);
+        _Rigidbody.AddRelativeTorque(new Vector3(0,1,0) * Torques.y,ForceMode.Impulse);
+        _Rigidbody.AddRelativeTorque(new Vector3(0,0,1) * Torques.z,ForceMode.Impulse);
         LinkedResourceBehavior.RemoveResource(FuelResource,fuelUsage);
     }
 
