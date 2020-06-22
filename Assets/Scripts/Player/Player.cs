@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
     private Material lastTargetMat = null;
     private GameObject highlightObject = null;
     private Material lastHighlightMat = null;
+    private Material HighlightMaterial = null;
 
     public void OnSelectTool1()//goo glue
     {
@@ -140,6 +141,7 @@ public class Player : MonoBehaviour
 
     public void OnActivateTool()
     {
+        if (targetObject != null) LinkedToolController.SetTarget(targetObject);
         LinkedToolController.ActivateTool();
 
         //testing code for satellite placement
@@ -159,49 +161,7 @@ public class Player : MonoBehaviour
 
     public void OnLockTarget()
     {
-        TryTarget();
-    }
 
-    private void TryTarget()
-    {
-        if (mouseCollision != null && mouseCollision.name != "Player" && mouseCollision.tag != "Cloud") 
-        {
-            //don't target crafting stations
-            if (mouseCollisionRoot.tag != "Refuel")
-            {
-                //is there an already targeted object that needs to be untargeted
-                if (targetObject != null)
-                {
-                    Debug.Log("Old target: " + targetObject);
-                    targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
-                }
-
-                if (mouseCollision.gameObject == highlightObject)
-                {
-                    lastTargetMat = lastHighlightMat;
-
-                    lastHighlightMat = null;
-                }
-                else
-                {
-                    lastTargetMat = mouseCollision.GetComponentInChildren<MeshRenderer>().material;
-                }
-
-                highlightObject = null;
-                targetObject = mouseCollision.gameObject;
-                LinkedToolController.SetTarget(targetObject);
-                //Debug.Log("Targeted: " + targetObject);
-
-                mouseCollision.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
-            }
-        }
-        else
-        {
-            RevertMaterial(targetObject, lastTargetMat);
-            targetObject = null;
-            lastTargetMat = null;
-            LinkedToolController.ClearTarget();
-        }
     }
 
     //used to put the default shader back on a highlighted or targeted object once it is no longer highlighted/targeted
@@ -231,6 +191,7 @@ public class Player : MonoBehaviour
     {
         PlayingState.RegisterPlayer(this);
         invertedCam = PlayerPrefs.GetInt("InvertedCam");
+        HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
     }
 
     private void Start()
@@ -265,7 +226,7 @@ public class Player : MonoBehaviour
 
     private void TryHighlight()
     {
-        if (mouseCollision != null && mouseCollision.name != "Player" && mouseCollision.tag != "Cloud" && mouseCollision.gameObject != targetObject)
+        if (mouseCollision != null && mouseCollision.name != "Player" && mouseCollision.tag != "Cloud") // && mouseCollision.gameObject != targetObject
         {
             //is there a previously highlighted object that needs to be unhighlighted?
             if (highlightObject != null)
@@ -273,28 +234,16 @@ public class Player : MonoBehaviour
                 //Debug.Log("Old highlight: " + highlightObject);
                 highlightObject.GetComponentInChildren<MeshRenderer>().material = lastHighlightMat;
             }
-
             highlightObject = mouseCollision.gameObject;
+            targetObject = mouseCollision.gameObject;
             //Debug.Log("Highlighted: " + highlightObject);
 
             lastHighlightMat = mouseCollision.GetComponentInChildren<MeshRenderer>().material;
-            mouseCollision.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("HoverHighlightMaterial");
+            MeshRenderer TargetMeshRender = mouseCollision.GetComponentInChildren<MeshRenderer>();
+            TargetMeshRender.material = HighlightMaterial;
+            Salvagable TargetSalvage = mouseCollision.GetComponentInChildren<Salvagable>();
+            if (TargetSalvage != null) TargetMeshRender.material.color = TargetSalvage.SalvageItem.ResourceType.ResourceColor;
 
-            if(mouseCollisionRoot.tag != "Refuel")
-            {
-                TargetingTooltip.SetActive(true);
-            }
-        }
-        else if(mouseCollision != null && mouseCollision.gameObject != targetObject)
-        {
-            RevertMaterial(highlightObject, lastHighlightMat);
-            highlightObject = null;
-            lastHighlightMat = null;
-        }
-
-        if (mouseCollision == null || mouseCollision.gameObject == targetObject || mouseCollisionRoot.tag == "Refuel")
-        {
-            TargetingTooltip.SetActive(false);
         }
     }
     public bool StationInRange(bool canCraft)
@@ -359,6 +308,8 @@ public class Player : MonoBehaviour
 
         return _TargetCollider;
     }
+
+
 
     private void Update()
     {
