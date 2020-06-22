@@ -29,7 +29,7 @@ public class ThrusterAudioPlayer : MonoBehaviour
             throttle[i] = Mathf.Abs(throttle[i]);
             if (ThrusterVolume < throttle[i]) ThrusterVolume = throttle[i];
         }
-        Debug.Log(ThrusterVolume);
+//        Debug.Log(ThrusterVolume);
         ThrusterImpulseRTPC.SetGlobalValue(ThrusterVolume);
     }
 
