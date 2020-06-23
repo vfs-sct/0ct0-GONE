@@ -6,6 +6,6 @@ public class PlayButtonSound : MonoBehaviour
 {
     public void OnClick()
     {
-        AkSoundEngine.PostEvent ("MainMenu_Button_Play",gameObject);
+        AkSoundEngine.PostEvent("MainMenu_Button_Play", gameObject);
     }
 }
