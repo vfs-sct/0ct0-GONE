@@ -34,6 +34,7 @@ public class HUDInventoryWidget : MonoBehaviour
         newDial.GetComponent<GetObjectsDial>().GetText().SetText(resource.DisplayName);
         updateFill.Add(resource, fillImage);
         fillImage.fillAmount = bucketInventory.GetFillAmount(resource);
+        newDial.GetComponent<GetObjectsDial>().GetBKImage().color = resource.ResourceColor;
         Debug.Log(bucketInventory.GetFillAmount(resource));
     }
 
