@@ -28,13 +28,16 @@ public class HUDInventoryWidget : MonoBehaviour
     private void GenerateDial(Resource resource)
     {
         var newDial = Instantiate(defaultDial);
+        
         newDial.transform.SetParent(buttonPanel.transform);
+        newDial.GetComponent<GetObjectsDial>().GetText().SetText(resource.DisplayName);
+        newDial.GetComponent<GetObjectsDial>().GetBKImage().color = new Color(resource.ResourceColor.r, resource.ResourceColor.g, resource.ResourceColor.b, 0.2f);
+        
         var fillImage = newDial.GetComponent<GetObjectsDial>().GetFillImage();
         fillImage.color = resource.ResourceColor;
-        newDial.GetComponent<GetObjectsDial>().GetText().SetText(resource.DisplayName);
-        updateFill.Add(resource, fillImage);
         fillImage.fillAmount = bucketInventory.GetFillAmount(resource);
-        newDial.GetComponent<GetObjectsDial>().GetBKImage().color = resource.ResourceColor;
+        updateFill.Add(resource, fillImage);
+        
     }
 
     // Update is called once per frame
@@ -42,7 +45,8 @@ public class HUDInventoryWidget : MonoBehaviour
     {
         foreach(var kvp in updateFill)
         {
-            kvp.Value.fillAmount = bucketInventory.GetFillAmount(kvp.Key);
+            Debug.Log((float)bucketInventory.GetFillAmount(kvp.Key) / 100);
+            kvp.Value.fillAmount = ((float)bucketInventory.GetFillAmount(kvp.Key) / 100);
         }
     }
 }
