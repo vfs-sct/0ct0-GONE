@@ -137,6 +137,14 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""InventoryHotkey"",
+                    ""type"": ""Button"",
+                    ""id"": ""50d85bad-425f-42dd-8df9-51fe118f560b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -425,6 +433,17 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""action"": ""RefuelHotkey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""99bdcb14-9f70-4871-89c6-3e0314dc2cc7"",
+                    ""path"": ""<Keyboard>/I"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryHotkey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -532,6 +551,14 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""name"": ""Debug"",
                     ""type"": ""Button"",
                     ""id"": ""63319c69-2f7a-4b8b-8518-229419aaccf5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""InventoryHotkey"",
+                    ""type"": ""Button"",
+                    ""id"": ""a501e0fb-193e-4dd9-b961-8f70cf3168a2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -988,6 +1015,17 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""action"": ""CraftHotkey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76e3a6e9-8d39-4dfa-b68c-fdf535070ad8"",
+                    ""path"": ""<Keyboard>/I"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""InventoryHotkey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1072,6 +1110,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
         m_Player_LockTarget = m_Player.FindAction("LockTarget", throwIfNotFound: true);
         m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
+        m_Player_InventoryHotkey = m_Player.FindAction("InventoryHotkey", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1087,6 +1126,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_Esc = m_UI.FindAction("Esc", throwIfNotFound: true);
         m_UI_Debug = m_UI.FindAction("Debug", throwIfNotFound: true);
+        m_UI_InventoryHotkey = m_UI.FindAction("InventoryHotkey", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1151,6 +1191,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Zoom;
     private readonly InputAction m_Player_LockTarget;
     private readonly InputAction m_Player_Roll;
+    private readonly InputAction m_Player_InventoryHotkey;
     public struct PlayerActions
     {
         private @OctoGoneControls m_Wrapper;
@@ -1170,6 +1211,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
         public InputAction @LockTarget => m_Wrapper.m_Player_LockTarget;
         public InputAction @Roll => m_Wrapper.m_Player_Roll;
+        public InputAction @InventoryHotkey => m_Wrapper.m_Player_InventoryHotkey;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1224,6 +1266,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Roll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
                 @Roll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
                 @Roll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
+                @InventoryHotkey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryHotkey;
+                @InventoryHotkey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryHotkey;
+                @InventoryHotkey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryHotkey;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1273,6 +1318,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Roll.started += instance.OnRoll;
                 @Roll.performed += instance.OnRoll;
                 @Roll.canceled += instance.OnRoll;
+                @InventoryHotkey.started += instance.OnInventoryHotkey;
+                @InventoryHotkey.performed += instance.OnInventoryHotkey;
+                @InventoryHotkey.canceled += instance.OnInventoryHotkey;
             }
         }
     }
@@ -1294,6 +1342,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_Esc;
     private readonly InputAction m_UI_Debug;
+    private readonly InputAction m_UI_InventoryHotkey;
     public struct UIActions
     {
         private @OctoGoneControls m_Wrapper;
@@ -1311,6 +1360,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @Esc => m_Wrapper.m_UI_Esc;
         public InputAction @Debug => m_Wrapper.m_UI_Debug;
+        public InputAction @InventoryHotkey => m_Wrapper.m_UI_InventoryHotkey;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1359,6 +1409,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Debug.started -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
                 @Debug.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
                 @Debug.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnDebug;
+                @InventoryHotkey.started -= m_Wrapper.m_UIActionsCallbackInterface.OnInventoryHotkey;
+                @InventoryHotkey.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnInventoryHotkey;
+                @InventoryHotkey.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnInventoryHotkey;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1402,6 +1455,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Debug.started += instance.OnDebug;
                 @Debug.performed += instance.OnDebug;
                 @Debug.canceled += instance.OnDebug;
+                @InventoryHotkey.started += instance.OnInventoryHotkey;
+                @InventoryHotkey.performed += instance.OnInventoryHotkey;
+                @InventoryHotkey.canceled += instance.OnInventoryHotkey;
             }
         }
     }
@@ -1468,6 +1524,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         void OnZoom(InputAction.CallbackContext context);
         void OnLockTarget(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
+        void OnInventoryHotkey(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1484,5 +1541,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnEsc(InputAction.CallbackContext context);
         void OnDebug(InputAction.CallbackContext context);
+        void OnInventoryHotkey(InputAction.CallbackContext context);
     }
 }

@@ -35,7 +35,6 @@ public class HUDInventoryWidget : MonoBehaviour
         updateFill.Add(resource, fillImage);
         fillImage.fillAmount = bucketInventory.GetFillAmount(resource);
         newDial.GetComponent<GetObjectsDial>().GetBKImage().color = resource.ResourceColor;
-        Debug.Log(bucketInventory.GetFillAmount(resource));
     }
 
     // Update is called once per frame
