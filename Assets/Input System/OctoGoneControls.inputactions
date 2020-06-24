@@ -124,6 +124,14 @@
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "InventoryHotkey",
+                    "type": "Button",
+                    "id": "50d85bad-425f-42dd-8df9-51fe118f560b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -412,6 +420,17 @@
                     "action": "RefuelHotkey",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99bdcb14-9f70-4871-89c6-3e0314dc2cc7",
+                    "path": "<Keyboard>/I",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InventoryHotkey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -519,6 +538,14 @@
                     "name": "Debug",
                     "type": "Button",
                     "id": "63319c69-2f7a-4b8b-8518-229419aaccf5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "InventoryHotkey",
+                    "type": "Button",
+                    "id": "a501e0fb-193e-4dd9-b961-8f70cf3168a2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -973,6 +1000,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "CraftHotkey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76e3a6e9-8d39-4dfa-b68c-fdf535070ad8",
+                    "path": "<Keyboard>/I",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "InventoryHotkey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

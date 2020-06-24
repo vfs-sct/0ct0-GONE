@@ -49,6 +49,11 @@ public class InventoryController : MonoBehaviour
 
     private Dictionary<Resource,ItemBucket> ResourceBuckets_Dict = new Dictionary<Resource, ItemBucket>();
 
+    public int GetFillAmount(Resource resource)
+    {
+        return ResourceBuckets_Dict[resource].FillAmount;
+    }
+
     private void Awake()
     {
         foreach (var item in ResourceBuckets)
