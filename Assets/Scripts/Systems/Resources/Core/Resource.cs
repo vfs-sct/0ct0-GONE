@@ -32,7 +32,7 @@ public class Resource : ScriptableObject
     [SerializeField] private float DefaultValue = 0;
     [SerializeField] private float Maximum = 100;
     [SerializeField] public string DisplayName = "";
-    [SerializeField] private string Abreviation = "";
+    [SerializeField] public string Abreviation = "";
     [SerializeField] public Color ResourceColor;
     [SerializeField] public Sprite resourceIcon = null;
 
