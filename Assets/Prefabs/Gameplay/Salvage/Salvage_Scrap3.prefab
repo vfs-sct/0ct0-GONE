@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cbfc9dc3323e6442958f93ada007dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _SalvageItem: {fileID: 11400000, guid: fb62e7b645ffe154dab2fe65fe685a47, type: 2}
+  _SalvageItem: {fileID: 11400000, guid: 91464311b6bbe9347a6c035e08dcfda2, type: 2}
 --- !u!135 &1177146424779885327
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -133,6 +133,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1350985699910180461}
     m_Modifications:
+    - target: {fileID: -8660778120647677626, guid: 7fa09f6d8bb792c449ec567ce2fd2669,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bc0ce3b3f35a5f4880cea4f8842629f, type: 2}
     - target: {fileID: -4216859302048453862, guid: 7fa09f6d8bb792c449ec567ce2fd2669,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject RefuellingTooltip = null;
     [SerializeField] private GameObject TargetingTooltip = null;
 
+    [SerializeField] private ScannerComponent Scanner;
+
     [Header("PlayerPref Options:")]
     //used by UI/playerprefs to invert camera
     public int invertedCam = 1;
@@ -159,9 +161,9 @@ public class Player : MonoBehaviour
         LinkedToolController.DeselectTool();
     }
 
-    public void OnLockTarget()
+    public void OnScanSalvage()
     {
-
+        Scanner.DoScan();
     }
 
     //used to put the default shader back on a highlighted or targeted object once it is no longer highlighted/targeted

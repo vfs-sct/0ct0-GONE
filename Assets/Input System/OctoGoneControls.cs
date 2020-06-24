@@ -123,7 +123,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""LockTarget"",
+                    ""name"": ""ScanSalvage"",
                     ""type"": ""Button"",
                     ""id"": ""e5436b97-2b24-47a3-b3ef-081fdb927c0f"",
                     ""expectedControlType"": ""Button"",
@@ -364,18 +364,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""LockTarget"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3bac6b83-8134-4e1e-b67a-51ad7edc6119"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LockTarget"",
+                    ""action"": ""ScanSalvage"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1108,7 +1097,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         m_Player_ActivateTool = m_Player.FindAction("ActivateTool", throwIfNotFound: true);
         m_Player_DeactivateTool = m_Player.FindAction("DeactivateTool", throwIfNotFound: true);
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
-        m_Player_LockTarget = m_Player.FindAction("LockTarget", throwIfNotFound: true);
+        m_Player_ScanSalvage = m_Player.FindAction("ScanSalvage", throwIfNotFound: true);
         m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
         m_Player_InventoryHotkey = m_Player.FindAction("InventoryHotkey", throwIfNotFound: true);
         // UI
@@ -1189,7 +1178,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_ActivateTool;
     private readonly InputAction m_Player_DeactivateTool;
     private readonly InputAction m_Player_Zoom;
-    private readonly InputAction m_Player_LockTarget;
+    private readonly InputAction m_Player_ScanSalvage;
     private readonly InputAction m_Player_Roll;
     private readonly InputAction m_Player_InventoryHotkey;
     public struct PlayerActions
@@ -1209,7 +1198,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         public InputAction @ActivateTool => m_Wrapper.m_Player_ActivateTool;
         public InputAction @DeactivateTool => m_Wrapper.m_Player_DeactivateTool;
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
-        public InputAction @LockTarget => m_Wrapper.m_Player_LockTarget;
+        public InputAction @ScanSalvage => m_Wrapper.m_Player_ScanSalvage;
         public InputAction @Roll => m_Wrapper.m_Player_Roll;
         public InputAction @InventoryHotkey => m_Wrapper.m_Player_InventoryHotkey;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1260,9 +1249,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Zoom.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoom;
                 @Zoom.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoom;
                 @Zoom.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoom;
-                @LockTarget.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockTarget;
-                @LockTarget.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockTarget;
-                @LockTarget.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockTarget;
+                @ScanSalvage.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScanSalvage;
+                @ScanSalvage.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScanSalvage;
+                @ScanSalvage.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScanSalvage;
                 @Roll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
                 @Roll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
                 @Roll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
@@ -1312,9 +1301,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @Zoom.started += instance.OnZoom;
                 @Zoom.performed += instance.OnZoom;
                 @Zoom.canceled += instance.OnZoom;
-                @LockTarget.started += instance.OnLockTarget;
-                @LockTarget.performed += instance.OnLockTarget;
-                @LockTarget.canceled += instance.OnLockTarget;
+                @ScanSalvage.started += instance.OnScanSalvage;
+                @ScanSalvage.performed += instance.OnScanSalvage;
+                @ScanSalvage.canceled += instance.OnScanSalvage;
                 @Roll.started += instance.OnRoll;
                 @Roll.performed += instance.OnRoll;
                 @Roll.canceled += instance.OnRoll;
@@ -1522,7 +1511,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         void OnActivateTool(InputAction.CallbackContext context);
         void OnDeactivateTool(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
-        void OnLockTarget(InputAction.CallbackContext context);
+        void OnScanSalvage(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnInventoryHotkey(InputAction.CallbackContext context);
     }
