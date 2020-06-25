@@ -15,31 +15,13 @@ public class InventoryV2 : MonoBehaviour
 
     [SerializeField] HUDInventoryWidget InventoryWidget = null;
 
-    private InventoryController playerInventory = null;
+    private InventoryController playerInventory;
  
     // Start is called before the first frame update
     void Start()
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
-
-        int i = 0;
-        foreach(var resource in InventoryWidget.resources)
-        {
-            var newBox = Instantiate(ResourceBox);
-            if(i < 3)
-            {
-                newBox.transform.SetParent(RowOne.transform);
-                i++;
-            }
-            else
-            {
-                newBox.transform.SetParent(RowTwo.transform);
-                i++;
-            }
-            var getObjects = newBox.GetComponent<GetObjectsResourceBox>();
-            getObjects.GetBGImage().color = new Color(resource.ResourceColor.r, resource.ResourceColor.g, resource.ResourceColor.b, 0.2f);
-            getObjects.GetTitleText().SetText(resource.DisplayName.ToString() + "   (" + resource.Abreviation.ToString() + ")");
-        }
+        PopulateResources();
     }
 
     // Update is called once per frame
@@ -48,12 +30,22 @@ public class InventoryV2 : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+    }
+
+    private void OnDisable()
+    {
+        Cursor.visible = false;
+    }
+
     public void OnEsc(InputValue value)
     {
         Close();
     }
 
-    public void OnCraftHotkey(InputValue value)
+    public void OnInventoryHotkey(InputValue value)
     {
         Close();
     }
@@ -66,7 +58,30 @@ public class InventoryV2 : MonoBehaviour
 
     public void PopulateResources()
     {
+        int i = 0;
+        foreach (var resource in InventoryWidget.resources)
+        {
+            var newBox = Instantiate(ResourceBox);
+            if (i < 3)
+            {
+                newBox.transform.SetParent(RowOne.transform);
+                i++;
+            }
+            else
+            {
+                newBox.transform.SetParent(RowTwo.transform);
+                i++;
+            }
+            var getObjects = newBox.GetComponent<GetObjectsResourceBox>();
+            getObjects.GetBGImage().color = new Color(resource.ResourceColor.r, resource.ResourceColor.g, resource.ResourceColor.b, 0.3f);
+            getObjects.GetTitleText().SetText(resource.DisplayName.ToString() + "   (" + resource.Abreviation.ToString() + ")");
+            getObjects.GetCapacityText().SetText("Capacity:\n" + (playerInventory.GetFillAmount(resource) / 10) + "/10");
 
+            foreach(var chunk in getObjects.GetChunkImages())
+            {
+                chunk.color = resource.ResourceColor;
+            }
+        }
     }
 
     //public Button AddNewButton(string buttonText, VerticalLayoutGroup contentGroup)
