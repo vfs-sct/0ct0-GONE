@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
+using System.Collections.Generic;
 
 public class InventoryV2 : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class InventoryV2 : MonoBehaviour
     [SerializeField] HUDInventoryWidget InventoryWidget = null;
 
     private InventoryController playerInventory;
- 
+    private Dictionary<Resource, GetObjectsResourceBox> ResourceBoxes = new Dictionary<Resource, GetObjectsResourceBox>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,10 @@ public class InventoryV2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        foreach(var kvp in ResourceBoxes)
+        {
+            kvp.Value.GetCapacityText().SetText("Capacity:\n" + (playerInventory.GetFillAmount(kvp.Key) / 10) + "/10");
+        }
     }
 
     private void OnEnable()
@@ -80,6 +85,8 @@ public class InventoryV2 : MonoBehaviour
             {
                 chunk.color = resource.ResourceColor;
             }
+
+            ResourceBoxes.Add(resource, getObjects);
         }
     }
 

@@ -14,6 +14,7 @@ public class HUDInventoryWidget : MonoBehaviour
     private Dictionary<Resource, Image> updateFill = new Dictionary<Resource, Image>();
 
     private InventoryController bucketInventory;
+
     // Start is called before the first frame update
     void Start()
     {
