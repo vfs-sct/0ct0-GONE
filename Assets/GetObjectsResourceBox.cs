@@ -12,6 +12,8 @@ public class GetObjectsResourceBox : MonoBehaviour
     [Header("Must Be Size 10:")]
     [SerializeField] Image[] chunkImages = null;
 
+    private bool[] activeChunk = new bool[10];
+
     public Image GetBGImage()
     {
         return bgImage;

@@ -60,6 +60,11 @@ public class InventoryV2 : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void UpdateChunks()
+    {
+
+    }
+
     public void PopulateResources()
     {
         int i = 0;
