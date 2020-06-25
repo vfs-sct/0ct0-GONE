@@ -10,7 +10,7 @@ public class GetObjectsResourceBox : MonoBehaviour
     [SerializeField] TextMeshProUGUI titleText = null;
     [SerializeField] TextMeshProUGUI capacityText = null;
     [Header("Must Be Size 10:")]
-    [SerializeField] Image[] chunkImages = null;
+    [SerializeField] GameObject[] chunkButtons = null;
 
     private bool[] activeChunk = new bool[10];
 
@@ -18,9 +18,9 @@ public class GetObjectsResourceBox : MonoBehaviour
     {
         return bgImage;
     }
-    public Image[] GetChunkImages()
+    public GameObject[] GetChunkButtons()
     {
-        return chunkImages;
+        return chunkButtons;
     }
 
     public TextMeshProUGUI GetTitleText()

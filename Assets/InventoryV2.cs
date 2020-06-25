@@ -86,9 +86,9 @@ public class InventoryV2 : MonoBehaviour
             getObjects.GetTitleText().SetText(resource.DisplayName.ToString() + "   (" + resource.Abreviation.ToString() + ")");
             getObjects.GetCapacityText().SetText("Capacity:\n" + (playerInventory.GetFillAmount(resource) / 10) + "/10");
 
-            foreach(var chunk in getObjects.GetChunkImages())
+            foreach(var chunk in getObjects.GetChunkButtons())
             {
-                chunk.color = resource.ResourceColor;
+                chunk.GetComponent<Image>().color = resource.ResourceColor;
             }
 
             ResourceBoxes.Add(resource, getObjects);
