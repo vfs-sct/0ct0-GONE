@@ -17,6 +17,7 @@ public class InventoryV2 : MonoBehaviour
 
     private InventoryController playerInventory;
     private Dictionary<Resource, GetObjectsResourceBox> ResourceBoxes = new Dictionary<Resource, GetObjectsResourceBox>();
+    private Dictionary<Button, Item> ItemButtonAssociation = new Dictionary<Button, Item>();
     private bool[] isActive = new bool[10]
     {
         false,
@@ -83,6 +84,7 @@ public class InventoryV2 : MonoBehaviour
             //turn everyone off first
             foreach(var button in kvp.Value.GetChunkButtons())
             {
+                button.GetComponent<Button>().onClick.RemoveAllListeners();
                 button.SetActive(false);
             }
             for(int l = 0; l < isActive.Length; l++)
@@ -91,12 +93,11 @@ public class InventoryV2 : MonoBehaviour
             }
 
             var bucket = playerInventory.GetResourceBucket(kvp.Key);
-            int i = 0;
-            //Debug.Log(bucket.Bucket);
+            //Debug.Log("BUCKET COUNT" + bucket.Bucket.Count);
             //get all the items in the bucket
             foreach(var item in bucket.Bucket)
             {
-                Debug.Log("HEY" + item.Size / 10);
+                //Debug.Log("HEY" + item.Size / 10);
                 //figure out if the item takes more than 1 slot
                 
                 float j = item.Size / 10;
@@ -109,6 +110,13 @@ public class InventoryV2 : MonoBehaviour
                         {
                             kvp.Value.SetChunkBool(k, true);
                             kvp.Value.GetChunkButtons()[k].SetActive(true);
+                            kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
+                            {
+                                Debug.Log("CHUNK CLICKED!");
+                                playerInventory.RemoveFromResourceBucket(kvp.Key, item);
+                                UpdateAllChunks();
+                            });
+
                             isActive[k] = true;
                             j--;
                         }
@@ -147,17 +155,6 @@ public class InventoryV2 : MonoBehaviour
             ResourceBoxes.Add(resource, getObjects);
         }
     }
-
-    //public Button AddNewButton(string buttonText, VerticalLayoutGroup contentGroup)
-    //{
-    //    var newButton = Instantiate(RecipeButton);
-
-    //    newButton.transform.SetParent(contentGroup.transform);
-
-    //    newButton.GetComponentInChildren<TextMeshProUGUI>().SetText(buttonText);
-
-    //    return newButton;
-    //}
 
     public void SwitchViewTo(GameObject newPanel)
     {

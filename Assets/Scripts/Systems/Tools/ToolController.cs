@@ -4,6 +4,7 @@ using TMPro;
 
 public class ToolController : MonoBehaviour
 {
+    [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] private List<Tool> EquiptTools = new List<Tool>();
     [SerializeField] public TextMeshProUGUI toolText = null;
     [SerializeField] public GameHUD gameHUD = null;
@@ -63,14 +64,20 @@ public class ToolController : MonoBehaviour
 
     public void ActivateTool()
     {
-        if (CurrentTool == null | CurrentToolIsActive) return;
-        CurrentToolIsActive = CurrentTool.Activate(this,_Target);
+        if (!GameManager.isPaused)
+        {
+            if (CurrentTool == null | CurrentToolIsActive) return;
+            CurrentToolIsActive = CurrentTool.Activate(this, _Target);
+        }
     }
 
     public void DeactivateTool()
     {
-        if (CurrentTool == null) return;
-        CurrentToolIsActive = !CurrentTool.Deactivate(this,_Target);
+        if (!GameManager.isPaused)
+        {
+            if (CurrentTool == null) return;
+            CurrentToolIsActive = !CurrentTool.Deactivate(this, _Target);
+        }
         
     }
     private void DeactiveTool_Internal()

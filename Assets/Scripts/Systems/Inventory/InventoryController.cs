@@ -57,10 +57,10 @@ public class InventoryController : MonoBehaviour
     public ItemBucket GetResourceBucket(Resource resource)
     {
         ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
-        Debug.Log("FOUND BUCKET" + ResourceBuckets_Dict[resource]);
+        Debug.Log("FOUND BUCKET" + resource.DisplayName);
         foreach(var item in FoundBucket.Bucket)
         {
-            Debug.Log(item.name);
+            Debug.Log("CONTAINS " + item.name);
         }
         return FoundBucket;
 
@@ -128,9 +128,19 @@ public class InventoryController : MonoBehaviour
     public bool RemoveFromResourceBucket(Resource resource,Item itemToRemove)
     {
         ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
-        if (!FoundBucket.Bucket.Contains(itemToRemove)) return false;
+        if (!FoundBucket.Bucket.Contains(itemToRemove))
+        {
+            Debug.Log("Item Not Found");
+            return false;
+        }
         ResourceBuckets_Dict[resource] = new ItemBucket(FoundBucket,FoundBucket.FillAmount- itemToRemove.Size);
         FoundBucket.Bucket.Remove(itemToRemove);
+        Debug.Log("REMOVED " + itemToRemove.name);
+        Debug.Log(resource.DisplayName + " BUCKET UPDATED");
+        foreach (var item in FoundBucket.Bucket)
+        {
+            Debug.Log("CONTAINS " + item.name);
+        }
         FoundBucket.Bucket.TrimExcess();
         return true;
     }

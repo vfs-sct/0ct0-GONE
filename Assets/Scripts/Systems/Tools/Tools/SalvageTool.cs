@@ -7,8 +7,12 @@ public class SalvageTool : Tool
     {
 
         //Debug.Log(target);
-        if (target.GetComponent<Salvagable>() != null) Debug.Log("Salvage Found");
-        return (target.GetComponent<Salvagable>() != null);
+        if (target.GetComponent<Salvagable>() != null)
+        {
+            Debug.Log("Salvage Found");
+            return true;
+        }
+        return false;
     }
 
     protected override bool DeactivateCondition(ToolController owner, GameObject target)
