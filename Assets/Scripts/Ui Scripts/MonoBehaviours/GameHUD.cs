@@ -91,7 +91,7 @@ public class GameHUD : MonoBehaviour
     {
         if (!GameManager.isPaused)
         {
-            SwitchViewTo(InventoryPrefab);
+            InventoryPrefab.SetActive(true);
             GameManager.Pause();
         }
     }

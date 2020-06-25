@@ -8,7 +8,6 @@ public class InventoryV2 : MonoBehaviour
 {
     [SerializeField] UIAwake UIRoot = null;
     [SerializeField] GameFrameworkManager GameManager = null;
-    [SerializeField] GameObject HUDPrefab = null;
     [SerializeField] GameObject ResourceBox = null;
     [SerializeField] HorizontalLayoutGroup RowOne = null;
     [SerializeField] HorizontalLayoutGroup RowTwo = null;
@@ -53,7 +52,7 @@ public class InventoryV2 : MonoBehaviour
     public void Close()
     {
         GameManager.UnPause();
-        SwitchViewTo(HUDPrefab);
+        gameObject.SetActive(false);
     }
 
     public void PopulateResources()
