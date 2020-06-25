@@ -429,7 +429,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/I"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""InventoryHotkey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1011,7 +1011,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/I"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Joystick"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""InventoryHotkey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
