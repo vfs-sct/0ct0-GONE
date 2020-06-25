@@ -85,6 +85,10 @@ public class InventoryV2 : MonoBehaviour
             {
                 button.SetActive(false);
             }
+            for(int l = 0; l < isActive.Length; l++)
+            {
+                isActive[l] = false;
+            }
 
             var bucket = playerInventory.GetResourceBucket(kvp.Key);
             int i = 0;
@@ -94,14 +98,20 @@ public class InventoryV2 : MonoBehaviour
             {
                 Debug.Log("HEY" + item.Size / 10);
                 //figure out if the item takes more than 1 slot
-                for(float j = item.Size/10;  j > 0; j--)
-                {
+                
+                float j = item.Size / 10;
+                if(j != 0)
+                { 
                     //assign the appropriate number of slots for that item
-                    for (int k = 0; k < isActive.Length; k++)
+                    for (int k = 0; k < isActive.Length && j != 0; k++)
                     {
-                        kvp.Value.SetChunkBool(k, true);
-                        kvp.Value.GetChunkButtons()[k].SetActive(true);
-                        isActive[k] = true;
+                        if (isActive[k] == false)
+                        {
+                            kvp.Value.SetChunkBool(k, true);
+                            kvp.Value.GetChunkButtons()[k].SetActive(true);
+                            isActive[k] = true;
+                            j--;
+                        }
                     }
                 }
             }
