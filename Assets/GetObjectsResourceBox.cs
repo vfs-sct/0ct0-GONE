@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -13,6 +11,11 @@ public class GetObjectsResourceBox : MonoBehaviour
     [SerializeField] GameObject[] chunkButtons = null;
 
     private bool[] activeChunk = new bool[10];
+
+    public void SetChunkBool(int index, bool state)
+    {
+        activeChunk[index] = state;
+    }
 
     public Image GetBGImage()
     {

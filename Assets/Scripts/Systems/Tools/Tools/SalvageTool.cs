@@ -6,7 +6,7 @@ public class SalvageTool : Tool
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
 
-        Debug.Log(target);
+        //Debug.Log(target);
         if (target.GetComponent<Salvagable>() != null) Debug.Log("Salvage Found");
         return (target.GetComponent<Salvagable>() != null);
     }
@@ -45,17 +45,17 @@ public class SalvageTool : Tool
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
     {
-        Debug.Log("Salvager Deactivated");
+        //Debug.Log("Salvager Deactivated");
     }
 
     protected override void OnSelect(ToolController owner)
     {
-        Debug.Log("Salvager Selected");
+        //Debug.Log("Salvager Selected");
     }
 
     protected override void OnDeselect(ToolController owner)
     {
-        Debug.Log("Salvager DeSelected");
+        //Debug.Log("Salvager DeSelected");
     }
 
     

@@ -17,12 +17,26 @@ public class InventoryV2 : MonoBehaviour
 
     private InventoryController playerInventory;
     private Dictionary<Resource, GetObjectsResourceBox> ResourceBoxes = new Dictionary<Resource, GetObjectsResourceBox>();
+    private bool[] isActive = new bool[10]
+    {
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+    };
 
     // Start is called before the first frame update
     void Start()
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
         PopulateResources();
+        UpdateAllChunks();
     }
 
     // Update is called once per frame
@@ -37,6 +51,7 @@ public class InventoryV2 : MonoBehaviour
     private void OnEnable()
     {
         Cursor.visible = true;
+        UpdateAllChunks();
     }
 
     private void OnDisable()
@@ -60,9 +75,37 @@ public class InventoryV2 : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void UpdateChunks()
+    public void UpdateAllChunks()
     {
+        //for each resource type
+        foreach(var kvp in ResourceBoxes)
+        {
+            //turn everyone off first
+            foreach(var button in kvp.Value.GetChunkButtons())
+            {
+                button.SetActive(false);
+            }
 
+            var bucket = playerInventory.GetResourceBucket(kvp.Key);
+            int i = 0;
+            //Debug.Log(bucket.Bucket);
+            //get all the items in the bucket
+            foreach(var item in bucket.Bucket)
+            {
+                Debug.Log("HEY" + item.Size / 10);
+                //figure out if the item takes more than 1 slot
+                for(float j = item.Size/10;  j > 0; j--)
+                {
+                    //assign the appropriate number of slots for that item
+                    for (int k = 0; k < isActive.Length; k++)
+                    {
+                        kvp.Value.SetChunkBool(k, true);
+                        kvp.Value.GetChunkButtons()[k].SetActive(true);
+                        isActive[k] = true;
+                    }
+                }
+            }
+        }
     }
 
     public void PopulateResources()

@@ -54,6 +54,25 @@ public class InventoryController : MonoBehaviour
         return ResourceBuckets_Dict[resource].FillAmount;
     }
 
+    public ItemBucket GetResourceBucket(Resource resource)
+    {
+        ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
+        Debug.Log("FOUND BUCKET" + ResourceBuckets_Dict[resource]);
+        foreach(var item in FoundBucket.Bucket)
+        {
+            Debug.Log(item.name);
+        }
+        return FoundBucket;
+
+        //ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
+        //FoundBucket.Bucket.ForEach()
+        //if (!FoundBucket.Bucket.Contains(itemToRemove)) return false;
+        //ResourceBuckets_Dict[resource] = new ItemBucket(FoundBucket, FoundBucket.FillAmount - itemToRemove.Size);
+        //FoundBucket.Bucket.Remove(itemToRemove);
+        //FoundBucket.Bucket.TrimExcess();
+        //return true;
+    }
+
     private void Awake()
     {
         foreach (var item in ResourceBuckets)
@@ -78,6 +97,7 @@ public class InventoryController : MonoBehaviour
     {
         if (itemToAdd.IsResourceItem) return false;
         ItemBucket FoundBucket = ItemBuckets[BucketIndex];
+        FoundBucket.Bucket.Add(itemToAdd);
         int NewFill = FoundBucket.FillAmount + itemToAdd.Size;
         if (NewFill > FoundBucket.ItemCap) return false;
 
@@ -99,6 +119,7 @@ public class InventoryController : MonoBehaviour
     {
         if (!itemToAdd.IsResourceItem) return false;
         ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
+        FoundBucket.Bucket.Add(itemToAdd);
         int NewFill = FoundBucket.FillAmount + itemToAdd.Size;
         if (NewFill > FoundBucket.ItemCap) return false;
         ResourceBuckets_Dict[resource] = new ItemBucket(FoundBucket,NewFill);
