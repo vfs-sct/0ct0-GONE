@@ -3,13 +3,12 @@ using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "Systems/Events/Resource Collection Event")]
-public class ResourceCollectionEvent : Event
+public class SalvageEvent : Event
 {
     private bool EventTrigger = false;
     [SerializeField] Resource CollectResource;
     [SerializeField] float ResourceAmount;
-    [SerializeField] public string actionVerb = "Collect";
-
+    [SerializeField] public string actionVerb = "Salvage";
     [SerializeField] protected UIModule UIRootModule = null;
 
     private float previousAmount = -1000f;
@@ -21,16 +20,16 @@ public class ResourceCollectionEvent : Event
     {
         if(isInitialized == true)
         {
-            previousAmount = target.GetComponent<ResourceInventory>().GetResource(CollectResource);
+            previousAmount = target.GetComponent<InventoryController>().GetFillAmount(CollectResource);
             isUpdating = true;
             isInitialized = false;
         }
         if (isUpdating == true)
         {
             float currentAmount;
-            if (target.GetComponent<ResourceInventory>() != null)
+            if (target.GetComponent<InventoryController>() != null)
             {
-                currentAmount = target.GetComponent<ResourceInventory>().GetResource(CollectResource);
+                currentAmount = target.GetComponent<InventoryController>().GetFillAmount(CollectResource);
             }
             else
             {

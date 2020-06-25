@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b8d5435ff3f5941b32c7c95f0b28e1, type: 3}
-  m_Name: MetalSheetCollection
+  m_Script: {fileID: 11500000, guid: 46aa48022f31ab940bea6f10eb96a451, type: 3}
+  m_Name: SalvageIron
   m_EditorClassIdentifier: 
-  EventName: CollectMetalEvent
-  EventText: -Craft or collect 5 metal plates
-  CompletionText: 
+  EventName: Salvage Iron
+  EventText: Salvage 10 Iron
+  CompletionText: Yay
   EventEffectDelegates:
     m_PersistentCalls:
       m_Calls: []
-  CollectResource: {fileID: 0}
-  ResourceAmount: 200
-  actionVerb: Collect
+  CollectResource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
+  ResourceAmount: 6
+  actionVerb: Salvage
   UIRootModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
