@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6635352740227987453}
+  - component: {fileID: 3181587246643343424}
   m_Layer: 5
   m_Name: InventoryMenu
   m_TagString: Untagged
@@ -31,6 +32,26 @@ Transform:
   m_Father: {fileID: 8653866246698771497}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3181587246643343424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347641398001066591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3fd6a564af8144a9f9ef342a6004b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIRoot: {fileID: 1171884305357751754}
+  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  HUDPrefab: {fileID: 5739472784680638185}
+  ResourceBox: {fileID: 4745634852992090728, guid: a9850d1dc1aeab74d941974f6438f7ec,
+    type: 3}
+  RowOne: {fileID: 0}
+  RowTwo: {fileID: 0}
+  InventoryWidget: {fileID: 7286456846768354600}
 --- !u!1 &1051587229646450594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,11 +2515,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6212818739637226146, guid: 6f4cfe79b19c0e34fa7a603cce0cdb1b,
         type: 3}
-      propertyPath: resources.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6212818739637226146, guid: 6f4cfe79b19c0e34fa7a603cce0cdb1b,
-        type: 3}
       propertyPath: UIRoot
       value: 
       objectReference: {fileID: 1171884305357751754}
@@ -2775,6 +2791,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f4cfe79b19c0e34fa7a603cce0cdb1b, type: 3}
+--- !u!114 &7286456846768354600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6212818739637226146, guid: 6f4cfe79b19c0e34fa7a603cce0cdb1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3685893240417992586}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c88bc056f88b547846a1f0c7ea3dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5739472785064294588 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8971267529836578614, guid: 6f4cfe79b19c0e34fa7a603cce0cdb1b,

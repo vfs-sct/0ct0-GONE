@@ -9,7 +9,7 @@ public class HUDInventoryWidget : MonoBehaviour
     [SerializeField] HorizontalLayoutGroup buttonPanel = null;
     [SerializeField] GameObject defaultDial = null;
 
-    [SerializeField] private Resource[] resources = null;
+    [SerializeField] public Resource[] resources = null;
     
     private Dictionary<Resource, Image> updateFill = new Dictionary<Resource, Image>();
 
