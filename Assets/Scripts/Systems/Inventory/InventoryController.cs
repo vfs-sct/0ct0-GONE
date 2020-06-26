@@ -163,8 +163,17 @@ public class InventoryController : MonoBehaviour
 
     public Dictionary<Item,int> GetResourceSalvageList(Resource resource)
     {
-        Dictionary<Item,int> returnList = new Dictionary<Item,int>();
         return ResourceBuckets_Dict[resource].Bucket;
+    }
+
+    public Dictionary<Item,int> GetResourceSalvageSpaceList(Resource resource)
+    {
+        Dictionary<Item,int> returnDict = new Dictionary<Item, int>();
+        foreach (var item in GetResourceSalvageList(resource))
+        {
+            returnDict.Add(item.Key,item.Key.Size*item.Value);
+        };
+        return returnDict;
     }
 
     public bool AddToResourceBucket(Item itemToAdd, int amount = 1)
