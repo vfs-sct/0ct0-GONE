@@ -514,12 +514,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashObject: {fileID: 6588928900632602006}
-  flashSpeed: 1
+  flashSpeed: 0.4
   maxTextOpacity: 1
-  maxImageOpacity: 0.6
+  maxImageOpacity: 1
   minOpacity: 0
   disableTextFlash: 0
-  disableImageFlash: 0
+  disableImageFlash: 1
 --- !u!1 &6673566686754087295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,6 +2314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5292568386286416493, guid: 6f4cfe79b19c0e34fa7a603cce0cdb1b,
         type: 3}
+      propertyPath: resources.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292568386286416493, guid: 6f4cfe79b19c0e34fa7a603cce0cdb1b,
+        type: 3}
       propertyPath: UIRoot
       value: 
       objectReference: {fileID: 1171884305357751754}
@@ -3435,6 +3440,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153003048712892095, guid: c147f69dbbc73c746b146e198ff0512b,
+        type: 3}
+      propertyPath: T1Recipes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153003048712892095, guid: c147f69dbbc73c746b146e198ff0512b,
+        type: 3}
+      propertyPath: T2Recipes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3153003048712892095, guid: c147f69dbbc73c746b146e198ff0512b,
+        type: 3}
+      propertyPath: T3Recipes.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3153003048712892095, guid: c147f69dbbc73c746b146e198ff0512b,
         type: 3}
@@ -4696,6 +4716,11 @@ PrefabInstance:
       propertyPath: InventoryWidget
       value: 
       objectReference: {fileID: 7286456846768354600}
+    - target: {fileID: 8205830298064295117, guid: 501ca2bd3d057884997eb8b3dcb1a693,
+        type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 2995854455454681488}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 501ca2bd3d057884997eb8b3dcb1a693, type: 3}
 --- !u!4 &6635352740227987453 stripped
