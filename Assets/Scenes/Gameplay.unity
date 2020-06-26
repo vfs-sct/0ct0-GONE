@@ -1697,6 +1697,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1055163990866216047, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: Movement
+      value: 
+      objectReference: {fileID: 307403187}
     - target: {fileID: 1239658988473444085, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: CraftingPrefab
@@ -1741,6 +1746,18 @@ PrefabInstance:
     - {fileID: 489913431673510640, guid: 7de9c50c04b650e4fa5a1b2c16083f87, type: 3}
     - {fileID: 489913433233796641, guid: 7de9c50c04b650e4fa5a1b2c16083f87, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7de9c50c04b650e4fa5a1b2c16083f87, type: 3}
+--- !u!114 &307403187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 489913433233796653, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+    type: 3}
+  m_PrefabInstance: {fileID: 307403186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849435022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c858a506bdc2ca4bbb52124df036940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &321558622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 600268465557183985, guid: 660c1ddcdfa77a342acca5d8f41ad301,
@@ -11919,7 +11936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218fa7d7cfedbc049b455a9bda37f9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f2d9e0ec
+  triggerList: f7f422d6
   useOtherObject: 0
   data:
     idInternal: 0
@@ -11943,8 +11960,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 20, z: 20}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 83.576004, y: 20, z: 20}
+  m_Center: {x: 31.788002, y: 0, z: 0}
 --- !u!4 &1885536917
 Transform:
   m_ObjectHideFlags: 0
