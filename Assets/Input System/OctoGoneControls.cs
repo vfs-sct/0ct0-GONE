@@ -426,7 +426,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""99bdcb14-9f70-4871-89c6-3e0314dc2cc7"",
-                    ""path"": ""<Keyboard>/I"",
+                    ""path"": ""<Keyboard>/V"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -1008,7 +1008,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""76e3a6e9-8d39-4dfa-b68c-fdf535070ad8"",
-                    ""path"": ""<Keyboard>/I"",
+                    ""path"": ""<Keyboard>/V"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",

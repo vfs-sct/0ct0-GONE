@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
-
 [CreateAssetMenu(menuName = "Systems/Tools/Salvager")]
 public class SalvageTool : Tool
 {
+    [SerializeField] public ResourceGainedPopTxt popText = null;
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
-
         //Debug.Log(target);
         if (target.GetComponent<Salvagable>() != null)
         {
@@ -33,13 +32,19 @@ public class SalvageTool : Tool
             if (owner.PlayerInventory.AddToResourceBucket(SalvComp.SalvageItem.ResourceType,SalvComp.SalvageItem))
             {
                 Destroy(target);
+                //resource gained pop text
+                Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");
                 Debug.Log("Salvaged Object");
                 return;
             }
+            //error pop text
+            Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Full");
             Debug.Log("Not enough space");
         }
         else 
         {
+            //error pop text
+            Instantiate(popText).popText.SetText("Cannot Salvage");
             Debug.Log("Could not salvage");
             Debug.Log(SalvComp.SalvageItem + " is not a resource");
         }

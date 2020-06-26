@@ -57,20 +57,12 @@ public class InventoryController : MonoBehaviour
     public ItemBucket GetResourceBucket(Resource resource)
     {
         ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
-        Debug.Log("FOUND BUCKET" + resource.DisplayName);
-        foreach(var item in FoundBucket.Bucket)
-        {
-            Debug.Log("CONTAINS " + item.name);
-        }
+        //Debug.Log("FOUND BUCKET" + resource.DisplayName);
+        //foreach(var item in FoundBucket.Bucket)
+        //{
+        //    Debug.Log("CONTAINS " + item.name);
+        //}
         return FoundBucket;
-
-        //ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
-        //FoundBucket.Bucket.ForEach()
-        //if (!FoundBucket.Bucket.Contains(itemToRemove)) return false;
-        //ResourceBuckets_Dict[resource] = new ItemBucket(FoundBucket, FoundBucket.FillAmount - itemToRemove.Size);
-        //FoundBucket.Bucket.Remove(itemToRemove);
-        //FoundBucket.Bucket.TrimExcess();
-        //return true;
     }
 
     private void Awake()
@@ -135,12 +127,12 @@ public class InventoryController : MonoBehaviour
         }
         ResourceBuckets_Dict[resource] = new ItemBucket(FoundBucket,FoundBucket.FillAmount- itemToRemove.Size);
         FoundBucket.Bucket.Remove(itemToRemove);
-        Debug.Log("REMOVED " + itemToRemove.name);
-        Debug.Log(resource.DisplayName + " BUCKET UPDATED");
-        foreach (var item in FoundBucket.Bucket)
-        {
-            Debug.Log("CONTAINS " + item.name);
-        }
+        //Debug.Log("REMOVED " + itemToRemove.name);
+        //Debug.Log(resource.DisplayName + " BUCKET UPDATED");
+        //foreach (var item in FoundBucket.Bucket)
+        //{
+        //    Debug.Log("CONTAINS " + item.name);
+        //}
         FoundBucket.Bucket.TrimExcess();
         return true;
     }

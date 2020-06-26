@@ -10,12 +10,6 @@ public class ChunkHoverInfo : MonoBehaviour
     public string titleText;
     public string amountText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void OnHover()
     {
         title.SetText(titleText);
@@ -31,11 +25,5 @@ public class ChunkHoverInfo : MonoBehaviour
     private void OnDisable()
     {
         GO.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

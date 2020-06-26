@@ -115,7 +115,7 @@ public class InventoryV2 : MonoBehaviour
                             kvp.Value.SetTooltip(k, item.Name, chunkSize.ToString() + " Slots");
                             kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
                             {
-                                Debug.Log("CHUNK CLICKED!");
+                                //Debug.Log("CHUNK CLICKED!");
                                 playerInventory.RemoveFromResourceBucket(kvp.Key, item);
                                 UpdateAllChunks();
                             });
