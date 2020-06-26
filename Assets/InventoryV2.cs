@@ -95,33 +95,43 @@ public class InventoryV2 : MonoBehaviour
             }
 
             var bucket = playerInventory.GetResourceBucket(kvp.Key);
+
+            foreach (var item in bucket.Bucket)
+            {
+                Debug.Log(item.Key.name);
+                Debug.Log(item.Value);
+            }
+
             //Debug.Log("BUCKET COUNT" + bucket.Bucket.Count);
             //get all the items in the bucket
-            foreach(var item in bucket.Bucket)
+            foreach (var item in bucket.Bucket)
             {
-                //Debug.Log("HEY" + item.Size / 10);
-                //figure out if the item takes more than 1 slot
-                float chunkSize = (float)item.Key.Size / 10;
-                float j = (float)item.Key.Size / 10;
-                if(j != 0)
-                { 
-                    //assign the appropriate number of slots for that item
-                    for (int k = 0; k < isActive.Length && j != 0; k++)
+                for (int instances = 0; instances < item.Value; instances++)
+                {
+                    //Debug.Log("HEY" + item.Size / 10);
+                    //figure out if the item takes more than 1 slot
+                    float chunkSize = (float)item.Key.Size / 10;
+                    int j = item.Key.Size / 10;
+                    if (j != 0)
                     {
-                        if (isActive[k] == false)
+                        //assign the appropriate number of slots for that item
+                        for (int k = 0; k < isActive.Length && j != 0; k++)
                         {
-                            kvp.Value.SetChunkBool(k, true);
-                            kvp.Value.GetChunkButtons()[k].SetActive(true);
-                            kvp.Value.SetTooltip(k, item.Key.Name, chunkSize.ToString() + " Slots");
-                            kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
+                            if (isActive[k] == false)
                             {
+                                kvp.Value.SetChunkBool(k, true);
+                                kvp.Value.GetChunkButtons()[k].SetActive(true);
+                                kvp.Value.SetTooltip(k, item.Key.Name, chunkSize.ToString() + " Slots");
+                                kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
+                                {
                                 //Debug.Log("CHUNK CLICKED!");
-                                playerInventory.RemoveFromResourceBucket(item.Key, item.Value);
-                                UpdateAllChunks();
-                            });
+                                playerInventory.RemoveFromResourceBucket(item.Key);
+                                    UpdateAllChunks();
+                                });
 
-                            isActive[k] = true;
-                            j--;
+                                isActive[k] = true;
+                                j--;
+                            }
                         }
                     }
                 }
