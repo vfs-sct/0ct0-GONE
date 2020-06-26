@@ -7,6 +7,8 @@ public class CraftRange : MonoBehaviour
     [SerializeField] GameObject CraftingPrefab = null;
     [SerializeField] Player Player = null;
 
+    [SerializeField] private GameObject CraftingStation;
+
     private bool canCraft = false;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class CraftRange : MonoBehaviour
         }
         else
         {
+            Player.GetComponent<InventoryController>().OffloadSalvage(CraftingStation.GetComponentInParent<ResourceInventory>());
             CraftingPrefab.SetActive(true);
             GameManager.Pause();
             Debug.Log("Paused");

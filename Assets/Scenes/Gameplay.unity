@@ -2383,6 +2383,11 @@ PrefabInstance:
       propertyPath: CraftingPrefab
       value: 
       objectReference: {fileID: 1453593754}
+    - target: {fileID: 1239658988473444085, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: CraftingStation
+      value: 
+      objectReference: {fileID: 1350724012}
     - target: {fileID: 3145423995903294788, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -5821,6 +5826,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 454911243}
+    - target: {fileID: 8036083259085358606, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: Components.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036083259085358606, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: Components.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 199f0e13eb4ff1143830e13b08b676b0,
+        type: 2}
     - target: {fileID: 8043295663301511230, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_IsActive
@@ -13062,6 +13078,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 660c1ddcdfa77a342acca5d8f41ad301, type: 3}
+--- !u!1 &1350724012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7000755827852074401, guid: 20690aa1823b1b24386de633e8aa3fd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 551546133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1350724015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350724012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35215f6ef2c16d244857908585185b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResourceManager: {fileID: 0}
+  ActiveResources:
+  - {fileID: 11400000, guid: 817b9d6fe54926b47b141284265e21a3, type: 2}
+  - {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
+  - {fileID: 11400000, guid: 733f38e14956f944da3bfb9804cf8314, type: 2}
+  - {fileID: 11400000, guid: 0d9ca8268393d294c982c32eb5e0897b, type: 2}
+  - {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
+  UseOverrides: 1
+  OverrideValues: []
+  resourceAddedPopTxt: {fileID: 0}
 --- !u!1001 &1356637977
 PrefabInstance:
   m_ObjectHideFlags: 0
