@@ -98,7 +98,7 @@ public class GameFrameworkManager : ScriptableObject
     {
         foreach (var State in UpdatingGameStates)
         {
-            if (State.ConditionCheck(this))
+            if (State.ConditionCheck(this,_ActiveState))
             {
                 ChangeGameState(State);
                 break;

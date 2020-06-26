@@ -52,7 +52,7 @@ public class GameOver : MonoBehaviour
             GameManager.UnPause();
         }
 
-        SceneManager.LoadScene($"{menuScene}");
+        GameManager.LoadScene($"{menuScene}");
     }
 
     public void OnClickMainMenu()

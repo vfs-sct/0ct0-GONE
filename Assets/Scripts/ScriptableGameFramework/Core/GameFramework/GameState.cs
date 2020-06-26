@@ -8,7 +8,7 @@ public abstract class GameState : ScriptableObject
     [SerializeField] public bool CanTick;
     [SerializeField] public long TickRate;
 
-    public virtual bool ConditionCheck(GameFrameworkManager GameManager)
+    public virtual bool ConditionCheck(GameFrameworkManager GameManager,GameState CurrentState)
     {
         return true;
     }
