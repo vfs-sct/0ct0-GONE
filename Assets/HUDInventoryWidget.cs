@@ -35,7 +35,7 @@ public class HUDInventoryWidget : MonoBehaviour
         
         var fillImage = newDial.GetComponent<GetObjectsDial>().GetFillImage();
         fillImage.color = resource.ResourceColor;
-        fillImage.fillAmount = bucketInventory.GetFillAmount(resource);
+        fillImage.fillAmount = bucketInventory.GetResourceAmount(resource);
         updateFill.Add(resource, fillImage);
         
     }
@@ -45,8 +45,8 @@ public class HUDInventoryWidget : MonoBehaviour
     {
         foreach(var kvp in updateFill)
         {
-            Debug.Log((float)bucketInventory.GetFillAmount(kvp.Key) / 100);
-            kvp.Value.fillAmount = ((float)bucketInventory.GetFillAmount(kvp.Key) / 100);
+            Debug.Log((float)bucketInventory.GetResourceAmount(kvp.Key) / 100);
+            kvp.Value.fillAmount = ((float)bucketInventory.GetResourceAmount(kvp.Key) / 100);
         }
     }
 }
