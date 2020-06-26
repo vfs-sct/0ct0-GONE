@@ -6,6 +6,11 @@ using Random = UnityEngine.Random;
 
 public class AsteroidSpawner : MonoBehaviour
 {
+
+    // Random Chance
+
+
+    // Spawner properties
     public float SpawnTimer = 200f;
     public float SpawnHeight;
     public float SpawnWidth;
@@ -18,8 +23,22 @@ public class AsteroidSpawner : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Debug.Log("==== Player Entered ThreatField ===="); 
+            Debug.Log("==== Player Entered ThreatField ====");
+            SpawnChance();
+        }
+    }
+
+    private void SpawnChance()
+    {
+        if(Random.value >= 0.5) // 50 percent chance everytime Octo enters the field.
+        {
+            Debug.Log("==== ACTIVATE ASTEROID EVENT ====");
             isSpawning = true;
+        }
+        else
+        {
+            Debug.Log("==== ASTEROID DID NOT SPAWN ====");
+            return;
         }
     }
 
@@ -30,13 +49,13 @@ public class AsteroidSpawner : MonoBehaviour
             Debug.Log("==== Player Exited ThreatField ====");
             isSpawning = false;
         }
-        Debug.Log(isSpawning);
     }
 
     private void Update()
     {
         if (isSpawning == true)
         {
+            Debug.Log("==== Spawning Asteroids ====");
             SpawnAsteroid();
         }
         else 
@@ -47,8 +66,6 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void SpawnAsteroid()
     {
-        Debug.Log("==== Spawning Asteroids ====");
-        
         if(timer < SpawnTimer)
         {
             GameObject newAsteroid = Instantiate(Asteroid);
