@@ -8,6 +8,7 @@ public class AsteroidSpawner : MonoBehaviour
 {
     public float SpawnTimer = 200f;
     public float SpawnHeight;
+    public float SpawnWidth;
     public GameObject Asteroid;
 
     private float timer = 0f;
@@ -51,7 +52,7 @@ public class AsteroidSpawner : MonoBehaviour
         if(timer < SpawnTimer)
         {
             GameObject newAsteroid = Instantiate(Asteroid);
-            newAsteroid.transform.position = transform.position + new Vector3(0, Random.Range(-SpawnHeight,SpawnHeight), 0);
+            newAsteroid.transform.position = transform.position + new Vector3(0, Random.Range(-SpawnHeight,SpawnHeight), Random.Range(-SpawnWidth, SpawnWidth));
             Destroy(newAsteroid, 15f);
             timer = 0;
         }

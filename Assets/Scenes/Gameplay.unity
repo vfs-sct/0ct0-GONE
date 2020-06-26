@@ -11949,6 +11949,8 @@ GameObject:
   - component: {fileID: 1925041301}
   - component: {fileID: 1925041300}
   - component: {fileID: 1925041299}
+  - component: {fileID: 1925041304}
+  - component: {fileID: 1925041303}
   m_Layer: 0
   m_Name: CommSatellitePlayer
   m_TagString: Untagged
@@ -12069,6 +12071,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 25, y: 50, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1925041303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925041297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf212ca9d525ec4f9e24cb7e2501d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerObject: {fileID: 849435022}
+--- !u!114 &1925041304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925041297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1625317341c73384786e47f9d2d51af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerObject: {fileID: 849435022}
 --- !u!1001 &1956285457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12994,17 +13022,22 @@ PrefabInstance:
     - target: {fileID: -6351023738921630526, guid: deec3ca662e45e041b19c6a0908bcb58,
         type: 3}
       propertyPath: SpawnTimer
-      value: 200
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -6351023738921630526, guid: deec3ca662e45e041b19c6a0908bcb58,
         type: 3}
       propertyPath: SpawnHeight
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: -6351023738921630526, guid: deec3ca662e45e041b19c6a0908bcb58,
+        type: 3}
+      propertyPath: SpawnWidth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1929646020116948115, guid: deec3ca662e45e041b19c6a0908bcb58,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 44.8
       objectReference: {fileID: 0}
     - target: {fileID: 1929646020116948115, guid: deec3ca662e45e041b19c6a0908bcb58,
         type: 3}
@@ -13085,8 +13118,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 90, y: 10, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 193.38438, y: 10, z: 10}
+  m_Center: {x: -46.302208, y: 0, z: 0}
 --- !u!1001 &3130413640159377850
 PrefabInstance:
   m_ObjectHideFlags: 0
