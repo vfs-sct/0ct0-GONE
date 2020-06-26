@@ -7,13 +7,25 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
 
-    public bool IsResourceItem = false;
+    [System.Serializable]
+    public enum EnumItemType
+    {
+        Salvage,
+        Craftable
+    }
+
+
+    public EnumItemType ItemType;
     [SerializeField] private string _Name;
-    public string Name{get =>_Name;}
     [SerializeField] private int _Size;
-    public int Size{get =>_Size;}
     [SerializeField] private float _Mass;
-    public float Mass{get =>_Mass;}
     [SerializeField] private Resource _ResourceType;
+    [SerializeField] private Recipe _CraftingRecipe;
+    public string Name{get =>_Name;}
+    public int Size{get =>_Size;}
+    public float Mass{get =>_Mass;}
+    public bool IsSalvage{get=> ItemType == EnumItemType.Salvage ;}
+    public bool IsCraftable{get=> ItemType == EnumItemType.Craftable;}
+    public Recipe CraftingRecipe{get=>_CraftingRecipe;}
     public Resource ResourceType{get=>_ResourceType;}
 }

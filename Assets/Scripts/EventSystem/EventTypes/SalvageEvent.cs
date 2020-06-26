@@ -20,7 +20,7 @@ public class SalvageEvent : Event
     {
         if(isInitialized == true)
         {
-            previousAmount = target.GetComponent<InventoryController>().GetFillAmount(CollectResource);
+            previousAmount = target.GetComponent<InventoryController>().GetResourceAmount(CollectResource);
             isUpdating = true;
             isInitialized = false;
         }
@@ -29,7 +29,7 @@ public class SalvageEvent : Event
             float currentAmount;
             if (target.GetComponent<InventoryController>() != null)
             {
-                currentAmount = target.GetComponent<InventoryController>().GetFillAmount(CollectResource);
+                currentAmount = target.GetComponent<InventoryController>().GetResourceAmount(CollectResource);
             }
             else
             {
