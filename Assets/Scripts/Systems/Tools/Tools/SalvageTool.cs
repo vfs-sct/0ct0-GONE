@@ -27,10 +27,11 @@ public class SalvageTool : Tool
     protected override void OnActivate(ToolController owner, GameObject target)
     {
         Salvagable SalvComp = target.GetComponent<Salvagable>();
-        if (SalvComp.SalvageItem.IsResourceItem)
+        if (SalvComp.SalvageItem.IsSalvage)
         {
-            if (owner.PlayerInventory.AddToResourceBucket(SalvComp.SalvageItem.ResourceType,SalvComp.SalvageItem))
+            if (owner.PlayerInventory.AddToResourceBucket(SalvComp.SalvageItem,SalvComp.Amount))
             {
+                Debug.Log(owner.PlayerInventory.GetResourceAmount(SalvComp.SalvageItem.ResourceType));
                 Destroy(target);
                 //resource gained pop text
                 Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,21 +11,52 @@ public class InventoryController : MonoBehaviour
         public int ItemCap;
 
         public int FillAmount;
-        private List<Item> _Bucket;
-        public List<Item> Bucket{get=>_Bucket;}
+        public Dictionary<Item,int> Bucket;
+        public int Count{get=> Bucket.Count;}
+
         public ItemBucket(int Cap)
         {
             ItemCap = Cap;
-            _Bucket = new List<Item>();
+            Bucket = new Dictionary<Item,int>();
             FillAmount = 0;
         }
-        public ItemBucket(ItemBucket OldBucket,int NewFillAmount)
+        public ItemBucket AddBucketItem(Item newItem, out bool Success,int amount = 1)
         {
-            ItemCap = OldBucket.ItemCap;
-            _Bucket = OldBucket._Bucket;
-            FillAmount = NewFillAmount;
+            if (FillAmount+ (amount*newItem.Size) > ItemCap) 
+            {
+                Success = false;
+                return this;
+            }
+            if (!Bucket.ContainsKey(newItem)) 
+            {
+                Bucket[newItem] = amount;
+            }
+            else 
+            {
+                Bucket[newItem] += amount;
+            }
+            FillAmount += (amount*newItem.Size);
+            Success = true;
+            return this;
         }
-
+        public ItemBucket GetBucketItemCount(Item getItem,out int amount)
+        {
+            if (!Bucket.ContainsKey(getItem)) amount = -1;
+            amount = Bucket[getItem];
+            return this;
+        }
+        public ItemBucket RemoveBucketItem(Item remItem, out bool success,int amount = 1)
+        {
+            if (!Bucket.ContainsKey(remItem)) 
+            {
+                success =  false;
+                return this;
+            }
+            if (Bucket[remItem]  > 0);
+            Bucket[remItem] -= amount;
+            success = true;
+            return this;
+        }
     }
 
     [System.Serializable]
@@ -42,6 +74,8 @@ public class InventoryController : MonoBehaviour
         }
     }
 
+
+    //TODO Optimize bucket system to use dicts
     [SerializeField] private List<ItemBucket> ItemBuckets = new List<ItemBucket>();
 
     //this is for serialization
@@ -49,7 +83,7 @@ public class InventoryController : MonoBehaviour
 
     private Dictionary<Resource,ItemBucket> ResourceBuckets_Dict = new Dictionary<Resource, ItemBucket>();
 
-    public int GetFillAmount(Resource resource)
+    public int GetResourceAmount(Resource resource)
     {
         return ResourceBuckets_Dict[resource].FillAmount;
     }
@@ -85,7 +119,7 @@ public class InventoryController : MonoBehaviour
     }
 
 
-    public bool AddToItemBucket(int BucketIndex,Item itemToAdd)
+    public bool AddToItemBucket(Item itemToAdd,int amount = 1 ,int BucketIndex = 0)
     {
         if (itemToAdd.IsResourceItem) return false;
         ItemBucket FoundBucket = ItemBuckets[BucketIndex];
@@ -93,21 +127,24 @@ public class InventoryController : MonoBehaviour
         int NewFill = FoundBucket.FillAmount + itemToAdd.Size;
         if (NewFill > FoundBucket.ItemCap) return false;
 
-        ItemBuckets[BucketIndex] = new ItemBucket(FoundBucket,NewFill);
-        return true;
-    }
-
-    public bool RemoveFromItemBucket(int BucketIndex,Item itemToRemove)
+    public bool RemoveFromItemBucket(Item itemToRemove,int amount = 1 ,int BucketIndex = 0)
     {
-        ItemBucket FoundBucket = ItemBuckets[BucketIndex];
-        if (!FoundBucket.Bucket.Contains(itemToRemove)) return false;
-        ItemBuckets[BucketIndex] = new ItemBucket(FoundBucket,FoundBucket.FillAmount- itemToRemove.Size);
-        FoundBucket.Bucket.Remove(itemToRemove);
-        FoundBucket.Bucket.TrimExcess();
-        return true;
+        bool success = false;
+        ItemBuckets[BucketIndex] =  ItemBuckets[BucketIndex].RemoveBucketItem(itemToRemove,out success,amount);
+        return success;
     }
 
-    public bool AddToResourceBucket(Resource resource,Item itemToAdd)
+    public void OffloadSalvage(ResourceInventory TargetInventory)
+    {
+        List<KeyValuePair<Resource,ItemBucket>> ResourceList = ResourceBuckets_Dict.ToList();
+        for (int i = 0; i < ResourceList.Count; i++)
+        {
+            TargetInventory.AddResource(ResourceList[i].Key,ResourceList[i].Value.FillAmount);
+            ResourceBuckets_Dict[ResourceList[i].Key] = new ItemBucket(ResourceList[i].Value.ItemCap);
+        }
+    }
+
+    public bool AddToResourceBucket(Item itemToAdd,int amount = 1)
     {
         if (!itemToAdd.IsResourceItem) return false;
         ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
@@ -117,7 +154,7 @@ public class InventoryController : MonoBehaviour
         ResourceBuckets_Dict[resource] = new ItemBucket(FoundBucket,NewFill);
         return true;
     }
-    public bool RemoveFromResourceBucket(Resource resource,Item itemToRemove)
+    public bool RemoveFromResourceBucket(Item itemToRemove, int amount = 1)
     {
         ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
         if (!FoundBucket.Bucket.Contains(itemToRemove))

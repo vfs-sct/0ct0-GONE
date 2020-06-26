@@ -15,6 +15,7 @@ public class CommunicationModule : Module
         public float Radius;
         public bool IsActive;
 
+        public bool ShowWarning;
         public GameObject RangeIndicator;
 
         public CommRelayData(CommunicationZone G,float R, bool A)
@@ -23,6 +24,7 @@ public class CommunicationModule : Module
             Radius = R;
             IsActive = A;
             RangeIndicator = null;
+            ShowWarning = false;
         }
         public CommRelayData(CommunicationZone G,float R, bool A,GameObject RA)
         {
@@ -30,7 +32,17 @@ public class CommunicationModule : Module
             Radius = R;
             IsActive = A;
             RangeIndicator = RA;
+            ShowWarning = false;
         }
+        public CommRelayData(CommRelayData Data,bool SW)
+        {
+            LinkedObject = Data.LinkedObject;
+            Radius = Data.Radius;
+            IsActive = Data.IsActive;
+            RangeIndicator = Data.RangeIndicator;
+            ShowWarning = SW;
+        }
+
     }
 
     private CommRelayEvent OnLoseConnection = null;
@@ -43,6 +55,9 @@ public class CommunicationModule : Module
     private List<CommRelayData> Zones = new List<CommRelayData>();
 
     [SerializeField] private GameObject CommRelayRangeIndicatorPrefab;
+    [SerializeField] private float WarningDistance = 20;
+
+    [SerializeField] private UIModule UIController;
 
     public override void Initialize()
     {
@@ -97,6 +112,16 @@ public class CommunicationModule : Module
                     NearestRelay = Zones[i].LinkedObject;
                 }
                 PlayerInRange = PlayerInRange |(distance <= Zones[i].Radius);
+                if (Zones[i].ShowWarning == false && distance >= (Zones[i].Radius-WarningDistance))
+                {
+                    Zones[i].RangeIndicator.SetActive(true);
+                    Zones[i] = new CommRelayData(Zones[i],true);
+                }
+                else if (Zones[i].ShowWarning == true &&  distance < (Zones[i].Radius-WarningDistance))
+                {
+                    Zones[i].RangeIndicator.SetActive(false);
+                    Zones[i] = new CommRelayData(Zones[i],false);
+                }
             }
         }
     }

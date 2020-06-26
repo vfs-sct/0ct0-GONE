@@ -24,11 +24,11 @@ public class Crafting : MonoBehaviour
     [SerializeField] GameObject RequiresText = null;
     [SerializeField] HorizontalLayoutGroup IngredientGroup = null;
 
-    [Header("Recipe Tiers")]
-    [SerializeField] CraftingRecipe[] T1Recipes = null;
-    [SerializeField] CraftingRecipe[] T2Recipes = null;
-    [SerializeField] CraftingRecipe[] T3Recipes = null;
-    [SerializeField] CraftingRecipe[] SatRecipes = null;
+    [Header("Recipe Categories")]
+    [SerializeField] Recipe[] Components = null;
+    [SerializeField] Recipe[] AdvancedComponents = null;
+    [SerializeField] Recipe[] Upgrades= null;
+    [SerializeField] Recipe[] Satellites = null;
 
     [Header("Code Generated Object Templates")]
     //default button used to make all the buttons in the recipe tabs
@@ -39,7 +39,7 @@ public class Crafting : MonoBehaviour
     //associate tab buttons with their tab panel
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
 
-    private CraftingRecipe currentRecipe;
+    private Recipe currentRecipe;
 
     private ResourceInventory playerInventory;
     void Start()
@@ -53,10 +53,10 @@ public class Crafting : MonoBehaviour
         }
 
         //fill in each of the panels
-        PopulateRecipePanel(T1Recipes, 0);
-        PopulateRecipePanel(T2Recipes, 1);
-        PopulateRecipePanel(T3Recipes, 2);
-        PopulateRecipePanel(SatRecipes, 3);
+        PopulateRecipePanel(Components, 0);
+        PopulateRecipePanel(AdvancedComponents, 1);
+        PopulateRecipePanel(Upgrades, 2);
+        PopulateRecipePanel(Satellites, 3);
 
         //set the default panel to active
         SwitchActiveTab(contentGroups[0]);
@@ -75,14 +75,14 @@ public class Crafting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentRecipe != null && CraftingModule.CanCraft(playerInventory, playerInventory, currentRecipe))
-        {
+       /* if(currentRecipe != null && CraftingModule.CanCraft(playerInventory, playerInventory, currentRecipe))
+       {
             CraftButton.interactable = true;
         }
         else
         {
             CraftButton.interactable = false;
-        }
+        }*/
     }
 
     //crafting screen can either be closed with ESC or the hotkey to open it (or clicking the close button on the panel)
@@ -123,7 +123,7 @@ public class Crafting : MonoBehaviour
     }
 
     //use an array of recipe objects to generate crafting screen buttons & their associated functionality
-    public void PopulateRecipePanel(CraftingRecipe[] recipeList, int contentGroup)
+    public void PopulateRecipePanel(Recipe[] recipeList, int contentGroup)
     {
         foreach (var recipe in recipeList)
         {
@@ -161,7 +161,7 @@ public class Crafting : MonoBehaviour
                 outputText[0].SetText(recipe.DisplayName);
                 outputText[1].SetText("x" + recipe.Output.amount.ToString());
 
-                foreach (var input in recipe.Input)
+                foreach (var input in recipe.ResourceInput)
                 {
                     //create ingredient box
                     var ingredient = Instantiate(Ingredient);
@@ -186,7 +186,7 @@ public class Crafting : MonoBehaviour
                 CraftButton.onClick.RemoveAllListeners();
                 CraftButton.onClick.AddListener(() =>
                 {
-                    CraftingModule.CraftItem(playerInventory, playerInventory, recipe);
+                   // CraftingModule.CraftItem(playerInventory, playerInventory, recipe);
                 });
 
             });
