@@ -7415,10 +7415,40 @@ PrefabInstance:
       propertyPath: m_DynamicOccludee
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5091213236160326726, guid: f8a7ab9108abf454c99f2c20e35f21e6,
+        type: 3}
+      propertyPath: m_Radius
+      value: 22.859371
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091213236160326726, guid: f8a7ab9108abf454c99f2c20e35f21e6,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 6.52755
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091213236160326726, guid: f8a7ab9108abf454c99f2c20e35f21e6,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -2.7463279
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091213236160326726, guid: f8a7ab9108abf454c99f2c20e35f21e6,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 6.132818
+      objectReference: {fileID: 0}
     - target: {fileID: 6374666790502225440, guid: f8a7ab9108abf454c99f2c20e35f21e6,
         type: 3}
       propertyPath: m_Name
       value: PlaceholderCloud_01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681912487209306908, guid: f8a7ab9108abf454c99f2c20e35f21e6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681912487209306908, guid: f8a7ab9108abf454c99f2c20e35f21e6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 9014880558626749635, guid: f8a7ab9108abf454c99f2c20e35f21e6,
         type: 3}
@@ -13195,6 +13225,7 @@ GameObject:
   - component: {fileID: 1925041301}
   - component: {fileID: 1925041300}
   - component: {fileID: 1925041299}
+  - component: {fileID: 1925041303}
   m_Layer: 0
   m_Name: CommSatellitePlayer
   m_TagString: Untagged
@@ -13315,6 +13346,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 25, y: 50, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1925041303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925041297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1625317341c73384786e47f9d2d51af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerObject: {fileID: 849435022}
 --- !u!1001 &1956285457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14377,10 +14421,35 @@ PrefabInstance:
       propertyPath: m_DynamicOccludee
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5091213236160326726, guid: f8a7ab9108abf454c99f2c20e35f21e6,
+        type: 3}
+      propertyPath: m_Radius
+      value: 25.359922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091213236160326726, guid: f8a7ab9108abf454c99f2c20e35f21e6,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -2.6400876
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091213236160326726, guid: f8a7ab9108abf454c99f2c20e35f21e6,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.00000006004541
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091213236160326726, guid: f8a7ab9108abf454c99f2c20e35f21e6,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.00000003985002
+      objectReference: {fileID: 0}
     - target: {fileID: 6374666790502225440, guid: f8a7ab9108abf454c99f2c20e35f21e6,
         type: 3}
       propertyPath: m_Name
       value: PlaceholderCloud_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681912487209306908, guid: f8a7ab9108abf454c99f2c20e35f21e6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 24.6
       objectReference: {fileID: 0}
     - target: {fileID: 9014880558626749635, guid: f8a7ab9108abf454c99f2c20e35f21e6,
         type: 3}
