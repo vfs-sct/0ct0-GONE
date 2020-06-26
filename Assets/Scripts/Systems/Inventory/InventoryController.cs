@@ -54,6 +54,17 @@ public class InventoryController : MonoBehaviour
         return ResourceBuckets_Dict[resource].FillAmount;
     }
 
+    public ItemBucket GetResourceBucket(Resource resource)
+    {
+        ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
+        //Debug.Log("FOUND BUCKET" + resource.DisplayName);
+        //foreach(var item in FoundBucket.Bucket)
+        //{
+        //    Debug.Log("CONTAINS " + item.name);
+        //}
+        return FoundBucket;
+    }
+
     private void Awake()
     {
         foreach (var item in ResourceBuckets)
@@ -78,6 +89,7 @@ public class InventoryController : MonoBehaviour
     {
         if (itemToAdd.IsResourceItem) return false;
         ItemBucket FoundBucket = ItemBuckets[BucketIndex];
+        FoundBucket.Bucket.Add(itemToAdd);
         int NewFill = FoundBucket.FillAmount + itemToAdd.Size;
         if (NewFill > FoundBucket.ItemCap) return false;
 
@@ -99,6 +111,7 @@ public class InventoryController : MonoBehaviour
     {
         if (!itemToAdd.IsResourceItem) return false;
         ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
+        FoundBucket.Bucket.Add(itemToAdd);
         int NewFill = FoundBucket.FillAmount + itemToAdd.Size;
         if (NewFill > FoundBucket.ItemCap) return false;
         ResourceBuckets_Dict[resource] = new ItemBucket(FoundBucket,NewFill);
@@ -107,9 +120,19 @@ public class InventoryController : MonoBehaviour
     public bool RemoveFromResourceBucket(Resource resource,Item itemToRemove)
     {
         ItemBucket FoundBucket = ResourceBuckets_Dict[resource];
-        if (!FoundBucket.Bucket.Contains(itemToRemove)) return false;
+        if (!FoundBucket.Bucket.Contains(itemToRemove))
+        {
+            Debug.Log("Item Not Found");
+            return false;
+        }
         ResourceBuckets_Dict[resource] = new ItemBucket(FoundBucket,FoundBucket.FillAmount- itemToRemove.Size);
         FoundBucket.Bucket.Remove(itemToRemove);
+        //Debug.Log("REMOVED " + itemToRemove.name);
+        //Debug.Log(resource.DisplayName + " BUCKET UPDATED");
+        //foreach (var item in FoundBucket.Bucket)
+        //{
+        //    Debug.Log("CONTAINS " + item.name);
+        //}
         FoundBucket.Bucket.TrimExcess();
         return true;
     }

@@ -12,6 +12,7 @@ public class GameHUD : MonoBehaviour
     [SerializeField] GameObject PausePrefab = null;
     [SerializeField] GameObject GameoverPrefab = null;
     [SerializeField] GameObject CraftingPrefab = null;
+    [SerializeField] GameObject InventoryPrefab = null;
     [SerializeField] public GameObject GasCloudAlertPrefab = null;
     [SerializeField] TextMeshProUGUI objectDistance = null;
 
@@ -83,6 +84,15 @@ public class GameHUD : MonoBehaviour
 
             toolList.Add(newTool);
             hotkey++;
+        }
+    }
+
+    public void OnInventoryHotkey(InputValue value)
+    {
+        if (!GameManager.isPaused)
+        {
+            InventoryPrefab.SetActive(true);
+            GameManager.Pause();
         }
     }
 

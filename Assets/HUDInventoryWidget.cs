@@ -9,11 +9,12 @@ public class HUDInventoryWidget : MonoBehaviour
     [SerializeField] HorizontalLayoutGroup buttonPanel = null;
     [SerializeField] GameObject defaultDial = null;
 
-    [SerializeField] private Resource[] resources = null;
+    [SerializeField] public Resource[] resources = null;
     
     private Dictionary<Resource, Image> updateFill = new Dictionary<Resource, Image>();
 
     private InventoryController bucketInventory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +46,7 @@ public class HUDInventoryWidget : MonoBehaviour
     {
         foreach(var kvp in updateFill)
         {
-            Debug.Log((float)bucketInventory.GetFillAmount(kvp.Key) / 100);
+            //Debug.Log((float)bucketInventory.GetFillAmount(kvp.Key) / 100);
             kvp.Value.fillAmount = ((float)bucketInventory.GetFillAmount(kvp.Key) / 100);
         }
     }

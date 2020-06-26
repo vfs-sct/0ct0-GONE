@@ -6,6 +6,7 @@ public class GetObjectsDial : MonoBehaviour
     [SerializeField] Image bkImage = null;
     [SerializeField] Image fillImage = null;
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI capacityText = null;
 
     public Image GetBKImage()
     {
@@ -20,5 +21,10 @@ public class GetObjectsDial : MonoBehaviour
     public TextMeshProUGUI GetText()
     {
         return text;
+    }
+
+    public TextMeshProUGUI GetCapacityText()
+    {
+        return capacityText;
     }
 }
