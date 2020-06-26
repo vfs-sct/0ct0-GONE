@@ -12,7 +12,7 @@ public class MainMenuState : GameState
     //[SerializeField] private ScriptedUI CreditsUI = null;
     
 
-    public override bool ConditionCheck(GameFrameworkManager GameManager)
+    public override bool ConditionCheck(GameFrameworkManager GameManager,GameState CurrentState)
     {
         return true;
     }
