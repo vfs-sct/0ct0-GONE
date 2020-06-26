@@ -12,6 +12,12 @@ public class GetObjectsResourceBox : MonoBehaviour
 
     private bool[] activeChunk = new bool[10];
 
+    public void SetTooltip(int index, string title, string amount)
+    {
+        chunkButtons[index].GetComponent<ChunkHoverInfo>().titleText = title;
+        chunkButtons[index].GetComponent<ChunkHoverInfo>().amountText = amount;
+    }
+
     public void SetChunkBool(int index, bool state)
     {
         activeChunk[index] = state;

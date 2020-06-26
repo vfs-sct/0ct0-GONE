@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class InventoryV2 : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class InventoryV2 : MonoBehaviour
     [SerializeField] HorizontalLayoutGroup RowTwo = null;
 
     [SerializeField] HUDInventoryWidget InventoryWidget = null;
+    [SerializeField] EventSystem eventSystem = null;
 
     private InventoryController playerInventory;
     private Dictionary<Resource, GetObjectsResourceBox> ResourceBoxes = new Dictionary<Resource, GetObjectsResourceBox>();
@@ -99,7 +101,7 @@ public class InventoryV2 : MonoBehaviour
             {
                 //Debug.Log("HEY" + item.Size / 10);
                 //figure out if the item takes more than 1 slot
-                
+                float chunkSize = item.Size / 10;
                 float j = item.Size / 10;
                 if(j != 0)
                 { 
@@ -110,6 +112,7 @@ public class InventoryV2 : MonoBehaviour
                         {
                             kvp.Value.SetChunkBool(k, true);
                             kvp.Value.GetChunkButtons()[k].SetActive(true);
+                            kvp.Value.SetTooltip(k, item.Name, chunkSize.ToString() + " Slots");
                             kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
                             {
                                 Debug.Log("CHUNK CLICKED!");
