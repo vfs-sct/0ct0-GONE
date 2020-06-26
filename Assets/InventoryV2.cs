@@ -47,7 +47,7 @@ public class InventoryV2 : MonoBehaviour
     {
         foreach(var kvp in ResourceBoxes)
         {
-            kvp.Value.GetCapacityText().SetText("Capacity:\n" + (playerInventory.GetFillAmount(kvp.Key) / 10) + "/10");
+            kvp.Value.GetCapacityText().SetText("Capacity:\n" + (playerInventory.GetResourceAmount(kvp.Key) / 10) + "/10");
         }
     }
 
@@ -101,8 +101,8 @@ public class InventoryV2 : MonoBehaviour
             {
                 //Debug.Log("HEY" + item.Size / 10);
                 //figure out if the item takes more than 1 slot
-                float chunkSize = item.Size / 10;
-                float j = item.Size / 10;
+                float chunkSize = (float)item.Key.Size / 10;
+                float j = (float)item.Key.Size / 10;
                 if(j != 0)
                 { 
                     //assign the appropriate number of slots for that item
@@ -112,11 +112,11 @@ public class InventoryV2 : MonoBehaviour
                         {
                             kvp.Value.SetChunkBool(k, true);
                             kvp.Value.GetChunkButtons()[k].SetActive(true);
-                            kvp.Value.SetTooltip(k, item.Name, chunkSize.ToString() + " Slots");
+                            kvp.Value.SetTooltip(k, item.Key.Name, chunkSize.ToString() + " Slots");
                             kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
                             {
                                 //Debug.Log("CHUNK CLICKED!");
-                                playerInventory.RemoveFromResourceBucket(kvp.Key, item);
+                                playerInventory.RemoveFromResourceBucket(item.Key, item.Value);
                                 UpdateAllChunks();
                             });
 
@@ -148,7 +148,7 @@ public class InventoryV2 : MonoBehaviour
             var getObjects = newBox.GetComponent<GetObjectsResourceBox>();
             getObjects.GetBGImage().color = new Color(resource.ResourceColor.r, resource.ResourceColor.g, resource.ResourceColor.b, 0.3f);
             getObjects.GetTitleText().SetText(resource.DisplayName.ToString() + "   (" + resource.Abreviation.ToString() + ")");
-            getObjects.GetCapacityText().SetText("Capacity:\n" + (playerInventory.GetFillAmount(resource) / 10) + "/10");
+            getObjects.GetCapacityText().SetText("Capacity:\n" + (playerInventory.GetResourceAmount(resource) / 10) + "/10");
 
             foreach(var chunk in getObjects.GetChunkButtons())
             {

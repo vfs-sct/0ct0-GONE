@@ -35,19 +35,19 @@ public class SalvageTool : Tool
                 Destroy(target);
                 //resource gained pop text
                 Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");
-                Debug.Log("Salvaged Object");
+                //Debug.Log("Salvaged Object");
                 return;
             }
             //error pop text
             Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Full");
-            Debug.Log("Not enough space");
+            //Debug.Log("Not enough space");
         }
         else 
         {
             //error pop text
             Instantiate(popText).popText.SetText("Cannot Salvage");
-            Debug.Log("Could not salvage");
-            Debug.Log(SalvComp.SalvageItem + " is not a resource");
+            //Debug.Log("Could not salvage");
+            //Debug.Log(SalvComp.SalvageItem + " is not a resource");
         }
         
         
