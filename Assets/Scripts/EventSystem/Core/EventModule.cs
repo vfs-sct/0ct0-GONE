@@ -76,7 +76,7 @@ public class EventModule : Module
     //call this to update the events
     public void UpdateEvents(GameObject target)
     {
-        if (CheckSequenceConditions(target) == true)
+        if (!_EventListComplete && CheckSequenceConditions(target) == true)
         {  
             NextEvent(target);
         }
