@@ -54,6 +54,7 @@ public class InventoryController : MonoBehaviour
             }
             if (Bucket[remItem] > 0) ;
             Bucket[remItem] -= amount;
+            FillAmount -= amount * remItem.Size;
             success = true;
             Debug.Log("Removed item");
             return this;
