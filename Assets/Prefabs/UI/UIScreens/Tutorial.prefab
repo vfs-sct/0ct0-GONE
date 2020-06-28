@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7173498287409472780}
+  - component: {fileID: 6866696762855018061}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -106,6 +107,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6866696762855018061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173498287409472787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac506020437a554e99f5e6172ba6274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialPrompts:
+  - {fileID: 7173498287683100979}
+  - {fileID: 7173498289198442980}
+  - {fileID: 7173498289002458597}
 --- !u!1 &7173498287410476669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,6 +1241,12 @@ PrefabInstance:
 --- !u!224 &7173498289198442981 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6410464419035561010, guid: 3d6d40fda15240e4bb4f8adb27106190,
+    type: 3}
+  m_PrefabInstance: {fileID: 4286276494661948887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7173498289198442980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6410464419035561011, guid: 3d6d40fda15240e4bb4f8adb27106190,
     type: 3}
   m_PrefabInstance: {fileID: 4286276494661948887}
   m_PrefabAsset: {fileID: 0}
