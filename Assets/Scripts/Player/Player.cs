@@ -196,7 +196,7 @@ public class Player : MonoBehaviour
         WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
         PlayingState.RegisterPlayer(this);
         invertedCam = PlayerPrefs.GetInt("InvertedCam");
-        HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
+        //HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
     }
 
     private void Start()

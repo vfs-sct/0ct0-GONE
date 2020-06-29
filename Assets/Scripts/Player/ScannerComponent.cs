@@ -59,7 +59,7 @@ public class ScannerComponent : MonoBehaviour
     {
         for (int i = 0; i < ScanKeys.Count; i++)
         {
-            ScanResults[ScanKeys[i]].Renderer.material = HighlightMaterial;
+            ScanResults[ScanKeys[i]].Renderer.material = ScanResults[ScanKeys[i]].SalvageData.SalvageItem.ResourceType.ResourceHighlight;
             ScanResults[ScanKeys[i]].Renderer.material.color = ScanResults[ScanKeys[i]].SalvageData.SalvageItem.ResourceType.ResourceColor;
         }
     }
