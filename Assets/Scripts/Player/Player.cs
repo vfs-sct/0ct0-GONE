@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask TargetableMask;
     [SerializeField] public Camera PlayerCamera = null;
     [SerializeField] public EventModule EventModule = null;
-
     [SerializeField] private PlayerSatelliteHolder SatHolder = null;
 
     [Header("Player:")]
@@ -196,7 +195,7 @@ public class Player : MonoBehaviour
         WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
         PlayingState.RegisterPlayer(this);
         invertedCam = PlayerPrefs.GetInt("InvertedCam");
-        //HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
+        HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
     }
 
     private void Start()
@@ -247,9 +246,15 @@ public class Player : MonoBehaviour
             MeshRenderer TargetMeshRender = mouseCollision.GetComponentInChildren<MeshRenderer>();
            
             Salvagable TargetSalvage = mouseCollision.GetComponentInChildren<Salvagable>();
-            if (TargetSalvage != null) TargetMeshRender.material.color = TargetSalvage.SalvageItem.ResourceType.ResourceColor;
-            TargetMeshRender.material = TargetSalvage.SalvageItem.ResourceType.ResourceHighlight;
-
+            if (TargetSalvage != null)
+            {
+                TargetMeshRender.material.color = TargetSalvage.SalvageItem.ResourceType.ResourceColor;
+                TargetMeshRender.material = TargetSalvage.SalvageItem.ResourceType.ResourceHighlight;
+            }
+            else
+            {
+                TargetMeshRender.material = HighlightMaterial;
+            }
         }
     }
     public bool StationInRange(bool canCraft)
