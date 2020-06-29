@@ -8,4 +8,9 @@ public class PlayButtonSound : MonoBehaviour
     {
         AkSoundEngine.PostEvent("MainMenu_Button_Play", gameObject);
     }
+
+    private void OnMouseOver()
+    {
+        AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
+    }
 }
