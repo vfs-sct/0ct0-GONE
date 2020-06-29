@@ -1724,7 +1724,7 @@ PrefabInstance:
         type: 3}
       propertyPath: WinScreen
       value: 
-      objectReference: {fileID: 376850741}
+      objectReference: {fileID: 377019143}
     - target: {fileID: 489913433233796650, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: TargetingTooltip
@@ -2802,6 +2802,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2449384593485234982, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: CommSatAudioReference
+      value: 
+      objectReference: {fileID: 1925041297}
+    - target: {fileID: 2449384593485234982, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: AmbienceAudioReference
+      value: 
+      objectReference: {fileID: 161971820}
     - target: {fileID: 2517770968281580229, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2821,6 +2831,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533440854801127646, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2578934186065853085, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
@@ -4299,9 +4314,14 @@ PrefabInstance:
       objectReference: {fileID: 1925041297}
     - target: {fileID: 5903712687001576278, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
-      propertyPath: changeSpeed
-      value: 0.7
-      objectReference: {fileID: 0}
+      propertyPath: CommSatAudioReference
+      value: 
+      objectReference: {fileID: 1925041297}
+    - target: {fileID: 5903712687001576278, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: AmbienceAudioReference
+      value: 
+      objectReference: {fileID: 161971820}
     - target: {fileID: 5937621012906040195, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -5690,16 +5710,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27185ae2ecfd40d42aa72d4b2d9c253c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &376850741 stripped
+--- !u!114 &377019143 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7153928330954480436, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+  m_CorrespondingSourceObject: {fileID: 2449384593485234982, guid: 3219ccd55e0001b4c8703f7dc571d41e,
     type: 3}
   m_PrefabInstance: {fileID: 376850737}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27185ae2ecfd40d42aa72d4b2d9c253c, type: 3}
+  m_Script: {fileID: 11500000, guid: af6f51b46d7903c43808b40fec683530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &385465292

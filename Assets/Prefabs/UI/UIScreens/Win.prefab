@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6696269028689390737}
-  - component: {fileID: 7527879683829164936}
+  - component: {fileID: 3081107655698281370}
   - component: {fileID: -2067960440879659559}
   m_Layer: 5
   m_Name: Win
@@ -132,7 +132,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7527879683829164936
+--- !u!114 &3081107655698281370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,13 +141,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6967473195087156678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27185ae2ecfd40d42aa72d4b2d9c253c, type: 3}
+  m_Script: {fileID: 11500000, guid: af6f51b46d7903c43808b40fec683530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
-  ConfirmationPrefab: {fileID: 0}
-  AudioReferences: {fileID: 0}
-  AudioReferences2: {fileID: 0}
+  CommSatAudioReference: {fileID: 0}
+  AmbienceAudioReference: {fileID: 0}
+  changeSpeed: 0.6
   menuScene: MainMenu
 --- !u!114 &-2067960440879659559
 MonoBehaviour:
@@ -341,6 +341,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093941259817796345, guid: c9bad1b27cb5aea4f874869a28c8c16e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093941259817796345, guid: c9bad1b27cb5aea4f874869a28c8c16e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093941259817796345, guid: c9bad1b27cb5aea4f874869a28c8c16e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093941259817796345, guid: c9bad1b27cb5aea4f874869a28c8c16e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3081107655698281370}
+    - target: {fileID: 4093941259817796345, guid: c9bad1b27cb5aea4f874869a28c8c16e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093941259817796345, guid: c9bad1b27cb5aea4f874869a28c8c16e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5145390677984388390, guid: c9bad1b27cb5aea4f874869a28c8c16e,
         type: 3}

@@ -11,33 +11,17 @@ using System.Collections.Generic;
 using UnityEditor;
 #endif
 
-public class GameOver : MonoBehaviour
+public class Win : MonoBehaviour
 {
     [SerializeField] GameFrameworkManager GameManager = null;
-    [SerializeField] GameObject ConfirmationPrefab = null;
     [SerializeField] GameObject CommSatAudioReference = null;
     [SerializeField] GameObject AmbienceAudioReference = null;
     
     [Header("Animatable Components")]
-    [SerializeField] PostProcessVolume postProcess;
     [SerializeField] public float changeSpeed;
-    [SerializeField] public float vigTarget;
-    [SerializeField] public float grainTarget;
-    [SerializeField] public float saturationTarget;
 
     [Header("Next Scene")]
     [SerializeField] string menuScene = null;
-    private Vignette vignette;
-    private ColorGrading colorgrad;
-    private Grain grain;
-
-    private float origVigIntensity;
-    private float origGrainIntensity;
-    private float origSaturation;
-
-    private float vigSpeed;
-
-    private bool deathAnimation = false;
     private bool fadeInMenu = false;
 
     List<Image> imageColours = new List<Image>();
@@ -45,11 +29,6 @@ public class GameOver : MonoBehaviour
 
     private void Awake()
     {
-        postProcess.profile.TryGetSettings<Vignette>(out vignette);
-        postProcess.profile.TryGetSettings<Grain>(out grain);
-        postProcess.profile.TryGetSettings<ColorGrading>(out colorgrad);
-        vignette.active = true;
-
         Image[] imageChildren = gameObject.GetComponentsInChildren<Image>();
         foreach (Image child in imageChildren)
         {
@@ -73,53 +52,14 @@ public class GameOver : MonoBehaviour
     {
         Cursor.visible = true;
 
-        //set all alphas on the gameover menu to 0 so we can fade it in when death animation is over
-        foreach(var element in imageColours)
-        {
-            element.color = new Color(element.color.r, element.color.g, element.color.b, 0f);
-        }
-        foreach (var element in textColours)
-        {
-            element.color = new Color(element.color.r, element.color.g, element.color.b, 0f);
-        }
-
-        origVigIntensity = vignette.intensity.value;
-        origGrainIntensity = grain.intensity.value;
-        origSaturation = colorgrad.saturation.value;
-
-        //vignette comes in fast than screen fades to black
-        vigSpeed = changeSpeed * 0.6f;
-
-        deathAnimation = true;
+        fadeInMenu = true;
     }
 
     void Update()
     {
-        if(deathAnimation == true)
-        {
-            DeathAnimation();
-        }
         if(fadeInMenu == true)
         {
             FadeInMenu();
-        }
-    }
-
-    private void DeathAnimation()
-    {
-        float dT = Mathf.Min(Time.unscaledDeltaTime, 1f / 30f);
-        grain.intensity.value = Mathf.Lerp(grain.intensity.value, grainTarget, dT * 1f / changeSpeed);
-        vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, vigTarget, dT * 1f / vigSpeed);
-        colorgrad.saturation.value = Mathf.Lerp(colorgrad.saturation.value, saturationTarget, dT * 1f / changeSpeed);
-
-        if (grain.intensity.value >= grainTarget - 0.03f)
-        {
-            grain.intensity.value = grainTarget;
-            vignette.intensity.value = vigTarget;
-            colorgrad.saturation.value = saturationTarget;
-
-            deathAnimation = false;
-            fadeInMenu = true;
         }
     }
 
@@ -159,18 +99,8 @@ public class GameOver : MonoBehaviour
     private void OnDisable()
     {
         Cursor.visible = false;
-        vignette.intensity.value = origVigIntensity;
-        grain.intensity.value = origGrainIntensity;
-        colorgrad.saturation.value = origSaturation;
-        vignette.active = false;
     }
 
-    public void OnClickLoad()
-    {
-        Debug.Log("No save data to load");
-    }
-
-    //used by the Confirmation screen
     void DoMainMenu()
     {
         // ========================
@@ -196,38 +126,6 @@ public class GameOver : MonoBehaviour
 
     public void OnClickMainMenu()
     {
-        var confirmation = ConfirmationPrefab.GetComponent<Confirmation>();
-
-        confirmation.titleText.SetText("Main Menu?");
-
-        confirmation.bodyText.GetComponent<TMPro.TMP_Text>().SetText("Are you sure you want to return to the main menu?");
-
-        confirmation.clickConfirmCallback = DoMainMenu;
-
-        ConfirmationPrefab.SetActive(true);
-    }
-
-    //used by the Confirmation screen
-    void DoQuit()
-    {
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#else         
-        Application.Quit();   
-#endif
-       
-    }
-
-    public void OnClickQuit()
-    {
-        var confirmation = ConfirmationPrefab.GetComponent<Confirmation>();
-
-        confirmation.titleText.SetText("Quit?");
-
-        confirmation.bodyText.GetComponent<TMPro.TMP_Text>().SetText("Are you sure you want to quit to desktop?");
-
-        confirmation.clickConfirmCallback = DoQuit;
-
-        ConfirmationPrefab.SetActive(true);
+        DoMainMenu();
     }
 }
