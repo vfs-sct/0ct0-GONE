@@ -28,6 +28,9 @@ public class GameHUD : MonoBehaviour
     [SerializeField] Color enabledTextColour;
     [SerializeField] Color disabledTextColour;
 
+    [Header("Grabbed by Tool Controller")]
+    [SerializeField] public TextMeshProUGUI equippedToolText = null;
+
     [Header("Do not touch")]
     public Player player = null;
     public GameObject selectedToolText = null;

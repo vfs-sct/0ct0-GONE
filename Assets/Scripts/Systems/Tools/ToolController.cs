@@ -5,9 +5,11 @@ using TMPro;
 public class ToolController : MonoBehaviour
 {
     [SerializeField] private GameFrameworkManager GameManager = null;
+    [SerializeField] private UIModule UIModule = null;
     [SerializeField] private List<Tool> EquiptTools = new List<Tool>();
-    [SerializeField] public TextMeshProUGUI toolText = null;
-    [SerializeField] public GameHUD gameHUD = null;
+    
+    private GameHUD gameHUD = null;
+    private TextMeshProUGUI toolText = null;
 
     private Tool CurrentTool = null;
 
@@ -22,6 +24,12 @@ public class ToolController : MonoBehaviour
 
     private GameObject _Target;
     public GameObject Target{get=>_Target;}
+
+    private void Awake()
+    {
+        gameHUD = UIModule.UIRoot.GetScreen<GameHUD>();
+        toolText = gameHUD.equippedToolText;
+    }
 
     public List<Tool> GetEquiptTools()
     {

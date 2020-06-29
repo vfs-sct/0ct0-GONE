@@ -13,13 +13,25 @@ public class InventoryV2 : MonoBehaviour
     [SerializeField] GameObject ResourceBox = null;
     [SerializeField] HorizontalLayoutGroup RowOne = null;
     [SerializeField] HorizontalLayoutGroup RowTwo = null;
+    //place item in the item inventory screen
+    [SerializeField] GameObject defaultInventoryItem = null;
 
     [SerializeField] HUDInventoryWidget InventoryWidget = null;
     [SerializeField] EventSystem eventSystem = null;
 
+    [SerializeField] Button[] tabs;
+    [SerializeField] GameObject[] tabContent;
+
+    [SerializeField] VerticalLayoutGroup[] inventoryVertRows = null;
+
     private InventoryController playerInventory;
+
+    //association between a resource box and the resource it's displaying
     private Dictionary<Resource, GetObjectsResourceBox> ResourceBoxes = new Dictionary<Resource, GetObjectsResourceBox>();
+
+    //save an association between the chunk and the specific item that's filling it in - multiple chunks can use the same item
     private Dictionary<Button, Item> ItemButtonAssociation = new Dictionary<Button, Item>();
+
     private bool[] isActive = new bool[10]
     {
         false,
@@ -33,6 +45,47 @@ public class InventoryV2 : MonoBehaviour
         false,
         false,
     };
+
+    private void Awake()
+    {
+        for(int i = 0; i < tabs.Length; i++)
+        {
+            //set up which tab should be active first
+            if (i == 0)
+            {
+                tabs[i].interactable = false;
+                tabContent[i].SetActive(true);
+            }
+            else
+            {
+                tabs[i].interactable = true;
+                tabContent[i].SetActive(false);
+            }
+
+            //if tab is clicked, show the tabs contents and make the tab non-interactable
+            tabs[i].onClick.AddListener(() =>
+            {
+                SwitchTab(i);
+            });
+        }
+    }
+
+    private void SwitchTab(int index)
+    {
+        for (int i = 0; i < tabs.Length; i++)
+        {
+            if (i == index)
+            {
+                tabs[i].interactable = false;
+                tabContent[i].SetActive(true);
+            }
+            else
+            {
+                tabs[i].interactable = true;
+                tabContent[i].SetActive(false);
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

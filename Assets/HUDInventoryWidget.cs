@@ -32,6 +32,7 @@ public class HUDInventoryWidget : MonoBehaviour
         
         newDial.transform.SetParent(buttonPanel.transform);
         newDial.GetComponent<GetObjectsDial>().GetText().SetText(resource.Abreviation);
+        newDial.GetComponent<GetObjectsDial>().GetText().color = resource.ResourceColor;
         newDial.GetComponent<GetObjectsDial>().GetBKImage().color = new Color(resource.ResourceColor.r, resource.ResourceColor.g, resource.ResourceColor.b, 0.2f);
         
         var fillImage = newDial.GetComponent<GetObjectsDial>().GetFillImage();

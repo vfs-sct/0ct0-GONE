@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 {
     [Header("Game:")]
     [SerializeField] private GameFrameworkManager GameManager  = null;
-    //[SerializeField] protected UIModule UIRootModule = null;
+    [SerializeField] protected UIModule UIRootModule = null;
     [SerializeField] private Playing PlayingState = null;
     [SerializeField] private LayerMask TargetableMask;
     [SerializeField] public Camera PlayerCamera = null;
@@ -29,11 +29,12 @@ public class Player : MonoBehaviour
     public ResourceInventory Inventory{get=>LinkedInventory;}
 
     [Header("UI Elements:")]
-    [SerializeField] private GameOver GameOverScreen = null;
-    [SerializeField] private GameOver WinScreen = null;
     [SerializeField] private GameObject CraftingTooltip = null;
     [SerializeField] private GameObject RefuellingTooltip = null;
     [SerializeField] private GameObject TargetingTooltip = null;
+
+    private GameOver GameOverScreen = null;
+    private Win WinScreen = null;
 
     [SerializeField] private ScannerComponent Scanner;
 
@@ -191,9 +192,11 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        GameOverScreen = UIRootModule.UIRoot.GetScreen<GameOver>();
+        WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
         PlayingState.RegisterPlayer(this);
         invertedCam = PlayerPrefs.GetInt("InvertedCam");
-        HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
+        //HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
     }
 
     private void Start()
@@ -242,9 +245,10 @@ public class Player : MonoBehaviour
 
             lastHighlightMat = mouseCollision.GetComponentInChildren<MeshRenderer>().material;
             MeshRenderer TargetMeshRender = mouseCollision.GetComponentInChildren<MeshRenderer>();
-            TargetMeshRender.material = HighlightMaterial;
+           
             Salvagable TargetSalvage = mouseCollision.GetComponentInChildren<Salvagable>();
             if (TargetSalvage != null) TargetMeshRender.material.color = TargetSalvage.SalvageItem.ResourceType.ResourceColor;
+            TargetMeshRender.material = TargetSalvage.SalvageItem.ResourceType.ResourceHighlight;
 
         }
     }
