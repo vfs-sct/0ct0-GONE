@@ -68,8 +68,11 @@ public class ScannerComponent : MonoBehaviour
     {
         for (int i = 0; i < ScanKeys.Count; i++)
         {
-            ScanResults[ScanKeys[i]].Renderer.material = ScanResults[ScanKeys[i]].OriginalMaterial;
-            ScanResults[ScanKeys[i]].Renderer.material.color = ScanResults[ScanKeys[i]].OriginalColor;
+            if (ScanResults[ScanKeys[i]].Renderer != null)
+            {
+                ScanResults[ScanKeys[i]].Renderer.material = ScanResults[ScanKeys[i]].OriginalMaterial;
+                ScanResults[ScanKeys[i]].Renderer.material.color = ScanResults[ScanKeys[i]].OriginalColor;
+            }
         }
     }
 
