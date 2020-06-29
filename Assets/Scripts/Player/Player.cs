@@ -245,9 +245,10 @@ public class Player : MonoBehaviour
 
             lastHighlightMat = mouseCollision.GetComponentInChildren<MeshRenderer>().material;
             MeshRenderer TargetMeshRender = mouseCollision.GetComponentInChildren<MeshRenderer>();
-            TargetMeshRender.material = HighlightMaterial;
+           
             Salvagable TargetSalvage = mouseCollision.GetComponentInChildren<Salvagable>();
             if (TargetSalvage != null) TargetMeshRender.material.color = TargetSalvage.SalvageItem.ResourceType.ResourceColor;
+            TargetMeshRender.material = TargetSalvage.SalvageItem.ResourceType.ResourceHighlight;
 
         }
     }

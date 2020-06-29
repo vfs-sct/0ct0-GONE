@@ -34,6 +34,7 @@ public class Resource : ScriptableObject
     [SerializeField] public string DisplayName = "";
     [SerializeField] public string Abreviation = "";
     [SerializeField] public Color ResourceColor;
+    [SerializeField] public Material ResourceHighlight;
     [SerializeField] public Sprite resourceIcon = null;
 
     Dictionary<ResourceInventory,ResourceData_Internal> Data = new Dictionary<ResourceInventory, ResourceData_Internal>();
