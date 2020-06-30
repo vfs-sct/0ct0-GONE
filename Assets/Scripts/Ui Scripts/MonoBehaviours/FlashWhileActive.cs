@@ -17,8 +17,8 @@ public class FlashWhileActive : MonoBehaviour
 
     private float endAlpha = 0f;
 
-    List<Image> imageColours = new List<Image>();
-    List<TextMeshProUGUI> textColours = new List<TextMeshProUGUI>();
+    public List<Image> imageColours = new List<Image>();
+    public List<TextMeshProUGUI> textColours = new List<TextMeshProUGUI>();
 
     private bool isDisabling = false;
     private bool isEnabling = false;

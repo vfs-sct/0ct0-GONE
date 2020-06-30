@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -15,12 +14,12 @@ public class ObjectivePopUp : MonoBehaviour
     private string objectiveComplete = "Objective Complete: ";
     private string memoryReconstruction = "Reconstruction at ";
     private float reconstructionPercent;
-    private Image[] images;
-    private TextMeshProUGUI[] text;
+    [SerializeField] private List<Image> images;
+    [SerializeField] private List<TextMeshProUGUI> text;
     private string[] objectiveShort = new string[8]
     {
-        "New Objective: Refuel at the station",
-        "New Objective: Salvage Iron Debris",
+        "Refuel at the station",
+        "Salvage Iron Debris",
         "",
         "",
         "",
@@ -30,6 +29,7 @@ public class ObjectivePopUp : MonoBehaviour
     };
 
     private bool fadingIn = false;
+    private bool fadingOut = false;
 
     private void OnEnable()
     {
@@ -53,7 +53,7 @@ public class ObjectivePopUp : MonoBehaviour
     }
 
     //"Pretext" is the "objective complete" text that shows before the next objective
-    private void SetObjectiveText(bool isPreText, int index)
+    public void SetObjectiveText(bool isPreText, int index)
     {
         if(isPreText)
         {
@@ -74,38 +74,39 @@ public class ObjectivePopUp : MonoBehaviour
         bool imagesFinished = false;
         bool textFinished = false;
         float dT = Mathf.Min(Time.unscaledDeltaTime, 1f / 30f);
+
+        int finishedCount = 0;
         foreach (var image in images)
         {
-            int finishedCount = 0;
             var lerpToColor = new Color(image.color.r, image.color.g, image.color.b, 1f);
-            if (image.color.a > 1f - 0.05f)
+            if (image.color.a > 0.95f)
             {
                 image.color = lerpToColor;
+                finishedCount++;
             }
             else
             {
                 image.color = Color.Lerp(image.color, lerpToColor, dT * 1f / lerpTime);
-                finishedCount++;
             }
-            if(finishedCount == images.Length)
+            if(finishedCount == images.Count)
             {
                 imagesFinished = true;
             }
         }
-        foreach(var text in text)
+        finishedCount = 0;
+        foreach (var texts in text)
         {
-            int finishedCount = 0;
-            var lerpToColor = new Color(text.color.r, text.color.g, text.color.b, 1f);
-            if (text.color.a > 1f - 0.05f)
+            var lerpToColor = new Color(texts.color.r, texts.color.g, texts.color.b, 1f);
+            if (texts.color.a > 0.95f)
             {
-                text.color = lerpToColor;
+                texts.color = lerpToColor;
+                finishedCount++;
             }
             else
             {
-                text.color = Color.Lerp(text.color, lerpToColor, dT * 1f / lerpTime);
-                finishedCount++;
+                texts.color = Color.Lerp(texts.color, lerpToColor, dT * 1f / lerpTime);
             }
-            if (finishedCount == images.Length)
+            if (finishedCount == text.Count)
             {
                 textFinished = true;
             }
@@ -113,12 +114,63 @@ public class ObjectivePopUp : MonoBehaviour
         if(textFinished && imagesFinished)
         {
             fadingIn = false;
+            StartCoroutine(Wait(2f));
+        }
+    }
+
+    public void FadeOut()
+    {
+        bool imagesFinished = false;
+        bool textFinished = false;
+        float dT = Mathf.Min(Time.unscaledDeltaTime, 1f / 30f);
+        foreach (var image in images)
+        {
+            int finishedCount = 0;
+            var lerpToColor = new Color(image.color.r, image.color.g, image.color.b, 0f);
+            if (image.color.a < 0.05f)
+            {
+                image.color = lerpToColor;
+                finishedCount++;
+            }
+            else
+            {
+                image.color = Color.Lerp(image.color, lerpToColor, dT * 1f / lerpTime);
+            }
+            if (finishedCount == images.Count)
+            {
+                imagesFinished = true;
+            }
+        }
+        foreach (var texts in text)
+        {
+            int finishedCount = 0;
+            var lerpToColor = new Color(texts.color.r, texts.color.g, texts.color.b, 0f);
+            if (texts.color.a < 0.05f)
+            {
+                texts.color = lerpToColor;
+                finishedCount++;
+            }
+            else
+            {
+                texts.color = Color.Lerp(texts.color, lerpToColor, dT * 1f / lerpTime);
+                
+            }
+            if (finishedCount == text.Count)
+            {
+                textFinished = true;
+            }
+        }
+        if (textFinished && imagesFinished)
+        {
+            fadingOut = false;
+            gameObject.SetActive(false);
         }
     }
 
     System.Collections.IEnumerator Wait(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        fadingOut = true;
     }
 
     // Start is called before the first frame update
@@ -130,9 +182,13 @@ public class ObjectivePopUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(fadingIn == true)
+        if (fadingIn == true)
         {
             FadeIn();
+        }
+        if (fadingOut == true)
+        {
+            FadeOut();
         }
     }
 }

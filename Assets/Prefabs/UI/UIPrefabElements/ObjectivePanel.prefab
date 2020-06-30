@@ -92,6 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: {fileID: 1241821193324893209}
   objectiveText: {fileID: 8298048149747305495}
+  lerpTime: 5
+  parentObjFlash: {fileID: 3240116263620149741}
   isFirst: 1
 --- !u!1001 &2544013955196588234
 PrefabInstance:
@@ -278,6 +280,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2544013955196588234}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3240116263620149741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1132958382985744679, guid: d4ec960605264f04c9b4dd48bee3fb28,
+    type: 3}
+  m_PrefabInstance: {fileID: 2544013955196588234}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6404339514989178602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3886732b7e530914d9f864ec4bf75b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1241821193324893209 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3636079443041027283, guid: d4ec960605264f04c9b4dd48bee3fb28,

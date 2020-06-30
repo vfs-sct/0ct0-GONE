@@ -15,6 +15,7 @@ public class GameHUD : MonoBehaviour
     [SerializeField] GameObject InventoryPrefab = null;
     [SerializeField] public GameObject GasCloudAlertPrefab = null;
     [SerializeField] TextMeshProUGUI objectDistance = null;
+    [SerializeField] public ObjectivePopUp objectivePopUp = null;
 
     [Header("Tools")]
     [SerializeField] ToolController playerTools = null;
