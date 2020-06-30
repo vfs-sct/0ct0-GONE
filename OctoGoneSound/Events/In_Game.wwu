@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8FBC9EC1-40FD-46C6-8B4F-D4ABFC1E6C6F}" SchemaVersion="94" RootDocumentID="{ADF828A0-C81F-4254-91BA-00D42F1B0A43}">
+	<Events>
+		<WorkUnit Name="In_Game" ID="{8FBC9EC1-40FD-46C6-8B4F-D4ABFC1E6C6F}" OwnerID="{ADF828A0-C81F-4254-91BA-00D42F1B0A43}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="MUS_In_Game_Play" ID="{AACD6CF5-0B02-45C4-8CF0-AD4DCC5E914E}">
+					<ChildrenList>
+						<Action Name="" ID="{F72EFA3B-6E43-4490-9D31-EAA1A45B3542}" ShortID="385774547">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{63076504-B5F4-49D7-8BEA-940E9F2D88D2}" WorkUnitID="{2230AAF3-8446-4285-96C6-A7C78C6543D0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MUS_In_Game_Pause" ID="{625786AA-6356-4531-8DF5-0619F4BCC497}">
+					<ChildrenList>
+						<Action Name="" ID="{A9429E1C-F50E-4237-A697-E894D1246CBB}" ShortID="818728693">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{63076504-B5F4-49D7-8BEA-940E9F2D88D2}" WorkUnitID="{2230AAF3-8446-4285-96C6-A7C78C6543D0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MUS_In_Game_Stop" ID="{F116988F-C5E7-44A2-BDD6-CDFA5DFBED08}">
+					<ChildrenList>
+						<Action Name="" ID="{2BF57AB2-0825-4B53-90FC-F86B285D190C}" ShortID="496152834">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{63076504-B5F4-49D7-8BEA-940E9F2D88D2}" WorkUnitID="{2230AAF3-8446-4285-96C6-A7C78C6543D0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MUS_In_Game_Resume" ID="{0610022F-D4A3-453C-913B-FD4DE68F3F39}">
+					<ChildrenList>
+						<Action Name="" ID="{44E6E92F-3BC5-4515-B4A1-959CE0C2A2B0}" ShortID="44155891">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{63076504-B5F4-49D7-8BEA-940E9F2D88D2}" WorkUnitID="{2230AAF3-8446-4285-96C6-A7C78C6543D0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
