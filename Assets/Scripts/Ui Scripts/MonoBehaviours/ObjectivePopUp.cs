@@ -37,6 +37,11 @@ public class ObjectivePopUp : MonoBehaviour
     private bool fadingIn = false;
     private bool fadingOut = false;
 
+    private bool fadingInText = false;
+    private bool fadingOutText = false;
+
+    private bool _isPreText = false;
+
     private void OnEnable()
     {
         foreach(var image in images)
@@ -52,19 +57,62 @@ public class ObjectivePopUp : MonoBehaviour
     //"Pretext" is the "objective complete" text that shows before the next objective
     public void SetObjectiveText(bool isPreText)
     {
-        if(isPreText)
+        _isPreText = isPreText;
+        if (objectiveShort[currentEvent] != null)
         {
-            titleText.SetText(objectiveComplete);
-            objectiveText.SetText(memoryReconstruction + ((currentEvent) * 12.5).ToString() + "%");
+            if (isPreText)
+            {
+                titleText.SetText(objectiveComplete);
+                objectiveText.SetText(memoryReconstruction + ((currentEvent) * 12.5).ToString() + "%");
+            }
+            else
+            {
+                titleText.SetText(newObjective);
+                objectiveText.SetText(objectiveShort[currentEvent]);
+                currentEvent++;
+            }
+
+            gameObject.SetActive(true);
+            fadingIn = true;
         }
-        else
+    }
+
+    public void FadeOutText()
+    {
+        bool textFinished = false;
+        float dT = Mathf.Min(Time.unscaledDeltaTime, 1f / 30f);
+
+        int finishedCount = 0;
+        foreach (var texts in text)
         {
-            titleText.SetText(newObjective);
-            objectiveText.SetText(objectiveShort[currentEvent]);
+            var lerpToColor = new Color(texts.color.r, texts.color.g, texts.color.b, 0f);
+            if (texts.color.a < 0.03f)
+            {
+                finishedCount++;
+            }
+            else
+            {
+                texts.color = Color.Lerp(texts.color, lerpToColor, dT * 1f / fadeOutTime);
+            }
+
+            if (finishedCount == text.Count)
+            {
+                textFinished = true;
+            }
         }
-        currentEvent++;
-        fadingIn = true;
-        gameObject.SetActive(true);
+
+        //check if everything's close enough to finished to snap to the end value
+        if (textFinished)
+        {
+            foreach (var tmp in text)
+            {
+                tmp.color = new Color(tmp.color.r, tmp.color.g, tmp.color.b, 0f);
+            }
+            //stop fade out, start fade in of new objective
+            _isPreText = false;
+            fadingOutText = false;
+            SetObjectiveText(false);
+        }
     }
 
     public void FadeIn()
@@ -123,10 +171,20 @@ public class ObjectivePopUp : MonoBehaviour
             {
                 tmp.color = new Color(tmp.color.r, tmp.color.g, tmp.color.b, 1f);
             }
+
             //stop fade in
             fadingIn = false;
-            //wait a designated time before fading out so the player has a chance to read
-            StartCoroutine(Wait(displayTime));
+
+            if (_isPreText)
+            {
+                //for if we want to fade out the current text and then fade in another objective
+                StartCoroutine(Wait(0.2f));
+            }
+            else
+            {
+                //for if we want to fade out everything then turn the prefab off
+                StartCoroutine(Wait(displayTime));
+            }
         }
     }
 
@@ -190,7 +248,16 @@ public class ObjectivePopUp : MonoBehaviour
     System.Collections.IEnumerator Wait(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        fadingOut = true;
+        if (_isPreText)
+        {
+            //for if we want to fade out the current text and then fade in another objective
+            fadingOutText = true;
+        }
+        else
+        {
+            //for if we want to fade out everything then turn the prefab off
+            fadingOut = true;
+        }
     }
 
     // Start is called before the first frame update
@@ -218,6 +285,10 @@ public class ObjectivePopUp : MonoBehaviour
         if (fadingOut == true)
         {
             FadeOut();
+        }
+        if (fadingOutText == true)
+        {
+            FadeOutText();
         }
     }
 }
