@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8dbb4b07df41ea429ea77dc6adbf6d2, type: 3}
   m_Name: BatteryRecipe
   m_EditorClassIdentifier: 
-  DisplayName: 
+  DisplayName: Battery
   ItemInput: []
-  ResourceInput: []
+  ResourceInput:
+  - resource: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
+    amount: 1
+  - resource: {fileID: 11400000, guid: 733f38e14956f944da3bfb9804cf8314, type: 2}
+    amount: 1
+  - resource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
+    amount: 3
   Output:
     item: {fileID: 11400000, guid: f4e1d8844bc727b4ead0f5d464e68620, type: 2}
-    amount: 0
+    amount: 1
   CreatesByProducts: 0
-  RequiredItemInputSpace: 0
-  ItemOuputSpace: 0
   ItemByProducts: []
   ResourceByProducts: []
+  RequiredItemInputSpace: 0
+  ItemOuputSpace: 0

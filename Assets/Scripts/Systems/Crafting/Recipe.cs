@@ -16,12 +16,13 @@ public class Recipe : ScriptableObject
 
     public bool CreatesByProducts;
 
-    public float RequiredItemInputSpace= 0;
-    public float ItemOuputSpace = 0;
-
     public List<CraftingModule.RecipeData> ItemByProducts;
 
     public List<CraftingModule.RecipeResourceData> ResourceByProducts;
+
+    [Header("Do not touch")]
+    public float RequiredItemInputSpace= 0;
+    public float ItemOuputSpace = 0;
 
     public Recipe(List<CraftingModule.RecipeData> NewIIn,List<CraftingModule.RecipeResourceData> NewRIn, CraftingModule.RecipeData O, bool CB,List<CraftingModule.RecipeData> IByOut,List<CraftingModule.RecipeResourceData> RByOut)
     {
