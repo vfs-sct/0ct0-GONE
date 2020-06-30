@@ -36,7 +36,7 @@ public class RefuelEvent : Event
             //quest complete?
             if (currentAmount >= CollectResource.GetMaximum())
             {
-                ObjectivePopup();
+                ObjectivePopup(isFirstEvent);
                 NextTutorialPrompt();
                 Debug.Log("EVENT CONDITION MET");
                 EventTrigger = true;
@@ -56,9 +56,9 @@ public class RefuelEvent : Event
         isInitialized = true;
     }
 
-    private void ObjectivePopup()
+    private void ObjectivePopup(bool isFirst)
     {
-        UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePopUp.SetObjectiveText(true, 1);
+        UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePopUp.SetObjectiveText(isFirst);
     }
 
     private void NextTutorialPrompt()

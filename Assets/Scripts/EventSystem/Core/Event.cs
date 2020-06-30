@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public abstract class Event : ScriptableObject
 {
     public string EventName;
-    public string EventText;
-    public string CompletionText;
+    public bool isFirstEvent = false;
+    public bool progressesStory = true;
     protected GameFrameworkManager GameManager = null;
 
     public abstract bool Condition(GameObject target);
