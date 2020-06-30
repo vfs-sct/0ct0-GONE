@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: f900c26f10d8334a9904ef23286ce5ab
     GuidInternal: 
-    m_lastTime: -8586090944122249009
+    m_lastTime: -8586081106910829090
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
@@ -369,37 +369,33 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Music.wwu
     guid: c19ebc8ffd40c6468b4fd4abfc1e6c6f
     GuidInternal: 
-    m_lastTime: -8586090944082903629
+    m_lastTime: -8586081106910899121
     List:
     - name: MUS_In_Game_Pause
       guid: aa865762566331458df50619f4bcc497
       id: 1832975494
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
       - ElementName: Music
         ObjectType: 12
       - ElementName: In_Game
         ObjectType: 12
       - ElementName: MUS_In_Game_Pause
         ObjectType: 3
-      Path: Octo_Main\Music\In_Game\MUS_In_Game_Pause
+      Path: Music\In_Game\MUS_In_Game_Pause
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: MUS_In_Game_Play
       guid: f56ccdaa020bc4458cf0ad4dcc5e914e
       id: 2465552598
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
       - ElementName: Music
         ObjectType: 12
       - ElementName: In_Game
         ObjectType: 12
       - ElementName: MUS_In_Game_Play
         ObjectType: 3
-      Path: Octo_Main\Music\In_Game\MUS_In_Game_Play
+      Path: Music\In_Game\MUS_In_Game_Play
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -407,69 +403,61 @@ MonoBehaviour:
       guid: 2f021006a3d43c45913bfd4de68f3f39
       id: 581076801
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
       - ElementName: Music
         ObjectType: 12
       - ElementName: In_Game
         ObjectType: 12
       - ElementName: MUS_In_Game_Resume
         ObjectType: 3
-      Path: Octo_Main\Music\In_Game\MUS_In_Game_Resume
+      Path: Music\In_Game\MUS_In_Game_Resume
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: MUS_In_Game_Stop
       guid: 8f9816f1e7c5a244bdd6cdfa5dfbed08
       id: 3237563496
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
       - ElementName: Music
         ObjectType: 12
       - ElementName: In_Game
         ObjectType: 12
       - ElementName: MUS_In_Game_Stop
         ObjectType: 3
-      Path: Octo_Main\Music\In_Game\MUS_In_Game_Stop
+      Path: Music\In_Game\MUS_In_Game_Stop
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
   - PhysicalPath: Events\Main_Menu.wwu
     ParentPhysicalPath: Events\Music.wwu
     guid: 4dab92772dccf44eb60cec9dbdf6b3ee
     GuidInternal: 
-    m_lastTime: -8586090944099291620
+    m_lastTime: -8586081106910889117
     List:
     - name: MUS_Pause
       guid: 92452b3fddcfb44aa209218110de2aae
       id: 2059726137
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
       - ElementName: Music
         ObjectType: 12
       - ElementName: Main_Menu
         ObjectType: 12
       - ElementName: MUS_Pause
         ObjectType: 3
-      Path: Octo_Main\Music\Main_Menu\MUS_Pause
+      Path: Music\Main_Menu\MUS_Pause
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: MUS_Play
       guid: 1933fe8dfbcbc54b97642dbdd10d93d3
       id: 1280297747
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
       - ElementName: Music
         ObjectType: 12
       - ElementName: Main_Menu
         ObjectType: 12
       - ElementName: MUS_Play
         ObjectType: 3
-      Path: Octo_Main\Music\Main_Menu\MUS_Play
+      Path: Music\Main_Menu\MUS_Play
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -477,34 +465,30 @@ MonoBehaviour:
       guid: 677188dacbfd1d4785932a5c8b301611
       id: 2204038648
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
       - ElementName: Music
         ObjectType: 12
       - ElementName: Main_Menu
         ObjectType: 12
       - ElementName: MUS_Resume
         ObjectType: 3
-      Path: Octo_Main\Music\Main_Menu\MUS_Resume
+      Path: Music\Main_Menu\MUS_Resume
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: MUS_Stop
       guid: 90ea2bc06fb08a479af448f50062298b
       id: 410419961
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
       - ElementName: Music
         ObjectType: 12
       - ElementName: Main_Menu
         ObjectType: 12
       - ElementName: MUS_Stop
         ObjectType: 3
-      Path: Octo_Main\Music\Main_Menu\MUS_Stop
+      Path: Music\Main_Menu\MUS_Stop
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
   - PhysicalPath: Events\MainMenu.wwu
     ParentPhysicalPath: Events\FE.wwu
     guid: f1570b83852e0f4992eb4ee6b133eb97
@@ -608,30 +592,74 @@ MonoBehaviour:
       maxDuration: 2.858667
       minDuration: 2.858667
   - PhysicalPath: Events\Music.wwu
-    ParentPhysicalPath: Events\Octo_Main.wwu
-    guid: 600f4cd3cd56114abfd30b5150b1c1e0
+    ParentPhysicalPath: 
+    guid: a028f8ad1fc8544291ba00d42f1b0a43
     GuidInternal: 
-    m_lastTime: -8586090944078965272
+    m_lastTime: -8586081106910879116
     List: []
   - PhysicalPath: Events\Oakley.wwu
-    ParentPhysicalPath: Events\Characters.wwu
+    ParentPhysicalPath: 
     guid: adf6d36ce72ced4eb04c57e83f3fdefd
     GuidInternal: 
-    m_lastTime: -8586090944062631860
+    m_lastTime: -8586081106910869111
     List:
+    - name: TEMP_VO_Oakley1
+      guid: 99da21cb0fba3c4e9c60aee8ad1c9d0c
+      id: 2175833802
+      PathAndIcons:
+      - ElementName: Oakley
+        ObjectType: 12
+      - ElementName: TEMP_VO_Oakley1
+        ObjectType: 3
+      Path: Oakley\TEMP_VO_Oakley1
+      maxAttenuation: 0
+      maxDuration: 2.269456
+      minDuration: 2.269456
+    - name: TEMP_VO_Oakley2
+      guid: ec0b099a3437f54887c876681e1b78d5
+      id: 2175833801
+      PathAndIcons:
+      - ElementName: Oakley
+        ObjectType: 12
+      - ElementName: TEMP_VO_Oakley2
+        ObjectType: 3
+      Path: Oakley\TEMP_VO_Oakley2
+      maxAttenuation: 0
+      maxDuration: 1.296213
+      minDuration: 1.296213
+    - name: TEMP_VO_Oakley3
+      guid: ae60ce51968c7247b175afb3bababece
+      id: 2175833800
+      PathAndIcons:
+      - ElementName: Oakley
+        ObjectType: 12
+      - ElementName: TEMP_VO_Oakley3
+        ObjectType: 3
+      Path: Oakley\TEMP_VO_Oakley3
+      maxAttenuation: 0
+      maxDuration: 7.031225
+      minDuration: 7.031225
+    - name: TEMP_VO_Oakley4
+      guid: 4fc3fb3afd512f4f9ae6c01f1e385de4
+      id: 2175833807
+      PathAndIcons:
+      - ElementName: Oakley
+        ObjectType: 12
+      - ElementName: TEMP_VO_Oakley4
+        ObjectType: 3
+      Path: Oakley\TEMP_VO_Oakley4
+      maxAttenuation: 0
+      maxDuration: 2.493084
+      minDuration: 2.493084
     - name: Voice_Log_01
       guid: 04856fbed675c34a99fc2c390e1f86cc
       id: 2903534464
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Oakley
         ObjectType: 12
       - ElementName: Voice_Log_01
         ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\Voice_Log_01
+      Path: Oakley\Voice_Log_01
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -639,15 +667,11 @@ MonoBehaviour:
       guid: 7441477035dc854cbc2a1d0e68ed9bcf
       id: 2903534467
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Oakley
         ObjectType: 12
       - ElementName: Voice_Log_02
         ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\Voice_Log_02
+      Path: Oakley\Voice_Log_02
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -655,15 +679,11 @@ MonoBehaviour:
       guid: ac310745e37c7e4bb595a6dfc627d84b
       id: 2903534466
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Oakley
         ObjectType: 12
       - ElementName: Voice_Log_03
         ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\Voice_Log_03
+      Path: Oakley\Voice_Log_03
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -671,15 +691,11 @@ MonoBehaviour:
       guid: 5c235b0789c80e44a6e5530bf10b190f
       id: 2903534469
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Oakley
         ObjectType: 12
       - ElementName: Voice_Log_04
         ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\Voice_Log_04
+      Path: Oakley\Voice_Log_04
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -687,15 +703,11 @@ MonoBehaviour:
       guid: d7b5661783c16b4e8eb58d228d042f10
       id: 2903534468
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Oakley
         ObjectType: 12
       - ElementName: Voice_Log_05
         ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\Voice_Log_05
+      Path: Oakley\Voice_Log_05
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -703,15 +715,11 @@ MonoBehaviour:
       guid: adfc23d2785024498bb3f7347bec661f
       id: 2903534471
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Oakley
         ObjectType: 12
       - ElementName: Voice_Log_06
         ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\Voice_Log_06
+      Path: Oakley\Voice_Log_06
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -719,15 +727,11 @@ MonoBehaviour:
       guid: 4ed5cedd6237c248b6639fb6da023085
       id: 2903534470
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Oakley
         ObjectType: 12
       - ElementName: Voice_Log_07
         ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\Voice_Log_07
+      Path: Oakley\Voice_Log_07
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -735,39 +739,31 @@ MonoBehaviour:
       guid: c975b966f9cb6a4db375c76c5517e830
       id: 2903534473
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Oakley
         ObjectType: 12
       - ElementName: Voice_Log_08
         ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\Voice_Log_08
+      Path: Oakley\Voice_Log_08
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
   - PhysicalPath: Events\Octo.wwu
-    ParentPhysicalPath: Events\Characters.wwu
+    ParentPhysicalPath: 
     guid: f634a635af0cc44cb82677937ae1b49a
     GuidInternal: 
-    m_lastTime: -8586090944107743784
+    m_lastTime: -8586081106910859104
     List:
     - name: Complete_Objective
       guid: 3f1ebf0eeb5f854bad04bcbec4244fed
       id: 3263450676
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: Voice
         ObjectType: 4
       - ElementName: Complete_Objective
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\Voice\Complete_Objective
+      Path: Octo\Voice\Complete_Objective
       maxAttenuation: 0
       maxDuration: 1.189083
       minDuration: 1.189083
@@ -775,17 +771,13 @@ MonoBehaviour:
       guid: 4f9afba5c1bbe84e9635d8c6f2893046
       id: 2185317076
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: Voice
         ObjectType: 4
       - ElementName: Crafting_Failure
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\Voice\Crafting_Failure
+      Path: Octo\Voice\Crafting_Failure
       maxAttenuation: 0
       maxDuration: 1.153417
       minDuration: 1.153417
@@ -793,17 +785,13 @@ MonoBehaviour:
       guid: c297eb16073b284ab2dab9ce54b1fcca
       id: 507489755
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: Voice
         ObjectType: 4
       - ElementName: Crafting_Success
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\Voice\Crafting_Success
+      Path: Octo\Voice\Crafting_Success
       maxAttenuation: 0
       maxDuration: 1.666667
       minDuration: 1.666667
@@ -811,17 +799,13 @@ MonoBehaviour:
       guid: 3699151b2b31cf40babbf1e542dbd807
       id: 1786804762
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: Voice
         ObjectType: 4
       - ElementName: Damage
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\Voice\Damage
+      Path: Octo\Voice\Damage
       maxAttenuation: 0
       maxDuration: 0.766667
       minDuration: 0.766667
@@ -829,17 +813,13 @@ MonoBehaviour:
       guid: 83ca1cbe0537a3448ab3f04fe383a46f
       id: 779278001
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: Voice
         ObjectType: 4
       - ElementName: Death
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\Voice\Death
+      Path: Octo\Voice\Death
       maxAttenuation: 0
       maxDuration: 1.933333
       minDuration: 1.933333
@@ -847,17 +827,13 @@ MonoBehaviour:
       guid: 7ef514f0ca49ea4ab7244fb430a4bdee
       id: 4123804492
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: Voice
         ObjectType: 4
       - ElementName: Low_Fuel
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\Voice\Low_Fuel
+      Path: Octo\Voice\Low_Fuel
       maxAttenuation: 0
       maxDuration: 0.870854
       minDuration: 0.870854
@@ -865,17 +841,13 @@ MonoBehaviour:
       guid: 647d64532db70840ab209e6239dad671
       id: 973306129
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: Voice
         ObjectType: 4
       - ElementName: Low_Supply
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\Voice\Low_Supply
+      Path: Octo\Voice\Low_Supply
       maxAttenuation: 0
       maxDuration: 1.099396
       minDuration: 1.099396
@@ -883,17 +855,13 @@ MonoBehaviour:
       guid: 8da0671479266a4c86f3f63755eaee0e
       id: 853073649
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: Voice
         ObjectType: 4
       - ElementName: Not_Enough_Resources
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\Voice\Not_Enough_Resources
+      Path: Octo\Voice\Not_Enough_Resources
       maxAttenuation: 0
       maxDuration: 1.125625
       minDuration: 1.125625
@@ -901,17 +869,13 @@ MonoBehaviour:
       guid: b891293d1f0a0f4289c5582f380286fe
       id: 1805563388
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
       - ElementName: Octo_Damage_Metal
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_Damage_Metal
+      Path: Octo\SFX\Octo_Damage_Metal
       maxAttenuation: 0
       maxDuration: 3.018667
       minDuration: 0.298667
@@ -919,17 +883,13 @@ MonoBehaviour:
       guid: 2a627dfe83f9b44f9e3d7e4883414655
       id: 3567146260
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
       - ElementName: Octo_Damage_Rock
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_Damage_Rock
+      Path: Octo\SFX\Octo_Damage_Rock
       maxAttenuation: 0
       maxDuration: 2.794667
       minDuration: 1.781333
@@ -937,17 +897,13 @@ MonoBehaviour:
       guid: f96c4d291f2fac479f0fe864aa693e1e
       id: 269952755
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
       - ElementName: Octo_GooGlue
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_GooGlue
+      Path: Octo\SFX\Octo_GooGlue
       maxAttenuation: 0
       maxDuration: 1.237333
       minDuration: 1.237333
@@ -955,17 +911,13 @@ MonoBehaviour:
       guid: 0549e01b7a318743814c19dbda393914
       id: 2765733061
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
       - ElementName: Octo_Grab
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_Grab
+      Path: Octo\SFX\Octo_Grab
       maxAttenuation: 0
       maxDuration: 1.834667
       minDuration: 1.834667
@@ -973,17 +925,13 @@ MonoBehaviour:
       guid: b1f2942db8fc1d49926a8f309a576498
       id: 2120872765
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
       - ElementName: Octo_Moving
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_Moving
+      Path: Octo\SFX\Octo_Moving
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -991,53 +939,55 @@ MonoBehaviour:
       guid: f48c6cf94ae5d54e85d09aed4a574c16
       id: 1840358926
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
       - ElementName: Octo_Salvage
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_Salvage
+      Path: Octo\SFX\Octo_Salvage
       maxAttenuation: 0
       maxDuration: 4.421333
       minDuration: 4.421333
-    - name: Octo_Tether
-      guid: 5d3a01fd31a241459e750bafda3c416d
-      id: 1089170435
+    - name: Octo_Tether_Grab
+      guid: 9f78d66546993942b25846bf3fab6fcf
+      id: 3836538128
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
-      - ElementName: Octo_Tether
+      - ElementName: Octo_Tether_Grab
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_Tether
+      Path: Octo\SFX\Octo_Tether_Grab
       maxAttenuation: 0
-      maxDuration: 1.509333
-      minDuration: 1.509333
+      maxDuration: 0.72
+      minDuration: 0.72
+    - name: Octo_Tether_Rope
+      guid: 5d3a01fd31a241459e750bafda3c416d
+      id: 314769330
+      PathAndIcons:
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_Tether_Rope
+        ObjectType: 3
+      Path: Octo\SFX\Octo_Tether_Rope
+      maxAttenuation: 0
+      maxDuration: 0.949333
+      minDuration: 0.949333
     - name: Octo_Thrusters_Play
       guid: 882b55f01d835845ad1b375295da4bef
       id: 3778246708
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
       - ElementName: Octo_Thrusters_Play
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_Thrusters_Play
+      Path: Octo\SFX\Octo_Thrusters_Play
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1045,17 +995,13 @@ MonoBehaviour:
       guid: 6e14814f915bf141a03ec42fe491b36e
       id: 1187285006
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
       - ElementName: Octo_Thrusters_Stop
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_Thrusters_Stop
+      Path: Octo\SFX\Octo_Thrusters_Stop
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -1063,25 +1009,63 @@ MonoBehaviour:
       guid: c2408e5af8a9f14e93bfc7118e9a451c
       id: 3812427620
       PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
       - ElementName: Voice
         ObjectType: 4
       - ElementName: Remembering_Oakley
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\Voice\Remembering_Oakley
+      Path: Octo\Voice\Remembering_Oakley
       maxAttenuation: 0
       maxDuration: 1.566667
       minDuration: 1.566667
+    - name: TEMP_VO_Octo1
+      guid: a04f369f8482bf40a9b5d05fe9767cbc
+      id: 131276932
+      PathAndIcons:
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: VO
+        ObjectType: 4
+      - ElementName: TEMP_VO_Octo1
+        ObjectType: 3
+      Path: Octo\VO\TEMP_VO_Octo1
+      maxAttenuation: 0
+      maxDuration: 13.77127
+      minDuration: 13.77127
+    - name: TEMP_VO_Octo2
+      guid: 3a9d275af4900e47805901f889d3de3d
+      id: 131276935
+      PathAndIcons:
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: VO
+        ObjectType: 4
+      - ElementName: TEMP_VO_Octo2
+        ObjectType: 3
+      Path: Octo\VO\TEMP_VO_Octo2
+      maxAttenuation: 0
+      maxDuration: 11.34678
+      minDuration: 11.34678
+    - name: TEMP_VO_Octo3
+      guid: 2af97a34496dab4ea35bc94050d9623d
+      id: 131276934
+      PathAndIcons:
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: VO
+        ObjectType: 4
+      - ElementName: TEMP_VO_Octo3
+        ObjectType: 3
+      Path: Octo\VO\TEMP_VO_Octo3
+      maxAttenuation: 0
+      maxDuration: 4.171996
+      minDuration: 4.171996
   - PhysicalPath: Events\Octo_Main.wwu
     ParentPhysicalPath: 
     guid: 5fe02299154012418e883a6d761122fe
     GuidInternal: 
-    m_lastTime: -8586090944054180293
+    m_lastTime: -8586081106910849114
     List: []
   - PhysicalPath: Events\Options.wwu
     ParentPhysicalPath: Events\MainMenu.wwu
@@ -1775,7 +1759,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 31b003b25aa463438a044a6258588903
     GuidInternal: 
-    m_lastTime: -8586090944123909384
+    m_lastTime: -8586081106904687711
     List:
     - name: BackEnd
       guid: 24809a1fb11b624e9008c3a9c89d2383
@@ -1847,6 +1831,37 @@ MonoBehaviour:
         id: 748895195
         PathAndIcons:
         - ElementName: None
+          ObjectType: 8
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+    - name: GameFlow
+      guid: 7a84213ba1fcfc4a91e1e7ac1f37bc8a
+      id: 392736999
+      PathAndIcons:
+      - ElementName: Music
+        ObjectType: 12
+      - ElementName: GameFlow
+        ObjectType: 9
+      Path: Music\GameFlow
+      values:
+      - name: None
+        guid: 0d2a119bf176464d8744aafad232fe92
+        id: 748895195
+        PathAndIcons:
+        - ElementName: None
+          ObjectType: 8
+      - name: Pause
+        guid: 5fc9c18772030a46a369a2d6d10a67ff
+        id: 3092587493
+        PathAndIcons:
+        - ElementName: Pause
+          ObjectType: 8
+      - name: Resume
+        guid: 262f6751bd6c1d409b7b0fbab6107f26
+        id: 953277036
+        PathAndIcons:
+        - ElementName: Resume
           ObjectType: 8
       ValueGuids: []
       ValueIcons: []
@@ -1936,9 +1951,12 @@ MonoBehaviour:
   ExpandedItems:
   - /WWise_OctoGone_SD95
   - /WWise_OctoGone_SD95/Events
+  - /WWise_OctoGone_SD95/Events/Oakley
   - /WWise_OctoGone_SD95/Events/Octo_Main
-  - /WWise_OctoGone_SD95/Events/Octo_Main/Environment
-  - /WWise_OctoGone_SD95/Events/Octo_Main/Environment/Environmental
-  - /WWise_OctoGone_SD95/Events/Octo_Main/FE
+  - /WWise_OctoGone_SD95/States
+  - /WWise_OctoGone_SD95/States/Music
+  - /WWise_OctoGone_SD95/States/Music/BackEnd
+  - /WWise_OctoGone_SD95/States/Music/FrontEnd
+  - /WWise_OctoGone_SD95/States/Music/General
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

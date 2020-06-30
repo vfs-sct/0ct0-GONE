@@ -8,4 +8,9 @@ public class PlayButtonSound : MonoBehaviour
     {
         AkSoundEngine.PostEvent ("MainMenu_Button_Play",gameObject);
     }
+
+    public void OnClickPlayDialogue()
+    {
+        AkSoundEngine.PostEvent("TEMP_VO_Oakley1", gameObject);
+    }
 }
