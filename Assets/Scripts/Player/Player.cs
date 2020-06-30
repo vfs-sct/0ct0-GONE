@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask TargetableMask;
     [SerializeField] public Camera PlayerCamera = null;
     [SerializeField] public EventModule EventModule = null;
-    [SerializeField] private PlayerSatelliteHolder SatHolder = null;
 
     [Header("Player:")]
     [SerializeField] private float TargetingDistance = 1000.0f;
