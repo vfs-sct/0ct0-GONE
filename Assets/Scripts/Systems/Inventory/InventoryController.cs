@@ -52,7 +52,11 @@ public class InventoryController : MonoBehaviour
                 success = false;
                 return this;
             }
-            if (Bucket[remItem] > 0) ;
+            if (Bucket[remItem]-amount < 0)
+            {
+                success = false;
+                return this;
+            }
             Bucket[remItem] -= amount;
             FillAmount -= amount * remItem.Size;
             success = true;

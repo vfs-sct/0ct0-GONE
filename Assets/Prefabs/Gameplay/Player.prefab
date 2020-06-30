@@ -98,8 +98,6 @@ GameObject:
   - component: {fileID: 489913433233796650}
   - component: {fileID: 489913433233796641}
   - component: {fileID: -2061200388978773683}
-  - component: {fileID: 796327338046920781}
-  - component: {fileID: 3611293218675261714}
   - component: {fileID: 1239658988473444085}
   - component: {fileID: 4701804487490555839}
   - component: {fileID: 8777384577728220895}
@@ -125,7 +123,6 @@ Transform:
   m_Children:
   - {fileID: 474012255534931523}
   - {fileID: 5267203579931695048}
-  - {fileID: 4803411458936969254}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -214,7 +211,6 @@ MonoBehaviour:
     m_Bits: 51
   PlayerCamera: {fileID: 489913431673510643}
   EventModule: {fileID: 11400000, guid: e1c895b8e1e4ed04e90570c9d886c7fb, type: 2}
-  SatHolder: {fileID: 3611293218675261714}
   TargetingDistance: 25
   FuelResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
   CameraScript: {fileID: 0}
@@ -264,39 +260,7 @@ MonoBehaviour:
   EquiptTools:
   - {fileID: 11400000, guid: 41cedef85c35ccb428399bdbd6368a25, type: 2}
   - {fileID: 11400000, guid: ca59628b57f88144ca9eb049e6609693, type: 2}
-  toolText: {fileID: 0}
   _PlayerInventory: {fileID: 0}
---- !u!114 &796327338046920781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2938d63b64f07f94eaa3d54e4ff017cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SatelliteToSpawn: {fileID: 0}
-  SatelliteHolder: {fileID: 3611293218675261714}
---- !u!114 &3611293218675261714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 447c59921b5bfd74683fe86b025e9aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BaseSatellitePrefab: {fileID: 1950318475809308425, guid: 3bab321989831534da7cdec6ecb0c2ad,
-    type: 3}
-  HeldSatellite: {fileID: 0}
-  HeldSatModel: {fileID: 0}
-  DefaultPlacementPos: {fileID: 4803411458936969254}
 --- !u!114 &1239658988473444085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,36 +388,6 @@ Transform:
   - {fileID: 489913431673510641}
   m_Father: {fileID: 489913433233796655}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7520081996506135083
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4803411458936969254}
-  m_Layer: 0
-  m_Name: SatelliteSpawnPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4803411458936969254
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7520081996506135083}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.16, z: 0.97}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 489913433233796655}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4895047121701369177
 PrefabInstance:
