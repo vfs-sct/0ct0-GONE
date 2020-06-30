@@ -61,16 +61,10 @@ public class InventoryV2 : MonoBehaviour
                 tabs[i].interactable = true;
                 tabContent[i].SetActive(false);
             }
-
-            //if tab is clicked, show the tabs contents and make the tab non-interactable
-            tabs[i].onClick.AddListener(() =>
-            {
-                SwitchTab(i);
-            });
         }
     }
 
-    private void SwitchTab(int index)
+    public void SwitchTab(int index)
     {
         for (int i = 0; i < tabs.Length; i++)
         {
