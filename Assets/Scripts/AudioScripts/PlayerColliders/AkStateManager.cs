@@ -2,18 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AkStateManager : MonoBehaviour
+public class AkStateManager : AkManager
 {
-    [SerializeField] private AK.Wwise.State[] akStates;
-    [SerializeField] private string[] validTags;
+    [SerializeField] private AK.Wwise.State[] akStatesEnter;
+    [SerializeField] private AK.Wwise.State[] akStatesExit;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(isValidTag(other.tag))
+        if(willTriggerEnter)
         {
-            foreach (var akState in akStates)
+            if(isValidTag(other.tag))
             {
-                akState.SetValue();
+                foreach (var akState in akStatesEnter)
+                {
+                    akState.SetValue();
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(willTriggerExit)
+        {
+            if(isValidTag(other.tag))
+            {
+                foreach (var akState in akStatesExit)
+                {
+                    akState.SetValue();
+                }
             }
         }
     }
