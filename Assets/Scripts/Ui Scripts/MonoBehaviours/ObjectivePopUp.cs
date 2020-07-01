@@ -37,7 +37,7 @@ public class ObjectivePopUp : MonoBehaviour
     private bool fadingIn = false;
     private bool fadingOut = false;
 
-    private bool fadingInText = false;
+    private float bkImageAlpha = 0.85f;
     private bool fadingOutText = false;
 
     private bool _isPreText = false;
@@ -126,8 +126,8 @@ public class ObjectivePopUp : MonoBehaviour
         int finishedCount = 0;
         foreach (var image in images)
         {
-            var lerpToColor = new Color(image.color.r, image.color.g, image.color.b, 1f);
-            if (image.color.a > 0.95f)
+            var lerpToColor = new Color(image.color.r, image.color.g, image.color.b, bkImageAlpha);
+            if (image.color.a > bkImageAlpha - 0.05f)
             {
                 finishedCount++;
             }
@@ -165,7 +165,7 @@ public class ObjectivePopUp : MonoBehaviour
         {
             foreach (var image in images)
             {
-                image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
+                image.color = new Color(image.color.r, image.color.g, image.color.b, bkImageAlpha);
             }
             foreach (var tmp in text)
             {
