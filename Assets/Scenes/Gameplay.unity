@@ -5505,7 +5505,7 @@ PrefabInstance:
     - target: {fileID: 5038475046798061697, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5038475046798061697, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
@@ -6100,7 +6100,7 @@ PrefabInstance:
     - target: {fileID: 5771850570558299617, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5818229629623644262, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
@@ -16982,10 +16982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1925041298}
   - component: {fileID: 1925041302}
-  - component: {fileID: 1925041301}
-  - component: {fileID: 1925041300}
   - component: {fileID: 1925041299}
-  - component: {fileID: 1925041303}
   m_Layer: 0
   m_Name: CommSatellitePlayer
   m_TagString: Untagged
@@ -17016,83 +17013,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1925041297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a90eb2f9de47caf44a4cfe76e898e350, type: 3}
+  m_Script: {fileID: 11500000, guid: cabbf66ef735047409c97223ccecdeca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: 3f2ff36a
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 76e479eed913cc34ea0f47384f3f4e76,
-      type: 2}
-  useCallbacks: 1
-  Callbacks:
-  - Flags:
-      value: 0
-    FunctionName: 
-    GameObject: {fileID: 0}
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  eventIdInternal: 0
-  valueGuidInternal: 
-  m_callbackDataInternal: {fileID: 0}
---- !u!114 &1925041300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925041297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a90eb2f9de47caf44a4cfe76e898e350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7f422d6
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  data:
-    idInternal: 0
+  validTags: []
+  willTriggerEnter: 1
+  willTriggerExit: 1
+  akEventsEnter:
+  - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 2484a92bab055c74a881e55df0a66675,
       type: 2}
-  useCallbacks: 0
-  Callbacks: []
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  eventIdInternal: 0
-  valueGuidInternal: 
-  m_callbackDataInternal: {fileID: 0}
---- !u!114 &1925041301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925041297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a8bf15fc4881234c8a2e1bbde25706d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
+  akEventsExit:
+  - idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 76e479eed913cc34ea0f47384f3f4e76,
+      type: 2}
 --- !u!65 &1925041302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17106,19 +17042,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 25, y: 50, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1925041303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925041297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1625317341c73384786e47f9d2d51af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerObject: {fileID: 849435022}
 --- !u!1001 &1956285457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18045,6 +17968,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 193.38438, y: 10, z: 47.935406}
   m_Center: {x: -46.302208, y: 0, z: -58.853035}
+--- !u!114 &2754547377784117284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754547377784117282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed47bb18580965d4c89719f6d36ba97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validTags: []
+  willTriggerEnter: 1
+  willTriggerExit: 1
+  akStatesEnter:
+  - idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 652d4af071deb244bb9e3af1c3086f60,
+      type: 2}
+  akStatesExit:
+  - idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2bd33f18b9484cd4b88cc3292b00112c,
+      type: 2}
 --- !u!1001 &3130413640159377850
 PrefabInstance:
   m_ObjectHideFlags: 0
