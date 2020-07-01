@@ -12,14 +12,10 @@ public class CraftRange : MonoBehaviour
     Crafting CraftingPrefab = null;
 
     private bool canCraft = false;
-    // Start is called before the first frame update
-    private void Awake()
-    {
-        CraftingPrefab = UIModule.UIRoot.GetScreen<Crafting>();
-    }
 
     void Start()
     {
+        CraftingPrefab = UIModule.UIRoot.GetScreen<Crafting>();
         canCraft = false;
     }
 

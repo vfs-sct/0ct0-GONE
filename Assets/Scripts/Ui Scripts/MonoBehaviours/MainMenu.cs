@@ -83,6 +83,7 @@ public class MainMenu : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("HEY - MENU STATE:" + MainMenuState);
         GameManager.ChangeGameState(MainMenuState);
         Cursor.visible = true;
     }

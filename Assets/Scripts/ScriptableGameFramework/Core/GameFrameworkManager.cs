@@ -96,6 +96,11 @@ public class GameFrameworkManager : ScriptableObject
     //check the conditions of all the gamestates
     void CheckStateConditions()
     {
+        if(_ActiveState == null)
+        {
+            return;
+        }
+
         foreach (var State in UpdatingGameStates)
         {
             if (State.ConditionCheck(this,_ActiveState))
