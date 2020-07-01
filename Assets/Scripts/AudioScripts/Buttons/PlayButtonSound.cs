@@ -11,7 +11,7 @@ public class PlayButtonSound : MonoBehaviour
     }
 
     // Handles Mouse hovers
-    private void OnMouseOver()
+    public void OnMouseOver()
     {
         AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
     }
