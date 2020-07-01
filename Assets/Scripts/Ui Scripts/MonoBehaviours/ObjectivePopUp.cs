@@ -198,7 +198,7 @@ public class ObjectivePopUp : MonoBehaviour
         foreach (var image in images)
         {
             var lerpToColor = new Color(image.color.r, image.color.g, image.color.b, 0f);
-            if (image.color.a < 0.03f)
+            if (image.color.a < 0.02f)
             {
                 finishedCount++;
             }
@@ -216,7 +216,7 @@ public class ObjectivePopUp : MonoBehaviour
         foreach (var texts in text)
         {
             var lerpToColor = new Color(texts.color.r, texts.color.g, texts.color.b, 0f);
-            if (texts.color.a < 0.03f)
+            if (texts.color.a < 0.02f)
             {
                 finishedCount++;
             }
