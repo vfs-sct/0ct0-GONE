@@ -1,0 +1,52 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ClawTool : Tool
+{
+    private Transform HoldPos;
+    private Rigidbody TargetRB;
+
+    [SerializeField] private float MaxHoldDistance;
+
+    protected override bool ActivateCondition(ToolController owner, GameObject target)
+    {
+        TargetRB = target.GetComponent<Rigidbody>();
+        return (TargetRB != null);
+    }
+
+    protected override bool DeactivateCondition(ToolController owner, GameObject target)
+    {
+        return true;
+    }
+
+    protected override bool LoopCondition(ToolController owner, GameObject target)
+    {
+        return true;
+    }
+
+    protected override void OnActivate(ToolController owner, GameObject target)
+    {
+        TargetRB.MovePosition(HoldPos.position);
+           
+    }
+
+    protected override void OnDeactivate(ToolController owner, GameObject target)
+    {
+        
+    }
+
+    protected override void OnDeselect(ToolController owner)
+    {
+        TargetRB = null;
+    }
+
+    protected override void OnSelect(ToolController owner)
+    {
+    }
+
+    protected override void OnWhileActive(ToolController owner, GameObject target)
+    {
+
+    }
+}
