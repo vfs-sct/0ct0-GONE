@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Systems/Tools/Claw Tool")]
 public class ClawTool : Tool
 {
     private Transform HoldPos;
@@ -27,26 +28,27 @@ public class ClawTool : Tool
 
     protected override void OnActivate(ToolController owner, GameObject target)
     {
-        TargetRB.MovePosition(HoldPos.position);
-           
+        
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
     {
-        
     }
 
     protected override void OnDeselect(ToolController owner)
     {
         TargetRB = null;
+        HoldPos = null;
     }
 
     protected override void OnSelect(ToolController owner)
     {
+        HoldPos = owner.GetComponent<Player>().ObjectHoldPosition;
     }
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
-
+        TargetRB.MovePosition(HoldPos.position);
+        //TargetRB.MoveRotation(HoldPos.rotation);
     }
 }
