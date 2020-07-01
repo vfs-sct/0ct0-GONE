@@ -25,12 +25,6 @@ public class ToolController : MonoBehaviour
     private GameObject _Target;
     public GameObject Target{get=>_Target;}
 
-    private void Awake()
-    {
-        gameHUD = UIModule.UIRoot.GetScreen<GameHUD>();
-        toolText = gameHUD.equippedToolText;
-    }
-
     public List<Tool> GetEquiptTools()
     {
         return EquiptTools;
@@ -101,11 +95,8 @@ public class ToolController : MonoBehaviour
     void Start()
     {
         _LinkedPlayer = gameObject.GetComponent<Player>();
-        
-    }
-
-    void OnEnable()
-    {
+        gameHUD = UIModule.UIRoot.GetScreen<GameHUD>();
+        toolText = gameHUD.equippedToolText;
         Debug.Assert(toolText != null);
     }
 

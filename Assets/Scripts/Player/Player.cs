@@ -190,8 +190,6 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        GameOverScreen = UIRootModule.UIRoot.GetScreen<GameOver>();
-        WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
         PlayingState.RegisterPlayer(this);
         invertedCam = PlayerPrefs.GetInt("InvertedCam");
         HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
@@ -199,6 +197,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        GameOverScreen = UIRootModule.UIRoot.GetScreen<GameOver>();
+        WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
         LinkedMovementController = GetComponent<MovementController>();
         LinkedToolController = GetComponent<ToolController>();
     }
