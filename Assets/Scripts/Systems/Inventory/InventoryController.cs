@@ -14,6 +14,7 @@ public class InventoryController : MonoBehaviour
         public Dictionary<Item, int> Bucket;
         public int Count { get => Bucket.Count; }
 
+
         public ItemBucket(int Cap)
         {
             ItemCap = Cap;
@@ -27,6 +28,11 @@ public class InventoryController : MonoBehaviour
                 Success = false;
                 return this;
             }
+            if (Bucket == null)
+            {
+                Bucket = new Dictionary<Item, int>();
+            }
+
             if (!Bucket.ContainsKey(newItem))
             {
                 Bucket[newItem] = amount;
@@ -133,6 +139,7 @@ public class InventoryController : MonoBehaviour
         {
             ResourceBuckets_Dict.Add(item.ItemResource, new ItemBucket(item.Cap));
         }
+
     }
 
     public bool CanAddItem(int BucketIndex, Item itemToAdd)
