@@ -14,10 +14,12 @@ A/D - Move left/right
 Q/E - Rotate left/right
 Space/Ctrl - Move up/down
 Mouse - Look around
-Tab/Right Click - Target highlighted object
+Tab - Scan nearby materials, highlighting them in their associated color
 1 - Scavenge tool, harvest targeted object
 2 - Goo Glue (repair glue)
+3 - Satellite Placer
 Left Click - Use equipped tool
+V - Open Inventory
 C - Open crafting menu when near space station
 F - Refuel Octo when near space station
 Esc - Pause/Unpause/Close Menu
@@ -55,7 +57,10 @@ In this build:
 
 GAMEPLAY
 ===================
-M2
+M3
+---------------------------------------------------------------------------------------------
+
+Old
 ---------------------------------------------------------------------------------------------
 -Added Crafting screen for converting collected resources into items.
 -Movement system. The player can move in six degrees of freedom, including rotation.
@@ -67,7 +72,27 @@ M2
 
 UI
 ===================
-M2
+M3
+---------------------------------------------------------------------------------------------
+-Codex entries are locked by default and unlocked as the player completes narrative objectives
+-New objective banners appear, telling the player when they have completed an objective and what their next objective is
+-Added Inventory Screen (V)
+	-Hover over chunks to see info on the salvage
+	-Click to remove salvage from inventory and free space
+-Reworked Inventory HUD Widget
+	-No longer displays numbers; uses inventory "chunk" system described in Gameplay changes
+	-Chunks are visually represented as a pie chart and colour-coded by resource
+-New death effect
+	-Game over screen fades instead of appearing suddenly
+	-Post processing is used to dull saturation/add static-y grain/fade in a vignette
+-New gas cloud effect
+	-Flying into a gas cloud triggers a pop up warning and uses post-processing to tint the screen the colour of the cloud
+-Specific shader colours assigned to each resource, so when items are scanned they are easily distinguished
+-New distance element showing the distance a hovered item is from the player in meters
+-New pop up error text when trying to salvage a resource that you're already full on
+-Adjusted sorting layer order on canvases
+
+Old
 ---------------------------------------------------------------------------------------------
 -Added Crafting screen for converting collected resources into items.
 -Added Look Inversion and Look Sensitivity options, saved using PlayerPrefs.
@@ -79,9 +104,6 @@ M2
 -Mouse hides when in gameplay, and reappears when in menus.
 -Fade in from black when switching scenes.
 -Bug in scrollbars fixed.
-
-Old:
----------------------------------------------------------------------------------------------
 -Basic UI Framework. All menu screens are navigable and the player can close the application.
 -Start Game takes player into gameplay scene.
 -Pause Menu, Options, Back, Controls, Exit Game implemented and functional.
@@ -94,7 +116,15 @@ Old:
 
 SOUND
 ===================
-M2
+M3
+---------------------------------------------------------------------------------------------
+-New preload scene for managing sound between scenes
+-New main theme music
+-Added new sound effects
+-Sound sliders begin at correct levels
+-Fixed thruster sound bug
+
+Old
 ---------------------------------------------------------------------------------------------
 -Thruster sounds when Octo is moving.
 -"Bonk" sound on collision with objects.
@@ -104,9 +134,6 @@ M2
 -Main menu music.
 -Sound sliders appropriately receiving settings from Wwise channels.
 -Solved Wwise bug caused by scriptable object framework.
-
-Old:
----------------------------------------------------------------------------------------------
 -WWise integration completed.
 -Stubbed in WIP button sounds. Sounds will be replaced but currently demonstrate functionality.
 -Separate busses exist for Master, Music, SFX and Dialogue.
@@ -114,15 +141,20 @@ Old:
 
 ART
 ===================
-M2
+M3
+---------------------------------------------------------------------------------------------
+-Added basic lighting to the scene
+-Added Post Processing
+	-Bloom/Motion Blur/Depth of Field/Ambient Occlusion used for regular gameplay
+	-Grain/Chromatic Aberration/Color Grading used for effects (gas clouds, death, etc)
+-Added temp matte materials to objects, including Octo and Space Station
+
+Old
 ---------------------------------------------------------------------------------------------
 -Final Octo model.
 -Space debris.
 -WIP gas clouds.
 -Broken and fixed state satellite models (not implemented in game).
-
-Old:
----------------------------------------------------------------------------------------------
 -Hub area space ship.
 ===================
 
