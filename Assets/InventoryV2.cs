@@ -80,36 +80,6 @@ public class InventoryV2 : MonoBehaviour
         }
     }
 
-    private void PopulateItemInventory()
-    {
-        Debug.LogWarning(playerInventory.name);
-        bool isFirstRow = true;
-        if(!playerInventory.CheckIfItemBucket())
-        {
-            Debug.LogWarning("HEY");
-            return;
-        }
-        foreach(var kvp in playerInventory.GetItemBucket()[0].Bucket)
-        {
-            var newItemBox = Instantiate(defaultInventoryItem);
-            if(isFirstRow == true)
-            {
-                newItemBox.transform.SetParent(RowOne.transform);
-            }
-            else
-            {
-                newItemBox.transform.SetParent(RowTwo.transform);
-            }
-
-            isFirstRow = !isFirstRow;
-
-            var getObjects = newItemBox.GetComponent<GetObjectsResourceBox>();
-            getObjects.GetTitleText().SetText(kvp.Key.Name);
-            getObjects.GetCapacityText().SetText(kvp.Value.ToString());
-        }
-    }
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -217,6 +187,30 @@ public class InventoryV2 : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+    private void PopulateItemInventory()
+    {
+        //Debug.LogWarning(playerInventory.name);
+        bool isFirstRow = true;
+
+        foreach (var kvp in playerInventory.GetItemBucket()[0].Bucket)
+        {
+            var newItemBox = Instantiate(defaultInventoryItem);
+            if (isFirstRow == true)
+            {
+                newItemBox.transform.SetParent(RowOne.transform);
+            }
+            else
+            {
+                newItemBox.transform.SetParent(RowTwo.transform);
+            }
+            //alternate between adding entries to the first and second row
+            isFirstRow = !isFirstRow;
+
+            var getObjects = newItemBox.GetComponent<GetObjectsResourceBox>();
+            getObjects.GetTitleText().SetText(kvp.Key.Name);
+            getObjects.GetCapacityText().SetText($"x{kvp.Value.ToString()}");
         }
     }
 
