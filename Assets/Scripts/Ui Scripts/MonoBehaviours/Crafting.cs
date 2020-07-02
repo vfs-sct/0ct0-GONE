@@ -11,6 +11,7 @@ public class Crafting : MonoBehaviour
     [SerializeField] CraftingModule CraftingModule = null;
     [SerializeField] UIAwake UIRoot = null; 
     [SerializeField] GameObject HUDPrefab = null;
+    [SerializeField] ResourceInventory shipInventory = null;
 
     [Header("Recipe Panels and Tabs")]
     //arrays for the tier tabs and their associated recipe button panels
@@ -41,10 +42,10 @@ public class Crafting : MonoBehaviour
 
     private Recipe currentRecipe;
 
-    private ResourceInventory playerInventory;
+    private InventoryController playerInventory;
     void Start()
     {
-        playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
+        playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
 
         //correlate tab panels with tab buttons - note, buttons and content groups need to be in the correct order in editor
         for(int i = 0; i < tabButtons.Length; i++)
@@ -75,14 +76,14 @@ public class Crafting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       /* if(currentRecipe != null && CraftingModule.CanCraft(playerInventory, playerInventory, currentRecipe))
+       if(currentRecipe != null && CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
        {
             CraftButton.interactable = true;
-        }
-        else
-        {
+       }
+       else
+       {
             CraftButton.interactable = false;
-        }*/
+       }
     }
 
     //crafting screen can either be closed with ESC or the hotkey to open it (or clicking the close button on the panel)
@@ -187,7 +188,7 @@ public class Crafting : MonoBehaviour
                 CraftButton.onClick.RemoveAllListeners();
                 CraftButton.onClick.AddListener(() =>
                 {
-                   // CraftingModule.CraftItem(playerInventory, playerInventory, recipe);
+                   CraftingModule.CraftItem(shipInventory, playerInventory, playerInventory, recipe);
                 });
 
             });

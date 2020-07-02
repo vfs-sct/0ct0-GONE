@@ -137,7 +137,6 @@ public class InventoryController : MonoBehaviour
 
     public bool CanAddItem(int BucketIndex, Item itemToAdd)
     {
-
         return ItemBuckets[BucketIndex].FillAmount + itemToAdd.Size <= ItemBuckets[BucketIndex].ItemCap;
     }
 

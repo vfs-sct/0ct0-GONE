@@ -84,6 +84,10 @@ public class InventoryV2 : MonoBehaviour
     private void PopulateItemInventory()
     {
         bool isFirstRow = true;
+        if(playerInventory.GetAllBuckets() == null)
+        {
+            return;
+        }
         foreach(var item in playerInventory.GetAllBuckets())
         {
             foreach(var kvp in item.Bucket)
