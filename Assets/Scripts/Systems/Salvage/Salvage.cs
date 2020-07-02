@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Systems/Salvage/New Salvage")]
 public class Salvage : ScriptableObject
 {
-    [SerializeField] private List<CraftingModule.RecipeData> SalvageResources = new List<CraftingModule.RecipeData>();
+    [SerializeField] private List<CraftingModule.ItemRecipeData> SalvageResources = new List<CraftingModule.ItemRecipeData>();
 }

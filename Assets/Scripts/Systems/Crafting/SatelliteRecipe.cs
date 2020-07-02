@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Systems/Crafting/New Item Recipe")]
-public class Recipe : ScriptableObject
+
+[CreateAssetMenu(menuName = "Systems/Crafting/New Satellite Recipe")]
+public class SatelliteRecipe : ScriptableObject
 {
     public string DisplayName = "";
     
@@ -12,7 +13,7 @@ public class Recipe : ScriptableObject
 
     public List<CraftingModule.RecipeResourceData> ResourceInput;
 
-    public  CraftingModule.ItemRecipeData Output;
+    public  Satellite Output;
 
     public bool CreatesByProducts;
 
@@ -24,7 +25,7 @@ public class Recipe : ScriptableObject
     public float RequiredItemInputSpace= 0;
     public float ItemOuputSpace = 0;
 
-    public Recipe(List<CraftingModule.ItemRecipeData> NewIIn,List<CraftingModule.RecipeResourceData> NewRIn, CraftingModule.ItemRecipeData O, bool CB,List<CraftingModule.ItemRecipeData> IByOut,List<CraftingModule.RecipeResourceData> RByOut)
+    public SatelliteRecipe(List<CraftingModule.ItemRecipeData> NewIIn,List<CraftingModule.RecipeResourceData> NewRIn, Satellite O, bool CB,List<CraftingModule.ItemRecipeData> IByOut,List<CraftingModule.RecipeResourceData> RByOut)
     {
         ItemInput = NewIIn;
         ResourceInput  = NewRIn;
@@ -34,7 +35,7 @@ public class Recipe : ScriptableObject
         ResourceByProducts = RByOut;
     }
 
-    public Recipe(List<CraftingModule.ItemRecipeData> NewIIn, List<CraftingModule.RecipeResourceData> NewRIn,CraftingModule.ItemRecipeData O)
+    public SatelliteRecipe(List<CraftingModule.ItemRecipeData> NewIIn, List<CraftingModule.RecipeResourceData> NewRIn,Satellite O)
     {
         ItemInput = NewIIn;
         ResourceInput  = NewRIn;
@@ -53,6 +54,5 @@ public class Recipe : ScriptableObject
     {
         foreach (var input in ItemInput) RequiredItemInputSpace += (input.amount * input.item.Size);
         foreach (var output in ItemByProducts) ItemOuputSpace += (output.amount * output.item.Size);
-        ItemOuputSpace += (Output.amount * Output.item.Size);
     }
 }
