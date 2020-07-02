@@ -24,6 +24,10 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerCamera CameraScript = null;
 
     [SerializeField] private ResourceInventory LinkedInventory = null;
+
+    [SerializeField] private Transform _ObjectHoldPosition;
+
+    public Transform ObjectHoldPosition{get=>_ObjectHoldPosition;}
     public ResourceInventory Inventory{get=>LinkedInventory;}
 
     [Header("UI Elements:")]

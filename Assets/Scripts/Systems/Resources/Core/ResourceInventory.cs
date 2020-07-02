@@ -46,6 +46,20 @@ public class ResourceInventory : MonoBehaviour
         }
     }
 
+    public bool CheckIfResourceList()
+    {
+        if(ActiveResources != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public List<Resource> GetActiveResourceList()
+    {
+        return ActiveResources;
+    }
+
     public bool HasResource(Resource resourceToCheck)
     {
         return ActiveResources.Contains(resourceToCheck);
