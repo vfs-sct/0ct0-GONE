@@ -5224,6 +5224,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3181587246643343424, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 849435024}
     - target: {fileID: 3199942273595923748, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -15126,9 +15131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f4607a98cb38948abb19e35d98df54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemBuckets:
-  - ItemCap: 1000
-    FillAmount: 0
+  ItemBuckets: []
   ResourceBuckets:
   - ItemResource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
     Cap: 100

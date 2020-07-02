@@ -40,11 +40,11 @@ public class ShipStorageHUD : MonoBehaviour
         newDial.transform.SetParent(dialLayout.transform);
 
         var dialText = newDial.GetComponent<GetObjectsDial>().GetText();
-        dialText.SetText(resource.Abreviation);
+        dialText.SetText($"{resource.DisplayName} ({resource.Abreviation})");
         dialText.color = resource.ResourceColor;
 
         var capacityText = newDial.GetComponent<GetObjectsDial>().GetCapacityText();
-        capacityText.SetText(storageOwner.GetResource(resource).ToString() + "/" + resource.GetMaximum().ToString());
+        capacityText.SetText($"{storageOwner.GetResource(resource).ToString()}/{resource.GetMaximum().ToString()}");
         capacityText.color = resource.ResourceColor;
 
         newDial.GetComponent<GetObjectsDial>().GetBKImage().color = new Color(resource.ResourceColor.r, resource.ResourceColor.g, resource.ResourceColor.b, 0.2f);
@@ -66,7 +66,7 @@ public class ShipStorageHUD : MonoBehaviour
 
             var getObjects = kvp.Value.GetComponent<GetObjectsDial>();
 
-            getObjects.GetCapacityText().SetText(storageOwner.GetResource(kvp.Key).ToString() + "/" + kvp.Key.GetMaximum().ToString());
+            getObjects.GetCapacityText().SetText($"{storageOwner.GetResource(kvp.Key).ToString()}/{kvp.Key.GetMaximum().ToString()}");
             getObjects.GetFillImage().fillAmount = storageOwner.GetResource(kvp.Key) / kvp.Key.GetMaximum();
         }
     }

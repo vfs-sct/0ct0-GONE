@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 public class InventoryV2 : MonoBehaviour
 {
     [SerializeField] UIAwake UIRoot = null;
+    [SerializeField] private InventoryController playerInventory = null;
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject ResourceBox = null;
     [SerializeField] HorizontalLayoutGroup RowOne = null;
@@ -23,8 +24,6 @@ public class InventoryV2 : MonoBehaviour
     [SerializeField] GameObject[] tabContent;
 
     [SerializeField] VerticalLayoutGroup[] inventoryVertRows = null;
-
-    private InventoryController playerInventory;
 
     //association between a resource box and the resource it's displaying
     private Dictionary<Resource, GetObjectsResourceBox> ResourceBoxes = new Dictionary<Resource, GetObjectsResourceBox>();
@@ -83,32 +82,33 @@ public class InventoryV2 : MonoBehaviour
 
     private void PopulateItemInventory()
     {
+        Debug.LogWarning(playerInventory.name);
         bool isFirstRow = true;
-        if(playerInventory.GetAllBuckets() == null)
+        if(!playerInventory.CheckIfItemBucket())
         {
+            Debug.LogWarning("HEY");
             return;
         }
-        foreach(var item in playerInventory.GetAllBuckets())
+        foreach(var kvp in playerInventory.GetItemBucket()[0].Bucket)
         {
-            foreach(var kvp in item.Bucket)
+            var newItemBox = Instantiate(defaultInventoryItem);
+            if(isFirstRow == true)
             {
-                var newItemBox = Instantiate(defaultInventoryItem);
-                if(isFirstRow == true)
-                {
-                    newItemBox.transform.SetParent(RowOne.transform);
-                }
-                else
-                {
-                    newItemBox.transform.SetParent(RowTwo.transform);
-                }
-                isFirstRow = !isFirstRow;
-
-                var getObjects = newItemBox.GetComponent<GetObjectsResourceBox>();
-                getObjects.GetTitleText().SetText(kvp.Key.Name);
-                getObjects.GetCapacityText().SetText(kvp.Value.ToString());
+                newItemBox.transform.SetParent(RowOne.transform);
             }
+            else
+            {
+                newItemBox.transform.SetParent(RowTwo.transform);
+            }
+
+            isFirstRow = !isFirstRow;
+
+            var getObjects = newItemBox.GetComponent<GetObjectsResourceBox>();
+            getObjects.GetTitleText().SetText(kvp.Key.Name);
+            getObjects.GetCapacityText().SetText(kvp.Value.ToString());
         }
     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -123,7 +123,8 @@ public class InventoryV2 : MonoBehaviour
     {
         foreach(var kvp in ResourceBoxes)
         {
-            kvp.Value.GetCapacityText().SetText("Capacity:\n" + (playerInventory.GetResourceAmount(kvp.Key) / 10) + "/10");
+            float fillAmount = (playerInventory.GetResourceAmount(kvp.Key) / 10);
+            kvp.Value.GetCapacityText().SetText($"Capacity:\n{fillAmount}/10");
         }
     }
 
@@ -131,7 +132,10 @@ public class InventoryV2 : MonoBehaviour
     {
         Cursor.visible = true;
         UpdateAllChunks();
-        PopulateItemInventory();
+        if (playerInventory.CheckIfItemBucket())
+        {
+            PopulateItemInventory();
+        }
     }
 
     private void OnDisable()

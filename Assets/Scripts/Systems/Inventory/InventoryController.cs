@@ -95,7 +95,17 @@ public class InventoryController : MonoBehaviour
 
     private Dictionary<Resource, ItemBucket> ResourceBuckets_Dict = new Dictionary<Resource, ItemBucket>();
 
-    public List<ItemBucket> GetAllBuckets()
+    public bool CheckIfItemBucket()
+    {
+        if (ItemBuckets == null || ItemBuckets.Count == 0)
+        {
+            Debug.LogWarning("No item bucket");
+            return false;
+        }
+        return true;
+    }
+
+    public List<ItemBucket> GetItemBucket()
     {
         return ItemBuckets;
     }
