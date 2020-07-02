@@ -81,6 +81,35 @@ public class InventoryV2 : MonoBehaviour
         }
     }
 
+    private void PopulateItemInventory()
+    {
+        bool isFirstRow = true;
+        if(playerInventory.GetAllBuckets() == null)
+        {
+            return;
+        }
+        foreach(var item in playerInventory.GetAllBuckets())
+        {
+            foreach(var kvp in item.Bucket)
+            {
+                var newItemBox = Instantiate(defaultInventoryItem);
+                if(isFirstRow == true)
+                {
+                    newItemBox.transform.SetParent(RowOne.transform);
+                }
+                else
+                {
+                    newItemBox.transform.SetParent(RowTwo.transform);
+                }
+                isFirstRow = !isFirstRow;
+
+                var getObjects = newItemBox.GetComponent<GetObjectsResourceBox>();
+                getObjects.GetTitleText().SetText(kvp.Key.Name);
+                getObjects.GetCapacityText().SetText(kvp.Value.ToString());
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,6 +131,7 @@ public class InventoryV2 : MonoBehaviour
     {
         Cursor.visible = true;
         UpdateAllChunks();
+        PopulateItemInventory();
     }
 
     private void OnDisable()
