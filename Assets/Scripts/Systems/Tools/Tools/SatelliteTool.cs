@@ -9,10 +9,12 @@ public class SatelliteTool : Tool
 {
     SatelliteInventory satInv;
     GameObject SatellitePreview;
+    SatelliteBehavior SatBehavior;
+
 
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
-        return (satInv.StoredSatellites[0] != null);
+        return (SatBehavior.PlacementConditionCheck(owner) &&(satInv.StoredSatellites[0] != null));
         
 
     }
@@ -29,6 +31,7 @@ public class SatelliteTool : Tool
 
     protected override void OnActivate(ToolController owner, GameObject target)
     {
+        Debug.Log("Satellite Tool Activated");
         Destroy(SatellitePreview);
         GameObject PlacedSat = GameObject.Instantiate(satInv.StoredSatellites[0].PlacePrefab);
         PlacedSat.transform.position = satInv.SatelliteSpawnPos.position;
@@ -38,17 +41,20 @@ public class SatelliteTool : Tool
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
     {
-        
+        Debug.Log("Satellite Tool Deactivated");
     }
 
     protected override void OnDeselect(ToolController owner)
     {
+        Debug.Log("Satellite Tool DeSelected");
         satInv = null;
+        SatBehavior = null;
         Destroy(SatellitePreview);
     }
 
     protected override void OnSelect(ToolController owner)
     {
+        Debug.Log("Satellite Tool Selected");
         satInv = owner.GetComponent<SatelliteInventory>();
         if (satInv == null || satInv.StoredSatellites[0] == null)
         {
@@ -59,11 +65,10 @@ public class SatelliteTool : Tool
         SatellitePreview.transform.position = satInv.SatelliteSpawnPos.position;
         SatellitePreview.transform.rotation = satInv.SatelliteSpawnPos.rotation;
         SatellitePreview.transform.SetParent(owner.GetComponentInChildren<Camera>().transform);
-
+        SatBehavior = SatellitePreview.GetComponent<SatelliteBehavior>();
     }
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
-        
     }
 }
