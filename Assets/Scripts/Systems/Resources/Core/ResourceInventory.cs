@@ -45,6 +45,10 @@ public class ResourceInventory : MonoBehaviour
             }
         }
     }
+    public List<Resource> GetActiveResourceList()
+    {
+        return ActiveResources;
+    }
 
     public bool HasResource(Resource resourceToCheck)
     {
