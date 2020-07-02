@@ -199,11 +199,11 @@ public class InventoryV2 : MonoBehaviour
             var newItemBox = Instantiate(defaultInventoryItem);
             if (isFirstRow == true)
             {
-                newItemBox.transform.SetParent(RowOne.transform);
+                newItemBox.transform.SetParent(inventoryVertRows[0].transform);
             }
             else
             {
-                newItemBox.transform.SetParent(RowTwo.transform);
+                newItemBox.transform.SetParent(inventoryVertRows[1].transform);
             }
             //alternate between adding entries to the first and second row
             isFirstRow = !isFirstRow;

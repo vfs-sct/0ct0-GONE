@@ -1631,7 +1631,7 @@ PrefabInstance:
     - target: {fileID: -2061200388978773683, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: EquiptTools.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -2061200388978773683, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
@@ -1652,13 +1652,19 @@ PrefabInstance:
         type: 3}
       propertyPath: EquiptTools.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: cb6028535fa32d747b7bfcd2be2a8707,
+      objectReference: {fileID: 11400000, guid: 991bec23faab22f45a11174402d5a5f7,
         type: 2}
     - target: {fileID: -2061200388978773683, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: EquiptTools.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: 991bec23faab22f45a11174402d5a5f7,
+        type: 2}
+    - target: {fileID: -2061200388978773683, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: EquiptTools.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: cb6028535fa32d747b7bfcd2be2a8707,
         type: 2}
     - target: {fileID: 474012255534931523, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
@@ -15131,7 +15137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f4607a98cb38948abb19e35d98df54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemBuckets: []
+  ItemBuckets:
+  - ItemCap: 999
+    FillAmount: 0
   ResourceBuckets:
   - ItemResource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
     Cap: 100

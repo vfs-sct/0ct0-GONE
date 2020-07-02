@@ -12,6 +12,7 @@ public class Crafting : MonoBehaviour
     [SerializeField] UIAwake UIRoot = null; 
     [SerializeField] GameObject HUDPrefab = null;
     [SerializeField] ResourceInventory shipInventory = null;
+    [SerializeField] ShipStorageHUD storageDials = null;
 
     [Header("Recipe Panels and Tabs")]
     //arrays for the tier tabs and their associated recipe button panels
@@ -189,6 +190,7 @@ public class Crafting : MonoBehaviour
                 CraftButton.onClick.AddListener(() =>
                 {
                    CraftingModule.CraftItem(shipInventory, playerInventory, playerInventory, recipe);
+                   storageDials.UpdateDials();
                 });
 
             });
