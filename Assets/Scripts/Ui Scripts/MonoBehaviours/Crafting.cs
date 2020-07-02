@@ -142,7 +142,7 @@ public class Crafting : MonoBehaviour
                 //remove the "products" of the previous recipe
                 for (int i = 0; i < childCount; i++)
                 {
-                    Destroy(ProductGroup.transform.GetChild(0).gameObject);
+                    Destroy(ProductGroup.transform.GetChild(i).gameObject);
                 }
 
                 childCount = IngredientGroup.transform.childCount;
@@ -150,7 +150,8 @@ public class Crafting : MonoBehaviour
                 //remove the "ingredients" of the previous recipe
                 for (int i = 0; i < childCount; i++)
                 {
-                    Destroy(IngredientGroup.transform.GetChild(0).gameObject);
+                    //Debug.Log("INGREDIENT:" + IngredientGroup.transform.GetChild(0).GetComponentsInChildren<TextMeshProUGUI>()[0].text);
+                    Destroy(IngredientGroup.transform.GetChild(i).gameObject);
                 }
 
                 //add new products and ingredients

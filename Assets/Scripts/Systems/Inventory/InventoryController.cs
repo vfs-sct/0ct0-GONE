@@ -89,6 +89,11 @@ public class InventoryController : MonoBehaviour
 
     private Dictionary<Resource, ItemBucket> ResourceBuckets_Dict = new Dictionary<Resource, ItemBucket>();
 
+    public List<ItemBucket> GetAllBuckets()
+    {
+        return ItemBuckets;
+    }
+
     public ItemBucket GetResourceBucket(Resource resource)
     {
         return ResourceBuckets_Dict[resource];
