@@ -150,6 +150,7 @@ public class InventoryController : MonoBehaviour
             ResourceBuckets_Dict.Add(item.ItemResource, new ItemBucket(item.Cap));
         }
 
+
     }
 
     public bool CanAddItem(int BucketIndex, Item itemToAdd)
