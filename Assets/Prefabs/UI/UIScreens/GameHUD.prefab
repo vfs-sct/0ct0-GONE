@@ -648,6 +648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8971267529012537698}
   - component: {fileID: 2819043128949330628}
+  - component: {fileID: 5696696496346867934}
   - component: {fileID: 3327703698444481078}
   m_Layer: 0
   m_Name: GameHUD
@@ -672,8 +673,8 @@ Transform:
   - {fileID: 5976115203694218988}
   - {fileID: 4392627302081875661}
   - {fileID: 4439992781081588523}
-  - {fileID: 214368436029110068}
   - {fileID: 4921942377386028267}
+  - {fileID: 214368436029110068}
   - {fileID: 8635539820062337916}
   - {fileID: 6212818739637226147}
   m_Father: {fileID: 0}
@@ -715,6 +716,22 @@ MonoBehaviour:
   player: {fileID: 0}
   selectedToolText: {fileID: 0}
   objectiveText: {fileID: 0}
+--- !u!114 &5696696496346867934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8971267529012537699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec2638ef4998448a48ccb17050df6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warnings:
+  - {fileID: 4921942377386028268}
+  - {fileID: 214368436029110067}
+  - {fileID: 8635539820062337915}
 --- !u!114 &3327703698444481078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,6 +1184,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &2874610276860652300 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 768556354270166673, guid: 4d61d33dbeceb204593f68646d70e3cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 3264792244348196253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4439992781081588523 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1211708915314173622, guid: 4d61d33dbeceb204593f68646d70e3cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 3264792244348196253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6289926428653418143 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8792312889670722306, guid: 4d61d33dbeceb204593f68646d70e3cf,
@@ -1179,18 +1208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &4439992781081588523 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1211708915314173622, guid: 4d61d33dbeceb204593f68646d70e3cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 3264792244348196253}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2874610276860652300 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 768556354270166673, guid: 4d61d33dbeceb204593f68646d70e3cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 3264792244348196253}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3770603176916637780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1638,7 +1655,7 @@ PrefabInstance:
     - target: {fileID: 4054240778056654403, guid: c64a538741ededd42b362d91b0d54dce,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4054240778056654403, guid: c64a538741ededd42b362d91b0d54dce,
         type: 3}
@@ -1663,7 +1680,7 @@ PrefabInstance:
     - target: {fileID: 4054240778056654404, guid: c64a538741ededd42b362d91b0d54dce,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4054240778196352938, guid: c64a538741ededd42b362d91b0d54dce,
         type: 3}
@@ -1714,6 +1731,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678023262797321875, guid: c64a538741ededd42b362d91b0d54dce,
+        type: 3}
+      propertyPath: warningText
+      value: Flammable gas concentrations detected!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c64a538741ededd42b362d91b0d54dce, type: 3}
@@ -1951,8 +1973,19 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 647
       objectReference: {fileID: 0}
+    - target: {fileID: 6678023262797321875, guid: c64a538741ededd42b362d91b0d54dce,
+        type: 3}
+      propertyPath: warningText
+      value: High radiation levels detected!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c64a538741ededd42b362d91b0d54dce, type: 3}
+--- !u!1 &8635539820062337915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4054240778056654404, guid: c64a538741ededd42b362d91b0d54dce,
+    type: 3}
+  m_PrefabInstance: {fileID: 5734233752611468607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8635539820062337916 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4054240778056654403, guid: c64a538741ededd42b362d91b0d54dce,
@@ -2318,12 +2351,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a211f2639884474da2f75aec41dd0c9, type: 3}
---- !u!224 &8971267529836578614 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 931963016088168604, guid: 6a211f2639884474da2f75aec41dd0c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 8101596560151506858}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1671884071639719781 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7448142967847743695, guid: 6a211f2639884474da2f75aec41dd0c9,
@@ -2336,6 +2363,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &8971267529836578614 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 931963016088168604, guid: 6a211f2639884474da2f75aec41dd0c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8101596560151506858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8939027343938253480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2406,7 +2439,7 @@ PrefabInstance:
     - target: {fileID: 4054240778056654403, guid: c64a538741ededd42b362d91b0d54dce,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4054240778056654403, guid: c64a538741ededd42b362d91b0d54dce,
         type: 3}
@@ -2510,11 +2543,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6678023262797321875, guid: c64a538741ededd42b362d91b0d54dce,
+        type: 3}
+      propertyPath: warningText
+      value: Exiting Comm Range!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c64a538741ededd42b362d91b0d54dce, type: 3}
 --- !u!4 &4921942377386028267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4054240778056654403, guid: c64a538741ededd42b362d91b0d54dce,
+    type: 3}
+  m_PrefabInstance: {fileID: 8939027343938253480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4921942377386028268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4054240778056654404, guid: c64a538741ededd42b362d91b0d54dce,
     type: 3}
   m_PrefabInstance: {fileID: 8939027343938253480}
   m_PrefabAsset: {fileID: 0}

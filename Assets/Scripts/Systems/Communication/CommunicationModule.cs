@@ -53,10 +53,10 @@ public class CommunicationModule : Module
     private float NearestRelayDistance = 999999;
 
     private List<CommRelayData> Zones = new List<CommRelayData>();
+    private GetWarnings warningUI = null;
 
     [SerializeField] private GameObject CommRelayRangeIndicatorPrefab;
-    [SerializeField] private float WarningDistance = 20;
-
+    [SerializeField] private float WarningDistance = 20; 
     [SerializeField] private UIModule UIController;
 
     public override void Initialize()
@@ -66,6 +66,7 @@ public class CommunicationModule : Module
 
     public override void Start()
     {
+        warningUI = UIController.UIRoot.GetScreen<GetWarnings>();
         Debug.Assert(PlayerObject != null); //at this point the gamestate should have assigned these values
         RunUpdate = true;
     }
@@ -114,11 +115,13 @@ public class CommunicationModule : Module
                 PlayerInRange = PlayerInRange |(distance <= Zones[i].Radius);
                 if (Zones[i].ShowWarning == false && distance >= (Zones[i].Radius-WarningDistance))
                 {
+                    warningUI.GetWarning(0).SetActive(true);
                     Zones[i].RangeIndicator.SetActive(true);
                     Zones[i] = new CommRelayData(Zones[i],true);
                 }
                 else if (Zones[i].ShowWarning == true &&  distance < (Zones[i].Radius-WarningDistance))
                 {
+                    warningUI.GetWarning(0).SetActive(false);
                     Zones[i].RangeIndicator.SetActive(false);
                     Zones[i] = new CommRelayData(Zones[i],false);
                 }
