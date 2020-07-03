@@ -17,7 +17,8 @@ Mouse - Look around
 Tab - Scan nearby materials, highlighting them in their associated color
 1 - Scavenge tool, harvest targeted object
 2 - Goo Glue (repair glue)
-3 - Satellite Placer
+3 - Claw Tool
+4 - Satellite Placer
 Left Click - Use equipped tool
 V - Open Inventory
 C - Open crafting menu when near space station
@@ -59,6 +60,25 @@ GAMEPLAY
 ===================
 M3
 ---------------------------------------------------------------------------------------------
+-New inventory system!
+	-Octo's inventory is now made up of a "chunk" system
+	-Octo can carry up to 10 "chunks" of each type of raw resource
+	-The debris types that Octo can salvage can be 1-3 chunks large, so the player must plan how to fit the
+	 the most debris pieces into their inventory
+	-Octo's inventory can be opened and managed using the new Inventory screen (V)
+-Salvage in Octo's inventory is transferred to the space station's storage automatically when the crafting menu is opened
+	-Tabs for salvage chunks and crafted items in Octo's inventory
+-5 basic resources. Iron, Silicon, Aluminium, Osmium and Titanium.
+-New placeable satellites
+	-Place a refuelling satellite in a gas cloud to harvest fuel for Octo's thrusters
+-Comm range
+	-Range becomes visible and pops a warning as Octo nears its edge
+	-Leaving comm range results in death
+-Removed targetting. Hovering a resource now directly enables salvaging.
+-Crafting rework. Complicated tier categories have now been replaced with basic components, advanced components, upgrades and craftable satellites.
+-Added random asteroid storm encounter.
+-Added new refuelling objective to introduce player to concept of refuelling.
+
 
 Old
 ---------------------------------------------------------------------------------------------
@@ -79,6 +99,7 @@ M3
 -Added Inventory Screen (V)
 	-Hover over chunks to see info on the salvage
 	-Click to remove salvage from inventory and free space
+	-Click items tab to view Octo's crafted items
 -Reworked Inventory HUD Widget
 	-No longer displays numbers; uses inventory "chunk" system described in Gameplay changes
 	-Chunks are visually represented as a pie chart and colour-coded by resource
@@ -90,7 +111,9 @@ M3
 -Specific shader colours assigned to each resource, so when items are scanned they are easily distinguished
 -New distance element showing the distance a hovered item is from the player in meters
 -New pop up error text when trying to salvage a resource that you're already full on
+-New warning pop up when exiting comm range
 -Adjusted sorting layer order on canvases
+-Adjusting colours and visuals on all UI
 
 Old
 ---------------------------------------------------------------------------------------------
@@ -120,9 +143,11 @@ M3
 ---------------------------------------------------------------------------------------------
 -New preload scene for managing sound between scenes
 -New main theme music
+-Added in-game area triggers for different music tracks
 -Added new sound effects
 -Sound sliders begin at correct levels
 -Fixed thruster sound bug
+-Added VO button with WIP voice log audio to codex
 
 Old
 ---------------------------------------------------------------------------------------------
@@ -160,6 +185,8 @@ Old
 
 DEBUG
 ===================
+Old
+---------------------------------------------------------------------------------------------
 -Add 50 resources of any type using drop-down menu
 -Kill Octo
 -View how much fuel Octo has (in numbers)
