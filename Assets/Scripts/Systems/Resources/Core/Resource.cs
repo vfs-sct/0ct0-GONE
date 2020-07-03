@@ -140,7 +140,7 @@ public class Resource : ScriptableObject
         //}
 
         //don't show pop text when AddInstanceValue is being used to subtract resources
-        if (isAdd)
+        if (isAdd && valueToAdd != 0)
         {
             //do nothing if the resource is already at max
             if (Maximum != 0 && Data[owner].Value == Maximum)
