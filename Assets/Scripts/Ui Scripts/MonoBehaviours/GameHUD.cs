@@ -120,10 +120,10 @@ public class GameHUD : MonoBehaviour
         }
 
         //turn on the goo glue fuel bar if the new tool is the repair tool
-        if (newTool == gooGlueIndex)
-        {
-            gooGlueBar.SetActive(true);
-        }
+        //if (newTool == gooGlueIndex)
+        //{
+        //    gooGlueBar.SetActive(true);
+        //}
 
         var newToolObj = toolList[newTool].GetComponent<GetObjects>();
         newToolObj.GetButtonImage().color = disabledBGColour;

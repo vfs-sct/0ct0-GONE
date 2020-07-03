@@ -82,9 +82,9 @@ public class ResourceInventory : MonoBehaviour
 
     public void AddResource(Resource resource, float amount)
     {
-        var popText = Instantiate(resourceAddedPopTxt);
-        popText.GetComponentInChildren<TextMeshProUGUI>().SetText("+" + amount.ToString() + " " + resource.DisplayName);
-        resource.AddInstanceValue(this,amount);
+        //var popText = Instantiate(resourceAddedPopTxt);
+        //popText.GetComponentInChildren<TextMeshProUGUI>().SetText("+" + amount.ToString() + " " + resource.DisplayName);
+        resource.AddInstanceValue(true, this,amount);
     }
 
     public void GenerateResourceText()
