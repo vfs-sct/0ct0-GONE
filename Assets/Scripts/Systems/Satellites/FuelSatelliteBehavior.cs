@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FuelSatelliteBehavior : SatelliteBehavior
 {
-    public override bool PlacementConditionCheck(ToolController Owner)
+    [SerializeField] private LayerMask CloudColliderMask;
+    
+        public override bool PlacementConditionCheck(ToolController Owner)
     {
-        Debug.Log("Check");
-        return true;
-        
+        return Physics.CheckSphere(transform.position, 0.5f,CloudColliderMask,QueryTriggerInteraction.Collide);
     }
 }

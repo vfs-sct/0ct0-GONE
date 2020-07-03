@@ -202,7 +202,8 @@ GameObject:
   - component: {fileID: 493274201308190229}
   - component: {fileID: 2670883933355516514}
   - component: {fileID: 1646940906898720439}
-  m_Layer: 0
+  - component: {fileID: 3149934249015200991}
+  m_Layer: 11
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,6 +271,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &3149934249015200991
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4923859228585668191}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: -0.00000011920929, z: -0.00000011920929}
 --- !u!1 &5433214633487068112
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +295,8 @@ GameObject:
   - component: {fileID: 8612698732800517156}
   - component: {fileID: 8119897557949244384}
   - component: {fileID: 1656474615177467165}
-  m_Layer: 0
+  - component: {fileID: 6819817143892451760}
+  m_Layer: 11
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,6 +364,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &6819817143892451760
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5433214633487068112}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0.00000023841858}
 --- !u!1 &6117828017248576052
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +388,8 @@ GameObject:
   - component: {fileID: 8417900183688311335}
   - component: {fileID: 1750658757573119714}
   - component: {fileID: 4592476410978890732}
-  m_Layer: 0
+  - component: {fileID: 3133332334008234284}
+  m_Layer: 11
   m_Name: Sphere (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,6 +457,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &3133332334008234284
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117828017248576052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.50000006
+  m_Center: {x: 0, y: 0, z: -0.00000047683716}
 --- !u!1 &6374666790502225440
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +517,8 @@ GameObject:
   - component: {fileID: 4175755577828713175}
   - component: {fileID: 9188671702766899999}
   - component: {fileID: 4780275773204996474}
-  m_Layer: 0
+  - component: {fileID: 215849173236381954}
+  m_Layer: 11
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,6 +586,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &215849173236381954
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393803161057750193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.50000006
+  m_Center: {x: 0, y: 0, z: 0.00000011920929}
 --- !u!1 &8591535431350548325
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +610,8 @@ GameObject:
   - component: {fileID: 494368654606181211}
   - component: {fileID: 2335791440155033927}
   - component: {fileID: 1667430998075930476}
-  m_Layer: 0
+  - component: {fileID: 7716345031631306214}
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,3 +679,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &7716345031631306214
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8591535431350548325}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.50000006
+  m_Center: {x: 0, y: 0.000000059604645, z: 0}

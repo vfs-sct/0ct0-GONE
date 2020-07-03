@@ -37,6 +37,7 @@ public class SatelliteTool : Tool
         PlacedSat.transform.position = satInv.SatelliteSpawnPos.position;
         PlacedSat.transform.rotation = satInv.SatelliteSpawnPos.rotation;
         satInv.RemoveSat(0);
+        owner.DeselectTool();
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
