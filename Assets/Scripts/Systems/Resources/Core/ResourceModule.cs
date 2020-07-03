@@ -10,6 +10,7 @@ using UnityEngine;
 public class ResourceModule : Module
 {
     [SerializeField] private List<Resource> ActiveResources = new List<Resource>();
+    [SerializeField] public GameObject resourceAddedPopTxt = null;
 
     public delegate void ResourceEvent(ResourceInventory Caller);
 
