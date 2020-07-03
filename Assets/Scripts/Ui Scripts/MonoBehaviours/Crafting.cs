@@ -42,14 +42,31 @@ public class Crafting : MonoBehaviour
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
 
     private Recipe currentRecipe;
+    private TextMeshProUGUI craftButtonText = null;
+    private Color interactableTextCol;
+    private Color uninteractableTextCol;
 
     private InventoryController playerInventory;
     void Start()
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
 
+        //hide title before a recipe has been clicked
+        TitleText.gameObject.SetActive(false);
+        RequiresText.SetActive(false);
+
+        //save craft text and set up craft button as uninteractable
+        CraftButton.interactable = false;
+        craftButtonText = CraftButton.GetComponentInChildren<TextMeshProUGUI>();
+
+        //set up text colours
+        interactableTextCol = craftButtonText.color;
+        uninteractableTextCol = new Color(interactableTextCol.r, interactableTextCol.g, interactableTextCol.b, 0.3f);
+
+        craftButtonText.color = uninteractableTextCol;
+
         //correlate tab panels with tab buttons - note, buttons and content groups need to be in the correct order in editor
-        for(int i = 0; i < tabButtons.Length; i++)
+        for (int i = 0; i < tabButtons.Length; i++)
         {
             PanelToButton[contentGroups[i]] = tabButtons[i];
         }
@@ -80,10 +97,12 @@ public class Crafting : MonoBehaviour
        if(currentRecipe != null && CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
        {
             CraftButton.interactable = true;
+            craftButtonText.color = interactableTextCol;
        }
        else
        {
             CraftButton.interactable = false;
+            craftButtonText.color = uninteractableTextCol;
        }
     }
 
@@ -136,6 +155,7 @@ public class Crafting : MonoBehaviour
             newButton.GetComponent<Button>().onClick.AddListener(() =>
             {
                 TitleText.SetText(recipe.DisplayName);
+                TitleText.gameObject.SetActive(true);
                 RequiresText.SetActive(true);
 
                 int childCount = ProductGroup.transform.childCount;
