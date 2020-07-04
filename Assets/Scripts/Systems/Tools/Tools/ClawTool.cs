@@ -8,11 +8,13 @@ public class ClawTool : Tool
     private Transform HoldPos;
     private Rigidbody TargetRB;
 
+    [SerializeField] private AK.Wwise.Event PlayGrabSound;
     [SerializeField] private float MaxHoldDistance;
 
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
         TargetRB = target.GetComponent<Rigidbody>();
+        PlayGrabSound.Post(target);
         return (TargetRB != null);
     }
 

@@ -24,7 +24,9 @@ public class ScannerComponent : MonoBehaviour
     }
 
 
-
+    [SerializeField] private AK.Wwise.Event PlayStartupSound;
+    [SerializeField] private AK.Wwise.Event PlayDeactivateSound;
+    
     [SerializeField] private float ScanRange = 500;
     [SerializeField] private LayerMask Mask;
 
@@ -79,6 +81,7 @@ public class ScannerComponent : MonoBehaviour
 
     public void DoScan()
     {
+        PlayStartupSound.Post(gameObject);
         UpdateSalvageData();
         ShowHighlights();
         StartCoroutine(FinishScan());
@@ -87,6 +90,7 @@ public class ScannerComponent : MonoBehaviour
     IEnumerator FinishScan()
     {
         yield return new WaitForSeconds(5f);;
+        PlayDeactivateSound.Post(gameObject);
         RemoveHighlights();
     }
 
