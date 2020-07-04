@@ -44,7 +44,8 @@ V can also be pressed at any time to open the inventory screen and manage the de
 
 BUGS/WARNINGS
 ===================
-
+-Click-hold has not yet been implemented on salvaging/crafting/inventory chunk buttons. Clicking once will immediately activate the button.
+-Some resource types are not yet available in the game and will throttle crafting progression.
 ===================
 
 
@@ -171,6 +172,7 @@ M3
 	-Grain/Chromatic Aberration/Color Grading used for effects (gas clouds, death, etc)
 -Added temp matte materials to objects, including Space Station and debris
 -Added salvage model variants
+-Added Octo texturing
 
 Old
 ---------------------------------------------------------------------------------------------
