@@ -20505,6 +20505,7 @@ GameObject:
   - component: {fileID: 1925041298}
   - component: {fileID: 1925041302}
   - component: {fileID: 1925041299}
+  - component: {fileID: 1925041300}
   m_Layer: 0
   m_Name: CommSatellitePlayer
   m_TagString: Untagged
@@ -20551,6 +20552,48 @@ MonoBehaviour:
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 76e479eed913cc34ea0f47384f3f4e76,
+      type: 2}
+--- !u!114 &1925041300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925041297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed47bb18580965d4c89719f6d36ba97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validTags:
+  - Player
+  willTriggerEnter: 1
+  willTriggerExit: 1
+  akStatesEnter:
+  - idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8ebf9e87a97b6834ca840ade16f82fd9,
+      type: 2}
+  - idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 775da86fcec802948814603cf2331ca4,
+      type: 2}
+  akStatesExit:
+  - idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 28deb88873189f348913f07ec677d3af,
+      type: 2}
+  - idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2bd33f18b9484cd4b88cc3292b00112c,
       type: 2}
 --- !u!65 &1925041302
 BoxCollider:
