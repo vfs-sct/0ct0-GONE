@@ -105,13 +105,11 @@ public class ToolController : MonoBehaviour
     {
         if (CurrentToolIsActive)
         {
-            /*
             if (!CurrentTool.WhileActive(this,_Target))
             {
                 DeactiveTool_Internal();
                 return;
             }
-            */
             CurrentTool.WhileActive(this,_Target);
         }
     }
