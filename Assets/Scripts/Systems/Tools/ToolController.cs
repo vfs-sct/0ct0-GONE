@@ -53,6 +53,7 @@ public class ToolController : MonoBehaviour
 
     public void DeselectTool()
     {
+        Debug.Log("DeselectTool");
         if (CurrentToolIsActive) 
         {
             DeactiveTool_Internal();
@@ -84,7 +85,6 @@ public class ToolController : MonoBehaviour
     }
     private void DeactiveTool_Internal()
     {
-        Debug.Log("Deactivating Tool " + CurrentTool);
         CurrentToolIsActive = false;
         if (CurrentTool == null) return;
         CurrentTool.Deactivate(this,_Target);
