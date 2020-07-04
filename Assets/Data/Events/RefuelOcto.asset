@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb18331b8c705349a8710f6b048c32b, type: 3}
+  m_Name: RefuelOcto
+  m_EditorClassIdentifier: 
+  EventName: Refuel Octo
+  isFirstEvent: 1
+  progressesStory: 0
+  EventEffectDelegates:
+    m_PersistentCalls:
+      m_Calls: []
+  CollectResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
+  actionVerb: Refuel
+  UIRootModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}

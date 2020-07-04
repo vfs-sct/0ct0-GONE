@@ -5,6 +5,8 @@ using UnityEngine;
 public class UIRoot : MonoBehaviour
 {
     [SerializeField] UIModule UIModule = null;
+    //UIAwake will try to get the player and pass it here on its Awake
+    public Player player = null;
 
     //UI root gives itself to the UI module once its awake, so that the scriptable object system can use the prefab UI stuff
     private void Awake()

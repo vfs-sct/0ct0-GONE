@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8dbb4b07df41ea429ea77dc6adbf6d2, type: 3}
+  m_Name: SolarCellsRecipe
+  m_EditorClassIdentifier: 
+  DisplayName: Solar Cells
+  ItemInput: []
+  ResourceInput:
+  - resource: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
+    amount: 10
+  - resource: {fileID: 11400000, guid: 817b9d6fe54926b47b141284265e21a3, type: 2}
+    amount: 5
+  Output:
+    item: {fileID: 11400000, guid: 676a1ab1a1a93cc49870eef3a1ba3c40, type: 2}
+    amount: 5
+  CreatesByProducts: 0
+  ItemByProducts: []
+  ResourceByProducts: []
+  RequiredItemInputSpace: 0
+  ItemOuputSpace: 0

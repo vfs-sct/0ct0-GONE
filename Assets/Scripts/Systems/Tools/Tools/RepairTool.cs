@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using TMPro;
 
 
 [CreateAssetMenu(menuName = "Systems/Tools/Repair Tool")]
@@ -8,9 +7,11 @@ public class RepairTool : Tool
 {
     private RepairableComponent repairableComponent;
     private ResourceInventory inventoryComponent;
+
+    [SerializeField] private GameObject popText = null;
+
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
-        
         return true;
     }
 
@@ -21,7 +22,13 @@ public class RepairTool : Tool
 
     protected override bool LoopCondition(ToolController owner, GameObject target)
     {
-
+        if(target.GetComponent<RepairableComponent>() == null)
+        {
+            Debug.Log("Target in LoopCondition() returned null");
+            var popTxt = Instantiate(popText);
+            popTxt.GetComponentInChildren<TextMeshProUGUI>().SetText("Cannot repair!");
+            return false;
+        }
         repairableComponent = target.GetComponent<RepairableComponent>();
         Debug.Log(repairableComponent);
         return repairableComponent.DoRepair(inventoryComponent);

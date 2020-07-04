@@ -6,8 +6,9 @@ using UnityEngine.Events;
 public abstract class Event : ScriptableObject
 {
     public string EventName;
-    public string EventText;
-    public string CompletionText;
+    public bool isFirstEvent = false;
+    public bool progressesStory = true;
+    protected GameFrameworkManager GameManager = null;
 
     public abstract bool Condition(GameObject target);
 
@@ -15,9 +16,12 @@ public abstract class Event : ScriptableObject
 
     public void TriggerEffect(GameObject target)
     {
+        //CodexProgression();
         EventEffectDelegates.Invoke();
         Effect(target);
     }
+
+    virtual public void InitializeEvent(){}
 
     protected abstract void Effect(GameObject target);
 }

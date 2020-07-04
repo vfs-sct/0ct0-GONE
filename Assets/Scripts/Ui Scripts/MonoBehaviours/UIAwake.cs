@@ -11,6 +11,7 @@ public class UIAwake : MonoBehaviour
     [SerializeField] public int invertedCamDefault = 1;
     [SerializeField] public float lookSensitivityDefault = 0.9f;
     [SerializeField] public GameObject fadeIn = null;
+    [SerializeField] public Codex codex = null;
 
     private Player player = null;
 
@@ -106,7 +107,7 @@ public class UIAwake : MonoBehaviour
 
         //set gamma based on saved player prefs, or set to default
         if (!PlayerPrefs.HasKey("Gamma"))
-        {   
+        {
             Shader.SetGlobalFloat("gamma", gammaDefault);
             PlayerPrefs.SetFloat("Gamma", gammaDefault);
             PlayerPrefs.Save();
@@ -132,6 +133,10 @@ public class UIAwake : MonoBehaviour
                 PlayerPrefs.Save();
             }
         }
+
+        //Try to get player right off the bat and pass it to UIAwake
+        //Means anything using UIModule can get the player through the UIRoot variable
+        gameObject.GetComponent<UIRoot>().player = GetPlayer();
 
     }
 

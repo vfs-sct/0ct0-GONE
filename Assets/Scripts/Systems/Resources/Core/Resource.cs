@@ -1,6 +1,8 @@
 ﻿//Copyright Jesse Rougeau, 2020 ©
 
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +34,11 @@ public class Resource : ScriptableObject
     [SerializeField] private float DefaultValue = 0;
     [SerializeField] private float Maximum = 100;
     [SerializeField] public string DisplayName = "";
+    [SerializeField] public string Abreviation = "";
+    [SerializeField] public Color ResourceColor;
+    [SerializeField] public Material ResourceHighlight;
     [SerializeField] public Sprite resourceIcon = null;
+    [SerializeField] private GameObject resourceAddedPopTxt = null;
 
     Dictionary<ResourceInventory,ResourceData_Internal> Data = new Dictionary<ResourceInventory, ResourceData_Internal>();
 
@@ -125,8 +131,38 @@ public class Resource : ScriptableObject
     }
 
     //Add {valueToAdd} amount of a resource to an inventory
-    public void AddInstanceValue(ResourceInventory owner,float valueToAdd)
-    {   
+    public void AddInstanceValue(bool isAdd, ResourceInventory owner,float valueToAdd)
+    {
+        //if(Data[owner].Value == null)
+        //{
+        //    Debug.LogWarning("The AddInstanceValue function was given a null owner parameter");
+        //    return;
+        //}
+
+        //don't show pop text when AddInstanceValue is being used to subtract resources
+        if (isAdd && valueToAdd != 0)
+        {
+            //do nothing if the resource is already at max
+            if (Maximum != 0 && Data[owner].Value == Maximum)
+            {
+                var popText = Instantiate(resourceAddedPopTxt);
+                popText.GetComponentInChildren<TextMeshProUGUI>().SetText($"{DisplayName} Full");
+                return;
+            }
+            //display correct amount if value to add would have taken the value over max
+            if (Maximum != 0 && Data[owner].Value + valueToAdd > Maximum)
+            {
+                var popText = Instantiate(resourceAddedPopTxt);
+                popText.GetComponentInChildren<TextMeshProUGUI>().SetText($"+{Math.Round(Maximum - Data[owner].Value, 1)} {DisplayName}");
+            }
+            //default show how much is being added
+            else
+            {
+                var popText = Instantiate(resourceAddedPopTxt);
+                popText.GetComponentInChildren<TextMeshProUGUI>().SetText($"+{Math.Round(valueToAdd, 1)} {DisplayName}");
+            }
+        }
+
         SetInstanceValue(owner,(Mathf.Clamp(Data[owner].Value + valueToAdd,Minimum,Maximum)));
         if (Data[owner].OnAddResource!=null)  Data[owner].OnAddResource(this,valueToAdd);
     }
@@ -134,7 +170,7 @@ public class Resource : ScriptableObject
      //Subtract {valueToSub} amount of a resource to an inventory (Wrapper for add)
     public void SubInstanceValue(ResourceInventory owner,float valueToSub)
     {
-        AddInstanceValue(owner,-valueToSub);
+        AddInstanceValue(false, owner,-valueToSub);
         if (Data[owner].OnRemoveResource !=null) Data[owner].OnRemoveResource(this,valueToSub);
     }
 

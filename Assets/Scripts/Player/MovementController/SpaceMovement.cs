@@ -88,7 +88,7 @@ public class SpaceMovement : MovementComponent
             Impulse[i] = Mathf.Clamp(Impulse[i],-ThrusterImpulse,ThrusterImpulse);
 
             Throttle[i] = Impulse[i]/ThrusterImpulse; //get the throttle value for sound and vfx
-            fuelUsage += Impulse[i]*(FuelPerImpulseUnit/FuelEfficency);
+            fuelUsage += Mathf.Abs(Impulse[i])*(FuelPerImpulseUnit/FuelEfficency);
         }
         LinkedResourceBehavior.RemoveResource(FuelResource,fuelUsage);
         return Impulse;
@@ -117,17 +117,22 @@ public class SpaceMovement : MovementComponent
     {
         Vector3 Torques = new Vector3();
         float AngleDelta = 0;
-        float fuelUsage = 0;
+        float fuelUsage = 0;        
+        var TargetRot = new Quaternion();
+        TargetRot.eulerAngles = TargetAngle;
+        var DeltaRot = Quaternion.Inverse(_Rigidbody.rotation)*TargetRot;
+
         for (int i = 0; i < 3; i++)
         {
-            AngleDelta = Mathf.Clamp(Mathf.DeltaAngle(TargetAngle[i], _Rigidbody.rotation.eulerAngles[i]),-20,20);
+            AngleDelta = DeltaRot.eulerAngles[i];
+            if (AngleDelta > 180) AngleDelta = -((AngleDelta)-180);
             Torques[i] = Mathf.Clamp(AngleDelta,-ThrusterTorque,ThrusterTorque);
-            fuelUsage += Torques[i]*(FuelPerTorqueUnit/FuelEfficency);
+            fuelUsage += Mathf.Abs(Torques[i])*(FuelPerTorqueUnit/FuelEfficency);
         }
 
-        _Rigidbody.AddRelativeTorque(new Vector3(-1,0,0) * Torques.x,ForceMode.Impulse);
-        _Rigidbody.AddRelativeTorque(new Vector3(0,-1,0) * Torques.y,ForceMode.Impulse);
-        _Rigidbody.AddRelativeTorque(new Vector3(0,0,-1) * Torques.z,ForceMode.Impulse);
+        _Rigidbody.AddRelativeTorque(new Vector3(1,0,0) * Torques.x,ForceMode.Impulse);
+        _Rigidbody.AddRelativeTorque(new Vector3(0,1,0) * Torques.y,ForceMode.Impulse);
+        _Rigidbody.AddRelativeTorque(new Vector3(0,0,1) * Torques.z,ForceMode.Impulse);
         LinkedResourceBehavior.RemoveResource(FuelResource,fuelUsage);
     }
 

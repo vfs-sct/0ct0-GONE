@@ -1,17 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 [CreateAssetMenu(menuName = "Systems/Tools/Salvager")]
 public class SalvageTool : Tool
 {
+    [SerializeField] public ResourceGainedPopTxt popText = null;
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
-        if (target == null ) return false;
-        Salvagable SalvageObj = target.GetComponent<Salvagable>();
-        if (SalvageObj == null) return false;
-        Debug.Log(SalvageObj.HarvestingTool);
-        return (SalvageObj.HarvestingTool == this); //only activate if the target is salvagable
+        //Debug.Log(target);
+        if (target != null && target.GetComponent<Salvagable>() != null)
+        {
+            Debug.Log("Salvage Found");
+            return true;
+        }
+        return false;
     }
 
     protected override bool DeactivateCondition(ToolController owner, GameObject target)
@@ -26,26 +26,46 @@ public class SalvageTool : Tool
 
     protected override void OnActivate(ToolController owner, GameObject target)
     {
-        Salvagable SalvageObj = target.GetComponent<Salvagable>();
-        float SalvageMultiplier = SalvageObj.LinkedSalvage.BaseMult;
-        Debug.Log("Salvager Activated");
-        SalvageObj.LinkedSalvage.DoSalvage(SalvageObj,owner.GetComponent<ResourceInventory>(),1.0f,SalvageMultiplier);
-
+        Salvagable SalvComp = target.GetComponent<Salvagable>();
+        if (SalvComp.SalvageItem.IsSalvage)
+        {
+            if (owner.PlayerInventory.AddToResourceBucket(SalvComp.SalvageItem,SalvComp.Amount))
+            {
+                Debug.Log(owner.PlayerInventory.GetResourceAmount(SalvComp.SalvageItem.ResourceType));
+                Destroy(target);
+                //resource gained pop text
+                Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");
+                //Debug.Log("Salvaged Object");
+                return;
+            }
+            //error pop text
+            Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Full");
+            //Debug.Log("Not enough space");
+        }
+        else 
+        {
+            //error pop text
+            Instantiate(popText).popText.SetText("Cannot Salvage");
+            //Debug.Log("Could not salvage");
+            //Debug.Log(SalvComp.SalvageItem + " is not a resource");
+        }
+        
+        
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
     {
-        Debug.Log("Salvager Deactivated");
+        //Debug.Log("Salvager Deactivated");
     }
 
     protected override void OnSelect(ToolController owner)
     {
-        Debug.Log("Salvager Selected");
+        //Debug.Log("Salvager Selected");
     }
 
     protected override void OnDeselect(ToolController owner)
     {
-        Debug.Log("Salvager DeSelected");
+        //Debug.Log("Salvager DeSelected");
     }
 
     

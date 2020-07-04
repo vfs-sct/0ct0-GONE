@@ -6,68 +6,155 @@ using UnityEngine;
 public class CraftingModule : Module
 {
     [System.Serializable]
-    public struct CraftingData
+    public struct ItemRecipeData
     {
-       public Resource resource;
-       public float amount;
-        public CraftingData(Resource r, float a)
+        public Item item;
+        public int amount;
+
+        public ItemRecipeData(Item I, int A)
         {
-            resource = r;
-            amount = a;
+            item = I;
+            amount = A;
         }
     }
 
-    [SerializeField] private List<CraftingRecipe> ActiveRecipes = new List<CraftingRecipe>();
-    [SerializeField] private ResourceModule ResourceManager;
-
-    public List<CraftingRecipe> GetRecipes(Resource ResourceToCheck)
+    [System.Serializable]
+    public struct RecipeResourceData
     {
-        List<CraftingRecipe> foundRecipes = new List<CraftingRecipe>();
-        foreach (var Recipe in ActiveRecipes)
+        public Resource resource;
+        public float amount;
+
+        public RecipeResourceData(Resource R, float A)
         {
-            if (Recipe.Output.resource == ResourceToCheck)
+            resource = R;
+            amount = A;
+        }
+    }
+    [SerializeField] private List<Recipe> Recipes = new List<Recipe>();
+
+
+    public bool CanCraftSatellite(ResourceInventory ResourceInv,InventoryController SourceInv, SatelliteInventory TargetInv, SatelliteRecipe CraftRecipe)
+    {
+        if (SourceInv == null || TargetInv == null || ResourceInv == null || TargetInv == null) 
+        {
+            Debug.LogError(SourceInv);
+            Debug.LogError(TargetInv);
+            Debug.LogError(ResourceInv);
+            return false;
+        }
+         foreach (var itemIn in CraftRecipe.ItemInput)
+        {
+            if (SourceInv.GetItemAmount(itemIn.item) <  itemIn.amount) return false;
+        }
+
+        foreach (var resIn in CraftRecipe.ResourceInput)
+        {
+            if (ResourceInv.GetResource(resIn.resource) <  resIn.amount) return false;
+        }
+
+        if (CraftRecipe.CreatesByProducts)
+        {
+            foreach (var resOut in CraftRecipe.ResourceByProducts)
             {
-                foundRecipes.Add(Recipe);
+                if (ResourceInv.GetResource(resOut.resource)+  resOut.amount > resOut.resource.GetMaximum()) return false; //holy crap this is a kludge. TODO: Fix this
             }
         }
-        return foundRecipes;
-    }
 
-    public bool CanCraft(ResourceInventory Source, ResourceInventory Target, CraftingRecipe Recipe)
-    {
-        foreach (var ResourceData in Recipe.Input)
+        if (TargetInv.StoredSatellites[0] != null)
         {
-            if (!Source.HasResource(ResourceData.resource)) return false;
-            if (Source.GetResource(ResourceData.resource) < ResourceData.amount) return false;
-            //TODO add functionality to prevent crafting a resource when storage is full
+            return false;
         }
         return true;
     }
 
-    public void CraftItem(ResourceInventory Source, ResourceInventory Target, CraftingRecipe Recipe)
+    public bool CanCraft(ResourceInventory ResourceInv,InventoryController SourceInv, InventoryController TargetInv, Recipe CraftRecipe)
     {
-        if (!CanCraft(Source, Target, Recipe))
+        if (SourceInv == null || TargetInv == null || ResourceInv == null) 
         {
-            Debug.Log("Can't craft");
-            return; //exit out if can't craft item
+            Debug.LogError(SourceInv);
+            Debug.LogError(TargetInv);
+            Debug.LogError(ResourceInv);
+            return false;
+        }
+        foreach (var itemIn in CraftRecipe.ItemInput)
+        {
+            if (SourceInv.GetItemAmount(itemIn.item) <  itemIn.amount) return false;
         }
 
-        foreach (var RecipeData in Recipe.Input)
+        foreach (var resIn in CraftRecipe.ResourceInput)
         {
-            Debug.Log("Resource removed");
-            Source.RemoveResource(RecipeData.resource,RecipeData.amount);
+            if (ResourceInv.GetResource(resIn.resource) <  resIn.amount) return false;
         }
-        if (!Target.HasResource(Recipe.Output.resource)) //create a resource instance if one is not present already
+
+        if (CraftRecipe.CreatesByProducts)
         {
-            Debug.Log("Resource instance created");
-            ResourceManager.CreateResourceInstance(Recipe.Output.resource,Target);
+            foreach (var resOut in CraftRecipe.ResourceByProducts)
+            {
+                if (ResourceInv.GetResource(resOut.resource)+  resOut.amount > resOut.resource.GetMaximum()) return false; //holy crap this is a kludge. TODO: Fix this
+            }
         }
-        Debug.Log("Resource crafted");
-        Target.AddResource(Recipe.Output.resource,Recipe.Output.amount);
+        if ( TargetInv.GetItemBucketFillAmount() + CraftRecipe.ItemOuputSpace > TargetInv.GetItemBucketCap()) return false;
+
+        return true;
     }
+
+
+    public bool CraftItem(ResourceInventory ResourceInv,InventoryController SourceInv, InventoryController TargetInv, Recipe CraftRecipe,bool ByPassCraftCheck = false)
+    {
+        if (!ByPassCraftCheck) //optimization to skip checking if we can craft this recipe
+        {
+            if (!CanCraft(ResourceInv,SourceInv,TargetInv,CraftRecipe)) return false;
+        }
+        foreach (var itemIn in CraftRecipe.ItemInput) //TODO Optimize data structure to allow use of a single foreach for inputs
+        {
+            SourceInv.RemoveFromItemBucket(itemIn.item,itemIn.amount);
+        }
+        foreach (var resourceIn in CraftRecipe.ResourceInput)
+        {
+            ResourceInv.RemoveResource(resourceIn.resource,resourceIn.amount);
+        }
+        
+        TargetInv.AddToItemBucket(CraftRecipe.Output.item,CraftRecipe.Output.amount);
+
+        if (!CraftRecipe.CreatesByProducts) return true;
+
+        foreach (var itemOut in CraftRecipe.ItemByProducts)//TODO Optimize data structure to allow use of a single foreach for outputs
+        {
+            TargetInv.AddToItemBucket(itemOut.item,itemOut.amount);
+        }
+        foreach (var resOut in CraftRecipe.ResourceByProducts)
+        {
+            ResourceInv.AddResource(resOut.resource,resOut.amount);
+        }
+        return true;
+    }
+
+     public bool CraftSatellite(ResourceInventory ResourceInv,InventoryController SourceInv, SatelliteInventory TargetInv, SatelliteRecipe CraftRecipe,bool ByPassCraftCheck = false)
+    {
+        if (!ByPassCraftCheck) //optimization to skip checking if we can craft this recipe
+        {
+            if (!CanCraftSatellite(ResourceInv,SourceInv,TargetInv,CraftRecipe)) return false;
+        }
+        foreach (var itemIn in CraftRecipe.ItemInput) //TODO Optimize data structure to allow use of a single foreach for inputs
+        {
+            SourceInv.RemoveFromItemBucket(itemIn.item,itemIn.amount);
+        }
+        foreach (var resourceIn in CraftRecipe.ResourceInput)
+        {
+            ResourceInv.RemoveResource(resourceIn.resource,resourceIn.amount);
+        }
+
+        TargetInv.SetSatellite(CraftRecipe.Output);
+        //TODO (If required) Implement resource and item byproducts
+        return true;
+    }
+
+
+
 
     public override void Initialize()
     {
+
     }
     public override void Reset()
     {

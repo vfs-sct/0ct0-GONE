@@ -46,6 +46,20 @@ public class ResourceInventory : MonoBehaviour
         }
     }
 
+    public bool CheckIfResourceList()
+    {
+        if(ActiveResources != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public List<Resource> GetActiveResourceList()
+    {
+        return ActiveResources;
+    }
+
     public bool HasResource(Resource resourceToCheck)
     {
         return ActiveResources.Contains(resourceToCheck);
@@ -53,7 +67,7 @@ public class ResourceInventory : MonoBehaviour
 
     public void TryAdd(Resource resource, float amount)
     {
-        Debug.Log(!HasResource(resource));
+        //Debug.Log(!HasResource(resource));
         if (!HasResource(resource)) {
             ResourceManager.CreateResourceInstance(resource,this);//create the resource if it isn't present
             ActiveResources.Add(resource);
@@ -68,9 +82,9 @@ public class ResourceInventory : MonoBehaviour
 
     public void AddResource(Resource resource, float amount)
     {
-        var popText = Instantiate(resourceAddedPopTxt);
-        popText.GetComponentInChildren<TextMeshProUGUI>().SetText("+" + amount.ToString() + " " + resource.DisplayName);
-        resource.AddInstanceValue(this,amount);
+        //var popText = Instantiate(resourceAddedPopTxt);
+        //popText.GetComponentInChildren<TextMeshProUGUI>().SetText("+" + amount.ToString() + " " + resource.DisplayName);
+        resource.AddInstanceValue(true, this,amount);
     }
 
     public void GenerateResourceText()

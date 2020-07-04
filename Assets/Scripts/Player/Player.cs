@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
 using UnityEngine.InputSystem;
 
 
@@ -11,38 +10,45 @@ public class Player : MonoBehaviour
 {
     [Header("Game:")]
     [SerializeField] private GameFrameworkManager GameManager  = null;
-    [SerializeField] private Playing PlayingState;
+    [SerializeField] protected UIModule UIRootModule = null;
+    [SerializeField] private Playing PlayingState = null;
     [SerializeField] private LayerMask TargetableMask;
-    [SerializeField] public Camera PlayerCamera;
-    [SerializeField] public EventModule EventModule;
-
-    [SerializeField] private PlayerSatelliteHolder SatHolder;
+    [SerializeField] public Camera PlayerCamera = null;
+    [SerializeField] public EventModule EventModule = null;
 
     [Header("Player:")]
     [SerializeField] private float TargetingDistance = 1000.0f;
 
-    [SerializeField] private Resource FuelResource;
+    [SerializeField] private Resource FuelResource = null;
 
-    [SerializeField] private PlayerCamera CameraScript;
+    [SerializeField] private PlayerCamera CameraScript = null;
 
-    [SerializeField] private ResourceInventory LinkedInventory;
+    [SerializeField] private ResourceInventory LinkedInventory = null;
+
+    [SerializeField] private Transform _ObjectHoldPosition;
+
+    public Transform ObjectHoldPosition{get=>_ObjectHoldPosition;}
     public ResourceInventory Inventory{get=>LinkedInventory;}
 
     [Header("UI Elements:")]
-    [SerializeField] private GameOver GameOverScreen;
-    [SerializeField] private GameOver WinScreen;
     [SerializeField] private GameObject CraftingTooltip = null;
     [SerializeField] private GameObject RefuellingTooltip = null;
     [SerializeField] private GameObject TargetingTooltip = null;
 
+    private GameOver GameOverScreen = null;
+    private Win WinScreen = null;
+
+    [SerializeField] private ScannerComponent Scanner;
+
     [Header("PlayerPref Options:")]
     //used by UI/playerprefs to invert camera
-    public int invertedCam;
+    public int invertedCam = 1;
     public float lookSensitivity;
 
     [Header("Do not touch:")]
     public Collider mouseCollision = null;
     public GameObject mouseCollisionRoot = null;
+    public float collisionDistance;
 
     private MovementController LinkedMovementController;
     private ToolController LinkedToolController;
@@ -58,47 +64,60 @@ public class Player : MonoBehaviour
     private Material lastTargetMat = null;
     private GameObject highlightObject = null;
     private Material lastHighlightMat = null;
+    private Material HighlightMaterial = null;
 
     public void OnSelectTool1()//goo glue
     {
-        if (LastToolSelectedIndex == 0)
+        if (!GameManager.isPaused)
         {
-            ResetSelectedTool();
-            return;
+            if (LastToolSelectedIndex == 0)
+            {
+                ResetSelectedTool();
+                return;
+            }
+            LastToolSelectedIndex = 0;
+            LinkedToolController.SwitchTool(0);
         }
-        LastToolSelectedIndex = 0;
-        LinkedToolController.SwitchTool(0);
     }
     public void OnSelectTool2()//ScrewDriver
     {
-        if (LastToolSelectedIndex == 1)
+        if (!GameManager.isPaused)
         {
-            ResetSelectedTool();
-            return;
+            if (LastToolSelectedIndex == 1)
+            {
+                ResetSelectedTool();
+                return;
+            }
+            LastToolSelectedIndex = 1;
+            LinkedToolController.SwitchTool(1);
         }
-        LastToolSelectedIndex = 1;
-        LinkedToolController.SwitchTool(1);
     }
     public void OnSelectTool3()//Claw
     {
-        if (LastToolSelectedIndex == 2)
+        if (!GameManager.isPaused)
         {
-            ResetSelectedTool();
-            return;
+            if (LastToolSelectedIndex == 2)
+            {
+                ResetSelectedTool();
+                return;
+            }
+            LastToolSelectedIndex = 2;
+            LinkedToolController.SwitchTool(2);
         }
-        LastToolSelectedIndex = 2;
-        LinkedToolController.SwitchTool(2);
     }
 
     public void OnSelectTool4()//Laser Cutter
     {
-        if (LastToolSelectedIndex == 3)
+        if (!GameManager.isPaused)
         {
-            ResetSelectedTool();
-            return;
+            if (LastToolSelectedIndex == 3)
+            {
+                ResetSelectedTool();
+                return;
+            }
+            LastToolSelectedIndex = 3;
+            LinkedToolController.SwitchTool(3);
         }
-        LastToolSelectedIndex = 3;
-        LinkedToolController.SwitchTool(3);
     }
 
     public void OnRoll(InputValue value)
@@ -108,6 +127,7 @@ public class Player : MonoBehaviour
 
     public void OnLook(InputValue value)
     {
+        //Debug.Log(invertedCam);
         RotationInput.y = value.Get<Vector2>().x * lookSensitivity;
         RotationInput.x = value.Get<Vector2>().y * invertedCam * lookSensitivity;
     }
@@ -126,6 +146,7 @@ public class Player : MonoBehaviour
 
     public void OnActivateTool()
     {
+        if (targetObject != null) LinkedToolController.SetTarget(targetObject);
         LinkedToolController.ActivateTool();
 
         //testing code for satellite placement
@@ -143,64 +164,15 @@ public class Player : MonoBehaviour
         LinkedToolController.DeselectTool();
     }
 
-    private void OnEnable()
+    public void OnScanSalvage()
     {
-        
-    }
-
-    public void OnLockTarget()
-    {
-        TryTarget();
-    }
-
-    private void TryTarget()
-    {
-        _TargetCollider = mouseCollision;
-
-        if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud") 
-        {
-            //don't target crafting stations
-            if (mouseCollisionRoot.tag != "Refuel")
-            {
-                //is there an already targeted object that needs to be untargeted
-                if (targetObject != null)
-                {
-                    Debug.Log("Old target: " + targetObject);
-                    targetObject.GetComponentInChildren<MeshRenderer>().material = lastTargetMat;
-                }
-
-                if (_TargetCollider.gameObject == highlightObject)
-                {
-                    lastTargetMat = lastHighlightMat;
-
-                    lastHighlightMat = null;
-                }
-                else
-                {
-                    lastTargetMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
-                }
-
-                highlightObject = null;
-                targetObject = _TargetCollider.gameObject;
-                LinkedToolController.SetTarget(targetObject);
-                Debug.Log("Targeted: " + targetObject);
-
-                _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("TargetHighlightMaterial");
-            }
-        }
-        else
-        {
-            RevertMaterial(targetObject, lastTargetMat);
-            targetObject = null;
-            lastTargetMat = null;
-            LinkedToolController.ClearTarget();
-        }
+        Scanner.DoScan();
     }
 
     //used to put the default shader back on a highlighted or targeted object once it is no longer highlighted/targeted
     public void RevertMaterial(GameObject prevObj, Material prevMat)
     {
-        Debug.Log("No target highlighted/selected");
+        //Debug.Log("No target highlighted/selected");
         if (prevObj != null)
         {
             prevObj.GetComponentInChildren<MeshRenderer>().material = prevMat;
@@ -217,17 +189,20 @@ public class Player : MonoBehaviour
     {
         GameManager.Pause();
         WinScreen.gameObject.SetActive(true);
+        //UIRootModule.UIRoot.GetScreen<Codex>().ResetCodexLocks();
     }
-
 
     private void Awake()
     {
         PlayingState.RegisterPlayer(this);
+        invertedCam = PlayerPrefs.GetInt("InvertedCam");
+        HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
     }
-
 
     private void Start()
     {
+        GameOverScreen = UIRootModule.UIRoot.GetScreen<GameOver>();
+        WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
         LinkedMovementController = GetComponent<MovementController>();
         LinkedToolController = GetComponent<ToolController>();
     }
@@ -258,10 +233,7 @@ public class Player : MonoBehaviour
 
     private void TryHighlight()
     {
-        //just bc i dont wanna rename everything rn
-        _TargetCollider = mouseCollision;
-
-        if (_TargetCollider != null && _TargetCollider.name != "Player" && _TargetCollider.tag != "Cloud" && _TargetCollider.gameObject != targetObject)
+        if (mouseCollision != null && mouseCollision.name != "Player" && mouseCollision.tag != "Cloud") // && mouseCollision.gameObject != targetObject
         {
             //is there a previously highlighted object that needs to be unhighlighted?
             if (highlightObject != null)
@@ -269,35 +241,30 @@ public class Player : MonoBehaviour
                 //Debug.Log("Old highlight: " + highlightObject);
                 highlightObject.GetComponentInChildren<MeshRenderer>().material = lastHighlightMat;
             }
-
-            highlightObject = _TargetCollider.gameObject;
+            highlightObject = mouseCollision.gameObject;
+            targetObject = mouseCollision.gameObject;
             //Debug.Log("Highlighted: " + highlightObject);
 
-            lastHighlightMat = _TargetCollider.GetComponentInChildren<MeshRenderer>().material;
-            _TargetCollider.GetComponentInChildren<MeshRenderer>().material = Resources.Load<Material>("HoverHighlightMaterial");
-
-            if(mouseCollisionRoot.tag != "Refuel")
+            lastHighlightMat = mouseCollision.GetComponentInChildren<MeshRenderer>().material;
+            MeshRenderer TargetMeshRender = mouseCollision.GetComponentInChildren<MeshRenderer>();
+           
+            Salvagable TargetSalvage = mouseCollision.GetComponentInChildren<Salvagable>();
+            if (TargetSalvage != null)
             {
-                TargetingTooltip.SetActive(true);
+                TargetMeshRender.material.color = TargetSalvage.SalvageItem.ResourceType.ResourceColor;
+                TargetMeshRender.material = TargetSalvage.SalvageItem.ResourceType.ResourceHighlight;
             }
-        }
-        else if(_TargetCollider != null && _TargetCollider.gameObject != targetObject)
-        {
-            RevertMaterial(highlightObject, lastHighlightMat);
-            highlightObject = null;
-            lastHighlightMat = null;
-        }
-
-        if (_TargetCollider == null || _TargetCollider.gameObject == targetObject || mouseCollisionRoot.tag == "Refuel")
-        {
-            TargetingTooltip.SetActive(false);
+            else
+            {
+                TargetMeshRender.material = HighlightMaterial;
+            }
         }
     }
     public bool StationInRange(bool canCraft)
     {
         if (mouseCollision != null)
         {
-            Debug.Log($"CRAFT COLLISION: {mouseCollisionRoot.tag}, {mouseCollisionRoot.name}");
+            //Debug.Log($"CRAFT COLLISION: {mouseCollisionRoot.tag}, {mouseCollisionRoot.name}");
 
             if(mouseCollisionRoot.tag == "Refuel")
             {
@@ -316,6 +283,7 @@ public class Player : MonoBehaviour
         return canCraft;
     }
 
+    //if the collision object is a child, find the parent and return it
     public GameObject GetMouseCollisionRoot(Collider mouseCollision)
     {
         if (mouseCollision != null)
@@ -332,11 +300,14 @@ public class Player : MonoBehaviour
         return null;
     }
 
+    //raycast to see if mouse is hovering anything
     public Collider GetMouseCollision()
     {
         RaycastHit TargetHit;
         if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out TargetHit, TargetingDistance, TargetableMask))
         {
+            //collision distance is used by the HUD to display how far away the object the player is looking at is
+            collisionDistance = (float)(Math.Round(TargetHit.distance, 1));
             _TargetCollider = TargetHit.collider;
 
             if (_TargetCollider.GetComponentInChildren<MeshRenderer>() == null)
@@ -353,13 +324,16 @@ public class Player : MonoBehaviour
     }
 
 
+
     private void Update()
     {
         if (GameManager.isPaused)
         {
             return;
         }
+        //one raycast is done and then passed to everything that needs to use it (tooltips, highlight, target, etc)
         mouseCollision = GetMouseCollision();
+        //if the thing hit by the raycast is a child, mouseCollisionRoot will get the top level parent gameobject
         mouseCollisionRoot = GetMouseCollisionRoot(mouseCollision);
         TryHighlight();
         ShowTooltips();
@@ -367,6 +341,4 @@ public class Player : MonoBehaviour
         UpdateCamera();
         UpdateCharacterRotation();
     }
-
-
 }

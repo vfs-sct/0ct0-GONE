@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//Kristin Ruff-Frederickson | Copyright 2020©
+using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 

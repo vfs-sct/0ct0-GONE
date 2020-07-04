@@ -3,7 +3,8 @@ using UnityEngine.InputSystem;
 
 public class RefuelRange : MonoBehaviour
 {
-    [SerializeField] public Player player = null;
+
+    [SerializeField] private Playing playing;
     [SerializeField] public Resource fuel = null;
     [SerializeField] public float amountAdd = 30;
 
@@ -25,7 +26,7 @@ public class RefuelRange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canRefuel = player.StationInRange(canRefuel);
+        canRefuel = playing.ActivePlayer.StationInRange(canRefuel);
         if (isFueling == true)
         {
             if (canRefuel)
@@ -33,7 +34,7 @@ public class RefuelRange : MonoBehaviour
                 refuelTimer -= Time.deltaTime;
                 if (refuelTimer < 0)
                 {
-                    player.Inventory.AddResource(fuel, amountAdd);
+                    playing.ActivePlayer.Inventory.AddResource(fuel, amountAdd);
                     refuelTimer = 0.1f;
                 }
             }

@@ -4,13 +4,18 @@ using UnityEngine.InputSystem;
 public class CraftRange : MonoBehaviour
 {
     [SerializeField] GameFrameworkManager GameManager = null;
-    [SerializeField] GameObject CraftingPrefab = null;
+    [SerializeField] UIModule UIModule = null;
     [SerializeField] Player Player = null;
 
+    [SerializeField] private GameObject CraftingStation;
+
+    Crafting CraftingPrefab = null;
+
     private bool canCraft = false;
-    // Start is called before the first frame update
+
     void Start()
     {
+        CraftingPrefab = UIModule.UIRoot.GetScreen<Crafting>();
         canCraft = false;
     }
 
@@ -24,7 +29,8 @@ public class CraftRange : MonoBehaviour
         }
         else
         {
-            CraftingPrefab.SetActive(true);
+            Player.GetComponent<InventoryController>().OffloadSalvage(CraftingStation.GetComponentInParent<ResourceInventory>());
+            CraftingPrefab.gameObject.SetActive(true);
             GameManager.Pause();
             Debug.Log("Paused");
         }
