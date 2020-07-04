@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 5282396066164313823}
   - component: {fileID: 8879143043160576442}
   - component: {fileID: 4093799036312669339}
+  - component: {fileID: 5418712178420470303}
   m_Layer: 10
   m_Name: Salvage_AluminiumPanel
   m_TagString: Untagged
@@ -153,3 +154,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _SalvageItem: {fileID: 11400000, guid: 83da481ff8ddd094a8a7adba76dec6c0, type: 2}
   _Amount: 1
+--- !u!54 &5418712178420470303
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108445174622467187}
+  serializedVersion: 2
+  m_Mass: 50
+  m_Drag: 0.01
+  m_AngularDrag: 0.03
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

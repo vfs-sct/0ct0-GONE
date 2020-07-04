@@ -564,6 +564,7 @@ GameObject:
   - component: {fileID: 4996147908348699482}
   - component: {fileID: 6440295300925557056}
   - component: {fileID: 3574037754033832913}
+  - component: {fileID: -2501237730486759673}
   m_Layer: 10
   m_Name: Salvage_HeatSink
   m_TagString: Untagged
@@ -621,6 +622,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.79, y: 0.77, z: 1.96}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-2501237730486759673
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3827800401327970806}
+  serializedVersion: 2
+  m_Mass: 50
+  m_Drag: 0.01
+  m_AngularDrag: 0.03
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7623109322844483539
 GameObject:
   m_ObjectHideFlags: 0
