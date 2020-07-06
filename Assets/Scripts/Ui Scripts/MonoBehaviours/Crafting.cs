@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using System;
+using UnityEngine.EventSystems;
 
 public class Crafting : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class Crafting : MonoBehaviour
     private float craftTimer = 0f;
     private string popTextMSG = null;
     private Recipe queuedRecipe = null;
+    public bool isCrafting = false;
     
     void Start()
     {
@@ -104,18 +106,9 @@ public class Crafting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(craftTimer != 0)
+        if(isCrafting == true)
         {
-            timerDial.gameObject.SetActive(true);
-            craftTimer -= Time.unscaledDeltaTime;
-            timerDial.fillAmount = (buttonHoldTime - craftTimer) / buttonHoldTime;
-            if (craftTimer <= 0)
-            {
-                DoCraft();
-                craftTimer = 0;
-                timerDial.gameObject.SetActive(false);
-                timerDial.fillAmount = 0f;
-            }
+            UpdateTimer();
         }
         if(currentRecipe != null && CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
         {
@@ -127,19 +120,6 @@ public class Crafting : MonoBehaviour
             CraftButton.interactable = false;
             craftButtonText.color = uninteractableTextCol;
         }
-    }
-
-    private void DoCraft()
-    {
-        CraftingModule.CraftItem(shipInventory, playerInventory, playerInventory, queuedRecipe);
-        var poptext = Instantiate(popText);
-        poptext.popText.SetText($"{queuedRecipe.DisplayName} crafted");
-        poptext.gameObject.transform.SetParent(CraftButton.transform);
-        poptext.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
-        storageDials.UpdateDials();
-
-        queuedRecipe = null;
-        popTextMSG = null;
     }
 
     //crafting screen can either be closed with ESC or the hotkey to open it (or clicking the close button on the panel)
@@ -243,15 +223,80 @@ public class Crafting : MonoBehaviour
                 currentRecipe = recipe;
                 //change what the craft button does
                 CraftButton.onClick.RemoveAllListeners();
-                CraftButton.onClick.AddListener(() =>
+
+                EventTrigger trigger = CraftButton.GetComponent<EventTrigger>();
+                EventTrigger.Entry entry = new EventTrigger.Entry();
+                entry.eventID = EventTriggerType.PointerDown;
+                entry.callback.AddListener((eventData) => 
                 {
                     queuedRecipe = recipe;
                     popTextMSG = $"{recipe.DisplayName} crafted";
-                    craftTimer = buttonHoldTime;
+                    var pointerData = (PointerEventData)eventData;
+                    timerDial.transform.position = pointerData.position;
+                    HoldTimer(); 
                 });
+                trigger.triggers.Add(entry);
 
+                entry = new EventTrigger.Entry();
+                entry.eventID = EventTriggerType.PointerUp;
+                entry.callback.AddListener((eventData) =>
+                {
+                    ReleaseTimer();
+                });
+                trigger.triggers.Add(entry);
             });
         }
+    }
+    public void UpdateTimer()
+    {
+        if (craftTimer != 0)
+        {
+            timerDial.gameObject.SetActive(true);
+            craftTimer -= Time.unscaledDeltaTime;
+            timerDial.fillAmount = (buttonHoldTime - craftTimer) / buttonHoldTime;
+            if (craftTimer <= 0)
+            {
+                DoCraft();
+                craftTimer = 0;
+                timerDial.gameObject.SetActive(false);
+                timerDial.fillAmount = 0f;
+                isCrafting = false;
+            }
+        }
+    }
+
+    public void SetCraftInfo(Recipe recipe, string popTextMSG)
+    {
+        queuedRecipe = recipe;
+        popTextMSG = $"{recipe.DisplayName} crafted";
+    }
+
+    public void HoldTimer()
+    {
+        isCrafting = true;
+        craftTimer = buttonHoldTime;
+    }
+
+    public void ReleaseTimer()
+    {
+        Debug.Log("Release Timer");
+        craftTimer = 0;
+        timerDial.gameObject.SetActive(false);
+        timerDial.fillAmount = 0f;
+        isCrafting = false;
+    }
+
+    private void DoCraft()
+    {
+        CraftingModule.CraftItem(shipInventory, playerInventory, playerInventory, queuedRecipe);
+        var poptext = Instantiate(popText);
+        poptext.popText.SetText($"{queuedRecipe.DisplayName} crafted");
+        poptext.gameObject.transform.SetParent(CraftButton.transform);
+        poptext.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+        storageDials.UpdateDials();
+
+        queuedRecipe = null;
+        popTextMSG = null;
     }
 
     //instantiate a new button and put it in the sidebar
