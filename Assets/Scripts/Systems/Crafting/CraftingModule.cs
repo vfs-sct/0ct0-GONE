@@ -120,27 +120,6 @@ public class CraftingModule : Module
         return true;
     }
 
-    public bool CraftConsumable(ResourceInventory ResourceInv, InventoryController SourceInv, ResourceInventory TargetInv, ConsumableRecipe CraftRecipe, bool ByPassCraftCheck = false)
-    {
-        if (!ByPassCraftCheck) //optimization to skip checking if we can craft this recipe
-        {
-            if (!CanCraftConsumable(ResourceInv, SourceInv, TargetInv, CraftRecipe)) return false;
-        }
-
-        foreach (var itemIn in CraftRecipe.ItemInput) //TODO Optimize data structure to allow use of a single foreach for inputs
-        {
-            SourceInv.RemoveFromItemBucket(itemIn.item, itemIn.amount);
-        }
-        foreach (var resourceIn in CraftRecipe.ResourceInput)
-        {
-            ResourceInv.RemoveResource(resourceIn.resource, resourceIn.amount);
-        }
-
-        //Add Resource already contains a clamp so resource cannot go over max
-        TargetInv.AddResource(CraftRecipe.Output, CraftRecipe.OutputAmount);
-        return true;
-    }
-
     public bool CraftItem(ResourceInventory ResourceInv,InventoryController SourceInv, InventoryController TargetInv, Recipe CraftRecipe,bool ByPassCraftCheck = false)
     {
         if (!ByPassCraftCheck) //optimization to skip checking if we can craft this recipe
@@ -191,7 +170,35 @@ public class CraftingModule : Module
         return true;
     }
 
+    public bool CraftConsumable(ResourceInventory ResourceInv, InventoryController SourceInv, ResourceInventory TargetInv, ConsumableRecipe CraftRecipe, bool ByPassCraftCheck = false)
+    {
+        if (!ByPassCraftCheck) //optimization to skip checking if we can craft this recipe
+        {
+            if (!CanCraftConsumable(ResourceInv, SourceInv, TargetInv, CraftRecipe)) return false;
+        }
 
+        foreach (var itemIn in CraftRecipe.ItemInput) //TODO Optimize data structure to allow use of a single foreach for inputs
+        {
+            SourceInv.RemoveFromItemBucket(itemIn.item, itemIn.amount);
+        }
+        foreach (var resourceIn in CraftRecipe.ResourceInput)
+        {
+            ResourceInv.RemoveResource(resourceIn.resource, resourceIn.amount);
+        }
+
+        if(CraftRecipe.isUpgrade)
+        {
+            CraftRecipe.Output.SetMaximum(CraftRecipe.OutputAmount);
+            //Add Resource already contains a clamp so resource cannot go over max
+            TargetInv.AddResource(CraftRecipe.Output, CraftRecipe.Output.GetMaximum());
+        }
+        else
+        {
+            //Add Resource already contains a clamp so resource cannot go over max
+            TargetInv.AddResource(CraftRecipe.Output, CraftRecipe.OutputAmount);
+        }
+        return true;
+    }
 
 
     public override void Initialize()

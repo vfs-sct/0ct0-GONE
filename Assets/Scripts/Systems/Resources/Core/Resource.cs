@@ -61,6 +61,12 @@ public class Resource : ScriptableObject
         Data.Add(owner,RSData);
     }
 
+    //used for health & fuel upgrade
+    public void SetMaximum(float newMax)
+    {
+        Maximum = newMax;
+    }
+
     //used for fuel bar HUD
     public float GetMaximum()
     {

@@ -162,6 +162,25 @@ public class CraftingConsumable : MonoBehaviour
                     inputText[1].SetText("x" + input.amount.ToString());
                 }
 
+                foreach (var input in recipe.ItemInput)
+                {
+                    //create ingredient box
+                    var ingredient = Instantiate(Ingredient);
+                    ingredient.transform.SetParent(IngredientGroup.transform);
+
+                    //set the icon on the box to the resource icon
+                    var itemIcon = input.item.Icon;
+                    if (itemIcon != null)
+                    {
+                        ingredient.GetComponentInChildren<Image>().sprite = itemIcon;
+                    }
+
+                    var inputText = ingredient.GetComponentsInChildren<TextMeshProUGUI>();
+
+                    inputText[0].SetText(input.item.Name);
+                    inputText[1].SetText("x" + input.amount.ToString());
+                }
+
                 CraftButton.gameObject.SetActive(true);
                 currentRecipe = recipe;
                 //change what the craft button does
