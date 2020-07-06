@@ -41,10 +41,20 @@ public class CraftingModule : Module
             Debug.LogError(ResourceInv);
             return false;
         }
-        if(CraftRecipe.isUpgrade)
+        //if(CraftRecipe.isUpgrade)
+        //{
+        //    //TODO: health upgrades
+        //    return false;
+        //}
+
+        foreach (var itemIn in CraftRecipe.ItemInput)
         {
-            //TODO: health upgrades
-            return false;
+            if (SourceInv.GetItemAmount(itemIn.item) < itemIn.amount) return false;
+        }
+
+        foreach (var resIn in CraftRecipe.ResourceInput)
+        {
+            if (ResourceInv.GetResource(resIn.resource) < resIn.amount) return false;
         }
 
         var resource = CraftRecipe.Output;

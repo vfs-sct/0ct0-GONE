@@ -19,6 +19,7 @@ public class CraftingSatellite : MonoBehaviour
     [SerializeField] GameObject[] contentGroups = null;
 
     [Header("Crafting Panel")]
+    [SerializeField] Crafting mainCrafting = null;
     [SerializeField] Button CraftButton = null;
     [SerializeField] TextMeshProUGUI TitleText = null;
     [SerializeField] HorizontalLayoutGroup ProductGroup = null;
@@ -73,15 +74,18 @@ public class CraftingSatellite : MonoBehaviour
         {
             UpdateTimer();
         }
-        if (currentRecipe != null && CraftingModule.CanCraftSatellite(shipInventory, playerInventory, satInventory, currentRecipe))
+        if (contentGroups[0].activeSelf)
         {
-            CraftButton.interactable = true;
-            craftButtonText.color = interactableTextCol;
-        }
-        else
-        {
-            CraftButton.interactable = false;
-            craftButtonText.color = uninteractableTextCol;
+            if (currentRecipe != null && CraftingModule.CanCraftSatellite(shipInventory, playerInventory, satInventory, currentRecipe))
+            {
+                mainCrafting.canConsumableCraft = true;
+            }
+            else
+            {
+                mainCrafting.canConsumableCraft = false;
+            }
+
+            mainCrafting.UpdateCraftButton();
         }
     }
 
@@ -191,6 +195,10 @@ public class CraftingSatellite : MonoBehaviour
                 entry.eventID = EventTriggerType.PointerDown;
                 entry.callback.AddListener((eventData) =>
                 {
+                    if(!CraftingModule.CanCraftSatellite(shipInventory, playerInventory, satInventory, currentRecipe))
+                    {
+                        return;
+                    }
                     queuedRecipe = recipe;
                     popTextMSG = $"{recipe.DisplayName} crafted";
                     var pointerData = (PointerEventData)eventData;

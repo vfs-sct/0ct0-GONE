@@ -54,8 +54,26 @@ public class Crafting : MonoBehaviour
     private float craftTimer = 0f;
     private string popTextMSG = null;
     private Recipe queuedRecipe = null;
+
+    [Header("Do Not Touch")]
     public bool isCrafting = false;
+    public bool canCraft = false;
+    public bool canConsumableCraft = false;
+    public bool canSatCraft = false;
     
+    public void UpdateCraftButton()
+    {
+        if(canCraft || canConsumableCraft || canSatCraft)
+        {
+            CraftButton.interactable = true;
+            craftButtonText.color = interactableTextCol;
+            return;
+        }
+
+        CraftButton.interactable = false;
+        craftButtonText.color = uninteractableTextCol;
+    }
+
     void Start()
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
@@ -106,15 +124,17 @@ public class Crafting : MonoBehaviour
         {
             UpdateTimer();
         }
-        if(currentRecipe != null && CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
+        if (contentGroups[0].activeSelf || contentGroups[1].activeSelf)
         {
-            CraftButton.interactable = true;
-            craftButtonText.color = interactableTextCol;
-        }
-        else
-        {
-            CraftButton.interactable = false;
-            craftButtonText.color = uninteractableTextCol;
+            if (currentRecipe != null && CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
+            {
+                canCraft = true;
+            }
+            else
+            {
+                canCraft = false;
+            }
+            UpdateCraftButton();
         }
     }
 
@@ -244,6 +264,10 @@ public class Crafting : MonoBehaviour
                 entry.eventID = EventTriggerType.PointerDown;
                 entry.callback.AddListener((eventData) => 
                 {
+                    if(!CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
+                    {
+                        return;
+                    }
                     queuedRecipe = recipe;
                     popTextMSG = $"{recipe.DisplayName} crafted";
                     var pointerData = (PointerEventData)eventData;

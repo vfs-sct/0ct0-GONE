@@ -112,6 +112,9 @@ MonoBehaviour:
     type: 3}
   popText: {fileID: 7001259176512481598, guid: 5e2ea6b5533462b4780e0fa62b69567a, type: 3}
   isCrafting: 0
+  canCraft: 0
+  canConsumableCraft: 0
+  canSatCraft: 0
 --- !u!114 &803195648274158666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +135,7 @@ MonoBehaviour:
   storageDials: {fileID: 3091195931946984368}
   contentGroups:
   - {fileID: 1560932908566142850}
+  mainCrafting: {fileID: 3153003048712892095}
   CraftButton: {fileID: 338128450338464420}
   TitleText: {fileID: 2111392821909969018}
   ProductGroup: {fileID: 8048171323964478079}
@@ -168,6 +172,7 @@ MonoBehaviour:
   storageDials: {fileID: 3091195931946984368}
   contentGroups:
   - {fileID: 2077535953638748733}
+  mainCrafting: {fileID: 3153003048712892095}
   CraftButton: {fileID: 338128450338464420}
   TitleText: {fileID: 2111392821909969018}
   ProductGroup: {fileID: 8048171323964478079}
