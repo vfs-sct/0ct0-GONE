@@ -37,6 +37,7 @@ public class Crafting : MonoBehaviour
     [SerializeField] Button RecipeButton = null;
     [SerializeField] GameObject Product = null;
     [SerializeField] GameObject Ingredient = null;
+    [SerializeField] ResourceGainedPopTxt popText = null;
 
     //associate tab buttons with their tab panel
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
@@ -210,6 +211,10 @@ public class Crafting : MonoBehaviour
                 CraftButton.onClick.AddListener(() =>
                 {
                    CraftingModule.CraftItem(shipInventory, playerInventory, playerInventory, recipe);
+                   var poptext = Instantiate(popText);
+                   poptext.popText.SetText($"{recipe.DisplayName} crafted");
+                   poptext.gameObject.transform.SetParent(CraftButton.transform);
+                   poptext.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
                    storageDials.UpdateDials();
                 });
 
