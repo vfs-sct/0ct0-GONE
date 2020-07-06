@@ -43,6 +43,7 @@ public class CraftingConsumable : MonoBehaviour
     private Color uninteractableTextCol;
 
     private InventoryController playerInventory;
+    private ResourceInventory playerResourceInventory;
 
     private float craftTimer = 0f;
     private string popTextMSG = null;
@@ -52,6 +53,7 @@ public class CraftingConsumable : MonoBehaviour
     void Start()
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
+        playerResourceInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
 
         //save craft text and set up craft button as uninteractable
         craftButtonText = CraftButton.GetComponentInChildren<TextMeshProUGUI>();
@@ -71,7 +73,7 @@ public class CraftingConsumable : MonoBehaviour
         {
             UpdateTimer();
         }
-        if (currentRecipe != null && CraftingModule.CanCraftConsumable(shipInventory, playerInventory, playerInventory, currentRecipe))
+        if (currentRecipe != null && CraftingModule.CanCraftConsumable(shipInventory, playerInventory, playerResourceInventory, currentRecipe))
         {
             CraftButton.interactable = true;
             craftButtonText.color = interactableTextCol;
@@ -229,7 +231,7 @@ public class CraftingConsumable : MonoBehaviour
 
     private void DoCraft()
     {
-        CraftingModule.CraftConsumable(shipInventory, playerInventory, playerInventory, queuedRecipe);
+        CraftingModule.CraftConsumable(shipInventory, playerInventory, playerResourceInventory, queuedRecipe);
         var poptext = Instantiate(popText);
         poptext.popText.SetText($"{queuedRecipe.DisplayName} crafted");
         poptext.gameObject.transform.SetParent(CraftButton.transform);
