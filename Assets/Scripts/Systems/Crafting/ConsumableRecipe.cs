@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Systems/Crafting/New Item Recipe")]
-public class Recipe : ScriptableObject
+[CreateAssetMenu(menuName = "Systems/Crafting/New Consumable Recipe")]
+public class ConsumableRecipe : ScriptableObject
 {
     public string DisplayName = "";
+
+    bool isUpgrade = false;
 
     public List<CraftingModule.ItemRecipeData> ItemInput;
 
@@ -23,7 +25,7 @@ public class Recipe : ScriptableObject
     public float RequiredItemInputSpace= 0;
     public float ItemOuputSpace = 0;
 
-    public Recipe(List<CraftingModule.ItemRecipeData> NewIIn,List<CraftingModule.RecipeResourceData> NewRIn, CraftingModule.ItemRecipeData O, bool CB,List<CraftingModule.ItemRecipeData> IByOut,List<CraftingModule.RecipeResourceData> RByOut)
+    public ConsumableRecipe(List<CraftingModule.ItemRecipeData> NewIIn,List<CraftingModule.RecipeResourceData> NewRIn, CraftingModule.ItemRecipeData O, bool CB,List<CraftingModule.ItemRecipeData> IByOut,List<CraftingModule.RecipeResourceData> RByOut)
     {
         ItemInput = NewIIn;
         ResourceInput  = NewRIn;
@@ -33,7 +35,7 @@ public class Recipe : ScriptableObject
         ResourceByProducts = RByOut;
     }
 
-    public Recipe(List<CraftingModule.ItemRecipeData> NewIIn, List<CraftingModule.RecipeResourceData> NewRIn,CraftingModule.ItemRecipeData O)
+    public ConsumableRecipe(List<CraftingModule.ItemRecipeData> NewIIn, List<CraftingModule.RecipeResourceData> NewRIn,CraftingModule.ItemRecipeData O)
     {
         ItemInput = NewIIn;
         ResourceInput  = NewRIn;

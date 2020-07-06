@@ -7,18 +7,15 @@ using TMPro;
 using System;
 using UnityEngine.EventSystems;
 
-public class Crafting : MonoBehaviour
+public class CraftingConsumable : MonoBehaviour
 {
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] CraftingModule CraftingModule = null;
-    [SerializeField] UIAwake UIRoot = null; 
+    [SerializeField] UIAwake UIRoot = null;
     [SerializeField] GameObject HUDPrefab = null;
     [SerializeField] ResourceInventory shipInventory = null;
     [SerializeField] ShipStorageHUD storageDials = null;
 
-    [Header("Recipe Panels and Tabs")]
-    //arrays for the tier tabs and their associated recipe button panels
-    [SerializeField] Button[] tabButtons = null;
     [SerializeField] GameObject[] contentGroups = null;
 
     [Header("Crafting Panel")]
@@ -31,8 +28,7 @@ public class Crafting : MonoBehaviour
     [SerializeField] float buttonHoldTime;
 
     [Header("Recipe Categories")]
-    [SerializeField] Recipe[] Components = null;
-    [SerializeField] Recipe[] AdvancedComponents = null;
+    [SerializeField] ConsumableRecipe[] Consumables = null;
 
     [Header("Code Generated Object Templates")]
     //default button used to make all the buttons in the recipe tabs
@@ -41,10 +37,7 @@ public class Crafting : MonoBehaviour
     [SerializeField] GameObject Ingredient = null;
     [SerializeField] ResourceGainedPopTxt popText = null;
 
-    //associate tab buttons with their tab panel
-    Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
-
-    private Recipe currentRecipe;
+    private ConsumableRecipe currentRecipe;
     private TextMeshProUGUI craftButtonText = null;
     private Color interactableTextCol;
     private Color uninteractableTextCol;
@@ -53,60 +46,32 @@ public class Crafting : MonoBehaviour
 
     private float craftTimer = 0f;
     private string popTextMSG = null;
-    private Recipe queuedRecipe = null;
+    private ConsumableRecipe queuedRecipe = null;
     public bool isCrafting = false;
-    
+
     void Start()
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
 
-        //hide title before a recipe has been clicked
-        TitleText.gameObject.SetActive(false);
-        RequiresText.SetActive(false);
-
         //save craft text and set up craft button as uninteractable
-        CraftButton.interactable = false;
         craftButtonText = CraftButton.GetComponentInChildren<TextMeshProUGUI>();
 
         //set up text colours
         interactableTextCol = craftButtonText.color;
         uninteractableTextCol = new Color(interactableTextCol.r, interactableTextCol.g, interactableTextCol.b, 0.3f);
 
-        craftButtonText.color = uninteractableTextCol;
-
-        //correlate tab panels with tab buttons - note, buttons and content groups need to be in the correct order in editor
-        for (int i = 0; i < tabButtons.Length; i++)
-        {
-            PanelToButton[contentGroups[i]] = tabButtons[i];
-        }
-
         //fill in each of the panels
-        PopulateRecipePanel(Components, 0);
-        PopulateRecipePanel(AdvancedComponents, 1);
-
-        //set the default panel to active
-        SwitchActiveTab(contentGroups[0]);
-    }
-
-    private void OnEnable()
-    {
-        Cursor.visible = true;
-        craftTimer = 0f;
-    }
-
-    private void OnDisable()
-    {
-        Cursor.visible = false;
+        PopulateRecipePanel(Consumables, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isCrafting == true)
+        if (isCrafting == true)
         {
             UpdateTimer();
         }
-        if(currentRecipe != null && CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
+        if (currentRecipe != null && CraftingModule.CanCraftConsumable(shipInventory, playerInventory, playerInventory, currentRecipe))
         {
             CraftButton.interactable = true;
             craftButtonText.color = interactableTextCol;
@@ -135,28 +100,8 @@ public class Crafting : MonoBehaviour
         SwitchViewTo(HUDPrefab);
     }
 
-    //this function is used in-editor on the tab buttons directly
-    public void SwitchActiveTab(UnityEngine.Object active_panel)
-    {
-        //turn on the panel we want and turn off its associated button
-        //anything that isn't the panel we want gets turned off and turns its button on
-        foreach (var kvp in PanelToButton)
-        {
-            if (kvp.Key == active_panel)
-            {
-                kvp.Key.SetActive(true);
-                kvp.Value.GetComponentInChildren<Button>().interactable = false;
-            }
-            else
-            {
-                kvp.Key.SetActive(false);
-                kvp.Value.GetComponentInChildren<Button>().interactable = true;
-            }
-        }
-    }
-
     //use an array of recipe objects to generate crafting screen buttons & their associated functionality
-    public void PopulateRecipePanel(Recipe[] recipeList, int contentGroup)
+    public void PopulateRecipePanel(ConsumableRecipe[] recipeList, int contentGroup)
     {
         foreach (var recipe in recipeList)
         {
@@ -194,7 +139,7 @@ public class Crafting : MonoBehaviour
                 //there's two text portions on the UI element, the name and the amount
                 var outputText = product.GetComponentsInChildren<TextMeshProUGUI>();
                 outputText[0].SetText(recipe.DisplayName);
-                outputText[1].SetText("x" + recipe.Output.amount.ToString());
+                outputText[1].SetText("x1");
 
                 foreach (var input in recipe.ResourceInput)
                 {
@@ -223,13 +168,13 @@ public class Crafting : MonoBehaviour
                 EventTrigger trigger = CraftButton.GetComponent<EventTrigger>();
                 EventTrigger.Entry entry = new EventTrigger.Entry();
                 entry.eventID = EventTriggerType.PointerDown;
-                entry.callback.AddListener((eventData) => 
+                entry.callback.AddListener((eventData) =>
                 {
                     queuedRecipe = recipe;
                     popTextMSG = $"{recipe.DisplayName} crafted";
                     var pointerData = (PointerEventData)eventData;
                     timerDial.transform.position = pointerData.position;
-                    HoldTimer(); 
+                    HoldTimer();
                 });
                 trigger.triggers.Add(entry);
 
@@ -261,7 +206,7 @@ public class Crafting : MonoBehaviour
         }
     }
 
-    public void SetCraftInfo(Recipe recipe, string popTextMSG)
+    public void SetCraftInfo(ConsumableRecipe recipe, string popTextMSG)
     {
         queuedRecipe = recipe;
         popTextMSG = $"{recipe.DisplayName} crafted";
@@ -284,7 +229,7 @@ public class Crafting : MonoBehaviour
 
     private void DoCraft()
     {
-        CraftingModule.CraftItem(shipInventory, playerInventory, playerInventory, queuedRecipe);
+        CraftingModule.CraftConsumable(shipInventory, playerInventory, playerInventory, queuedRecipe);
         var poptext = Instantiate(popText);
         poptext.popText.SetText($"{queuedRecipe.DisplayName} crafted");
         poptext.gameObject.transform.SetParent(CraftButton.transform);

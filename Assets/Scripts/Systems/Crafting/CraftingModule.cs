@@ -32,6 +32,10 @@ public class CraftingModule : Module
     }
     [SerializeField] private List<Recipe> Recipes = new List<Recipe>();
 
+    public bool CanCraftConsumable(ResourceInventory ResourceInv, InventoryController SourceInv, ResourceInventory TargetInv, ConsumableRecipe CraftRecipe)
+    {
+        return false;
+    }
 
     public bool CanCraftSatellite(ResourceInventory ResourceInv,InventoryController SourceInv, SatelliteInventory TargetInv, SatelliteRecipe CraftRecipe)
     {
@@ -98,6 +102,14 @@ public class CraftingModule : Module
         return true;
     }
 
+    public bool CraftConsumable(ResourceInventory ResourceInv, InventoryController SourceInv, ResourceInventory TargetInv, ConsumableRecipe CraftRecipe, bool ByPassCraftCheck = false)
+    {
+        if (!ByPassCraftCheck) //optimization to skip checking if we can craft this recipe
+        {
+            if (!CanCraftConsumable(ResourceInv, SourceInv, TargetInv, CraftRecipe)) return false;
+        }
+        return false;
+    }
 
     public bool CraftItem(ResourceInventory ResourceInv,InventoryController SourceInv, InventoryController TargetInv, Recipe CraftRecipe,bool ByPassCraftCheck = false)
     {

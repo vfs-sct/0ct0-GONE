@@ -7,7 +7,6 @@ using UnityEngine;
 public class SatelliteRecipe : ScriptableObject
 {
     public string DisplayName = "";
-    
 
     public List<CraftingModule.ItemRecipeData> ItemInput;
 
@@ -43,7 +42,6 @@ public class SatelliteRecipe : ScriptableObject
         CreatesByProducts = false;
         ItemByProducts = null;
         ResourceByProducts = null;
-        
     }
 
     //private void OnValidate()

@@ -101,7 +101,6 @@ GameObject:
   - component: {fileID: 4701804487490555839}
   - component: {fileID: 8777384577728220895}
   - component: {fileID: 1055163990866216047}
-  - component: {fileID: 6618716910153257572}
   - component: {fileID: 2249381098330320669}
   - component: {fileID: 6837312819164111146}
   - component: {fileID: 7434593028492650845}
@@ -281,6 +280,7 @@ MonoBehaviour:
   ActiveResources:
   - {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
   - {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
+  - {fileID: 11400000, guid: 37f250fca4dc78744ad9bc639b903bf9, type: 2}
   UseOverrides: 0
   OverrideValues: []
   resourceAddedPopTxt: {fileID: 8981721532894141398, guid: 6082956a558828445afc6a77b3e25ac6,
@@ -328,20 +328,6 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: 507e7857a4f93db42bc0b72bcadd5dc4,
       type: 2}
   Movement: {fileID: 489913433233796653}
---- !u!114 &6618716910153257572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingHealth: 100
-  _MaxHealth: 100
 --- !u!136 &2249381098330320669
 CapsuleCollider:
   m_ObjectHideFlags: 0
