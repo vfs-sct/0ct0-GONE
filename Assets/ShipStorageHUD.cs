@@ -60,10 +60,6 @@ public class ShipStorageHUD : MonoBehaviour
     {
         foreach (var kvp in updateDial)
         {
-            //Debug.Log("RESOURCE:");
-            //Debug.Log(kvp.Key.DisplayName);
-            //Debug.Log(storageOwner.GetResource(kvp.Key));
-
             var getObjects = kvp.Value.GetComponent<GetObjectsDial>();
 
             getObjects.GetCapacityText().SetText($"{storageOwner.GetResource(kvp.Key).ToString()}/{kvp.Key.GetMaximum().ToString()}");
