@@ -62,7 +62,7 @@ public class ToolController : MonoBehaviour
         CurrentTool = null;
         toolText.SetText("No Tool Selected");
         //make all tools in the toolbar appear enabled
-        gameHUD.NoToolSelected();
+        //gameHUD.NoToolSelected();
     }
 
     public void ActivateTool()
@@ -87,6 +87,7 @@ public class ToolController : MonoBehaviour
     {
         CurrentToolIsActive = false;
         if (CurrentTool == null) return;
+        gameHUD.NoToolSelected();
         CurrentTool.Deactivate(this,_Target);
         
     }

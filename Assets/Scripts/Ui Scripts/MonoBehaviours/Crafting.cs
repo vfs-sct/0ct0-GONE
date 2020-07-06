@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
+using System;
+using UnityEngine.EventSystems;
 
 public class Crafting : MonoBehaviour
 {
@@ -25,6 +27,8 @@ public class Crafting : MonoBehaviour
     [SerializeField] HorizontalLayoutGroup ProductGroup = null;
     [SerializeField] GameObject RequiresText = null;
     [SerializeField] HorizontalLayoutGroup IngredientGroup = null;
+    [SerializeField] Image timerDial = null;
+    [SerializeField] float buttonHoldTime;
 
     [Header("Recipe Categories")]
     [SerializeField] Recipe[] Components = null;
@@ -37,6 +41,7 @@ public class Crafting : MonoBehaviour
     [SerializeField] Button RecipeButton = null;
     [SerializeField] GameObject Product = null;
     [SerializeField] GameObject Ingredient = null;
+    [SerializeField] ResourceGainedPopTxt popText = null;
 
     //associate tab buttons with their tab panel
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
@@ -47,6 +52,12 @@ public class Crafting : MonoBehaviour
     private Color uninteractableTextCol;
 
     private InventoryController playerInventory;
+
+    private float craftTimer = 0f;
+    private string popTextMSG = null;
+    private Recipe queuedRecipe = null;
+    public bool isCrafting = false;
+    
     void Start()
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
@@ -84,6 +95,7 @@ public class Crafting : MonoBehaviour
     private void OnEnable()
     {
         Cursor.visible = true;
+        craftTimer = 0f;
     }
 
     private void OnDisable()
@@ -94,16 +106,20 @@ public class Crafting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(currentRecipe != null && CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
-       {
+        if(isCrafting == true)
+        {
+            UpdateTimer();
+        }
+        if(currentRecipe != null && CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
+        {
             CraftButton.interactable = true;
             craftButtonText.color = interactableTextCol;
-       }
-       else
-       {
+        }
+        else
+        {
             CraftButton.interactable = false;
             craftButtonText.color = uninteractableTextCol;
-       }
+        }
     }
 
     //crafting screen can either be closed with ESC or the hotkey to open it (or clicking the close button on the panel)
@@ -124,7 +140,7 @@ public class Crafting : MonoBehaviour
     }
 
     //this function is used in-editor on the tab buttons directly
-    public void SwitchActiveTab(Object active_panel)
+    public void SwitchActiveTab(UnityEngine.Object active_panel)
     {
         //turn on the panel we want and turn off its associated button
         //anything that isn't the panel we want gets turned off and turns its button on
@@ -207,14 +223,80 @@ public class Crafting : MonoBehaviour
                 currentRecipe = recipe;
                 //change what the craft button does
                 CraftButton.onClick.RemoveAllListeners();
-                CraftButton.onClick.AddListener(() =>
-                {
-                   CraftingModule.CraftItem(shipInventory, playerInventory, playerInventory, recipe);
-                   storageDials.UpdateDials();
-                });
 
+                EventTrigger trigger = CraftButton.GetComponent<EventTrigger>();
+                EventTrigger.Entry entry = new EventTrigger.Entry();
+                entry.eventID = EventTriggerType.PointerDown;
+                entry.callback.AddListener((eventData) => 
+                {
+                    queuedRecipe = recipe;
+                    popTextMSG = $"{recipe.DisplayName} crafted";
+                    var pointerData = (PointerEventData)eventData;
+                    timerDial.transform.position = pointerData.position;
+                    HoldTimer(); 
+                });
+                trigger.triggers.Add(entry);
+
+                entry = new EventTrigger.Entry();
+                entry.eventID = EventTriggerType.PointerUp;
+                entry.callback.AddListener((eventData) =>
+                {
+                    ReleaseTimer();
+                });
+                trigger.triggers.Add(entry);
             });
         }
+    }
+    public void UpdateTimer()
+    {
+        if (craftTimer != 0)
+        {
+            timerDial.gameObject.SetActive(true);
+            craftTimer -= Time.unscaledDeltaTime;
+            timerDial.fillAmount = (buttonHoldTime - craftTimer) / buttonHoldTime;
+            if (craftTimer <= 0)
+            {
+                DoCraft();
+                craftTimer = 0;
+                timerDial.gameObject.SetActive(false);
+                timerDial.fillAmount = 0f;
+                isCrafting = false;
+            }
+        }
+    }
+
+    public void SetCraftInfo(Recipe recipe, string popTextMSG)
+    {
+        queuedRecipe = recipe;
+        popTextMSG = $"{recipe.DisplayName} crafted";
+    }
+
+    public void HoldTimer()
+    {
+        isCrafting = true;
+        craftTimer = buttonHoldTime;
+    }
+
+    public void ReleaseTimer()
+    {
+        Debug.Log("Release Timer");
+        craftTimer = 0;
+        timerDial.gameObject.SetActive(false);
+        timerDial.fillAmount = 0f;
+        isCrafting = false;
+    }
+
+    private void DoCraft()
+    {
+        CraftingModule.CraftItem(shipInventory, playerInventory, playerInventory, queuedRecipe);
+        var poptext = Instantiate(popText);
+        poptext.popText.SetText($"{queuedRecipe.DisplayName} crafted");
+        poptext.gameObject.transform.SetParent(CraftButton.transform);
+        poptext.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+        storageDials.UpdateDials();
+
+        queuedRecipe = null;
+        popTextMSG = null;
     }
 
     //instantiate a new button and put it in the sidebar
