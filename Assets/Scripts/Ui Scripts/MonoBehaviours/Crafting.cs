@@ -74,10 +74,8 @@ public class Crafting : MonoBehaviour
         craftButtonText.color = uninteractableTextCol;
     }
 
-    void Start()
+    private void Awake()
     {
-        playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
-
         //hide title before a recipe has been clicked
         TitleText.gameObject.SetActive(false);
         RequiresText.SetActive(false);
@@ -91,6 +89,11 @@ public class Crafting : MonoBehaviour
         uninteractableTextCol = new Color(interactableTextCol.r, interactableTextCol.g, interactableTextCol.b, 0.3f);
 
         craftButtonText.color = uninteractableTextCol;
+    }
+
+    void Start()
+    {
+        playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();        
 
         //correlate tab panels with tab buttons - note, buttons and content groups need to be in the correct order in editor
         for (int i = 0; i < tabButtons.Length; i++)
