@@ -34,7 +34,25 @@ public class CraftingModule : Module
 
     public bool CanCraftConsumable(ResourceInventory ResourceInv, InventoryController SourceInv, ResourceInventory TargetInv, ConsumableRecipe CraftRecipe)
     {
-        return false;
+        if (SourceInv == null || TargetInv == null || ResourceInv == null || TargetInv == null)
+        {
+            Debug.LogError(SourceInv);
+            Debug.LogError(TargetInv);
+            Debug.LogError(ResourceInv);
+            return false;
+        }
+        if(CraftRecipe.isUpgrade)
+        {
+            //TODO: health upgrades
+            return false;
+        }
+
+        var resource = CraftRecipe.Output;
+        if (TargetInv.GetResource(resource) == resource.GetMaximum())
+        {
+            Debug.Log($"{resource} is full");
+        }
+        return true;
     }
 
     public bool CanCraftSatellite(ResourceInventory ResourceInv,InventoryController SourceInv, SatelliteInventory TargetInv, SatelliteRecipe CraftRecipe)
@@ -108,7 +126,19 @@ public class CraftingModule : Module
         {
             if (!CanCraftConsumable(ResourceInv, SourceInv, TargetInv, CraftRecipe)) return false;
         }
-        return false;
+
+        foreach (var itemIn in CraftRecipe.ItemInput) //TODO Optimize data structure to allow use of a single foreach for inputs
+        {
+            SourceInv.RemoveFromItemBucket(itemIn.item, itemIn.amount);
+        }
+        foreach (var resourceIn in CraftRecipe.ResourceInput)
+        {
+            ResourceInv.RemoveResource(resourceIn.resource, resourceIn.amount);
+        }
+
+        //Add Resource already contains a clamp so resource cannot go over max
+        TargetInv.AddResource(CraftRecipe.Output, CraftRecipe.OutputAmount);
+        return true;
     }
 
     public bool CraftItem(ResourceInventory ResourceInv,InventoryController SourceInv, InventoryController TargetInv, Recipe CraftRecipe,bool ByPassCraftCheck = false)

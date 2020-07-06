@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Systems/Crafting/New Consumable Recipe")]
@@ -7,44 +6,33 @@ public class ConsumableRecipe : ScriptableObject
 {
     public string DisplayName = "";
 
-    bool isUpgrade = false;
+    public bool isUpgrade = false;
 
     public List<CraftingModule.ItemRecipeData> ItemInput;
 
     public List<CraftingModule.RecipeResourceData> ResourceInput;
 
-    public  CraftingModule.ItemRecipeData Output;
-
-    public bool CreatesByProducts;
-
-    public List<CraftingModule.ItemRecipeData> ItemByProducts;
-
-    public List<CraftingModule.RecipeResourceData> ResourceByProducts;
+    [Header("Creates")]
+    public Resource Output;
+    public float OutputAmount;
 
     [Header("Do not touch")]
     public float RequiredItemInputSpace= 0;
     public float ItemOuputSpace = 0;
 
-    public ConsumableRecipe(List<CraftingModule.ItemRecipeData> NewIIn,List<CraftingModule.RecipeResourceData> NewRIn, CraftingModule.ItemRecipeData O, bool CB,List<CraftingModule.ItemRecipeData> IByOut,List<CraftingModule.RecipeResourceData> RByOut)
+    public ConsumableRecipe(List<CraftingModule.ItemRecipeData> NewIIn,List<CraftingModule.RecipeResourceData> NewRIn, Resource O)
     {
         ItemInput = NewIIn;
         ResourceInput  = NewRIn;
         Output = O;
-        CreatesByProducts = CB;
-        ItemByProducts = IByOut;
-        ResourceByProducts = RByOut;
     }
 
-    public ConsumableRecipe(List<CraftingModule.ItemRecipeData> NewIIn, List<CraftingModule.RecipeResourceData> NewRIn,CraftingModule.ItemRecipeData O)
-    {
-        ItemInput = NewIIn;
-        ResourceInput  = NewRIn;
-        Output = O;
-        CreatesByProducts = false;
-        ItemByProducts = null;
-        ResourceByProducts = null;
-        
-    }
+    //public ConsumableRecipe(List<CraftingModule.ItemRecipeData> NewIIn, List<CraftingModule.RecipeResourceData> NewRIn, Resource O)
+    //{
+    //    ItemInput = NewIIn;
+    //    ResourceInput  = NewRIn;
+    //    Output = O;
+    //}
 
     //private void OnValidate()
    // {
@@ -52,8 +40,5 @@ public class ConsumableRecipe : ScriptableObject
     //}
     private void Awake()
     {
-        foreach (var input in ItemInput) RequiredItemInputSpace += (input.amount * input.item.Size);
-        foreach (var output in ItemByProducts) ItemOuputSpace += (output.amount * output.item.Size);
-        ItemOuputSpace += (Output.amount * Output.item.Size);
     }
 }
