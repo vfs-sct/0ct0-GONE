@@ -12,6 +12,13 @@ public class RepairTool : Tool
 
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
+        if(target.GetComponent<RepairableComponent>() == null)
+        {
+            Debug.Log("Target in LoopCondition() returned null");
+            var popTxt = Instantiate(popText);
+            popTxt.GetComponentInChildren<TextMeshProUGUI>().SetText("Cannot repair!");
+            return false;
+        }
         return true;
     }
 
@@ -22,21 +29,13 @@ public class RepairTool : Tool
 
     protected override bool LoopCondition(ToolController owner, GameObject target)
     {
-        if(target.GetComponent<RepairableComponent>() == null)
-        {
-            Debug.Log("Target in LoopCondition() returned null");
-            var popTxt = Instantiate(popText);
-            popTxt.GetComponentInChildren<TextMeshProUGUI>().SetText("Cannot repair!");
-            return false;
-        }
-        repairableComponent = target.GetComponent<RepairableComponent>();
-        Debug.Log(repairableComponent);
-        return repairableComponent.DoRepair(inventoryComponent);
+       return repairableComponent.CanRepair(owner.gameObject);
     }
 
     protected override void OnActivate(ToolController owner, GameObject target)
-    {
-       
+    {        
+       repairableComponent = target.GetComponent<RepairableComponent>();
+       repairableComponent.SetupRepair(owner.gameObject);
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
@@ -58,6 +57,7 @@ public class RepairTool : Tool
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
+        repairableComponent.RepairUpdate(owner.gameObject);
         Debug.Log("Repairing Target");
     }
 }
