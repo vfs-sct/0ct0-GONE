@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "Systems/Events/Resource Collection Event")]
-public class SalvageEvent : Event
+public class GetResourceEvent : Event
 {
     private bool EventTrigger = false;
     [SerializeField] Resource CollectResource;
