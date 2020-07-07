@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abdeee656b212c04d8cfed22eb1fe0c2, type: 3}
-  m_Name: RepairNanites
+  m_Name: FuelUpgradeRecipe
   m_EditorClassIdentifier: 
-  DisplayName: Goo Glue
-  ItemInput: []
+  DisplayName: Fuel  Upgrade
+  isUpgrade: 1
+  ItemInput:
+  - item: {fileID: 11400000, guid: ee73bcf48f8ff51438cb185d9c669ae3, type: 2}
+    amount: 1
   ResourceInput: []
-  Output:
-    item: {fileID: 0}
-    amount: 0
-  CreatesByProducts: 0
-  ItemByProducts: []
-  ResourceByProducts: []
+  Output: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
+  OutputAmount: 50
   RequiredItemInputSpace: 0
   ItemOuputSpace: 0
