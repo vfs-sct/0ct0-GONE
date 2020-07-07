@@ -47,8 +47,14 @@ public class InventoryController : MonoBehaviour
         }
         public ItemBucket GetBucketItemCount(Item getItem, out int amount)
         {
-            if (!Bucket.ContainsKey(getItem)) amount = -1;
-            amount = Bucket[getItem];
+            if (Bucket == null || !Bucket.ContainsKey(getItem))
+            {
+                amount = -1;
+            }
+            else
+            {
+                amount = Bucket[getItem];
+            }
             return this;
         }
         public ItemBucket RemoveBucketItem(Item remItem, out bool success, int amount = 1)

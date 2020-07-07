@@ -16,29 +16,10 @@ public class ConsumableRecipe : ScriptableObject
     public Resource Output;
     public float OutputAmount;
 
-    [Header("Do not touch")]
-    public float RequiredItemInputSpace= 0;
-    public float ItemOuputSpace = 0;
-
     public ConsumableRecipe(List<CraftingModule.ItemRecipeData> NewIIn,List<CraftingModule.RecipeResourceData> NewRIn, Resource O)
     {
         ItemInput = NewIIn;
         ResourceInput  = NewRIn;
         Output = O;
-    }
-
-    //public ConsumableRecipe(List<CraftingModule.ItemRecipeData> NewIIn, List<CraftingModule.RecipeResourceData> NewRIn, Resource O)
-    //{
-    //    ItemInput = NewIIn;
-    //    ResourceInput  = NewRIn;
-    //    Output = O;
-    //}
-
-    //private void OnValidate()
-   // {
-    //    Awake();
-    //}
-    private void Awake()
-    {
     }
 }
