@@ -55,6 +55,9 @@ public class Crafting : MonoBehaviour
     private string popTextMSG = null;
     private Recipe queuedRecipe = null;
 
+    [Header("System")]
+    [SerializeField] private EventModule EventController;
+
     [Header("Do Not Touch")]
     public bool isCrafting = false;
     public bool canCraft = false;
@@ -123,6 +126,7 @@ public class Crafting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        EventController.UpdateEvents(playerInventory.gameObject);
         if(isCrafting == true)
         {
             UpdateTimer();

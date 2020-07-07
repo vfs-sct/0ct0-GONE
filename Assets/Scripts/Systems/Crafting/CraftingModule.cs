@@ -31,7 +31,6 @@ public class CraftingModule : Module
         }
     }
     [SerializeField] private List<Recipe> Recipes = new List<Recipe>();
-
     public bool CanCraftConsumable(ResourceInventory ResourceInv, InventoryController SourceInv, ResourceInventory TargetInv, ConsumableRecipe CraftRecipe)
     {
         if (SourceInv == null || TargetInv == null || ResourceInv == null || TargetInv == null)
