@@ -19,6 +19,7 @@ public class CraftingConsumable : MonoBehaviour
     [SerializeField] GameObject[] contentGroups = null;
 
     [Header("Crafting Panel")]
+    [SerializeField] Crafting mainCrafting = null;
     [SerializeField] Button CraftButton = null;
     [SerializeField] TextMeshProUGUI TitleText = null;
     [SerializeField] HorizontalLayoutGroup ProductGroup = null;
@@ -73,15 +74,22 @@ public class CraftingConsumable : MonoBehaviour
         {
             UpdateTimer();
         }
-        if (currentRecipe != null && CraftingModule.CanCraftConsumable(shipInventory, playerInventory, playerResourceInventory, currentRecipe))
+
+        if (contentGroups[0].activeSelf)
         {
-            CraftButton.interactable = true;
-            craftButtonText.color = interactableTextCol;
+            if (currentRecipe != null && CraftingModule.CanCraftConsumable(shipInventory, playerInventory, playerResourceInventory, currentRecipe))
+            {
+                mainCrafting.canConsumableCraft = true;
+            }
+            else
+            {
+                mainCrafting.canConsumableCraft = false;
+            }
+            mainCrafting.UpdateCraftButton();
         }
         else
         {
-            CraftButton.interactable = false;
-            craftButtonText.color = uninteractableTextCol;
+            mainCrafting.canConsumableCraft = false;
         }
     }
 
@@ -162,16 +170,43 @@ public class CraftingConsumable : MonoBehaviour
                     inputText[1].SetText("x" + input.amount.ToString());
                 }
 
+                foreach (var input in recipe.ItemInput)
+                {
+                    //create ingredient box
+                    var ingredient = Instantiate(Ingredient);
+                    ingredient.transform.SetParent(IngredientGroup.transform);
+
+                    //set the icon on the box to the resource icon
+                    var itemIcon = input.item.Icon;
+                    if (itemIcon != null)
+                    {
+                        ingredient.GetComponentInChildren<Image>().sprite = itemIcon;
+                    }
+
+                    var inputText = ingredient.GetComponentsInChildren<TextMeshProUGUI>();
+
+                    inputText[0].SetText(input.item.Name);
+                    inputText[1].SetText("x" + input.amount.ToString());
+                }
+
                 CraftButton.gameObject.SetActive(true);
                 currentRecipe = recipe;
                 //change what the craft button does
                 CraftButton.onClick.RemoveAllListeners();
 
                 EventTrigger trigger = CraftButton.GetComponent<EventTrigger>();
+
+                //clear any triggers from previous recipes
+                trigger.triggers.Clear();
+
                 EventTrigger.Entry entry = new EventTrigger.Entry();
                 entry.eventID = EventTriggerType.PointerDown;
                 entry.callback.AddListener((eventData) =>
                 {
+                    if(!CraftingModule.CanCraftConsumable(shipInventory, playerInventory, playerResourceInventory, currentRecipe))
+                    {
+                        return;
+                    }
                     queuedRecipe = recipe;
                     popTextMSG = $"{recipe.DisplayName} crafted";
                     var pointerData = (PointerEventData)eventData;
@@ -222,7 +257,7 @@ public class CraftingConsumable : MonoBehaviour
 
     public void ReleaseTimer()
     {
-        Debug.Log("Release Timer");
+        //Debug.Log("Release Timer");
         craftTimer = 0;
         timerDial.gameObject.SetActive(false);
         timerDial.fillAmount = 0f;
