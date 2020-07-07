@@ -87,6 +87,10 @@ public class CraftingConsumable : MonoBehaviour
             }
             mainCrafting.UpdateCraftButton();
         }
+        else
+        {
+            mainCrafting.canConsumableCraft = false;
+        }
     }
 
     //crafting screen can either be closed with ESC or the hotkey to open it (or clicking the close button on the panel)
@@ -191,6 +195,10 @@ public class CraftingConsumable : MonoBehaviour
                 CraftButton.onClick.RemoveAllListeners();
 
                 EventTrigger trigger = CraftButton.GetComponent<EventTrigger>();
+
+                //clear any triggers from previous recipes
+                trigger.triggers.Clear();
+
                 EventTrigger.Entry entry = new EventTrigger.Entry();
                 entry.eventID = EventTriggerType.PointerDown;
                 entry.callback.AddListener((eventData) =>
@@ -249,7 +257,7 @@ public class CraftingConsumable : MonoBehaviour
 
     public void ReleaseTimer()
     {
-        Debug.Log("Release Timer");
+        //Debug.Log("Release Timer");
         craftTimer = 0;
         timerDial.gameObject.SetActive(false);
         timerDial.fillAmount = 0f;

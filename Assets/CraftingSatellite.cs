@@ -78,14 +78,18 @@ public class CraftingSatellite : MonoBehaviour
         {
             if (currentRecipe != null && CraftingModule.CanCraftSatellite(shipInventory, playerInventory, satInventory, currentRecipe))
             {
-                mainCrafting.canConsumableCraft = true;
+                mainCrafting.canSatCraft = true;
             }
             else
             {
-                mainCrafting.canConsumableCraft = false;
+                mainCrafting.canSatCraft = false;
             }
 
             mainCrafting.UpdateCraftButton();
+        }
+        else
+        {
+            mainCrafting.canSatCraft = false;
         }
     }
 
@@ -191,6 +195,10 @@ public class CraftingSatellite : MonoBehaviour
                 CraftButton.onClick.RemoveAllListeners();
 
                 EventTrigger trigger = CraftButton.GetComponent<EventTrigger>();
+
+                //clear any triggers from previous recipes
+                trigger.triggers.Clear();
+
                 EventTrigger.Entry entry = new EventTrigger.Entry();
                 entry.eventID = EventTriggerType.PointerDown;
                 entry.callback.AddListener((eventData) =>
@@ -249,7 +257,7 @@ public class CraftingSatellite : MonoBehaviour
 
     public void ReleaseTimer()
     {
-        Debug.Log("Release Timer");
+        //Debug.Log("Release Timer");
         craftTimer = 0;
         timerDial.gameObject.SetActive(false);
         timerDial.fillAmount = 0f;
