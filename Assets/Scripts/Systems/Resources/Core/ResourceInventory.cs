@@ -110,7 +110,10 @@ public class ResourceInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (3 <= ActiveResources.Count && this.name != "OctoHub")
+        {
+            Debug.Log(this.ToString() + ActiveResources[2].GetInstanceValue(this));
+        }
     }
 
     private void OnDestroy()//possibly implement cleanup in this function (May create race condition/coupling issues)
