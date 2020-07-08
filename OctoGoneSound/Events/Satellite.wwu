@@ -63,7 +63,7 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="Satellite_Component" ID="{58B85219-1D3F-4CF9-97CB-7986B7BE0052}"/>
-				<Event Name="Fuel_Restoration" ID="{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}">
+				<Event Name="Fuel_Restoration_Play" ID="{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}">
 					<ChildrenList>
 						<Action Name="" ID="{5CB2B310-8168-4724-8D9E-DFA846CCBD7C}" ShortID="1054137382">
 							<PropertyList>
@@ -71,7 +71,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_FuelRestore_01" ID="{5DA22920-275B-4E99-86D2-58D52913F625}" WorkUnitID="{CDA82D2D-F3C1-4A6C-B734-4239C9569A31}"/>
+									<ObjectRef Name="TEMP_SFX_Satellite_FuelRestore" ID="{D3AC49EA-7A84-4CAC-8679-A86B37ABCAA5}" WorkUnitID="{AA8E6544-8E4C-4A5B-9EB9-12DC520C37DF}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -168,6 +168,21 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="SFX_Satellite_FStation_01" ID="{BE3B2E04-60FB-4B80-BB2D-B86CCD582487}" WorkUnitID="{CDA82D2D-F3C1-4A6C-B734-4239C9569A31}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Fuel_Restoration_Stop" ID="{DEC951B3-2DDD-4140-94A0-830948AB9AD6}">
+					<ChildrenList>
+						<Action Name="" ID="{77D1F1DA-43B6-4355-BC9F-392EE3E4FEC8}" ShortID="107366555">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TEMP_SFX_Satellite_FuelRestore" ID="{D3AC49EA-7A84-4CAC-8679-A86B37ABCAA5}" WorkUnitID="{AA8E6544-8E4C-4A5B-9EB9-12DC520C37DF}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
