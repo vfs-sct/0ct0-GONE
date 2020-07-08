@@ -13,13 +13,18 @@ MonoBehaviour:
   m_Name: AntennaRecipe
   m_EditorClassIdentifier: 
   DisplayName: Antenna
-  ItemInput: []
+  ItemDesc: 
+  ItemInput:
+  - item: {fileID: 11400000, guid: 702bc8a114d57044680804ee18c4d32f, type: 2}
+    amount: 5
+  - item: {fileID: 11400000, guid: ffb301c89c45ede44b0aa8f23b55e490, type: 2}
+    amount: 3
   ResourceInput: []
   Output:
     item: {fileID: 11400000, guid: 259d9b91d3c0be64d96055172d0a20bd, type: 2}
-    amount: 0
+    amount: 1
   CreatesByProducts: 0
-  RequiredItemInputSpace: 0
-  ItemOuputSpace: 0
   ItemByProducts: []
   ResourceByProducts: []
+  RequiredItemInputSpace: 0
+  ItemOuputSpace: 0
