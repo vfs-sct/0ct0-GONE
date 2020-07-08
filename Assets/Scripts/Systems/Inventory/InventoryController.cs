@@ -97,7 +97,7 @@ public class InventoryController : MonoBehaviour
 
     public bool CheckIfItemBucket()
     {
-        if (ItemBuckets == null || ItemBuckets.Count == 0)
+        if (ItemBuckets[0].Bucket == null || ItemBuckets[0].Bucket.Count == 0)
         {
             Debug.LogWarning("No item bucket");
             return false;
@@ -149,6 +149,7 @@ public class InventoryController : MonoBehaviour
         {
             ResourceBuckets_Dict.Add(item.ItemResource, new ItemBucket(item.Cap));
         }
+
 
     }
 

@@ -164,8 +164,16 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
+							<GameParameterRef Name="DistanceDoppler" ID="{F423D4E4-D3F0-4042-8054-EDF7431885E5}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="ThrusterImpulse" ID="{2BFD54AC-865B-43EF-8B4D-8250ED545EE3}"/>
 							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="fuel" ID="{C3FFDBBA-59FA-4628-BD35-649756FD7BCA}"/>
+							<Value>100</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="SFXVolume" ID="{2812E78F-5F44-470A-8E63-79EC190D8D1E}"/>
@@ -182,8 +190,9 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="BackEnd" ID="{9098CDE2-B6BB-4C76-A22C-76B3DEA8F7F4}"/>
-						<CurrentStateRef Name="MainMenu" ID="{C7583B0D-CFE0-4F66-88A0-9DAC22E6D5EB}"/>
-						<CurrentStateRef Name="GameOver" ID="{D8E3E19F-5873-4295-A7C9-178C6E8F39C3}"/>
+						<CurrentStateRef Name="Resume" ID="{51672F26-6CBD-401D-9B7B-0FBAB6107F26}"/>
+						<CurrentStateRef Name="Cinematic" ID="{C8DCCF9C-FBB9-4539-A5B6-60D2A759BA3C}"/>
+						<CurrentStateRef Name="Threat" ID="{D6815025-A490-4CCC-B7FF-3CEB24E1160E}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Heavy" ID="{B456AF25-B007-4381-9FD3-900FD8FC3D1D}"/>
@@ -246,7 +255,7 @@
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Fuel_Restoration" ID="{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}" WorkUnitID="{EE201200-7663-41C9-9A29-82AA893F2257}"/>
+							<ObjectRef Name="Fuel_Restoration_Play" ID="{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}" WorkUnitID="{EE201200-7663-41C9-9A29-82AA893F2257}"/>
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
@@ -356,7 +365,7 @@
 							<Position X="0" Y="5"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Asteroid_Moving" ID="{DC2DD57B-6CE3-47B9-AFB6-BF9680620454}" WorkUnitID="{9409E0E2-1E02-44C5-8E7E-AE839C8E59ED}"/>
+							<ObjectRef Name="Asteroid_Moving_Play" ID="{DC2DD57B-6CE3-47B9-AFB6-BF9680620454}" WorkUnitID="{9409E0E2-1E02-44C5-8E7E-AE839C8E59ED}"/>
 							<Position X="1" Y="0"/>
 						</Module>
 						<Module>

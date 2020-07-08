@@ -79,6 +79,7 @@ public class GameHUD : MonoBehaviour
             }
             var newTool = CreateToolBox();
             newTool.transform.SetParent(contentGroup.transform);
+
             var getObject = newTool.GetComponent<GetObjects>();
             getObject.GetToolText().SetText(tool.displayName);
             getObject.GetHotkeyText().SetText("[ " + hotkey.ToString() + " ]");
@@ -104,6 +105,8 @@ public class GameHUD : MonoBehaviour
     {
         //Debug.Log("New Tool Index: " + newTool);
         //Debug.Log("Goo Glue Index: " + gooGlueIndex);
+
+        //make the current tool look selectable again
         if(currentTool != -1)
         {
             if(currentTool == gooGlueIndex)
@@ -116,7 +119,7 @@ public class GameHUD : MonoBehaviour
             lastToolObj.GetToolText().color = enabledTextColour;
             lastToolObj.GetHotkeyText().color = enabledTextColour;
             lastToolObj.GetToolIcon().color = enabledTextColour;
-            lastToolObj.GetToolText().SetText(prevTool);
+            lastToolObj.GetToolText().SetText(playerTools.GetEquiptTools()[currentTool].displayName);
         }
 
         //turn on the goo glue fuel bar if the new tool is the repair tool
@@ -125,13 +128,13 @@ public class GameHUD : MonoBehaviour
             gooGlueBar.SetActive(true);
         }
 
+        //make the new tool look unselectable
         var newToolObj = toolList[newTool].GetComponent<GetObjects>();
         newToolObj.GetButtonImage().color = disabledBGColour;
         newToolObj.GetButtonImage().sprite = disabledSprite;
         newToolObj.GetToolText().color = disabledTextColour;
         newToolObj.GetHotkeyText().color = disabledTextColour;
         newToolObj.GetToolIcon().color = disabledTextColour;
-        prevTool = newToolObj.GetToolText().text;
         newToolObj.GetToolText().SetText("Active");
 
         currentTool = newTool;
@@ -145,7 +148,7 @@ public class GameHUD : MonoBehaviour
             lastToolObj.GetButtonImage().color = enabledBGColour;
             lastToolObj.GetToolText().color = enabledTextColour;
             lastToolObj.GetHotkeyText().color = enabledTextColour;
-            lastToolObj.GetToolText().SetText(prevTool);
+            lastToolObj.GetToolText().SetText(playerTools.GetEquiptTools()[currentTool].displayName);
         }
         gooGlueBar.SetActive(false);
         currentTool = -1;

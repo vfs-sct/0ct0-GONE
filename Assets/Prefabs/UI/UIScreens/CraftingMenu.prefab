@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2349358234345832560}
   - component: {fileID: 3091195931946984368}
   - component: {fileID: 3153003048712892095}
+  - component: {fileID: 803195648274158666}
+  - component: {fileID: 6407728837031775908}
   - component: {fileID: 7468369897657989605}
   m_Layer: 0
   m_Name: CraftingMenu
@@ -65,6 +67,8 @@ MonoBehaviour:
   CraftingModule: {fileID: 11400000, guid: 09fdc9f42b0fd174489a218af0e73d3c, type: 2}
   UIRoot: {fileID: 0}
   HUDPrefab: {fileID: 0}
+  shipInventory: {fileID: 0}
+  storageDials: {fileID: 3091195931946984368}
   tabButtons:
   - {fileID: 5391738088948553846}
   - {fileID: 108867905850884765}
@@ -80,6 +84,8 @@ MonoBehaviour:
   ProductGroup: {fileID: 8048171323964478079}
   RequiresText: {fileID: 1548561985206046100}
   IngredientGroup: {fileID: 4891525370550205375}
+  timerDial: {fileID: 27329674921434970}
+  buttonHoldTime: 1
   Components:
   - {fileID: 11400000, guid: 4209cfd8689a6d040b13785c0ccf9f8f, type: 2}
   - {fileID: 11400000, guid: fef937b3cd48c1a498c9a07bbe83e779, type: 2}
@@ -99,13 +105,93 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 97b094c5fa0adbd49b8ebb19ec002a4c, type: 2}
   - {fileID: 11400000, guid: 9ccad18563f043149bfbe2e82e0e1e3a, type: 2}
   - {fileID: 11400000, guid: 81e051abe16b2a54db3fe87738bda301, type: 2}
-  Upgrades: []
-  Satellites: []
   RecipeButton: {fileID: 8353823431443514812, guid: ab49bdcecf87e184b8b7859c55336eb9,
     type: 3}
   Product: {fileID: 1878242424384748449, guid: cefda4e311558fa4b90a4210837397af, type: 3}
   Ingredient: {fileID: 2391953084933469528, guid: 3355187ef89a8914cb248d4d1f3334ef,
     type: 3}
+  popText: {fileID: 7001259176512481598, guid: 5e2ea6b5533462b4780e0fa62b69567a, type: 3}
+  isCrafting: 0
+  canCraft: 0
+  canConsumableCraft: 0
+  canSatCraft: 0
+--- !u!114 &803195648274158666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469296099059437879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d8c4cc0350b7649941c3f9172b1d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  CraftingModule: {fileID: 11400000, guid: 09fdc9f42b0fd174489a218af0e73d3c, type: 2}
+  UIRoot: {fileID: 0}
+  HUDPrefab: {fileID: 0}
+  shipInventory: {fileID: 0}
+  storageDials: {fileID: 3091195931946984368}
+  contentGroups:
+  - {fileID: 1560932908566142850}
+  mainCrafting: {fileID: 3153003048712892095}
+  CraftButton: {fileID: 338128450338464420}
+  TitleText: {fileID: 2111392821909969018}
+  ProductGroup: {fileID: 8048171323964478079}
+  RequiresText: {fileID: 1548561985206046100}
+  IngredientGroup: {fileID: 4891525370550205375}
+  timerDial: {fileID: 27329674921434970}
+  buttonHoldTime: 2
+  Satellites:
+  - {fileID: 11400000, guid: b3bb964a704aa8a4db42029e52f42136, type: 2}
+  RecipeButton: {fileID: 8353823431443514812, guid: ab49bdcecf87e184b8b7859c55336eb9,
+    type: 3}
+  Product: {fileID: 1878242424384748449, guid: cefda4e311558fa4b90a4210837397af, type: 3}
+  Ingredient: {fileID: 2391953084933469528, guid: 3355187ef89a8914cb248d4d1f3334ef,
+    type: 3}
+  popText: {fileID: 7001259176512481598, guid: 5e2ea6b5533462b4780e0fa62b69567a, type: 3}
+  isCrafting: 0
+--- !u!114 &6407728837031775908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469296099059437879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9238351ea1a55164ea9ffa5b6cef1836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  CraftingModule: {fileID: 11400000, guid: 09fdc9f42b0fd174489a218af0e73d3c, type: 2}
+  UIRoot: {fileID: 0}
+  HUDPrefab: {fileID: 0}
+  shipInventory: {fileID: 0}
+  storageDials: {fileID: 3091195931946984368}
+  contentGroups:
+  - {fileID: 2077535953638748733}
+  mainCrafting: {fileID: 3153003048712892095}
+  CraftButton: {fileID: 338128450338464420}
+  TitleText: {fileID: 2111392821909969018}
+  ProductGroup: {fileID: 8048171323964478079}
+  RequiresText: {fileID: 1548561985206046100}
+  IngredientGroup: {fileID: 4891525370550205375}
+  timerDial: {fileID: 27329674921434970}
+  buttonHoldTime: 1
+  Consumables:
+  - {fileID: 11400000, guid: 8255d68257d02664c8c4ed78d3c66d54, type: 2}
+  - {fileID: 11400000, guid: 432b831e665c5544d828cdd729b09fdd, type: 2}
+  - {fileID: 11400000, guid: 4ffba1ae3e8608d4f9dd3cd3eaebb054, type: 2}
+  - {fileID: 11400000, guid: b56cde169965f924abf5afb900a5ca3c, type: 2}
+  RecipeButton: {fileID: 8353823431443514812, guid: ab49bdcecf87e184b8b7859c55336eb9,
+    type: 3}
+  Product: {fileID: 1878242424384748449, guid: cefda4e311558fa4b90a4210837397af, type: 3}
+  Ingredient: {fileID: 2391953084933469528, guid: 3355187ef89a8914cb248d4d1f3334ef,
+    type: 3}
+  popText: {fileID: 7001259176512481598, guid: 5e2ea6b5533462b4780e0fa62b69567a, type: 3}
+  isCrafting: 0
 --- !u!114 &7468369897657989605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,7 +826,7 @@ PrefabInstance:
     - target: {fileID: 2837397407077944973, guid: 94fc170bffd4d894f968662dd2cb90bd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00007133799
+      value: -0.000030472793
       objectReference: {fileID: 0}
     - target: {fileID: 2837397407077944973, guid: 94fc170bffd4d894f968662dd2cb90bd,
         type: 3}
@@ -896,6 +982,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418565231318386862, guid: 94fc170bffd4d894f968662dd2cb90bd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3676829179247294230, guid: 94fc170bffd4d894f968662dd2cb90bd,
         type: 3}
@@ -1552,6 +1643,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5654330581599065877, guid: 94fc170bffd4d894f968662dd2cb90bd,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 0.2627451
+      objectReference: {fileID: 0}
     - target: {fileID: 5697044614356886054, guid: 94fc170bffd4d894f968662dd2cb90bd,
         type: 3}
       propertyPath: m_IsActive
@@ -1716,6 +1812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205276722213603212, guid: 94fc170bffd4d894f968662dd2cb90bd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6237841579578400102, guid: 94fc170bffd4d894f968662dd2cb90bd,
         type: 3}
@@ -2370,6 +2471,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5388963481464059313}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2410387418551794506 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7762546775364079355, guid: 94fc170bffd4d894f968662dd2cb90bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5388963481464059313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5391738088948553846 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7384894234652103, guid: 94fc170bffd4d894f968662dd2cb90bd,
@@ -2496,15 +2609,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2410387418551794506 stripped
+--- !u!114 &27329674921434970 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7762546775364079355, guid: 94fc170bffd4d894f968662dd2cb90bd,
+  m_CorrespondingSourceObject: {fileID: 5379665812589341419, guid: 94fc170bffd4d894f968662dd2cb90bd,
     type: 3}
   m_PrefabInstance: {fileID: 5388963481464059313}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

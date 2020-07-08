@@ -46,7 +46,7 @@ public class MusicManager : MonoBehaviour
     { 
         return FrontEndState[i]; 
     }
-
+    
     private void Start()
     {
         Play.Post(gameObject);

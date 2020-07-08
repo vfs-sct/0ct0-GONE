@@ -192,6 +192,21 @@ public class InventoryV2 : MonoBehaviour
     private void PopulateItemInventory()
     {
         //Debug.LogWarning(playerInventory.name);
+        
+        int childCount = inventoryVertRows[0].transform.childCount;
+        //remove old items, row 1
+        for (int i = 0; i < childCount; i++)
+        {
+            Destroy(inventoryVertRows[0].transform.GetChild(i).gameObject);
+        }
+
+        childCount = inventoryVertRows[1].transform.childCount;
+        //remove old items, row 2
+        for (int i = 0; i < childCount; i++)
+        {
+            Destroy(inventoryVertRows[1].transform.GetChild(i).gameObject);
+        }
+
         bool isFirstRow = true;
 
         foreach (var kvp in playerInventory.GetItemBucket()[0].Bucket)
@@ -199,11 +214,11 @@ public class InventoryV2 : MonoBehaviour
             var newItemBox = Instantiate(defaultInventoryItem);
             if (isFirstRow == true)
             {
-                newItemBox.transform.SetParent(RowOne.transform);
+                newItemBox.transform.SetParent(inventoryVertRows[0].transform);
             }
             else
             {
-                newItemBox.transform.SetParent(RowTwo.transform);
+                newItemBox.transform.SetParent(inventoryVertRows[1].transform);
             }
             //alternate between adding entries to the first and second row
             isFirstRow = !isFirstRow;

@@ -9,6 +9,8 @@ public abstract class AkManager : MonoBehaviour
     [SerializeField] protected bool willTriggerEnter = true;
     [SerializeField] protected bool willTriggerExit = false;
 
+    protected bool isInsideTriggerBox = false;
+
     protected bool isValidTag(string tag)
     {  
         foreach (var validTag in validTags)
