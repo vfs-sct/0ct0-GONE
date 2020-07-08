@@ -8,6 +8,9 @@
 						<Event Name="Octo_Thrusters_Play" ID="{F0552B88-831D-4558-AD1B-375295DA4BEF}">
 							<ChildrenList>
 								<Action Name="" ID="{BE22C85E-3488-459E-B362-187B2FE0DC74}" ShortID="830525317">
+									<PropertyList>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Thrusters" ID="{1DF20E58-A71B-499B-9206-CD61E136BDC8}" WorkUnitID="{AA8E6544-8E4C-4A5B-9EB9-12DC520C37DF}"/>
@@ -88,6 +91,7 @@
 								<Action Name="" ID="{8DCE737B-8511-4AFB-92EE-374AB44D1B3A}" ShortID="1008310842">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -103,6 +107,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Tether_Grab" ID="{A6762E3D-42BE-4237-A4C9-6B81D81D27D0}" WorkUnitID="{AA8E6544-8E4C-4A5B-9EB9-12DC520C37DF}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Octo_Fuel_Latch" ID="{6485378F-5CBC-4564-A2E5-9086DFC75C84}">
+							<ChildrenList>
+								<Action Name="" ID="{96EF2132-A96B-4F09-81AE-AFBF40D2E9F6}" ShortID="825112935">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Fuel_Latch" ID="{31681784-B453-431D-8891-84D146B78113}" WorkUnitID="{AA8E6544-8E4C-4A5B-9EB9-12DC520C37DF}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
