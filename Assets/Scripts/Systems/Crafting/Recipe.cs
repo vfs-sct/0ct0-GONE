@@ -6,6 +6,7 @@ using UnityEngine;
 public class Recipe : ScriptableObject
 {
     public string DisplayName = "";
+    public string ItemDesc = "";
 
     public List<CraftingModule.ItemRecipeData> ItemInput;
 

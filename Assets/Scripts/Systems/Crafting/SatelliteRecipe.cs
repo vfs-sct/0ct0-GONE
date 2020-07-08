@@ -7,6 +7,7 @@ using UnityEngine;
 public class SatelliteRecipe : ScriptableObject
 {
     public string DisplayName = "";
+    public string ItemDesc = "";
 
     public List<CraftingModule.ItemRecipeData> ItemInput;
 

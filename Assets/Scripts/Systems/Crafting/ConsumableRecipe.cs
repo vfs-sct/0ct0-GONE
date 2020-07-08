@@ -5,6 +5,7 @@ using UnityEngine;
 public class ConsumableRecipe : ScriptableObject
 {
     public string DisplayName = "";
+    public string ItemDesc = "";
 
     public bool isUpgrade = false;
 
