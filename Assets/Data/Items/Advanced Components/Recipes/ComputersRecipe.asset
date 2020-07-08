@@ -13,11 +13,18 @@ MonoBehaviour:
   m_Name: ComputersRecipe
   m_EditorClassIdentifier: 
   DisplayName: Minicomputer
-  ItemInput: []
+  ItemDesc: 
+  ItemInput:
+  - item: {fileID: 11400000, guid: f4e1d8844bc727b4ead0f5d464e68620, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: 2c1b871972b6aa54eb0ee9417bc4771e, type: 2}
+    amount: 3
+  - item: {fileID: 0}
+    amount: 0
   ResourceInput: []
   Output:
     item: {fileID: 11400000, guid: 6ff95ca999dfece479432d4b534154f8, type: 2}
-    amount: 0
+    amount: 1
   CreatesByProducts: 0
   ItemByProducts: []
   ResourceByProducts: []

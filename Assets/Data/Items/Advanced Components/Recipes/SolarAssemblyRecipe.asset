@@ -13,13 +13,18 @@ MonoBehaviour:
   m_Name: SolarAssemblyRecipe
   m_EditorClassIdentifier: 
   DisplayName: Solar Assembly
-  ItemInput: []
+  ItemDesc: 
+  ItemInput:
+  - item: {fileID: 0}
+    amount: 0
+  - item: {fileID: 11400000, guid: 676a1ab1a1a93cc49870eef3a1ba3c40, type: 2}
+    amount: 3
   ResourceInput: []
   Output:
     item: {fileID: 11400000, guid: 1bea400f02fadd548a0150308e947e29, type: 2}
     amount: 0
   CreatesByProducts: 0
-  RequiredItemInputSpace: 0
-  ItemOuputSpace: 0
   ItemByProducts: []
   ResourceByProducts: []
+  RequiredItemInputSpace: 0
+  ItemOuputSpace: 0

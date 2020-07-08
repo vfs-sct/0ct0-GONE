@@ -16,8 +16,10 @@ MonoBehaviour:
   ItemDesc: Crafts an upgrade that permanently increases health by 30.
   isUpgrade: 1
   ItemInput:
-  - item: {fileID: 11400000, guid: ee73bcf48f8ff51438cb185d9c669ae3, type: 2}
+  - item: {fileID: 11400000, guid: 2c1b871972b6aa54eb0ee9417bc4771e, type: 2}
     amount: 1
-  ResourceInput: []
+  ResourceInput:
+  - resource: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
+    amount: 50
   Output: {fileID: 11400000, guid: 37f250fca4dc78744ad9bc639b903bf9, type: 2}
   OutputAmount: 50
