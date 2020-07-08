@@ -243,6 +243,7 @@ public class Crafting : MonoBehaviour
                     var inputText = ingredient.GetComponentsInChildren<TextMeshProUGUI>();
 
                     inputText[0].SetText(input.resource.DisplayName);
+                    inputText[0].color = input.resource.ResourceColor;
                     inputText[1].SetText("x" + input.amount.ToString());
                 }
 
