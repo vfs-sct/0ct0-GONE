@@ -13,20 +13,16 @@ MonoBehaviour:
   m_Name: FuelSatellite_Recipe
   m_EditorClassIdentifier: 
   DisplayName: Fuel Satellite
+  ItemDesc: Crafts a satellite that can be placed inside gas clouds to create a refueling
+    station.
   ItemInput:
-  - item: {fileID: 11400000, guid: 7d4e4803d3e5a244ca8cf144e67be697, type: 2}
-    amount: 2
-  - item: {fileID: 11400000, guid: f4e1d8844bc727b4ead0f5d464e68620, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: ee73bcf48f8ff51438cb185d9c669ae3, type: 2}
-    amount: 2
+  - item: {fileID: 11400000, guid: 702bc8a114d57044680804ee18c4d32f, type: 2}
+    amount: 20
   - item: {fileID: 11400000, guid: 8d6393c6bf0336d4890ba980148338a3, type: 2}
-    amount: 5
-  - item: {fileID: 11400000, guid: 1bea400f02fadd548a0150308e947e29, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: 9d3820352d75bc742860855e2eca3948, type: 2}
-    amount: 2
-  ResourceInput: []
+    amount: 30
+  ResourceInput:
+  - resource: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
+    amount: 100
   Output: {fileID: 11400000, guid: 6b9cbfa98c603bc45b5f3166c8393866, type: 2}
   CreatesByProducts: 0
   ItemByProducts: []

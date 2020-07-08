@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da41259fd3c5d54cbeb069c1c4b46e4, type: 3}
+  m_Name: Tier1StationSatRecipe 1
+  m_EditorClassIdentifier: 
+  DisplayName: WIP Station 1 Upgrade
+  ItemDesc: Crafts a satellite that will restore Comm Range functionality to the
+    space station.
+  ItemInput:
+  - item: {fileID: 11400000, guid: 702bc8a114d57044680804ee18c4d32f, type: 2}
+    amount: 100
+  - item: {fileID: 11400000, guid: 8d6393c6bf0336d4890ba980148338a3, type: 2}
+    amount: 30
+  - item: {fileID: 11400000, guid: ee73bcf48f8ff51438cb185d9c669ae3, type: 2}
+    amount: 5
+  - item: {fileID: 11400000, guid: f4e1d8844bc727b4ead0f5d464e68620, type: 2}
+    amount: 1
+  ResourceInput: []
+  Output: {fileID: 11400000, guid: 4b56049f91d6cbf4ab2017d331462745, type: 2}
+  CreatesByProducts: 0
+  ItemByProducts: []
+  ResourceByProducts: []
+  RequiredItemInputSpace: 0
+  ItemOuputSpace: 0
