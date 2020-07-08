@@ -14,8 +14,7 @@ public class RepairableComponent : MonoBehaviour
 
     public RepairObjectEvent LinkedEvent;
 
-
-    public UnityEvent OnRepairComplete;
+    public UnityEvent OnRepairComplete = new UnityEvent();
 
 
     private float _RepairPercentage = 0;
@@ -31,7 +30,7 @@ public class RepairableComponent : MonoBehaviour
 
 
 
-    private void Awake()
+    private void Start()
     {
         if (LinkedEvent != null)
         {
@@ -81,6 +80,7 @@ public class RepairableComponent : MonoBehaviour
     protected void CompleteRepair(GameObject parent)
     {
         Debug.Log("Repair Completed");
+
         OnRepairComplete.Invoke();
     }
  
