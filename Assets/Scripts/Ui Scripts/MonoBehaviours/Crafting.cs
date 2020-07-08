@@ -226,6 +226,7 @@ public class Crafting : MonoBehaviour
                 var outputText = product.GetComponentsInChildren<TextMeshProUGUI>();
                 outputText[0].SetText(recipe.DisplayName);
                 outputText[1].SetText("x" + recipe.Output.amount.ToString());
+                outputText[2].SetText(recipe.ItemDesc);
 
                 foreach (var input in recipe.ResourceInput)
                 {
