@@ -101,6 +101,7 @@ public class InventoryV2 : MonoBehaviour
     private void OnEnable()
     {
         Cursor.visible = true;
+        AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
         UpdateAllChunks();
         if (playerInventory.CheckIfItemBucket())
         {
@@ -125,6 +126,7 @@ public class InventoryV2 : MonoBehaviour
 
     public void Close()
     {
+        AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
         GameManager.UnPause();
         gameObject.SetActive(false);
     }
