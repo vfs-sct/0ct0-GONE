@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class MovementController : MonoBehaviour
 {
-    [SerializeField] private List<MovementComponent> MovementModes = new List<MovementComponent>();
+    [SerializeField] public List<MovementComponent> MovementModes = new List<MovementComponent>();
 
     [SerializeField] private PlayerCamera _CameraScript;
     public PlayerCamera CameraScript{get=>_CameraScript;}
