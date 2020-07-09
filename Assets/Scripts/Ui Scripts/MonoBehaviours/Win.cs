@@ -51,7 +51,7 @@ public class Win : MonoBehaviour
     private void OnEnable()
     {
         Cursor.visible = true;
-
+        AkSoundEngine.PostEvent("Remembering_Oakley", gameObject);
         fadeInMenu = true;
     }
 

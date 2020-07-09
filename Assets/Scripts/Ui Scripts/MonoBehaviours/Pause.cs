@@ -21,6 +21,7 @@ public class Pause : MonoBehaviour
     private void OnEnable()
     {
         Cursor.visible = true;
+        AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
     }
 
     public void OnClickResume()
@@ -28,6 +29,7 @@ public class Pause : MonoBehaviour
         Cursor.visible = false;
         GameManager.UnPause();
         gameObject.SetActive(false);
+        AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
         Debug.Log("Unpaused");
     }
 
