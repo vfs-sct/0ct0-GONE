@@ -22,7 +22,13 @@ public class Codex : MonoBehaviour
     [SerializeField] TextMeshProUGUI entryTitleText = null;
     [SerializeField] TextMeshProUGUI entryBodyText = null;
 
+    //used to start/stop audio logs from a particular entry's codex page
+    [SerializeField] GameObject buttonContainer = null;
+    [SerializeField] Button playButton = null;
+    [SerializeField] Button stopButton = null;
+
     [Header("Audio Log Sound Files")]
+    [SerializeField] PlayButtonSound soundScript = null;
     public string[] audioLogFile = null;
 
     //Here we'll put all our codex entries in a string Dictionary. The first string will be the title of the entry,
@@ -148,16 +154,20 @@ public class Codex : MonoBehaviour
         //Now I'm going to populate the Memory Logs section with buttons to the content in the logEntries dictionary
         //Using a foreach we'll loop through every pair in the logEntries dictionary and create a button for it
         int index = 0;
+        int audioLog = 0;
         foreach (var kvp in logEntries)
         {
-            var newButton = AddNewButton(logEntries, kvp.Key);
+            var newButton = AddNewButton(logEntries, kvp.Key, audioLog);
             entryButtons.Add(newButton);
             
+            //lock all codex entries if the first entries locked
             if (isLocked[index] == true)
             {
                 newButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Memory Corrupt");
                 newButton.GetComponent<Button>().interactable = false;
             }
+
+            audioLog++;
         }
         //Debug.Log("Number of buttons created" + entryButtons.Count);
 
@@ -167,7 +177,7 @@ public class Codex : MonoBehaviour
         //Populate the tutorial section
         foreach (var kvp in tutorialEntries)
         {
-            AddNewButton(tutorialEntries, kvp.Key);
+            AddNewButton(tutorialEntries, kvp.Key, -1);
         }
     }
 
@@ -186,7 +196,7 @@ public class Codex : MonoBehaviour
     }
 
     //Code to create a button to a codex entry
-    public GameObject AddNewButton(Dictionary<string, string> dict, string buttonText)
+    public GameObject AddNewButton(Dictionary<string, string> dict, string buttonText, int audioLog)
     {
         //Here we create an instance of the template button we serialized at the top and save it into a variable
         var newButton = Instantiate(defaultButton);
@@ -207,6 +217,28 @@ public class Codex : MonoBehaviour
             entryTitleText.SetText(buttonText);
             //Use the dictionary key to get the dictionary value, then set the body text
             entryBodyText.SetText(dict[buttonText]);
+
+            if (audioLog != -1)
+            {
+                playButton.onClick.RemoveAllListeners();
+                playButton.onClick.AddListener(() =>
+                {
+                    soundScript.OnClickPlayDialogue(audioLogFile[audioLog]);
+                });
+
+                stopButton.onClick.RemoveAllListeners();
+                stopButton.onClick.AddListener(() =>
+                {
+                    //STOP SOUND FUNCTION
+                    //soundScript.OnClickPlayDialogue(audioLogFile[audioLog]);
+                });
+
+                buttonContainer.SetActive(true);
+            }
+            else
+            {
+                buttonContainer.SetActive(false);
+            }
         });
         return newButton;
     }

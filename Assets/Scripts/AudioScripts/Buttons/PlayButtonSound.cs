@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayButtonSound : MonoBehaviour
 {
@@ -16,8 +14,9 @@ public class PlayButtonSound : MonoBehaviour
         AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
     }
 
-    public void OnClickPlayDialogue()
+    public void OnClickPlayDialogue(string fileName)
     {
-        AkSoundEngine.PostEvent("TEMP_VO_Oakley1", gameObject);
+        //TEMP_VO_Oakley1
+        AkSoundEngine.PostEvent(fileName, gameObject);
     }
 }
