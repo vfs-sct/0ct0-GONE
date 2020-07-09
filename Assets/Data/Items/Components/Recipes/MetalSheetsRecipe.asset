@@ -12,16 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8dbb4b07df41ea429ea77dc6adbf6d2, type: 3}
   m_Name: MetalSheetsRecipe
   m_EditorClassIdentifier: 
-  DisplayName: Metal Sheets
+  DisplayName: Metal Sheet
+  ItemDesc: Metal Sheets are a basic component used to craft more advanced items.
   ItemInput: []
   ResourceInput:
   - resource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
-    amount: 15
-  - resource: {fileID: 11400000, guid: 817b9d6fe54926b47b141284265e21a3, type: 2}
-    amount: 5
+    amount: 40
   Output:
     item: {fileID: 11400000, guid: 702bc8a114d57044680804ee18c4d32f, type: 2}
-    amount: 15
+    amount: 10
   CreatesByProducts: 0
   ItemByProducts: []
   ResourceByProducts: []

@@ -10,16 +10,21 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8dbb4b07df41ea429ea77dc6adbf6d2, type: 3}
-  m_Name: CompositeSheetsRecipe
+  m_Name: MotorRecipe
   m_EditorClassIdentifier: 
-  DisplayName: Composite Sheets
+  DisplayName: Motor
+  ItemDesc: Motors are a basic component used to craft more advanced items.
   ItemInput: []
-  ResourceInput: []
+  ResourceInput:
+  - resource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
+    amount: 20
+  - resource: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
+    amount: 10
   Output:
-    item: {fileID: 11400000, guid: 7261ccb9bd53e744fb76a04dbb4134da, type: 2}
-    amount: 0
+    item: {fileID: 11400000, guid: ee73bcf48f8ff51438cb185d9c669ae3, type: 2}
+    amount: 1
   CreatesByProducts: 0
-  RequiredItemInputSpace: 0
-  ItemOuputSpace: 0
   ItemByProducts: []
   ResourceByProducts: []
+  RequiredItemInputSpace: 0
+  ItemOuputSpace: 0

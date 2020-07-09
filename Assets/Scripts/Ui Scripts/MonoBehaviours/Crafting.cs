@@ -226,6 +226,7 @@ public class Crafting : MonoBehaviour
                 var outputText = product.GetComponentsInChildren<TextMeshProUGUI>();
                 outputText[0].SetText(recipe.DisplayName);
                 outputText[1].SetText("x" + recipe.Output.amount.ToString());
+                outputText[2].SetText(recipe.ItemDesc);
 
                 foreach (var input in recipe.ResourceInput)
                 {
@@ -243,6 +244,7 @@ public class Crafting : MonoBehaviour
                     var inputText = ingredient.GetComponentsInChildren<TextMeshProUGUI>();
 
                     inputText[0].SetText(input.resource.DisplayName);
+                    inputText[0].color = input.resource.ResourceColor;
                     inputText[1].SetText("x" + input.amount.ToString());
                 }
 

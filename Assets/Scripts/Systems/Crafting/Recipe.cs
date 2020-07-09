@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Systems/Crafting/New Item Recipe")]
 public class Recipe : ScriptableObject
 {
     public string DisplayName = "";
+    public string ItemDesc = "";
 
     public List<CraftingModule.ItemRecipeData> ItemInput;
 

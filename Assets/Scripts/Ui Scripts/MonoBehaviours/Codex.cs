@@ -22,6 +22,9 @@ public class Codex : MonoBehaviour
     [SerializeField] TextMeshProUGUI entryTitleText = null;
     [SerializeField] TextMeshProUGUI entryBodyText = null;
 
+    [Header("Audio Log Sound Files")]
+    public string[] audioLogFile = null;
+
     //Here we'll put all our codex entries in a string Dictionary. The first string will be the title of the entry,
     //and the second will be the body
     Dictionary<string, string> logEntries = new Dictionary<string, string>
