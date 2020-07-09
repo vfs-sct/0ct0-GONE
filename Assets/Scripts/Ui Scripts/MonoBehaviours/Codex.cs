@@ -179,6 +179,9 @@ public class Codex : MonoBehaviour
         {
             AddNewButton(tutorialEntries, kvp.Key, -1);
         }
+
+        //hide sound buttons in main entry page bc no entry has been selected yet
+        buttonContainer.SetActive(false);
     }
 
     //Code to create a new section header (unclickable)
