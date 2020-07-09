@@ -224,9 +224,13 @@ public class Player : MonoBehaviour
             root = root.parent;
         }
 
-        if (root.tag == "Refuel")
+        if (root.tag == "Station")
         {
             CraftingTooltip.SetActive(true);
+            RefuellingTooltip.SetActive(true);
+        }
+        if (root.tag == "Refuel")
+        {
             RefuellingTooltip.SetActive(true);
         }
     }
@@ -260,27 +264,47 @@ public class Player : MonoBehaviour
             }
         }
     }
-    public bool StationInRange(bool canCraft)
+    public bool StationInRange()
     {
+        bool canInteract = false;
+
+        if (mouseCollision != null)
+        {
+            //Debug.Log($"CRAFT COLLISION: {mouseCollisionRoot.tag}, {mouseCollisionRoot.name}");
+            Debug.Log(mouseCollision);
+            //can craft only at station
+            if(mouseCollisionRoot.tag == "Station")
+            {
+                canInteract = true;
+            }
+            else
+            {
+                canInteract = false;
+            }
+        }
+
+        return canInteract;
+    }
+
+    public bool RefuelInRange()
+    {
+        bool canRefuel = false;
         if (mouseCollision != null)
         {
             //Debug.Log($"CRAFT COLLISION: {mouseCollisionRoot.tag}, {mouseCollisionRoot.name}");
 
-            if(mouseCollisionRoot.tag == "Refuel")
+            //can refuel at a station or anything tagged refuel
+            if (mouseCollisionRoot.tag == "Refuel" || mouseCollisionRoot.tag == "Station")
             {
-                canCraft = true;
+                canRefuel = true;
             }
             else
             {
-                canCraft = false;
+                canRefuel = false;
             }
         }
-        else
-        {
-            canCraft = false;
-        }
 
-        return canCraft;
+        return canRefuel;
     }
 
     //if the collision object is a child, find the parent and return it

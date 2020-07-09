@@ -26,7 +26,7 @@ public class RefuelRange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canRefuel = playing.ActivePlayer.StationInRange(canRefuel);
+        canRefuel = playing.ActivePlayer.RefuelInRange();
         if (isFueling == true)
         {
             if (canRefuel)

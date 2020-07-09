@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class MovementComponent : ScriptableObject
 {
-
     protected Vector3 TargetVelocityLocal  = new Vector3(); //target velocity in m/s in world space
 
     protected Vector3 TargetVelocityWorld = new Vector3(); //target velocity in m/s in local space
@@ -20,6 +17,11 @@ public abstract class MovementComponent : ScriptableObject
     public abstract void MovementUpdate(MovementController Controller,byte MovementSubMode);
 
     public virtual void Initialize(MovementController Controller){}
+
+    public float GetSpeed()
+    {
+        return TargetVelocityLocal.magnitude;
+    }
 
     protected Vector3 VectorToLocalSpace(MovementController Controller,Vector3 InputVector)
     {

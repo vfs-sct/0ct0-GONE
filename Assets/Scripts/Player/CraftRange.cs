@@ -21,7 +21,7 @@ public class CraftRange : MonoBehaviour
 
     public void OnCraftHotkey(InputValue value)
     {
-        canCraft = Player.StationInRange(canCraft);  
+        canCraft = Player.StationInRange();  
 
         if(canCraft == false || GameManager.isPaused)
         {
