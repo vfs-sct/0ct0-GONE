@@ -2819,18 +2819,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7de9c50c04b650e4fa5a1b2c16083f87, type: 3}
---- !u!114 &307403187 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 489913433233796653, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
-    type: 3}
-  m_PrefabInstance: {fileID: 307403186}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849435022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c858a506bdc2ca4bbb52124df036940, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &321558622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 600268465557183985, guid: 660c1ddcdfa77a342acca5d8f41ad301,
@@ -16628,6 +16616,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f63eee57f8ff0419004c5a724a9f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &849435036 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 489913433233796652, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+    type: 3}
+  m_PrefabInstance: {fileID: 307403186}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &850982752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 600268465557183985, guid: 660c1ddcdfa77a342acca5d8f41ad301,
@@ -21236,7 +21230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff87ef0c8e8f3641b92b0cfb7734ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementController: {fileID: 307403187}
+  rigidBody: {fileID: 849435036}
   speedText: {fileID: 2034801774}
   barFill: {fileID: 770022392}
 --- !u!1001 &1816880706

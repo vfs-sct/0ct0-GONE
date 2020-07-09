@@ -1,10 +1,11 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class speedometer : MonoBehaviour
 {
-    [SerializeField] MovementController movementController = null;
+    [SerializeField] Rigidbody rigidBody = null;
     [SerializeField] private TextMeshProUGUI speedText = null;
     [SerializeField] private Image barFill = null;
 
@@ -12,15 +13,26 @@ public class speedometer : MonoBehaviour
     private float speed;
     // Start is called before the first frame update
     void Start()
-    {
-        spaceMovement = movementController.MovementModes[0];
+    { 
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        speed = spaceMovement.GetSpeed();
-        speedText.SetText($"Speed: {speed}km");
+        speed = rigidBody.velocity.magnitude;
+        if (speed < 10)
+        {
+            speedText.SetText($"Speed: {Math.Round(speed, 1)}km/s");
+        }
+        else if(speed > 100)
+        {
+            speedText.SetText($"Speed: FAST!!");
+        }
+        else
+        {
+            speedText.SetText($"Speed: {Math.Round(speed, 0)}km/s");
+        }
         barFill.fillAmount = speed / 100;
     }
 }

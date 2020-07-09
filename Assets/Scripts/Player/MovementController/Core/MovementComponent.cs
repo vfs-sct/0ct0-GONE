@@ -18,11 +18,6 @@ public abstract class MovementComponent : ScriptableObject
 
     public virtual void Initialize(MovementController Controller){}
 
-    public float GetSpeed()
-    {
-        return TargetVelocityLocal.magnitude;
-    }
-
     protected Vector3 VectorToLocalSpace(MovementController Controller,Vector3 InputVector)
     {
         Vector3 LocalVector = new Vector3();
