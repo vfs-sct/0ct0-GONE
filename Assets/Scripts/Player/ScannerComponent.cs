@@ -51,6 +51,11 @@ public class ScannerComponent : MonoBehaviour
             if (SalvageComp != null && !ScanResults.ContainsKey(hitColliders[i].gameObject))
             {
                 MeshRenderer TempRender = hitColliders[i].GetComponentInChildren<MeshRenderer>();
+                if(TempRender == null)
+                {
+                    Debug.Log($"Mesh Renderer missing on {SalvageComp}");
+                    return;
+                }
                 ScanResults.Add(hitColliders[i].gameObject,new SalvageRenderData(TempRender.material,TempRender,TempRender.material.color,SalvageComp));
                 ScanKeys.Add(hitColliders[i].gameObject);
             }
