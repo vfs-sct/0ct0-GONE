@@ -226,13 +226,17 @@ public class Codex : MonoBehaviour
                 playButton.onClick.RemoveAllListeners();
                 playButton.onClick.AddListener(() =>
                 {
+                    //EVAN
+                    //type the names of the events in the serialized field on Codex in the UI and
+                    //clips should be automatically associated with the correct entry (hopefully lol)
                     soundScript.OnClickPlayDialogue(audioLogFile[audioLog]);
                 });
 
                 stopButton.onClick.RemoveAllListeners();
                 stopButton.onClick.AddListener(() =>
                 {
-                    //STOP SOUND FUNCTION
+                    //EVAN
+                    //stop sound function
                     //soundScript.OnClickPlayDialogue(audioLogFile[audioLog]);
                 });
 
