@@ -13,7 +13,7 @@ public class AkStateManager : AkManager
         {
             if(isValidTag(other.tag) && !isInsideTriggerBox)
             {
-                Debug.Log("Triggered The Threat State");
+                //Debug.Log("Triggered The Threat State");
                 isInsideTriggerBox = true;
                 foreach (var akState in akStatesEnter)
                 {
@@ -29,7 +29,7 @@ public class AkStateManager : AkManager
         {
             if(isValidTag(other.tag ) && isInsideTriggerBox)
             {
-                Debug.Log("Exited The Threat State");
+                //Debug.Log("Exited The Threat State");
                 isInsideTriggerBox = false;
                 foreach (var akState in akStatesExit)
                 {

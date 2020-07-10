@@ -11,14 +11,6 @@ public class ObjectivePanel : MonoBehaviour
     [SerializeField] public TextMeshProUGUI header = null;
     [SerializeField] public GameHUD gameHUD = null;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        //var newHeader = Instantiate(defaultObjectiveText);
-        //gameHUD.objectiveText.Add(newHeader.GetComponentInChildren<TextMeshProUGUI>());
-        //newHeader.transform.SetParent(contentGroup.transform);
-    }
-
     public void UpdateObjective(int index, string newText)
     {
         gameHUD.objectiveText[index].SetText(newText);
@@ -29,10 +21,14 @@ public class ObjectivePanel : MonoBehaviour
         //make sure objectives are on
         this.gameObject.SetActive(true);
 
-        //create a new text box and add it
+        //create a new text box and add it to the objective panel
         var newHeader = Instantiate(defaultObjectiveText);
-        gameHUD.objectiveText.Add(newHeader.GetComponentInChildren<TextMeshProUGUI>());
         newHeader.transform.SetParent(contentGroup.transform);
+
+        //set and save the text
+        var headerText = newHeader.GetComponentInChildren<TextMeshProUGUI>();
+        gameHUD.objectiveText.Add(headerText);
+        headerText.SetText(objectiveText);
         
         //adjust the background to fit the new number of text boxes
         var sizeDelta = backgroundPanel.GetComponent<RectTransform>().sizeDelta;
@@ -45,7 +41,7 @@ public class ObjectivePanel : MonoBehaviour
         //remove all of the textboxes
         foreach(var text in gameHUD.objectiveText)
         {
-            Destroy(text);
+            Destroy(text.gameObject);
         }
         gameHUD.objectiveText.Clear();
 

@@ -49,10 +49,11 @@ public class GetItemEvent : Event
         }
 
         //todo update widget
-        ObjectivePopup(false);
+        ObjectivePopup(isFirstEvent);
+        Debug.Log("EVENT CONDITION MET");
+        CodexProgression();
         UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
         Inventory = null;
-        Debug.Log("EVENT CONDITION MET");
         return true;
     }
 
@@ -61,12 +62,19 @@ public class GetItemEvent : Event
         UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePopUp.SetObjectiveText(isFirst);
     }
 
+    private void CodexProgression()
+    {
+        UIRootModule.UIRoot.GetScreen<Codex>().UnlockNextEntry();
+    }
+
     protected override void Effect(GameObject target)
     {
         
     }
     override public void InitializeEvent()
     {
+        Debug.Log("EVENT" + this.name);
+
         Inventory = Playstate.ActivePlayer.GetComponent<InventoryController>(); //TODO If we add respawning this will break!
 
         //objective text

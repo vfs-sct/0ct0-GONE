@@ -20,6 +20,7 @@ public class GetResourceEvent : Event
     {
         if(isInitialized == true)
         {
+            Debug.Log("EVENT" + this.name);
             //start amount
             previousAmount = target.GetComponent<InventoryController>().GetResourceAmount(CollectResource);
 
@@ -72,7 +73,7 @@ public class GetResourceEvent : Event
             //quest complete?
             if (totalAdded >= ResourceAmount)
             {
-                ObjectivePopup(false);
+                ObjectivePopup(isFirstEvent);
                 Debug.Log("EVENT CONDITION MET");
                 EventTrigger = true;
                 CodexProgression();

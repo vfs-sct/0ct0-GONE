@@ -134,10 +134,10 @@ public class CommunicationModule : Module
         if (PlayerObject == null) return;//don't run checks if there is no linked player!
         CommunicationUpdate();
 
-        if (!PlayerInRange)
-        {
-            Debug.Log("Left Comm range");
-        }
+        //if (!PlayerInRange)
+        //{
+        //    Debug.Log("Left Comm range");
+        //}
         if (!PlayerInRange && OnLoseConnection != null)
         {
             OnLoseConnection(NearestRelay);

@@ -17,6 +17,7 @@ public class RefuelEvent : Event
     {
         if(isInitialized == true)
         {
+            Debug.Log("EVENT" + this.name);
             //playerinventory
             playerInventory = UIRootModule.UIRoot.player.GetComponent<ResourceInventory>();
             
