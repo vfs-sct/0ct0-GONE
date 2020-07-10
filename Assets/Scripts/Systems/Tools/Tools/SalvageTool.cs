@@ -8,7 +8,7 @@ public class SalvageTool : Tool
         //Debug.Log(target);
         if (target != null && target.GetComponent<Salvagable>() != null)
         {
-            Debug.Log("Salvage Found");
+            //Debug.Log("Salvage Found");
             return true;
         }
         return false;
@@ -31,7 +31,7 @@ public class SalvageTool : Tool
         {
             if (owner.PlayerInventory.AddToResourceBucket(SalvComp.SalvageItem,SalvComp.Amount))
             {
-                Debug.Log(owner.PlayerInventory.GetResourceAmount(SalvComp.SalvageItem.ResourceType));
+                //Debug.Log(owner.PlayerInventory.GetResourceAmount(SalvComp.SalvageItem.ResourceType));
                 Destroy(target);
                 //resource gained pop text
                 Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");

@@ -55,7 +55,7 @@ public class RepairableComponent : MonoBehaviour
             if (ComponentData.amount > itemInventory.GetItemBucket()[0].Bucket[ComponentData.item]) return false;
             
         }
-        if (resourceInventory.GetResource(GoGlueResourceName) < GooGluePerRepairCycle*(TimeToRepair/RepairTickrate)) return false;
+        //if (resourceInventory.GetResource(GoGlueResourceName) < GooGluePerRepairCycle*(TimeToRepair/RepairTickrate)) return false;
         if (_RepairPercentage >=  1) 
             {
                 CompleteRepair(parent);

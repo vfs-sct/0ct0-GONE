@@ -271,7 +271,8 @@ public class Player : MonoBehaviour
         if (mouseCollision != null)
         {
             //Debug.Log($"CRAFT COLLISION: {mouseCollisionRoot.tag}, {mouseCollisionRoot.name}");
-            Debug.Log(mouseCollision);
+            //Debug.Log(mouseCollision);
+            
             //can craft only at station
             if(mouseCollisionRoot.tag == "Station")
             {
