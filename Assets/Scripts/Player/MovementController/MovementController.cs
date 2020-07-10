@@ -79,8 +79,7 @@ public class MovementController : MonoBehaviour
     {
         
         ScrollValue += value.Get<float>()* ScrollMult;
-        ScrollValue = Mathf.Clamp(ScrollValue,0,100);
-        Debug.Log(ScrollValue);
+        ScrollValue = Mathf.Clamp(ScrollValue,0.01f,100);
         _SetVelocityMax = _VelocityMax * (ScrollValue/100);
         ThrottleText.SetText(ScrollValue+ "%");
     }
