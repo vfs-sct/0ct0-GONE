@@ -30,7 +30,7 @@ public class RefuelEvent : Event
             {
                 var shortenCurrentAmount = (float)Math.Floor(currentAmount);
                 string objectiveUpdate = $"{shortenCurrentAmount}/{CollectResource.GetMaximum()} - {actionVerb} {CollectResource.DisplayName}";
-                UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
+                //UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
             }
 
             //quest complete?

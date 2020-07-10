@@ -39,7 +39,7 @@ public class GetResourceEvent : Event
             if (UIRootModule.UIRoot != null)
             {
                 string objectiveUpdate = $"{totalAdded}/{ResourceAmount} - {actionVerb} {CollectResource.DisplayName}";
-                UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
+                //UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
             }
 
             //exit early if no change

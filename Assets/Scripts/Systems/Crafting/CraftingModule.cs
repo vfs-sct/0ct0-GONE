@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Systems/Crafting/CraftingModule")]
 public class CraftingModule : Module
 {
+    //used for upgrades
+    [SerializeField] protected UIModule UIRootModule = null;
     [System.Serializable]
     public struct ItemRecipeData
     {
@@ -40,11 +42,6 @@ public class CraftingModule : Module
             Debug.LogError(ResourceInv);
             return false;
         }
-        //if(CraftRecipe.isUpgrade)
-        //{
-        //    //TODO: health upgrades
-        //    return false;
-        //}
 
         foreach (var itemIn in CraftRecipe.ItemInput)
         {
@@ -54,6 +51,11 @@ public class CraftingModule : Module
         foreach (var resIn in CraftRecipe.ResourceInput)
         {
             if (ResourceInv.GetResource(resIn.resource) < resIn.amount) return false;
+        }
+
+        if (CraftRecipe.isUpgrade)
+        {
+            return true;
         }
 
         var resource = CraftRecipe.Output;
@@ -197,9 +199,18 @@ public class CraftingModule : Module
 
         if(CraftRecipe.isUpgrade)
         {
-            CraftRecipe.Output.SetMaximum(CraftRecipe.OutputAmount);
+            Debug.Log("Before Amount: " + TargetInv.GetResource(CraftRecipe.Output));
+            if(CraftRecipe.Output.name == "Health")
+            {
+                UIRootModule.UIRoot.GetScreen<GameHUD>().healthUpgrade.Upgrade(CraftRecipe.OutputAmount);
+            }
+            if (CraftRecipe.Output.name == "Fuel")
+            {
+                UIRootModule.UIRoot.GetScreen<GameHUD>().fuelUpgrade.Upgrade(CraftRecipe.OutputAmount);
+            }
             //Add Resource already contains a clamp so resource cannot go over max
             TargetInv.AddResource(CraftRecipe.Output, CraftRecipe.Output.GetMaximum());
+            Debug.Log("After Amount: " + TargetInv.GetResource(CraftRecipe.Output));
         }
         else
         {

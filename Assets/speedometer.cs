@@ -9,13 +9,7 @@ public class speedometer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speedText = null;
     [SerializeField] private Image barFill = null;
 
-    private MovementComponent spaceMovement;
     private float speed;
-    // Start is called before the first frame update
-    void Start()
-    { 
-
-    }
 
     // Update is called once per frame
     void Update()
