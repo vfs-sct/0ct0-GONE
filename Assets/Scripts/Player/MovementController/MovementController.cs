@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class MovementController : MonoBehaviour
 {
@@ -32,15 +33,19 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float FuelPerImpulseUnit = 0.2f;
     [SerializeField] private float FuelPerTorqueUnit = 0.2f;
     [SerializeField] private float FuelEfficency = 100;
+    [SerializeField] private float ScrollMult = 0.05f;
+
+    [SerializeField] private TextMeshProUGUI ThrottleText;
     
     
     private float _VelocityMax;
+    private float _SetVelocityMax;
     public Vector3 Throttle = new Vector3();
-
-    private float PlayerVelocityMax;
 
   
     private float Mass;
+
+    private float ScrollValue = 100;
 
     [SerializeField] private PlayerCamera _CameraScript;
     public PlayerCamera CameraScript{get=>_CameraScript;}
@@ -70,6 +75,16 @@ public class MovementController : MonoBehaviour
         _RawInput.y = value.Get<float>();
     }
 
+    public void OnScroll(InputValue value)
+    {
+        
+        ScrollValue += value.Get<float>()* ScrollMult;
+        ScrollValue = Mathf.Clamp(ScrollValue,0,100);
+        Debug.Log(ScrollValue);
+        _SetVelocityMax = _VelocityMax * (ScrollValue/100);
+        ThrottleText.SetText(ScrollValue+ "%");
+    }
+
     private void NormalizeInputs()
     {
         _NormalizedInput = _RawInput.normalized;
@@ -85,7 +100,7 @@ public class MovementController : MonoBehaviour
         {
             _VelocityMax = VelocityMax;
         }
-        PlayerVelocityMax = _VelocityMax;
+        _SetVelocityMax = _VelocityMax;
         if (ThrottleSensitivity <=0) ThrottleSensitivity = 0.001f;//minimum throttle sensitivity that can be set
         Debug.Assert(_Rigidbody != null); //Assert if rigid body is undefined
 
@@ -114,12 +129,18 @@ public class MovementController : MonoBehaviour
 
     private void CoupledTranslate( Vector3 Input)
     {
-        TargetVelocityLocal = Input * _VelocityMax;
+        TargetVelocityLocal = Input * _SetVelocityMax;
     }
 
     private void CruiseTranslate(Vector3 Input)
     {
         TargetVelocityLocal += Input *ThrottleSensitivity;
+
+        for (int i = 0; i < 3; i++) //componentwise max speed clamp
+        {
+              TargetVelocityLocal[i] = Mathf.Clamp(TargetVelocityLocal[i], -_SetVelocityMax, _SetVelocityMax);
+        }
+      
     }
 
 

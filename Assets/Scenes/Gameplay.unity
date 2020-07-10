@@ -4010,6 +4010,21 @@ PrefabInstance:
       propertyPath: FuelPerTorqueUnit
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 489913433233796653, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: ScrollMult
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913433233796653, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: VelocityMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913433233796653, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: ThrottleText
+      value: 
+      objectReference: {fileID: 376850746}
     - target: {fileID: 489913433233796654, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_NeverAutoSwitchControlSchemes
@@ -14611,6 +14626,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8980068027599290612, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980068027599290612, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980068027599290612, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980068027599290612, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980068027599290612, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9035321235426639171, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -14998,6 +15038,18 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &376850746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1727934020827561144, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+    type: 3}
+  m_PrefabInstance: {fileID: 376850737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &377019143 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2449384593485234982, guid: 3219ccd55e0001b4c8703f7dc571d41e,
@@ -19514,17 +19566,17 @@ PrefabInstance:
     - target: {fileID: 8531906639975611766, guid: 6551bf64658a2064ab5f9db359e1a7bb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 146.88
+      value: 143.18
       objectReference: {fileID: 0}
     - target: {fileID: 8531906639975611766, guid: 6551bf64658a2064ab5f9db359e1a7bb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.89
+      value: -2.15
       objectReference: {fileID: 0}
     - target: {fileID: 8531906639975611766, guid: 6551bf64658a2064ab5f9db359e1a7bb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 309.12
+      value: 316.05
       objectReference: {fileID: 0}
     - target: {fileID: 8531906639975611766, guid: 6551bf64658a2064ab5f9db359e1a7bb,
         type: 3}
