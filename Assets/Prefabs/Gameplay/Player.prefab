@@ -182,12 +182,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NormalizeInput: 1
   ThrusterImpulse: 10
-  ThrusterTorque: 2.5
-  VelocityMax: -1
+  ThrusterTorque: 1.5
+  VelocityMax: 30
   ThrottleSensitivity: 1
   FuelPerImpulseUnit: 0.05
   FuelPerTorqueUnit: 0.05
   FuelEfficency: 100
+  ScrollMult: 0.05
+  ThrottleUI: {fileID: 0}
   Throttle: {x: 0, y: 0, z: 0}
   _CameraScript: {fileID: 0}
   _Rigidbody: {fileID: 489913433233796652}
@@ -214,7 +216,7 @@ MonoBehaviour:
   PlayerCamera: {fileID: 489913431673510643}
   EventModule: {fileID: 11400000, guid: e1c895b8e1e4ed04e90570c9d886c7fb, type: 2}
   TargetingDistance: 25
-  FuelResource: {fileID: 0}
+  FuelResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
   CameraScript: {fileID: 0}
   LinkedInventory: {fileID: 4701804487490555839}
   _ObjectHoldPosition: {fileID: 0}
