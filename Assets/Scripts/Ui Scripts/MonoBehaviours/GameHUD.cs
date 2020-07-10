@@ -18,6 +18,7 @@ public class GameHUD : MonoBehaviour
     [SerializeField] public ObjectivePopUp objectivePopUp = null;
     [SerializeField] public UpgradeBar healthUpgrade = null;
     [SerializeField] public UpgradeBar fuelUpgrade = null;
+    [SerializeField] public ObjectivePanel objectivePanel = null;
 
     [Header("Tools")]
     [SerializeField] ToolController playerTools = null;

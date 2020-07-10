@@ -20,7 +20,15 @@ public class GetResourceEvent : Event
     {
         if(isInitialized == true)
         {
+            //start amount
             previousAmount = target.GetComponent<InventoryController>().GetResourceAmount(CollectResource);
+
+            //objective text
+            UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
+            string objectiveUpdate = $"{totalAdded}/{ResourceAmount} - {actionVerb} {CollectResource.DisplayName}";
+            UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.AddObjective(objectiveUpdate);
+
+            //update state of event
             isUpdating = true;
             isInitialized = false;
         }
@@ -39,7 +47,7 @@ public class GetResourceEvent : Event
             if (UIRootModule.UIRoot != null)
             {
                 string objectiveUpdate = $"{totalAdded}/{ResourceAmount} - {actionVerb} {CollectResource.DisplayName}";
-                //UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
+                UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(0, objectiveUpdate);
             }
 
             //exit early if no change
@@ -64,9 +72,11 @@ public class GetResourceEvent : Event
             //quest complete?
             if (totalAdded >= ResourceAmount)
             {
+                ObjectivePopup(false);
                 Debug.Log("EVENT CONDITION MET");
                 EventTrigger = true;
                 CodexProgression();
+                UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
                 //reset the scriptableobject values
                 totalAdded = 0;
                 previousAmount = -1000f;
@@ -81,6 +91,11 @@ public class GetResourceEvent : Event
     public override void InitializeEvent()
     {
         isInitialized = true;
+    }
+
+    private void ObjectivePopup(bool isFirst)
+    {
+        UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePopUp.SetObjectiveText(isFirst);
     }
 
     private void CodexProgression()

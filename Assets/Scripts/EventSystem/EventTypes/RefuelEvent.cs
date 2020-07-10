@@ -17,8 +17,19 @@ public class RefuelEvent : Event
     {
         if(isInitialized == true)
         {
+            //playerinventory
             playerInventory = UIRootModule.UIRoot.player.GetComponent<ResourceInventory>();
+            
+            //tutorial
             UIRootModule.UIRoot.GetScreen<Tutorial>().FirstPrompt();
+
+            //objective text
+            UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
+            var shortenCurrentAmount = (float)Math.Floor(CollectResource.GetInstanceValue(playerInventory));
+            string objectiveUpdate = $"{shortenCurrentAmount}/{CollectResource.GetMaximum()} - {actionVerb} {CollectResource.DisplayName}";
+            UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.AddObjective(objectiveUpdate);
+            
+            //state of event
             isUpdating = true;
             isInitialized = false;
         }
@@ -30,7 +41,7 @@ public class RefuelEvent : Event
             {
                 var shortenCurrentAmount = (float)Math.Floor(currentAmount);
                 string objectiveUpdate = $"{shortenCurrentAmount}/{CollectResource.GetMaximum()} - {actionVerb} {CollectResource.DisplayName}";
-                //UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
+                UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(0, objectiveUpdate);
             }
 
             //quest complete?
@@ -41,6 +52,7 @@ public class RefuelEvent : Event
                 Debug.Log("EVENT CONDITION MET");
                 EventTrigger = true;
                 CodexProgression();
+                UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
                 //reset the scriptableobject values
                 playerInventory = null;
                 isInitialized = false;
