@@ -181,7 +181,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Environment.wwu
     guid: e2e00994021ec5448e7eae839c8e59ed
     GuidInternal: 
-    m_lastTime: -8586090944103102464
+    m_lastTime: -8586072968584775808
     List:
     - name: Asteroid_Collision
       guid: a20f3376e4f6c148937981d5812cceb0
@@ -199,9 +199,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: Asteroid_Moving
+    - name: Asteroid_Moving_Play
       guid: 7bd52ddce36cb947afb6bf9680620454
-      id: 376042431
+      id: 1880505272
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -209,9 +209,25 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Environmental
         ObjectType: 12
-      - ElementName: Asteroid_Moving
+      - ElementName: Asteroid_Moving_Play
         ObjectType: 3
-      Path: Octo_Main\Environment\Environmental\Asteroid_Moving
+      Path: Octo_Main\Environment\Environmental\Asteroid_Moving_Play
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
+    - name: Asteroid_Moving_Stop
+      guid: 7726345d51b99944bd82927a288e2ffc
+      id: 4252952586
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Asteroid_Moving_Stop
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Asteroid_Moving_Stop
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -343,6 +359,38 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Leave_Comm_Play
+      guid: c7408c1efb075c4fa9348bf1662a071c
+      id: 4167846034
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Leave_Comm_Play
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Leave_Comm_Play
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Leave_Comm_Stop
+      guid: 729b307307871c4e852ccf06fa1f18bd
+      id: 1584436236
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Leave_Comm_Stop
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Leave_Comm_Stop
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Metal_Collision
       guid: 0b7204e969ae9443940b135432007b5f
       id: 1341439083
@@ -356,6 +404,38 @@ MonoBehaviour:
       - ElementName: Metal_Collision
         ObjectType: 3
       Path: Octo_Main\Environment\Environmental\Metal_Collision
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Metal_Moving_Play
+      guid: 189b2752210a694ab7845493fae1a633
+      id: 1006438764
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Metal_Moving_Play
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Metal_Moving_Play
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
+    - name: Metal_Moving_Stop
+      guid: e21fe114872b7b45a0d8b9b5f250b5ac
+      id: 2976223350
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Environmental
+        ObjectType: 12
+      - ElementName: Metal_Moving_Stop
+        ObjectType: 3
+      Path: Octo_Main\Environment\Environmental\Metal_Moving_Stop
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -799,7 +879,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Characters.wwu
     guid: f634a635af0cc44cb82677937ae1b49a
     GuidInternal: 
-    m_lastTime: -8586080582858558100
+    m_lastTime: -8586074198294775808
     List:
     - name: Complete_Objective
       guid: 3f1ebf0eeb5f854bad04bcbec4244fed
@@ -981,6 +1061,24 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.794667
       minDuration: 1.781333
+    - name: Octo_Fuel_Latch
+      guid: 8f378564bc5c6445a2e59086dfc75c84
+      id: 488351568
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_Fuel_Latch
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_Fuel_Latch
+      maxAttenuation: 0
+      maxDuration: 0.900896
+      minDuration: 0.900896
     - name: Octo_GooGlue
       guid: f96c4d291f2fac479f0fe864aa693e1e
       id: 269952755
@@ -997,8 +1095,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Characters\Octo\SFX\Octo_GooGlue
       maxAttenuation: 0
-      maxDuration: 1.237333
-      minDuration: 1.237333
+      maxDuration: 0.842667
+      minDuration: 0.842667
     - name: Octo_Grab
       guid: 0549e01b7a318743814c19dbda393914
       id: 2765733061
@@ -1511,7 +1609,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Environment.wwu
     guid: 001220ee6376c9419a2982aa893f2257
     GuidInternal: 
-    m_lastTime: -8586090944083933868
+    m_lastTime: -8586074222634775808
     List:
     - name: Communications_Array_Play
       guid: 5383a836cb190343b222608847f64f94
@@ -1545,9 +1643,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: Fuel_Restoration
+    - name: Fuel_Restoration_Play
       guid: bf88d9b05278614ebb21386b2ae8d6a4
-      id: 678929340
+      id: 1909110237
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -1555,12 +1653,28 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Satellite
         ObjectType: 12
-      - ElementName: Fuel_Restoration
+      - ElementName: Fuel_Restoration_Play
         ObjectType: 3
-      Path: Octo_Main\Environment\Satellite\Fuel_Restoration
+      Path: Octo_Main\Environment\Satellite\Fuel_Restoration_Play
       maxAttenuation: 0
-      maxDuration: 22.52975
-      minDuration: 22.52975
+      maxDuration: -1
+      minDuration: -1
+    - name: Fuel_Restoration_Stop
+      guid: b351c9dedd2d404194a0830948ab9ad6
+      id: 4094849099
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Fuel_Restoration_Stop
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Fuel_Restoration_Stop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Satellite_Component
       guid: 1952b8583f1df94c97cb7986b7be0052
       id: 1580704404
@@ -1840,8 +1954,26 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: cb8b8ab241089f479f32a560a1e5b2a3
     GuidInternal: 
-    m_lastTime: -8586090944238421676
+    m_lastTime: -8586074231194775808
     List:
+    - name: DistanceDoppler
+      guid: e4d423f4f0d342408054edf7431885e5
+      id: 660139836
+      PathAndIcons:
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: DistanceDoppler
+        ObjectType: 13
+      Path: Octo\DistanceDoppler
+    - name: fuel
+      guid: badbffc3fa592846bd35649756fd7bca
+      id: 2661514705
+      PathAndIcons:
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: fuel
+        ObjectType: 13
+      Path: Octo\fuel
     - name: ThrusterImpulse
       guid: ac54fd2b5b86ef438b4d8250ed545ee3
       id: 1095169091
