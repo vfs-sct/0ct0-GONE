@@ -35,7 +35,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float FuelEfficency = 100;
     [SerializeField] private float ScrollMult = 0.05f;
 
-    [SerializeField] private TextMeshProUGUI ThrottleText;
+    [SerializeField] private Throttle ThrottleUI;
     
     
     private float _VelocityMax;
@@ -81,7 +81,7 @@ public class MovementController : MonoBehaviour
         ScrollValue += value.Get<float>()* ScrollMult;
         ScrollValue = Mathf.Clamp(ScrollValue,5,100);
         _SetVelocityMax = _VelocityMax * (ScrollValue/100);
-        ThrottleText.SetText(ScrollValue+ "%");
+        ThrottleUI.UpdateUI(ScrollValue, _SetVelocityMax); 
     }
 
     private void NormalizeInputs()
@@ -100,6 +100,8 @@ public class MovementController : MonoBehaviour
             _VelocityMax = VelocityMax;
         }
         _SetVelocityMax = _VelocityMax;
+        //used to get the starting maxvelocity - do not alter max velocity
+        ThrottleUI.SetMaxVelocity(_VelocityMax);
         if (ThrottleSensitivity <=0) ThrottleSensitivity = 0.001f;//minimum throttle sensitivity that can be set
         Debug.Assert(_Rigidbody != null); //Assert if rigid body is undefined
 

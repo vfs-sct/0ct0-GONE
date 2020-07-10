@@ -31,6 +31,6 @@ public class speedometer : MonoBehaviour
         {
             speedText.SetText($"Speed: {Math.Round(speed, 0)}m/s");
         }
-        barFill.fillAmount = speed / 100;
+        barFill.fillAmount = speed / 30;
     }
 }
