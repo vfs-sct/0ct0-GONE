@@ -305,6 +305,8 @@ public class Crafting : MonoBehaviour
     }
     public void UpdateTimer()
     {
+        //EVAN - a little timer dial pops up and might need a sound for when it's filling
+        //if you click & hold something to craft you'll see it
         if (craftTimer != 0)
         {
             timerDial.gameObject.SetActive(true);
@@ -344,6 +346,7 @@ public class Crafting : MonoBehaviour
 
     private void DoCraft()
     {
+        //EVAN - some sort of ding or "crafting complete!" sound
         CraftingModule.CraftItem(shipInventory, playerInventory, playerInventory, queuedRecipe);
         var poptext = Instantiate(popText);
         poptext.popText.SetText($"{queuedRecipe.DisplayName} crafted");

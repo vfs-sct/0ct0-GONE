@@ -145,6 +145,14 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Scroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""db377cda-cbc0-4855-816a-8afe25fb9220"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -431,6 +439,28 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""InventoryHotkey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce80aa32-e85d-4436-aa2c-1b52a5f7b062"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee412187-1354-4d2b-844e-82375ca0317f"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1100,6 +1130,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         m_Player_ScanSalvage = m_Player.FindAction("ScanSalvage", throwIfNotFound: true);
         m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
         m_Player_InventoryHotkey = m_Player.FindAction("InventoryHotkey", throwIfNotFound: true);
+        m_Player_Scroll = m_Player.FindAction("Scroll", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1181,6 +1212,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_ScanSalvage;
     private readonly InputAction m_Player_Roll;
     private readonly InputAction m_Player_InventoryHotkey;
+    private readonly InputAction m_Player_Scroll;
     public struct PlayerActions
     {
         private @OctoGoneControls m_Wrapper;
@@ -1201,6 +1233,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         public InputAction @ScanSalvage => m_Wrapper.m_Player_ScanSalvage;
         public InputAction @Roll => m_Wrapper.m_Player_Roll;
         public InputAction @InventoryHotkey => m_Wrapper.m_Player_InventoryHotkey;
+        public InputAction @Scroll => m_Wrapper.m_Player_Scroll;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1258,6 +1291,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @InventoryHotkey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryHotkey;
                 @InventoryHotkey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryHotkey;
                 @InventoryHotkey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventoryHotkey;
+                @Scroll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
+                @Scroll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
+                @Scroll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1310,6 +1346,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @InventoryHotkey.started += instance.OnInventoryHotkey;
                 @InventoryHotkey.performed += instance.OnInventoryHotkey;
                 @InventoryHotkey.canceled += instance.OnInventoryHotkey;
+                @Scroll.started += instance.OnScroll;
+                @Scroll.performed += instance.OnScroll;
+                @Scroll.canceled += instance.OnScroll;
             }
         }
     }
@@ -1514,6 +1553,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         void OnScanSalvage(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnInventoryHotkey(InputAction.CallbackContext context);
+        void OnScroll(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

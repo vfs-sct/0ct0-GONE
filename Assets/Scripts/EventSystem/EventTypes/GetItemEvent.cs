@@ -16,11 +16,14 @@ public class GetItemEvent : Event
     [Header("References")]
     [SerializeField] private CraftingModule _CraftingModule;
     [SerializeField] private Playing Playstate;
+    [SerializeField] protected UIModule UIRootModule = null;
     private InventoryController Inventory;
 
 
     public override bool Condition(GameObject target)
     {
+        string objectiveUpdate = $"0/1 - {actionVerb} {Items[0]}";
+        UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
         foreach (var itemData in Items)
         {
             if (!Inventory.CheckIfItemBucket()) return false;
@@ -31,8 +34,16 @@ public class GetItemEvent : Event
         {
             if (Inventory.GetItemBucket()[0].Bucket[itemData.item] < itemData.amount) return false;
         }
+        objectiveUpdate = $"1/1 - {actionVerb} {Items[0]}";
+        UIRootModule.UIRoot.GetScreen<GameHUD>().SetObjectiveText(objectiveUpdate);
         //todo update widget
+        ObjectivePopup(false);
         return true;
+    }
+
+    private void ObjectivePopup(bool isFirst)
+    {
+        UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePopUp.SetObjectiveText(isFirst);
     }
 
     protected override void Effect(GameObject target)

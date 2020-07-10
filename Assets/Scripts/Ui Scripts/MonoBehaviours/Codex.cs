@@ -216,6 +216,8 @@ public class Codex : MonoBehaviour
         //Buttons have a built-in "onClick" function and we'll add a listener to wait for the player to click the button to pop up our codex entry text.
         newButton.GetComponent<Button>().onClick.AddListener(() =>
         {
+            //EVAN - not sure if buttons need a click sound here or if thats done in editor
+            
             //Use the dictionary key to set the entry title
             entryTitleText.SetText(buttonText);
             //Use the dictionary key to get the dictionary value, then set the body text
@@ -226,6 +228,9 @@ public class Codex : MonoBehaviour
                 playButton.onClick.RemoveAllListeners();
                 playButton.onClick.AddListener(() =>
                 {
+                    //EVAN - not sure if buttons need a click sound here or if thats done in editor
+
+
                     //EVAN
                     //type the names of the events in the serialized field on Codex in the UI and
                     //clips should be automatically associated with the correct entry (hopefully lol)
@@ -235,6 +240,9 @@ public class Codex : MonoBehaviour
                 stopButton.onClick.RemoveAllListeners();
                 stopButton.onClick.AddListener(() =>
                 {
+                    //EVAN - not sure if buttons need a click sound here or if thats done in editor
+
+
                     //EVAN
                     //stop sound function
                     //soundScript.OnClickPlayDialogue(audioLogFile[audioLog]);

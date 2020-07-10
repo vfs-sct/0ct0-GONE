@@ -29,6 +29,7 @@ public class CraftRange : MonoBehaviour
         }
         else
         {
+            //EVAN - craft menu open sound
             Player.GetComponent<InventoryController>().OffloadSalvage(CraftingStation.GetComponentInParent<ResourceInventory>());
             CraftingPrefab.gameObject.SetActive(true);
             GameManager.Pause();
