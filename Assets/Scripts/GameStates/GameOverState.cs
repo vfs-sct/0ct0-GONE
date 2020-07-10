@@ -20,7 +20,7 @@ public class GameOverState : GameState
         if (PlayingState.ActivePlayer == null) return false; //Do not go to gameover if the player is null, Prevents error spam
         if (CurrentState.GetType() != typeof(Playing)) return false; //do not go to game over if we aren't playing
         return (
-            (PlayingState.ActivePlayer.Inventory.GetResource(FuelResource) == 0) //check if the player is out of fuel
+            (PlayingState.ActivePlayer.Inventory.GetResource(FuelResource) <= 0) //check if the player is out of fuel
             || ((!RelayController.InRange)) //check if the player is out of range
             );
     }
