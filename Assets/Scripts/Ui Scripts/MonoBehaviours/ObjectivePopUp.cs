@@ -26,10 +26,10 @@ public class ObjectivePopUp : MonoBehaviour
     {
         "Refuel at the station",
         "Salvage Iron Debris",
-        "",
-        "",
-        "",
-        "",
+        "Craft a Motor at the station",
+        "Salvage Silicon",
+        "Repair Solar Panels",
+        "Salvage Silicon",
         "",
         "",
     };

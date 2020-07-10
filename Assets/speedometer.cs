@@ -23,7 +23,7 @@ public class speedometer : MonoBehaviour
         speed = rigidBody.velocity.magnitude;
         if (speed < 10)
         {
-            speedText.SetText($"Speed: {Math.Round(speed, 1)}km/s");
+            speedText.SetText($"Speed: {Math.Round(speed, 1)}m/s");
         }
         else if(speed > 100)
         {
@@ -31,7 +31,7 @@ public class speedometer : MonoBehaviour
         }
         else
         {
-            speedText.SetText($"Speed: {Math.Round(speed, 0)}km/s");
+            speedText.SetText($"Speed: {Math.Round(speed, 0)}m/s");
         }
         barFill.fillAmount = speed / 100;
     }
