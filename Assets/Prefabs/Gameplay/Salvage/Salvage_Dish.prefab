@@ -50,7 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _SalvageItem: {fileID: 11400000, guid: 91464311b6bbe9347a6c035e08dcfda2, type: 2}
   _Amount: 1
-  respawnGO: {fileID: 1049115481071579171}
 --- !u!135 &1177146424779885327
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -122,6 +121,31 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 71279354f98f4e54abe1eed9c227e3ff, type: 2}
+    - target: {fileID: -8660778120647677626, guid: 7fa09f6d8bb792c449ec567ce2fd2669,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8660778120647677626, guid: 7fa09f6d8bb792c449ec567ce2fd2669,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8660778120647677626, guid: 7fa09f6d8bb792c449ec567ce2fd2669,
+        type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8660778120647677626, guid: 7fa09f6d8bb792c449ec567ce2fd2669,
+        type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8660778120647677626, guid: 7fa09f6d8bb792c449ec567ce2fd2669,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7fa09f6d8bb792c449ec567ce2fd2669,
         type: 3}
       propertyPath: m_LocalPosition.x
