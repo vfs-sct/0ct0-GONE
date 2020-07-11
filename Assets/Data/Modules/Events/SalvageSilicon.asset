@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46aa48022f31ab940bea6f10eb96a451, type: 3}
-  m_Name: SalvageIron
+  m_Name: SalvageSilicon
   m_EditorClassIdentifier: 
-  EventName: Salvage Iron
+  EventName: Salvage Silicon
   isFirstEvent: 1
   progressesStory: 0
   EventEffects: []
-  CollectResource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
-  ResourceAmount: 100
+  CollectResource:
+  - {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
+  CollectAmount:
+  - 50
   actionVerb: Salvage
   UIRootModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
