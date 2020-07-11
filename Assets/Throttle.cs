@@ -12,13 +12,13 @@ public class Throttle : MonoBehaviour
     public void SetMaxVelocity(float maxVel)
     {
         maxVelocity = maxVel;
-        Debug.Log($"Starting MaxVel is {maxVelocity}");
+        //Debug.Log($"Starting MaxVel is {maxVelocity}");
     }
 
     public void UpdateUI(float throttle, float newVelMax)
     {
         throttleText.SetText($"Throttle: {throttle}%");
         barFill.fillAmount = 1 - (newVelMax / maxVelocity);
-        Debug.Log($"Max Velocity is {maxVelocity}//Throttled Max is {newVelMax}/n/n{newVelMax / maxVelocity}");
+        //Debug.Log($"Max Velocity is {maxVelocity}//Throttled Max is {newVelMax}/n/n{newVelMax / maxVelocity}");
     }
 }
