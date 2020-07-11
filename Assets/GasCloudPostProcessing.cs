@@ -3,6 +3,8 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class GasCloudPostProcessing : MonoBehaviour
 {
+    [SerializeField] GameObject parent = null;
+
     [Header("Animatable Components")]
     [SerializeField] PostProcessVolume post;
 
@@ -22,15 +24,7 @@ public class GasCloudPostProcessing : MonoBehaviour
     private bool isDisabling = false;
     private bool isEnabling = false;
 
-    private enum FlashType
-    {
-        //flash in
-        fIn = 1,
-        //flash out
-        fOut = -1,
-    }
-
-    private FlashType flash = FlashType.fOut;
+    private GameObject warningPanel;
 
     void Awake()
     {
@@ -47,8 +41,10 @@ public class GasCloudPostProcessing : MonoBehaviour
         isEnabling = true;
     }
 
-    public void Disable()
+    public void Disable(GameObject WarningPanel)
     {
+        warningPanel = WarningPanel;
+        isEnabling = false;
         isDisabling = true;
     }
 
@@ -66,49 +62,18 @@ public class GasCloudPostProcessing : MonoBehaviour
 
     private void Disabling()
     {
-        chromAb.intensity.value = Mathf.Lerp(chromAb.intensity.value, chromAbMax, Time.deltaTime * 1f / flashSpeed);
-        vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, vigMax, Time.deltaTime * 1f / flashSpeed);
-        colorgrad.colorFilter.value = Color.Lerp(colorgrad.colorFilter.value, colorgradMax, Time.deltaTime * 1f / flashSpeed);
+        //Debug.LogWarning("DISABLING IS HAPPENING");
+        chromAb.intensity.value = Mathf.Lerp(chromAb.intensity.value, chromAbMin, Time.deltaTime * 1f / (flashSpeed / 2));
+        vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, vigMin, Time.deltaTime * 1f / (flashSpeed / 2));
+        colorgrad.colorFilter.value = Color.Lerp(colorgrad.colorFilter.value, colorgradMin, Time.deltaTime * 1f / (flashSpeed / 2));
 
-        if (chromAb.intensity.value <= chromAbMax + 0.04f)
+        if (chromAb.intensity.value <= chromAbMin + 0.04f)
         {
             isDisabling = false;
-            gameObject.SetActive(false);
+            warningPanel.SetActive(false);  
+            parent.SetActive(false);
         }
     }
-
-    //private void Flash()
-    //{
-
-    //        CheckDirection(textColours[i].color.a, maxTextOpacity);
-    //        if (flash == FlashType.fIn)
-    //        {
-    //            endAlpha = maxTextOpacity;
-    //        }
-    //        else
-    //        {
-    //            endAlpha = minOpacity;
-    //        }
-
-    //        Color lerpToColor = new Color(textColours[i].color.r, textColours[i].color.g, textColours[i].color.b, endAlpha);
-
-    //        textColours[i].color = Color.Lerp(textColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
-    //    }
-    //}
-
-    //void CheckDirection(float opacity, float maxOpacity)
-    //{
-    //    //going toward 1, switches to going toward 0
-    //    if (flash == FlashType.fIn && opacity >= (maxOpacity - 0.1f))
-    //    {
-    //        flash = FlashType.fOut;
-    //    }
-    //    //going toward 0, switches to going toward 1
-    //    else if (flash == FlashType.fOut && opacity <= (minOpacity + 0.1f))
-    //    {
-    //        flash = FlashType.fIn;
-    //    }
-    //}
 
     // Update is called once per frame
     void Update()

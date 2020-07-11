@@ -12,7 +12,7 @@ public class EnterAreaWarning : MonoBehaviour
 
     [Header("Damage Per Second")]
     [SerializeField] public float dmgPerSecond;
-    private GameObject alert = null;
+    private ActivateWarning alert = null;
     private Player player;
 
     private ResourceInventory playerInventory;
@@ -23,7 +23,7 @@ public class EnterAreaWarning : MonoBehaviour
     {
         if (warningType == "GasCloud")
         {
-            alert = UIModule.UIRoot.GetScreen<GameHUD>().GasCloudAlertPrefab;
+            alert = UIModule.UIRoot.GetScreen<GameHUD>().GasCloudAlertPrefab.GetComponent<ActivateWarning>();
         }
         player = UIModule.UIRoot.player;
         playerInventory = UIModule.UIRoot.player.GetComponent<ResourceInventory>();
@@ -46,7 +46,7 @@ public class EnterAreaWarning : MonoBehaviour
         }
         else if (other.gameObject == player.gameObject)
         {
-            alert.SetActive(true);
+            alert.gameObject.SetActive(true);
             inGasCloud = true;
         }
     }
@@ -57,7 +57,7 @@ public class EnterAreaWarning : MonoBehaviour
     {
         if (other.gameObject == player.gameObject)
         {
-            alert.SetActive(false);
+            alert.DisableWarning();
             inGasCloud = false;
         }
     }
