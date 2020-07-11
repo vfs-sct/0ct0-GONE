@@ -9,7 +9,6 @@ using UnityEngine.EventSystems;
 public class InventoryV2 : MonoBehaviour
 {
     [SerializeField] UIAwake UIRoot = null;
-    [SerializeField] private InventoryController playerInventory = null;
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject ResourceBox = null;
     [SerializeField] HorizontalLayoutGroup RowOne = null;
@@ -25,6 +24,8 @@ public class InventoryV2 : MonoBehaviour
 
     [SerializeField] VerticalLayoutGroup[] inventoryVertRows = null;
 
+    private InventoryController playerInventory = null;
+    private Transform debrisDropPos;
     //association between a resource box and the resource it's displaying
     private Dictionary<Resource, GetObjectsResourceBox> ResourceBoxes = new Dictionary<Resource, GetObjectsResourceBox>();
 
@@ -83,7 +84,12 @@ public class InventoryV2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
+        if(UIRoot.GetPlayer() == null)
+        {
+            Debug.LogError("NULL PLAYER");
+            return;
+        }
+        //playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
         PopulateResources();
         UpdateAllChunks();
     }
@@ -102,11 +108,16 @@ public class InventoryV2 : MonoBehaviour
     {
         Cursor.visible = true;
         AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
-        UpdateAllChunks();
+        if(playerInventory == null)
+        {
+            playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
+            debrisDropPos = UIRoot.GetPlayer().GetComponentInChildren<SatelliteInventory>().SatelliteSpawnPos;
+        }
         if (playerInventory.CheckIfItemBucket())
         {
             PopulateItemInventory();
         }
+        UpdateAllChunks();
     }
 
     private void OnDisable()
@@ -177,8 +188,9 @@ public class InventoryV2 : MonoBehaviour
                                 kvp.Value.SetTooltip(k, item.Key.Name, chunkSize.ToString() + " Slots");
                                 kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
                                 {
-                                //Debug.Log("CHUNK CLICKED!");
-                                playerInventory.RemoveFromResourceBucket(item.Key);
+                                    //Debug.Log("CHUNK CLICKED!");
+                                    Instantiate(item.Key.RespawnGO).transform.position = debrisDropPos.position;
+                                    playerInventory.RemoveFromResourceBucket(item.Key);
                                     UpdateAllChunks();
                                 });
 

@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 7434593028492650845}
   - component: {fileID: 4417704602333966887}
   - component: {fileID: 7763794349229485787}
+  - component: {fileID: 4007548231895799775}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -431,6 +432,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RelayController: {fileID: 11400000, guid: 4b06e9352e2fd884dac2415878899387, type: 2}
   playerObj: {fileID: 489913433233796651}
+--- !u!114 &4007548231895799775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322fb7e40b5f762439e207f33cc1a360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinDamageSpeed: 7
+  DamageMultiplier: 1
+  _RigidBody: {fileID: 489913433233796652}
+  PlayerResourceInventory: {fileID: 4701804487490555839}
+  HealthResource: {fileID: 11400000, guid: 37f250fca4dc78744ad9bc639b903bf9, type: 2}
 --- !u!1 &3106491731949152684
 GameObject:
   m_ObjectHideFlags: 0
