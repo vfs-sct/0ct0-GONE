@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 
+//single instance of set warning is access by all warning types
 public class SetWarning : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI warningText = null;

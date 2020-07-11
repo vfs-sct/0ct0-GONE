@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 7434593028492650845}
   - component: {fileID: 4417704602333966887}
   - component: {fileID: 7763794349229485787}
+  - component: {fileID: 4007548231895799775}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -180,12 +181,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c858a506bdc2ca4bbb52124df036940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementModes:
-  - {fileID: 11400000, guid: fd5fca18eb6645f409cc0bab0c4b41b0, type: 2}
-  - {fileID: 11400000, guid: be83411f01f12af42828965a0a8aad1e, type: 2}
-  _CameraScript: {fileID: 0}
-  MovementMode: 0
   NormalizeInput: 1
+  ThrusterImpulse: 10
+  ThrusterTorque: 1.5
+  VelocityMax: 30
+  ThrottleSensitivity: 1
+  FuelPerImpulseUnit: 0.05
+  FuelPerTorqueUnit: 0.05
+  FuelEfficency: 100
+  ScrollMult: 0.05
+  ThrottleUI: {fileID: 0}
+  Throttle: {x: 0, y: 0, z: 0}
+  _CameraScript: {fileID: 0}
+  _Rigidbody: {fileID: 489913433233796652}
+  LinkedResourceBehavior: {fileID: 4701804487490555839}
+  FuelResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
 --- !u!114 &489913433233796650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +217,7 @@ MonoBehaviour:
   PlayerCamera: {fileID: 489913431673510643}
   EventModule: {fileID: 11400000, guid: e1c895b8e1e4ed04e90570c9d886c7fb, type: 2}
   TargetingDistance: 25
-  FuelResource: {fileID: 0}
+  FuelResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
   CameraScript: {fileID: 0}
   LinkedInventory: {fileID: 4701804487490555839}
   _ObjectHoldPosition: {fileID: 0}
@@ -422,6 +432,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RelayController: {fileID: 11400000, guid: 4b06e9352e2fd884dac2415878899387, type: 2}
   playerObj: {fileID: 489913433233796651}
+--- !u!114 &4007548231895799775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322fb7e40b5f762439e207f33cc1a360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinDamageSpeed: 7
+  DamageMultiplier: 1
+  _RigidBody: {fileID: 489913433233796652}
+  PlayerResourceInventory: {fileID: 4701804487490555839}
+  HealthResource: {fileID: 11400000, guid: 37f250fca4dc78744ad9bc639b903bf9, type: 2}
 --- !u!1 &3106491731949152684
 GameObject:
   m_ObjectHideFlags: 0

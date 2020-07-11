@@ -22,6 +22,8 @@ public class Item : ScriptableObject
     [SerializeField] private float _Mass;
     [SerializeField] private Resource _ResourceType;
     [SerializeField] private Recipe _CraftingRecipe;
+    [SerializeField] private GameObject _RespawnGO;
+
     public string Name{get =>_Name;}
     public Sprite Icon { get => _Icon; }
     public int Size{get =>_Size;}
@@ -30,4 +32,7 @@ public class Item : ScriptableObject
     public bool IsCraftable{get=> ItemType == EnumItemType.Craftable;}
     public Recipe CraftingRecipe{get=>_CraftingRecipe;}
     public Resource ResourceType{get=>_ResourceType;}
+
+    //used when the object is dropped from the inventory and spawned back into the world
+    public GameObject RespawnGO { get => _RespawnGO; }
 }

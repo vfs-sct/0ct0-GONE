@@ -8,12 +8,8 @@ public class speedometer : MonoBehaviour
     [SerializeField] Rigidbody rigidBody = null;
     [SerializeField] private TextMeshProUGUI speedText = null;
     [SerializeField] private Image barFill = null;
-    private float speed;
-    // Start is called before the first frame update
-    void Start()
-    { 
 
-    }
+    private float speed;
 
     // Update is called once per frame
     void Update()
@@ -31,6 +27,6 @@ public class speedometer : MonoBehaviour
         {
             speedText.SetText($"Speed: {Math.Round(speed, 0)}m/s");
         }
-        barFill.fillAmount = speed / 100;
+        barFill.fillAmount = speed / 30;
     }
 }

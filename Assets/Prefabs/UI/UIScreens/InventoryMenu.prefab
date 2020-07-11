@@ -712,6 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 131222010220008304}
   - component: {fileID: 8205830298064295117}
+  - component: {fileID: 6240565004742636574}
   m_Layer: 5
   m_Name: InventoryMenu
   m_TagString: Untagged
@@ -766,6 +767,37 @@ MonoBehaviour:
   inventoryVertRows:
   - {fileID: 6506569153762536173}
   - {fileID: 8772635670771765179}
+--- !u!114 &6240565004742636574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418933017553045202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: e082418dc9026be4887abb7b239dec4c,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &8493398344775217799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,6 +2025,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49687944cbbc2284e9245b52ca737de0, type: 3}
+--- !u!224 &4546952823097098172 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7663351562326736947, guid: 49687944cbbc2284e9245b52ca737de0,
+    type: 3}
+  m_PrefabInstance: {fileID: 6143952386500263823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4111553957460884247 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7803780131428517016, guid: 49687944cbbc2284e9245b52ca737de0,
@@ -2005,9 +2043,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4546952823097098172 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7663351562326736947, guid: 49687944cbbc2284e9245b52ca737de0,
-    type: 3}
-  m_PrefabInstance: {fileID: 6143952386500263823}
-  m_PrefabAsset: {fileID: 0}
