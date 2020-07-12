@@ -16,19 +16,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &2642037016130585821
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382493152344447474}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.009
-  m_Center: {x: 0, y: 0.013, z: 0}
 --- !u!136 &1185155989326680184
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -43,6 +30,33 @@ CapsuleCollider:
   m_Height: 0.012
   m_Direction: 1
   m_Center: {x: 0, y: 0.012, z: 0}
+--- !u!135 &2642037016130585821
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382493152344447474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.009
+  m_Center: {x: 0, y: 0.013, z: 0}
+--- !u!114 &676144867314637544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382493152344447474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbfc9dc3323e6442958f93ada007dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SalvageItem: {fileID: 11400000, guid: fb62e7b645ffe154dab2fe65fe685a47, type: 2}
+  _Amount: 1
 --- !u!114 &2618539211530977457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,20 +74,6 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 63df456d802c37d45ab8343304528447,
       type: 2}
---- !u!114 &676144867314637544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382493152344447474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cbfc9dc3323e6442958f93ada007dee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _SalvageItem: {fileID: 11400000, guid: fb62e7b645ffe154dab2fe65fe685a47, type: 2}
-  _Amount: 1
 --- !u!1 &2767867292494933302
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +279,31 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 48fddab5874dc76469de6db87c557a61, type: 2}
+    - target: {fileID: 5218053877760515484, guid: b9f73e56b256d314689b8a088cd436c0,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218053877760515484, guid: b9f73e56b256d314689b8a088cd436c0,
+        type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218053877760515484, guid: b9f73e56b256d314689b8a088cd436c0,
+        type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218053877760515484, guid: b9f73e56b256d314689b8a088cd436c0,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218053877760515484, guid: b9f73e56b256d314689b8a088cd436c0,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9f73e56b256d314689b8a088cd436c0, type: 3}
 --- !u!1 &8097224256515526603 stripped
@@ -390,6 +415,31 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 48fddab5874dc76469de6db87c557a61, type: 2}
+    - target: {fileID: 6306971017694268109, guid: 575a0197ddb71dc46a6684e7bfe0b354,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306971017694268109, guid: 575a0197ddb71dc46a6684e7bfe0b354,
+        type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306971017694268109, guid: 575a0197ddb71dc46a6684e7bfe0b354,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306971017694268109, guid: 575a0197ddb71dc46a6684e7bfe0b354,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306971017694268109, guid: 575a0197ddb71dc46a6684e7bfe0b354,
+        type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 575a0197ddb71dc46a6684e7bfe0b354, type: 3}
 --- !u!1 &1382493152344447474 stripped

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -6,28 +7,44 @@ using UnityEngine;
 public class GetResourceEvent : Event
 {
     private bool EventTrigger = false;
-    [SerializeField] Resource CollectResource;
-    [SerializeField] float ResourceAmount;
+    [SerializeField] public Resource[] CollectResource;
+    [SerializeField] public float[] CollectAmount;
     [SerializeField] public string actionVerb = "Salvage";
     [SerializeField] protected UIModule UIRootModule = null;
 
-    private float previousAmount = -1000f;
-    private float totalAdded;
+    private List<float> previousAmount = new List<float>();
+    private List<float> totalAdded = new List<float>();
     private bool isInitialized = false;
     private bool isUpdating = false;
 
     public override bool Condition(GameObject target)
     {
-        if(isInitialized == true)
-        {
-            Debug.Log("EVENT" + this.name);
-            //start amount
-            previousAmount = target.GetComponent<InventoryController>().GetResourceAmount(CollectResource);
+        var playerInventory = target.GetComponentInChildren<InventoryController>();
 
-            //objective text
+        if (isInitialized == true)
+        {
+            previousAmount.Clear();
+            totalAdded.Clear();
             UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
-            string objectiveUpdate = $"{totalAdded}/{ResourceAmount} - {actionVerb} {CollectResource.DisplayName}";
-            UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.AddObjective(objectiveUpdate);
+            Debug.Log("EVENT" + this.name);
+
+            for (int i = 0; i < CollectResource.Length; i++)
+            {
+                //start amounts
+                if (!playerInventory.CheckIfItemBucket())
+                {
+                    previousAmount.Add(0f);
+                }
+                else
+                {
+                    previousAmount.Add(playerInventory.GetResourceAmount(CollectResource[i]));
+                }
+                totalAdded.Add(0f);
+
+                //objective text
+                string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+                UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.AddObjective(objectiveUpdate);
+            }
 
             //update state of event
             isUpdating = true;
@@ -35,57 +52,83 @@ public class GetResourceEvent : Event
         }
         if (isUpdating == true)
         {
-            float currentAmount;
-            if (target.GetComponent<InventoryController>() != null)
-            {
-                currentAmount = target.GetComponent<InventoryController>().GetResourceAmount(CollectResource);
-            }
-            else
-            {
-                return false;
-            }
-            //TODO: this should really only be done when theres a change to the text
-            if (UIRootModule.UIRoot != null)
-            {
-                string objectiveUpdate = $"{totalAdded}/{ResourceAmount} - {actionVerb} {CollectResource.DisplayName}";
-                UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(0, objectiveUpdate);
-            }
-
-            //exit early if no change
-            if (currentAmount == previousAmount)
+            if(!playerInventory.CheckIfResourceBucket())
             {
                 return EventTrigger;
             }
-            else
+            //if they player hasnt collected enough of the resource, subtract from tally
+            int incompletedTally = 0;
+            for(int i = 0; i < CollectResource.Length; i++)
             {
-                //find out if the amount we have now is higher than the previous amount to see if any resource was added
-                var delta = (float)Math.Floor(currentAmount - previousAmount);
-                if (delta > 0)
+                //go to next loop early if resource collection is already complete
+                if (totalAdded[i] >= CollectAmount[i])
                 {
-                    //if resource was added, add to the total added amount
-                    totalAdded = totalAdded + delta;
+                    continue;
                 }
 
-                //update previous amount for next tick
-                previousAmount = currentAmount;
+                float currentAmount;
+                currentAmount = playerInventory.GetResourceAmount(CollectResource[i]);
+
+                //exit early if no change
+                //we already exited if the collection was complete so we know if there's no change here that they havent collected enough
+                if (currentAmount == previousAmount[i])
+                {
+                    incompletedTally++;
+                    if (UIRootModule.UIRoot != null)
+                    {
+                        string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+                        UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(i, objectiveUpdate);
+                    }
+                    previousAmount[i] = currentAmount;
+                    continue;
+                }
+                else
+                {
+                    //find out if the amount we have now is higher than the previous amount to see if any resource was added
+                    var delta = (float)Math.Floor(currentAmount - previousAmount[i]);
+                    if (delta > 0)
+                    {
+                        //if resource was added, add to the total added amount
+                        totalAdded[i] = totalAdded[i] + delta;
+                        if(totalAdded[i] <= CollectAmount[i])
+                        {
+                            incompletedTally++;
+                            if (UIRootModule.UIRoot != null)
+                            {
+                                string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+                                UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(i, objectiveUpdate);
+                            }
+                            previousAmount[i] = currentAmount;
+                            continue;
+                        }
+                    }
+
+                    //update previous amount for next tick
+                    previousAmount[i] = currentAmount;
+                }
+
+                //TODO: this should really only be done when theres a change to the text
+                if (UIRootModule.UIRoot != null)
+                {
+                    string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+                    UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(i, objectiveUpdate);
+                }
             }
 
             //quest complete?
-            if (totalAdded >= ResourceAmount)
+            if (incompletedTally == 0)
             {
                 ObjectivePopup(isFirstEvent);
                 Debug.Log("EVENT CONDITION MET");
                 EventTrigger = true;
                 CodexProgression();
                 UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
-                //reset the scriptableobject values
-                totalAdded = 0;
-                previousAmount = -1000f;
+                totalAdded.Clear();
+                previousAmount.Clear();
                 isInitialized = false;
                 isUpdating = false;
             }
         }
-
         return EventTrigger;
     }
 
@@ -102,6 +145,20 @@ public class GetResourceEvent : Event
     private void CodexProgression()
     {
         UIRootModule.UIRoot.GetScreen<Codex>().UnlockNextEntry();
+    }
+
+    private void UpdateObjectivePanel(int i)
+    {   
+        string objectiveUpdate;
+        if (UIRootModule.UIRoot != null)
+        {
+            objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+        }
+        else
+        {
+            objectiveUpdate = $"0/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+        }
+        UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(i, objectiveUpdate);
     }
 
     protected override void Effect(GameObject target)

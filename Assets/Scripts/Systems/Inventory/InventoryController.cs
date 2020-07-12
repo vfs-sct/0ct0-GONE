@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -106,6 +105,16 @@ public class InventoryController : MonoBehaviour
         if (ItemBuckets[0].Bucket == null || ItemBuckets[0].Bucket.Count == 0)
         {
             Debug.LogWarning("No item bucket");
+            return false;
+        }
+        return true;
+    }
+
+    public bool CheckIfResourceBucket()
+    {
+        if (ResourceBuckets == null || ResourceBuckets.Count == 0)
+        {
+            Debug.LogWarning("No resource bucket");
             return false;
         }
         return true;

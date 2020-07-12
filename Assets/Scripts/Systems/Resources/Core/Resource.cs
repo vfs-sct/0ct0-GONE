@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Systems/Resources/New Resource")]
 public class Resource : ScriptableObject

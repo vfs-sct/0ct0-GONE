@@ -12,6 +12,11 @@ public class SatelliteInventory : MonoBehaviour
 
     [SerializeField] private int SatelliteCapactiy = 1;
 
+    [Header("Tooltips")]
+    [SerializeField] public GameObject NoSatTooltip = null;
+    [SerializeField] public GameObject SatNotInCloud = null;
+    [SerializeField] public GameObject PlaceSat = null;
+
     public int Capacity {get=> SatelliteCapactiy;}
 
     public void RemoveSat(int index)
@@ -21,6 +26,33 @@ public class SatelliteInventory : MonoBehaviour
 
     public void SetSatellite(Satellite sat, int index = 0 )
     {
-        _StoredSatellites[index] = sat;
+        if (_StoredSatellites != null && index < _StoredSatellites.Count)
+        {
+            _StoredSatellites[index] = sat;
+        }
+        else
+        {
+            Debug.Log("Provided index invalid, creating new satellite list entry");
+            _StoredSatellites.Add(sat);
+        }
+    }
+
+    public Satellite GetSatellite()
+    {
+        //currently assumes satellite inventory remains 1
+        if(_StoredSatellites[0] != null)
+        {
+            return _StoredSatellites[0];
+        }
+        return null;
+    }
+
+    public bool CheckIfSat()
+    {
+        if(_StoredSatellites == null || _StoredSatellites.Count == 0)
+        {
+            return false;
+        }
+        return true;
     }
 }

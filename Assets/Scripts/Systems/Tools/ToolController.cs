@@ -86,8 +86,8 @@ public class ToolController : MonoBehaviour
     private void DeactiveTool_Internal()
     {
         CurrentToolIsActive = false;
-        if (CurrentTool == null) return;
         gameHUD.NoToolSelected();
+        if (CurrentTool == null) return;
         CurrentTool.Deactivate(this,_Target);
         
     }
@@ -106,7 +106,7 @@ public class ToolController : MonoBehaviour
     {
         if (CurrentToolIsActive)
         {
-            if (!CurrentTool.WhileActive(this,_Target))
+            if (CurrentTool == null || !CurrentTool.WhileActive(this,_Target))
             {
                 DeactiveTool_Internal();
                 return;

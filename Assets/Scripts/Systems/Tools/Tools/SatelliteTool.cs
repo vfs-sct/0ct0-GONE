@@ -1,22 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 
 [CreateAssetMenu(menuName = "Systems/Tools/Place Satellite")]
 public class SatelliteTool : Tool
 {
+    [SerializeField] EventModule EventModule = null;
     SatelliteInventory satInv;
     GameObject SatellitePreview;
     SatelliteBehavior SatBehavior;
 
-
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
         return (SatBehavior.PlacementConditionCheck(owner) &&(satInv.StoredSatellites[0] != null));
-        
-
     }
 
     protected override bool DeactivateCondition(ToolController owner, GameObject target)
@@ -36,6 +32,13 @@ public class SatelliteTool : Tool
         GameObject PlacedSat = GameObject.Instantiate(satInv.StoredSatellites[0].PlacePrefab);
         PlacedSat.transform.position = satInv.SatelliteSpawnPos.position;
         PlacedSat.transform.rotation = satInv.SatelliteSpawnPos.rotation;
+
+        if(EventModule.CurrentEvent.GetType() == typeof(CraftSatelliteEvent))
+        {
+            var craft_satellite_event = (CraftSatelliteEvent)EventModule.CurrentEvent;
+            craft_satellite_event.SatPlaced(satInv.StoredSatellites[0]);
+        }
+
         satInv.RemoveSat(0);
         owner.DeselectTool();
     }
@@ -48,6 +51,11 @@ public class SatelliteTool : Tool
     protected override void OnDeselect(ToolController owner)
     {
         Debug.Log("Satellite Tool DeSelected");
+        //turn off tooltips from satinv
+        satInv.NoSatTooltip.SetActive(false);
+        satInv.SatNotInCloud.SetActive(false);
+        satInv.PlaceSat.SetActive(false);
+        //nullify satinv
         satInv = null;
         SatBehavior = null;
         Destroy(SatellitePreview);
@@ -57,9 +65,10 @@ public class SatelliteTool : Tool
     {
         Debug.Log("Satellite Tool Selected");
         satInv = owner.GetComponent<SatelliteInventory>();
-        if (satInv == null || satInv.StoredSatellites[0] == null)
+        if (satInv == null || satInv.StoredSatellites.Count == 0 || satInv.StoredSatellites[0] == null)
         {
-            Debug.Log("NoSat Found");
+            satInv.NoSatTooltip.SetActive(true);
+            //Debug.Log("NoSat Found");
             return;
         }
         SatellitePreview = GameObject.Instantiate(satInv.StoredSatellites[0].PreviewPrefab);
@@ -71,5 +80,21 @@ public class SatelliteTool : Tool
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
+        if (satInv == null || satInv.StoredSatellites[0] == null)
+        {
+            return;
+        }
+        if(SatBehavior.PlacementConditionCheck(owner) && (satInv.StoredSatellites[0] != null))
+        {
+            satInv.PlaceSat.SetActive(true);
+            satInv.NoSatTooltip.SetActive(false);
+            satInv.SatNotInCloud.SetActive(false);
+        }
+        else
+        {
+            satInv.PlaceSat.SetActive(false);
+            satInv.NoSatTooltip.SetActive(false);
+            satInv.SatNotInCloud.SetActive(true);
+        }
     }
 }

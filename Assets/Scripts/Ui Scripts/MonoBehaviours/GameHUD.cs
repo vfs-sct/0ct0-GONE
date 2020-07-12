@@ -38,7 +38,7 @@ public class GameHUD : MonoBehaviour
     [Header("Do not touch")]
     public Player player = null;
     public GameObject selectedToolText = null;
-    public List<TextMeshProUGUI> objectiveText = null;
+    public List<TextMeshProUGUI> objectiveText = new List<TextMeshProUGUI>();
 
     private List<GameObject> toolList = new List<GameObject>();
     //keep track of which tool in the list is goo glue since it needs an additional bar
