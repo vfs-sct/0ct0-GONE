@@ -5,6 +5,7 @@
 [CreateAssetMenu(menuName = "Systems/Tools/Place Satellite")]
 public class SatelliteTool : Tool
 {
+    [SerializeField] CraftSatelliteEvent CraftPlaceSatEvent = null;
     SatelliteInventory satInv;
     GameObject SatellitePreview;
     SatelliteBehavior SatBehavior;
@@ -31,6 +32,12 @@ public class SatelliteTool : Tool
         GameObject PlacedSat = GameObject.Instantiate(satInv.StoredSatellites[0].PlacePrefab);
         PlacedSat.transform.position = satInv.SatelliteSpawnPos.position;
         PlacedSat.transform.rotation = satInv.SatelliteSpawnPos.rotation;
+
+        if(CraftPlaceSatEvent.isActive)
+        {
+            CraftPlaceSatEvent.SatPlaced(PlacedSat);
+        }
+
         satInv.RemoveSat(0);
         owner.DeselectTool();
     }
@@ -57,7 +64,7 @@ public class SatelliteTool : Tool
     {
         Debug.Log("Satellite Tool Selected");
         satInv = owner.GetComponent<SatelliteInventory>();
-        if (satInv == null || satInv.StoredSatellites[0] == null)
+        if (satInv == null || satInv.StoredSatellites.Count == 0 || satInv.StoredSatellites[0] == null)
         {
             satInv.NoSatTooltip.SetActive(true);
             Debug.Log("NoSat Found");

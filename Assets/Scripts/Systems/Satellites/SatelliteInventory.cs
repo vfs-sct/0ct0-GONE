@@ -28,4 +28,23 @@ public class SatelliteInventory : MonoBehaviour
     {
         _StoredSatellites[index] = sat;
     }
+
+    public Satellite GetSatellite()
+    {
+        //currently assumes satellite inventory remains 1
+        if(_StoredSatellites[0] != null)
+        {
+            return _StoredSatellites[0];
+        }
+        return null;
+    }
+
+    public bool CheckIfSat()
+    {
+        if(_StoredSatellites == null || _StoredSatellites.Count == 0)
+        {
+            return false;
+        }
+        return true;
+    }
 }
