@@ -1293,8 +1293,8 @@ MonoBehaviour:
   fuel: {fileID: 11400000, guid: 37f250fca4dc78744ad9bc639b903bf9, type: 2}
   barFill: {fileID: 7679722801483803263}
   barOverlay: {fileID: 1520130221901410995}
-  startHealth: 100
-  maxHealth: 100
+  startAmount: 100
+  maxAmount: 100
   playerInventory: {fileID: 0}
 --- !u!1 &8400925452829127347
 GameObject:
@@ -2917,6 +2917,11 @@ PrefabInstance:
         type: 3}
       propertyPath: UIRoot
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906676684867671565, guid: e32103666bfb55a44855f8295710373c,
+        type: 3}
+      propertyPath: startAmount
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 9037637128261242333, guid: e32103666bfb55a44855f8295710373c,
         type: 3}

@@ -15,8 +15,14 @@ MonoBehaviour:
   DisplayName: Fuel Satellite
   ItemDesc: Crafts a satellite that can be placed inside gas clouds to create a refueling
     station.
-  ItemInput: []
-  ResourceInput: []
+  ItemInput:
+  - item: {fileID: 11400000, guid: 702bc8a114d57044680804ee18c4d32f, type: 2}
+    amount: 20
+  - item: {fileID: 11400000, guid: 8d6393c6bf0336d4890ba980148338a3, type: 2}
+    amount: 30
+  ResourceInput:
+  - resource: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
+    amount: 100
   Output: {fileID: 11400000, guid: 6b9cbfa98c603bc45b5f3166c8393866, type: 2}
   CreatesByProducts: 0
   ItemByProducts: []
