@@ -264,7 +264,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-    public bool StationInRange()
+    public bool StationInRange(out Collider target)
     {
         bool canInteract = false;
 
@@ -274,7 +274,7 @@ public class Player : MonoBehaviour
             //Debug.Log(mouseCollision);
             
             //can craft only at station
-            if(mouseCollisionRoot.tag == "Station")
+            if(mouseCollisionRoot.tag == "Crafting" || mouseCollisionRoot.tag == "Station")
             {
                 canInteract = true;
             }
@@ -283,8 +283,14 @@ public class Player : MonoBehaviour
                 canInteract = false;
             }
         }
-
+        target = mouseCollision;
         return canInteract;
+    }
+
+    public bool StationInRange()
+    {
+        Collider temp;
+        return StationInRange(out temp);
     }
 
     public bool RefuelInRange()

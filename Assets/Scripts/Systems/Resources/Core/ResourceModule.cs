@@ -67,6 +67,9 @@ public class ResourceModule : Module
             {
                 resource.RegisterInstance(owner);
                 return;
+            } else
+            {
+                Debug.LogError("Resource not in active list");
             }
         }
     }
