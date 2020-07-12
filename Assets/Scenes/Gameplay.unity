@@ -4160,7 +4160,7 @@ PrefabInstance:
         type: 3}
       propertyPath: CameraScript
       value: 
-      objectReference: {fileID: 1546038030}
+      objectReference: {fileID: 307403187}
     - target: {fileID: 489913433233796650, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: CraftingTooltip
@@ -4205,7 +4205,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _CameraScript
       value: 
-      objectReference: {fileID: 1546038030}
+      objectReference: {fileID: 307403187}
     - target: {fileID: 489913433233796653, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: ThrottleText
@@ -4414,6 +4414,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7de9c50c04b650e4fa5a1b2c16083f87, type: 3}
+--- !u!114 &307403187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4399867385289436927, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+    type: 3}
+  m_PrefabInstance: {fileID: 307403186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e12bc868177914bb93d0ef02fcfd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &327125587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29864,144 +29876,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b4dcb9f300e7547a344429cc6a587f, type: 3}
---- !u!1 &1546038025 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 489913431673510654, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
-    type: 3}
-  m_PrefabInstance: {fileID: 307403186}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1546038026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546038025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02338c26416b59145b9afde0644719cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  listenerId: 0
---- !u!114 &1546038027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546038025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a8bf15fc4881234c8a2e1bbde25706d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 0
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
---- !u!4 &1546038028 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 489913431673510641, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
-    type: 3}
-  m_PrefabInstance: {fileID: 307403186}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1546038029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546038025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db363457cf7553a41aea543bfbbb2d14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SkyboxCamera: {fileID: 971202842}
-  CameraScript: {fileID: 1546038030}
---- !u!114 &1546038030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546038025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66e12bc868177914bb93d0ef02fcfd8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraManager: {fileID: 11400000, guid: 6c6d304eeddc9e34aa9f48a92dfb163b, type: 2}
-  PlayerCam: {fileID: 1661616899}
-  CameraRoot: {fileID: 2112553890}
-  lookSensitivity: 0.1
---- !u!114 &1546038031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546038025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1546038028}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!1001 &1558579701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31487,12 +31361,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3c33a7392ba1d34ab442476ebe88421, type: 3}
---- !u!20 &1661616899 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 489913431673510643, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
-    type: 3}
-  m_PrefabInstance: {fileID: 307403186}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1662228813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37499,12 +37367,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 660c1ddcdfa77a342acca5d8f41ad301, type: 3}
---- !u!1 &2112553890 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4150338873668326980, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
-    type: 3}
-  m_PrefabInstance: {fileID: 307403186}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2112914711
 PrefabInstance:
   m_ObjectHideFlags: 0
