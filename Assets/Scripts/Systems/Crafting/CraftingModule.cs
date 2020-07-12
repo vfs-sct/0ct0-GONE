@@ -93,6 +93,7 @@ public class CraftingModule : Module
             }
         }
 
+
         if (TargetInv.StoredSatellites[0] != null)
         {
             return false;

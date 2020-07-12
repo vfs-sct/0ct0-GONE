@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 
@@ -11,12 +9,9 @@ public class SatelliteTool : Tool
     GameObject SatellitePreview;
     SatelliteBehavior SatBehavior;
 
-
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
         return (SatBehavior.PlacementConditionCheck(owner) &&(satInv.StoredSatellites[0] != null));
-        
-
     }
 
     protected override bool DeactivateCondition(ToolController owner, GameObject target)
@@ -48,6 +43,11 @@ public class SatelliteTool : Tool
     protected override void OnDeselect(ToolController owner)
     {
         Debug.Log("Satellite Tool DeSelected");
+        //turn off tooltips from satinv
+        satInv.NoSatTooltip.SetActive(false);
+        satInv.SatNotInCloud.SetActive(false);
+        satInv.PlaceSat.SetActive(false);
+        //nullify satinv
         satInv = null;
         SatBehavior = null;
         Destroy(SatellitePreview);
@@ -59,6 +59,7 @@ public class SatelliteTool : Tool
         satInv = owner.GetComponent<SatelliteInventory>();
         if (satInv == null || satInv.StoredSatellites[0] == null)
         {
+            satInv.NoSatTooltip.SetActive(true);
             Debug.Log("NoSat Found");
             return;
         }
@@ -71,5 +72,21 @@ public class SatelliteTool : Tool
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
+        if (satInv == null || satInv.StoredSatellites[0] == null)
+        {
+            return;
+        }
+        if(SatBehavior.PlacementConditionCheck(owner) && (satInv.StoredSatellites[0] != null))
+        {
+            satInv.PlaceSat.SetActive(true);
+            satInv.NoSatTooltip.SetActive(false);
+            satInv.SatNotInCloud.SetActive(false);
+        }
+        else
+        {
+            satInv.PlaceSat.SetActive(false);
+            satInv.NoSatTooltip.SetActive(false);
+            satInv.SatNotInCloud.SetActive(true);
+        }
     }
 }

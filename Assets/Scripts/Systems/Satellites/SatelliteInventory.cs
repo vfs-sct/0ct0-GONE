@@ -12,6 +12,11 @@ public class SatelliteInventory : MonoBehaviour
 
     [SerializeField] private int SatelliteCapactiy = 1;
 
+    [Header("Tooltips")]
+    [SerializeField] public GameObject NoSatTooltip = null;
+    [SerializeField] public GameObject SatNotInCloud = null;
+    [SerializeField] public GameObject PlaceSat = null;
+
     public int Capacity {get=> SatelliteCapactiy;}
 
     public void RemoveSat(int index)
