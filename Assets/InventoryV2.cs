@@ -11,6 +11,7 @@ public class InventoryV2 : MonoBehaviour
     [SerializeField] UIAwake UIRoot = null;
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject ResourceBox = null;
+    [SerializeField] GameObject MassHUD = null;
     [SerializeField] HorizontalLayoutGroup RowOne = null;
     [SerializeField] HorizontalLayoutGroup RowTwo = null;
     //place item in the item inventory screen
@@ -31,6 +32,12 @@ public class InventoryV2 : MonoBehaviour
 
     //save an association between the chunk and the specific item that's filling it in - multiple chunks can use the same item
     private Dictionary<Button, Item> ItemButtonAssociation = new Dictionary<Button, Item>();
+    
+    //used to display how octo's speed is changed by how much he's carrying
+    private TextMeshProUGUI massText;
+    private TextMeshProUGUI speedModText;
+
+    private int currentTotalMass;
 
     private bool[] isActive = new bool[10]
     {
@@ -92,16 +99,23 @@ public class InventoryV2 : MonoBehaviour
         //playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
         PopulateResources();
         UpdateAllChunks();
+        AddMassHUD();
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentTotalMass = 0;
         foreach(var kvp in ResourceBoxes)
         {
-            float fillAmount = (playerInventory.GetResourceAmount(kvp.Key) / 10);
+            int currentAmount = playerInventory.GetResourceAmount(kvp.Key);
+            float fillAmount = (currentAmount / 10);
             kvp.Value.GetCapacityText().SetText($"Capacity:\n{fillAmount}/10");
+
+            currentTotalMass += currentAmount;
         }
+
+        UpdateMassHUD();
     }
 
     private void OnEnable()
@@ -271,6 +285,24 @@ public class InventoryV2 : MonoBehaviour
 
             ResourceBoxes.Add(resource, getObjects);
         }
+    }
+
+    public void AddMassHUD()
+    {
+        var newBox = Instantiate(MassHUD);
+        newBox.transform.SetParent(RowTwo.transform);
+        var getObjects = newBox.GetComponent<GetObjectMassHUD>();
+
+        massText = getObjects.GetMassText();
+        speedModText = getObjects.GetSpeedText();
+
+        UpdateMassHUD();
+    }
+
+    public void UpdateMassHUD()
+    {
+        massText.SetText($"{currentTotalMass}/500");
+        speedModText.SetText($"% Speed");
     }
 
     public void SwitchViewTo(GameObject newPanel)
