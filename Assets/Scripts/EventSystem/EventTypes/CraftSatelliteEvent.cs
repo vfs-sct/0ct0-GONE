@@ -19,16 +19,17 @@ public class CraftSatelliteEvent : Event
     [SerializeField] private CraftingModule _CraftingModule;
     [SerializeField] private Playing Playstate;
     [SerializeField] protected UIModule UIRootModule = null;
-    [SerializeField] private GameObject satelliteType = null;
+    [SerializeField] private Satellite satelliteType = null;
 
     private SatelliteInventory SatInv;
     bool craftComplete = false;
-    bool placeComplete = true;
+    bool placeComplete = false;
     public bool isActive = false;
 
 
     public override bool Condition(GameObject target)
     {
+        isActive = true;
         //this objective will be auto-completed if the player already has the correct sat in their inventory on objective start
         if(craftComplete == false)
         {
@@ -50,6 +51,9 @@ public class CraftSatelliteEvent : Event
             CodexProgression();
             UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
             SatInv = null;
+            craftComplete = false;
+            placeComplete = false;
+            isActive = false;
             return true;
         }
 
@@ -71,7 +75,7 @@ public class CraftSatelliteEvent : Event
         
     }
 
-    public void SatPlaced(GameObject satPlaced)
+    public void SatPlaced(Satellite satPlaced)
     {
         if(satPlaced == satelliteType)
         {

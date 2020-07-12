@@ -6,6 +6,7 @@
 public class SatelliteTool : Tool
 {
     [SerializeField] CraftSatelliteEvent CraftPlaceSatEvent = null;
+    [SerializeField] EventModule EventModule = null;
     SatelliteInventory satInv;
     GameObject SatellitePreview;
     SatelliteBehavior SatBehavior;
@@ -33,9 +34,9 @@ public class SatelliteTool : Tool
         PlacedSat.transform.position = satInv.SatelliteSpawnPos.position;
         PlacedSat.transform.rotation = satInv.SatelliteSpawnPos.rotation;
 
-        if(CraftPlaceSatEvent.isActive)
+        if(EventModule.CurrentEvent.GetType() == CraftPlaceSatEvent.GetType())
         {
-            CraftPlaceSatEvent.SatPlaced(PlacedSat);
+            CraftPlaceSatEvent.SatPlaced(satInv.StoredSatellites[0]);
         }
 
         satInv.RemoveSat(0);
@@ -67,7 +68,7 @@ public class SatelliteTool : Tool
         if (satInv == null || satInv.StoredSatellites.Count == 0 || satInv.StoredSatellites[0] == null)
         {
             satInv.NoSatTooltip.SetActive(true);
-            Debug.Log("NoSat Found");
+            //Debug.Log("NoSat Found");
             return;
         }
         SatellitePreview = GameObject.Instantiate(satInv.StoredSatellites[0].PreviewPrefab);

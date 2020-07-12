@@ -26,7 +26,15 @@ public class SatelliteInventory : MonoBehaviour
 
     public void SetSatellite(Satellite sat, int index = 0 )
     {
-        _StoredSatellites[index] = sat;
+        if (_StoredSatellites != null && index < _StoredSatellites.Count)
+        {
+            _StoredSatellites[index] = sat;
+        }
+        else
+        {
+            Debug.Log("Provided index invalid, creating new satellite list entry");
+            _StoredSatellites.Add(sat);
+        }
     }
 
     public Satellite GetSatellite()

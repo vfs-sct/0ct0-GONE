@@ -93,8 +93,7 @@ public class CraftingModule : Module
             }
         }
 
-
-        if (TargetInv.StoredSatellites[0] != null)
+        if (TargetInv.StoredSatellites.Count != 0 && TargetInv.StoredSatellites[0] != null)
         {
             return false;
         }
