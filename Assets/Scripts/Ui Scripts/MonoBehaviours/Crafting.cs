@@ -44,6 +44,10 @@ public class Crafting : MonoBehaviour
     //associate tab buttons with their tab panel
     Dictionary<GameObject, Button> PanelToButton = new Dictionary<GameObject, Button>();
 
+    //associate number of owned ingredients with resource/ingredient
+    Dictionary<TextMeshProUGUI, Resource> TextToResource = new Dictionary<TextMeshProUGUI, Resource>();
+    Dictionary<TextMeshProUGUI, Item> TextToItem = new Dictionary<TextMeshProUGUI, Item>();
+
     private Recipe currentRecipe;
     private TextMeshProUGUI craftButtonText = null;
     private Color interactableTextCol;
@@ -121,6 +125,7 @@ public class Crafting : MonoBehaviour
     private void OnEnable()
     {
         Cursor.visible = true;
+        UpdateOwnedAmounts();
         craftTimer = 0f;
     }
 
@@ -231,7 +236,7 @@ public class Crafting : MonoBehaviour
                 //there's two text portions on the UI element, the name and the amount
                 var outputText = product.GetComponentsInChildren<TextMeshProUGUI>();
                 outputText[0].SetText(recipe.DisplayName);
-                outputText[1].SetText("x" + recipe.Output.amount.ToString());
+                outputText[1].SetText($"x{recipe.Output.amount.ToString()}");
                 outputText[2].SetText(recipe.ItemDesc);
 
                 foreach (var input in recipe.ResourceInput)
@@ -251,7 +256,9 @@ public class Crafting : MonoBehaviour
 
                     inputText[0].SetText(input.resource.DisplayName);
                     inputText[0].color = input.resource.ResourceColor;
-                    inputText[1].SetText("x" + input.amount.ToString());
+                    //adding owned amount to dictionary for updating
+                    TextToResource.Add(inputText[1], input.resource);
+                    inputText[2].SetText($"/ {input.amount}");
                 }
 
                 foreach (var input in recipe.ItemInput)
@@ -270,8 +277,13 @@ public class Crafting : MonoBehaviour
                     var inputText = ingredient.GetComponentsInChildren<TextMeshProUGUI>();
 
                     inputText[0].SetText(input.item.Name);
-                    inputText[1].SetText("x" + input.amount.ToString());
+                    //adding owned amount to dictionary for updating
+                    TextToItem.Add(inputText[1], input.item);
+                    inputText[2].SetText($"/ {input.amount}");
                 }
+
+                //show how much of each mat they have
+                UpdateOwnedAmounts();
 
                 CraftButton.gameObject.SetActive(true);
                 currentRecipe = recipe;
@@ -307,6 +319,20 @@ public class Crafting : MonoBehaviour
                 });
                 trigger.triggers.Add(entry);
             });
+        }
+    }
+
+    public void UpdateOwnedAmounts()
+    {
+        foreach(var kvp in TextToResource)
+        {
+            kvp.Key.SetText(shipInventory.GetResource(kvp.Value).ToString());
+        }
+        foreach (var kvp in TextToItem)
+        {
+            int amount = playerInventory.GetItemAmount(kvp.Value);
+            if (amount < 0) amount = 0;
+            kvp.Key.SetText(amount.ToString());
         }
     }
     public void UpdateTimer()
@@ -359,6 +385,7 @@ public class Crafting : MonoBehaviour
         poptext.gameObject.transform.SetParent(CraftButton.transform);
         poptext.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
         storageDials.UpdateDials();
+        UpdateOwnedAmounts();
 
         queuedRecipe = null;
         popTextMSG = null;
