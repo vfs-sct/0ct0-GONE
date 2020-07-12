@@ -23,6 +23,11 @@ public class ShipStorageHUD : MonoBehaviour
         }
     }
 
+    public void SetStorageOwner(ResourceInventory newOwner)
+    {
+        storageOwner = newOwner;
+    }
+
     private void OnEnable()
     {
         if(resourceList == null)

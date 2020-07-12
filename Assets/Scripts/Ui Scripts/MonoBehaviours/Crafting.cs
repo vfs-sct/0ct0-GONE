@@ -77,6 +77,12 @@ public class Crafting : MonoBehaviour
         craftButtonText.color = uninteractableTextCol;
     }
 
+
+    public void SetShipInventory(ResourceInventory newInv)
+    {
+        shipInventory = newInv;
+    }
+
     private void Awake()
     {
         //hide title before a recipe has been clicked
