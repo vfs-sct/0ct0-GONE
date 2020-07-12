@@ -67,11 +67,10 @@ public class ResourceModule : Module
             {
                 resource.RegisterInstance(owner);
                 return;
-            } else
-            {
-                Debug.LogError("Resource not in active list");
             }
         }
+
+        Debug.LogError($"{owner}'s {resource.name} not in active list");
     }
 
     public ResourceInventory GetInventory(ResourceInventory inventory)
