@@ -24,12 +24,10 @@ public class CraftSatelliteEvent : Event
     private SatelliteInventory SatInv;
     bool craftComplete = false;
     bool placeComplete = false;
-    public bool isActive = false;
 
 
     public override bool Condition(GameObject target)
     {
-        isActive = true;
         //this objective will be auto-completed if the player already has the correct sat in their inventory on objective start
         if(craftComplete == false)
         {
@@ -53,7 +51,6 @@ public class CraftSatelliteEvent : Event
             SatInv = null;
             craftComplete = false;
             placeComplete = false;
-            isActive = false;
             return true;
         }
 
@@ -87,7 +84,6 @@ public class CraftSatelliteEvent : Event
 
     override public void InitializeEvent()
     {
-        isActive = true;
         Debug.Log("EVENT" + this.name);
 
         SatInv = Playstate.ActivePlayer.GetComponent<SatelliteInventory>(); //TODO If we add respawning this will break!

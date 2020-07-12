@@ -5,7 +5,6 @@
 [CreateAssetMenu(menuName = "Systems/Tools/Place Satellite")]
 public class SatelliteTool : Tool
 {
-    [SerializeField] CraftSatelliteEvent CraftPlaceSatEvent = null;
     [SerializeField] EventModule EventModule = null;
     SatelliteInventory satInv;
     GameObject SatellitePreview;
@@ -34,9 +33,10 @@ public class SatelliteTool : Tool
         PlacedSat.transform.position = satInv.SatelliteSpawnPos.position;
         PlacedSat.transform.rotation = satInv.SatelliteSpawnPos.rotation;
 
-        if(EventModule.CurrentEvent.GetType() == CraftPlaceSatEvent.GetType())
+        if(EventModule.CurrentEvent.GetType() == typeof(CraftSatelliteEvent))
         {
-            CraftPlaceSatEvent.SatPlaced(satInv.StoredSatellites[0]);
+            var craft_satellite_event = (CraftSatelliteEvent)EventModule.CurrentEvent;
+            craft_satellite_event.SatPlaced(satInv.StoredSatellites[0]);
         }
 
         satInv.RemoveSat(0);
