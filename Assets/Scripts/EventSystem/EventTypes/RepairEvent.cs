@@ -8,7 +8,7 @@ public class RepairEvent : Event
     //serialized number grabs the satellite at that index from the RepairableStation prefab root
     //make sure the entered number correlates with the correct satellite index in the RepairableStation array
     [SerializeField] private int repairStation;
-
+    [SerializeField] private float commRangeIncrease = 0f;
     [SerializeField] public string actionVerb = "Repair";
 
 
@@ -26,6 +26,7 @@ public class RepairEvent : Event
 
         if(targetSat.IsRepaired())
         {
+            EventModule.CommZone.AddRange(commRangeIncrease);
             //todo update widget
             ObjectivePopup(isFirstEvent);
             Debug.Log("EVENT CONDITION MET");

@@ -9,6 +9,9 @@ public class EventModule : Module
     //NEVER ALTER OR TOUCH THINGS IN THESE EVENTS:
     [SerializeField] private List<Event> EventSequence = new List<Event>();
 
+
+    private CommunicationZone _CommZone = null;
+    public CommunicationZone CommZone { get => _CommZone; }
     //used to access the ship pieces you repair
     private RepairablesRoot _RepairableRoot = null;
     public RepairablesRoot RepairableRoot { get => _RepairableRoot; }
@@ -22,6 +25,11 @@ public class EventModule : Module
     public bool EventListComplete{get =>_EventListComplete;}
     public Event CurrentEvent{get=>_CurrentEvent;}
 
+
+    public void SetCommZone(CommunicationZone commZone)
+    {
+        _CommZone = commZone;
+    }
 
     public void SetRepairableRoot(RepairablesRoot repairRoot)
     {

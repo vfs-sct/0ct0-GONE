@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67f1487d72d6e6d459ded3d737c7c4e4, type: 3}
-  m_Name: RepairSignalProcessor
+  m_Name: RepairStationAntenna
   m_EditorClassIdentifier: 
-  EventName: Repair Batteries
+  EventName: Repair Antenna
   isFirstEvent: 1
   progressesStory: 0
   EventEffects: []
-  repairStation: 3
+  repairStation: 0
+  commRangeIncrease: 560
   actionVerb: Repair
   EventModule: {fileID: 11400000, guid: e1c895b8e1e4ed04e90570c9d886c7fb, type: 2}
   Playstate: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
