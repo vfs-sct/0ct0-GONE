@@ -444,17 +444,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ce80aa32-e85d-4436-aa2c-1b52a5f7b062"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Scroll"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""ee412187-1354-4d2b-844e-82375ca0317f"",
                     ""path"": ""<Mouse>/scroll/y"",
                     ""interactions"": """",

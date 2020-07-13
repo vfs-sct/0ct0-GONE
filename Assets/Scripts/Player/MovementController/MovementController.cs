@@ -65,20 +65,20 @@ public class MovementController : MonoBehaviour
         _RotationTarget = NewRotationIn;
     }
 
-    public void OnHorizontalTranslate(InputValue value)
+    public void OnHorizontalTranslate(InputAction.CallbackContext context)
     {
-        _RawInput.x = value.Get<Vector2>().x;
-        _RawInput.z = value.Get<Vector2>().y;
+        _RawInput.x = context.action.ReadValue<Vector2>().x;
+        _RawInput.z = context.action.ReadValue<Vector2>().y;
     }
-    public void OnVerticalTranslate(InputValue value)
+    public void OnVerticalTranslate(InputAction.CallbackContext context)
     {
-        _RawInput.y = value.Get<float>();
+        _RawInput.y = context.action.ReadValue<float>();
     }
 
-    public void OnScroll(InputValue value)
+    public void OnScroll(InputAction.CallbackContext context)
     {
         
-        ScrollValue += value.Get<float>()* ScrollMult;
+        ScrollValue += context.action.ReadValue<float>()* ScrollMult;
         ScrollValue = Mathf.Clamp(ScrollValue,5,100);
         _SetVelocityMax = _VelocityMax * (ScrollValue/100);
         ThrottleUI.UpdateUI(ScrollValue, _SetVelocityMax); 
