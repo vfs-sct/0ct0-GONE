@@ -111,7 +111,7 @@ public class InventoryController : MonoBehaviour
     {
         if (ItemBuckets[0].Bucket == null || ItemBuckets[0].Bucket.Count == 0)
         {
-            Debug.LogWarning("No item bucket");
+            //Debug.LogWarning("No item bucket");
             return false;
         }
         return true;

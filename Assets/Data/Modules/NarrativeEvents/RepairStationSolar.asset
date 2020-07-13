@@ -9,18 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46aa48022f31ab940bea6f10eb96a451, type: 3}
-  m_Name: SalvageIron
+  m_Script: {fileID: 11500000, guid: 67f1487d72d6e6d459ded3d737c7c4e4, type: 3}
+  m_Name: RepairStationSolar
   m_EditorClassIdentifier: 
-  EventName: Salvage Iron
+  EventName: Repair Solar Panels
   isFirstEvent: 1
   progressesStory: 0
   EventEffects: []
-  CollectResource:
-  - {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
-  - {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
-  CollectAmount:
-  - 100
-  - 100
-  actionVerb: Salvage
+  repairStation: 1
+  commRangeIncrease: 0
+  actionVerb: Repair
+  EventModule: {fileID: 11400000, guid: e1c895b8e1e4ed04e90570c9d886c7fb, type: 2}
+  Playstate: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
   UIRootModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}

@@ -45,10 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852d7c3851d3a8b489402bedf75843d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RequiredComponents: []
+  repairInfo: {fileID: 8417284611672127967}
+  _RequiredComponents: []
   TimeToRepair: 1
-  GooGluePerRepairCycle: 1
-  GoGlueResourceName: {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
   LinkedEvent: {fileID: 0}
   OnRepairComplete:
     m_PersistentCalls:
@@ -180,6 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5523219511960194119}
   - component: {fileID: 5320997728430926040}
+  - component: {fileID: 8417284611672127967}
   m_Layer: 0
   m_Name: Batteries
   m_TagString: Untagged
@@ -218,6 +218,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamagedModel: {fileID: 709562049858728014}
   RepairedModel: {fileID: 5800567816831685346}
+--- !u!114 &8417284611672127967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4010060233717227289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ceae0c18a8a481459db51ccf4842eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _DisplayName: Station Power Storage
+  _ID: 3
+  repairableComponent: {fileID: 2827824115908151460}
 --- !u!1 &5800567816831685346
 GameObject:
   m_ObjectHideFlags: 0

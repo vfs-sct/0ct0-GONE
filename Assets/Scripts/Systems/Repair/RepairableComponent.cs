@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 public class RepairableComponent : MonoBehaviour
 {
-    
 
-    [SerializeField] private List<CraftingModule.ItemRecipeData> RequiredComponents;
+    [SerializeField] RepairableInfo repairInfo = null;
+    [SerializeField] private List<CraftingModule.ItemRecipeData> _RequiredComponents;
 
     [SerializeField] private float TimeToRepair = 1;
+    //turned off goo glue
     [SerializeField] private float GooGluePerRepairCycle = 1;
     [SerializeField] private Resource GoGlueResourceName;
 
@@ -16,6 +16,7 @@ public class RepairableComponent : MonoBehaviour
 
     public UnityEvent OnRepairComplete = new UnityEvent();
 
+    public List<CraftingModule.ItemRecipeData> RequiredComponents { get=> _RequiredComponents; }
 
     private float _RepairPercentage = 0;
     public float RepairPercentage{get=>_RepairPercentage;}
@@ -49,7 +50,7 @@ public class RepairableComponent : MonoBehaviour
     public bool CanRepair(GameObject parent)
     {
         if (!itemInventory.CheckIfItemBucket()) return false;
-        foreach (var ComponentData in RequiredComponents)
+        foreach (var ComponentData in _RequiredComponents)
         {
             if (!itemInventory.GetItemBucket()[0].Bucket.ContainsKey(ComponentData.item)) return false;
             if (ComponentData.amount > itemInventory.GetItemBucket()[0].Bucket[ComponentData.item]) return false;
@@ -70,16 +71,18 @@ public class RepairableComponent : MonoBehaviour
     {
         if (Time.time > NextRepairTick)
         {
-            resourceInventory.RemoveResource(GoGlueResourceName,GooGluePerRepairCycle);
+            //resourceInventory.RemoveResource(GoGlueResourceName,GooGluePerRepairCycle);
             _RepairPercentage += PercentPerTick;
-            Debug.Log("Repair at " +PercentPerTick);
+            Debug.LogWarning("Repair at " +PercentPerTick);
             NextRepairTick = Time.time + 0.2f;
         }
     }
 
     protected void CompleteRepair(GameObject parent)
     {
-        Debug.Log("Repair Completed");
+        Debug.LogWarning("Repair Completed");
+
+        repairInfo.SetIsRepaired(true);
 
         OnRepairComplete.Invoke();
     }

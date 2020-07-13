@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -9,7 +8,14 @@ public class EventModule : Module
     [SerializeField] GameFrameworkManager gameManager = null;
     //NEVER ALTER OR TOUCH THINGS IN THESE EVENTS:
     [SerializeField] private List<Event> EventSequence = new List<Event>();
-    
+
+
+    private CommunicationZone _CommZone = null;
+    public CommunicationZone CommZone { get => _CommZone; }
+    //used to access the ship pieces you repair
+    private RepairablesRoot _RepairableRoot = null;
+    public RepairablesRoot RepairableRoot { get => _RepairableRoot; }
+
     //This is a copy of the above events. Events that are used/altered in game are a copy of the above events, meaning
     //that values will automatically reset when you finish/exit/crash the game since we're never altering
     //root events directly
@@ -19,6 +25,16 @@ public class EventModule : Module
     public bool EventListComplete{get =>_EventListComplete;}
     public Event CurrentEvent{get=>_CurrentEvent;}
 
+
+    public void SetCommZone(CommunicationZone commZone)
+    {
+        _CommZone = commZone;
+    }
+
+    public void SetRepairableRoot(RepairablesRoot repairRoot)
+    {
+        _RepairableRoot = repairRoot;
+    }
 
     public override void Start()
     {
