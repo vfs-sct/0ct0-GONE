@@ -144,8 +144,16 @@ public class Player : MonoBehaviour
     }
 
 
+    public void TriggerTool(InputAction.CallbackContext context)
+    {
+        if (targetObject != null) LinkedToolController.SetTarget(targetObject);
+        if (context.performed) OnActivateTool(context);
+        if (context.canceled) OnDeactivateTool(context);
+    }
+
     public void OnActivateTool(InputAction.CallbackContext context)
     {
+        Debug.Log("Press");
         if (targetObject != null) LinkedToolController.SetTarget(targetObject);
         LinkedToolController.ActivateTool();
 
@@ -153,8 +161,9 @@ public class Player : MonoBehaviour
         //if (LastToolSelectedIndex == -1) SatHolder.Place();
     }
 
-    public void OnDeactiveTool(InputAction.CallbackContext context)
+    public void OnDeactivateTool(InputAction.CallbackContext context)
     {
+        Debug.Log("Release");
         LinkedToolController.DeactivateTool();
     }
 

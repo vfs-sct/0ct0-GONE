@@ -104,7 +104,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""id"": ""bec71fa9-280b-41ea-94c3-79f0f8f7bb9a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": ""Press(pressPoint=0.5,behavior=2)""
                 },
                 {
                     ""name"": ""DeactivateTool"",
