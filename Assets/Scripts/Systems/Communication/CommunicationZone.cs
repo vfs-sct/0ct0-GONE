@@ -8,8 +8,8 @@ public class CommunicationZone : MonoBehaviour
 
     [SerializeField] private float _Radius = 5000;
 
-    [Header("Expansion Effect")]
-    [SerializeField] private float expandTime = 2f;
+    //[Header("Expansion Effect")]
+    private float expandTime = 1f;
     private bool isExpanding = false;
     private float targetRadius;
     public float Radius{get=>_Radius;}
@@ -19,7 +19,7 @@ public class CommunicationZone : MonoBehaviour
     void Start()
     {
         ZoneIndex = CommunicationManager.AddZone(this);
-        CommunicationManager.ShowRangeIndicator(0);
+        //CommunicationManager.ShowRangeIndicator(0);
         EventModule.SetCommZone(this);
     }
 
@@ -42,13 +42,15 @@ public class CommunicationZone : MonoBehaviour
     //when an event extends the comm range, make the indicator visible and show them the range expanding out
     public void ExpandRange()
     {
-        if(_Radius >= targetRadius - 5f)
+        if(_Radius >= targetRadius - 10f)
         {
             _Radius = targetRadius;
+            CommunicationManager.ExpandRangeIndicator(0, _Radius);
             CommunicationManager.HideRangeIndicator(0);
             isExpanding = false;
             return;
         }
-        _Radius = Mathf.SmoothStep(_Radius, targetRadius, Time.deltaTime * 1f / expandTime);
+        _Radius = Mathf.Lerp(_Radius, targetRadius, Time.deltaTime * 1f / expandTime);
+        CommunicationManager.ExpandRangeIndicator(0, _Radius);
     }
 }

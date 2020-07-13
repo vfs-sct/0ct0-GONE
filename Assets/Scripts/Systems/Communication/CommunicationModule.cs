@@ -82,6 +82,11 @@ public class CommunicationModule : Module
         Zones[index].RangeIndicator.SetActive(false);
     }
 
+    public void ExpandRangeIndicator(int index, float size)
+    {
+        Zones[index].RangeIndicator.transform.localScale = new Vector3(size, size, size);
+    }
+
     public int AddZone(CommunicationZone NewZone)
     {
         GameObject NewIndicator = GameObject.Instantiate(CommRelayRangeIndicatorPrefab);
