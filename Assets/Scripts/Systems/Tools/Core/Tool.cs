@@ -8,6 +8,8 @@ public abstract class Tool : ScriptableObject
     [SerializeField] private bool _ActivateIsToggle = false;
     [SerializeField] public string displayName = "";
     [SerializeField] public Sprite toolIcon = null;
+    [SerializeField] protected float _ToolRange = 5.0f;
+    public float ToolRange{get=>_ToolRange;}
     public bool ActivateIsToggle{get=>_ActivateIsToggle;}
 
     public ToolEvent OnActivateEvent;
