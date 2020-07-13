@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7581659780423361790}
   - component: {fileID: 8808667919801856029}
+  - component: {fileID: 3862116573930827556}
   m_Layer: 0
   m_Name: Antenna
   m_TagString: Untagged
@@ -46,8 +47,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9d2db87a128514fad1780860f1ea39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamagedModel: {fileID: 9089674926229950286}
-  RepairedModel: {fileID: 3758577840023691107}
+  DamagedModel: {fileID: 3758577840023691107}
+  RepairedModel: {fileID: 9089674926229950286}
+--- !u!114 &3862116573930827556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312664111179790240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ceae0c18a8a481459db51ccf4842eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _DisplayName: Station Antenna
+  _ID: 1
+  repairableComponent: {fileID: 2349563888851550207}
 --- !u!1 &3758577840023691107
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852d7c3851d3a8b489402bedf75843d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RequiredComponents: []
+  repairInfo: {fileID: 3862116573930827556}
+  _RequiredComponents: []
   TimeToRepair: 1
   GooGluePerRepairCycle: 1
   GoGlueResourceName: {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
