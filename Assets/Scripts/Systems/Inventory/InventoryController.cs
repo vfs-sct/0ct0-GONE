@@ -92,13 +92,20 @@ public class InventoryController : MonoBehaviour
     }
 
 
-    //TODO Optimize bucket system to use dicts
+    [SerializeField] private float InventoryMassMultiplier = 1.0f;
+
     [SerializeField] private List<ItemBucket> ItemBuckets = new List<ItemBucket>();
 
     //this is for serialization
     [SerializeField] private List<ResourceBucketData> ResourceBuckets = new List<ResourceBucketData>();
 
     private Dictionary<Resource, ItemBucket> ResourceBuckets_Dict = new Dictionary<Resource, ItemBucket>();
+
+    private Rigidbody playerRB;
+
+    private float CarriedItemMassRaw = 0;
+
+    private float CarriedResourceMassRaw = 0;
 
     public bool CheckIfItemBucket()
     {
@@ -160,6 +167,8 @@ public class InventoryController : MonoBehaviour
 
     private void Awake()
     {
+
+        playerRB = gameObject.GetComponent<Rigidbody>();
         foreach (var item in ResourceBuckets)
         {
             ResourceBuckets_Dict.Add(item.ItemResource, new ItemBucket(item.Cap));
@@ -183,6 +192,9 @@ public class InventoryController : MonoBehaviour
     {
         bool success = false;
         ItemBuckets[BucketIndex] = ItemBuckets[BucketIndex].AddBucketItem(itemToAdd, out success, amount);
+        playerRB.mass += InventoryMassMultiplier * itemToAdd.Mass * amount;
+        CarriedItemMassRaw += itemToAdd.Mass * amount;
+        Debug.Log(""+CarriedItemMassRaw );
         return success;
     }
 
@@ -190,6 +202,8 @@ public class InventoryController : MonoBehaviour
     {
         bool success = false;
         ItemBuckets[BucketIndex] = ItemBuckets[BucketIndex].RemoveBucketItem(itemToRemove, out success, amount);
+        playerRB.mass -= InventoryMassMultiplier * itemToRemove.Mass * amount;
+        CarriedItemMassRaw -= itemToRemove.Mass  * amount;
         return success;
     }
 
@@ -201,6 +215,8 @@ public class InventoryController : MonoBehaviour
             TargetInventory.AddResource(ResourceList[i].Key, ResourceList[i].Value.FillAmount);
             ResourceBuckets_Dict[ResourceList[i].Key] = new ItemBucket(ResourceList[i].Value.ItemCap);
         }
+        playerRB.mass -= CarriedResourceMassRaw * InventoryMassMultiplier;
+        CarriedResourceMassRaw = 0;
     }
 
     public Dictionary<Item,int> GetResourceSalvageList(Resource resource)
@@ -230,12 +246,16 @@ public class InventoryController : MonoBehaviour
         //Debug.Log("Test");
         //Debug.Log(amount);
         ResourceBuckets_Dict[itemToAdd.ResourceType] = ResourceBuckets_Dict[itemToAdd.ResourceType].AddBucketItem(itemToAdd, out success, amount);
+        CarriedResourceMassRaw += itemToAdd.Mass* amount;
+        playerRB.mass += InventoryMassMultiplier * itemToAdd.Mass* amount;
         return success;
     }
     public bool RemoveFromResourceBucket(Item itemToRemove, int amount = 1)
     {
         bool success = false;
         ResourceBuckets_Dict[itemToRemove.ResourceType] = ResourceBuckets_Dict[itemToRemove.ResourceType].RemoveBucketItem(itemToRemove, out success, amount);
+        CarriedResourceMassRaw -= itemToRemove.Mass* amount;
+        playerRB.mass -= InventoryMassMultiplier * itemToRemove.Mass* amount;
         return success;
     }
 }
