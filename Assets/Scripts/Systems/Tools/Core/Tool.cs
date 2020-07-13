@@ -60,7 +60,7 @@ public abstract class Tool : ScriptableObject
 
     public bool WhileActive(ToolController owner,GameObject target)
     {
-        if (!LoopCondition(owner,target)& !IsActive) return false;
+        if (!LoopCondition(owner,target)) return false;
         OnWhileActive(owner,target);
         if (WhileActiveEvent != null) WhileActiveEvent(owner,target);
         return true;

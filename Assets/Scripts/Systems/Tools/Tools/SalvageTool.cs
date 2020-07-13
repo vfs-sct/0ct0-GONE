@@ -3,6 +3,7 @@
 public class SalvageTool : Tool
 {
     [SerializeField] public ResourceGainedPopTxt popText = null;
+    [SerializeField] private float MaxSalvageDistance = 5.0f;
 
 
     private bool finishedSalvage = false;
@@ -11,6 +12,13 @@ public class SalvageTool : Tool
 
     Salvagable SalvComp;
 
+    GameObject OriginalTarget;
+
+    bool OutOfRange = false;
+    bool SwitchedTargets = false;
+    bool FinishedSalvage = false;
+
+    float SalvageStartTime = 0;
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
         //Debug.Log(target);
@@ -29,13 +37,21 @@ public class SalvageTool : Tool
 
     protected override bool LoopCondition(ToolController owner, GameObject target)
     {
-        return false;
+        SwitchedTargets = (OriginalTarget != target);
+        if (target == null) return false;
+        OutOfRange = Vector3.Distance(target.transform.position,owner.transform.position) >= MaxSalvageDistance;
+        FinishedSalvage = ((SalvageStartTime+salvageTime) <= Time.unscaledTime);
+        
+        return !(OutOfRange || SwitchedTargets || FinishedSalvage);
     }
 
     protected override void OnActivate(ToolController owner, GameObject target)
     {
+        Debug.Log("Activated");
         SalvComp = target.GetComponent<Salvagable>();
+        OriginalTarget = target;
         salvageTime = SalvComp.SalvageItem.SalvageTime;
+        SalvageStartTime = Time.unscaledTime;
         if (SalvComp.SalvageItem.IsSalvage)
         {
             if (!owner.PlayerInventory.CanAddToResourceBucket(SalvComp.SalvageItem,SalvComp.Amount))
@@ -57,20 +73,26 @@ public class SalvageTool : Tool
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
     {
-        if (SalvComp == null) return;
+
+        if (SalvComp == null | SwitchedTargets |!FinishedSalvage ) return;
+        Debug.Log(OriginalTarget + " " + target );
+        Debug.Log("Deactivated");
+        
         if (owner.PlayerInventory.AddToResourceBucket(SalvComp.SalvageItem,SalvComp.Amount))
             {
                 //Debug.Log(owner.PlayerInventory.GetResourceAmount(SalvComp.SalvageItem.ResourceType));
-                Destroy(target);
+                Destroy(OriginalTarget);
                 //resource gained pop text
                 Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");
                 //Debug.Log("Salvaged Object");
-                return;
-            }
+            } else 
+            {
+                Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Full");
+            }   
             //error pop text
-            Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Full");
             //Debug.Log("Not enough space");
             SalvComp = null;
+            OriginalTarget = null;
     }
 
     protected override void OnSelect(ToolController owner)
@@ -88,6 +110,5 @@ public class SalvageTool : Tool
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
-        
     }
 }

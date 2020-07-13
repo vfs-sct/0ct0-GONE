@@ -61,6 +61,10 @@ public class Player : MonoBehaviour
 
     //used for revertin mats on target/highlight objects when theyre deselected
     private GameObject targetObject = null;
+
+
+    private GameObject _TargetedObject;
+    public GameObject TargetedObject {get=> _TargetedObject;}
     private Material lastTargetMat = null;
     private GameObject highlightObject = null;
     private Material lastHighlightMat = null;
@@ -146,7 +150,6 @@ public class Player : MonoBehaviour
 
     public void TriggerTool(InputAction.CallbackContext context)
     {
-        if (targetObject != null) LinkedToolController.SetTarget(targetObject);
         if (context.performed) OnActivateTool(context);
         if (context.canceled) OnDeactivateTool(context);
     }
@@ -154,7 +157,6 @@ public class Player : MonoBehaviour
     public void OnActivateTool(InputAction.CallbackContext context)
     {
         Debug.Log("Press");
-        if (targetObject != null) LinkedToolController.SetTarget(targetObject);
         LinkedToolController.ActivateTool();
 
         //testing code for satellite placement
@@ -349,6 +351,7 @@ public class Player : MonoBehaviour
             //collision distance is used by the HUD to display how far away the object the player is looking at is
             collisionDistance = (float)(Math.Round(TargetHit.distance, 1));
             _TargetCollider = TargetHit.collider;
+            _TargetedObject = _TargetCollider.gameObject;
 
             if (_TargetCollider.GetComponentInChildren<MeshRenderer>() == null)
             {
