@@ -6,18 +6,24 @@ public class CraftRange : MonoBehaviour
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] UIModule UIModule = null;
     [SerializeField] Player Player = null;
+    [SerializeField] private float AntiSpamDelay = 0.2f;
     Crafting CraftingPrefab = null;
 
     private bool canCraft = false;
+    private float LastPressedTime;
 
     void Start()
     {
         CraftingPrefab = UIModule.UIRoot.GetScreen<Crafting>();
         canCraft = false;
+        
     }
 
-    public void OnCraftHotkey(InputValue value)
+    public void OnCraftHotkey(InputAction.CallbackContext context)
     {
+        if (LastPressedTime+AntiSpamDelay >  Time.unscaledTime) return; //anti spam
+
+        LastPressedTime = Time.unscaledTime;
         Collider target;
         canCraft = Player.StationInRange(out target);  
 

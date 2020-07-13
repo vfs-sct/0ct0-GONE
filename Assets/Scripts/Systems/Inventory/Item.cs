@@ -25,6 +25,8 @@ public class Item : ScriptableObject
     [SerializeField] private Recipe _CraftingRecipe;
     [SerializeField] private GameObject _RespawnGO;
 
+    [SerializeField] private float _SalvageTime = 0.5f;
+    public float SalvageTime{get=>_SalvageTime;}
     public string Name{get =>_Name;}
     public string ItemDesc { get => _ItemDesc; }
     public Sprite Icon { get => _Icon; }
