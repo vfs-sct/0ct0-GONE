@@ -11,8 +11,8 @@ public class ToolController : MonoBehaviour
     private GameHUD gameHUD = null;
     private TextMeshProUGUI toolText = null;
 
-    private Tool CurrentTool = null;
-
+    private Tool _CurrentTool = null;
+    public Tool CurrentTool{get=>_CurrentTool;}
     private bool CurrentToolIsActive = false;
 
     private Player _LinkedPlayer;
@@ -28,14 +28,15 @@ public class ToolController : MonoBehaviour
     {
         return EquiptTools;
     }
+    
     public void SwitchTool(int ToolIndex)
     {
         Debug.Assert(ToolIndex < EquiptTools.Count && ToolIndex >= 0);
         if (CurrentToolIsActive) return; //dont switch tools if the current tool is in use
-        if (CurrentTool != null)  CurrentTool.Deselect(this);
-        CurrentTool = EquiptTools[ToolIndex];
-        CurrentTool.Select(this);
-        toolText.SetText(CurrentTool.displayName);
+        if (_CurrentTool != null)  _CurrentTool.Deselect(this);
+        _CurrentTool = EquiptTools[ToolIndex];
+        _CurrentTool.Select(this);
+        toolText.SetText(_CurrentTool.displayName);
         //update the tools in the toolbar to reflect which is selected
         gameHUD.SwitchActiveTool(ToolIndex);
     }
@@ -47,8 +48,8 @@ public class ToolController : MonoBehaviour
         {
             DeactiveTool_Internal();
         }
-        if (CurrentTool != null) CurrentTool.Deselect(this);
-        CurrentTool = null;
+        if (_CurrentTool != null) _CurrentTool.Deselect(this);
+        _CurrentTool = null;
         toolText.SetText("No Tool Selected");
         //make all tools in the toolbar appear enabled
         gameHUD.NoToolSelected();
@@ -58,8 +59,8 @@ public class ToolController : MonoBehaviour
     {
         if (!GameManager.isPaused)
         {
-            if (CurrentTool == null | CurrentToolIsActive) return;
-            CurrentToolIsActive = CurrentTool.Activate(this, _LinkedPlayer.TargetedObject);
+            if (_CurrentTool == null | CurrentToolIsActive) return;
+            CurrentToolIsActive = _CurrentTool.Activate(this, _LinkedPlayer.TargetedObject);
         }
     }
 
@@ -67,8 +68,8 @@ public class ToolController : MonoBehaviour
     {
         if (!GameManager.isPaused)
         {
-            if (CurrentTool == null) return;
-            CurrentToolIsActive = !CurrentTool.Deactivate(this, _LinkedPlayer.TargetedObject);
+            if (_CurrentTool == null) return;
+            CurrentToolIsActive = !_CurrentTool.Deactivate(this, _LinkedPlayer.TargetedObject);
         }
         
     }
@@ -76,8 +77,8 @@ public class ToolController : MonoBehaviour
     {
         CurrentToolIsActive = false;
         gameHUD.NoToolSelected();
-        if (CurrentTool == null) return;
-        CurrentTool.Deactivate(this,_LinkedPlayer.TargetedObject);
+        if (_CurrentTool == null) return;
+        _CurrentTool.Deactivate(this,_LinkedPlayer.TargetedObject);
         
     }
 
@@ -95,12 +96,12 @@ public class ToolController : MonoBehaviour
     {
         if (CurrentToolIsActive)
         {
-            if (CurrentTool == null || !CurrentTool.WhileActive(this,_LinkedPlayer.TargetedObject))
+            if (_CurrentTool == null || !_CurrentTool.WhileActive(this,_LinkedPlayer.TargetedObject))
             {
                 DeactiveTool_Internal();
                 return;
             }
-            CurrentTool.WhileActive(this,_LinkedPlayer.TargetedObject);
+            _CurrentTool.WhileActive(this,_LinkedPlayer.TargetedObject);
         }
     }
 }

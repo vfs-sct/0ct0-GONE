@@ -3,7 +3,7 @@
 public class SalvageTool : Tool
 {
     [SerializeField] public ResourceGainedPopTxt popText = null;
-    [SerializeField] private float MaxSalvageDistance = 5.0f;
+
 
 
     private bool finishedSalvage = false;
@@ -39,7 +39,7 @@ public class SalvageTool : Tool
     {
         SwitchedTargets = (OriginalTarget != target);
         if (target == null) return false;
-        OutOfRange = Vector3.Distance(target.transform.position,owner.transform.position) >= MaxSalvageDistance;
+        OutOfRange = Vector3.Distance(target.transform.position,owner.transform.position) >= _ToolRange;
         FinishedSalvage = ((SalvageStartTime+salvageTime) <= Time.unscaledTime);
         
         return !(OutOfRange || SwitchedTargets || FinishedSalvage);
