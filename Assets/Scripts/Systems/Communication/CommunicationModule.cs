@@ -71,6 +71,17 @@ public class CommunicationModule : Module
         RunUpdate = true;
     }
 
+    //show and hide are used by CommunicationZone.cs when visibly expanding the radius when upgraded by the player
+    public void ShowRangeIndicator(int index)
+    {
+        Zones[index].RangeIndicator.SetActive(true);
+    }
+
+    public void HideRangeIndicator(int index)
+    {
+        Zones[index].RangeIndicator.SetActive(false);
+    }
+
     public int AddZone(CommunicationZone NewZone)
     {
         GameObject NewIndicator = GameObject.Instantiate(CommRelayRangeIndicatorPrefab);
@@ -95,9 +106,6 @@ public class CommunicationModule : Module
         PlayerObject = PlayerObj;
     }
 
-
-
-
     private void CommunicationUpdate()
     {
         PlayerInRange = false;
@@ -116,13 +124,13 @@ public class CommunicationModule : Module
                 if (Zones[i].ShowWarning == false && distance >= (Zones[i].Radius-WarningDistance))
                 {
                     warningUI.GetWarning(0).SetActive(true);
-                    Zones[i].RangeIndicator.SetActive(true);
+                    ShowRangeIndicator(i);
                     Zones[i] = new CommRelayData(Zones[i],true);
                 }
                 else if (Zones[i].ShowWarning == true &&  distance < (Zones[i].Radius-WarningDistance))
                 {
                     warningUI.GetWarning(0).SetActive(false);
-                    Zones[i].RangeIndicator.SetActive(false);
+                    HideRangeIndicator(i);
                     Zones[i] = new CommRelayData(Zones[i],false);
                 }
             }
