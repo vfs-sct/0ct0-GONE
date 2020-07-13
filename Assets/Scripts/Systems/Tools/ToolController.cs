@@ -22,22 +22,11 @@ public class ToolController : MonoBehaviour
     public InventoryController PlayerInventory{get=>_PlayerInventory;}
 
 
-    private GameObject _Target;
-    public GameObject Target{get=>_Target;}
+    public GameObject Target{get=>_LinkedPlayer.TargetedObject;}
 
     public List<Tool> GetEquiptTools()
     {
         return EquiptTools;
-    }
-
-    public void SetTarget(GameObject NewTarget)
-    {
-        _Target = NewTarget;
-    }
-
-    public void ClearTarget()
-    {
-        SetTarget(null);
     }
     public void SwitchTool(int ToolIndex)
     {
@@ -70,7 +59,7 @@ public class ToolController : MonoBehaviour
         if (!GameManager.isPaused)
         {
             if (CurrentTool == null | CurrentToolIsActive) return;
-            CurrentToolIsActive = CurrentTool.Activate(this, _Target);
+            CurrentToolIsActive = CurrentTool.Activate(this, _LinkedPlayer.TargetedObject);
         }
     }
 
@@ -79,7 +68,7 @@ public class ToolController : MonoBehaviour
         if (!GameManager.isPaused)
         {
             if (CurrentTool == null) return;
-            CurrentToolIsActive = !CurrentTool.Deactivate(this, _Target);
+            CurrentToolIsActive = !CurrentTool.Deactivate(this, _LinkedPlayer.TargetedObject);
         }
         
     }
@@ -88,7 +77,7 @@ public class ToolController : MonoBehaviour
         CurrentToolIsActive = false;
         gameHUD.NoToolSelected();
         if (CurrentTool == null) return;
-        CurrentTool.Deactivate(this,_Target);
+        CurrentTool.Deactivate(this,_LinkedPlayer.TargetedObject);
         
     }
 
@@ -106,12 +95,12 @@ public class ToolController : MonoBehaviour
     {
         if (CurrentToolIsActive)
         {
-            if (CurrentTool == null || !CurrentTool.WhileActive(this,_Target))
+            if (CurrentTool == null || !CurrentTool.WhileActive(this,_LinkedPlayer.TargetedObject))
             {
                 DeactiveTool_Internal();
                 return;
             }
-            CurrentTool.WhileActive(this,_Target);
+            CurrentTool.WhileActive(this,_LinkedPlayer.TargetedObject);
         }
     }
 }

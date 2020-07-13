@@ -17,9 +17,9 @@ public class RefuelRange : MonoBehaviour
     {
     }
 
-    public void OnRefuelHotkey(InputValue value)
+    public void OnRefuelHotkey(InputAction.CallbackContext context)
     {
-        isFueling = value.isPressed;
+        isFueling = context.performed;
         refuelTimer = 0;
     }
 

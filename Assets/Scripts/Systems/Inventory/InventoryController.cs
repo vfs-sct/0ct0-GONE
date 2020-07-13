@@ -218,6 +218,12 @@ public class InventoryController : MonoBehaviour
         return returnDict;
     }
 
+
+    public bool CanAddToResourceBucket(Item itemToAdd, int amount = 1)
+    {
+        return ResourceBuckets_Dict[itemToAdd.ResourceType].FillAmount + (itemToAdd.Size * amount) <= ResourceBuckets_Dict[itemToAdd.ResourceType].ItemCap;
+    }
+
     public bool AddToResourceBucket(Item itemToAdd, int amount = 1)
     {
         bool success = false;

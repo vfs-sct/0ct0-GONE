@@ -61,12 +61,16 @@ public class Player : MonoBehaviour
 
     //used for revertin mats on target/highlight objects when theyre deselected
     private GameObject targetObject = null;
+
+
+    private GameObject _TargetedObject;
+    public GameObject TargetedObject {get=> _TargetedObject;}
     private Material lastTargetMat = null;
     private GameObject highlightObject = null;
     private Material lastHighlightMat = null;
     private Material HighlightMaterial = null;
 
-    public void OnSelectTool1()//goo glue
+    public void OnSelectTool1(InputAction.CallbackContext context)//goo glue
     {
         if (!GameManager.isPaused)
         {
@@ -79,7 +83,7 @@ public class Player : MonoBehaviour
             LinkedToolController.SwitchTool(0);
         }
     }
-    public void OnSelectTool2()//ScrewDriver
+    public void OnSelectTool2(InputAction.CallbackContext context)//ScrewDriver
     {
         if (!GameManager.isPaused)
         {
@@ -92,7 +96,7 @@ public class Player : MonoBehaviour
             LinkedToolController.SwitchTool(1);
         }
     }
-    public void OnSelectTool3()//Claw
+    public void OnSelectTool3(InputAction.CallbackContext context)//Claw
     {
         if (!GameManager.isPaused)
         {
@@ -106,7 +110,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OnSelectTool4()//Laser Cutter
+    public void OnSelectTool4(InputAction.CallbackContext context)//Laser Cutter
     {
         if (!GameManager.isPaused)
         {
@@ -120,16 +124,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OnRoll(InputValue value)
+    public void OnRoll(InputAction.CallbackContext context)
     {
-        RotationInput.z = value.Get<float>();
+        RotationInput.z = context.action.ReadValue<float>();
     }
 
-    public void OnLook(InputValue value)
+    public void OnLook(InputAction.CallbackContext context)
     {
         //Debug.Log(invertedCam);
-        RotationInput.y = value.Get<Vector2>().x * lookSensitivity;
-        RotationInput.x = value.Get<Vector2>().y * invertedCam * lookSensitivity;
+        RotationInput.y = context.action.ReadValue<Vector2>().x * lookSensitivity;
+        RotationInput.x = context.action.ReadValue<Vector2>().y * invertedCam * lookSensitivity;
     }
 
     private void UpdateCamera()
@@ -144,17 +148,24 @@ public class Player : MonoBehaviour
     }
 
 
-    public void OnActivateTool()
+    public void TriggerTool(InputAction.CallbackContext context)
     {
-        if (targetObject != null) LinkedToolController.SetTarget(targetObject);
+        if (context.performed) OnActivateTool(context);
+        if (context.canceled) OnDeactivateTool(context);
+    }
+
+    public void OnActivateTool(InputAction.CallbackContext context)
+    {
+        Debug.Log("Press");
         LinkedToolController.ActivateTool();
 
         //testing code for satellite placement
         //if (LastToolSelectedIndex == -1) SatHolder.Place();
     }
 
-    public void OnDeactiveTool()
+    public void OnDeactivateTool(InputAction.CallbackContext context)
     {
+        Debug.Log("Release");
         LinkedToolController.DeactivateTool();
     }
 
@@ -164,7 +175,7 @@ public class Player : MonoBehaviour
         LinkedToolController.DeselectTool();
     }
 
-    public void OnScanSalvage()
+    public void OnScanSalvage(InputAction.CallbackContext context)
     {
         Scanner.DoScan();
     }
@@ -340,6 +351,7 @@ public class Player : MonoBehaviour
             //collision distance is used by the HUD to display how far away the object the player is looking at is
             collisionDistance = (float)(Math.Round(TargetHit.distance, 1));
             _TargetCollider = TargetHit.collider;
+            _TargetedObject = _TargetCollider.gameObject;
 
             if (_TargetCollider.GetComponentInChildren<MeshRenderer>() == null)
             {

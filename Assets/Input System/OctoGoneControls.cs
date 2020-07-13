@@ -104,7 +104,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""id"": ""bec71fa9-280b-41ea-94c3-79f0f8f7bb9a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": ""Press(pressPoint=0.5,behavior=2)""
                 },
                 {
                     ""name"": ""DeactivateTool"",
@@ -439,17 +439,6 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""InventoryHotkey"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ce80aa32-e85d-4436-aa2c-1b52a5f7b062"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
