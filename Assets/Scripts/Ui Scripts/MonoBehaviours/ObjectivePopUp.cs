@@ -22,16 +22,15 @@ public class ObjectivePopUp : MonoBehaviour
     private string memoryReconstruction = "Reconstruction at ";
     [SerializeField] private List<Image> images;
     [SerializeField] private List<TextMeshProUGUI> text;
-    private string[] objectiveShort = new string[8]
+    private string[] objectiveShort = new string[7]
     {
         "Refuel at the station",
-        "Salvage Iron Debris",
-        "Craft a Motor at the station",
-        "Salvage Silicon",
-        "Repair Solar Panels",
-        "Salvage Silicon",
-        "",
-        "",
+        "Salvage Iron and Silicon",
+        "Build a Refuel Satellite",
+        "Repair the Station's Antenna",
+        "Repair the Station's Solar Array",
+        "Repair the Station's Power Storage",
+        "Get a message home",
     };
 
     private bool fadingIn = false;
