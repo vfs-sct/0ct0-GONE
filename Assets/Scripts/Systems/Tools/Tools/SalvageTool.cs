@@ -74,10 +74,11 @@ public class SalvageTool : Tool
     protected override void OnDeactivate(ToolController owner, GameObject target)
     {
 
-        if (SalvComp == null | SwitchedTargets |!FinishedSalvage ) return;
+        if (SalvComp == null | SwitchedTargets |!FinishedSalvage | OutOfRange) return;
         Debug.Log(OriginalTarget + " " + target );
         Debug.Log("Deactivated");
         
+
         if (owner.PlayerInventory.AddToResourceBucket(SalvComp.SalvageItem,SalvComp.Amount))
             {
                 //Debug.Log(owner.PlayerInventory.GetResourceAmount(SalvComp.SalvageItem.ResourceType));
@@ -92,6 +93,7 @@ public class SalvageTool : Tool
             //error pop text
             //Debug.Log("Not enough space");
             SalvComp = null;
+            SwitchedTargets = true;
             OriginalTarget = null;
     }
 
