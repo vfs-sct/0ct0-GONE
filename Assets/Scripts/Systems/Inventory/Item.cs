@@ -17,6 +17,7 @@ public class Item : ScriptableObject
 
     public EnumItemType ItemType;
     [SerializeField] private string _Name;
+    [SerializeField] private string _ItemDesc;
     [SerializeField] private Sprite _Icon;
     [SerializeField] private int _Size;
     [SerializeField] private float _Mass;
@@ -25,6 +26,7 @@ public class Item : ScriptableObject
     [SerializeField] private GameObject _RespawnGO;
 
     public string Name{get =>_Name;}
+    public string ItemDesc { get => _ItemDesc; }
     public Sprite Icon { get => _Icon; }
     public int Size{get =>_Size;}
     public float Mass{get =>_Mass;}

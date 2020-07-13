@@ -199,7 +199,7 @@ public class InventoryV2 : MonoBehaviour
                             {
                                 kvp.Value.SetChunkBool(k, true);
                                 kvp.Value.GetChunkButtons()[k].SetActive(true);
-                                kvp.Value.SetTooltip(k, item.Key.Name, chunkSize.ToString() + " Slots");
+                                kvp.Value.SetChunkTooltip(k, item.Key.Name, chunkSize.ToString() + " Slots");
                                 kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
                                 {
                                     //Debug.Log("CHUNK CLICKED!");
@@ -254,6 +254,7 @@ public class InventoryV2 : MonoBehaviour
             var getObjects = newItemBox.GetComponent<GetObjectsResourceBox>();
             getObjects.GetTitleText().SetText(kvp.Key.Name);
             getObjects.GetCapacityText().SetText($"x{kvp.Value.ToString()}");
+            getObjects.SetItemToolTip(kvp.Key.ItemDesc);
         }
     }
 
