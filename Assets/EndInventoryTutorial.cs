@@ -2,8 +2,9 @@
 
 public class EndInventoryTutorial : MonoBehaviour
 {
+    [SerializeField] Tutorial tutorialController = null;
     public void OnInventoryHotkey()
     {
-        this.gameObject.SetActive(false);
+        tutorialController.NextPrompt();
     }
 }
