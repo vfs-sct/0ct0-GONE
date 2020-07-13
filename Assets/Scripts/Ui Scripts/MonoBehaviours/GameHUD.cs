@@ -32,6 +32,10 @@ public class GameHUD : MonoBehaviour
     [SerializeField] Color enabledTextColour;
     [SerializeField] Color disabledTextColour;
 
+    [SerializeField] private Color ToolInRangeColor;
+
+    [SerializeField] private Color ToolOutOfRangeColor;
+
     [Header("Grabbed by Tool Controller")]
     [SerializeField] public TextMeshProUGUI equippedToolText = null;
 
@@ -56,6 +60,23 @@ public class GameHUD : MonoBehaviour
         else
         {
             objectDistance.SetText(player.collisionDistance.ToString() + "m");
+            if (playerTools.CurrentTool != null)
+            {
+                if ( playerTools.CurrentTool.ToolRange > 0)
+                {
+                     if (playerTools.CurrentTool.ToolRange >= player.collisionDistance)
+                    {
+                        objectDistance.color = Color.green;
+                    }
+                    else 
+                    {
+                        objectDistance.color = Color.red;
+                    }
+                    return;
+                }
+            }
+            objectDistance.color = Color.white;
+            
         }
     }
 

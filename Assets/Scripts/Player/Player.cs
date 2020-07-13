@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     [Header("Player:")]
     [SerializeField] private float TargetingDistance = 1000.0f;
 
+    [SerializeField] private float MaxRangefinderDistance = 1000.0f;
+
     [SerializeField] private Resource FuelResource = null;
 
     [SerializeField] private PlayerCamera CameraScript = null;
@@ -346,13 +348,13 @@ public class Player : MonoBehaviour
     public Collider GetMouseCollision()
     {
         RaycastHit TargetHit;
-        if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out TargetHit, TargetingDistance, TargetableMask))
+        if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out TargetHit, MaxRangefinderDistance, TargetableMask))
         {
             //collision distance is used by the HUD to display how far away the object the player is looking at is
             collisionDistance = (float)(Math.Round(TargetHit.distance, 1));
+            
             _TargetCollider = TargetHit.collider;
-            _TargetedObject = _TargetCollider.gameObject;
-
+            if (TargetHit.distance < TargetingDistance) _TargetedObject = _TargetCollider.gameObject;
             if (_TargetCollider.GetComponentInChildren<MeshRenderer>() == null)
             {
                 _TargetCollider = null;
