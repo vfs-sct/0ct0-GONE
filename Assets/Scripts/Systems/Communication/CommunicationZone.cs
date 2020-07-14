@@ -39,7 +39,7 @@ public class CommunicationZone : MonoBehaviour
 
     private void Update()
     {
-        if (isExpanding)
+        if(isExpanding) //this is a bit inefficent, it would be better to  use a coroutine
         {
             if (doneWaiting)
             {
@@ -67,6 +67,7 @@ public class CommunicationZone : MonoBehaviour
         CommunicationManager.ShowRangeIndicator(0);
 
         //start expanding
+        CommunicationManager.SetRange(targetRadius);//actually set the radius :P
         isExpanding = true;
         doneWaiting = false;
 
