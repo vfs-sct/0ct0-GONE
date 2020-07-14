@@ -56,11 +56,12 @@ public class CommunicationZone : MonoBehaviour
     public void AddRange(float addRange)
     {
         StartCoroutine(Wait(6));
-        //radius is its new size from the beginning, the visual expansion of the indicator is just for show
-        _Radius += addRange;
-        Debug.Log("New comm range: {_Radius}");
         currentRadius = 0.1f;
-        targetRadius = _Radius;
+        targetRadius = _Radius + addRange;
+
+        //radius is its new size from the beginning, the visual expansion of the indicator is just for show
+        CommunicationManager.SetRange(targetRadius);
+        Debug.Log("New comm range: {_Radius}");
 
         //make indicator tiny before we start expanding it so it can grow out from the ship
         CommunicationManager.ResizeRangeIndicator(0, currentRadius);
