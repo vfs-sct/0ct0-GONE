@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
-
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(MovementController))]
@@ -39,7 +37,7 @@ public class Player : MonoBehaviour
     [Header("UI Elements:")]
     [SerializeField] private GameObject CraftingTooltip = null;
     [SerializeField] private GameObject RefuellingTooltip = null;
-    [SerializeField] private GameObject TargetingTooltip = null;
+    [SerializeField] private GameObject RepairableScreenTooltip = null;
 
     private GameOver GameOverScreen = null;
     private Win WinScreen = null;
@@ -250,6 +248,7 @@ public class Player : MonoBehaviour
         {
             CraftingTooltip.SetActive(false);
             RefuellingTooltip.SetActive(false);
+            RepairableScreenTooltip.SetActive(false);
             return;
         }
 
@@ -264,10 +263,18 @@ public class Player : MonoBehaviour
         {
             CraftingTooltip.SetActive(true);
             RefuellingTooltip.SetActive(true);
+            RepairableScreenTooltip.SetActive(false);
         }
         if (root.tag == "Refuel")
         {
             RefuellingTooltip.SetActive(true);
+            RepairableScreenTooltip.SetActive(false);
+        }
+        if(root.tag == "Repairable")
+        {
+            RepairableScreenTooltip.SetActive(true);
+            CraftingTooltip.SetActive(false);
+            RefuellingTooltip.SetActive(false);
         }
     }
 
@@ -320,10 +327,6 @@ public class Player : MonoBehaviour
             {
                 canInteract = true;
             }
-            else
-            {
-                canInteract = false;
-            }
         }
         target = mouseCollision;
         return canInteract;
@@ -333,6 +336,22 @@ public class Player : MonoBehaviour
     {
         Collider temp;
         return StationInRange(out temp);
+    }
+
+    public bool RepairComponentsInRange(out Collider target)
+    {
+        bool canOpen = false;
+        if (mouseCollision != null)
+        {
+            //can refuel at a station or anything tagged refuel
+            if (mouseCollisionRoot.tag == "Repairable")
+            {
+                canOpen = true;
+            }
+        }
+        //Debug.LogError("CanOpen from Player" + canOpen);
+        target = mouseCollision;
+        return canOpen;
     }
 
     public bool RefuelInRange()
@@ -346,10 +365,6 @@ public class Player : MonoBehaviour
             if (mouseCollisionRoot.tag == "Refuel" || mouseCollisionRoot.tag == "Station")
             {
                 canRefuel = true;
-            }
-            else
-            {
-                canRefuel = false;
             }
         }
 

@@ -55,6 +55,7 @@ public class CommunicationZone : MonoBehaviour
 
     public void AddRange(float addRange)
     {
+        //EVAN - machine powering up sound - about to pulse the comm range outward, 6 second power
         StartCoroutine(Wait(6));
         currentRadius = 0.1f;
         targetRadius = _Radius + addRange;
@@ -102,6 +103,10 @@ public class CommunicationZone : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         doneWaiting = true;
+        if(isExpanding)
+        {
+            //EVAN - comm range expanding out sound - takes about 6 seconds
+        }
         if(commRangeMsg.activeSelf)
         {
             commRangeMsg.SetActive(false);

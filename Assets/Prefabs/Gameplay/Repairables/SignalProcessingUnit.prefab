@@ -172,6 +172,8 @@ MonoBehaviour:
   repairInfo: {fileID: 1357108944553872775}
   _RequiredComponents: []
   TimeToRepair: 1
+  GooGluePerRepairCycle: 1
+  GoGlueResourceName: {fileID: 0}
   LinkedEvent: {fileID: 0}
   OnRepairComplete:
     m_PersistentCalls:
@@ -214,7 +216,7 @@ GameObject:
   - component: {fileID: 2841746187370002838}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Repairable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

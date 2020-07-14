@@ -16,7 +16,6 @@ public class CraftRange : MonoBehaviour
     {
         CraftingPrefab = UIModule.UIRoot.GetScreen<Crafting>();
         canCraft = false;
-        
     }
 
     public void OnCraftHotkey(InputAction.CallbackContext context)

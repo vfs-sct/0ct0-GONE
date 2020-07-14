@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class RefuelRange : MonoBehaviour
 {
-
     [SerializeField] private Playing playing;
     [SerializeField] public Resource fuel = null;
     [SerializeField] public float amountAdd = 30;
@@ -12,10 +11,6 @@ public class RefuelRange : MonoBehaviour
 
     private bool canRefuel = true;
     private bool isFueling = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     public void OnRefuelHotkey(InputAction.CallbackContext context)
     {

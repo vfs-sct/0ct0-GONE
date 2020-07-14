@@ -43,6 +43,14 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""RepairScreenHotkey"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef8498aa-3188-4acb-9d73-a110d8d2dd82"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""VerticalTranslate"",
                     ""type"": ""Value"",
                     ""id"": ""5ca766d4-8d7a-4b76-80e1-5d18a0713ceb"",
@@ -452,6 +460,17 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""action"": ""Scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84f07d21-f0ad-4c28-99a0-d77dd3fbe034"",
+                    ""path"": ""<Keyboard>/R"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""RepairScreenHotkey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -471,6 +490,14 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""name"": ""CraftHotkey"",
                     ""type"": ""Button"",
                     ""id"": ""034a7873-6505-479d-9dc2-97484d37fbe0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RepairScreenHotkey"",
+                    ""type"": ""Button"",
+                    ""id"": ""27ae20cf-20ed-4d9e-91eb-d95149cbca17"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -1034,6 +1061,17 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                     ""action"": ""InventoryHotkey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89780cf3-91d2-40f1-aca6-8210f5b4c083"",
+                    ""path"": ""<Keyboard>/R"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""RepairScreenHotkey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1106,6 +1144,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         m_Player_HorizontalTranslate = m_Player.FindAction("HorizontalTranslate", throwIfNotFound: true);
         m_Player_CraftHotkey = m_Player.FindAction("CraftHotkey", throwIfNotFound: true);
         m_Player_RefuelHotkey = m_Player.FindAction("RefuelHotkey", throwIfNotFound: true);
+        m_Player_RepairScreenHotkey = m_Player.FindAction("RepairScreenHotkey", throwIfNotFound: true);
         m_Player_VerticalTranslate = m_Player.FindAction("VerticalTranslate", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_SelectTool1 = m_Player.FindAction("SelectTool1", throwIfNotFound: true);
@@ -1124,6 +1163,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
         m_UI_CraftHotkey = m_UI.FindAction("CraftHotkey", throwIfNotFound: true);
+        m_UI_RepairScreenHotkey = m_UI.FindAction("RepairScreenHotkey", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
@@ -1188,6 +1228,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_HorizontalTranslate;
     private readonly InputAction m_Player_CraftHotkey;
     private readonly InputAction m_Player_RefuelHotkey;
+    private readonly InputAction m_Player_RepairScreenHotkey;
     private readonly InputAction m_Player_VerticalTranslate;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_SelectTool1;
@@ -1209,6 +1250,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         public InputAction @HorizontalTranslate => m_Wrapper.m_Player_HorizontalTranslate;
         public InputAction @CraftHotkey => m_Wrapper.m_Player_CraftHotkey;
         public InputAction @RefuelHotkey => m_Wrapper.m_Player_RefuelHotkey;
+        public InputAction @RepairScreenHotkey => m_Wrapper.m_Player_RepairScreenHotkey;
         public InputAction @VerticalTranslate => m_Wrapper.m_Player_VerticalTranslate;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @SelectTool1 => m_Wrapper.m_Player_SelectTool1;
@@ -1241,6 +1283,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @RefuelHotkey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRefuelHotkey;
                 @RefuelHotkey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRefuelHotkey;
                 @RefuelHotkey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRefuelHotkey;
+                @RepairScreenHotkey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRepairScreenHotkey;
+                @RepairScreenHotkey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRepairScreenHotkey;
+                @RepairScreenHotkey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRepairScreenHotkey;
                 @VerticalTranslate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalTranslate;
                 @VerticalTranslate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalTranslate;
                 @VerticalTranslate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalTranslate;
@@ -1296,6 +1341,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @RefuelHotkey.started += instance.OnRefuelHotkey;
                 @RefuelHotkey.performed += instance.OnRefuelHotkey;
                 @RefuelHotkey.canceled += instance.OnRefuelHotkey;
+                @RepairScreenHotkey.started += instance.OnRepairScreenHotkey;
+                @RepairScreenHotkey.performed += instance.OnRepairScreenHotkey;
+                @RepairScreenHotkey.canceled += instance.OnRepairScreenHotkey;
                 @VerticalTranslate.started += instance.OnVerticalTranslate;
                 @VerticalTranslate.performed += instance.OnVerticalTranslate;
                 @VerticalTranslate.canceled += instance.OnVerticalTranslate;
@@ -1348,6 +1396,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Navigate;
     private readonly InputAction m_UI_CraftHotkey;
+    private readonly InputAction m_UI_RepairScreenHotkey;
     private readonly InputAction m_UI_Submit;
     private readonly InputAction m_UI_Cancel;
     private readonly InputAction m_UI_Point;
@@ -1366,6 +1415,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         public UIActions(@OctoGoneControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
         public InputAction @CraftHotkey => m_Wrapper.m_UI_CraftHotkey;
+        public InputAction @RepairScreenHotkey => m_Wrapper.m_UI_RepairScreenHotkey;
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
         public InputAction @Point => m_Wrapper.m_UI_Point;
@@ -1393,6 +1443,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @CraftHotkey.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
                 @CraftHotkey.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
                 @CraftHotkey.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCraftHotkey;
+                @RepairScreenHotkey.started -= m_Wrapper.m_UIActionsCallbackInterface.OnRepairScreenHotkey;
+                @RepairScreenHotkey.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnRepairScreenHotkey;
+                @RepairScreenHotkey.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnRepairScreenHotkey;
                 @Submit.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
                 @Submit.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
                 @Submit.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSubmit;
@@ -1439,6 +1492,9 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
                 @CraftHotkey.started += instance.OnCraftHotkey;
                 @CraftHotkey.performed += instance.OnCraftHotkey;
                 @CraftHotkey.canceled += instance.OnCraftHotkey;
+                @RepairScreenHotkey.started += instance.OnRepairScreenHotkey;
+                @RepairScreenHotkey.performed += instance.OnRepairScreenHotkey;
+                @RepairScreenHotkey.canceled += instance.OnRepairScreenHotkey;
                 @Submit.started += instance.OnSubmit;
                 @Submit.performed += instance.OnSubmit;
                 @Submit.canceled += instance.OnSubmit;
@@ -1529,6 +1585,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
         void OnHorizontalTranslate(InputAction.CallbackContext context);
         void OnCraftHotkey(InputAction.CallbackContext context);
         void OnRefuelHotkey(InputAction.CallbackContext context);
+        void OnRepairScreenHotkey(InputAction.CallbackContext context);
         void OnVerticalTranslate(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnSelectTool1(InputAction.CallbackContext context);
@@ -1548,6 +1605,7 @@ public class @OctoGoneControls : IInputActionCollection, IDisposable
     {
         void OnNavigate(InputAction.CallbackContext context);
         void OnCraftHotkey(InputAction.CallbackContext context);
+        void OnRepairScreenHotkey(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
