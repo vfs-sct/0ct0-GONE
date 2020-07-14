@@ -246,21 +246,22 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 489913433233796655}
-  - component: {fileID: 489913433233796652}
-  - component: {fileID: 489913433233796654}
-  - component: {fileID: 489913433233796653}
   - component: {fileID: 489913433233796650}
+  - component: {fileID: 489913433233796653}
   - component: {fileID: -2061200388978773683}
-  - component: {fileID: 1239658988473444085}
-  - component: {fileID: 4701804487490555839}
-  - component: {fileID: 8777384577728220895}
-  - component: {fileID: 1055163990866216047}
-  - component: {fileID: 2249381098330320669}
-  - component: {fileID: 6837312819164111146}
   - component: {fileID: 7434593028492650845}
+  - component: {fileID: 6837312819164111146}
+  - component: {fileID: 4701804487490555839}
+  - component: {fileID: 1239658988473444085}
+  - component: {fileID: 8777384577728220895}
+  - component: {fileID: 1614921820709122937}
+  - component: {fileID: 1055163990866216047}
   - component: {fileID: 4417704602333966887}
   - component: {fileID: 7763794349229485787}
   - component: {fileID: 4007548231895799775}
+  - component: {fileID: 489913433233796652}
+  - component: {fileID: 2249381098330320669}
+  - component: {fileID: 489913433233796654}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -284,6 +285,293 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &489913433233796650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f63eee57f8ff0419004c5a724a9f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  UIRootModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
+  PlayingState: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
+  TargetableMask:
+    serializedVersion: 2
+    m_Bits: 1075
+  PlayerCamera: {fileID: 489913431673510643}
+  CrosshairTransform: {fileID: 0}
+  EventModule: {fileID: 11400000, guid: e1c895b8e1e4ed04e90570c9d886c7fb, type: 2}
+  TargetingDistance: 25
+  MaxRangefinderDistance: 1000
+  FuelResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
+  CameraScript: {fileID: 4399867385289436927}
+  LinkedInventory: {fileID: 4701804487490555839}
+  _ObjectHoldPosition: {fileID: 2710191105858776350}
+  CraftingTooltip: {fileID: 0}
+  RefuellingTooltip: {fileID: 0}
+  RepairableScreenTooltip: {fileID: 0}
+  Scanner: {fileID: 4417704602333966887}
+  invertedCam: 1
+  lookSensitivity: 0.6
+  mouseCollision: {fileID: 0}
+  mouseCollisionRoot: {fileID: 0}
+  collisionDistance: 0
+--- !u!114 &489913433233796653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c858a506bdc2ca4bbb52124df036940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalizeInput: 1
+  ThrusterImpulse: 10
+  ThrusterTorque: 1.5
+  VelocityMax: 30
+  ThrottleSensitivity: 1
+  FuelPerImpulseUnit: 0.05
+  FuelPerTorqueUnit: 0.05
+  FuelEfficency: 100
+  ScrollMult: 0.05
+  ThrottleUI: {fileID: 0}
+  Throttle: {x: 0, y: 0, z: 0}
+  _CameraScript: {fileID: 4399867385289436927}
+  _Rigidbody: {fileID: 489913433233796652}
+  LinkedResourceBehavior: {fileID: 4701804487490555839}
+  FuelResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
+--- !u!114 &-2061200388978773683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361f5aee0eb8dca45837eed6192ab92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  UIModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
+  EquiptTools:
+  - {fileID: 11400000, guid: 41cedef85c35ccb428399bdbd6368a25, type: 2}
+  - {fileID: 11400000, guid: ca59628b57f88144ca9eb049e6609693, type: 2}
+  - {fileID: 11400000, guid: cb6028535fa32d747b7bfcd2be2a8707, type: 2}
+  - {fileID: 11400000, guid: 991bec23faab22f45a11174402d5a5f7, type: 2}
+  _PlayerInventory: {fileID: 7434593028492650845}
+--- !u!114 &7434593028492650845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f4607a98cb38948abb19e35d98df54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryMassMultiplier: 1
+  ItemBuckets:
+  - ItemCap: 999
+    FillAmount: 0
+  ResourceBuckets:
+  - ItemResource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
+    Cap: 100
+    StoredAmount: 0
+  - ItemResource: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
+    Cap: 100
+    StoredAmount: 0
+  - ItemResource: {fileID: 11400000, guid: 733f38e14956f944da3bfb9804cf8314, type: 2}
+    Cap: 100
+    StoredAmount: 0
+  - ItemResource: {fileID: 11400000, guid: 0d9ca8268393d294c982c32eb5e0897b, type: 2}
+    Cap: 100
+    StoredAmount: 0
+  - ItemResource: {fileID: 11400000, guid: 817b9d6fe54926b47b141284265e21a3, type: 2}
+    Cap: 100
+    StoredAmount: 0
+--- !u!114 &6837312819164111146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c47752183e4364d9fd3cf852c57ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SatelliteSpawnPos: {fileID: 2710191105858776350}
+  _StoredSatellites:
+  - {fileID: 0}
+  SatelliteCapactiy: 1
+  NoSatTooltip: {fileID: 0}
+  SatNotInCloud: {fileID: 0}
+  PlaceSat: {fileID: 0}
+--- !u!114 &4701804487490555839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35215f6ef2c16d244857908585185b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResourceManager: {fileID: 11400000, guid: 24e38bf2ba3270840b60b88238072079, type: 2}
+  ActiveResources:
+  - {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
+  - {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
+  - {fileID: 11400000, guid: 37f250fca4dc78744ad9bc639b903bf9, type: 2}
+  UseOverrides: 0
+  OverrideValues: []
+  resourceAddedPopTxt: {fileID: 8981721532894141398, guid: 6082956a558828445afc6a77b3e25ac6,
+    type: 3}
+--- !u!114 &1239658988473444085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7321ce763d63f3249911b59d0d699152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  UIModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
+  Player: {fileID: 489913433233796650}
+  AntiSpamDelay: 0.2
+--- !u!114 &8777384577728220895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77bc88eadc6f711489dbfa0f4badbb28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playing: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
+  fuel: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
+  amountAdd: 5
+--- !u!114 &1614921820709122937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3472267049aa8c4e8bab77fbc9ffc3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  playing: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
+  RepairableComponentScreen: {fileID: 0}
+--- !u!114 &1055163990866216047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306d79e12713e2c49bee69a0b1bfaa5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayThrusterAudio:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9749cda497372d74c9f49b51fc49dc74,
+      type: 2}
+  StopThrusterAudio:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: db241fbe26f277b4faa8297cfef01062,
+      type: 2}
+  ThrusterImpulseRTPC:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 507e7857a4f93db42bc0b72bcadd5dc4,
+      type: 2}
+  Movement: {fileID: 489913433233796653}
+--- !u!114 &4417704602333966887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69aa44a6bea64164d88f8498e7a0eea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayStartupSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: f95f35a0d7d6d0841bb9ca5329eff2f6,
+      type: 2}
+  PlayDeactivateSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0b299ee02f3980a4d9708104511442a4,
+      type: 2}
+  ScanRange: 200
+  Mask:
+    serializedVersion: 2
+    m_Bits: 1024
+  HighlightMaterial: {fileID: 2100000, guid: c399e49edde5b9944bfea832f99c0de1, type: 2}
+--- !u!114 &7763794349229485787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da7d2f10654b6d741a3f7bbc52812d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RelayController: {fileID: 11400000, guid: 4b06e9352e2fd884dac2415878899387, type: 2}
+  playerObj: {fileID: 489913433233796651}
+--- !u!114 &4007548231895799775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322fb7e40b5f762439e207f33cc1a360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinDamageSpeed: 7
+  DamageMultiplier: 1
+  _RigidBody: {fileID: 489913433233796652}
+  PlayerResourceInventory: {fileID: 4701804487490555839}
+  HealthResource: {fileID: 11400000, guid: 37f250fca4dc78744ad9bc639b903bf9, type: 2}
 --- !u!54 &489913433233796652
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -300,6 +588,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!136 &2249381098330320669
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489913433233796651}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.39
+  m_Height: 2.34
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &489913433233796654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,296 +906,30 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a501e0fb-193e-4dd9-b961-8f70cf3168a2
     m_ActionName: UI/InventoryHotkey[/Keyboard/v]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1614921820709122937}
+        m_MethodName: OnRepairScreenHotkey
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ef8498aa-3188-4acb-9d73-a110d8d2dd82
+    m_ActionName: Player/RepairScreenHotkey[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 27ae20cf-20ed-4d9e-91eb-d95149cbca17
+    m_ActionName: UI/RepairScreenHotkey[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 489913431673510643}
---- !u!114 &489913433233796653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c858a506bdc2ca4bbb52124df036940, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NormalizeInput: 1
-  ThrusterImpulse: 10
-  ThrusterTorque: 1.5
-  VelocityMax: 30
-  ThrottleSensitivity: 1
-  FuelPerImpulseUnit: 0.05
-  FuelPerTorqueUnit: 0.05
-  FuelEfficency: 100
-  ScrollMult: 0.05
-  ThrottleUI: {fileID: 0}
-  Throttle: {x: 0, y: 0, z: 0}
-  _CameraScript: {fileID: 4399867385289436927}
-  _Rigidbody: {fileID: 489913433233796652}
-  LinkedResourceBehavior: {fileID: 4701804487490555839}
-  FuelResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
---- !u!114 &489913433233796650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9f63eee57f8ff0419004c5a724a9f98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
-  UIRootModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
-  PlayingState: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
-  TargetableMask:
-    serializedVersion: 2
-    m_Bits: 1075
-  PlayerCamera: {fileID: 489913431673510643}
-  EventModule: {fileID: 11400000, guid: e1c895b8e1e4ed04e90570c9d886c7fb, type: 2}
-  TargetingDistance: 25
-  MaxRangefinderDistance: 1000
-  FuelResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
-  CameraScript: {fileID: 4399867385289436927}
-  LinkedInventory: {fileID: 4701804487490555839}
-  _ObjectHoldPosition: {fileID: 2710191105858776350}
-  CraftingTooltip: {fileID: 0}
-  RefuellingTooltip: {fileID: 0}
-  TargetingTooltip: {fileID: 0}
-  Scanner: {fileID: 4417704602333966887}
-  invertedCam: 1
-  lookSensitivity: 0.6
-  mouseCollision: {fileID: 0}
-  mouseCollisionRoot: {fileID: 0}
-  collisionDistance: 0
---- !u!114 &-2061200388978773683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 361f5aee0eb8dca45837eed6192ab92f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
-  UIModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
-  EquiptTools:
-  - {fileID: 11400000, guid: 41cedef85c35ccb428399bdbd6368a25, type: 2}
-  - {fileID: 11400000, guid: ca59628b57f88144ca9eb049e6609693, type: 2}
-  - {fileID: 11400000, guid: cb6028535fa32d747b7bfcd2be2a8707, type: 2}
-  - {fileID: 11400000, guid: 991bec23faab22f45a11174402d5a5f7, type: 2}
-  _PlayerInventory: {fileID: 7434593028492650845}
---- !u!114 &1239658988473444085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7321ce763d63f3249911b59d0d699152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
-  UIModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
-  Player: {fileID: 489913433233796650}
-  AntiSpamDelay: 0.2
---- !u!114 &4701804487490555839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35215f6ef2c16d244857908585185b42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ResourceManager: {fileID: 11400000, guid: 24e38bf2ba3270840b60b88238072079, type: 2}
-  ActiveResources:
-  - {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
-  - {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
-  - {fileID: 11400000, guid: 37f250fca4dc78744ad9bc639b903bf9, type: 2}
-  UseOverrides: 0
-  OverrideValues: []
-  resourceAddedPopTxt: {fileID: 8981721532894141398, guid: 6082956a558828445afc6a77b3e25ac6,
-    type: 3}
---- !u!114 &8777384577728220895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77bc88eadc6f711489dbfa0f4badbb28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playing: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
-  fuel: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
-  amountAdd: 5
---- !u!114 &1055163990866216047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306d79e12713e2c49bee69a0b1bfaa5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayThrusterAudio:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 9749cda497372d74c9f49b51fc49dc74,
-      type: 2}
-  StopThrusterAudio:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: db241fbe26f277b4faa8297cfef01062,
-      type: 2}
-  ThrusterImpulseRTPC:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 507e7857a4f93db42bc0b72bcadd5dc4,
-      type: 2}
-  Movement: {fileID: 489913433233796653}
---- !u!136 &2249381098330320669
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.39
-  m_Height: 2.34
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6837312819164111146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23c47752183e4364d9fd3cf852c57ed5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _SatelliteSpawnPos: {fileID: 2710191105858776350}
-  _StoredSatellites:
-  - {fileID: 0}
-  SatelliteCapactiy: 1
-  NoSatTooltip: {fileID: 0}
-  SatNotInCloud: {fileID: 0}
-  PlaceSat: {fileID: 0}
---- !u!114 &7434593028492650845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88f4607a98cb38948abb19e35d98df54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InventoryMassMultiplier: 1
-  ItemBuckets:
-  - ItemCap: 999
-    FillAmount: 0
-  ResourceBuckets:
-  - ItemResource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
-    Cap: 100
-    StoredAmount: 0
-  - ItemResource: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
-    Cap: 100
-    StoredAmount: 0
-  - ItemResource: {fileID: 11400000, guid: 733f38e14956f944da3bfb9804cf8314, type: 2}
-    Cap: 100
-    StoredAmount: 0
-  - ItemResource: {fileID: 11400000, guid: 0d9ca8268393d294c982c32eb5e0897b, type: 2}
-    Cap: 100
-    StoredAmount: 0
-  - ItemResource: {fileID: 11400000, guid: 817b9d6fe54926b47b141284265e21a3, type: 2}
-    Cap: 100
-    StoredAmount: 0
---- !u!114 &4417704602333966887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69aa44a6bea64164d88f8498e7a0eea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayStartupSound:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: f95f35a0d7d6d0841bb9ca5329eff2f6,
-      type: 2}
-  PlayDeactivateSound:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 0b299ee02f3980a4d9708104511442a4,
-      type: 2}
-  ScanRange: 200
-  Mask:
-    serializedVersion: 2
-    m_Bits: 1024
-  HighlightMaterial: {fileID: 2100000, guid: c399e49edde5b9944bfea832f99c0de1, type: 2}
---- !u!114 &7763794349229485787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da7d2f10654b6d741a3f7bbc52812d6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RelayController: {fileID: 11400000, guid: 4b06e9352e2fd884dac2415878899387, type: 2}
-  playerObj: {fileID: 489913433233796651}
---- !u!114 &4007548231895799775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489913433233796651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 322fb7e40b5f762439e207f33cc1a360, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinDamageSpeed: 7
-  DamageMultiplier: 1
-  _RigidBody: {fileID: 489913433233796652}
-  PlayerResourceInventory: {fileID: 4701804487490555839}
-  HealthResource: {fileID: 11400000, guid: 37f250fca4dc78744ad9bc639b903bf9, type: 2}
 --- !u!1 &3106491731949152684
 GameObject:
   m_ObjectHideFlags: 0
