@@ -6,12 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Systems/Events/Repair Object Event")]
 public class RepairObjectEvent : Event
 {
-
-
-
-    [SerializeField] private string Adjective = "Repair ";
-
-
+    [SerializeField] private string Adjective = "Repair";
 
     private RepairableComponent LinkedComponent;
 

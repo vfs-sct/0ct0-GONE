@@ -11,7 +11,6 @@ public class RepairEvent : Event
     [SerializeField] private float commRangeIncrease = 0f;
     [SerializeField] public string actionVerb = "Repair";
 
-
     [Header("References")]
     [SerializeField] private EventModule EventModule;
     [SerializeField] private Playing Playstate;

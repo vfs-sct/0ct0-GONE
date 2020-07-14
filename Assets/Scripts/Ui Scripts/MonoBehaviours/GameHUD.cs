@@ -20,6 +20,10 @@ public class GameHUD : MonoBehaviour
     [SerializeField] public UpgradeBar fuelUpgrade = null;
     [SerializeField] public ObjectivePanel objectivePanel = null;
 
+    [Header("Tool Progress Bar")]
+    [SerializeField] public Image progressBarBG = null;
+    [SerializeField] public Image progressBarFill = null;
+
     [Header("Tools")]
     [SerializeField] ToolController playerTools = null;
     //[SerializeField] GameObject gooGlueBar = null;
@@ -59,15 +63,21 @@ public class GameHUD : MonoBehaviour
         }
         else
         {
-
-            Salvagable TargetSalvage = player.TargetedObject.GetComponentInChildren<Salvagable>();
-            if (TargetSalvage != null)
+            if (player.TargetedObject == null)
             {
-                objectDistance.SetText(TargetSalvage.SalvageItem.Name + " | "+ player.collisionDistance.ToString() + "m");
+                objectDistance.SetText("");
             }
             else
             {
-                objectDistance.SetText(player.collisionDistance.ToString() + "m");
+                Salvagable TargetSalvage = player.TargetedObject.GetComponentInChildren<Salvagable>();
+                if (TargetSalvage != null)
+                {
+                    objectDistance.SetText(TargetSalvage.SalvageItem.Name + " | " + player.collisionDistance.ToString() + "m");
+                }
+                else
+                {
+                    objectDistance.SetText(player.collisionDistance.ToString() + "m");
+                }
             }
            
             if (playerTools.CurrentTool != null)
