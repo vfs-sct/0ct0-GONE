@@ -25,7 +25,7 @@ public class CommunicationZone : MonoBehaviour
 
     private void Update()
     {
-        if(isExpanding)
+        if(isExpanding) //this is a bit inefficent, it would be better to  use a coroutine
         {
             ExpandRange();
         }
@@ -34,6 +34,7 @@ public class CommunicationZone : MonoBehaviour
     public void AddRange(float addRange)
     {
         targetRadius = _Radius + addRange;
+        CommunicationManager.SetRange(targetRadius);//actually set the radius :P
         isExpanding = true;
         CommunicationManager.ShowRangeIndicator(0);
         Debug.Log("New comm range: {_Radius}");
