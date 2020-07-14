@@ -338,7 +338,7 @@ public class Player : MonoBehaviour
         return StationInRange(out temp);
     }
 
-    public bool RepairComponentsInRange()
+    public bool RepairComponentsInRange(out Collider target)
     {
         bool canOpen = false;
         if (mouseCollision != null)
@@ -350,6 +350,7 @@ public class Player : MonoBehaviour
             }
         }
         //Debug.LogError("CanOpen from Player" + canOpen);
+        target = mouseCollision;
         return canOpen;
     }
 

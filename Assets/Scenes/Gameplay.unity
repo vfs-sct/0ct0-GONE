@@ -4134,6 +4134,11 @@ PrefabInstance:
       propertyPath: RepairableComponentScreen
       value: 
       objectReference: {fileID: 1122526355}
+    - target: {fileID: 1614921820709122937, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: StationRepairScreen
+      value: 
+      objectReference: {fileID: 1122526356}
     - target: {fileID: 2335732578417345976, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: SkyboxCamera
@@ -9207,6 +9212,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3373698587570849975, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 849435033}
+    - target: {fileID: 3373698587570849975, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 849435024}
     - target: {fileID: 3376476823564912077, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -11807,6 +11822,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312010845268128625, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5314911089097817727, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
@@ -15237,6 +15257,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565420817765927371, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_Name
+      value: ComponentName
       objectReference: {fileID: 0}
     - target: {fileID: 7591622536525233054, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
@@ -26979,6 +27004,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 376850737}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1122526356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3373698587570849975, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+    type: 3}
+  m_PrefabInstance: {fileID: 376850737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122526355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbbf705f04f4a64b9ee0081edfac8ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1127771290
 PrefabInstance:
   m_ObjectHideFlags: 0

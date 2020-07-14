@@ -236,7 +236,7 @@ public class Crafting : MonoBehaviour
                 //there's two text portions on the UI element, the name and the amount
                 var outputText = product.GetComponentsInChildren<TextMeshProUGUI>();
                 outputText[0].SetText(recipe.DisplayName);
-                outputText[1].SetText($"x{recipe.Output.amount.ToString()}");
+                outputText[1].SetText($"x{recipe.Output.amount}");
                 outputText[2].SetText(recipe.ItemDesc);
 
                 foreach (var input in recipe.ResourceInput)

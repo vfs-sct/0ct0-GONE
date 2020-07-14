@@ -5,26 +5,34 @@ public class RepairableScreenRange : MonoBehaviour
 {
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] private Playing playing = null;
-    [SerializeField] public GameObject RepairableComponentScreen = null;
+    [SerializeField] public StationRepair StationRepairScreen = null;
 
     private bool canOpen = false;
-    private GameObject currentSat = null;
+    private Collider currentSat = null;
 
     public void OnRepairScreenHotkey(InputAction.CallbackContext context)
     {
         //Debug.LogError("Pressed");
         if(canOpen && !GameManager.isPaused)
         {
+            RepairableComponent satComponent = currentSat.GetComponentInParent<RepairableComponent>();
             //Debug.LogWarning("Can Open");
             //EVAN - menu open sound
-            RepairableComponentScreen.SetActive(true);
-            GameManager.Pause();
+            if (satComponent != null)
+            {
+                StationRepairScreen.OpenScreen(satComponent);
+                GameManager.Pause();
+            }
+            else
+            {
+                Debug.LogError("Did not find Repairable Component on passed collision");
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        canOpen = playing.ActivePlayer.RepairComponentsInRange();
+        canOpen = playing.ActivePlayer.RepairComponentsInRange(out currentSat);
     }
 }
