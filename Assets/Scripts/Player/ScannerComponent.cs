@@ -36,9 +36,12 @@ public class ScannerComponent : MonoBehaviour
     private Dictionary<GameObject,SalvageRenderData> ScanResults = new Dictionary<GameObject,SalvageRenderData>();
     private List<GameObject> ScanKeys = new List<GameObject>();
 
+    private bool IsScanning = false;
 
     private void UpdateSalvageData()
     {
+        if (IsScanning == true) return;
+        IsScanning = true;
         ScanResults.Clear();
         ScanKeys.Clear();
         Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position,ScanRange,Mask);
@@ -97,6 +100,7 @@ public class ScannerComponent : MonoBehaviour
         yield return new WaitForSeconds(5f);;
         PlayDeactivateSound.Post(gameObject);
         RemoveHighlights();
+        IsScanning = false;
     }
 
 }

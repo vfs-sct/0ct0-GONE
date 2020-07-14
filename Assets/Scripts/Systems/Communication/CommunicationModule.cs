@@ -42,7 +42,14 @@ public class CommunicationModule : Module
             RangeIndicator = Data.RangeIndicator;
             ShowWarning = SW;
         }
-
+        public CommRelayData(CommRelayData Data,float R)
+        {
+            LinkedObject = Data.LinkedObject;
+            Radius = R;
+            IsActive = Data.IsActive;
+            RangeIndicator = Data.RangeIndicator;
+            ShowWarning = Data.ShowWarning;
+        }
     }
 
     private CommRelayEvent OnLoseConnection = null;
@@ -82,9 +89,14 @@ public class CommunicationModule : Module
         Zones[index].RangeIndicator.SetActive(false);
     }
 
-    public void ExpandRangeIndicator(int index, float size)
+    public void ResizeRangeIndicator(int index, float size)
     {
         Zones[index].RangeIndicator.transform.localScale = new Vector3(size, size, size);
+    }
+
+    public void SetRange( float size,int index = 0)
+    {
+        Zones[index] = new CommRelayData(Zones[index],size);
     }
 
     public int AddZone(CommunicationZone NewZone)
