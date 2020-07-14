@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
 
@@ -14,6 +16,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Playing PlayingState = null;
     [SerializeField] private LayerMask TargetableMask;
     [SerializeField] public Camera PlayerCamera = null;
+
+    [SerializeField] private Transform CrosshairTransform;
     [SerializeField] public EventModule EventModule = null;
 
     [Header("Player:")]
@@ -67,10 +71,29 @@ public class Player : MonoBehaviour
 
     private GameObject _TargetedObject;
     public GameObject TargetedObject {get=> _TargetedObject;}
-    private Material lastTargetMat = null;
-    private GameObject highlightObject = null;
+    private GameObject LastHighlightObject = null;
     private Material lastHighlightMat = null;
     private Material HighlightMaterial = null;
+
+
+    private Stack<HMatData> HighlightedObjects = new Stack<HMatData>();
+
+    private struct HMatData
+    {
+        public MeshRenderer Owner;
+
+        public Color color;
+        public Material OldMat;
+
+        public HMatData(MeshRenderer ren,Material mat,Color c)
+        {
+            Owner = ren;
+            OldMat = mat;
+            color = c;
+        }
+    }
+
+
 
     public void OnSelectTool1(InputAction.CallbackContext context)//goo glue
     {
@@ -248,33 +271,39 @@ public class Player : MonoBehaviour
         }
     }
 
+
+
+
+
     private void TryHighlight()
     {
-        if (mouseCollision != null && mouseCollision.name != "Player" && mouseCollision.tag != "Cloud") // && mouseCollision.gameObject != targetObject
+        HMatData data;
+        if (mouseCollision != LastHighlightObject && mouseCollision != null )
         {
-            //is there a previously highlighted object that needs to be unhighlighted?
-            if (highlightObject != null)
-            {
-                //Debug.Log("Old highlight: " + highlightObject);
-                highlightObject.GetComponentInChildren<MeshRenderer>().material = lastHighlightMat;
-            }
-            highlightObject = mouseCollision.gameObject;
-            targetObject = mouseCollision.gameObject;
-            //Debug.Log("Highlighted: " + highlightObject);
 
-            lastHighlightMat = mouseCollision.GetComponentInChildren<MeshRenderer>().material;
-            MeshRenderer TargetMeshRender = mouseCollision.GetComponentInChildren<MeshRenderer>();
-           
+            for (int i = 0; i < HighlightedObjects.Count; i++)
+            {
+                data = HighlightedObjects.Pop();
+                if (data.Owner != null)
+                {
+                    data.Owner.material = data.OldMat;
+                    data.Owner.material.color = data.color;
+                }
+            }
+
+            MeshRenderer Target = mouseCollision.gameObject.GetComponentInChildren<MeshRenderer>();
+            HighlightedObjects.Push(new HMatData(Target,Target.material,Target.material.color));
             Salvagable TargetSalvage = mouseCollision.GetComponentInChildren<Salvagable>();
+           
             if (TargetSalvage != null)
             {
-                TargetMeshRender.material.color = TargetSalvage.SalvageItem.ResourceType.ResourceColor;
-                TargetMeshRender.material = TargetSalvage.SalvageItem.ResourceType.ResourceHighlight;
-            }
-            else
+                Target.material.color = TargetSalvage.SalvageItem.ResourceType.ResourceColor;
+                Target.material = TargetSalvage.SalvageItem.ResourceType.ResourceHighlight;
+            } else
             {
-                TargetMeshRender.material = HighlightMaterial;
+                Target.material = HighlightMaterial;
             }
+            LastHighlightObject = mouseCollision.gameObject;
         }
     }
     public bool StationInRange(out Collider target)
@@ -348,12 +377,13 @@ public class Player : MonoBehaviour
     public Collider GetMouseCollision()
     {
         RaycastHit TargetHit;
-        if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out TargetHit, MaxRangefinderDistance, TargetableMask))
+        if (Physics.Raycast(CrosshairTransform.position, PlayerCamera.transform.forward, out TargetHit, MaxRangefinderDistance, TargetableMask))
         {
             //collision distance is used by the HUD to display how far away the object the player is looking at is
             collisionDistance = (float)(Math.Round(TargetHit.distance, 1));
             
             _TargetCollider = TargetHit.collider;
+            targetObject = _TargetCollider.gameObject;
             if (TargetHit.distance < TargetingDistance) _TargetedObject = _TargetCollider.gameObject;
             if (_TargetCollider.GetComponentInChildren<MeshRenderer>() == null)
             {
