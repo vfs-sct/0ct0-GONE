@@ -59,12 +59,22 @@ public class GameHUD : MonoBehaviour
         }
         else
         {
-            objectDistance.SetText(player.collisionDistance.ToString() + "m");
+
+            Salvagable TargetSalvage = player.TargetedObject.GetComponentInChildren<Salvagable>();
+            if (TargetSalvage != null)
+            {
+                objectDistance.SetText(TargetSalvage.SalvageItem.Name + " | "+ player.collisionDistance.ToString() + "m");
+            }
+            else
+            {
+                objectDistance.SetText(player.collisionDistance.ToString() + "m");
+            }
+           
             if (playerTools.CurrentTool != null)
             {
                 if ( playerTools.CurrentTool.ToolRange > 0)
                 {
-                     if (playerTools.CurrentTool.ToolRange >= player.collisionDistance)
+                    if (playerTools.CurrentTool.ToolRange >= player.collisionDistance)
                     {
                         objectDistance.color = Color.green;
                     }
