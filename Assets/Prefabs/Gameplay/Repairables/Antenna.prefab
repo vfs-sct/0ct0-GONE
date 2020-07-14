@@ -110,7 +110,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repairInfo: {fileID: 3862116573930827556}
-  _RequiredComponents: []
+  _RequiredComponents:
+  - item: {fileID: 11400000, guid: 702bc8a114d57044680804ee18c4d32f, type: 2}
+    amount: 10
+  - item: {fileID: 11400000, guid: 8d6393c6bf0336d4890ba980148338a3, type: 2}
+    amount: 50
+  - item: {fileID: 11400000, guid: ee73bcf48f8ff51438cb185d9c669ae3, type: 2}
+    amount: 5
   TimeToRepair: 1
   GooGluePerRepairCycle: 1
   GoGlueResourceName: {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
