@@ -82,7 +82,7 @@ public class CommunicationModule : Module
         Zones[index].RangeIndicator.SetActive(false);
     }
 
-    public void ExpandRangeIndicator(int index, float size)
+    public void ResizeRangeIndicator(int index, float size)
     {
         Zones[index].RangeIndicator.transform.localScale = new Vector3(size, size, size);
     }

@@ -22,7 +22,7 @@ public class RefuelEvent : Event
             playerInventory = UIRootModule.UIRoot.player.GetComponent<ResourceInventory>();
             
             //tutorial
-            UIRootModule.UIRoot.GetScreen<Tutorial>().FirstPrompt();
+            //UIRootModule.UIRoot.GetScreen<Tutorial>().FirstPrompt();
 
             //objective text
             UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
