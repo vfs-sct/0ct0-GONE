@@ -30,6 +30,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "RepairScreenHotkey",
+                    "type": "Button",
+                    "id": "ef8498aa-3188-4acb-9d73-a110d8d2dd82",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "VerticalTranslate",
                     "type": "Value",
                     "id": "5ca766d4-8d7a-4b76-80e1-5d18a0713ceb",
@@ -439,6 +447,17 @@
                     "action": "Scroll",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84f07d21-f0ad-4c28-99a0-d77dd3fbe034",
+                    "path": "<Keyboard>/R",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "RepairScreenHotkey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -458,6 +477,14 @@
                     "name": "CraftHotkey",
                     "type": "Button",
                     "id": "034a7873-6505-479d-9dc2-97484d37fbe0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RepairScreenHotkey",
+                    "type": "Button",
+                    "id": "27ae20cf-20ed-4d9e-91eb-d95149cbca17",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -1019,6 +1046,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "InventoryHotkey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89780cf3-91d2-40f1-aca6-8210f5b4c083",
+                    "path": "<Keyboard>/R",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "RepairScreenHotkey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
