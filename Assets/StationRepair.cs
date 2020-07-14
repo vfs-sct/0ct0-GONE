@@ -46,7 +46,7 @@ public class StationRepair : MonoBehaviour
         foreach(var component in currentSat.RequiredComponents)
         {
             var newUIBox = Instantiate(ComponentBox);
-            if(componentCount < 3)
+            if(componentCount < 2)
             {
                 newUIBox.transform.SetParent(rows[0].transform);
             }
@@ -65,7 +65,7 @@ public class StationRepair : MonoBehaviour
 
             componentCount++;
         }
-        if(componentCount < 3)
+        if(componentCount <= 2)
         {
             rows[1].gameObject.SetActive(false);
         }
@@ -106,6 +106,7 @@ public class StationRepair : MonoBehaviour
     public void Close()
     {
         GameManager.UnPause();
+        Debug.Log("Unpaused");
         SwitchViewTo(HUDPrefab);
     }
 
