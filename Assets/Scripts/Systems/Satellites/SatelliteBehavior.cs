@@ -10,4 +10,8 @@ public class SatelliteBehavior : MonoBehaviour
         return true;
     }
 
+    public virtual void WhilePlacing(ToolController Owner){}
+
+    public virtual void OnPlacePreview(ToolController Owner){}
+
 }

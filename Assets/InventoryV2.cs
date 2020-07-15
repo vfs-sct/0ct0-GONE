@@ -203,7 +203,9 @@ public class InventoryV2 : MonoBehaviour
                                 kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
                                 {
                                     //Debug.Log("CHUNK CLICKED!");
-                                    Instantiate(item.Key.RespawnGO).transform.position = debrisDropPos.position;
+                                    Rigidbody newChunkRB = Instantiate(item.Key.RespawnGO).GetComponent<Rigidbody>();
+                                    newChunkRB.transform.position = debrisDropPos.position;
+                                    newChunkRB.velocity = playerInventory.GetComponent<Rigidbody>().velocity + (playerInventory.transform.forward * 2);
                                     playerInventory.RemoveFromResourceBucket(item.Key);
                                     UpdateAllChunks();
                                 });
