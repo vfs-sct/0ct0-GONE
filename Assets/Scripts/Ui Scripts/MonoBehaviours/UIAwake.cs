@@ -36,7 +36,7 @@ public class UIAwake : MonoBehaviour
     {
         if (player != null)
         {
-            player.invertedCam = PlayerPrefs.GetInt("InvertedCam");
+            player.invertedCam = (int)PlayerPrefs.GetFloat("InvertedCam");
         }
         else
         {
@@ -60,6 +60,7 @@ public class UIAwake : MonoBehaviour
 
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
         //find and set the camera so we can apply gamma changes
         var camera = Camera.main;
 
