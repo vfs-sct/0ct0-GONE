@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{DD319DBA-CC72-4849-99FF-F6635283F2C1}" SchemaVersion="94" RootDocumentID="{9922E05F-4015-4112-8E88-3A6D761122FE}">
+	<Events>
+		<WorkUnit Name="Options_Video_Resolution" ID="{DD319DBA-CC72-4849-99FF-F6635283F2C1}" OwnerID="{3AA706CA-224C-430B-A608-4BE28AA54EB8}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="Options_Video_Resolution_Button_Apply" ID="{EA4259D7-76E3-4AFF-ABCB-C81C35818BE9}">
+					<ChildrenList>
+						<Action Name="" ID="{B55D1B38-236C-4D4C-AE66-54241658BBCE}" ShortID="983424293">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Button_Press" ID="{53C735C0-03ED-4692-9E8F-B9F2D68816A2}" WorkUnitID="{CBEB9F3F-168A-4B51-AFD0-2E6F7DF60156}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Options_Video_Resolution_Button_Revert" ID="{8D372158-EBB1-44FF-84B7-B8C94EED246B}">
+					<ChildrenList>
+						<Action Name="" ID="{859C1296-E709-4D30-816B-093DA49B626D}" ShortID="280812386">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Button_Press" ID="{53C735C0-03ED-4692-9E8F-B9F2D68816A2}" WorkUnitID="{CBEB9F3F-168A-4B51-AFD0-2E6F7DF60156}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
