@@ -7,10 +7,10 @@ public class Tutorial : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(Wait(5));
+        StartCoroutine(StartBufferTime(7f));
     }
 
-    System.Collections.IEnumerator Wait(float waitTime)
+    System.Collections.IEnumerator StartBufferTime(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
         FirstPrompt();
@@ -21,9 +21,20 @@ public class Tutorial : MonoBehaviour
         tutorialPrompts[0].SetActive(true);
     }
 
-    public void NextPrompt()
+    public void NextPrompt(float waitTime)
+    {
+        StartCoroutine(Wait(waitTime));
+    }
+
+    System.Collections.IEnumerator Wait(float waitTime)
     {
         tutorialPrompts[currentPrompt].SetActive(false);
+        yield return new WaitForSeconds(waitTime);
+        StartNextPrompt();
+    }
+
+    public void StartNextPrompt()
+    {
         currentPrompt++;
         if(tutorialPrompts[currentPrompt] != null)
         {

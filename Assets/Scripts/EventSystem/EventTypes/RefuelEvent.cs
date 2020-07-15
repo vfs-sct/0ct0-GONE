@@ -83,7 +83,7 @@ public class RefuelEvent : Event
 
     private void NextTutorialPrompt()
     {
-        UIRootModule.UIRoot.GetScreen<Tutorial>().NextPrompt();
+        UIRootModule.UIRoot.GetScreen<Tutorial>().NextPrompt(5f);
     }
 
     private void CodexProgression()
