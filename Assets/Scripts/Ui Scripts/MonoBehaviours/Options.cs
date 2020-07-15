@@ -57,13 +57,17 @@ public class Options : MonoBehaviour
 
     void Awake()
     {
-        if(PlayerPrefs.GetInt("InvertedCam") == -1)
+        if(PlayerPrefs.GetFloat("InvertedCam") == -1)
         {
             InvertCamToggle.isOn = false;
         }
-        else
+        else if (PlayerPrefs.GetFloat("InvertedCam") == 1)
         {
             InvertCamToggle.isOn = true;
+        }
+        else
+        {
+            InvertCamToggle.isOn = false;
         }
 
         lookSensitivitySlider.value = PlayerPrefs.GetFloat("LookSensitivity");
@@ -104,6 +108,7 @@ public class Options : MonoBehaviour
     {
         PlayerPrefs.SetFloat("LookSensitivity", lookSensitivitySlider.value);
         PlayerPrefs.Save();
+        Debug.LogError(PlayerPrefs.GetFloat("LookSensitivity"));
         UIAwake.UpdateLookSensitivity();
     }
 
@@ -112,13 +117,14 @@ public class Options : MonoBehaviour
         if (InvertCamToggle.isOn)
         {
             //1 makes the camera inverted
-            PlayerPrefs.SetInt("InvertedCam", 1);
+            PlayerPrefs.SetFloat("InvertedCam", 1);
         }
         else
         {
             //-1 makes the camera not inverted
-            PlayerPrefs.SetInt("InvertedCam", -1);
+            PlayerPrefs.SetFloat("InvertedCam", -1);
         }
+        Debug.LogError(PlayerPrefs.GetFloat("InvertedCam"));
         PlayerPrefs.Save();
         UIAwake.UpdateInvertCam();
     }
