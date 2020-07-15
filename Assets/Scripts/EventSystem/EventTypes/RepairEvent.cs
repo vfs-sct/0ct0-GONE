@@ -21,7 +21,7 @@ public class RepairEvent : Event
     [SerializeField] protected UIModule UIRootModule = null;
 
     private RepairableInfo targetSat = null;
-
+    private GameHUD gameHUD = null;
 
     public override bool Condition(GameObject target)
     {
@@ -29,14 +29,26 @@ public class RepairEvent : Event
 
         if(targetSat.IsRepaired())
         {
-            EventModule.CommZone.AddRange(commRangeIncrease);
+            if (commRangeIncrease != 0)
+            {
+                EventModule.CommZone.AddRange(commRangeIncrease);
+            }
+            if (fuelBarIncrease != 0)
+            {
+                gameHUD.fuelUpgrade.Upgrade(fuelBarIncrease);
+            }
+            if(thrusterIncrease != 0)
+            {
+                UIRootModule.UIRoot.player.gameObject.GetComponent<MovementController>().AddThrusterImpulse(thrusterIncrease);
+            }
             //todo update widget
             ObjectivePopup(isFirstEvent);
             Debug.Log("EVENT CONDITION MET");
             CodexProgression();
-            UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
+            gameHUD.objectivePanel.ClearObjectives();
             //reset scriptable object values
             targetSat = null;
+            gameHUD = null;
             return true;
         }
         return false;
@@ -44,7 +56,7 @@ public class RepairEvent : Event
 
     private void ObjectivePopup(bool isFirst)
     {
-        UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePopUp.SetObjectiveText(isFirst);
+        gameHUD.objectivePopUp.SetObjectiveText(isFirst);
     }
 
     private void CodexProgression()
@@ -63,9 +75,11 @@ public class RepairEvent : Event
         //get our specific satellite's repair info off the repairableroot
         targetSat = EventModule.RepairableRoot.GetRepairable(repairStation).GetComponent<RepairableInfo>();
 
+        gameHUD = UIRootModule.UIRoot.GetScreen<GameHUD>();
+
         //set objective text
-        UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
+        gameHUD.objectivePanel.ClearObjectives();
         string objectiveUpdate = $"0/1 - {actionVerb} the {targetSat.DisplayName}";
-        UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.AddObjective(objectiveUpdate);
+        gameHUD.objectivePanel.AddObjective(objectiveUpdate);
     }
 }
