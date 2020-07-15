@@ -16,7 +16,7 @@ public class GameHUD : MonoBehaviour
     [SerializeField] public GameObject GasCloudAlertPrefab = null;
     [SerializeField] TextMeshProUGUI objectDistance = null;
     [SerializeField] public ObjectivePopUp objectivePopUp = null;
-    [SerializeField] public UpgradeBar healthUpgrade = null;
+    //[SerializeField] public UpgradeBar healthUpgrade = null;
     [SerializeField] public UpgradeBar fuelUpgrade = null;
     [SerializeField] public ObjectivePanel objectivePanel = null;
 

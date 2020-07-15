@@ -19,10 +19,10 @@ public class UpgradeBar : MonoBehaviour
             image.GetComponent<RectTransform>().sizeDelta = sizeDelta;
         }
 
-        SetNewMaxHealth(UpgradeAmount);
+        SetNewMax(UpgradeAmount);
     }
 
-    public void SetNewMaxHealth(float UpgradeAmount)
+    public void SetNewMax(float UpgradeAmount)
     {
         Debug.Log($"Old max: {fillbar.fuel.GetMaximum()}");
         fillbar.fuel.SetMaximum(fillbar.fuel.GetMaximum() + UpgradeAmount);
