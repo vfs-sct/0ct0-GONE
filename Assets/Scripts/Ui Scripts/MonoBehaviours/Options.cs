@@ -61,6 +61,10 @@ public class Options : MonoBehaviour
         {
             InvertCamToggle.isOn = false;
         }
+        else if(PlayerPrefs.GetInt("InvertedCam") == 1)
+        {
+            InvertCamToggle.isOn = true;
+        }
         else
         {
             InvertCamToggle.isOn = true;

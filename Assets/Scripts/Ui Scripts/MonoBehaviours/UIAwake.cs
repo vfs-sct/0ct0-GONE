@@ -85,7 +85,7 @@ public class UIAwake : MonoBehaviour
             {
                 player.invertedCam = invertedCamDefault;
             }
-            PlayerPrefs.SetFloat("InvertedCam", invertedCamDefault);
+            PlayerPrefs.SetInt("InvertedCam", invertedCamDefault);
             PlayerPrefs.Save();
         }
 
