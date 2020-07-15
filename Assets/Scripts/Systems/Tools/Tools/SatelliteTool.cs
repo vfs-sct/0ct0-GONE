@@ -28,6 +28,7 @@ public class SatelliteTool : Tool
     protected override void OnActivate(ToolController owner, GameObject target)
     {
         Debug.Log("Satellite Tool Activated");
+        SatellitePreview.GetComponent<SatelliteBehavior>().OnPlacePreview(owner);
         Destroy(SatellitePreview);
         GameObject PlacedSat = GameObject.Instantiate(satInv.StoredSatellites[0].PlacePrefab);
         PlacedSat.transform.position = satInv.SatelliteSpawnPos.position;
