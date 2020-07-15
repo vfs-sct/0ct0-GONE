@@ -104,38 +104,9 @@
 								</Property>
 							</PropertyList>
 							<ChildrenList>
-								<Bus Name="AMBIENCE" ID="{2D3CA495-EA30-4271-B753-01E8A2A8F933}">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<RTPCList>
-												<RTPC Name="" ID="{8821D6E6-A83E-4230-B7DF-C556E146A77A}" ShortID="364094907">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="SFXVolume" ID="{2812E78F-5F44-470A-8E63-79EC190D8D1E}" WorkUnitID="{7D2B5E29-0085-4227-B4D6-03DEBE586BD2}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{06162618-C242-408D-9312-89DCE914CAAF}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>1</XPos>
-																<YPos>0</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
-									</PropertyList>
-								</Bus>
+								<Bus Name="AMBIENCE" ID="{2D3CA495-EA30-4271-B753-01E8A2A8F933}"/>
+								<Bus Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}"/>
+								<Bus Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}"/>
 							</ChildrenList>
 						</Bus>
 					</ChildrenList>
