@@ -485,7 +485,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
   playing: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
-  RepairableComponentScreen: {fileID: 0}
+  StationRepairScreen: {fileID: 0}
+  AntiSpamDelay: 0.2
 --- !u!114 &1055163990866216047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,7 +572,7 @@ MonoBehaviour:
   DamageMultiplier: 1
   _RigidBody: {fileID: 489913433233796652}
   PlayerResourceInventory: {fileID: 4701804487490555839}
-  HealthResource: {fileID: 11400000, guid: 37f250fca4dc78744ad9bc639b903bf9, type: 2}
+  HealthResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
 --- !u!54 &489913433233796652
 Rigidbody:
   m_ObjectHideFlags: 0
