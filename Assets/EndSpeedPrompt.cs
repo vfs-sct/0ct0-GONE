@@ -5,6 +5,8 @@ public class EndSpeedPrompt : MonoBehaviour
     [SerializeField] Tutorial tutorialController = null;
     [SerializeField] GameObject resourceInv = null;
     [SerializeField] GameObject resourceInvContent = null;
+    //time before the next popup appears after this ones deactivated
+    [SerializeField] float bufferTime = 3f;
 
     bool hasBeenActivated = false;
 
@@ -34,6 +36,6 @@ public class EndSpeedPrompt : MonoBehaviour
 
     public void TriggerNextPrompt()
     {
-        tutorialController.NextPrompt();
+        tutorialController.NextPrompt(bufferTime);
     }
 }

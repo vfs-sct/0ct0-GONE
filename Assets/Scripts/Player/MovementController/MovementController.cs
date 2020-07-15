@@ -60,6 +60,12 @@ public class MovementController : MonoBehaviour
     public Vector3 RawInput{get => _RawInput;}
     public Vector3 NormalizedInput{get => _NormalizedInput;}
 
+    //used to upgrade thruster power via events
+    public void AddThrusterImpulse(float addImpulse)
+    {
+        ThrusterImpulse += addImpulse;
+    }
+
     public void SetRotationTarget(Vector3 NewRotationIn)
     {
         _RotationTarget = NewRotationIn;
