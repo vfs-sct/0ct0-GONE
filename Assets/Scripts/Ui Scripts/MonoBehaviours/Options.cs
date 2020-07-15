@@ -108,7 +108,7 @@ public class Options : MonoBehaviour
     {
         PlayerPrefs.SetFloat("LookSensitivity", lookSensitivitySlider.value);
         PlayerPrefs.Save();
-        Debug.LogError(PlayerPrefs.GetFloat("LookSensitivity"));
+        //Debug.LogError(PlayerPrefs.GetFloat("LookSensitivity"));
         UIAwake.UpdateLookSensitivity();
     }
 
