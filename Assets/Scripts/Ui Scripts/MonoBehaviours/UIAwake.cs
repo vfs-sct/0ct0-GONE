@@ -9,7 +9,7 @@ public class UIAwake : MonoBehaviour
     //invertedCamDefault must be either 1 or -1
     //If it is set to 1, the camera will be inverted by default
     [SerializeField] public int invertedCamDefault = 1;
-    [SerializeField] public float lookSensitivityDefault = 0.9f;
+    [SerializeField] public float lookSensitivityDefault = 0.5f;
     [SerializeField] public GameObject fadeIn = null;
     [SerializeField] public Codex codex = null;
 
