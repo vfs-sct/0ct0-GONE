@@ -26,7 +26,7 @@ public class GameHUD : MonoBehaviour
 
     [Header("Tools")]
     [SerializeField] ToolController playerTools = null;
-    //[SerializeField] GameObject gooGlueBar = null;
+    [SerializeField] GameObject gooGlueBar = null;
     [SerializeField] HorizontalLayoutGroup contentGroup = null;
     [SerializeField] GameObject defaultToolBox = null;
     [SerializeField] Sprite enabledSprite = null;
@@ -50,7 +50,7 @@ public class GameHUD : MonoBehaviour
 
     private List<GameObject> toolList = new List<GameObject>();
     //keep track of which tool in the list is goo glue since it needs an additional bar
-    //private int gooGlueIndex;
+    private int gooGlueIndex;
     private int currentTool = -1;
     private string prevTool = null;
 
@@ -102,7 +102,7 @@ public class GameHUD : MonoBehaviour
 
     private void Start()
     {
-        //gooGlueBar.SetActive(false);
+        gooGlueBar.SetActive(false);
         if (player == null)
         {
             player = UIRoot.GetPlayer();
@@ -117,10 +117,10 @@ public class GameHUD : MonoBehaviour
         //Debug.Log(playerTools.GetEquiptTools().Count);
         foreach (var tool in playerTools.GetEquiptTools())
         {
-            //if(tool.GetType() == typeof(RepairTool))
-            //{
-            //    gooGlueIndex = hotkey - 1;
-            //}
+            if (tool.GetType() == typeof(RepairTool))
+            {
+                gooGlueIndex = hotkey - 1;
+            }
             var newTool = CreateToolBox();
             newTool.transform.SetParent(contentGroup.transform);
 
@@ -153,10 +153,10 @@ public class GameHUD : MonoBehaviour
         //make the current tool look selectable again
         if(currentTool != -1)
         {
-            //if(currentTool == gooGlueIndex)
-            //{
-            //    gooGlueBar.SetActive(false);
-            //}
+            if (currentTool == gooGlueIndex)
+            {
+                gooGlueBar.SetActive(false);
+            }
             var lastToolObj = toolList[currentTool].GetComponent<GetObjects>();
             lastToolObj.GetButtonImage().color = enabledBGColour;
             lastToolObj.GetButtonImage().sprite = enabledSprite;
@@ -167,10 +167,10 @@ public class GameHUD : MonoBehaviour
         }
 
         //turn on the goo glue fuel bar if the new tool is the repair tool
-        //if (newTool == gooGlueIndex)
-        //{
-        //    gooGlueBar.SetActive(true);
-        //}
+        if (newTool == gooGlueIndex)
+        {
+            gooGlueBar.SetActive(true);
+        }
 
         //make the new tool look unselectable
         var newToolObj = toolList[newTool].GetComponent<GetObjects>();
@@ -194,7 +194,7 @@ public class GameHUD : MonoBehaviour
             lastToolObj.GetHotkeyText().color = enabledTextColour;
             lastToolObj.GetToolText().SetText(playerTools.GetEquiptTools()[currentTool].displayName);
         }
-        //gooGlueBar.SetActive(false);
+        gooGlueBar.SetActive(false);
         currentTool = -1;
     }
 
