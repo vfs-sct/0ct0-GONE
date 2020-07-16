@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class RefuelRange : MonoBehaviour
 {
     [SerializeField] private Playing playing;
+    [SerializeField] private LowFuel lowFuelOverlay;
     [SerializeField] public Resource fuel = null;
     [SerializeField] public float amountAdd = 30;
 
@@ -30,7 +31,15 @@ public class RefuelRange : MonoBehaviour
                 if (refuelTimer < 0)
                 {
                     //EVAN - refuelling sound
-                    playing.ActivePlayer.Inventory.AddResource(fuel, amountAdd);
+                    var playerInv = playing.ActivePlayer.Inventory;
+                    playerInv.AddResource(fuel, amountAdd);
+
+                    var newHealth = fuel.GetInstanceValue(playerInv) / fuel.GetMaximum();
+                    if (newHealth >= 0.25f)
+                    {
+                        lowFuelOverlay.TurnOff();
+                    }
+
                     refuelTimer = 0.1f;
                 }
             }

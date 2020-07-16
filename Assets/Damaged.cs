@@ -3,10 +3,24 @@
 public class Damaged : MonoBehaviour
 {
     [SerializeField] private float flashTime;
+    [SerializeField] GameFrameworkManager gameManager = null;
+
+    private bool isLowFuel = false;
+
+    private void Update()
+    {
+        if (gameManager.ActiveGameState.GetType() != typeof(Playing))
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
 
     private void OnEnable()
     {
-        StartCoroutine(BufferTime(flashTime));
+        if (!isLowFuel)
+        {
+            StartCoroutine(BufferTime(flashTime));
+        }
     }
 
     System.Collections.IEnumerator BufferTime(float waitTime)

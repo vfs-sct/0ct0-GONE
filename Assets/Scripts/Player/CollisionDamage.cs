@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CollisionDamage : MonoBehaviour
 {
@@ -13,6 +11,7 @@ public class CollisionDamage : MonoBehaviour
     [SerializeField] private Resource HealthResource;
 
     [SerializeField] private Damaged dmgTakenFlash = null;
+    [SerializeField] private LowFuel lowFuelOverlay = null;
 
     private const float DamageModifier = 0.01f;
 
@@ -36,10 +35,17 @@ public class CollisionDamage : MonoBehaviour
 
        if (collisionSpeed >= MinDamageSpeed)
        {
-           dmgTakenFlash.gameObject.SetActive(true);
            damageToApply = collision.relativeVelocity.magnitude * (collisionMass) * DamageModifier * DamageMultiplier;
-           PlayerResourceInventory.RemoveResource(HealthResource,damageToApply);
-       }
+           PlayerResourceInventory.RemoveResource(HealthResource, damageToApply);
+
+            var newHealth = HealthResource.GetInstanceValue(PlayerResourceInventory) / HealthResource.GetMaximum();
+           if (newHealth < 0.25f)
+           {
+                lowFuelOverlay.TurnOn();
+           }
+            dmgTakenFlash.gameObject.SetActive(true);
+            
+        }
     }
 
      
