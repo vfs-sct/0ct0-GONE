@@ -14409,30 +14409,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 376850737}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &376850748 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7137276227648331688, guid: 3219ccd55e0001b4c8703f7dc571d41e,
-    type: 3}
-  m_PrefabInstance: {fileID: 376850737}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8eb4651936ba6b4cb96c011be6c0076, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &376850749 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 997335207557337859, guid: 3219ccd55e0001b4c8703f7dc571d41e,
-    type: 3}
-  m_PrefabInstance: {fileID: 376850737}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b56f96fb5d3fc3c4bb5c385d49fef8b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &393177072
 GameObject:
   m_ObjectHideFlags: 0
@@ -17493,9 +17469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SalvagePool: {fileID: 11400000, guid: fb984aee87256c043ac5d7d59cc5f0ed, type: 2}
   BaseCondition: {fileID: 11400000, guid: 532553fb08626994085e2799fdd31897, type: 2}
-  WeatherConditions:
-  - {fileID: 0}
-  - {fileID: 0}
+  WeatherConditions: []
   StormBounds: {fileID: 1783258487}
   Seed: 3.84
   Scale: 1.12
