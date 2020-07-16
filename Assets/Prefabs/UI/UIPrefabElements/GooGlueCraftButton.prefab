@@ -219,14 +219,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e5ee4ad8f6d2e4aba99e35cfe4207a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CraftingModule: {fileID: 0}
   tooltip: {fileID: 7919752299223170141}
   stationInv: {fileID: 0}
   playerInv: {fileID: 0}
+  playerResourceInv: {fileID: 0}
   naniteCraftButton: {fileID: 7379021775095605630}
-  nanites: {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
-  productAmount: 30
-  ingredient: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
-  ingredientAmount: 10
+  poptext: {fileID: 8981721532894141398, guid: 5e2ea6b5533462b4780e0fa62b69567a, type: 3}
+  naniteRecipe: {fileID: 11400000, guid: 432b831e665c5544d828cdd729b09fdd, type: 2}
+  isSoundPlayed: 0
+  timerDial: {fileID: 0}
+  buttonHoldTime: 0
 --- !u!114 &7379021775095605630
 MonoBehaviour:
   m_ObjectHideFlags: 0

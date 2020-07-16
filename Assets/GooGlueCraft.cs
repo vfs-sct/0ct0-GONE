@@ -1,25 +1,55 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GooGlueCraft : MonoBehaviour
 {
+    [SerializeField] CraftingModule CraftingModule = null;
     [SerializeField] GameObject tooltip = null;
     [SerializeField] ResourceInventory stationInv = null;
-    [SerializeField] ResourceInventory playerInv = null;
+    [SerializeField] InventoryController playerInv = null;
+    [SerializeField] ResourceInventory playerResourceInv = null;
     [SerializeField] Button naniteCraftButton = null;
+    [SerializeField] GameObject poptext = null;
+    private string popTextMSG = null;
 
-    [Header("Produces:")]
-    [SerializeField] Resource nanites = null;
-    [SerializeField] float productAmount;
-
-    [Header("Requires:")]
-    [SerializeField] Resource ingredient = null;
-    [SerializeField] float ingredientAmount;
+    [Header("Recipe:")]
+    [SerializeField] ConsumableRecipe naniteRecipe = null;
 
     [Header("Sound Related")]
     public bool isSoundPlayed;
 
+    [SerializeField] Image timerDial = null;
+    [SerializeField] float buttonHoldTime;
+    private float craftTimer = 0f;
     private bool isCrafting = false;
+
+    private void Start()
+    {
+        EventTrigger trigger = naniteCraftButton.GetComponent<EventTrigger>();
+
+        //clear any triggers from previous recipes
+        trigger.triggers.Clear();
+
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerDown;
+        entry.callback.AddListener((eventData) =>
+        {
+            if (!CraftingModule.CanCraftConsumable(stationInv, playerInv, playerResourceInv, naniteRecipe))
+            {
+                return;
+            }
+            popTextMSG = $"{naniteRecipe.DisplayName} crafted";
+            var pointerData = (PointerEventData)eventData;
+            timerDial.transform.position = pointerData.position;
+            HoldTimer();
+        });
+    }
+    public void HoldTimer()
+    {
+        isCrafting = true;
+        craftTimer = buttonHoldTime;
+    }
     public void ShowTooltip()
     {
         tooltip.SetActive(true);
@@ -30,13 +60,6 @@ public class GooGlueCraft : MonoBehaviour
         tooltip.SetActive(false);
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -44,7 +67,7 @@ public class GooGlueCraft : MonoBehaviour
         {
             UpdateTimer();
         }
-        if (playerInv.GetResource(ingredient) >= ingredientAmount)
+        if (stationInv.GetResource(naniteRecipe.ResourceInput[0].resource) >= naniteRecipe.ResourceInput[0].amount)
         {
             naniteCraftButton.interactable = true;
         }
@@ -64,19 +87,19 @@ public class GooGlueCraft : MonoBehaviour
             isSoundPlayed = true;
         }
 
-        //if (craftTimer != 0)
-        //{
-        //    timerDial.gameObject.SetActive(true);
-        //    craftTimer -= Time.unscaledDeltaTime;
-        //    timerDial.fillAmount = (buttonHoldTime - craftTimer) / buttonHoldTime;
-        //    if (craftTimer <= 0)
-        //    {
-        //        DoCraft();
-        //        craftTimer = 0;
-        //        timerDial.gameObject.SetActive(false);
-        //        timerDial.fillAmount = 0f;
-        //        isCrafting = false;
-        //    }
-        //}
+        if (craftTimer != 0)
+        {
+            timerDial.gameObject.SetActive(true);
+            craftTimer -= Time.unscaledDeltaTime;
+            timerDial.fillAmount = (buttonHoldTime - craftTimer) / buttonHoldTime;
+            if (craftTimer <= 0)
+            {
+                //DoCraft();
+                craftTimer = 0;
+                timerDial.gameObject.SetActive(false);
+                timerDial.fillAmount = 0f;
+                isCrafting = false;
+            }
+        }
     }
 }
