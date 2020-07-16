@@ -17520,7 +17520,19 @@ MonoBehaviour:
     SalvagePrefabs:
     - {fileID: 6332566556522365008, guid: 23df0ceafd51814468b08a279aea5bb0, type: 3}
     - {fileID: 1049115481071579171, guid: 9b04817774f0a034ebd1a0ff88505a04, type: 3}
-  _Conditions: []
+  _Conditions:
+  - Name: MediumStorm
+    Data:
+      MinSpeed: 55
+      MaxSpeed: 85
+      MinSeparation: 1.2
+      WaveInterval: 0.6
+      LifeTime: 20
+      Density: 0.11
+      SalvagePrefabs:
+      - {fileID: 1049115481071579171, guid: 9b04817774f0a034ebd1a0ff88505a04, type: 3}
+      - {fileID: 6332566556522365008, guid: 23df0ceafd51814468b08a279aea5bb0, type: 3}
+      - {fileID: 8292645433065040511, guid: fdb7d12636b7c30489a3e435f0f175a1, type: 3}
   StormBounds: {fileID: 1783258487}
   Seed: 3.84
   Scale: 1.12

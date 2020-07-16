@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class SalvageStorm : MonoBehaviour
 {
 
@@ -19,7 +19,9 @@ public class SalvageStorm : MonoBehaviour
 
 
     [SerializeField] private WeatherData BaseCondition;
-    [SerializeField] private List<WeatherDictData> _Conditions = new List<WeatherDictData>();
+    [SerializeField] private List<_WeatherData> WeatherConditions = new List<_WeatherData>();
+
+    private List<WeatherData> _Conditions = new List<WeatherData>();
 
     [SerializeField] private BoxCollider StormBounds;
     [SerializeField] private float Seed;
@@ -34,6 +36,54 @@ public class SalvageStorm : MonoBehaviour
 
     //NOTE: base is a reserved keyword for base weather condition and should not be used in a custom condition!
     private Dictionary<string,WeatherData> Conditions = new Dictionary<string,WeatherData>();
+    
+
+    [System.Serializable]
+    public struct SalvagePrefabData
+    {
+        public GameObject Object;
+        public float Weight;
+
+        public SalvagePrefabData(GameObject O,float W)
+        {
+            Object = O;
+            Weight = W;
+        }
+    }
+
+
+    [System.Serializable] //this one is for editing
+    public struct _WeatherData
+    {
+        public float MinSpeed;
+
+        public float MaxSpeed;
+
+        public float MinSeparation;
+
+        public float WaveInterval;
+
+        public float LifeTime;
+        
+        public float Density;
+
+        private float _WeightSum;
+        public float WeightSum{get=>_WeightSum;}
+
+        public List<SalvagePrefabData> SalvagePrefabs;
+        public _WeatherData(float mns,float mxs,float ms,float wi,float l,float d,List<SalvagePrefabData> sp, float weightSum = 100)
+        {
+            MinSpeed = mns;
+            MaxSpeed = mxs;
+            MinSeparation = ms;
+            WaveInterval = wi;
+            LifeTime = l;
+            Density = d;
+            SalvagePrefabs = sp;
+            _WeightSum = weightSum;
+        }
+    }
+
 
      [System.Serializable]
     public struct WeatherData
@@ -50,8 +100,11 @@ public class SalvageStorm : MonoBehaviour
         
         public float Density;
 
-        public List<GameObject> SalvagePrefabs;
-        public WeatherData(float mns,float mxs,float ms,float wi,float l,float d,List<GameObject> sp)
+        private float _WeightSum;
+        public float WeightSum{get=>_WeightSum;}
+
+        public Dictionary<GameObject,float> SalvagePrefabs;
+        public WeatherData(float mns,float mxs,float ms,float wi,float l,float d,Dictionary<GameObject,float> sp, float weightSum = 100)
         {
             MinSpeed = mns;
             MaxSpeed = mxs;
@@ -60,9 +113,10 @@ public class SalvageStorm : MonoBehaviour
             LifeTime = l;
             Density = d;
             SalvagePrefabs = sp;
+            _WeightSum = weightSum;
         }
 
-          public WeatherData(WeatherCondition Cond)
+          public WeatherData(WeatherData Cond, float weightSum = 100)
         {
             MinSpeed = Cond.MinSpeed;
             MaxSpeed = Cond.MaxSpeed;
@@ -71,17 +125,7 @@ public class SalvageStorm : MonoBehaviour
             LifeTime = Cond.LifeTime;
             Density = Cond.Density;
             SalvagePrefabs = Cond.SalvagePrefabs;
-        }
-
-          public WeatherData(WeatherData Cond)
-        {
-            MinSpeed = Cond.MinSpeed;
-            MaxSpeed = Cond.MaxSpeed;
-            MinSeparation = Cond.MinSeparation;
-            WaveInterval = Cond.WaveInterval;
-            LifeTime = Cond.LifeTime;
-            Density = Cond.Density;
-            SalvagePrefabs = Cond.SalvagePrefabs;
+            _WeightSum = weightSum;
         }
 
 
@@ -113,22 +157,10 @@ public class SalvageStorm : MonoBehaviour
         
     }
 
-    private void SetConditionData(WeatherCondition Condition)
-    {
-        SetConditionData(new WeatherData(Condition));
-    }
-
-
-    private WeatherData ReadConditionData(WeatherCondition condition)
-    {
-        return new WeatherData(condition);
-    }
-
-
     private void LerpWeather(WeatherData OldCondition,WeatherData newCondition,float delta)
     {
 
-        List<GameObject> temp = OldCondition.SalvagePrefabs;
+        Dictionary<GameObject,float> temp = OldCondition.SalvagePrefabs;
         if (delta >= 0.5) {
             temp = newCondition.SalvagePrefabs;
         }
@@ -167,9 +199,15 @@ public class SalvageStorm : MonoBehaviour
 
     public void Awake()
     {
-        foreach (var DictData in _Conditions)
-        {
-            Conditions.Add(DictData.Name,DictData.Data);
+        float weightSum = 0;
+        foreach (var DictData in WeatherConditions)
+        {   
+            weightSum = 0;
+            foreach (var item in DictData.Data.SalvagePrefabs)
+            {
+                weightSum+= item.Value;
+            }
+            Conditions.Add(DictData.Name,new WeatherData(DictData.Data,weightSum));
         }
 
 
@@ -188,6 +226,19 @@ public class SalvageStorm : MonoBehaviour
         return List[Random.Range(0,List.Count)];
     }
 
+    public static T SelectRandomWeighted<T>(Dictionary<T,float> WeightedDict,float SumOfWeights = 100)
+    {
+        float RandomSum = Random.Range(0,SumOfWeights);
+        foreach (var Dict in WeightedDict)
+        {
+            RandomSum-=Dict.Value;
+            if (RandomSum < Dict.Value)
+            {
+                return Dict.Key;
+            }
+        }
+        return default(T);
+    }
 
     private void SpawnWave()
     {
@@ -204,7 +255,7 @@ public class SalvageStorm : MonoBehaviour
             {
                 if(SamplePerlinNoise(y,z,WaveSeed) >= (1-CurrentCondition.Density)) //subtract from 1 to check blackvalue
                 {
-                    Temp = Instantiate(SelectRandom<GameObject>(CurrentCondition.SalvagePrefabs),new Vector3(gameObject.transform.position.x + Random.Range(-xBounds,xBounds),y+gameObject.transform.position.y,z+gameObject.transform.position.z),Random.rotation);
+                    Temp = Instantiate(SelectRandomWeighted<GameObject>(CurrentCondition.SalvagePrefabs,CurrentCondition.WeightSum),new Vector3(gameObject.transform.position.x + Random.Range(-xBounds,xBounds),y+gameObject.transform.position.y,z+gameObject.transform.position.z),Random.rotation);
                     NewWave.Add(Temp);
                     Debug.Log(Temp);
                     TempRB =  Temp.GetComponent<Rigidbody>();
