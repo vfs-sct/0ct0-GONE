@@ -851,6 +851,21 @@ PrefabInstance:
       propertyPath: ThrottleUI
       value: 
       objectReference: {fileID: 1789162674}
+    - target: {fileID: 489913433233796653, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: ThrusterImpulse
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913433233796653, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: VelocityMax
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 489913433233796653, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: FuelPerImpulseUnit
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 489913433233796655, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16782,6 +16797,99 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1571843480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1571843484}
+  - component: {fileID: 1571843483}
+  - component: {fileID: 1571843482}
+  - component: {fileID: 1571843481}
+  m_Layer: 0
+  m_Name: Cube (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1571843481
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571843480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1571843482
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571843480}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1571843483
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571843480}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1571843484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571843480}
+  m_LocalRotation: {x: 0.19904467, y: -0.028152406, z: 0.11005593, w: 0.97338396}
+  m_LocalPosition: {x: 57.52, y: -4.09, z: 2.38}
+  m_LocalScale: {x: 0.6637443, y: 13.517434, z: 6.129547}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 23.184002, y: -0.68500006, z: 12.761001}
 --- !u!1 &1626336799
 GameObject:
   m_ObjectHideFlags: 0
@@ -17384,7 +17492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783258486}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 351.5, y: 11.3, z: -39.5}
+  m_LocalPosition: {x: 333.7, y: 11.3, z: -28.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17412,20 +17520,12 @@ MonoBehaviour:
     SalvagePrefabs:
     - {fileID: 6332566556522365008, guid: 23df0ceafd51814468b08a279aea5bb0, type: 3}
     - {fileID: 1049115481071579171, guid: 9b04817774f0a034ebd1a0ff88505a04, type: 3}
-  Conditions:
-  - MinSpeed: 60
-    MaxSpeed: 85
-    MinSeparation: 1.5
-    WaveInterval: 0.6
-    LifeTime: 12.61
-    Density: 0.12
-    SalvagePrefabs:
-    - {fileID: 8292645433065040511, guid: fdb7d12636b7c30489a3e435f0f175a1, type: 3}
-    - {fileID: 1049115481071579171, guid: 9b04817774f0a034ebd1a0ff88505a04, type: 3}
-    - {fileID: 6332566556522365008, guid: 23df0ceafd51814468b08a279aea5bb0, type: 3}
+  _Conditions: []
   StormBounds: {fileID: 1783258487}
   Seed: 3.84
   Scale: 1.12
+  LinkedGameObject: {fileID: 849435022}
+  PlayingGameState: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
 --- !u!114 &1789162674 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7300412379220447967, guid: 3219ccd55e0001b4c8703f7dc571d41e,
