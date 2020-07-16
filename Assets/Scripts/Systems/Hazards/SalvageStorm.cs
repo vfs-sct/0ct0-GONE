@@ -5,16 +5,35 @@ using UnityEngine;
 public class SalvageStorm : MonoBehaviour
 {
 
+    [System.Serializable]
+    struct WeatherDictData
+    {
+        public string Name;
+        public WeatherData Data;
+
+        public WeatherDictData(string N, WeatherData D){
+            Name = N;
+            Data = D;
+        }
+    }
+
 
     [SerializeField] private WeatherData BaseCondition;
-    [SerializeField] private List<WeatherData> Conditions = new List<WeatherData>();
+    [SerializeField] private List<WeatherDictData> _Conditions = new List<WeatherDictData>();
 
     [SerializeField] private BoxCollider StormBounds;
     [SerializeField] private float Seed;
     [SerializeField] private float Scale = 1;
 
+    [SerializeField] private GameObject LinkedGameObject;
+
+    //[SerializeField] private bool UpdatePosition;
+
+    [SerializeField] private Playing PlayingGameState;
 
 
+    //NOTE: base is a reserved keyword for base weather condition and should not be used in a custom condition!
+    private Dictionary<string,WeatherData> Conditions = new Dictionary<string,WeatherData>();
 
      [System.Serializable]
     public struct WeatherData
@@ -128,16 +147,16 @@ public class SalvageStorm : MonoBehaviour
     
     }
 
-    private void SetNewWeatherCondition(int ConditionIndex, float time = 0)
+    private void SetNewWeatherCondition(string Condition, float time = 0)
     {
         OldCondition = CurrentCondition;
-        if (ConditionIndex == -1)
+        if (Condition == "base")
         {
             NewCondition = new WeatherData(BaseCondition);
         } 
         else
         {
-            NewCondition=  new WeatherData(Conditions[ConditionIndex]);
+            NewCondition=  new WeatherData(Conditions[Condition]);
         }
         LerpStartTime =Time.time;
         WeatherTimeChange = time;
@@ -146,10 +165,17 @@ public class SalvageStorm : MonoBehaviour
 
 
 
-
     public void Awake()
     {
+        foreach (var DictData in _Conditions)
+        {
+            Conditions.Add(DictData.Name,DictData.Data);
+        }
+
+
+
         SetConditionData(BaseCondition);
+        PlayingGameState.RegisterWeatherController(this);        
     }
 
     private static float SamplePerlinNoise(float CoordsX,float CoordsY,float seed = 0,float scale = 1.0f)
@@ -214,14 +240,7 @@ public class SalvageStorm : MonoBehaviour
     bool NotTriggered = true;
     private void Update()
     {
-
-        if (Time.time >= 30 && NotTriggered)
-        {
-            SetNewWeatherCondition(0,5);
-            Debug.Log("ChangedWeather");
-            NotTriggered = false;
-        }
-
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x,LinkedGameObject.transform.position.y,LinkedGameObject.transform.position.z);
         if (ChangingWeather && Time.time-LerpStartTime <= WeatherTimeChange)
         {
             LerpWeather(OldCondition,NewCondition,Time.time-LerpStartTime/WeatherTimeChange);
