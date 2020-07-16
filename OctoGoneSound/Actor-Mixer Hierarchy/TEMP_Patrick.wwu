@@ -942,14 +942,11 @@
 												</Property>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-10</Value>
-													</ValueList>
 													<RTPCList>
 														<RTPC Name="" ID="{11F4E7CA-0767-4022-BA3F-4A3955F81F2E}" ShortID="624687760">
 															<ReferenceList>
 																<Reference Name="ControlInput">
-																	<ObjectRef Name="ThrusterImpulse" ID="{2BFD54AC-865B-43EF-8B4D-8250ED545EE3}" WorkUnitID="{B28A8BCB-0841-479F-9F32-A560A1E5B2A3}"/>
+																	<ObjectRef Name="throttle" ID="{2BFD54AC-865B-43EF-8B4D-8250ED545EE3}" WorkUnitID="{B28A8BCB-0841-479F-9F32-A560A1E5B2A3}"/>
 																</Reference>
 															</ReferenceList>
 															<Curve Name="" ID="{B40C1B0C-B49F-4DAC-B134-353F4B99DCAA}">
@@ -1065,7 +1062,7 @@
 																<RTPC Name="" ID="{3A08B390-4870-4414-AAC8-0318D08E0FF6}" ShortID="126815747">
 																	<ReferenceList>
 																		<Reference Name="ControlInput">
-																			<ObjectRef Name="ThrusterImpulse" ID="{2BFD54AC-865B-43EF-8B4D-8250ED545EE3}" WorkUnitID="{B28A8BCB-0841-479F-9F32-A560A1E5B2A3}"/>
+																			<ObjectRef Name="throttle" ID="{2BFD54AC-865B-43EF-8B4D-8250ED545EE3}" WorkUnitID="{B28A8BCB-0841-479F-9F32-A560A1E5B2A3}"/>
 																		</Reference>
 																	</ReferenceList>
 																	<Curve Name="" ID="{37638419-85F7-40ED-B089-0A4C4B77715E}">
@@ -1102,7 +1099,7 @@
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="LayerCrossFadeControlInput">
-															<ObjectRef Name="ThrusterImpulse" ID="{2BFD54AC-865B-43EF-8B4D-8250ED545EE3}" WorkUnitID="{B28A8BCB-0841-479F-9F32-A560A1E5B2A3}"/>
+															<ObjectRef Name="throttle" ID="{2BFD54AC-865B-43EF-8B4D-8250ED545EE3}" WorkUnitID="{B28A8BCB-0841-479F-9F32-A560A1E5B2A3}"/>
 														</Reference>
 													</ReferenceList>
 													<BlendTrackAssocList>
