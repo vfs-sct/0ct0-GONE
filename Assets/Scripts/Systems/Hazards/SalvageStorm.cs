@@ -4,36 +4,152 @@ using UnityEngine;
 
 public class SalvageStorm : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> SalvagePrefabs;
+
+
+    [SerializeField] private WeatherData BaseCondition;
+    [SerializeField] private List<WeatherData> Conditions = new List<WeatherData>();
+
     [SerializeField] private BoxCollider StormBounds;
-
-    [SerializeField] private float MinSpeed = 15;
-
-    [SerializeField] private float MaxSpeed = 25;
-
-    [SerializeField] private float MinSeparation = 1f;
-    [SerializeField] private float WaveInterval = 0.5f;
-
-    [SerializeField] private float TimeSpentActive = 10;
-    [SerializeField] private float LifeTime = 5;
-    [SerializeField] private float _Density = 0.5f;
     [SerializeField] private float Seed;
     [SerializeField] private float Scale = 1;
 
 
-    private Queue<List<GameObject>> Waves = new Queue<List<GameObject>>();
-    private float Density;
 
-    private float FinishTime;
+
+     [System.Serializable]
+    public struct WeatherData
+    {
+        public float MinSpeed;
+
+        public float MaxSpeed;
+
+        public float MinSeparation;
+
+        public float WaveInterval;
+
+        public float LifeTime;
+        
+        public float Density;
+
+        public List<GameObject> SalvagePrefabs;
+        public WeatherData(float mns,float mxs,float ms,float wi,float l,float d,List<GameObject> sp)
+        {
+            MinSpeed = mns;
+            MaxSpeed = mxs;
+            MinSeparation = ms;
+            WaveInterval = wi;
+            LifeTime = l;
+            Density = d;
+            SalvagePrefabs = sp;
+        }
+
+          public WeatherData(WeatherCondition Cond)
+        {
+            MinSpeed = Cond.MinSpeed;
+            MaxSpeed = Cond.MaxSpeed;
+            MinSeparation = Cond.MinSeparation;
+            WaveInterval = Cond.WaveInterval;
+            LifeTime = Cond.LifeTime;
+            Density = Cond.Density;
+            SalvagePrefabs = Cond.SalvagePrefabs;
+        }
+
+          public WeatherData(WeatherData Cond)
+        {
+            MinSpeed = Cond.MinSpeed;
+            MaxSpeed = Cond.MaxSpeed;
+            MinSeparation = Cond.MinSeparation;
+            WaveInterval = Cond.WaveInterval;
+            LifeTime = Cond.LifeTime;
+            Density = Cond.Density;
+            SalvagePrefabs = Cond.SalvagePrefabs;
+        }
+
+
+    }
+
+
+
+
+    private Queue<List<GameObject>> Waves = new Queue<List<GameObject>>();
+
     private float NextWaveTime = 0;
 
-    private float NextCleanupTime = 0;
 
-    private bool StopSpawning = false;
+    private float LerpStartTime = 0f;
+
+
+    private float WeatherTimeChange = 1;
+
+    WeatherData CurrentCondition;
+
+    WeatherData OldCondition;
+    bool ChangingWeather = false;
+
+    WeatherData NewCondition;
+
+    private void SetConditionData(WeatherData Condition)
+    {
+        CurrentCondition = Condition;
+        
+    }
+
+    private void SetConditionData(WeatherCondition Condition)
+    {
+        SetConditionData(new WeatherData(Condition));
+    }
+
+
+    private WeatherData ReadConditionData(WeatherCondition condition)
+    {
+        return new WeatherData(condition);
+    }
+
+
+    private void LerpWeather(WeatherData OldCondition,WeatherData newCondition,float delta)
+    {
+
+        List<GameObject> temp = OldCondition.SalvagePrefabs;
+        if (delta >= 0.5) {
+            temp = newCondition.SalvagePrefabs;
+        }
+
+        CurrentCondition = new WeatherData(
+        Mathf.Lerp(OldCondition.MinSpeed,newCondition.MinSpeed,delta),
+        Mathf.Lerp(OldCondition.MaxSpeed,newCondition.MaxSpeed,delta),
+        Mathf.Lerp(OldCondition.MinSeparation,newCondition.MinSeparation,delta),
+        Mathf.Lerp(OldCondition.WaveInterval,newCondition.WaveInterval,delta),
+        Mathf.Lerp(OldCondition.LifeTime,newCondition.LifeTime,delta),
+        Mathf.Lerp(OldCondition.Density,newCondition.Density,delta),
+        temp
+        );
+
+        Debug.Log(newCondition.Density);
+    
+    }
+
+    private void SetNewWeatherCondition(int ConditionIndex, float time = 0)
+    {
+        OldCondition = CurrentCondition;
+        if (ConditionIndex == -1)
+        {
+            NewCondition = new WeatherData(BaseCondition);
+        } 
+        else
+        {
+            NewCondition=  new WeatherData(Conditions[ConditionIndex]);
+        }
+        LerpStartTime =Time.time;
+        WeatherTimeChange = time;
+        ChangingWeather = true;
+    }
+
+
+
 
     public void Awake()
     {
-        Density = 1- _Density; //invert density so that white = none
+        SetConditionData(BaseCondition);
     }
 
     private static float SamplePerlinNoise(float CoordsX,float CoordsY,float seed = 0,float scale = 1.0f)
@@ -53,18 +169,20 @@ public class SalvageStorm : MonoBehaviour
         Rigidbody TempRB;
         float WaveSeed = Seed+Time.time;
         List<GameObject> NewWave = new List<GameObject>();
-        Debug.Log(StormBounds.size);
-        for (float z= 0; z < StormBounds.size.z; z+= MinSeparation)
+        float zBounds = StormBounds.size.z/2;
+        float yBounds = StormBounds.size.y/2;
+        float xBounds = StormBounds.size.x/2;
+        for (float z= -zBounds; z < zBounds; z+= CurrentCondition.MinSeparation)
         {
-            for (float y = 0; y < StormBounds.size.y; y+= MinSeparation)
+            for (float y = -yBounds; y < yBounds; y+= CurrentCondition.MinSeparation)
             {
-                if(SamplePerlinNoise(y,z,WaveSeed) >= Density)
+                if(SamplePerlinNoise(y,z,WaveSeed) >= (1-CurrentCondition.Density)) //subtract from 1 to check blackvalue
                 {
-                    Temp = Instantiate(SelectRandom<GameObject>(SalvagePrefabs),new Vector3(gameObject.transform.position.x + Random.Range(0,StormBounds.size.x),y+gameObject.transform.position.y,z+gameObject.transform.position.z),Random.rotation);
+                    Temp = Instantiate(SelectRandom<GameObject>(CurrentCondition.SalvagePrefabs),new Vector3(gameObject.transform.position.x + Random.Range(-xBounds,xBounds),y+gameObject.transform.position.y,z+gameObject.transform.position.z),Random.rotation);
                     NewWave.Add(Temp);
                     Debug.Log(Temp);
                     TempRB =  Temp.GetComponent<Rigidbody>();
-                    TempRB.velocity = new Vector3(-Random.Range(MinSpeed,MaxSpeed),0,0);
+                    TempRB.velocity = new Vector3(-Random.Range(CurrentCondition.MinSpeed,CurrentCondition.MaxSpeed),0,0);
                     TempRB.angularVelocity = new Vector3(Random.Range(-1.2f,1.2f),Random.Range(-1.2f,1.2f),Random.Range(-1.2f,1.2f));
 
                 }
@@ -75,16 +193,14 @@ public class SalvageStorm : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log("Test Storm Triggered");
-        FinishTime = Time.time+TimeSpentActive; //note: Do not use unscaled time for this or pausing will break everything!
-        NextWaveTime = Time.time+WaveInterval;
+        NextWaveTime = Time.time+CurrentCondition.WaveInterval;
     }
 
 
 
     private IEnumerator CleanupWave()
     {
-        yield return new WaitForSeconds(LifeTime);
+        yield return new WaitForSeconds(CurrentCondition.LifeTime);
         List<GameObject> Wave = Waves.Dequeue();
         foreach (var salvage in Wave)
         {
@@ -95,23 +211,30 @@ public class SalvageStorm : MonoBehaviour
         }
     }
 
-
+    bool NotTriggered = true;
     private void Update()
     {
-        if (FinishTime <= Time.time )
+
+        if (Time.time >= 30 && NotTriggered)
         {
-            StopSpawning = true;
-            if (FinishTime+(LifeTime) <= Time.time)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            
+            SetNewWeatherCondition(0,5);
+            Debug.Log("ChangedWeather");
+            NotTriggered = false;
         }
-        if (NextWaveTime <= Time.time &&FinishTime > Time.time)
+
+        if (ChangingWeather && Time.time-LerpStartTime <= WeatherTimeChange)
+        {
+            LerpWeather(OldCondition,NewCondition,Time.time-LerpStartTime/WeatherTimeChange);
+            if (WeatherTimeChange == Time.time-LerpStartTime)
+            {
+                ChangingWeather = false;
+            }
+        }
+
+        if (NextWaveTime <= Time.time)
             {
                 SpawnWave();
-                NextWaveTime = Time.time + WaveInterval;
+                NextWaveTime = Time.time + CurrentCondition.WaveInterval;
             }
     }
 }
