@@ -155,6 +155,7 @@ public class CraftingSatellite : MonoBehaviour
                 //add new products and ingredients
                 var product = Instantiate(Product);
                 product.transform.SetParent(ProductGroup.transform);
+                product.GetComponentInChildren<Image>().sprite = recipe.Output.satIcon;
                 //there's two text portions on the UI element, the name and the amount
                 var outputText = product.GetComponentsInChildren<TextMeshProUGUI>();
                 outputText[0].SetText(recipe.DisplayName);
@@ -171,7 +172,9 @@ public class CraftingSatellite : MonoBehaviour
                     var resourceIcon = input.resource.resourceIcon;
                     if (resourceIcon != null)
                     {
-                        ingredient.GetComponentInChildren<Image>().sprite = resourceIcon;
+                        var image = ingredient.GetComponentInChildren<Image>();
+                        image.sprite = resourceIcon;
+                        image.color = input.resource.ResourceColor;
                     }
 
                     var inputText = ingredient.GetComponentsInChildren<TextMeshProUGUI>();

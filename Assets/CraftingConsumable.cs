@@ -171,7 +171,9 @@ public class CraftingConsumable : MonoBehaviour
                     var resourceIcon = input.resource.resourceIcon;
                     if (resourceIcon != null)
                     {
-                        ingredient.GetComponentInChildren<Image>().sprite = resourceIcon;
+                        var image = ingredient.GetComponentInChildren<Image>();
+                        image.sprite = resourceIcon;
+                        image.color = input.resource.ResourceColor;
                     }
 
                     var inputText = ingredient.GetComponentsInChildren<TextMeshProUGUI>();
