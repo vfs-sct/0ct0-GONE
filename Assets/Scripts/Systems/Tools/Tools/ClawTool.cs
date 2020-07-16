@@ -8,6 +8,8 @@ public class ClawTool : Tool
     private Transform HoldPos;
     private Rigidbody TargetRB;
 
+    private Rigidbody OwnerRB;
+
     [SerializeField] private AK.Wwise.Event PlayGrabSound;
     [SerializeField] private float MaxHoldDistance;
 
@@ -46,11 +48,13 @@ public class ClawTool : Tool
     protected override void OnSelect(ToolController owner)
     {
         HoldPos = owner.GetComponent<Player>().ObjectHoldPosition;
+        OwnerRB = owner.GetComponent<Rigidbody>();
     }
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
         TargetRB.MovePosition(HoldPos.position);
+        TargetRB.velocity = OwnerRB.velocity;
         //TargetRB.MoveRotation(HoldPos.rotation);
     }
 }
