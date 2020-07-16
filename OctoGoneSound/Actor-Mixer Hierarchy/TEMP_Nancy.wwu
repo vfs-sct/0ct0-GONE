@@ -168,8 +168,8 @@
 										<AudioFileSource Name="SFX_Environment_Fire_Loop" ID="{E85184E2-7532-47FC-9DC7-74FA5A7C5FF4}" ShortID="1037074454">
 											<PropertyList>
 												<Property Name="CrossfadeDuration" Type="Real64" Value="151.385"/>
-												<Property Name="LoopBegin" Type="Real64" Value="0.998722511574074"/>
-												<Property Name="LoopEnd" Type="Real64" Value="25.8169769241898"/>
+												<Property Name="LoopBegin" Type="Real64" Value="2.17087065972222"/>
+												<Property Name="LoopEnd" Type="Real64" Value="27.2439398871528"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 											</PropertyList>
 											<Language>SFX</Language>
@@ -1641,1204 +1641,6 @@
 										</Sound>
 									</ChildrenList>
 								</ActorMixer>
-								<ActorMixer Name="Computer" ID="{C9948F0B-F939-4171-83EF-2A3FB8171271}" ShortID="289718771">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<RandomSequenceContainer Name="ObjectiveComplete" ID="{0BA7FCA0-7BAB-4C26-98C0-28FAB74DCE97}" ShortID="549572585">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="VA_Ash_Computer_Complete_1" ID="{F9303AA8-CDF8-4345-BA5B-FA3D48E6A444}" ShortID="751936795">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Complete_1" ID="{171B43AB-FC6E-4B46-A6E6-CE41C98DB7AC}" ShortID="845140361">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Complete_1.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Complete_1" ID="{171B43AB-FC6E-4B46-A6E6-CE41C98DB7AC}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Complete_2" ID="{8BAF74F8-2C40-486C-9A3D-D940A46E1524}" ShortID="980024989">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Complete_2" ID="{EE6FD5ED-A3DF-4FE1-AB57-CE0D333CAEC5}" ShortID="832518898">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Complete_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Complete_2" ID="{EE6FD5ED-A3DF-4FE1-AB57-CE0D333CAEC5}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Complete_3" ID="{817A84F2-9677-4C24-9F1B-5E4C708BECF3}" ShortID="429394836">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Complete_3" ID="{E347BF0A-E5D8-4042-81C5-98B586C9F5B0}" ShortID="269842005">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Complete_3.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Complete_3" ID="{E347BF0A-E5D8-4042-81C5-98B586C9F5B0}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Complete_4" ID="{198AF306-E06D-464E-8F9B-433B9C6DCDD7}" ShortID="624737953">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Complete_4" ID="{11AFD3AF-AFE1-4153-A38B-F36913BED132}" ShortID="408604262">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Complete_4.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Complete_4" ID="{11AFD3AF-AFE1-4153-A38B-F36913BED132}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Complete_5" ID="{D7A2AB6F-56CA-42F9-B964-940A184AD73B}" ShortID="708576221">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Complete_5" ID="{368B2899-44F3-4A0A-8447-1B683BEEBDD7}" ShortID="89300449">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Complete_5.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Complete_5" ID="{368B2899-44F3-4A0A-8447-1B683BEEBDD7}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_NewObj_1" ID="{D6E043E1-F8C0-45AA-B88D-2FD81980650F}" ShortID="927029521">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_NewObj_1" ID="{97F7E253-D8E6-4252-A0C8-2B8FDD7FE232}" ShortID="424024226">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_NewObj_1.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_NewObj_1" ID="{97F7E253-D8E6-4252-A0C8-2B8FDD7FE232}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_NewObj_2" ID="{E9B65F87-2CCD-450E-A236-792D5F55F8D0}" ShortID="424714675">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_NewObj_2" ID="{6B095316-A5E2-41FC-9340-2CA01F6B7BFB}" ShortID="1044080366">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_NewObj_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_NewObj_2" ID="{6B095316-A5E2-41FC-9340-2CA01F6B7BFB}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_NewObj_3" ID="{41937814-9081-4E89-AFFF-76AE75ED822A}" ShortID="303521526">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_NewObj_3" ID="{B1B34E54-F961-458A-9A06-1C62FE2FA7FC}" ShortID="189652326">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_NewObj_3.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_NewObj_3" ID="{B1B34E54-F961-458A-9A06-1C62FE2FA7FC}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_NewObj_4" ID="{47BD5C61-BBC4-46F6-BBA2-4C51FA80948E}" ShortID="1022543288">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_NewObj_4" ID="{742DBDAF-9AC9-4543-AB29-70E6F9306854}" ShortID="641858127">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_NewObj_4.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_NewObj_4" ID="{742DBDAF-9AC9-4543-AB29-70E6F9306854}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="CriticalDamage" ID="{FFC0A6FB-8619-4726-8C0C-89AC4E18C58C}" ShortID="72874763">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="VA_Ash_Computer_Warning_Damage_1" ID="{BC3EED87-86B1-4CBE-A315-450ABA7E5081}" ShortID="1041020417">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Damage_1-01" ID="{EE06F44D-7CC5-4B52-BE52-F97623881442}" ShortID="802607112">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Damage_1-01.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Damage_1-01" ID="{EE06F44D-7CC5-4B52-BE52-F97623881442}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_Damage_2" ID="{39D17BE6-064A-4655-93FD-0AE5F37983D5}" ShortID="792463214">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Damage_2" ID="{1AF387D5-9841-4369-8A17-716C136CD25E}" ShortID="881923386">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Damage_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Damage_2" ID="{1AF387D5-9841-4369-8A17-716C136CD25E}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_Damage_3" ID="{AE388127-3678-41D8-946B-A7210F889681}" ShortID="867462415">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Damage_3" ID="{B0EB57CD-50D2-4A8E-8847-E6AA7F9ED5C9}" ShortID="741124271">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Damage_3.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Damage_3" ID="{B0EB57CD-50D2-4A8E-8847-E6AA7F9ED5C9}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_Damage_4" ID="{91D8E57D-87B4-4409-BACD-EAD6E9FBC01F}" ShortID="838533572">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Damage_4" ID="{1F2E6E81-EFCB-4B5C-B2E3-27FB5979E6EA}" ShortID="430954692">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Damage_4.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Damage_4" ID="{1F2E6E81-EFCB-4B5C-B2E3-27FB5979E6EA}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_Damage_5" ID="{1BCA866D-51BA-47D3-8347-01CFCE1361B4}" ShortID="594106684">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Damage_5" ID="{BB05CB1E-1536-47D9-8526-365BE6C43788}" ShortID="688155304">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Damage_5.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Damage_5" ID="{BB05CB1E-1536-47D9-8526-365BE6C43788}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="FuelLow" ID="{C91948B6-E5BA-40A5-A23A-7AAD2406D489}" ShortID="703239742">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="VA_Ash_Computer_Warning_FuelLow_1" ID="{B6907807-3C4B-4F20-BA44-CD79D6FD968A}" ShortID="2148569">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_FuelLow_1" ID="{5DD45E75-E874-43CE-B2E7-08D776E9FDF3}" ShortID="963431101">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_FuelLow_1.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_FuelLow_1" ID="{5DD45E75-E874-43CE-B2E7-08D776E9FDF3}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_FuelLow_2" ID="{D2B3A7E2-5F8F-413F-B789-23080E8E977E}" ShortID="1039846842">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_FuelLow_2" ID="{062EBEEB-78B6-44C6-80B9-D1EAD09C2DE6}" ShortID="355092937">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_FuelLow_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_FuelLow_2" ID="{062EBEEB-78B6-44C6-80B9-D1EAD09C2DE6}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_FuelLow_3" ID="{F30B9634-26BA-4A3F-97B2-D87C5F0927B2}" ShortID="771828102">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_FuelLow_3" ID="{97F7B650-1F4B-461F-AD01-227C418947E1}" ShortID="759071450">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_FuelLow_3.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_FuelLow_3" ID="{97F7B650-1F4B-461F-AD01-227C418947E1}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_FuelLow_4" ID="{84A8568F-BA25-4FC9-A3D0-A22B95DE3BC9}" ShortID="863122968">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_FuelLow_4" ID="{2A58ADA2-959E-4E8C-AD3A-A7B11DC79E4D}" ShortID="889545855">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_FuelLow_4.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_FuelLow_4" ID="{2A58ADA2-959E-4E8C-AD3A-A7B11DC79E4D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_FuelLow_5" ID="{C4C12001-CE7B-418F-AC5A-AAAB59B1AD43}" ShortID="952133639">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_FuelLow_5" ID="{D85E97B5-C731-4A1D-915A-DDE06318F715}" ShortID="582589596">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_FuelLow_5.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_FuelLow_5" ID="{D85E97B5-C731-4A1D-915A-DDE06318F715}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_FuelLow_Ex" ID="{434E6557-27F2-4629-9DA2-D15F6E3759C0}" ShortID="956058463">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_FuelLow_Ex" ID="{AC044323-B323-408E-BA96-34F216E8DB83}" ShortID="35735655">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_FuelLow_Ex.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_FuelLow_Ex" ID="{AC044323-B323-408E-BA96-34F216E8DB83}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ReFuel_1" ID="{68807835-53EF-4B9D-97D8-8DBF22654FD3}" ShortID="254738692">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ReFuel_1" ID="{56902F53-E768-4805-B58C-8DF6BF483E32}" ShortID="370953600">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ReFuel_1.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ReFuel_1" ID="{56902F53-E768-4805-B58C-8DF6BF483E32}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ReFuel_2" ID="{A9C7F959-89CE-4713-845A-5157D43BD98A}" ShortID="290767391">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ReFuel_2" ID="{71756F47-5F25-4C2F-B214-F2FC5EF955AA}" ShortID="1071428530">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ReFuel_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ReFuel_2" ID="{71756F47-5F25-4C2F-B214-F2FC5EF955AA}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="GasDetected" ID="{D981EE17-CC1F-4563-8E81-460A9141144C}" ShortID="742211391">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="VA_Ash_Computer_Warning_Gas_1" ID="{32D51D73-6631-4C06-AA1A-E5C36F71F43D}" ShortID="135155217">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Gas_1" ID="{4A8A01AB-F2F6-4F97-8345-569E2D9E21EA}" ShortID="786445028">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Gas_1.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Gas_1" ID="{4A8A01AB-F2F6-4F97-8345-569E2D9E21EA}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_Gas_2" ID="{0B9F9E57-6F53-4E76-86E1-0AB0797D6F3E}" ShortID="313750498">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Gas_2" ID="{9F1022CA-63FC-4C31-A89C-D7DFCCADCE7B}" ShortID="718675640">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Gas_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Gas_2" ID="{9F1022CA-63FC-4C31-A89C-D7DFCCADCE7B}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="LeavingCommRange" ID="{6054527A-D423-4A27-9AB0-0060D09AFDDA}" ShortID="505148166">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="VA_Ash_Computer_Warning_Leaving_2" ID="{9EF955B9-5FB0-4CB6-BE4B-791D34F5B848}" ShortID="577770345">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Leaving_2" ID="{EB4C857B-6974-42DE-9C37-B152F9AADFF1}" ShortID="651433309">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Leaving_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Leaving_2" ID="{EB4C857B-6974-42DE-9C37-B152F9AADFF1}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_Leaving_1" ID="{AF571DF0-F02B-41F0-9054-8B262EFC9261}" ShortID="909690107">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Leaving_1" ID="{F349A46B-5BEF-4747-BDFE-63E5824DA2CF}" ShortID="762068648">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Leaving_1.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Leaving_1" ID="{F349A46B-5BEF-4747-BDFE-63E5824DA2CF}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_Leaving_3" ID="{14238333-C40F-4F4E-B02C-BD8D95148716}" ShortID="577376484">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Leaving_3" ID="{8A9BDF69-7A89-49A9-9C81-97D1FD85241E}" ShortID="988956889">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Leaving_3.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Leaving_3" ID="{8A9BDF69-7A89-49A9-9C81-97D1FD85241E}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_Leaving_4" ID="{6FD0B7F0-5CA5-4CBA-B873-8FD8DA956341}" ShortID="874689416">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Leaving_4" ID="{B86676FB-9E47-44E0-AF7E-A3EE4AA391CF}" ShortID="544568540">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Leaving_4.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Leaving_4" ID="{B86676FB-9E47-44E0-AF7E-A3EE4AA391CF}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_Leaving_5" ID="{B58F2CAB-8F2C-4913-B743-9C9C93A7A7DB}" ShortID="492073377">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Leaving_5" ID="{DB2F78AC-3264-424B-AE3E-46DB73B0C15C}" ShortID="490158201">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Leaving_5.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Leaving_5" ID="{DB2F78AC-3264-424B-AE3E-46DB73B0C15C}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="HighRadiation" ID="{53687AAA-CEC5-40FB-BBB8-B2B094A96031}" ShortID="878267381">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="VA_Ash_Computer_Warning_Radiation_1" ID="{4A48C46E-36F6-40D7-991C-46BFBC752103}" ShortID="341166254">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Radiation_1" ID="{60A69592-0ACE-4015-A06C-F920D706394E}" ShortID="97711572">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Radiation_1.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Radiation_1" ID="{60A69592-0ACE-4015-A06C-F920D706394E}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_Radiation_2" ID="{18880705-A0AC-411B-A676-E1A9504AF790}" ShortID="876102900">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Radiation_2" ID="{C47232EB-551E-4EDC-8F97-674AFB4DFD13}" ShortID="864053491">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Radiation_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Radiation_2" ID="{C47232EB-551E-4EDC-8F97-674AFB4DFD13}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_Radiation_3" ID="{4E520491-4E47-4D0A-BB6C-8557B9FEAC05}" ShortID="758722067">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_Radiation_3" ID="{0EFDBB33-29C1-45AE-A6EB-4284EDA4C5A1}" ShortID="496895629">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_Radiation_3.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_Radiation_3" ID="{0EFDBB33-29C1-45AE-A6EB-4284EDA4C5A1}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="ShutDown" ID="{1CE10BEF-2A7D-4E1A-BC3A-DCF070A78609}" ShortID="915575083">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_5_01" ID="{9CC163E9-1689-4DC0-90C9-797078898078}" ShortID="991594590">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_5_01" ID="{F9867D3C-5A2C-4C0D-9D0E-80B3335D8F0D}" ShortID="371693007">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_5_01.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_5_01" ID="{F9867D3C-5A2C-4C0D-9D0E-80B3335D8F0D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_5_02" ID="{ACE404DA-98A6-4521-BBDE-AE985B895B47}" ShortID="112262096">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_5_02" ID="{E489DBC3-973D-4D42-A07D-3599F58C679D}" ShortID="561137905">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_5_02.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_5_02" ID="{E489DBC3-973D-4D42-A07D-3599F58C679D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_5_03" ID="{2055DEF8-79E9-41C6-85A3-FA1003D1B2D1}" ShortID="264160849">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_5_03" ID="{AAA8CE79-AF3A-482E-AE11-6FCF5A5869C7}" ShortID="277938526">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_5_03.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_5_03" ID="{AAA8CE79-AF3A-482E-AE11-6FCF5A5869C7}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="ShutDownDamage" ID="{05764364-63E6-4AD1-88C8-8F18B03770F2}" ShortID="172123465">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_1_01" ID="{CC61AB5C-5075-4E7C-BB90-5D6C6C5DBD79}" ShortID="1042621035">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_Damage_1_01" ID="{9592E0A4-3EE4-4587-907E-3708BD993CF8}" ShortID="309297913">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_Damage_1_01.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_Damage_1_01" ID="{9592E0A4-3EE4-4587-907E-3708BD993CF8}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_1_02" ID="{BB15579C-500D-4CD8-8B5A-E03999683519}" ShortID="1071671141">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_Damage_1_02" ID="{CD00748A-7E2A-4619-B4E8-C4B1A1C177FB}" ShortID="1003659189">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_Damage_1_02.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_Damage_1_02" ID="{CD00748A-7E2A-4619-B4E8-C4B1A1C177FB}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_1_03" ID="{55ACD188-6FA3-41AD-94F0-3A91EE7C30FB}" ShortID="300258820">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_Damage_1_03" ID="{4EEFBECE-587E-4704-8D3A-982B5B06550B}" ShortID="722772679">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_Damage_1_03.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_Damage_1_03" ID="{4EEFBECE-587E-4704-8D3A-982B5B06550B}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_2_01" ID="{BE4AA5BF-5290-4C11-9C40-3EF26E74533E}" ShortID="1006268071">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_Damage_2_01" ID="{30D39052-68E9-4D53-A2BA-74A6C6693340}" ShortID="153992636">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_Damage_2_01.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_Damage_2_01" ID="{30D39052-68E9-4D53-A2BA-74A6C6693340}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_2_02" ID="{5B1B7119-832F-4423-A736-120FBE892FC9}" ShortID="542503699">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_Damage_2_02" ID="{21C666E9-65B6-44FD-A442-4BD6DC8C8F42}" ShortID="74374942">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_Damage_2_02.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_Damage_2_02" ID="{21C666E9-65B6-44FD-A442-4BD6DC8C8F42}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_2_03" ID="{CAD03E89-D34E-441A-A195-9E2A9C1BE31E}" ShortID="634060310">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_Damage_2_03" ID="{460888B2-59A7-4382-8E75-727A05CD9FC2}" ShortID="852155695">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_Damage_2_03.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_Damage_2_03" ID="{460888B2-59A7-4382-8E75-727A05CD9FC2}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_3_01" ID="{B4CE68D6-C798-4B08-BA41-1BD86D43D13A}" ShortID="253020869">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_Damage_3_01" ID="{927159CB-4183-4A0D-A07A-E69252AF17C3}" ShortID="726160517">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_Damage_3_01.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_Damage_3_01" ID="{927159CB-4183-4A0D-A07A-E69252AF17C3}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_3_02" ID="{D134678A-4EF3-4165-BBDC-3BD09EAC8627}" ShortID="713922511">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_Damage_3_02" ID="{DB89EFA5-A84D-4C24-B37A-6F6AA9E3D2DB}" ShortID="89919622">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_Damage_3_02.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_Damage_3_02" ID="{DB89EFA5-A84D-4C24-B37A-6F6AA9E3D2DB}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_3_03" ID="{6278244F-1D6F-4B86-B36D-5F23120AA455}" ShortID="87927410">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_Damage_3_03" ID="{8E739D9B-6728-4CF6-BBE1-E77ACBDBF6F5}" ShortID="795477931">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_Damage_3_03.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_Damage_3_03" ID="{8E739D9B-6728-4CF6-BBE1-E77ACBDBF6F5}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="ShutDownFuel" ID="{CC382009-FFEF-4297-BCD9-65D1EAEF1FE0}" ShortID="29131092">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Fuel_1_01" ID="{0729259F-8AF1-47FB-BC32-7850A21F9C91}" ShortID="781670164">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_1_01" ID="{B5B04344-4CB5-4B75-9992-35737BF1BFEA}" ShortID="252380341">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_1_01.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_1_01" ID="{B5B04344-4CB5-4B75-9992-35737BF1BFEA}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Fuel_1_02" ID="{E2996EAA-DB62-4391-9B33-D513790853A7}" ShortID="296808628">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_1_02" ID="{EF86D93B-98AC-4248-839D-854990A70483}" ShortID="180574832">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_1_02.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_1_02" ID="{EF86D93B-98AC-4248-839D-854990A70483}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Fuel_1_03" ID="{C9EAE2B2-4606-40FC-80B9-04809A0F2D5A}" ShortID="208069757">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_1_03" ID="{42A59E7D-8D21-4285-8427-41820921DB96}" ShortID="509559447">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_1_03.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_1_03" ID="{42A59E7D-8D21-4285-8427-41820921DB96}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Fuel_2" ID="{3BD6446D-FAE8-493F-931A-8CE7AA213E0F}" ShortID="1024916793">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_2" ID="{0CDF6F00-9093-41CE-A397-6AF7E7C28082}" ShortID="115389066">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_2" ID="{0CDF6F00-9093-41CE-A397-6AF7E7C28082}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Fuel_3" ID="{3E92249C-C0C1-4D78-B7F5-4658EDFBF654}" ShortID="404024674">
-													<PropertyList>
-														<Property Name="IsVoice" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Warning_ShutDown_3" ID="{7E19A79C-3FF0-4FB7-8F38-FB992291E98B}" ShortID="734949110">
-															<Language>English(US)</Language>
-															<AudioFile>Computer\Warning_ShutDown_3.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Warning_ShutDown_3" ID="{7E19A79C-3FF0-4FB7-8F38-FB992291E98B}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-									</ChildrenList>
-								</ActorMixer>
 								<ActorMixer Name="Octo" ID="{43E99AE4-6816-4268-A510-CCA14FD91F01}" ShortID="762287526">
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2865,6 +1667,9 @@
 												<AudioFileSource Name="VO_Ash_Oct0_Remembered" ID="{40167EE6-17E7-4817-89BB-00C67F0BBA48}" ShortID="795545139">
 													<Language>English(US)</Language>
 													<AudioFile>Oct0\VO_Ash_Oct0_Remembered.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="117721621"/>
+													</ConvertedFileIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -2887,6 +1692,9 @@
 												<AudioFileSource Name="VO_Ash_Oct0_Complete" ID="{3B4FE755-BD49-486C-8AFC-9D9FD7C86A67}" ShortID="755452216">
 													<Language>English(US)</Language>
 													<AudioFile>Oct0\VO_Ash_Oct0_Complete.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="672150812"/>
+													</ConvertedFileIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -2909,6 +1717,9 @@
 												<AudioFileSource Name="VO_Ash_Oct0_CraftFail" ID="{0D5D4920-F5D8-4AD3-AB01-18EB395E1CB2}" ShortID="385069943">
 													<Language>English(US)</Language>
 													<AudioFile>Oct0\VO_Ash_Oct0_CraftFail.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="385069944"/>
+													</ConvertedFileIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -2931,6 +1742,9 @@
 												<AudioFileSource Name="VO_Ash_Oct0_CraftSuccess" ID="{2DD0588D-3D10-4024-A1B8-ACE1CBD444DF}" ShortID="1051674398">
 													<Language>English(US)</Language>
 													<AudioFile>Oct0\VO_Ash_Oct0_CraftSuccess.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="335077673"/>
+													</ConvertedFileIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -2953,6 +1767,9 @@
 												<AudioFileSource Name="VO_Ash_Oct0_Death" ID="{5E0915B8-1CC4-4407-B164-4C09B5E0CE8D}" ShortID="436264463">
 													<Language>English(US)</Language>
 													<AudioFile>Oct0\VO_Ash_Oct0_Death.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="236020135"/>
+													</ConvertedFileIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -2975,6 +1792,9 @@
 												<AudioFileSource Name="VO_Ash_Oct0_Death_Ex" ID="{92F1BF63-4486-4281-A5A2-8431D356F873}" ShortID="1009594765">
 													<Language>English(US)</Language>
 													<AudioFile>Oct0\VO_Ash_Oct0_Death_Ex.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="578569492"/>
+													</ConvertedFileIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -2997,6 +1817,9 @@
 												<AudioFileSource Name="VO_Ash_Oct0_Hurt" ID="{FEC0516C-9C2B-44A7-8180-FDE236433100}" ShortID="461348370">
 													<Language>English(US)</Language>
 													<AudioFile>Oct0\VO_Ash_Oct0_Hurt.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="461348371"/>
+													</ConvertedFileIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -3019,6 +1842,9 @@
 												<AudioFileSource Name="VO_Ash_Oct0_NoResc" ID="{3D08798D-1F32-4D2F-89BC-5CAC73366DDF}" ShortID="767812516">
 													<Language>English(US)</Language>
 													<AudioFile>Oct0\VO_Ash_Oct0_NoResc.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="761293727"/>
+													</ConvertedFileIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -3041,6 +1867,9 @@
 												<AudioFileSource Name="VO_Ash_Oct0_Low_1" ID="{603A1BF6-7028-440A-BEE8-5BB16F2B08DC}" ShortID="703884511">
 													<Language>English(US)</Language>
 													<AudioFile>Oct0\VO_Ash_Oct0_Low_1.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="541777944"/>
+													</ConvertedFileIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -3063,12 +1892,1289 @@
 												<AudioFileSource Name="VO_Ash_Oct0_Low_2" ID="{3E6A182E-E7AC-48E1-94BE-B68CB08B9590}" ShortID="1046075240">
 													<Language>English(US)</Language>
 													<AudioFile>Oct0\VO_Ash_Oct0_Low_2.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="1000464504"/>
+													</ConvertedFileIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="VO_Ash_Oct0_Low_2" ID="{3E6A182E-E7AC-48E1-94BE-B68CB08B9590}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+									</ChildrenList>
+								</ActorMixer>
+								<ActorMixer Name="Computer" ID="{C8862A50-AB24-4779-871E-E3E6F784F729}" ShortID="289718772">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="ObjectiveComplete" ID="{A2E6FBEA-DF06-4247-B737-4390A3B32AD3}" ShortID="441348986">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VA_Ash_Computer_Complete_4" ID="{198AF306-E06D-464E-8F9B-433B9C6DCDD7}" ShortID="624737953">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Complete_4" ID="{11AFD3AF-AFE1-4153-A38B-F36913BED132}" ShortID="408604262">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Complete_4.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Complete_4" ID="{11AFD3AF-AFE1-4153-A38B-F36913BED132}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Complete_3" ID="{817A84F2-9677-4C24-9F1B-5E4C708BECF3}" ShortID="429394836">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Complete_3" ID="{E347BF0A-E5D8-4042-81C5-98B586C9F5B0}" ShortID="269842005">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Complete_3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Complete_3" ID="{E347BF0A-E5D8-4042-81C5-98B586C9F5B0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_NewObj_3" ID="{41937814-9081-4E89-AFFF-76AE75ED822A}" ShortID="303521526">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_NewObj_3" ID="{B1B34E54-F961-458A-9A06-1C62FE2FA7FC}" ShortID="189652326">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_NewObj_3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_NewObj_3" ID="{B1B34E54-F961-458A-9A06-1C62FE2FA7FC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_NewObj_4" ID="{47BD5C61-BBC4-46F6-BBA2-4C51FA80948E}" ShortID="1022543288">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_NewObj_4" ID="{742DBDAF-9AC9-4543-AB29-70E6F9306854}" ShortID="641858127">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_NewObj_4.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_NewObj_4" ID="{742DBDAF-9AC9-4543-AB29-70E6F9306854}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Complete_1" ID="{F9303AA8-CDF8-4345-BA5B-FA3D48E6A444}" ShortID="751936795">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Complete_1" ID="{171B43AB-FC6E-4B46-A6E6-CE41C98DB7AC}" ShortID="845140361">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Complete_1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Complete_1" ID="{171B43AB-FC6E-4B46-A6E6-CE41C98DB7AC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Complete_5" ID="{D7A2AB6F-56CA-42F9-B964-940A184AD73B}" ShortID="708576221">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Complete_5" ID="{368B2899-44F3-4A0A-8447-1B683BEEBDD7}" ShortID="89300449">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Complete_5.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Complete_5" ID="{368B2899-44F3-4A0A-8447-1B683BEEBDD7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_NewObj_1" ID="{D6E043E1-F8C0-45AA-B88D-2FD81980650F}" ShortID="927029521">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_NewObj_1" ID="{97F7E253-D8E6-4252-A0C8-2B8FDD7FE232}" ShortID="424024226">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_NewObj_1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_NewObj_1" ID="{97F7E253-D8E6-4252-A0C8-2B8FDD7FE232}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_NewObj_2" ID="{E9B65F87-2CCD-450E-A236-792D5F55F8D0}" ShortID="424714675">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_NewObj_2" ID="{6B095316-A5E2-41FC-9340-2CA01F6B7BFB}" ShortID="1044080366">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_NewObj_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_NewObj_2" ID="{6B095316-A5E2-41FC-9340-2CA01F6B7BFB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Complete_2" ID="{8BAF74F8-2C40-486C-9A3D-D940A46E1524}" ShortID="980024989">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Complete_2" ID="{EE6FD5ED-A3DF-4FE1-AB57-CE0D333CAEC5}" ShortID="832518898">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Complete_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Complete_2" ID="{EE6FD5ED-A3DF-4FE1-AB57-CE0D333CAEC5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="CriticalDamage" ID="{2F53B3C0-9057-4637-9326-8912156E09A3}" ShortID="768423338">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VA_Ash_Computer_Warning_Damage_5" ID="{1BCA866D-51BA-47D3-8347-01CFCE1361B4}" ShortID="594106684">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Damage_5" ID="{BB05CB1E-1536-47D9-8526-365BE6C43788}" ShortID="688155304">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Damage_5.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Damage_5" ID="{BB05CB1E-1536-47D9-8526-365BE6C43788}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_Damage_2" ID="{39D17BE6-064A-4655-93FD-0AE5F37983D5}" ShortID="792463214">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Damage_2" ID="{1AF387D5-9841-4369-8A17-716C136CD25E}" ShortID="881923386">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Damage_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Damage_2" ID="{1AF387D5-9841-4369-8A17-716C136CD25E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_Damage_4" ID="{91D8E57D-87B4-4409-BACD-EAD6E9FBC01F}" ShortID="838533572">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Damage_4" ID="{1F2E6E81-EFCB-4B5C-B2E3-27FB5979E6EA}" ShortID="430954692">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Damage_4.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Damage_4" ID="{1F2E6E81-EFCB-4B5C-B2E3-27FB5979E6EA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_Damage_3" ID="{AE388127-3678-41D8-946B-A7210F889681}" ShortID="867462415">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Damage_3" ID="{B0EB57CD-50D2-4A8E-8847-E6AA7F9ED5C9}" ShortID="741124271">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Damage_3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Damage_3" ID="{B0EB57CD-50D2-4A8E-8847-E6AA7F9ED5C9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_Damage_1" ID="{BC3EED87-86B1-4CBE-A315-450ABA7E5081}" ShortID="1041020417">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Damage_1-01" ID="{EE06F44D-7CC5-4B52-BE52-F97623881442}" ShortID="802607112">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Damage_1-01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Damage_1-01" ID="{EE06F44D-7CC5-4B52-BE52-F97623881442}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="FuelLow" ID="{A3B47C2F-F901-4452-BCD4-1A9EDA5BD373}" ShortID="433120836">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VA_Ash_Computer_Warning_FuelLow_3" ID="{F30B9634-26BA-4A3F-97B2-D87C5F0927B2}" ShortID="771828102">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_FuelLow_3" ID="{97F7B650-1F4B-461F-AD01-227C418947E1}" ShortID="759071450">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_FuelLow_3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_FuelLow_3" ID="{97F7B650-1F4B-461F-AD01-227C418947E1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_FuelLow_4" ID="{84A8568F-BA25-4FC9-A3D0-A22B95DE3BC9}" ShortID="863122968">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_FuelLow_4" ID="{2A58ADA2-959E-4E8C-AD3A-A7B11DC79E4D}" ShortID="889545855">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_FuelLow_4.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_FuelLow_4" ID="{2A58ADA2-959E-4E8C-AD3A-A7B11DC79E4D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ReFuel_1" ID="{68807835-53EF-4B9D-97D8-8DBF22654FD3}" ShortID="254738692">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ReFuel_1" ID="{56902F53-E768-4805-B58C-8DF6BF483E32}" ShortID="370953600">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ReFuel_1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ReFuel_1" ID="{56902F53-E768-4805-B58C-8DF6BF483E32}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_FuelLow_1" ID="{B6907807-3C4B-4F20-BA44-CD79D6FD968A}" ShortID="2148569">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_FuelLow_1" ID="{5DD45E75-E874-43CE-B2E7-08D776E9FDF3}" ShortID="963431101">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_FuelLow_1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_FuelLow_1" ID="{5DD45E75-E874-43CE-B2E7-08D776E9FDF3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_FuelLow_2" ID="{D2B3A7E2-5F8F-413F-B789-23080E8E977E}" ShortID="1039846842">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_FuelLow_2" ID="{062EBEEB-78B6-44C6-80B9-D1EAD09C2DE6}" ShortID="355092937">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_FuelLow_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_FuelLow_2" ID="{062EBEEB-78B6-44C6-80B9-D1EAD09C2DE6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_FuelLow_Ex" ID="{434E6557-27F2-4629-9DA2-D15F6E3759C0}" ShortID="956058463">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_FuelLow_Ex" ID="{AC044323-B323-408E-BA96-34F216E8DB83}" ShortID="35735655">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_FuelLow_Ex.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_FuelLow_Ex" ID="{AC044323-B323-408E-BA96-34F216E8DB83}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_FuelLow_5" ID="{C4C12001-CE7B-418F-AC5A-AAAB59B1AD43}" ShortID="952133639">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_FuelLow_5" ID="{D85E97B5-C731-4A1D-915A-DDE06318F715}" ShortID="582589596">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_FuelLow_5.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_FuelLow_5" ID="{D85E97B5-C731-4A1D-915A-DDE06318F715}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ReFuel_2" ID="{A9C7F959-89CE-4713-845A-5157D43BD98A}" ShortID="290767391">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ReFuel_2" ID="{71756F47-5F25-4C2F-B214-F2FC5EF955AA}" ShortID="1071428530">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ReFuel_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ReFuel_2" ID="{71756F47-5F25-4C2F-B214-F2FC5EF955AA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="GasDetected" ID="{8C3B63D0-04E7-4233-801C-D5D9F43AD2DB}" ShortID="245192351">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VA_Ash_Computer_Warning_Gas_2" ID="{0B9F9E57-6F53-4E76-86E1-0AB0797D6F3E}" ShortID="313750498">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Gas_2" ID="{9F1022CA-63FC-4C31-A89C-D7DFCCADCE7B}" ShortID="718675640">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Gas_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Gas_2" ID="{9F1022CA-63FC-4C31-A89C-D7DFCCADCE7B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_Gas_1" ID="{32D51D73-6631-4C06-AA1A-E5C36F71F43D}" ShortID="135155217">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Gas_1" ID="{4A8A01AB-F2F6-4F97-8345-569E2D9E21EA}" ShortID="786445028">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Gas_1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Gas_1" ID="{4A8A01AB-F2F6-4F97-8345-569E2D9E21EA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="LeavingCommRange" ID="{5A4A3534-EC8F-4345-84B9-4DD6016D434F}" ShortID="781382492">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VA_Ash_Computer_Warning_Leaving_2" ID="{9EF955B9-5FB0-4CB6-BE4B-791D34F5B848}" ShortID="577770345">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Leaving_2" ID="{EB4C857B-6974-42DE-9C37-B152F9AADFF1}" ShortID="651433309">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Leaving_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Leaving_2" ID="{EB4C857B-6974-42DE-9C37-B152F9AADFF1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_Leaving_4" ID="{6FD0B7F0-5CA5-4CBA-B873-8FD8DA956341}" ShortID="874689416">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Leaving_4" ID="{B86676FB-9E47-44E0-AF7E-A3EE4AA391CF}" ShortID="544568540">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Leaving_4.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Leaving_4" ID="{B86676FB-9E47-44E0-AF7E-A3EE4AA391CF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_Leaving_5" ID="{B58F2CAB-8F2C-4913-B743-9C9C93A7A7DB}" ShortID="492073377">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Leaving_5" ID="{DB2F78AC-3264-424B-AE3E-46DB73B0C15C}" ShortID="490158201">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Leaving_5.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Leaving_5" ID="{DB2F78AC-3264-424B-AE3E-46DB73B0C15C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_Leaving_3" ID="{14238333-C40F-4F4E-B02C-BD8D95148716}" ShortID="577376484">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Leaving_3" ID="{8A9BDF69-7A89-49A9-9C81-97D1FD85241E}" ShortID="988956889">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Leaving_3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Leaving_3" ID="{8A9BDF69-7A89-49A9-9C81-97D1FD85241E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_Leaving_1" ID="{AF571DF0-F02B-41F0-9054-8B262EFC9261}" ShortID="909690107">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Leaving_1" ID="{F349A46B-5BEF-4747-BDFE-63E5824DA2CF}" ShortID="762068648">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Leaving_1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Leaving_1" ID="{F349A46B-5BEF-4747-BDFE-63E5824DA2CF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="HighRadiation" ID="{38E0B945-4743-4720-82FE-47325E55A2EC}" ShortID="775162666">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VA_Ash_Computer_Warning_Radiation_3" ID="{4E520491-4E47-4D0A-BB6C-8557B9FEAC05}" ShortID="758722067">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Radiation_3" ID="{0EFDBB33-29C1-45AE-A6EB-4284EDA4C5A1}" ShortID="496895629">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Radiation_3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Radiation_3" ID="{0EFDBB33-29C1-45AE-A6EB-4284EDA4C5A1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_Radiation_2" ID="{18880705-A0AC-411B-A676-E1A9504AF790}" ShortID="876102900">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Radiation_2" ID="{C47232EB-551E-4EDC-8F97-674AFB4DFD13}" ShortID="864053491">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Radiation_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Radiation_2" ID="{C47232EB-551E-4EDC-8F97-674AFB4DFD13}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_Radiation_1" ID="{4A48C46E-36F6-40D7-991C-46BFBC752103}" ShortID="341166254">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_Radiation_1" ID="{60A69592-0ACE-4015-A06C-F920D706394E}" ShortID="97711572">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_Radiation_1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_Radiation_1" ID="{60A69592-0ACE-4015-A06C-F920D706394E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="ShutDown" ID="{5988ADF8-3C3B-4C58-837B-6365F04549ED}" ShortID="833407241">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_5_03" ID="{2055DEF8-79E9-41C6-85A3-FA1003D1B2D1}" ShortID="264160849">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_5_03" ID="{AAA8CE79-AF3A-482E-AE11-6FCF5A5869C7}" ShortID="277938526">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_5_03.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_5_03" ID="{AAA8CE79-AF3A-482E-AE11-6FCF5A5869C7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_5_02" ID="{ACE404DA-98A6-4521-BBDE-AE985B895B47}" ShortID="112262096">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_5_02" ID="{E489DBC3-973D-4D42-A07D-3599F58C679D}" ShortID="561137905">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_5_02.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_5_02" ID="{E489DBC3-973D-4D42-A07D-3599F58C679D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_5_01" ID="{9CC163E9-1689-4DC0-90C9-797078898078}" ShortID="991594590">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_5_01" ID="{F9867D3C-5A2C-4C0D-9D0E-80B3335D8F0D}" ShortID="371693007">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_5_01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_5_01" ID="{F9867D3C-5A2C-4C0D-9D0E-80B3335D8F0D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="ShutDownDamage" ID="{EF7A1A72-93DB-44FE-8887-0A87CD46E694}" ShortID="297044114">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_2_03" ID="{CAD03E89-D34E-441A-A195-9E2A9C1BE31E}" ShortID="634060310">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_Damage_2_03" ID="{460888B2-59A7-4382-8E75-727A05CD9FC2}" ShortID="852155695">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_Damage_2_03.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_Damage_2_03" ID="{460888B2-59A7-4382-8E75-727A05CD9FC2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_3_01" ID="{B4CE68D6-C798-4B08-BA41-1BD86D43D13A}" ShortID="253020869">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_Damage_3_01" ID="{927159CB-4183-4A0D-A07A-E69252AF17C3}" ShortID="726160517">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_Damage_3_01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_Damage_3_01" ID="{927159CB-4183-4A0D-A07A-E69252AF17C3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_3_02" ID="{D134678A-4EF3-4165-BBDC-3BD09EAC8627}" ShortID="713922511">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_Damage_3_02" ID="{DB89EFA5-A84D-4C24-B37A-6F6AA9E3D2DB}" ShortID="89919622">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_Damage_3_02.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_Damage_3_02" ID="{DB89EFA5-A84D-4C24-B37A-6F6AA9E3D2DB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_1_03" ID="{55ACD188-6FA3-41AD-94F0-3A91EE7C30FB}" ShortID="300258820">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_Damage_1_03" ID="{4EEFBECE-587E-4704-8D3A-982B5B06550B}" ShortID="722772679">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_Damage_1_03.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_Damage_1_03" ID="{4EEFBECE-587E-4704-8D3A-982B5B06550B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_2_01" ID="{BE4AA5BF-5290-4C11-9C40-3EF26E74533E}" ShortID="1006268071">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_Damage_2_01" ID="{30D39052-68E9-4D53-A2BA-74A6C6693340}" ShortID="153992636">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_Damage_2_01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_Damage_2_01" ID="{30D39052-68E9-4D53-A2BA-74A6C6693340}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_1_02" ID="{BB15579C-500D-4CD8-8B5A-E03999683519}" ShortID="1071671141">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_Damage_1_02" ID="{CD00748A-7E2A-4619-B4E8-C4B1A1C177FB}" ShortID="1003659189">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_Damage_1_02.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_Damage_1_02" ID="{CD00748A-7E2A-4619-B4E8-C4B1A1C177FB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_2_02" ID="{5B1B7119-832F-4423-A736-120FBE892FC9}" ShortID="542503699">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_Damage_2_02" ID="{21C666E9-65B6-44FD-A442-4BD6DC8C8F42}" ShortID="74374942">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_Damage_2_02.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_Damage_2_02" ID="{21C666E9-65B6-44FD-A442-4BD6DC8C8F42}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_3_03" ID="{6278244F-1D6F-4B86-B36D-5F23120AA455}" ShortID="87927410">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_Damage_3_03" ID="{8E739D9B-6728-4CF6-BBE1-E77ACBDBF6F5}" ShortID="795477931">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_Damage_3_03.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_Damage_3_03" ID="{8E739D9B-6728-4CF6-BBE1-E77ACBDBF6F5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Damage_1_01" ID="{CC61AB5C-5075-4E7C-BB90-5D6C6C5DBD79}" ShortID="1042621035">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_Damage_1_01" ID="{9592E0A4-3EE4-4587-907E-3708BD993CF8}" ShortID="309297913">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_Damage_1_01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_Damage_1_01" ID="{9592E0A4-3EE4-4587-907E-3708BD993CF8}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="ShutDownFuel" ID="{4A018AF3-055C-48CE-B749-6BB5833C3E3E}" ShortID="874490597">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Fuel_1_01" ID="{0729259F-8AF1-47FB-BC32-7850A21F9C91}" ShortID="781670164">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_1_01" ID="{B5B04344-4CB5-4B75-9992-35737BF1BFEA}" ShortID="252380341">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_1_01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_1_01" ID="{B5B04344-4CB5-4B75-9992-35737BF1BFEA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Fuel_3" ID="{3E92249C-C0C1-4D78-B7F5-4658EDFBF654}" ShortID="404024674">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_3" ID="{7E19A79C-3FF0-4FB7-8F38-FB992291E98B}" ShortID="734949110">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_3" ID="{7E19A79C-3FF0-4FB7-8F38-FB992291E98B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Fuel_1_03" ID="{C9EAE2B2-4606-40FC-80B9-04809A0F2D5A}" ShortID="208069757">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_1_03" ID="{42A59E7D-8D21-4285-8427-41820921DB96}" ShortID="509559447">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_1_03.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_1_03" ID="{42A59E7D-8D21-4285-8427-41820921DB96}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Fuel_2" ID="{3BD6446D-FAE8-493F-931A-8CE7AA213E0F}" ShortID="1024916793">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_2" ID="{0CDF6F00-9093-41CE-A397-6AF7E7C28082}" ShortID="115389066">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_2" ID="{0CDF6F00-9093-41CE-A397-6AF7E7C28082}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Ash_Computer_Warning_ShutDown_Fuel_1_02" ID="{E2996EAA-DB62-4391-9B33-D513790853A7}" ShortID="296808628">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Warning_ShutDown_1_02" ID="{EF86D93B-98AC-4248-839D-854990A70483}" ShortID="180574832">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Warning_ShutDown_1_02.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Warning_ShutDown_1_02" ID="{EF86D93B-98AC-4248-839D-854990A70483}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 							</ChildrenList>

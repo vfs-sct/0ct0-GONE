@@ -246,7 +246,7 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="TEMP_Asteroid_Moving" ID="{D9C4601E-EAEE-4D1C-9C1E-0CF31A006EA7}" ShortID="767309291">
+														<AudioFileSource Name="TEMP_SFX_Environment_Asteroid_Moving" ID="{D9C4601E-EAEE-4D1C-9C1E-0CF31A006EA7}" ShortID="767309291">
 															<PropertyList>
 																<Property Name="FadeInDuration" Type="Real64" Value="0.110738389756944"/>
 																<Property Name="FadeOutDuration" Type="Real64" Value="0.0738255931712963"/>
@@ -255,11 +255,11 @@
 																<Property Name="TrimEnd" Type="Real64" Value="14.691293041088"/>
 															</PropertyList>
 															<Language>SFX</Language>
-															<AudioFile>Environment\Environment_Patrick\TEMP_Asteroid_Moving.wav</AudioFile>
+															<AudioFile>Environment\Environment_Patrick\TEMP_SFX_Environment_Asteroid_Moving.wav</AudioFile>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="TEMP_Asteroid_Moving" ID="{D9C4601E-EAEE-4D1C-9C1E-0CF31A006EA7}" Platform="Linked"/>
+														<ActiveSource Name="TEMP_SFX_Environment_Asteroid_Moving" ID="{D9C4601E-EAEE-4D1C-9C1E-0CF31A006EA7}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
 											</ChildrenList>
@@ -324,43 +324,11 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="TEMP_Metal_Move" ID="{87A57A7D-2DD9-4D16-A2D5-6DFFBD53A289}" ShortID="663621665">
+												<Sound Name="TEMP_SFX_Environment_Metal_Moving" ID="{CBB95F9F-9778-4334-A8B0-F6D815223472}" ShortID="478096486">
 													<PropertyList>
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-														<Property Name="OverridePositioning" Type="bool" Value="True"/>
-														<Property Name="Pitch" Type="int32">
-															<RTPCList>
-																<RTPC Name="" ID="{F036024D-D23A-4796-B1E4-DFF2775458DB}" ShortID="166877939">
-																	<ReferenceList>
-																		<Reference Name="ControlInput">
-																			<ObjectRef Name="DistanceDoppler" ID="{F423D4E4-D3F0-4042-8054-EDF7431885E5}" WorkUnitID="{B28A8BCB-0841-479F-9F32-A560A1E5B2A3}"/>
-																		</Reference>
-																	</ReferenceList>
-																	<Curve Name="" ID="{E7CD7129-5C63-4712-8E88-E42CB6BC6153}">
-																		<PropertyList>
-																			<Property Name="Flags" Type="int32" Value="65537"/>
-																		</PropertyList>
-																		<PointList>
-																			<Point>
-																				<XPos>0</XPos>
-																				<YPos>0</YPos>
-																				<Flags>5</Flags>
-																			</Point>
-																			<Point>
-																				<XPos>100</XPos>
-																				<YPos>-600</YPos>
-																				<Flags>37</Flags>
-																			</Point>
-																		</PointList>
-																	</Curve>
-																</RTPC>
-															</RTPCList>
-														</Property>
 													</PropertyList>
 													<ReferenceList>
-														<Reference Name="Attenuation">
-															<ObjectRef Name="Doppler" ID="{FC23F9E6-3C5C-4FC0-9208-E05DE52F98B2}" WorkUnitID="{5EDBC8F3-E0CE-467F-994C-7D6FBDEDC9EE}"/>
-														</Reference>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
@@ -369,20 +337,20 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="TEMP_Metal_Moving" ID="{48E87864-9665-4133-8583-789107F4F7C3}" ShortID="904879127">
+														<AudioFileSource Name="TEMP_SFX_Environment_Metal_Moving" ID="{D749BD3D-32F7-4724-A920-671B2D0EC666}" ShortID="1068159997">
 															<PropertyList>
-																<Property Name="FadeInDuration" Type="Real64" Value="0.183425925925926"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="0.183425925925926"/>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="152.253"/>
+																<Property Name="LoopBegin" Type="Real64" Value="3.66622222222222"/>
+																<Property Name="LoopEnd" Type="Real64" Value="23.6044444444444"/>
 																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-																<Property Name="TrimBegin" Type="Real64" Value="0.9905"/>
-																<Property Name="TrimEnd" Type="Real64" Value="15.3344074074074"/>
+																<Property Name="TrimEnd" Type="Real64" Value="25.1613333333333"/>
 															</PropertyList>
 															<Language>SFX</Language>
-															<AudioFile>Environment\Environment_Patrick\TEMP_Metal_Moving.wav</AudioFile>
+															<AudioFile>Environment\Environment_Patrick\TEMP_SFX_Environment_Metal_Moving.wav</AudioFile>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="TEMP_Metal_Moving" ID="{48E87864-9665-4133-8583-789107F4F7C3}" Platform="Linked"/>
+														<ActiveSource Name="TEMP_SFX_Environment_Metal_Moving" ID="{D749BD3D-32F7-4724-A920-671B2D0EC666}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
 											</ChildrenList>
