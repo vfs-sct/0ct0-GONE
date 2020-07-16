@@ -400,6 +400,7 @@ MonoBehaviour:
   - ItemResource: {fileID: 11400000, guid: 817b9d6fe54926b47b141284265e21a3, type: 2}
     Cap: 100
     StoredAmount: 0
+  playingGameState: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
 --- !u!114 &6837312819164111146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playing: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
+  lowFuelOverlay: {fileID: 0}
   fuel: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
   amountAdd: 5
 --- !u!114 &1614921820709122937
@@ -573,6 +575,8 @@ MonoBehaviour:
   _RigidBody: {fileID: 489913433233796652}
   PlayerResourceInventory: {fileID: 4701804487490555839}
   HealthResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
+  dmgTakenFlash: {fileID: 0}
+  lowFuelOverlay: {fileID: 0}
 --- !u!54 &489913433233796652
 Rigidbody:
   m_ObjectHideFlags: 0

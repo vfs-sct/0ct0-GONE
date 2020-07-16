@@ -107,6 +107,16 @@ public class InventoryController : MonoBehaviour
 
     private float CarriedResourceMassRaw = 0;
 
+    [SerializeField] private Playing playingGameState = null;
+    private Player player = null;
+
+    private int totalInvWeight = 0;
+
+    public void Start()
+    {
+        player = playingGameState.ActivePlayer;
+    }
+
     public bool CheckIfItemBucket()
     {
         if (ItemBuckets[0].Bucket == null || ItemBuckets[0].Bucket.Count == 0)
@@ -173,8 +183,6 @@ public class InventoryController : MonoBehaviour
         {
             ResourceBuckets_Dict.Add(item.ItemResource, new ItemBucket(item.Cap));
         }
-
-
     }
 
     public bool CanAddItem(int BucketIndex, Item itemToAdd)
@@ -243,19 +251,33 @@ public class InventoryController : MonoBehaviour
     public bool AddToResourceBucket(Item itemToAdd, int amount = 1)
     {
         bool success = false;
+
+        //update octo's carry weight modifier
+        totalInvWeight += (itemToAdd.Size * amount);
+        player.GetComponent<MovementController>().SetInventoryWeight(totalInvWeight);
+        //Debug.LogWarning(totalInvWeight);
+
         //Debug.Log("Test");
         //Debug.Log(amount);
         ResourceBuckets_Dict[itemToAdd.ResourceType] = ResourceBuckets_Dict[itemToAdd.ResourceType].AddBucketItem(itemToAdd, out success, amount);
         CarriedResourceMassRaw += itemToAdd.Mass* amount;
         playerRB.mass += InventoryMassMultiplier * itemToAdd.Mass* amount;
+
         return success;
     }
     public bool RemoveFromResourceBucket(Item itemToRemove, int amount = 1)
     {
         bool success = false;
+
+        //update octo's carry weight modifier
+        totalInvWeight -= (itemToRemove.Size * amount);
+        player.GetComponent<MovementController>().SetInventoryWeight(totalInvWeight);
+        //Debug.LogWarning(totalInvWeight);
+
         ResourceBuckets_Dict[itemToRemove.ResourceType] = ResourceBuckets_Dict[itemToRemove.ResourceType].RemoveBucketItem(itemToRemove, out success, amount);
         CarriedResourceMassRaw -= itemToRemove.Mass* amount;
         playerRB.mass -= InventoryMassMultiplier * itemToRemove.Mass* amount;
+
         return success;
     }
 }

@@ -10,6 +10,8 @@ public class InventoryV2 : MonoBehaviour
 {
     [SerializeField] UIAwake UIRoot = null;
     [SerializeField] GameFrameworkManager GameManager = null;
+    //used to grab the speed modifier off of
+    [SerializeField] MovementController playerMovement = null;
     [SerializeField] GameObject ResourceBox = null;
     [SerializeField] GameObject MassHUD = null;
     [SerializeField] HorizontalLayoutGroup RowOne = null;
@@ -38,6 +40,7 @@ public class InventoryV2 : MonoBehaviour
     private TextMeshProUGUI speedModText;
 
     private int currentTotalMass;
+    private float speedModifier;
 
     private bool[] isActive = new bool[10]
     {
@@ -109,7 +112,7 @@ public class InventoryV2 : MonoBehaviour
         foreach(var kvp in ResourceBoxes)
         {
             int currentAmount = playerInventory.GetResourceAmount(kvp.Key);
-            float fillAmount = (currentAmount / 10);
+            float fillAmount = (currentAmount);
             kvp.Value.GetCapacityText().SetText($"Capacity:\n{fillAmount}/10");
 
             currentTotalMass += currentAmount;
@@ -174,11 +177,11 @@ public class InventoryV2 : MonoBehaviour
 
             var bucket = playerInventory.GetResourceBucket(kvp.Key);
 
-            foreach (var item in bucket.Bucket)
-            {
-                Debug.Log(item.Key.name);
-                Debug.Log(item.Value);
-            }
+            //foreach (var item in bucket.Bucket)
+            //{
+            //    Debug.Log(item.Key.name);
+            //    Debug.Log(item.Value);
+            //}
 
             //Debug.Log("BUCKET COUNT" + bucket.Bucket.Count);
             //get all the items in the bucket
@@ -186,10 +189,10 @@ public class InventoryV2 : MonoBehaviour
             {
                 for (int instances = 0; instances < item.Value; instances++)
                 {
-                    //Debug.Log("HEY" + item.Size / 10);
+                    //Debug.Log("HEY" + item.Size);
                     //figure out if the item takes more than 1 slot
-                    float chunkSize = (float)item.Key.Size / 10;
-                    int j = item.Key.Size / 10;
+                    float chunkSize = (float)item.Key.Size;
+                    int j = item.Key.Size;
                     if (j != 0)
                     {
                         //assign the appropriate number of slots for that item
@@ -202,7 +205,7 @@ public class InventoryV2 : MonoBehaviour
                                 kvp.Value.SetChunkTooltip(k, item.Key.Name, chunkSize.ToString() + " Slots");
                                 kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
                                 {
-                                    //Debug.Log("CHUNK CLICKED!");
+                                    Debug.LogWarning("CHUNK CLICKED!");
                                     Rigidbody newChunkRB = Instantiate(item.Key.RespawnGO).GetComponent<Rigidbody>();
                                     newChunkRB.transform.position = debrisDropPos.position;
                                     newChunkRB.velocity = playerInventory.GetComponent<Rigidbody>().velocity + (playerInventory.transform.forward * 2);
@@ -279,7 +282,7 @@ public class InventoryV2 : MonoBehaviour
             var getObjects = newBox.GetComponent<GetObjectsResourceBox>();
             getObjects.GetBGImage().color = new Color(resource.ResourceColor.r, resource.ResourceColor.g, resource.ResourceColor.b, 0.3f);
             getObjects.GetTitleText().SetText(resource.DisplayName.ToString() + "   (" + resource.Abreviation.ToString() + ")");
-            getObjects.GetCapacityText().SetText("Capacity:\n" + (playerInventory.GetResourceAmount(resource) / 10) + "/10");
+            getObjects.GetCapacityText().SetText("Capacity:\n" + playerInventory.GetResourceAmount(resource) + "/10");
 
             foreach(var chunk in getObjects.GetChunkButtons())
             {
@@ -304,8 +307,9 @@ public class InventoryV2 : MonoBehaviour
 
     public void UpdateMassHUD()
     {
+        var speedModifier = playerMovement.GetSpeedModifier();
         massText.SetText($"{currentTotalMass}/500");
-        speedModText.SetText($"% Speed");
+        speedModText.SetText($"{speedModifier}% Speed");
     }
 
     public void SwitchViewTo(GameObject newPanel)
