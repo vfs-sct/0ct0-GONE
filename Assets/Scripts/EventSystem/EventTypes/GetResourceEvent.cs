@@ -40,9 +40,10 @@ public class GetResourceEvent : Event
                     previousAmount.Add(playerInventory.GetResourceAmount(CollectResource[i]));
                 }
                 totalAdded.Add(0f);
-
+                var resColor = ColorUtility.ToHtmlStringRGBA(CollectResource[i].ResourceColor);
+                string objectiveUpdate = string.Format("{0}/{1} - {2} <color=#" + resColor + ">{3}</color>", totalAdded[i], CollectAmount[i], actionVerb, CollectResource[i].DisplayName);
                 //objective text
-                string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+                //string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
                 UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.AddObjective(objectiveUpdate);
             }
 
@@ -76,7 +77,9 @@ public class GetResourceEvent : Event
                     incompletedTally++;
                     if (UIRootModule.UIRoot != null)
                     {
-                        string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+                        var resColor = ColorUtility.ToHtmlStringRGBA(CollectResource[i].ResourceColor);
+                        string objectiveUpdate = string.Format("{0}/{1} - {2} <color=#" + resColor + ">{3}</color>", totalAdded[i], CollectAmount[i], actionVerb, CollectResource[i].DisplayName);
+                        //string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
                         UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(i, objectiveUpdate);
                     }
                     previousAmount[i] = currentAmount;
@@ -95,7 +98,9 @@ public class GetResourceEvent : Event
                             incompletedTally++;
                             if (UIRootModule.UIRoot != null)
                             {
-                                string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+                                var resColor = ColorUtility.ToHtmlStringRGBA(CollectResource[i].ResourceColor);
+                                string objectiveUpdate = string.Format("{0}/{1} - {2} <color=#" + resColor + ">{3}</color>", totalAdded[i], CollectAmount[i], actionVerb, CollectResource[i].DisplayName);
+                                //string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
                                 UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(i, objectiveUpdate);
                             }
                             previousAmount[i] = currentAmount;
@@ -110,7 +115,9 @@ public class GetResourceEvent : Event
                 //TODO: this should really only be done when theres a change to the text
                 if (UIRootModule.UIRoot != null)
                 {
-                    string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+                    var resColor = ColorUtility.ToHtmlStringRGBA(CollectResource[i].ResourceColor);
+                    string objectiveUpdate = string.Format("{0}/{1} - {2} <color=#" + resColor + ">{3}</color>", totalAdded[i], CollectAmount[i], actionVerb, CollectResource[i].DisplayName);
+                    //string objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
                     UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(i, objectiveUpdate);
                 }
             }
@@ -150,13 +157,16 @@ public class GetResourceEvent : Event
     private void UpdateObjectivePanel(int i)
     {   
         string objectiveUpdate;
+        var resColor = ColorUtility.ToHtmlStringRGBA(CollectResource[i].ResourceColor);
         if (UIRootModule.UIRoot != null)
         {
-            objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+            objectiveUpdate = string.Format("{0}/{1} - {2} <color=#" + resColor + ">{3}</color>", totalAdded[i], CollectAmount[i], actionVerb, CollectResource[i].DisplayName);
+            //objectiveUpdate = $"{totalAdded[i]}/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
         }
         else
         {
-            objectiveUpdate = $"0/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
+            objectiveUpdate = string.Format("0/{0} - {1} <color=#" + resColor + ">{2}</color>", CollectAmount[i], actionVerb, CollectResource[i].DisplayName);
+            //objectiveUpdate = $"0/{CollectAmount[i]} - {actionVerb} {CollectResource[i].DisplayName}";
         }
         UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(i, objectiveUpdate);
     }
