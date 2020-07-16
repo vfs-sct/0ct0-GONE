@@ -1371,6 +1371,10 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Log6" ID="{BBF2EFE1-AD76-450A-99E6-FE31C21BED3F}" ShortID="834311027">
 											<PropertyList>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
 											<ReferenceList>
@@ -3311,8 +3315,8 @@
 												</Sound>
 											</ChildrenList>
 											<Playlist>
-												<ItemRef Name="VA_Ash_Computer_Log7_02" ID="{C81CADDE-1E33-4EBB-A076-6A9266B4DD2E}"/>
 												<ItemRef Name="VA_Colin_Oakley_Log7_05" ID="{FB8F1783-CC79-4895-B277-102B194F4491}"/>
+												<ItemRef Name="VA_Ash_Computer_Log7_02" ID="{C81CADDE-1E33-4EBB-A076-6A9266B4DD2E}"/>
 											</Playlist>
 										</RandomSequenceContainer>
 									</ChildrenList>
