@@ -323,6 +323,18 @@ public class CraftingSatellite : MonoBehaviour
         poptext.popText.SetText($"{queuedRecipe.DisplayName} crafted");
         poptext.gameObject.transform.SetParent(CraftButton.transform);
         poptext.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+
+        //show the player how many of the output item they already have
+        var ownedSat = satInventory.GetSatellite();
+        if (ownedSat != null && ownedSat.GetType() == queuedRecipe.Output.GetType())
+        {
+            amountInInventory.SetText($"{queuedRecipe.DisplayName} in inventory: 1");
+        }
+        else
+        {
+            amountInInventory.SetText($"{queuedRecipe.DisplayName} in inventory: 0");
+        }
+
         storageDials.UpdateDials();
         UpdateOwnedAmounts();
 

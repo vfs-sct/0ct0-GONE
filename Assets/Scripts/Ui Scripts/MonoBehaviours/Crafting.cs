@@ -413,6 +413,15 @@ public class Crafting : MonoBehaviour
         poptext.popText.SetText($"{queuedRecipe.DisplayName} crafted");
         poptext.gameObject.transform.SetParent(CraftButton.transform);
         poptext.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+
+        var amountOwned = playerInventory.GetItemAmount(queuedRecipe.Output.item);
+        if (amountOwned < 0)
+        {
+            amountOwned = 0;
+        }
+        //show the player how many of the output item they already have
+        amountInInventory.SetText($"{queuedRecipe.Output.item.Name} in inventory: {amountOwned}");
+
         storageDials.UpdateDials();
         UpdateOwnedAmounts();
 
