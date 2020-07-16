@@ -22,13 +22,15 @@ public class SalvageStorm : MonoBehaviour
 
 
 
-    [SerializeField] private List<GameObject> SalvagePrefabs;
+    [SerializeField] private  WeatherSalvagePool SalvagePool;
 
-    [SerializeField] private WeatherData BaseCondition;
+    private List<GameObject> SalvagePrefabs;
+
+    [SerializeField] private WeatherCondition BaseCondition;
     private WeatherData _BaseCondition;
 
 
-    [SerializeField] private List<WeatherConditionData> WeatherConditions = new List<WeatherConditionData>();
+    [SerializeField] private List<WeatherCondition> WeatherConditions = new List<WeatherCondition>();
 
     private List<WeatherData> _Conditions = new List<WeatherData>();
 
@@ -143,14 +145,7 @@ public class SalvageStorm : MonoBehaviour
     private void SetNewWeatherCondition(string Condition, float time = 0)
     {
         OldCondition = CurrentCondition;
-        if (Condition == "base")
-        {
-            NewCondition = new WeatherData(BaseCondition);
-        } 
-        else
-        {
-            NewCondition=  new WeatherData(Conditions[Condition]);
-        }
+        NewCondition=  new WeatherData(Conditions[Condition]);
         LerpStartTime =Time.time;
         WeatherTimeChange = time;
         ChangingWeather = true;
@@ -160,11 +155,14 @@ public class SalvageStorm : MonoBehaviour
 
     public void Awake()
     {
+        SalvagePrefabs = SalvagePool.SalvagePrefabs;
         Dictionary<string,WeatherData> temp;
         WeatherData tempData;
+        WeatherConditionData Weather;
         float WeightSum = 0;
-        foreach (var Weather in WeatherConditions)
+        foreach (var Data in WeatherConditions)
         {
+            Weather = Data.Data;
             WeightSum = 0;
             foreach (var weight in Weather.Weather.SalvageWeights)
             {
@@ -186,19 +184,20 @@ public class SalvageStorm : MonoBehaviour
         }
 
         WeightSum = 0;
-        foreach (var weight in BaseCondition.SalvageWeights)
+        WeatherConditionData NewBaseCondition = BaseCondition.Data;
+        foreach (var weight in NewBaseCondition.Weather.SalvageWeights)
         {
             WeightSum += weight;
         }
         tempData = new WeatherData
         (
-            BaseCondition.MinSpeed,
-            BaseCondition.MaxSpeed,
-            BaseCondition.MinSeparation,
-            BaseCondition.WaveInterval,
-            BaseCondition.LifeTime,
-            BaseCondition.Density,
-            BaseCondition.SalvageWeights,
+            NewBaseCondition.Weather.MinSpeed,
+            NewBaseCondition.Weather.MaxSpeed,
+            NewBaseCondition.Weather.MinSeparation,
+            NewBaseCondition.Weather.WaveInterval,
+            NewBaseCondition.Weather.LifeTime,
+            NewBaseCondition.Weather.Density,
+            NewBaseCondition.Weather.SalvageWeights,
             WeightSum
         );
         temp = new Dictionary<string, WeatherData>();
