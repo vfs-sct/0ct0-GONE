@@ -6,22 +6,29 @@ public class SalvageStorm : MonoBehaviour
 {
 
     [System.Serializable]
-    struct WeatherDictData
+    public struct WeatherConditionData
     {
         public string Name;
-        public WeatherData Data;
+        public WeatherData Weather;
 
-        public WeatherDictData(string N, WeatherData D){
+        public WeatherConditionData(string N, WeatherData W)
+        {
             Name = N;
-            Data = D;
+            Weather = W;
         }
     }
 
 
-    [SerializeField] private _WeatherData _BaseCondition;
 
-    private WeatherData BaseCondition;
-    [SerializeField] private List<_WeatherData> WeatherConditions = new List<_WeatherData>();
+
+
+    [SerializeField] private List<GameObject> SalvagePrefabs;
+
+    [SerializeField] private WeatherData BaseCondition;
+    private WeatherData _BaseCondition;
+
+
+    [SerializeField] private List<WeatherConditionData> WeatherConditions = new List<WeatherConditionData>();
 
     private List<WeatherData> _Conditions = new List<WeatherData>();
 
@@ -40,54 +47,7 @@ public class SalvageStorm : MonoBehaviour
     private Dictionary<string,WeatherData> Conditions = new Dictionary<string,WeatherData>();
     
 
-    [System.Serializable]
-    public struct SalvagePrefabData
-    {
-        public GameObject Object;
-        public float Weight;
-
-        public SalvagePrefabData(GameObject O,float W)
-        {
-            Object = O;
-            Weight = W;
-        }
-    }
-
-
-    [System.Serializable] //this one is for editing
-    public struct _WeatherData
-    {
-        public float MinSpeed;
-
-        public float MaxSpeed;
-
-        public float MinSeparation;
-
-        public float WaveInterval;
-
-        public float LifeTime;
-        
-        public float Density;
-
-        private float _WeightSum;
-        public float WeightSum{get=>_WeightSum;}
-
-        public List<SalvagePrefabData> SalvagePrefabs;
-        public _WeatherData(float mns,float mxs,float ms,float wi,float l,float d,List<SalvagePrefabData> sp, float weightSum = 100)
-        {
-            MinSpeed = mns;
-            MaxSpeed = mxs;
-            MinSeparation = ms;
-            WaveInterval = wi;
-            LifeTime = l;
-            Density = d;
-            SalvagePrefabs = sp;
-            _WeightSum = weightSum;
-        }
-    }
-
-
-     [System.Serializable]
+    [System.Serializable] 
     public struct WeatherData
     {
         public float MinSpeed;
@@ -105,8 +65,8 @@ public class SalvageStorm : MonoBehaviour
         private float _WeightSum;
         public float WeightSum{get=>_WeightSum;}
 
-        public Dictionary<GameObject,float> SalvagePrefabs;
-        public WeatherData(float mns,float mxs,float ms,float wi,float l,float d,Dictionary<GameObject,float> sp, float weightSum = 100)
+        public List<float> SalvageWeights;
+        public WeatherData(float mns,float mxs,float ms,float wi,float l,float d,List<float> sw, float weightSum = 100)
         {
             MinSpeed = mns;
             MaxSpeed = mxs;
@@ -114,26 +74,24 @@ public class SalvageStorm : MonoBehaviour
             WaveInterval = wi;
             LifeTime = l;
             Density = d;
-            SalvagePrefabs = sp;
+            SalvageWeights = sw;
             _WeightSum = weightSum;
         }
 
-          public WeatherData(WeatherData Cond, float weightSum = 100)
+        public WeatherData(WeatherData Old)
         {
-            MinSpeed = Cond.MinSpeed;
-            MaxSpeed = Cond.MaxSpeed;
-            MinSeparation = Cond.MinSeparation;
-            WaveInterval = Cond.WaveInterval;
-            LifeTime = Cond.LifeTime;
-            Density = Cond.Density;
-            SalvagePrefabs = Cond.SalvagePrefabs;
-            _WeightSum = weightSum;
+            MinSpeed = Old.MinSpeed;
+            MaxSpeed = Old.MaxSpeed;
+            MinSeparation = Old.MinSeparation;
+            WaveInterval = Old.WaveInterval;
+            LifeTime = Old.LifeTime;
+            Density = Old.Density;
+            SalvageWeights = Old.SalvageWeights;
+            _WeightSum = Old.WeightSum;
         }
 
 
     }
-
-
 
 
     private Queue<List<GameObject>> Waves = new Queue<List<GameObject>>();
@@ -161,11 +119,12 @@ public class SalvageStorm : MonoBehaviour
 
     private void LerpWeather(WeatherData OldCondition,WeatherData newCondition,float delta)
     {
-
-        Dictionary<GameObject,float> temp = OldCondition.SalvagePrefabs;
-        if (delta >= 0.5) {
-            temp = newCondition.SalvagePrefabs;
+        List<float> temp = new List<float>();
+        for (int i = 0; i < OldCondition.SalvageWeights.Count; i++)
+        {
+            temp.Add(Mathf.Lerp(OldCondition.SalvageWeights[i],NewCondition.SalvageWeights[i],delta));
         }
+
 
         CurrentCondition = new WeatherData(
         Mathf.Lerp(OldCondition.MinSpeed,newCondition.MinSpeed,delta),
@@ -201,31 +160,52 @@ public class SalvageStorm : MonoBehaviour
 
     public void Awake()
     {
-        Dictionary<GameObject,float> temp;
+        Dictionary<string,WeatherData> temp;
+        WeatherData tempData;
         float WeightSum = 0;
-        foreach (var item in WeatherConditions)
+        foreach (var Weather in WeatherConditions)
         {
             WeightSum = 0;
-            temp = new Dictionary<GameObject, float>();
-            foreach (var PrefabData in item.SalvagePrefabs)
+            foreach (var weight in Weather.Weather.SalvageWeights)
             {
-                temp.Add(PrefabData.Object,PrefabData.Weight);
-                WeightSum += PrefabData.Weight;
+                WeightSum += weight;
             }
-
-            _Conditions.Add(new WeatherData(item.MinSpeed,item.MaxSpeed,item.MinSeparation,item.WaveInterval,item.LifeTime,item.Density,temp,WeightSum));
+            tempData = new WeatherData
+            (
+                Weather.Weather.MinSpeed,
+                Weather.Weather.MaxSpeed,
+                Weather.Weather.MinSeparation,
+                Weather.Weather.WaveInterval,
+                Weather.Weather.LifeTime,
+                Weather.Weather.Density,
+                Weather.Weather.SalvageWeights,
+                WeightSum
+            );
+            temp = new Dictionary<string, WeatherData>();
+            temp.Add(Weather.Name,tempData);
         }
 
         WeightSum = 0;
-        temp = new Dictionary<GameObject, float>();
-            foreach (var PrefabData in _BaseCondition.SalvagePrefabs)
-            {
-                temp.Add(PrefabData.Object,PrefabData.Weight);
-                WeightSum += PrefabData.Weight;
-            }
-        BaseCondition = (new WeatherData(_BaseCondition.MinSpeed,_BaseCondition.MaxSpeed,_BaseCondition.MinSeparation,_BaseCondition.WaveInterval,_BaseCondition.LifeTime,_BaseCondition.Density,temp,WeightSum));
+        foreach (var weight in BaseCondition.SalvageWeights)
+        {
+            WeightSum += weight;
+        }
+        tempData = new WeatherData
+        (
+            BaseCondition.MinSpeed,
+            BaseCondition.MaxSpeed,
+            BaseCondition.MinSeparation,
+            BaseCondition.WaveInterval,
+            BaseCondition.LifeTime,
+            BaseCondition.Density,
+            BaseCondition.SalvageWeights,
+            WeightSum
+        );
+        temp = new Dictionary<string, WeatherData>();
+        temp.Add("base",tempData);
+        _BaseCondition = tempData;
 
-        SetConditionData(BaseCondition);
+        SetConditionData(_BaseCondition);
         PlayingGameState.RegisterWeatherController(this);        
     }
 
@@ -253,6 +233,22 @@ public class SalvageStorm : MonoBehaviour
         return default(T);
     }
 
+    public static T SelectRandomWeighted<T>(List<T> Data, List<float> Weights,float SumOfWeights = 100)
+    {
+        float RandomSum = Random.Range(0,SumOfWeights);
+        for (int i = 0; i < Data.Count; i++)
+        {
+            if (RandomSum < Weights[i])
+            {
+                return Data[i];
+            }
+            RandomSum-= Weights[i];
+        }
+        return default(T);
+    }
+
+
+
     private void SpawnWave()
     {
         GameObject Temp;
@@ -268,7 +264,7 @@ public class SalvageStorm : MonoBehaviour
             {
                 if(SamplePerlinNoise(y,z,WaveSeed) >= (1-CurrentCondition.Density)) //subtract from 1 to check blackvalue
                 {
-                    Temp = Instantiate(SelectRandomWeighted<GameObject>(CurrentCondition.SalvagePrefabs,CurrentCondition.WeightSum),new Vector3(gameObject.transform.position.x + Random.Range(-xBounds,xBounds),y+gameObject.transform.position.y,z+gameObject.transform.position.z),Random.rotation);
+                    Temp = Instantiate(SelectRandomWeighted<GameObject>(SalvagePrefabs,CurrentCondition.SalvageWeights,CurrentCondition.WeightSum),new Vector3(gameObject.transform.position.x + Random.Range(-xBounds,xBounds),y+gameObject.transform.position.y,z+gameObject.transform.position.z),Random.rotation);
                     NewWave.Add(Temp);
                     Debug.Log(Temp);
                     TempRB =  Temp.GetComponent<Rigidbody>();
