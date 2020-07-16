@@ -39,6 +39,8 @@ public class Crafting : MonoBehaviour
     [SerializeField] Button RecipeButton = null;
     [SerializeField] GameObject Product = null;
     [SerializeField] GameObject Ingredient = null;
+    //this is used to show someone how many of an item they already have before they craft more
+    [SerializeField] TextMeshProUGUI amountInInventory = null;
     [SerializeField] ResourceGainedPopTxt popText = null;
 
     //associate tab buttons with their tab panel
@@ -95,6 +97,7 @@ public class Crafting : MonoBehaviour
         //hide title before a recipe has been clicked
         TitleText.gameObject.SetActive(false);
         RequiresText.SetActive(false);
+        amountInInventory.gameObject.SetActive(false);
 
         //save craft text and set up craft button as uninteractable
         CraftButton.interactable = false;
@@ -213,8 +216,12 @@ public class Crafting : MonoBehaviour
             newButton.GetComponent<Button>().onClick.AddListener(() =>
             {
                 TitleText.SetText(recipe.DisplayName);
-                TitleText.gameObject.SetActive(true);
-                RequiresText.SetActive(true);
+                if (RequiresText.activeSelf != true)
+                {
+                    TitleText.gameObject.SetActive(true);
+                    RequiresText.SetActive(true);
+                    amountInInventory.gameObject.SetActive(true);
+                }
 
                 int childCount = ProductGroup.transform.childCount;
 
@@ -243,6 +250,14 @@ public class Crafting : MonoBehaviour
                 outputText[0].SetText(recipe.DisplayName);
                 outputText[1].SetText($"x{recipe.Output.amount}");
                 outputText[2].SetText(recipe.ItemDesc);
+
+                var amountOwned = playerInventory.GetItemAmount(recipe.Output.item);
+                if(amountOwned < 0)
+                {
+                    amountOwned = 0;
+                }
+                //show the player how many of the output item they already have
+                amountInInventory.SetText($"{recipe.Output.item.Name} in inventory: {amountOwned}");
 
                 foreach (var input in recipe.ResourceInput)
                 {

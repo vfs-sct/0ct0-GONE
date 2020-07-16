@@ -36,6 +36,7 @@ public class CraftingSatellite : MonoBehaviour
     [SerializeField] Button RecipeButton = null;
     [SerializeField] GameObject Product = null;
     [SerializeField] GameObject Ingredient = null;
+    [SerializeField] TextMeshProUGUI amountInInventory = null;
     [SerializeField] ResourceGainedPopTxt popText = null;
 
     //associate number of owned ingredients with resource/ingredient
@@ -131,8 +132,12 @@ public class CraftingSatellite : MonoBehaviour
             newButton.GetComponent<Button>().onClick.AddListener(() =>
             {
                 TitleText.SetText(recipe.DisplayName);
-                TitleText.gameObject.SetActive(true);
-                RequiresText.SetActive(true);
+                if (RequiresText.activeSelf != true)
+                {
+                    TitleText.gameObject.SetActive(true);
+                    RequiresText.SetActive(true);
+                    amountInInventory.gameObject.SetActive(true);
+                }
 
                 int childCount = ProductGroup.transform.childCount;
 
@@ -161,6 +166,17 @@ public class CraftingSatellite : MonoBehaviour
                 outputText[0].SetText(recipe.DisplayName);
                 outputText[1].SetText("x1");
                 outputText[2].SetText(recipe.ItemDesc);
+
+                //show the player how many of the output item they already have
+                var ownedSat = satInventory.GetSatellite();
+                if (ownedSat != null && ownedSat.GetType() == recipe.Output.GetType())
+                {
+                    amountInInventory.SetText($"{recipe.DisplayName} in inventory: 1");
+                }
+                else
+                {
+                    amountInInventory.SetText($"{recipe.DisplayName} in inventory: 0");
+                }
 
                 foreach (var input in recipe.ResourceInput)
                 {
