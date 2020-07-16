@@ -12,6 +12,8 @@ public class CollisionDamage : MonoBehaviour
 
     [SerializeField] private Resource HealthResource;
 
+    [SerializeField] private Damaged dmgTakenFlash = null;
+
     private const float DamageModifier = 0.01f;
 
     void OnCollisionEnter(Collision collision)
@@ -34,6 +36,7 @@ public class CollisionDamage : MonoBehaviour
 
        if (collisionSpeed >= MinDamageSpeed)
        {
+           dmgTakenFlash.gameObject.SetActive(true);
            damageToApply = collision.relativeVelocity.magnitude * (collisionMass) * DamageModifier * DamageMultiplier;
            PlayerResourceInventory.RemoveResource(HealthResource,damageToApply);
        }

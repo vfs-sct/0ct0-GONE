@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Damaged : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float flashTime;
+
+    private void OnEnable()
     {
-        
+        StartCoroutine(BufferTime(flashTime));
     }
 
-    // Update is called once per frame
-    void Update()
+    System.Collections.IEnumerator BufferTime(float waitTime)
     {
-        
+        yield return new WaitForSeconds(waitTime);
+        this.gameObject.SetActive(false);
     }
 }
