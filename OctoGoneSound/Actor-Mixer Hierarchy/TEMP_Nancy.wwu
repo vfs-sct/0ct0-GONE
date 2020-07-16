@@ -326,6 +326,19 @@
 					</ReferenceList>
 					<ChildrenList>
 						<ActorMixer Name="VO_Characters_Octo" ID="{B1831F4F-0E7E-4FD4-8D0C-1E42ED770A1C}" ShortID="779988490">
+							<PropertyList>
+								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
@@ -335,63 +348,6 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="TEMP_VO_Characters_Octo_Remembered" ID="{94541264-96D2-4514-8373-054D15B4D7B4}" ShortID="86072054">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="TEMP_VO_Characters_Octo_Remembered" ID="{850DE542-CF43-4D76-BE8C-B098ED9D78C6}" ShortID="1031879202">
-											<Language>SFX</Language>
-											<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_Remembered.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="TEMP_VO_Characters_Octo_Remembered" ID="{850DE542-CF43-4D76-BE8C-B098ED9D78C6}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="TEMP_VO_Chatacters_Octo_Complete-01" ID="{70BC860E-AB5F-48A7-9BB6-CA1ED70A7801}" ShortID="963696719">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="TEMP_VO_Chatacters_Octo_Complete-01" ID="{37A01987-415B-47F9-A958-A5910A337AB1}" ShortID="433677184">
-											<Language>SFX</Language>
-											<AudioFile>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Complete-01.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="TEMP_VO_Chatacters_Octo_Complete-01" ID="{37A01987-415B-47F9-A958-A5910A337AB1}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="TEMP_VO_Characters_Octo_NoResc" ID="{E60A5F90-88F6-477A-915C-B1B7B603C1BD}" ShortID="1067574204">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="TEMP_VO_Characters_Octo_NoResc" ID="{6C909E8B-B3F3-4EBB-97B5-13BBF97188E4}" ShortID="182288180">
-											<Language>SFX</Language>
-											<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_NoResc.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="TEMP_VO_Characters_Octo_NoResc" ID="{6C909E8B-B3F3-4EBB-97B5-13BBF97188E4}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<Folder Name="VO_Octo_Crafting" ID="{246CFDE0-6833-4802-91B7-34DF1F74C695}" ShortID="309267438">
 									<ChildrenList>
 										<Sound Name="TEMP_VO_Characters_Octo_CraftFail" ID="{3C650C80-F4CA-4CB6-B47A-E20460ADD849}" ShortID="409557536">
@@ -434,82 +390,6 @@
 										</Sound>
 									</ChildrenList>
 								</Folder>
-								<Sound Name="TEMP_VO_Chatacters_Octo_Low_2" ID="{D941A77B-CED0-4EF5-979A-DEA36993B484}" ShortID="308926419">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="TEMP_VO_Chatacters_Octo_Low_2" ID="{BB73684B-0AD8-4433-8B6B-1F2A715CAEBF}" ShortID="555738453">
-											<Language>SFX</Language>
-											<AudioFile>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Low_2.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="TEMP_VO_Chatacters_Octo_Low_2" ID="{BB73684B-0AD8-4433-8B6B-1F2A715CAEBF}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="TEMP_VO_Chatacters_Octo_Low_1-01" ID="{43D6DD73-06E2-497C-BA22-0D57798E2F03}" ShortID="565634000">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="TEMP_VO_Chatacters_Octo_Low_1-01" ID="{BC659248-4A62-4802-B1CE-0D6E17447CB6}" ShortID="261610866">
-											<Language>SFX</Language>
-											<AudioFile>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Low_1-01.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="TEMP_VO_Chatacters_Octo_Low_1-01" ID="{BC659248-4A62-4802-B1CE-0D6E17447CB6}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="TEMP_VO_Characters_Octo_Hurt-01" ID="{07672AD1-14E6-4CC5-B0B6-82E240661ECE}" ShortID="481666269">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="TEMP_VO_Characters_Octo_Hurt-01" ID="{35BFCC15-F49A-4921-99D2-2B57D4E9A74B}" ShortID="875442297">
-											<Language>SFX</Language>
-											<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_Hurt-01.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="TEMP_VO_Characters_Octo_Hurt-01" ID="{35BFCC15-F49A-4921-99D2-2B57D4E9A74B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="TEMP_VO_Characters_Octo_Death-01" ID="{D13C36A6-BFF9-4DAA-ABD0-889B68E4732E}" ShortID="117872568">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="TEMP_VO_Characters_Octo_Death-01" ID="{4E3A5ECB-76D0-4F48-B634-E31BA79A411A}" ShortID="129229025">
-											<Language>SFX</Language>
-											<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_Death-01.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="TEMP_VO_Characters_Octo_Death-01" ID="{4E3A5ECB-76D0-4F48-B634-E31BA79A411A}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<ActorMixer Name="Log1" ID="{C850EEB6-5B62-493A-BB1C-7CAC66B0F191}" ShortID="293126731">
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -520,9 +400,10 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="VA_Ash_Computer_Log1" ID="{37F8EAA1-8B47-4E8C-81E9-5649629DBAE5}" ShortID="953225055">
+										<RandomSequenceContainer Name="Log1" ID="{42DD7F0A-B48C-4A0F-816C-BA5F6BE0D305}" ShortID="667685290">
 											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -533,18 +414,37 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Computer Log_1" ID="{8768C582-C906-4C01-B002-E6162C9CE43F}" ShortID="794541145">
-													<Language>English(US)</Language>
-													<AudioFile>Computer\Computer Log_1.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="625652845"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
+												<Sound Name="VA_Ash_Computer_Log1" ID="{37F8EAA1-8B47-4E8C-81E9-5649629DBAE5}" ShortID="953225055">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Computer Log_1" ID="{8768C582-C906-4C01-B002-E6162C9CE43F}" ShortID="794541145">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Computer Log_1.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="625652845"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Computer Log_1" ID="{8768C582-C906-4C01-B002-E6162C9CE43F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Computer Log_1" ID="{8768C582-C906-4C01-B002-E6162C9CE43F}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+											<Playlist>
+												<ItemRef Name="VA_Ash_Computer_Log1" ID="{37F8EAA1-8B47-4E8C-81E9-5649629DBAE5}"/>
+											</Playlist>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Log2" ID="{970CB9A4-A0AF-4AD5-89B8-E9E78FC103E2}" ShortID="231776745">
@@ -557,9 +457,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="VA_Ash_Computer_Log2" ID="{313CE246-0B3A-48AC-B3AD-0AE2FCCAD736}" ShortID="160520377">
+										<RandomSequenceContainer Name="Log2" ID="{342B7E9F-163F-43F7-8619-84411B7F8559}" ShortID="793477423">
 											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -570,190 +474,223 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Computer Log_2" ID="{03AA21A9-D6C0-409B-BAB1-B970184A6CAC}" ShortID="244955258">
-													<Language>English(US)</Language>
-													<AudioFile>Computer\Computer Log_2.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="651084640"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
+												<Sound Name="VA_Ash_Computer_Log2" ID="{313CE246-0B3A-48AC-B3AD-0AE2FCCAD736}" ShortID="160520377">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Computer Log_2" ID="{03AA21A9-D6C0-409B-BAB1-B970184A6CAC}" ShortID="244955258">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Computer Log_2.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="651084640"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Computer Log_2" ID="{03AA21A9-D6C0-409B-BAB1-B970184A6CAC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log2_01" ID="{9E0BA329-3F69-4450-BA7A-F3924DA5BFD7}" ShortID="414062003">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log2_01" ID="{C547AC3B-2012-4101-906B-D6382F7A8E68}" ShortID="790171801">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log2_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="525084030"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log2_01" ID="{C547AC3B-2012-4101-906B-D6382F7A8E68}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log2_02" ID="{0F1C80DF-4F6F-487F-AD2E-485C3971A7D6}" ShortID="502341271">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log2_02" ID="{612A0B78-DF27-484A-BAE7-68BBE6F2BEB7}" ShortID="954989105">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log2_02.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="69224427"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log2_02" ID="{612A0B78-DF27-484A-BAE7-68BBE6F2BEB7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log2_03" ID="{A3D1FE44-3D19-44E4-A11D-EA1F6225BE31}" ShortID="15653984">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log2_03" ID="{3788FAD6-5CAA-45D3-B9B8-E9225B851CB4}" ShortID="1051609171">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log2_03.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="455030064"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log2_03" ID="{3788FAD6-5CAA-45D3-B9B8-E9225B851CB4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log2_04" ID="{580E0A33-FFBA-428F-B62F-88C3BB6C21BA}" ShortID="1037963735">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log2_04" ID="{15DB8CDC-01B1-49DE-91E4-F5AE1C7CDC2C}" ShortID="306727775">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log2_04.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="927093984"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log2_04" ID="{15DB8CDC-01B1-49DE-91E4-F5AE1C7CDC2C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log2_01" ID="{8BCCE68A-DFCE-4D4B-87C0-AF29CCA2F7FF}" ShortID="942241894">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Log2_01" ID="{4EDDCD30-3D4C-4B7E-A9B6-10C43DCF8125}" ShortID="750853739">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Log2_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="39105751"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Log2_01" ID="{4EDDCD30-3D4C-4B7E-A9B6-10C43DCF8125}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log2_02" ID="{F260C5FD-96BE-4299-8E06-5521FDCAC60D}" ShortID="932357151">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Question" ID="{5872B892-6F4B-48D3-9F0A-F6026E3AFEA7}" ShortID="828864700">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Question.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Question" ID="{5872B892-6F4B-48D3-9F0A-F6026E3AFEA7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log2_03" ID="{04A429A8-666D-4FB0-BED1-A99D300FDD69}" ShortID="42745171">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Log2_02" ID="{E158A29C-4FFA-4CE9-93B1-FE86AAAE890A}" ShortID="173300769">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Log2_02.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="869258042"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Log2_02" ID="{E158A29C-4FFA-4CE9-93B1-FE86AAAE890A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Computer Log_2" ID="{03AA21A9-D6C0-409B-BAB1-B970184A6CAC}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log2_01" ID="{9E0BA329-3F69-4450-BA7A-F3924DA5BFD7}" ShortID="414062003">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log2_01" ID="{C547AC3B-2012-4101-906B-D6382F7A8E68}" ShortID="790171801">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log2_01.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="525084030"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log2_01" ID="{C547AC3B-2012-4101-906B-D6382F7A8E68}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log2_01" ID="{8BCCE68A-DFCE-4D4B-87C0-AF29CCA2F7FF}" ShortID="942241894">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Log2_01" ID="{4EDDCD30-3D4C-4B7E-A9B6-10C43DCF8125}" ShortID="750853739">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Log2_01.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="39105751"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Log2_01" ID="{4EDDCD30-3D4C-4B7E-A9B6-10C43DCF8125}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log2_03" ID="{04A429A8-666D-4FB0-BED1-A99D300FDD69}" ShortID="42745171">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Log2_02" ID="{E158A29C-4FFA-4CE9-93B1-FE86AAAE890A}" ShortID="173300769">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Log2_02.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="869258042"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Log2_02" ID="{E158A29C-4FFA-4CE9-93B1-FE86AAAE890A}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log2_02" ID="{0F1C80DF-4F6F-487F-AD2E-485C3971A7D6}" ShortID="502341271">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log2_02" ID="{612A0B78-DF27-484A-BAE7-68BBE6F2BEB7}" ShortID="954989105">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log2_02.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="69224427"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log2_02" ID="{612A0B78-DF27-484A-BAE7-68BBE6F2BEB7}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log2_03" ID="{A3D1FE44-3D19-44E4-A11D-EA1F6225BE31}" ShortID="15653984">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log2_03" ID="{3788FAD6-5CAA-45D3-B9B8-E9225B851CB4}" ShortID="1051609171">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log2_03.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="455030064"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log2_03" ID="{3788FAD6-5CAA-45D3-B9B8-E9225B851CB4}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log2_04" ID="{580E0A33-FFBA-428F-B62F-88C3BB6C21BA}" ShortID="1037963735">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log2_04" ID="{15DB8CDC-01B1-49DE-91E4-F5AE1C7CDC2C}" ShortID="306727775">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log2_04.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="927093984"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log2_04" ID="{15DB8CDC-01B1-49DE-91E4-F5AE1C7CDC2C}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log2_02" ID="{F260C5FD-96BE-4299-8E06-5521FDCAC60D}" ShortID="932357151">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Question" ID="{5872B892-6F4B-48D3-9F0A-F6026E3AFEA7}" ShortID="828864700">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Question.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Question" ID="{5872B892-6F4B-48D3-9F0A-F6026E3AFEA7}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+											<Playlist>
+												<ItemRef Name="VA_Ash_Computer_Log2" ID="{313CE246-0B3A-48AC-B3AD-0AE2FCCAD736}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log2_01" ID="{9E0BA329-3F69-4450-BA7A-F3924DA5BFD7}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log2_01" ID="{8BCCE68A-DFCE-4D4B-87C0-AF29CCA2F7FF}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log2_02" ID="{0F1C80DF-4F6F-487F-AD2E-485C3971A7D6}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log2_03" ID="{A3D1FE44-3D19-44E4-A11D-EA1F6225BE31}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log2_02" ID="{F260C5FD-96BE-4299-8E06-5521FDCAC60D}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log2_04" ID="{580E0A33-FFBA-428F-B62F-88C3BB6C21BA}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log2_03" ID="{04A429A8-666D-4FB0-BED1-A99D300FDD69}"/>
+											</Playlist>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Log3" ID="{1003F78F-7D17-46C1-AC79-A01370997DF2}" ShortID="1017702822">
@@ -766,9 +703,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="VA_Ash_Computer Log_3" ID="{B91C818E-BA6F-454A-956D-EFFF5180C157}" ShortID="899956409">
+										<RandomSequenceContainer Name="Log3" ID="{977B8EBD-C5B1-44FF-856C-0E8C65921D36}" ShortID="690430654">
 											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -779,168 +720,199 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Computer Log_3" ID="{883CEA82-C43D-4A06-BC74-02AA1C6BE632}" ShortID="163309354">
-													<Language>English(US)</Language>
-													<AudioFile>Computer\Computer Log_3.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="938474309"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
+												<Sound Name="VA_Ash_Computer Log_3" ID="{B91C818E-BA6F-454A-956D-EFFF5180C157}" ShortID="899956409">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Computer Log_3" ID="{883CEA82-C43D-4A06-BC74-02AA1C6BE632}" ShortID="163309354">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Computer Log_3.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="938474309"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Computer Log_3" ID="{883CEA82-C43D-4A06-BC74-02AA1C6BE632}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log3_01" ID="{D23633A8-12CA-4752-95F4-161EFAD4F8A4}" ShortID="456016218">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log3_01" ID="{D11B368A-3021-4FBD-8D7C-FE94561ECE19}" ShortID="682792833">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log3_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="1055771573"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log3_01" ID="{D11B368A-3021-4FBD-8D7C-FE94561ECE19}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log3_02" ID="{550149A4-BEB7-4257-B889-5F9FB2ED20A5}" ShortID="108628362">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log3_02" ID="{59FFA88E-93A4-43B0-B6B4-01E4ED1C91E0}" ShortID="562815956">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log3_02.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="473116086"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log3_02" ID="{59FFA88E-93A4-43B0-B6B4-01E4ED1C91E0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log3_03" ID="{5B8766CC-ADBB-4E33-8C9D-43E3682FD765}" ShortID="282599912">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log3_03" ID="{F085F781-FEB7-4241-AC53-97F6F47C0B44}" ShortID="802117898">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log3_03.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="504181742"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log3_03" ID="{F085F781-FEB7-4241-AC53-97F6F47C0B44}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log3_04" ID="{D788CACD-91CD-4045-96EE-8612D2C1F91F}" ShortID="108296069">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log3_04" ID="{5FC24A93-298E-4435-81D5-244D3E17F5C3}" ShortID="872490912">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log3_04.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="540379184"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log3_04" ID="{5FC24A93-298E-4435-81D5-244D3E17F5C3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log3_01" ID="{1F58548A-5F30-41A5-9DF1-A2E051F1AF16}" ShortID="691023047">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Log3_01" ID="{6373EF24-EAA8-4A4A-9757-0B3CF7DEC755}" ShortID="422126266">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Log3_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="142820578"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Log3_01" ID="{6373EF24-EAA8-4A4A-9757-0B3CF7DEC755}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log3_02" ID="{42F2B9DB-47CF-4BEC-8D35-94DAB50D1B2C}" ShortID="236017084">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Log3_02" ID="{AAD182C7-B0E5-4402-A8FA-55F833C3D56C}" ShortID="599011996">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Log3_02.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="581389134"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Log3_02" ID="{AAD182C7-B0E5-4402-A8FA-55F833C3D56C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Computer Log_3" ID="{883CEA82-C43D-4A06-BC74-02AA1C6BE632}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log3_01" ID="{D23633A8-12CA-4752-95F4-161EFAD4F8A4}" ShortID="456016218">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log3_01" ID="{D11B368A-3021-4FBD-8D7C-FE94561ECE19}" ShortID="682792833">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log3_01.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="1055771573"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log3_01" ID="{D11B368A-3021-4FBD-8D7C-FE94561ECE19}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log3_02" ID="{550149A4-BEB7-4257-B889-5F9FB2ED20A5}" ShortID="108628362">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log3_02" ID="{59FFA88E-93A4-43B0-B6B4-01E4ED1C91E0}" ShortID="562815956">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log3_02.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="473116086"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log3_02" ID="{59FFA88E-93A4-43B0-B6B4-01E4ED1C91E0}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log3_03" ID="{5B8766CC-ADBB-4E33-8C9D-43E3682FD765}" ShortID="282599912">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log3_03" ID="{F085F781-FEB7-4241-AC53-97F6F47C0B44}" ShortID="802117898">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log3_03.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="504181742"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log3_03" ID="{F085F781-FEB7-4241-AC53-97F6F47C0B44}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log3_04" ID="{D788CACD-91CD-4045-96EE-8612D2C1F91F}" ShortID="108296069">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log3_04" ID="{5FC24A93-298E-4435-81D5-244D3E17F5C3}" ShortID="872490912">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log3_04.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="540379184"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log3_04" ID="{5FC24A93-298E-4435-81D5-244D3E17F5C3}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log3_01" ID="{1F58548A-5F30-41A5-9DF1-A2E051F1AF16}" ShortID="691023047">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Log3_01" ID="{6373EF24-EAA8-4A4A-9757-0B3CF7DEC755}" ShortID="422126266">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Log3_01.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="142820578"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Log3_01" ID="{6373EF24-EAA8-4A4A-9757-0B3CF7DEC755}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log3_02" ID="{42F2B9DB-47CF-4BEC-8D35-94DAB50D1B2C}" ShortID="236017084">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Log3_02" ID="{AAD182C7-B0E5-4402-A8FA-55F833C3D56C}" ShortID="599011996">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Log3_02.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="581389134"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Log3_02" ID="{AAD182C7-B0E5-4402-A8FA-55F833C3D56C}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+											<Playlist>
+												<ItemRef Name="VA_Ash_Computer Log_3" ID="{B91C818E-BA6F-454A-956D-EFFF5180C157}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log3_01" ID="{D23633A8-12CA-4752-95F4-161EFAD4F8A4}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log3_02" ID="{550149A4-BEB7-4257-B889-5F9FB2ED20A5}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log3_01" ID="{1F58548A-5F30-41A5-9DF1-A2E051F1AF16}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log3_03" ID="{5B8766CC-ADBB-4E33-8C9D-43E3682FD765}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log3_02" ID="{42F2B9DB-47CF-4BEC-8D35-94DAB50D1B2C}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log3_04" ID="{D788CACD-91CD-4045-96EE-8612D2C1F91F}"/>
+											</Playlist>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Log4" ID="{75D86722-E11C-404F-98CB-EF1DC9B79049}" ShortID="171988986">
@@ -953,9 +925,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Computer Log_4" ID="{088691B1-54FC-49A4-BCBE-F19A13D3AE04}" ShortID="194672280">
+										<RandomSequenceContainer Name="Log4" ID="{A8437655-FC47-4B0C-95FD-D723FB166281}" ShortID="975263733">
 											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -966,218 +942,253 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Computer Log_4" ID="{339B52E3-1782-43F5-8C59-517226CFD192}" ShortID="46377646">
-													<Language>English(US)</Language>
-													<AudioFile>Computer\Computer Log_4.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="811462379"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
+												<Sound Name="Computer Log_4" ID="{088691B1-54FC-49A4-BCBE-F19A13D3AE04}" ShortID="194672280">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Computer Log_4" ID="{339B52E3-1782-43F5-8C59-517226CFD192}" ShortID="46377646">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Computer Log_4.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="811462379"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Computer Log_4" ID="{339B52E3-1782-43F5-8C59-517226CFD192}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log4_01" ID="{586CA2F5-8E72-4134-AA0B-2D17CDC7FAC6}" ShortID="790697876">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log4_01" ID="{954EBA87-0C11-4612-8F88-A025AF4CF633}" ShortID="336108994">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log4_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="596543693"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log4_01" ID="{954EBA87-0C11-4612-8F88-A025AF4CF633}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log4_02" ID="{5F83BB45-A507-4500-AE77-3BB33062B027}" ShortID="516329229">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log4_02" ID="{99620574-D963-4468-8191-308909F1F244}" ShortID="257101595">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log4_02.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="919751778"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log4_02" ID="{99620574-D963-4468-8191-308909F1F244}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log4_03" ID="{3C1CBAF1-FBD7-4629-BC07-B1C61E1E1072}" ShortID="469309402">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log4_03" ID="{59C5B5CA-DA64-4689-B208-82AD1B2130E9}" ShortID="1046088053">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log4_03.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="311967697"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log4_03" ID="{59C5B5CA-DA64-4689-B208-82AD1B2130E9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log4_04" ID="{E6988268-EE1A-4729-816B-A1CFCCF25FEC}" ShortID="479327616">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log4_04" ID="{BF534DCC-CCAF-4E4E-9172-4D638C6D5F73}" ShortID="582327925">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log4_04.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="21171065"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log4_04" ID="{BF534DCC-CCAF-4E4E-9172-4D638C6D5F73}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log4_01" ID="{BDF0A561-8040-4973-8001-F628B918F148}" ShortID="997017754">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Log4_01" ID="{703B2DE0-956F-482C-8669-5795B4924722}" ShortID="183877652">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Log4_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="125317631"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Log4_01" ID="{703B2DE0-956F-482C-8669-5795B4924722}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log4_02" ID="{E4C17FCB-A802-453E-837E-0278CB3AB525}" ShortID="226798500">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Log4_02" ID="{FF81CF34-65DF-4586-8974-07B0C662D93E}" ShortID="129720996">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Log4_02.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="457464765"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Log4_02" ID="{FF81CF34-65DF-4586-8974-07B0C662D93E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log4_03" ID="{23C4FCAD-1C24-4D9D-B551-E2E2E824C4C7}" ShortID="690705144">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Log4_03" ID="{06BFDF6B-6058-40CB-BCA8-AEB59A25E0C1}" ShortID="742102673">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Log4_03.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="792722617"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Log4_03" ID="{06BFDF6B-6058-40CB-BCA8-AEB59A25E0C1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log4_04" ID="{7768F5CD-2362-453F-A74B-A05C653C8351}" ShortID="857636313">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Log4_04" ID="{64B2AFF3-506A-46A3-9602-F5B709339B1E}" ShortID="570981489">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Log4_04.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="157783356"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Log4_04" ID="{64B2AFF3-506A-46A3-9602-F5B709339B1E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Computer Log_4" ID="{339B52E3-1782-43F5-8C59-517226CFD192}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log4_02" ID="{5F83BB45-A507-4500-AE77-3BB33062B027}" ShortID="516329229">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log4_02" ID="{99620574-D963-4468-8191-308909F1F244}" ShortID="257101595">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log4_02.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="919751778"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log4_02" ID="{99620574-D963-4468-8191-308909F1F244}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log4_01" ID="{586CA2F5-8E72-4134-AA0B-2D17CDC7FAC6}" ShortID="790697876">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log4_01" ID="{954EBA87-0C11-4612-8F88-A025AF4CF633}" ShortID="336108994">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log4_01.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="596543693"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log4_01" ID="{954EBA87-0C11-4612-8F88-A025AF4CF633}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log4_03" ID="{3C1CBAF1-FBD7-4629-BC07-B1C61E1E1072}" ShortID="469309402">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log4_03" ID="{59C5B5CA-DA64-4689-B208-82AD1B2130E9}" ShortID="1046088053">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log4_03.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="311967697"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log4_03" ID="{59C5B5CA-DA64-4689-B208-82AD1B2130E9}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log4_04" ID="{E6988268-EE1A-4729-816B-A1CFCCF25FEC}" ShortID="479327616">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log4_04" ID="{BF534DCC-CCAF-4E4E-9172-4D638C6D5F73}" ShortID="582327925">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log4_04.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="21171065"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log4_04" ID="{BF534DCC-CCAF-4E4E-9172-4D638C6D5F73}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log4_01" ID="{BDF0A561-8040-4973-8001-F628B918F148}" ShortID="997017754">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Log4_01" ID="{703B2DE0-956F-482C-8669-5795B4924722}" ShortID="183877652">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Log4_01.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="125317631"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Log4_01" ID="{703B2DE0-956F-482C-8669-5795B4924722}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log4_02" ID="{E4C17FCB-A802-453E-837E-0278CB3AB525}" ShortID="226798500">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Log4_02" ID="{FF81CF34-65DF-4586-8974-07B0C662D93E}" ShortID="129720996">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Log4_02.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="457464765"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Log4_02" ID="{FF81CF34-65DF-4586-8974-07B0C662D93E}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log4_03" ID="{23C4FCAD-1C24-4D9D-B551-E2E2E824C4C7}" ShortID="690705144">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Log4_03" ID="{06BFDF6B-6058-40CB-BCA8-AEB59A25E0C1}" ShortID="742102673">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Log4_03.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="792722617"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Log4_03" ID="{06BFDF6B-6058-40CB-BCA8-AEB59A25E0C1}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log4_04" ID="{7768F5CD-2362-453F-A74B-A05C653C8351}" ShortID="857636313">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Log4_04" ID="{64B2AFF3-506A-46A3-9602-F5B709339B1E}" ShortID="570981489">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Log4_04.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="157783356"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Log4_04" ID="{64B2AFF3-506A-46A3-9602-F5B709339B1E}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+											<Playlist>
+												<ItemRef Name="Computer Log_4" ID="{088691B1-54FC-49A4-BCBE-F19A13D3AE04}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log4_01" ID="{586CA2F5-8E72-4134-AA0B-2D17CDC7FAC6}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log4_01" ID="{BDF0A561-8040-4973-8001-F628B918F148}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log4_02" ID="{5F83BB45-A507-4500-AE77-3BB33062B027}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log4_02" ID="{E4C17FCB-A802-453E-837E-0278CB3AB525}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log4_03" ID="{3C1CBAF1-FBD7-4629-BC07-B1C61E1E1072}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log4_03" ID="{23C4FCAD-1C24-4D9D-B551-E2E2E824C4C7}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log4_04" ID="{E6988268-EE1A-4729-816B-A1CFCCF25FEC}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log4_04" ID="{7768F5CD-2362-453F-A74B-A05C653C8351}"/>
+											</Playlist>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Log5" ID="{867B0C28-EFAF-4CA6-AA4B-F741181B4D19}" ShortID="777885679">
@@ -1190,9 +1201,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Computer Log_5" ID="{D4E53B88-6707-4DE7-9D41-53C74A05BF60}" ShortID="182880780">
+										<RandomSequenceContainer Name="Log5" ID="{0FE2C472-FA22-4E47-9D81-B3A04A54EFE5}" ShortID="155905696">
 											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -1203,118 +1218,145 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Computer Log_5" ID="{05AA309D-8FBE-4B70-B553-1EB1D2319FBA}" ShortID="423494649">
-													<Language>English(US)</Language>
-													<AudioFile>Computer\Computer Log_5.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="293352662"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
+												<Sound Name="Computer Log_5" ID="{D4E53B88-6707-4DE7-9D41-53C74A05BF60}" ShortID="182880780">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Computer Log_5" ID="{05AA309D-8FBE-4B70-B553-1EB1D2319FBA}" ShortID="423494649">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Computer Log_5.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="293352662"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Computer Log_5" ID="{05AA309D-8FBE-4B70-B553-1EB1D2319FBA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log5_01" ID="{B05F1A40-16A3-4396-9D0E-4FC52068E334}" ShortID="307274236">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log5_01" ID="{B6095A13-29D1-433B-BC17-885B4F049512}" ShortID="880714088">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log5_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="254480832"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log5_01" ID="{B6095A13-29D1-433B-BC17-885B4F049512}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log5_02" ID="{7AE0E2B4-EC76-490C-B852-9BBECC65A1C8}" ShortID="1047189781">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log5_02" ID="{05175376-E64F-4A6D-9E29-51B7AB630960}" ShortID="586205391">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log5_02.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="19938708"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log5_02" ID="{05175376-E64F-4A6D-9E29-51B7AB630960}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log5_01" ID="{0FBB8926-783F-4E5F-ADAB-CD466FC5F3CD}" ShortID="535224614">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Log5_01" ID="{E41D57CA-11BE-4C3C-8C0B-6E0312EBA666}" ShortID="904040235">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Log5_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="25781689"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Log5_01" ID="{E41D57CA-11BE-4C3C-8C0B-6E0312EBA666}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log5_02" ID="{08431AFA-3238-40E2-BFEC-4738BA00222D}" ShortID="90829986">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Log5_02" ID="{3498230E-FE0A-4131-B116-3639012F935D}" ShortID="704899746">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Log5_02.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="588934465"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Log5_02" ID="{3498230E-FE0A-4131-B116-3639012F935D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Computer Log_5" ID="{05AA309D-8FBE-4B70-B553-1EB1D2319FBA}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log5_01" ID="{B05F1A40-16A3-4396-9D0E-4FC52068E334}" ShortID="307274236">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log5_01" ID="{B6095A13-29D1-433B-BC17-885B4F049512}" ShortID="880714088">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log5_01.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="254480832"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log5_01" ID="{B6095A13-29D1-433B-BC17-885B4F049512}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log5_02" ID="{7AE0E2B4-EC76-490C-B852-9BBECC65A1C8}" ShortID="1047189781">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log5_02" ID="{05175376-E64F-4A6D-9E29-51B7AB630960}" ShortID="586205391">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log5_02.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="19938708"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log5_02" ID="{05175376-E64F-4A6D-9E29-51B7AB630960}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log5_01" ID="{0FBB8926-783F-4E5F-ADAB-CD466FC5F3CD}" ShortID="535224614">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Log5_01" ID="{E41D57CA-11BE-4C3C-8C0B-6E0312EBA666}" ShortID="904040235">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Log5_01.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="25781689"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Log5_01" ID="{E41D57CA-11BE-4C3C-8C0B-6E0312EBA666}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log5_02" ID="{08431AFA-3238-40E2-BFEC-4738BA00222D}" ShortID="90829986">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Log5_02" ID="{3498230E-FE0A-4131-B116-3639012F935D}" ShortID="704899746">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Log5_02.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="588934465"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Log5_02" ID="{3498230E-FE0A-4131-B116-3639012F935D}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+											<Playlist>
+												<ItemRef Name="Computer Log_5" ID="{D4E53B88-6707-4DE7-9D41-53C74A05BF60}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log5_01" ID="{B05F1A40-16A3-4396-9D0E-4FC52068E334}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log5_01" ID="{0FBB8926-783F-4E5F-ADAB-CD466FC5F3CD}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log5_02" ID="{08431AFA-3238-40E2-BFEC-4738BA00222D}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log5_02" ID="{7AE0E2B4-EC76-490C-B852-9BBECC65A1C8}"/>
+											</Playlist>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Log6" ID="{6ACBAEF2-4FA1-4571-B8D1-3712DAC0DE99}" ShortID="382168107">
@@ -1327,9 +1369,9 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Computer Log_6" ID="{C7D42233-F783-4AA7-9378-D3CFA2DA0947}" ShortID="779788163">
+										<RandomSequenceContainer Name="Log6" ID="{BBF2EFE1-AD76-450A-99E6-FE31C21BED3F}" ShortID="834311027">
 											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -1340,118 +1382,145 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Computer Log_6" ID="{F7A18C32-94B7-4F27-8CF7-E6F7B82162DA}" ShortID="270561589">
-													<Language>English(US)</Language>
-													<AudioFile>Computer\Computer Log_6.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="55264657"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
+												<Sound Name="Computer Log_6" ID="{C7D42233-F783-4AA7-9378-D3CFA2DA0947}" ShortID="779788163">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Computer Log_6" ID="{F7A18C32-94B7-4F27-8CF7-E6F7B82162DA}" ShortID="270561589">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Computer Log_6.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="55264657"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Computer Log_6" ID="{F7A18C32-94B7-4F27-8CF7-E6F7B82162DA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log6_01" ID="{0637FC80-10DC-405E-A35A-B2A5C7E72E4A}" ShortID="767216643">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log6_01" ID="{4270E88D-925B-4B6D-9594-A0CF0AD39B0B}" ShortID="977135947">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log6_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="374121861"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log6_01" ID="{4270E88D-925B-4B6D-9594-A0CF0AD39B0B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log6_02" ID="{1B158C04-FAC6-4691-999E-2477FD9EB305}" ShortID="966284464">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log6_02" ID="{1FAAFAE7-7B8B-4551-8D3B-B06CC882AD51}" ShortID="42082783">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log6_02.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="608895548"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log6_02" ID="{1FAAFAE7-7B8B-4551-8D3B-B06CC882AD51}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log6_03" ID="{0AD53872-AF8B-4E69-A873-E278CBE572F9}" ShortID="383456802">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log6_03" ID="{762EDC9D-3FD3-4549-A351-6E6B5824DE63}" ShortID="303032999">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log6_03.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="1013775651"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log6_03" ID="{762EDC9D-3FD3-4549-A351-6E6B5824DE63}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Log6_01" ID="{E55118F1-3F49-4BF0-B069-716ABFDF3CA6}" ShortID="526149022">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Log6_01" ID="{B4405493-935B-400C-95DC-C8D1C89C8191}" ShortID="796671834">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Log6_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="759757857"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Log6_01" ID="{B4405493-935B-400C-95DC-C8D1C89C8191}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Computer Log_6" ID="{F7A18C32-94B7-4F27-8CF7-E6F7B82162DA}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log6_01" ID="{0637FC80-10DC-405E-A35A-B2A5C7E72E4A}" ShortID="767216643">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log6_01" ID="{4270E88D-925B-4B6D-9594-A0CF0AD39B0B}" ShortID="977135947">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log6_01.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="374121861"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log6_01" ID="{4270E88D-925B-4B6D-9594-A0CF0AD39B0B}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log6_02" ID="{1B158C04-FAC6-4691-999E-2477FD9EB305}" ShortID="966284464">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log6_02" ID="{1FAAFAE7-7B8B-4551-8D3B-B06CC882AD51}" ShortID="42082783">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log6_02.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="608895548"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log6_02" ID="{1FAAFAE7-7B8B-4551-8D3B-B06CC882AD51}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log6_03" ID="{0AD53872-AF8B-4E69-A873-E278CBE572F9}" ShortID="383456802">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log6_03" ID="{762EDC9D-3FD3-4549-A351-6E6B5824DE63}" ShortID="303032999">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log6_03.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="1013775651"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log6_03" ID="{762EDC9D-3FD3-4549-A351-6E6B5824DE63}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Log6_01" ID="{E55118F1-3F49-4BF0-B069-716ABFDF3CA6}" ShortID="526149022">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Log6_01" ID="{B4405493-935B-400C-95DC-C8D1C89C8191}" ShortID="796671834">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Log6_01.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="759757857"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Log6_01" ID="{B4405493-935B-400C-95DC-C8D1C89C8191}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+											<Playlist>
+												<ItemRef Name="Computer Log_6" ID="{C7D42233-F783-4AA7-9378-D3CFA2DA0947}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log6_01" ID="{0637FC80-10DC-405E-A35A-B2A5C7E72E4A}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log6_02" ID="{1B158C04-FAC6-4691-999E-2477FD9EB305}"/>
+												<ItemRef Name="VO_Ash_Oct0_Log6_01" ID="{E55118F1-3F49-4BF0-B069-716ABFDF3CA6}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log6_03" ID="{0AD53872-AF8B-4E69-A873-E278CBE572F9}"/>
+											</Playlist>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Log7" ID="{748E20D6-125F-4B48-B9A5-CF6FD1B2F6C9}" ShortID="196992558">
@@ -1464,9 +1533,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="VA_Ash_Computer_Log7_01" ID="{8E110DFF-66A2-4971-9ADB-FF38F28013A7}" ShortID="407688243">
+										<RandomSequenceContainer Name="Log7" ID="{29625526-713B-4E02-8886-4A879D51AB48}" ShortID="822749421">
 											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -1477,168 +1550,145 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Computer Log_7" ID="{9812EEAF-3ADB-4948-8851-A58555A86FE5}" ShortID="907028991">
-													<Language>English(US)</Language>
-													<AudioFile>Computer\Computer Log_7.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="940673673"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
+												<Sound Name="VA_Ash_Computer_Log7_01" ID="{8E110DFF-66A2-4971-9ADB-FF38F28013A7}" ShortID="407688243">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Computer Log_7" ID="{9812EEAF-3ADB-4948-8851-A58555A86FE5}" ShortID="907028991">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Computer Log_7.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="940673673"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Computer Log_7" ID="{9812EEAF-3ADB-4948-8851-A58555A86FE5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log7_01" ID="{4C04E4A2-05C8-4928-B16C-E1AAF3E62175}" ShortID="999064988">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log7_01" ID="{CB5B5611-DBC8-404B-A3A6-CB022AF7AD0B}" ShortID="5796254">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log7_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="781911393"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log7_01" ID="{CB5B5611-DBC8-404B-A3A6-CB022AF7AD0B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log7_02" ID="{F67CD0F5-794C-4267-8618-999D2A5701A9}" ShortID="698195457">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log7_02" ID="{7D4C2C81-2C08-48E7-A1D1-E94B3BE00503}" ShortID="1002969910">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log7_02.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="352102148"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log7_02" ID="{7D4C2C81-2C08-48E7-A1D1-E94B3BE00503}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log7_03" ID="{D3AD4318-C627-476B-AC1E-36FD2F8BC26A}" ShortID="87009634">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log7_03" ID="{2AD1D721-7BE5-43D5-AE7B-C86DB74274E0}" ShortID="750263692">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log7_03.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="479432636"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log7_03" ID="{2AD1D721-7BE5-43D5-AE7B-C86DB74274E0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log7_04" ID="{143D35B6-05DD-4B0F-A7C4-020A3A3D11B0}" ShortID="750311178">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log7_04" ID="{7F138714-DA3B-4954-9592-56F7E9E4639C}" ShortID="989592127">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log7_04.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="237717402"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log7_04" ID="{7F138714-DA3B-4954-9592-56F7E9E4639C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Computer Log_7" ID="{9812EEAF-3ADB-4948-8851-A58555A86FE5}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Ash_Computer_Log7_02" ID="{0D452D7E-4179-41AD-9A55-F0F50A8D2971}" ShortID="151985560">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Computer Log_20" ID="{F8B25EEB-5F93-4F5E-A6FC-6995839EA54E}" ShortID="494205565">
-													<Language>English(US)</Language>
-													<AudioFile>Computer\Computer Log_20.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="1022269125"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Computer Log_20" ID="{F8B25EEB-5F93-4F5E-A6FC-6995839EA54E}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log7_01" ID="{4C04E4A2-05C8-4928-B16C-E1AAF3E62175}" ShortID="999064988">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log7_01" ID="{CB5B5611-DBC8-404B-A3A6-CB022AF7AD0B}" ShortID="5796254">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log7_01.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="781911393"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log7_01" ID="{CB5B5611-DBC8-404B-A3A6-CB022AF7AD0B}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log7_02" ID="{F67CD0F5-794C-4267-8618-999D2A5701A9}" ShortID="698195457">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log7_02" ID="{7D4C2C81-2C08-48E7-A1D1-E94B3BE00503}" ShortID="1002969910">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log7_02.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="352102148"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log7_02" ID="{7D4C2C81-2C08-48E7-A1D1-E94B3BE00503}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log7_03" ID="{D3AD4318-C627-476B-AC1E-36FD2F8BC26A}" ShortID="87009634">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log7_03" ID="{2AD1D721-7BE5-43D5-AE7B-C86DB74274E0}" ShortID="750263692">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log7_03.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="479432636"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log7_03" ID="{2AD1D721-7BE5-43D5-AE7B-C86DB74274E0}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log7_04" ID="{143D35B6-05DD-4B0F-A7C4-020A3A3D11B0}" ShortID="750311178">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log7_04" ID="{7F138714-DA3B-4954-9592-56F7E9E4639C}" ShortID="989592127">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log7_04.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="237717402"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log7_04" ID="{7F138714-DA3B-4954-9592-56F7E9E4639C}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VA_Colin_Oakley_Log7_05" ID="{4E5E5CD6-4553-45AF-A60E-15E5AF161C58}" ShortID="971654324">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VA_Colin_Oakley_Log7_05" ID="{49DD73DF-C630-43E5-A339-657439C5FDE4}" ShortID="115015761">
-													<Language>English(US)</Language>
-													<AudioFile>Oakley\VA_Colin_Oakley_Log7_05.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="7371432"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VA_Colin_Oakley_Log7_05" ID="{49DD73DF-C630-43E5-A339-657439C5FDE4}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+											<Playlist>
+												<ItemRef Name="VA_Ash_Computer_Log7_01" ID="{8E110DFF-66A2-4971-9ADB-FF38F28013A7}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log7_01" ID="{4C04E4A2-05C8-4928-B16C-E1AAF3E62175}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log7_02" ID="{F67CD0F5-794C-4267-8618-999D2A5701A9}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log7_03" ID="{D3AD4318-C627-476B-AC1E-36FD2F8BC26A}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log7_04" ID="{143D35B6-05DD-4B0F-A7C4-020A3A3D11B0}"/>
+											</Playlist>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Octo" ID="{43E99AE4-6816-4268-A510-CCA14FD91F01}" ShortID="762287526">
@@ -3177,8 +3227,252 @@
 										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
+								<ActorMixer Name="Log8" ID="{509A8A17-205F-4D9B-A28F-052953CC0039}" ShortID="741305887">
+									<PropertyList>
+										<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Log8" ID="{54E0D8EF-A407-40D9-A379-77F4FA400D4A}" ShortID="398516360">
+											<PropertyList>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VA_Ash_Computer_Log7_02" ID="{C81CADDE-1E33-4EBB-A076-6A9266B4DD2E}" ShortID="737967030">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Computer Log_20" ID="{AF765A3A-D65D-4B48-9961-2C1CD03B59E5}" ShortID="889026046">
+															<Language>English(US)</Language>
+															<AudioFile>Computer\Computer Log_20.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="1022269125"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Computer Log_20" ID="{AF765A3A-D65D-4B48-9961-2C1CD03B59E5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VA_Colin_Oakley_Log7_05" ID="{FB8F1783-CC79-4895-B277-102B194F4491}" ShortID="1069653583">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VA_Colin_Oakley_Log7_05" ID="{1B2A90BB-1288-443A-8EAB-5E1CF9FD8AB7}" ShortID="521502479">
+															<Language>English(US)</Language>
+															<AudioFile>Oakley\VA_Colin_Oakley_Log7_05.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="7371432"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VA_Colin_Oakley_Log7_05" ID="{1B2A90BB-1288-443A-8EAB-5E1CF9FD8AB7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="VA_Ash_Computer_Log7_02" ID="{C81CADDE-1E33-4EBB-A076-6A9266B4DD2E}"/>
+												<ItemRef Name="VA_Colin_Oakley_Log7_05" ID="{FB8F1783-CC79-4895-B277-102B194F4491}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</ActorMixer>
 							</ChildrenList>
 						</ActorMixer>
+						<Sound Name="TEMP_VO_Characters_Octo_Remembered" ID="{94541264-96D2-4514-8373-054D15B4D7B4}" ShortID="86072054">
+							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="TEMP_VO_Characters_Octo_Remembered" ID="{850DE542-CF43-4D76-BE8C-B098ED9D78C6}" ShortID="1031879202">
+									<Language>SFX</Language>
+									<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_Remembered.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="TEMP_VO_Characters_Octo_Remembered" ID="{850DE542-CF43-4D76-BE8C-B098ED9D78C6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="TEMP_VO_Chatacters_Octo_Complete-01" ID="{70BC860E-AB5F-48A7-9BB6-CA1ED70A7801}" ShortID="963696719">
+							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="TEMP_VO_Chatacters_Octo_Complete-01" ID="{37A01987-415B-47F9-A958-A5910A337AB1}" ShortID="433677184">
+									<Language>SFX</Language>
+									<AudioFile>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Complete-01.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="TEMP_VO_Chatacters_Octo_Complete-01" ID="{37A01987-415B-47F9-A958-A5910A337AB1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="TEMP_VO_Characters_Octo_NoResc" ID="{E60A5F90-88F6-477A-915C-B1B7B603C1BD}" ShortID="1067574204">
+							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="TEMP_VO_Characters_Octo_NoResc" ID="{6C909E8B-B3F3-4EBB-97B5-13BBF97188E4}" ShortID="182288180">
+									<Language>SFX</Language>
+									<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_NoResc.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="TEMP_VO_Characters_Octo_NoResc" ID="{6C909E8B-B3F3-4EBB-97B5-13BBF97188E4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="TEMP_VO_Chatacters_Octo_Low_2" ID="{D941A77B-CED0-4EF5-979A-DEA36993B484}" ShortID="308926419">
+							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="TEMP_VO_Chatacters_Octo_Low_2" ID="{BB73684B-0AD8-4433-8B6B-1F2A715CAEBF}" ShortID="555738453">
+									<Language>SFX</Language>
+									<AudioFile>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Low_2.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="TEMP_VO_Chatacters_Octo_Low_2" ID="{BB73684B-0AD8-4433-8B6B-1F2A715CAEBF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="TEMP_VO_Chatacters_Octo_Low_1-01" ID="{43D6DD73-06E2-497C-BA22-0D57798E2F03}" ShortID="565634000">
+							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="TEMP_VO_Chatacters_Octo_Low_1-01" ID="{BC659248-4A62-4802-B1CE-0D6E17447CB6}" ShortID="261610866">
+									<Language>SFX</Language>
+									<AudioFile>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Low_1-01.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="TEMP_VO_Chatacters_Octo_Low_1-01" ID="{BC659248-4A62-4802-B1CE-0D6E17447CB6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="TEMP_VO_Characters_Octo_Hurt-01" ID="{07672AD1-14E6-4CC5-B0B6-82E240661ECE}" ShortID="481666269">
+							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="TEMP_VO_Characters_Octo_Hurt-01" ID="{35BFCC15-F49A-4921-99D2-2B57D4E9A74B}" ShortID="875442297">
+									<Language>SFX</Language>
+									<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_Hurt-01.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="TEMP_VO_Characters_Octo_Hurt-01" ID="{35BFCC15-F49A-4921-99D2-2B57D4E9A74B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="TEMP_VO_Characters_Octo_Death-01" ID="{D13C36A6-BFF9-4DAA-ABD0-889B68E4732E}" ShortID="117872568">
+							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="TEMP_VO_Characters_Octo_Death-01" ID="{4E3A5ECB-76D0-4F48-B634-E31BA79A411A}" ShortID="129229025">
+									<Language>SFX</Language>
+									<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_Death-01.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="TEMP_VO_Characters_Octo_Death-01" ID="{4E3A5ECB-76D0-4F48-B634-E31BA79A411A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
