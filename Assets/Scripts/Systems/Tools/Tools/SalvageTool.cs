@@ -44,14 +44,24 @@ public class SalvageTool : Tool
     {
         SwitchedTargets = (OriginalTarget != target);
         if (target == null) return false;
+
         OutOfRange = Vector3.Distance(target.transform.position,owner.transform.position) >= _ToolRange;
+
+        if(!OutOfRange && progressBarBG.gameObject.activeSelf == false)
+        {
+            progressBarBG.gameObject.SetActive(true);
+            progressBarFill.gameObject.SetActive(true);
+
+            progressBarFill.fillAmount = 0f;
+        }
+
         FinishedSalvage = ((SalvageStartTime+salvageTime) <= Time.unscaledTime);
         
-        if(!finishedSalvage)
+        if(!finishedSalvage && !OutOfRange)
         {
             progressBarFill.fillAmount += (Time.unscaledTime / SalvageStartTime + salvageTime) / 100;
         }
-        else
+        else if(SwitchedTargets || FinishedSalvage || OutOfRange)
         {
             progressBarBG.gameObject.SetActive(false);
             progressBarFill.gameObject.SetActive(false);
@@ -63,13 +73,6 @@ public class SalvageTool : Tool
 
     protected override void OnActivate(ToolController owner, GameObject target)
     {
-        progressBarBG = UIModule.UIRoot.GetScreen<GameHUD>().progressBarBG;
-        progressBarFill = UIModule.UIRoot.GetScreen<GameHUD>().progressBarFill;
-        progressBarBG.gameObject.SetActive(true);
-        progressBarFill.gameObject.SetActive(true);
-
-        progressBarFill.fillAmount = 0f;
-
         Debug.Log("Activated");
         SalvComp = target.GetComponent<Salvagable>();
         OriginalTarget = target;
@@ -97,7 +100,6 @@ public class SalvageTool : Tool
         if (SalvComp == null | SwitchedTargets |!FinishedSalvage | OutOfRange) return;
         Debug.Log(OriginalTarget + " " + target );
         Debug.Log("Deactivated");
-        
 
         if (owner.PlayerInventory.AddToResourceBucket(SalvComp.SalvageItem,SalvComp.Amount))
             {
@@ -106,15 +108,16 @@ public class SalvageTool : Tool
                 //resource gained pop text
                 Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");
                 //Debug.Log("Salvaged Object");
-            } else 
-            {
-                Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Full");
-            }   
-            //error pop text
-            //Debug.Log("Not enough space");
-            SalvComp = null;
-            SwitchedTargets = true;
-            OriginalTarget = null;
+            } 
+        else 
+        {
+            Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Full");
+        }   
+        //error pop text
+        //Debug.Log("Not enough space");
+        SalvComp = null;
+        SwitchedTargets = true;
+        OriginalTarget = null;
     }
 
     protected override void OnSelect(ToolController owner)
@@ -122,10 +125,10 @@ public class SalvageTool : Tool
         //Debug.Log("Salvager Selected");
         progressBarBG = UIModule.UIRoot.GetScreen<GameHUD>().progressBarBG;
         progressBarFill = UIModule.UIRoot.GetScreen<GameHUD>().progressBarFill;
-        progressBarBG.gameObject.SetActive(true);
-        progressBarFill.gameObject.SetActive(true);
+        //progressBarBG.gameObject.SetActive(true);
+        //progressBarFill.gameObject.SetActive(true);
 
-        progressBarFill.fillAmount = 0f;
+        //progressBarFill.fillAmount = 0f;
     }
 
     protected override void OnDeselect(ToolController owner)

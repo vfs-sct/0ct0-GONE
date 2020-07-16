@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "Core/Gamemode/GameOver")]
@@ -8,7 +6,7 @@ public class GameOverState : GameState
 {
     [SerializeField] private Playing PlayingState;
 
-     [SerializeField] private CommunicationModule RelayController;
+    [SerializeField] private CommunicationModule RelayController;
     [SerializeField] private Resource FuelResource;
 
     bool OutOfFuel = false;

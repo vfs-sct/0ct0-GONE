@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\</ProjectRoot>
-		<SourceFilesRoot>D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/0cto-Gone_Wwise/WWise_OctoGone_SD95_20200602/WWise_OctoGone_SD95_20200602/</ProjectRoot>
+		<SourceFilesRoot>/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/0cto-Gone_Wwise/WWise_OctoGone_SD95_20200602/WWise_OctoGone_SD95_20200602/.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/0cto-Gone_Wwise/WWise_OctoGone_SD95_20200602/WWise_OctoGone_SD95_20200602/GeneratedSoundBanks/Windows/</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/0cto-Gone_Wwise/WWise_OctoGone_SD95_20200602/WWise_OctoGone_SD95_20200602/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -16,14 +16,13 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2856818978" GUID="{ACAF0867-9E6D-4DE0-B998-D6093E51FC97}" Language="English(US)">
+		<SoundBank Id="2856818978" GUID="{ACAF0867-9E6D-4DE0-B998-D6093E51FC97}" Language="SFX">
 			<ObjectPath>\SoundBanks\Wwise_Octo_Main\Wwise_Octo_Main</ObjectPath>
 			<ShortName>Wwise_Octo_Main</ShortName>
-			<Path>English(US)\Wwise_Octo_Main.bnk</Path>
+			<Path>Wwise_Octo_Main.bnk</Path>
 			<IncludedEvents>
 				<Event Id="494181607" Name="Asteroid_Collision" ObjectPath="\Events\Octo_Main\Environment\Environmental\Asteroid_Collision" GUID="{76330FA2-F6E4-48C1-9379-81D5812CCEB0}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1880505272" Name="Asteroid_Moving_Play" ObjectPath="\Events\Octo_Main\Environment\Environmental\Asteroid_Moving_Play" GUID="{DC2DD57B-6CE3-47B9-AFB6-BF9680620454}" MaxAttenuation="100.000000" DurationType="Infinite"/>
-				<Event Id="4252952586" Name="Asteroid_Moving_Stop" ObjectPath="\Events\Octo_Main\Environment\Environmental\Asteroid_Moving_Stop" GUID="{5D342677-B951-4499-BD82-927A288E2FFC}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="376042431" Name="Asteroid_Moving" ObjectPath="\Events\Octo_Main\Environment\Environmental\Asteroid_Moving" GUID="{DC2DD57B-6CE3-47B9-AFB6-BF9680620454}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1329011239" Name="Asteroid_Warning" ObjectPath="\Events\Octo_Main\UI\Asteroid_Warning" GUID="{02EC627F-A7D2-42CE-BCB7-5BF508749265}" DurationType="OneShot" DurationMin="1.042708" DurationMax="1.042708"/>
 				<Event Id="4137153305" Name="Communications_Array_Play" ObjectPath="\Events\Octo_Main\Environment\Satellite\Communications_Array_Play" GUID="{36A88353-19CB-4303-B222-608847F64F94}" DurationType="Infinite"/>
 				<Event Id="2433250911" Name="Communications_Array_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Communications_Array_Stop" GUID="{CF5687F1-9335-4229-B2FA-794EBDC21B5A}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -35,20 +34,17 @@
 				<Event Id="779278001" Name="Death" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Death" GUID="{BE1CCA83-3705-44A3-8AB3-F04FE383A46F}" DurationType="OneShot" DurationMin="1.933333" DurationMax="1.933333"/>
 				<Event Id="3147538972" Name="Electrical_Spark_Warning" ObjectPath="\Events\Octo_Main\UI\Electrical_Spark_Warning" GUID="{16CA0B55-FD49-4012-B6D3-C776689B35C8}" DurationType="OneShot" DurationMin="1.626625" DurationMax="1.626625"/>
 				<Event Id="642867601" Name="Electricity_Play" ObjectPath="\Events\Octo_Main\Environment\Environmental\Electricity_Play" GUID="{2875C9A0-D28F-4878-956D-7F3B06DE19F7}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1894282823" Name="Electricity_Stop" ObjectPath="\Events\Octo_Main\Environment\Environmental\Electricity_Stop" GUID="{832A18C1-809E-4442-93D3-5B0317481464}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1894282823" Name="Electricity_Stop" ObjectPath="\Events\Octo_Main\Environment\Environmental\Electricity_Stop" GUID="{51AD32F5-8092-4BD3-8CF0-4B076971C412}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1660813893" Name="Env_01_Play" ObjectPath="\Events\Octo_Main\Environment\Ambience\Env_01_Play" GUID="{E5D5C823-487B-44CA-9D5A-1EC4C67A0338}" DurationType="Infinite"/>
 				<Event Id="3085466819" Name="Env_01_Stop" ObjectPath="\Events\Octo_Main\Environment\Ambience\Env_01_Stop" GUID="{AE1EBB30-7FAD-4C4C-B5F1-4EA08F40B12F}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="13776098" Name="Explosion" ObjectPath="\Events\Octo_Main\Environment\Environmental\Explosion" GUID="{F4B616F3-4551-42C5-B9A6-CFAFF501EF24}" DurationType="OneShot" DurationMin="6.846000" DurationMax="6.944667"/>
 				<Event Id="1379753762" Name="Fire_Play" ObjectPath="\Events\Octo_Main\Environment\Environmental\Fire_Play" GUID="{D023FAC4-78C5-4113-AF7D-ABB4DE5986F5}" DurationType="Infinite"/>
 				<Event Id="1981293180" Name="Fire_Stop" ObjectPath="\Events\Octo_Main\Environment\Environmental\Fire_Stop" GUID="{D60A14B6-4717-44B0-B45E-343E716B5495}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1909110237" Name="Fuel_Restoration_Play" ObjectPath="\Events\Octo_Main\Environment\Satellite\Fuel_Restoration_Play" GUID="{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}" DurationType="Infinite"/>
-				<Event Id="4094849099" Name="Fuel_Restoration_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Fuel_Restoration_Stop" GUID="{DEC951B3-2DDD-4140-94A0-830948AB9AD6}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="678929340" Name="Fuel_Restoration" ObjectPath="\Events\Octo_Main\Environment\Satellite\Fuel_Restoration" GUID="{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}" DurationType="Infinite"/>
 				<Event Id="609952641" Name="Gas_Play" ObjectPath="\Events\Octo_Main\Environment\Environmental\Gas_Play" GUID="{D2C4D6E0-8DA0-402B-87F2-D63D21535349}" DurationType="Infinite"/>
 				<Event Id="2929912663" Name="Gas_Stop" ObjectPath="\Events\Octo_Main\Environment\Environmental\Gas_Stop" GUID="{77F072F4-517A-48B7-80CF-991587DAAB55}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3096260197" Name="Gas_Warning" ObjectPath="\Events\Octo_Main\UI\Gas_Warning" GUID="{B270E39C-E49E-4D76-99A0-C9E0820A5299}" DurationType="OneShot" DurationMin="2.377375" DurationMax="2.377375"/>
 				<Event Id="3257506471" Name="Impact" ObjectPath="\Events\Octo_Main\Environment\Environmental\Impact" GUID="{82648A3C-1AFB-4EF4-8D6B-931595C18637}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="4167846034" Name="Leave_Comm_Play" ObjectPath="\Events\Octo_Main\Environment\Environmental\Leave_Comm_Play" GUID="{1E8C40C7-07FB-4F5C-A934-8BF1662A071C}" DurationType="Infinite"/>
-				<Event Id="1584436236" Name="Leave_Comm_Stop" ObjectPath="\Events\Octo_Main\Environment\Environmental\Leave_Comm_Stop" GUID="{73309B72-8707-4E1C-852C-CF06FA1F18BD}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4123804492" Name="Low_Fuel" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Low_Fuel" GUID="{F014F57E-49CA-4AEA-B724-4FB430A4BDEE}" DurationType="OneShot" DurationMin="0.870854" DurationMax="0.870854"/>
 				<Event Id="973306129" Name="Low_Supply" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Low_Supply" GUID="{53647D64-B72D-4008-AB20-9E6239DAD671}" DurationType="OneShot" DurationMin="1.099396" DurationMax="1.099396"/>
 				<Event Id="2586944717" Name="MainMenu_All_Button_Hover" ObjectPath="\Events\Octo_Main\FE\MainMenu\MainMenu_All_Button_Hover" GUID="{B0C87585-E077-4F92-BA3E-405769E6ACA1}" DurationType="OneShot" DurationMin="0.085500" DurationMax="0.085500"/>
@@ -60,12 +56,10 @@
 				<Event Id="2470499543" Name="Menu_Activation" ObjectPath="\Events\Octo_Main\UI\Menu_Activation" GUID="{8EDA8723-1F3B-48E3-BECD-CE272329FC1E}" DurationType="OneShot" DurationMin="1.046375" DurationMax="1.046375"/>
 				<Event Id="3752642990" Name="Menu_Deactivation" ObjectPath="\Events\Octo_Main\UI\Menu_Deactivation" GUID="{BB014FF4-CABC-4F0A-B9B2-1EF7839D453A}" DurationType="OneShot" DurationMin="1.264000" DurationMax="1.264000"/>
 				<Event Id="1341439083" Name="Metal_Collision" ObjectPath="\Events\Octo_Main\Environment\Environmental\Metal_Collision" GUID="{E904720B-AE69-4394-940B-135432007B5F}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1006438764" Name="Metal_Moving_Play" ObjectPath="\Events\Octo_Main\Environment\Environmental\Metal_Moving_Play" GUID="{52279B18-0A21-4A69-B784-5493FAE1A633}" MaxAttenuation="100.000000" DurationType="Infinite"/>
-				<Event Id="2976223350" Name="Metal_Moving_Stop" ObjectPath="\Events\Octo_Main\Environment\Environmental\Metal_Moving_Stop" GUID="{14E11FE2-2B87-457B-A0D8-B9B5F250B5AC}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1832975494" Name="MUS_In_Game_Pause" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_In_Game_Pause" GUID="{625786AA-6356-4531-8DF5-0619F4BCC497}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2465552598" Name="MUS_In_Game_Play" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_In_Game_Play" GUID="{AACD6CF5-0B02-45C4-8CF0-AD4DCC5E914E}" DurationType="Infinite"/>
-				<Event Id="581076801" Name="MUS_In_Game_Resume" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_In_Game_Resume" GUID="{0610022F-D4A3-453C-913B-FD4DE68F3F39}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3237563496" Name="MUS_In_Game_Stop" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_In_Game_Stop" GUID="{F116988F-C5E7-44A2-BDD6-CDFA5DFBED08}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2183511949" Name="MUS_InGame_Pause" ObjectPath="\Events\Octo_Main\Music\InGame\MUS_InGame_Pause" GUID="{7C145EF1-FFD5-4067-B1D2-8AD0285426A5}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3712071255" Name="MUS_InGame_Play" ObjectPath="\Events\Octo_Main\Music\InGame\MUS_InGame_Play" GUID="{AACD6CF5-0B02-45C4-8CF0-AD4DCC5E914E}" DurationType="Infinite"/>
+				<Event Id="1634603124" Name="MUS_InGame_Resume" ObjectPath="\Events\Octo_Main\Music\InGame\MUS_InGame_Resume" GUID="{A911B35C-44E2-4034-87CA-7F5A717B210C}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2442090117" Name="MUS_InGame_Stop" ObjectPath="\Events\Octo_Main\Music\InGame\MUS_InGame_Stop" GUID="{48F39E3F-FF15-4B83-89DE-4A7B38470969}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2059726137" Name="MUS_Pause" ObjectPath="\Events\Octo_Main\Music\Main_Menu\MUS_Pause" GUID="{3F2B4592-CFDD-4AB4-A209-218110DE2AAE}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1280297747" Name="MUS_Play" ObjectPath="\Events\Octo_Main\Music\Main_Menu\MUS_Play" GUID="{8DFE3319-CBFB-4BC5-9764-2DBDD10D93D3}" DurationType="Infinite"/>
 				<Event Id="2204038648" Name="MUS_Resume" ObjectPath="\Events\Octo_Main\Music\Main_Menu\MUS_Resume" GUID="{DA887167-FDCB-471D-8593-2A5C8B301611}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -73,13 +67,11 @@
 				<Event Id="853073649" Name="Not_Enough_Resources" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Not_Enough_Resources" GUID="{1467A08D-2679-4C6A-86F3-F63755EAEE0E}" DurationType="OneShot" DurationMin="1.125625" DurationMax="1.125625"/>
 				<Event Id="1805563388" Name="Octo_Damage_Metal" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Damage_Metal" GUID="{3D2991B8-0A1F-420F-89C5-582F380286FE}" DurationType="OneShot" DurationMin="0.298667" DurationMax="3.018667"/>
 				<Event Id="3567146260" Name="Octo_Damage_Rock" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Damage_Rock" GUID="{FE7D622A-F983-4FB4-9E3D-7E4883414655}" DurationType="OneShot" DurationMin="1.781333" DurationMax="2.794667"/>
-				<Event Id="488351568" Name="Octo_Fuel_Latch" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Fuel_Latch" GUID="{6485378F-5CBC-4564-A2E5-9086DFC75C84}" DurationType="OneShot" DurationMin="0.900896" DurationMax="0.900896"/>
-				<Event Id="269952755" Name="Octo_GooGlue" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_GooGlue" GUID="{294D6CF9-2F1F-47AC-9F0F-E864AA693E1E}" DurationType="OneShot" DurationMin="0.842667" DurationMax="0.842667"/>
+				<Event Id="269952755" Name="Octo_GooGlue" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_GooGlue" GUID="{294D6CF9-2F1F-47AC-9F0F-E864AA693E1E}" DurationType="OneShot" DurationMin="1.237333" DurationMax="1.237333"/>
 				<Event Id="2765733061" Name="Octo_Grab" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Grab" GUID="{1BE04905-317A-4387-814C-19DBDA393914}" DurationType="OneShot" DurationMin="1.834667" DurationMax="1.834667"/>
 				<Event Id="2120872765" Name="Octo_Moving" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Moving" GUID="{2D94F2B1-FCB8-491D-926A-8F309A576498}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1840358926" Name="Octo_Salvage" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Salvage" GUID="{F96C8CF4-E54A-4ED5-85D0-9AED4A574C16}" DurationType="OneShot" DurationMin="4.421333" DurationMax="4.421333"/>
-				<Event Id="3836538128" Name="Octo_Tether_Grab" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Tether_Grab" GUID="{65D6789F-9946-4239-B258-46BF3FAB6FCF}" DurationType="OneShot" DurationMin="0.720000" DurationMax="0.720000"/>
-				<Event Id="314769330" Name="Octo_Tether_Rope" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Tether_Rope" GUID="{FD013A5D-A231-4541-9E75-0BAFDA3C416D}" DurationType="OneShot" DurationMin="0.949333" DurationMax="0.949333"/>
+				<Event Id="1089170435" Name="Octo_Tether" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Tether" GUID="{FD013A5D-A231-4541-9E75-0BAFDA3C416D}" DurationType="OneShot" DurationMin="1.509333" DurationMax="1.509333"/>
 				<Event Id="3778246708" Name="Octo_Thrusters_Play" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Thrusters_Play" GUID="{F0552B88-831D-4558-AD1B-375295DA4BEF}" DurationType="Infinite"/>
 				<Event Id="1187285006" Name="Octo_Thrusters_Stop" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\Octo_Thrusters_Stop" GUID="{4F81146E-5B91-41F1-A03E-C42FE491B36E}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4155334453" Name="Options_Audio_Button_Back" ObjectPath="\Events\Octo_Main\FE\MainMenu\Options\Options_Audio\Options_Audio_Button_Back" GUID="{43454049-541F-4F97-A469-07A1B42684D4}" DurationType="OneShot" DurationMin="0.513333" DurationMax="0.513333"/>
@@ -110,13 +102,6 @@
 				<Event Id="1823223854" Name="Satellite_Radar_Play" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Radar_Play" GUID="{CB75B71C-3527-43C5-9E1E-02C3DD4AF972}" DurationType="Infinite"/>
 				<Event Id="2866339600" Name="Satellite_Radar_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Radar_Stop" GUID="{2033BB77-A3E6-4E1C-8738-9AAA2C0BBBEE}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2357789153" Name="System_Sounds" ObjectPath="\Events\Octo_Main\Environment\Ambience\System_Sounds" GUID="{E9262F05-9D38-41E9-B092-95F58BA76EE3}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2175833802" Name="TEMP_VO_Oakley1" ObjectPath="\Events\Octo_Main\Characters\Oakley\TEMP_VO_Oakley1" GUID="{CB21DA99-BA0F-4E3C-9C60-AEE8AD1C9D0C}" DurationType="OneShot" DurationMin="2.269456" DurationMax="2.269456"/>
-				<Event Id="2175833801" Name="TEMP_VO_Oakley2" ObjectPath="\Events\Octo_Main\Characters\Oakley\TEMP_VO_Oakley2" GUID="{9A090BEC-3734-48F5-87C8-76681E1B78D5}" DurationType="OneShot" DurationMin="1.296213" DurationMax="1.296213"/>
-				<Event Id="2175833800" Name="TEMP_VO_Oakley3" ObjectPath="\Events\Octo_Main\Characters\Oakley\TEMP_VO_Oakley3" GUID="{51CE60AE-8C96-4772-B175-AFB3BABABECE}" DurationType="OneShot" DurationMin="7.031225" DurationMax="7.031225"/>
-				<Event Id="2175833807" Name="TEMP_VO_Oakley4" ObjectPath="\Events\Octo_Main\Characters\Oakley\TEMP_VO_Oakley4" GUID="{3AFBC34F-51FD-4F2F-9AE6-C01F1E385DE4}" DurationType="OneShot" DurationMin="2.493084" DurationMax="2.493084"/>
-				<Event Id="131276932" Name="TEMP_VO_Octo1" ObjectPath="\Events\Octo_Main\Characters\Octo\VO\TEMP_VO_Octo1" GUID="{9F364FA0-8284-40BF-A9B5-D05FE9767CBC}" DurationType="OneShot" DurationMin="13.771270" DurationMax="13.771270"/>
-				<Event Id="131276935" Name="TEMP_VO_Octo2" ObjectPath="\Events\Octo_Main\Characters\Octo\VO\TEMP_VO_Octo2" GUID="{5A279D3A-90F4-470E-8059-01F889D3DE3D}" DurationType="OneShot" DurationMin="11.346780" DurationMax="11.346780"/>
-				<Event Id="131276934" Name="TEMP_VO_Octo3" ObjectPath="\Events\Octo_Main\Characters\Octo\VO\TEMP_VO_Octo3" GUID="{347AF92A-6D49-4EAB-A35B-C94050D9623D}" DurationType="OneShot" DurationMin="4.171996" DurationMax="4.171996"/>
 				<Event Id="2903534464" Name="Voice_Log_01" ObjectPath="\Events\Octo_Main\Characters\Oakley\Voice_Log_01" GUID="{BE6F8504-75D6-4AC3-99FC-2C390E1F86CC}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2903534467" Name="Voice_Log_02" ObjectPath="\Events\Octo_Main\Characters\Oakley\Voice_Log_02" GUID="{70474174-DC35-4C85-BC2A-1D0E68ED9BCF}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2903534466" Name="Voice_Log_03" ObjectPath="\Events\Octo_Main\Characters\Oakley\Voice_Log_03" GUID="{450731AC-7CE3-4B7E-B595-A6DFC627D84B}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -129,321 +114,265 @@
 				<Event Id="3466494713" Name="White_Noise_Spaceship_Stop" ObjectPath="\Events\Octo_Main\Environment\Ambience\White_Noise_Spaceship_Stop" GUID="{E2F5A719-78CE-46CC-85ED-427B30836353}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="11608101" Language="SFX">
+					<ShortName>Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Pad.wav</ShortName>
+					<Path>SFX/Music/Music_Jordan/Oct0_MUS_Threat_Theme/Oct0_MUS_Threat_Theme Pad_D79FB2B7.wem</Path>
+				</File>
 				<File Id="11884812" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light1.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light1_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Light/TEMP_SFX_Character_Octo_MetalHurt_Light1_10C4C929.wem</Path>
 				</File>
 				<File Id="20534154" Language="SFX">
 					<ShortName>Satellite\Satellite_William\SFX_Satellite_FStation_01.wav</ShortName>
-					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_FStation_01_D79FB2B7.wem</Path>
+					<Path>SFX/Satellite/Satellite_William/SFX_Satellite_FStation_01_D79FB2B7.wem</Path>
 				</File>
 				<File Id="46841482" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy3.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy3_10C4C929.wem</Path>
-				</File>
-				<File Id="58531680" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Pad.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Pad_4E642330.wem</Path>
-				</File>
-				<File Id="59167524" Language="SFX">
-					<ShortName>TEMP_SFX_Characters_Octo_GooGlue_2.wav</ShortName>
-					<Path>SFX\TEMP_SFX_Characters_Octo_GooGlue_2_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Heavy/Temp_SFX_Character_Octo_MetalHurt_Heavy3_10C4C929.wem</Path>
 				</File>
 				<File Id="77478241" Language="SFX">
 					<ShortName>VO\VO_Nancy\TEMP_VO_Characters_Octo_CraftFail.wav</ShortName>
-					<Path>SFX\VO\VO_Nancy\TEMP_VO_Characters_Octo_CraftFail_10C4C929.wem</Path>
+					<Path>SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_CraftFail_10C4C929.wem</Path>
+				</File>
+				<File Id="91937598" Language="SFX">
+					<ShortName>Music\Music_Jordan\Oct0_MUS_Main_End_Theme\Oct0_MUS_Main_End_Theme Bells.wav</ShortName>
+					<Path>SFX/Music/Music_Jordan/Oct0_MUS_Main_End_Theme/Oct0_MUS_Main_End_Theme Bells_D79FB2B7.wem</Path>
+				</File>
+				<File Id="100563868" Language="SFX">
+					<ShortName>Character\Octo_Patrick\Tether\TEMP_SFX_Characters_Octo_Tether.wav</ShortName>
+					<Path>SFX/Character/Octo_Patrick/Tether/TEMP_SFX_Characters_Octo_Tether_10C4C929.wem</Path>
 				</File>
 				<File Id="118279958" Language="SFX">
 					<ShortName>UI\UI_Jordan\TEMP_SFX_IGMenu_Deactivation.wav</ShortName>
-					<Path>SFX\UI\UI_Jordan\TEMP_SFX_IGMenu_Deactivation_10C4C929.wem</Path>
+					<Path>SFX/UI/UI_Jordan/TEMP_SFX_IGMenu_Deactivation_10C4C929.wem</Path>
 				</File>
 				<File Id="120990432" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Grab\TEMP_SFX_Characters_Octo_Grab_Dry.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Grab\TEMP_SFX_Characters_Octo_Grab_Dry_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Grab/TEMP_SFX_Characters_Octo_Grab_Dry_10C4C929.wem</Path>
 				</File>
 				<File Id="129229025" Language="SFX">
 					<ShortName>VO\VO_Nancy\TEMP_VO_Characters_Octo_Death-01.wav</ShortName>
-					<Path>SFX\VO\VO_Nancy\TEMP_VO_Characters_Octo_Death-01_10C4C929.wem</Path>
+					<Path>SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_Death-01_10C4C929.wem</Path>
 				</File>
 				<File Id="148606001" Language="SFX">
 					<ShortName>UI\UI_Jordan\TEMP_HUD_Asteroid_Warninng.wav</ShortName>
-					<Path>SFX\UI\UI_Jordan\TEMP_HUD_Asteroid_Warninng_10C4C929.wem</Path>
+					<Path>SFX/UI/UI_Jordan/TEMP_HUD_Asteroid_Warninng_10C4C929.wem</Path>
 				</File>
-				<File Id="161335797" Language="English(US)">
-					<ShortName>TEMP_Octo\Robot_Voice1a.wav</ShortName>
-					<Path>Voices\English(US)\TEMP_Octo\Robot_Voice1a_10C4C929.wem</Path>
-				</File>
-				<File Id="175835246" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Percussion.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Percussion_4E642330.wem</Path>
+				<File Id="169859635" Language="SFX">
+					<ShortName>Music\Music_Jordan\Oct0_MUS_Main_End_Theme\Oct0_MUS_Main_End_Theme Chords.wav</ShortName>
+					<Path>SFX/Music/Music_Jordan/Oct0_MUS_Main_End_Theme/Oct0_MUS_Main_End_Theme Chords_D79FB2B7.wem</Path>
 				</File>
 				<File Id="182288180" Language="SFX">
 					<ShortName>VO\VO_Nancy\TEMP_VO_Characters_Octo_NoResc.wav</ShortName>
-					<Path>SFX\VO\VO_Nancy\TEMP_VO_Characters_Octo_NoResc_10C4C929.wem</Path>
+					<Path>SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_NoResc_10C4C929.wem</Path>
 				</File>
-				<File Id="193035624" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Arpeggio.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Arpeggio_4E642330.wem</Path>
-				</File>
-				<File Id="212056436" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Chords.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Chords_4E642330.wem</Path>
+				<File Id="204647853" Language="SFX">
+					<ShortName>Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Percussion.wav</ShortName>
+					<Path>SFX/Music/Music_Jordan/Oct0_MUS_Threat_Theme/Oct0_MUS_Threat_Theme Percussion_D79FB2B7.wem</Path>
 				</File>
 				<File Id="215021301" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy2.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy2_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Heavy/Temp_SFX_Character_Octo_MetalHurt_Heavy2_10C4C929.wem</Path>
 				</File>
 				<File Id="229623687" Language="SFX">
 					<ShortName>Character\Octo_Patrick\SalvageBeam\TEMP_SFX_Characters_Octo_SalvageBeam.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\SalvageBeam\TEMP_SFX_Characters_Octo_SalvageBeam_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/SalvageBeam/TEMP_SFX_Characters_Octo_SalvageBeam_10C4C929.wem</Path>
 				</File>
 				<File Id="232319810" Language="SFX">
 					<ShortName>UI\UI_Jordan\TEMP_SFX_IGMenu_Activation.wav</ShortName>
-					<Path>SFX\UI\UI_Jordan\TEMP_SFX_IGMenu_Activation_10C4C929.wem</Path>
+					<Path>SFX/UI/UI_Jordan/TEMP_SFX_IGMenu_Activation_10C4C929.wem</Path>
 				</File>
 				<File Id="258896262" Language="SFX">
 					<ShortName>UI\UI_Jordan\TEMP_HUD_Elec_Warning.wav</ShortName>
-					<Path>SFX\UI\UI_Jordan\TEMP_HUD_Elec_Warning_10C4C929.wem</Path>
+					<Path>SFX/UI/UI_Jordan/TEMP_HUD_Elec_Warning_10C4C929.wem</Path>
 				</File>
 				<File Id="261604052" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium1.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium1_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Medium/TEMP_SFX_Character_Octo_MetalHurt_Medium1_10C4C929.wem</Path>
 				</File>
 				<File Id="261610866" Language="SFX">
 					<ShortName>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Low_1-01.wav</ShortName>
-					<Path>SFX\VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Low_1-01_10C4C929.wem</Path>
+					<Path>SFX/VO/VO_Nancy/TEMP_VO_Chatacters_Octo_Low_1-01_10C4C929.wem</Path>
 				</File>
 				<File Id="264370326" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light2.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light2_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Light/TEMP_SFX_Character_Octo_MetalHurt_Light2_10C4C929.wem</Path>
 				</File>
 				<File Id="287153768" Language="SFX">
 					<ShortName>UI\UI_Patrick\TEMP_SFX_Button_Press_V2.wav</ShortName>
-					<Path>SFX\UI\UI_Patrick\TEMP_SFX_Button_Press_V2_10C4C929.wem</Path>
+					<Path>SFX/UI/UI_Patrick/TEMP_SFX_Button_Press_V2_10C4C929.wem</Path>
 				</File>
-				<File Id="288622880" Language="SFX">
-					<ShortName>TEMP_SFX_STATIC_1.wav</ShortName>
-					<Path>SFX\TEMP_SFX_STATIC_1_B3824D27.wem</Path>
-				</File>
-				<File Id="293685926" Language="English(US)">
-					<ShortName>TEMP_Octo\Robot_Voice3a.wav</ShortName>
-					<Path>Voices\English(US)\TEMP_Octo\Robot_Voice3a_10C4C929.wem</Path>
-				</File>
-				<File Id="307610933" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Game_Theme\Oct0_MUS_Game_Theme Pad.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Game_Theme\Oct0_MUS_Game_Theme Pad_4E642330.wem</Path>
+				<File Id="314161546" Language="SFX">
+					<ShortName>Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Arpeggio.wav</ShortName>
+					<Path>SFX/Music/Music_Jordan/Oct0_MUS_Threat_Theme/Oct0_MUS_Threat_Theme Arpeggio_D79FB2B7.wem</Path>
 				</File>
 				<File Id="315560273" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Thrusters\TEMP_SFX_Characters_Octo_HoriThrusters3_NoDrone.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Thrusters\TEMP_SFX_Characters_Octo_HoriThrusters3_NoDrone_665F6F3E.wem</Path>
-				</File>
-				<File Id="323153600" Language="English(US)">
-					<ShortName>TEMP_Oakley\Oakley3a.wav</ShortName>
-					<Path>Voices\English(US)\TEMP_Oakley\Oakley3a_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Thrusters/TEMP_SFX_Characters_Octo_HoriThrusters3_NoDrone_6BF4DC35.wem</Path>
 				</File>
 				<File Id="330056047" Language="SFX">
 					<ShortName>VO\VO_Nancy\TEMP_VO_Characters_Octo_CraftSuccess.wav</ShortName>
-					<Path>SFX\VO\VO_Nancy\TEMP_VO_Characters_Octo_CraftSuccess_10C4C929.wem</Path>
-				</File>
-				<File Id="353090537" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Bass.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Bass_4E642330.wem</Path>
+					<Path>SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_CraftSuccess_10C4C929.wem</Path>
 				</File>
 				<File Id="356573128" Language="SFX">
 					<ShortName>Environment\Environment_Nancy\SFX_Environment_Fire_01.wav</ShortName>
-					<Path>SFX\Environment\Environment_Nancy\SFX_Environment_Fire_01_D79FB2B7.wem</Path>
+					<Path>SFX/Environment/Environment_Nancy/SFX_Environment_Fire_01_D79FB2B7.wem</Path>
+				</File>
+				<File Id="361273445" Language="SFX">
+					<ShortName>Music\Music_Jordan\Oct0_MUS_Game_Theme\Oct0_MUS_Game_Theme Pad.wav</ShortName>
+					<Path>SFX/Music/Music_Jordan/Oct0_MUS_Game_Theme/Oct0_MUS_Game_Theme Pad_D79FB2B7.wem</Path>
+				</File>
+				<File Id="389396725" Language="SFX">
+					<ShortName>Character\Octo_Patrick\GooGlue\TEMP_SFX_Characters_Octo_GooGlue.wav</ShortName>
+					<Path>SFX/Character/Octo_Patrick/GooGlue/TEMP_SFX_Characters_Octo_GooGlue_10C4C929.wem</Path>
 				</File>
 				<File Id="433677184" Language="SFX">
 					<ShortName>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Complete-01.wav</ShortName>
-					<Path>SFX\VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Complete-01_10C4C929.wem</Path>
+					<Path>SFX/VO/VO_Nancy/TEMP_VO_Chatacters_Octo_Complete-01_10C4C929.wem</Path>
 				</File>
 				<File Id="435418463" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\RockHurt\RockHurt_Heavy\TEMP_SFX_Characters_Octo_RockHurt_Heavy1.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\RockHurt\RockHurt_Heavy\TEMP_SFX_Characters_Octo_RockHurt_Heavy1_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Heavy/TEMP_SFX_Characters_Octo_RockHurt_Heavy1_10C4C929.wem</Path>
 				</File>
-				<File Id="445313113" Language="English(US)">
-					<ShortName>TEMP_Oakley\Oakley2a.wav</ShortName>
-					<Path>Voices\English(US)\TEMP_Oakley\Oakley2a_10C4C929.wem</Path>
+				<File Id="437485444" Language="SFX">
+					<ShortName>Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Chords.wav</ShortName>
+					<Path>SFX/Music/Music_Jordan/Oct0_MUS_Threat_Theme/Oct0_MUS_Threat_Theme Chords_D79FB2B7.wem</Path>
 				</File>
 				<File Id="466905773" Language="SFX">
 					<ShortName>Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_02.wav</ShortName>
-					<Path>SFX\Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_02_D79FB2B7.wem</Path>
+					<Path>SFX/Ambience/Ambience_Nancy/SFX_Ambience_WhiteNoise_02_D79FB2B7.wem</Path>
 				</File>
-				<File Id="469233554" Language="English(US)">
-					<ShortName>TEMP_Octo\Robot_Voice2a.wav</ShortName>
-					<Path>Voices\English(US)\TEMP_Octo\Robot_Voice2a_10C4C929.wem</Path>
+				<File Id="479691218" Language="SFX">
+					<ShortName>Satellite\Satellite_William\SFX_Satellite_FuelRestore_01.wav</ShortName>
+					<Path>SFX/Satellite/Satellite_William/SFX_Satellite_FuelRestore_01_D79FB2B7.wem</Path>
 				</File>
 				<File Id="489796827" Language="SFX">
 					<ShortName>Environment\Environment_William\SFX_Environment_Explosion_02.wav</ShortName>
-					<Path>SFX\Environment\Environment_William\SFX_Environment_Explosion_02_10C4C929.wem</Path>
+					<Path>SFX/Environment/Environment_William/SFX_Environment_Explosion_02_10C4C929.wem</Path>
 				</File>
 				<File Id="490977933" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light3.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light3_10C4C929.wem</Path>
-				</File>
-				<File Id="497470435" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Main_Theme\Oct0_MUS_Main_Theme Bass.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Main_Theme\Oct0_MUS_Main_Theme Bass_4E642330.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Light/TEMP_SFX_Character_Octo_MetalHurt_Light3_10C4C929.wem</Path>
 				</File>
 				<File Id="501136152" Language="SFX">
 					<ShortName>UI\UI_Patrick\TEMP_SFX_Button_Hover.wav</ShortName>
-					<Path>SFX\UI\UI_Patrick\TEMP_SFX_Button_Hover_10C4C929.wem</Path>
+					<Path>SFX/UI/UI_Patrick/TEMP_SFX_Button_Hover_10C4C929.wem</Path>
 				</File>
 				<File Id="535864946" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\RockHurt\RockHurt_Light\TEMP_SFX_Character_Octo_RockHurt_Light3.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\RockHurt\RockHurt_Light\TEMP_SFX_Character_Octo_RockHurt_Light3_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Light/TEMP_SFX_Character_Octo_RockHurt_Light3_10C4C929.wem</Path>
 				</File>
 				<File Id="555738453" Language="SFX">
 					<ShortName>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Low_2.wav</ShortName>
-					<Path>SFX\VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Low_2_10C4C929.wem</Path>
+					<Path>SFX/VO/VO_Nancy/TEMP_VO_Chatacters_Octo_Low_2_10C4C929.wem</Path>
 				</File>
 				<File Id="597288651" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium2.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium2_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Medium/TEMP_SFX_Character_Octo_MetalHurt_Medium2_10C4C929.wem</Path>
 				</File>
 				<File Id="602255027" Language="SFX">
 					<ShortName>Satellite\Satellite_William\SFX_Satellite_Comm_01.wav</ShortName>
-					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Comm_01_D79FB2B7.wem</Path>
-				</File>
-				<File Id="602761245" Language="SFX">
-					<ShortName>TEMP_SFX_Fuel_Latch.wav</ShortName>
-					<Path>SFX\TEMP_SFX_Fuel_Latch_10C4C929.wem</Path>
-				</File>
-				<File Id="604458596" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Main_Theme\Oct0_MUS_Main_Theme Chords.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Main_Theme\Oct0_MUS_Main_Theme Chords_4E642330.wem</Path>
-				</File>
-				<File Id="605708393" Language="SFX">
-					<ShortName>Character\Octo_Patrick\TetherGrab\TEMP_SFX_Characters_Octo_TetherGrab.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\TetherGrab\TEMP_SFX_Characters_Octo_TetherGrab_10C4C929.wem</Path>
+					<Path>SFX/Satellite/Satellite_William/SFX_Satellite_Comm_01_D79FB2B7.wem</Path>
 				</File>
 				<File Id="620159721" Language="SFX">
 					<ShortName>UI\UI_Patrick\TEMP_SFX_Menu_Transition.wav</ShortName>
-					<Path>SFX\UI\UI_Patrick\TEMP_SFX_Menu_Transition_10C4C929.wem</Path>
-				</File>
-				<File Id="621816765" Language="SFX">
-					<ShortName>Character\Octo_Patrick\TetherRope\TEMP_SFX_Characters_Octo_TetherRope.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\TetherRope\TEMP_SFX_Characters_Octo_TetherRope_10C4C929.wem</Path>
+					<Path>SFX/UI/UI_Patrick/TEMP_SFX_Menu_Transition_10C4C929.wem</Path>
 				</File>
 				<File Id="639821822" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium3.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium3_10C4C929.wem</Path>
-				</File>
-				<File Id="656330783" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Nostalgic\Oct0_MUS_Nostalgic.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Nostalgic\Oct0_MUS_Nostalgic_4E642330.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Medium/TEMP_SFX_Character_Octo_MetalHurt_Medium3_10C4C929.wem</Path>
 				</File>
 				<File Id="657202420" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\RockHurt\RockHurt_Medium\TEMP_SFX_Character_Octo_RockHurt_Medium1.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\RockHurt\RockHurt_Medium\TEMP_SFX_Character_Octo_RockHurt_Medium1_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Medium/TEMP_SFX_Character_Octo_RockHurt_Medium1_10C4C929.wem</Path>
 				</File>
 				<File Id="678154635" Language="SFX">
 					<ShortName>UI\UI_Jordan\TEMP_HUD_Gas_Warning.wav</ShortName>
-					<Path>SFX\UI\UI_Jordan\TEMP_HUD_Gas_Warning_10C4C929.wem</Path>
+					<Path>SFX/UI/UI_Jordan/TEMP_HUD_Gas_Warning_10C4C929.wem</Path>
+				</File>
+				<File Id="686596013" Language="SFX">
+					<ShortName>Music\Music_Jordan\Oct0_MUS_Game_Theme\Oct0_MUS_Game_Theme Chords.wav</ShortName>
+					<Path>SFX/Music/Music_Jordan/Oct0_MUS_Game_Theme/Oct0_MUS_Game_Theme Chords_D79FB2B7.wem</Path>
 				</File>
 				<File Id="686607910" Language="SFX">
 					<ShortName>Satellite\Satellite_William\SFX_Satellite_Idle_01.wav</ShortName>
-					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Idle_01_D79FB2B7.wem</Path>
+					<Path>SFX/Satellite/Satellite_William/SFX_Satellite_Idle_01_D79FB2B7.wem</Path>
+				</File>
+				<File Id="698608471" Language="SFX">
+					<ShortName>Music\Music_Jordan\Oct0_MUS_Threat_Theme\Oct0_MUS_Threat_Theme Bass.wav</ShortName>
+					<Path>SFX/Music/Music_Jordan/Oct0_MUS_Threat_Theme/Oct0_MUS_Threat_Theme Bass_D79FB2B7.wem</Path>
 				</File>
 				<File Id="730586012" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\RockHurt\RockHurt_Medium\TEMP_SFX_Character_Octo_RockHurt_Medium3.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\RockHurt\RockHurt_Medium\TEMP_SFX_Character_Octo_RockHurt_Medium3_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Medium/TEMP_SFX_Character_Octo_RockHurt_Medium3_10C4C929.wem</Path>
 				</File>
-				<File Id="730673491" Language="English(US)">
-					<ShortName>TEMP_Oakley\Oakley1a.wav</ShortName>
-					<Path>Voices\English(US)\TEMP_Oakley\Oakley1a_10C4C929.wem</Path>
+				<File Id="744293969" Language="SFX">
+					<ShortName>Music\Music_Jordan\Oct0_MUS_Game_Theme\Oct0_MUS_Game_Theme Bells.wav</ShortName>
+					<Path>SFX/Music/Music_Jordan/Oct0_MUS_Game_Theme/Oct0_MUS_Game_Theme Bells_D79FB2B7.wem</Path>
 				</File>
 				<File Id="752814949" Language="SFX">
 					<ShortName>Environment\Environment_Nancy\SFX_Environment_Gas_01.wav</ShortName>
-					<Path>SFX\Environment\Environment_Nancy\SFX_Environment_Gas_01_D79FB2B7.wem</Path>
+					<Path>SFX/Environment/Environment_Nancy/SFX_Environment_Gas_01_C5579977.wem</Path>
 				</File>
 				<File Id="761286886" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\RockHurt\RockHurt_Light\TEMP_SFX_Character_Octo_RockHurt_Light2.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\RockHurt\RockHurt_Light\TEMP_SFX_Character_Octo_RockHurt_Light2_10C4C929.wem</Path>
-				</File>
-				<File Id="767309291" Language="SFX">
-					<ShortName>CDCK Drone Low 07-1.wav</ShortName>
-					<Path>SFX\CDCK Drone Low 07-1_F1412611.wem</Path>
-				</File>
-				<File Id="804099293" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Main_End_Theme\Oct0_MUS_Main_End_Theme Chords.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Main_End_Theme\Oct0_MUS_Main_End_Theme Chords_4E642330.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Light/TEMP_SFX_Character_Octo_RockHurt_Light2_10C4C929.wem</Path>
 				</File>
 				<File Id="811125717" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\RockHurt\RockHurt_Medium\TEMP_SFX_Character_Octo_RockHurt_Medium2.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\RockHurt\RockHurt_Medium\TEMP_SFX_Character_Octo_RockHurt_Medium2_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Medium/TEMP_SFX_Character_Octo_RockHurt_Medium2_10C4C929.wem</Path>
+				</File>
+				<File Id="826866158" Language="SFX">
+					<ShortName>Music\Music_Jordan\Oct0_MUS_Nostalgic\Oct0_MUS_Nostalgic.wav</ShortName>
+					<Path>SFX/Music/Music_Jordan/Oct0_MUS_Nostalgic/Oct0_MUS_Nostalgic_D79FB2B7.wem</Path>
 				</File>
 				<File Id="840942234" Language="SFX">
 					<ShortName>Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_01.wav</ShortName>
-					<Path>SFX\Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_01_D79FB2B7.wem</Path>
-				</File>
-				<File Id="856693127" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Main_Theme\Oct0_MUS_Main_Theme Bells.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Main_Theme\Oct0_MUS_Main_Theme Bells_4E642330.wem</Path>
+					<Path>SFX/Ambience/Ambience_Nancy/SFX_Ambience_WhiteNoise_01_D79FB2B7.wem</Path>
 				</File>
 				<File Id="875442297" Language="SFX">
 					<ShortName>VO\VO_Nancy\TEMP_VO_Characters_Octo_Hurt-01.wav</ShortName>
-					<Path>SFX\VO\VO_Nancy\TEMP_VO_Characters_Octo_Hurt-01_10C4C929.wem</Path>
-				</File>
-				<File Id="875679401" Language="English(US)">
-					<ShortName>TEMP_Oakley\Oakley4a.wav</ShortName>
-					<Path>Voices\English(US)\TEMP_Oakley\Oakley4a_10C4C929.wem</Path>
+					<Path>SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_Hurt-01_10C4C929.wem</Path>
 				</File>
 				<File Id="893144292" Language="SFX">
 					<ShortName>Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_03.wav</ShortName>
-					<Path>SFX\Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_03_D79FB2B7.wem</Path>
+					<Path>SFX/Ambience/Ambience_Nancy/SFX_Ambience_WhiteNoise_03_D79FB2B7.wem</Path>
 				</File>
 				<File Id="903916431" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\RockHurt\RockHurt_Light\TEMP_SFX_Character_Octo_RockHurt_Light1.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\RockHurt\RockHurt_Light\TEMP_SFX_Character_Octo_RockHurt_Light1_10C4C929.wem</Path>
-				</File>
-				<File Id="904879127" Language="SFX">
-					<ShortName>56 Very Low, Reverberant Wood Creaks And Groans. Could Use For Underwater.wav</ShortName>
-					<Path>SFX\56 Very Low, Reverberant Wood Creaks And Groans. Could Use For Underwater_7E3309C2.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Light/TEMP_SFX_Character_Octo_RockHurt_Light1_10C4C929.wem</Path>
 				</File>
 				<File Id="931655080" Language="SFX">
 					<ShortName>Ambience\SFX_Ambience_WhiteNoise_01.wav</ShortName>
-					<Path>SFX\Ambience\SFX_Ambience_WhiteNoise_01_D79FB2B7.wem</Path>
+					<Path>SFX/Ambience/SFX_Ambience_WhiteNoise_01_D79FB2B7.wem</Path>
 				</File>
-				<File Id="969775143" Language="SFX">
-					<ShortName>Satellite\Satellite_Patrick\TEMP_SFX_Satellite_FuelRestore.wav</ShortName>
-					<Path>SFX\Satellite\Satellite_Patrick\TEMP_SFX_Satellite_FuelRestore_DC58D7C4.wem</Path>
+				<File Id="933841550" Language="SFX">
+					<ShortName>Character\Octo_Patrick\Thrusters\TEMP_SFX_Characters_Octo_HoriThrusters3_DroneOnly.wav</ShortName>
+					<Path>SFX/Character/Octo_Patrick/Thrusters/TEMP_SFX_Characters_Octo_HoriThrusters3_DroneOnly_0734FFE3.wem</Path>
 				</File>
 				<File Id="979814336" Language="SFX">
 					<ShortName>Satellite\Satellite_William\SFX_Satellite_Incin_01.wav</ShortName>
-					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Incin_01_D79FB2B7.wem</Path>
+					<Path>SFX/Satellite/Satellite_William/SFX_Satellite_Incin_01_D79FB2B7.wem</Path>
 				</File>
 				<File Id="1004792168" Language="SFX">
 					<ShortName>Environment\Environment_William\SFX_Environment_Explosion_01.wav</ShortName>
-					<Path>SFX\Environment\Environment_William\SFX_Environment_Explosion_01_10C4C929.wem</Path>
-				</File>
-				<File Id="1018330215" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Game_Theme\Oct0_MUS_Game_Theme Bells.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Game_Theme\Oct0_MUS_Game_Theme Bells_4E642330.wem</Path>
+					<Path>SFX/Environment/Environment_William/SFX_Environment_Explosion_01_10C4C929.wem</Path>
 				</File>
 				<File Id="1020501719" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy1.wav</ShortName>
-					<Path>SFX\Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy1_10C4C929.wem</Path>
+					<Path>SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Heavy/Temp_SFX_Character_Octo_MetalHurt_Heavy1_10C4C929.wem</Path>
 				</File>
 				<File Id="1031879202" Language="SFX">
 					<ShortName>VO\VO_Nancy\TEMP_VO_Characters_Octo_Remembered.wav</ShortName>
-					<Path>SFX\VO\VO_Nancy\TEMP_VO_Characters_Octo_Remembered_10C4C929.wem</Path>
-				</File>
-				<File Id="1036469334" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Game_Theme\Oct0_MUS_Game_Theme Chords.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Game_Theme\Oct0_MUS_Game_Theme Chords_4E642330.wem</Path>
+					<Path>SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_Remembered_10C4C929.wem</Path>
 				</File>
 				<File Id="1036990484" Language="SFX">
 					<ShortName>Satellite\Satellite_William\SFX_Satellite_Crafting_01.wav</ShortName>
-					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Crafting_01_D79FB2B7.wem</Path>
-				</File>
-				<File Id="1042347517" Language="SFX">
-					<ShortName>Music\Music_Jordan\Oct0_MUS_Main_End_Theme\Oct0_MUS_Main_End_Theme Bells.wav</ShortName>
-					<Path>SFX\Music\Music_Jordan\Oct0_MUS_Main_End_Theme\Oct0_MUS_Main_End_Theme Bells_4E642330.wem</Path>
+					<Path>SFX/Satellite/Satellite_William/SFX_Satellite_Crafting_01_D79FB2B7.wem</Path>
 				</File>
 				<File Id="1061797133" Language="SFX">
 					<ShortName>Satellite\Satellite_William\SFX_Satellite_Radar_01.wav</ShortName>
-					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Radar_01_D79FB2B7.wem</Path>
+					<Path>SFX/Satellite/Satellite_William/SFX_Satellite_Radar_01_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

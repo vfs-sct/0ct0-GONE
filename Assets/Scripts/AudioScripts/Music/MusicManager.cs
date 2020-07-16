@@ -26,7 +26,8 @@ public class MusicManager : MonoBehaviour
     {
         // 0 = GameOver
         // 1 = GamePlay
-        // 2 = Threat
+        // 2 = Home
+        // 3 = Threat
     };
    
     public AK.Wwise.State GetBackEndState(int i) 

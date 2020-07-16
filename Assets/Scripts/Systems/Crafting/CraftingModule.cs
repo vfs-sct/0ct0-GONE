@@ -200,10 +200,10 @@ public class CraftingModule : Module
         if(CraftRecipe.isUpgrade)
         {
             Debug.Log("Before Amount: " + TargetInv.GetResource(CraftRecipe.Output));
-            if(CraftRecipe.Output.name == "Health")
-            {
-                UIRootModule.UIRoot.GetScreen<GameHUD>().healthUpgrade.Upgrade(CraftRecipe.OutputAmount);
-            }
+            //if(CraftRecipe.Output.name == "Health")
+            //{
+            //    UIRootModule.UIRoot.GetScreen<GameHUD>().healthUpgrade.Upgrade(CraftRecipe.OutputAmount);
+            //}
             if (CraftRecipe.Output.name == "Fuel")
             {
                 UIRootModule.UIRoot.GetScreen<GameHUD>().fuelUpgrade.Upgrade(CraftRecipe.OutputAmount);

@@ -13,6 +13,8 @@ public class RefuelEvent : Event
     private bool isInitialized = false;
     private bool isUpdating = false;
 
+    private float previousAmount;
+
     public override bool Condition(GameObject target)
     {
         if(isInitialized == true)
@@ -20,14 +22,17 @@ public class RefuelEvent : Event
             Debug.Log("EVENT" + this.name);
             //playerinventory
             playerInventory = UIRootModule.UIRoot.player.GetComponent<ResourceInventory>();
-            
+
+            previousAmount = CollectResource.GetInstanceValue(playerInventory);
+
             //tutorial
             //UIRootModule.UIRoot.GetScreen<Tutorial>().FirstPrompt();
 
             //objective text
             UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
-            var shortenCurrentAmount = (float)Math.Floor(CollectResource.GetInstanceValue(playerInventory));
-            string objectiveUpdate = $"{shortenCurrentAmount}/{CollectResource.GetMaximum()} - {actionVerb} {CollectResource.DisplayName}";
+            //var shortenCurrentAmount = (float)Math.Floor(CollectResource.GetInstanceValue(playerInventory));
+            //string objectiveUpdate = $"{shortenCurrentAmount}/{CollectResource.GetMaximum()} - {actionVerb} {CollectResource.DisplayName}";
+            string objectiveUpdate = $"{actionVerb} at the station";
             UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.AddObjective(objectiveUpdate);
             
             //state of event
@@ -38,15 +43,15 @@ public class RefuelEvent : Event
         {
             var currentAmount = CollectResource.GetInstanceValue(playerInventory);
 
-            if (UIRootModule.UIRoot != null)
-            {
-                var shortenCurrentAmount = (float)Math.Floor(currentAmount);
-                string objectiveUpdate = $"{shortenCurrentAmount}/{CollectResource.GetMaximum()} - {actionVerb} {CollectResource.DisplayName}";
-                UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(0, objectiveUpdate);
-            }
+            //if (UIRootModule.UIRoot != null)
+            //{
+            //    var shortenCurrentAmount = (float)Math.Floor(currentAmount);
+            //    string objectiveUpdate = $"{shortenCurrentAmount}/{CollectResource.GetMaximum()} - {actionVerb} {CollectResource.DisplayName}";
+            //    UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(0, objectiveUpdate);
+            //}
 
             //quest complete?
-            if (currentAmount >= CollectResource.GetMaximum())
+            if (currentAmount > previousAmount)
             {
                 ObjectivePopup(isFirstEvent);
                 NextTutorialPrompt();
@@ -56,9 +61,11 @@ public class RefuelEvent : Event
                 UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
                 //reset the scriptableobject values
                 playerInventory = null;
+                previousAmount = 9999;
                 isInitialized = false;
                 isUpdating = false;
             }
+            previousAmount = currentAmount;
         }
 
         return EventTrigger;
@@ -76,7 +83,7 @@ public class RefuelEvent : Event
 
     private void NextTutorialPrompt()
     {
-        UIRootModule.UIRoot.GetScreen<Tutorial>().NextPrompt();
+        UIRootModule.UIRoot.GetScreen<Tutorial>().NextPrompt(5f);
     }
 
     private void CodexProgression()

@@ -4,6 +4,8 @@ public class EndSalvageTutorial : MonoBehaviour
 {
     [SerializeField] Tutorial tutorialController = null;
     [SerializeField] HUDInventoryWidget inventory = null;
+    //time before the next popup appears after this ones deactivated
+    [SerializeField] float bufferTime = 3f;
 
     private int startMass;
 
@@ -17,7 +19,7 @@ public class EndSalvageTutorial : MonoBehaviour
     {
         if(inventory.CalculateTotalMass() > startMass)
         {
-            tutorialController.NextPrompt();
+            tutorialController.NextPrompt(bufferTime);
         }
     }
 }

@@ -7,6 +7,12 @@ public class GetObjectsDial : MonoBehaviour
     [SerializeField] Image fillImage = null;
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] TextMeshProUGUI capacityText = null;
+    [SerializeField] GameObject popText = null;
+
+    public GameObject GetPopText()
+    {
+        return popText;
+    }
 
     public Image GetBKImage()
     {

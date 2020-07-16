@@ -5,11 +5,11 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "D:\\FINALPROJECT\\0ct0-GONE\\OctoGoneSound\\",
-   "SourceFilesRoot": "D:\\FINALPROJECT\\0ct0-GONE\\OctoGoneSound\\.cache\\Windows\\",
-   "SoundBanksRoot": "D:\\FINALPROJECT\\0ct0-GONE\\OctoGoneSound\\GeneratedSoundBanks\\Windows\\",
+   "ProjectRoot": "/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/0cto-Gone_Wwise/WWise_OctoGone_SD95_20200602/WWise_OctoGone_SD95_20200602/",
+   "SourceFilesRoot": "/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/0cto-Gone_Wwise/WWise_OctoGone_SD95_20200602/WWise_OctoGone_SD95_20200602/.cache/Windows/",
+   "SoundBanksRoot": "/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/0cto-Gone_Wwise/WWise_OctoGone_SD95_20200602/WWise_OctoGone_SD95_20200602/GeneratedSoundBanks/Windows/",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "D:\\FINALPROJECT\\0ct0-GONE\\OctoGoneSound\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "/Users/sound/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/Patrick/GameCollab/0cto-Gone_Wwise/WWise_OctoGone_SD95_20200602/WWise_OctoGone_SD95_20200602/GeneratedSoundBanks/Windows"
   },
   "DialogueEvents": [],
   "StreamedFiles": [],
@@ -26,10 +26,10 @@
    {
     "Id": "2856818978",
     "GUID": "{ACAF0867-9E6D-4DE0-B998-D6093E51FC97}",
-    "Language": "English(US)",
+    "Language": "SFX",
     "ObjectPath": "\\SoundBanks\\Wwise_Octo_Main\\Wwise_Octo_Main",
     "ShortName": "Wwise_Octo_Main",
-    "Path": "English(US)\\Wwise_Octo_Main.bnk",
+    "Path": "Wwise_Octo_Main.bnk",
     "IncludedEvents": [
      {
       "Id": "494181607",
@@ -42,18 +42,10 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "1880505272",
-      "Name": "Asteroid_Moving_Play",
-      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Environmental\\Asteroid_Moving_Play",
+      "Id": "376042431",
+      "Name": "Asteroid_Moving",
+      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Environmental\\Asteroid_Moving",
       "GUID": "{DC2DD57B-6CE3-47B9-AFB6-BF9680620454}",
-      "MaxAttenuation": "100.000000",
-      "DurationType": "Infinite"
-     },
-     {
-      "Id": "4252952586",
-      "Name": "Asteroid_Moving_Stop",
-      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Environmental\\Asteroid_Moving_Stop",
-      "GUID": "{5D342677-B951-4499-BD82-927A288E2FFC}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -162,7 +154,7 @@
       "Id": "1894282823",
       "Name": "Electricity_Stop",
       "ObjectPath": "\\Events\\Octo_Main\\Environment\\Environmental\\Electricity_Stop",
-      "GUID": "{832A18C1-809E-4442-93D3-5B0317481464}",
+      "GUID": "{51AD32F5-8092-4BD3-8CF0-4B076971C412}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -212,21 +204,11 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "1909110237",
-      "Name": "Fuel_Restoration_Play",
-      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Fuel_Restoration_Play",
+      "Id": "678929340",
+      "Name": "Fuel_Restoration",
+      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Fuel_Restoration",
       "GUID": "{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}",
       "DurationType": "Infinite"
-     },
-     {
-      "Id": "4094849099",
-      "Name": "Fuel_Restoration_Stop",
-      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Satellite\\Fuel_Restoration_Stop",
-      "GUID": "{DEC951B3-2DDD-4140-94A0-830948AB9AD6}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
      },
      {
       "Id": "609952641",
@@ -259,23 +241,6 @@
       "Name": "Impact",
       "ObjectPath": "\\Events\\Octo_Main\\Environment\\Environmental\\Impact",
       "GUID": "{82648A3C-1AFB-4EF4-8D6B-931595C18637}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
-     },
-     {
-      "Id": "4167846034",
-      "Name": "Leave_Comm_Play",
-      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Environmental\\Leave_Comm_Play",
-      "GUID": "{1E8C40C7-07FB-4F5C-A934-8BF1662A071C}",
-      "DurationType": "Infinite"
-     },
-     {
-      "Id": "1584436236",
-      "Name": "Leave_Comm_Stop",
-      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Environmental\\Leave_Comm_Stop",
-      "GUID": "{73309B72-8707-4E1C-852C-CF06FA1F18BD}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -382,55 +347,37 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "1006438764",
-      "Name": "Metal_Moving_Play",
-      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Environmental\\Metal_Moving_Play",
-      "GUID": "{52279B18-0A21-4A69-B784-5493FAE1A633}",
-      "MaxAttenuation": "100.000000",
-      "DurationType": "Infinite"
-     },
-     {
-      "Id": "2976223350",
-      "Name": "Metal_Moving_Stop",
-      "ObjectPath": "\\Events\\Octo_Main\\Environment\\Environmental\\Metal_Moving_Stop",
-      "GUID": "{14E11FE2-2B87-457B-A0D8-B9B5F250B5AC}",
+      "Id": "2183511949",
+      "Name": "MUS_InGame_Pause",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\InGame\\MUS_InGame_Pause",
+      "GUID": "{7C145EF1-FFD5-4067-B1D2-8AD0285426A5}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
       "DurationMax": "0.000000"
      },
      {
-      "Id": "1832975494",
-      "Name": "MUS_In_Game_Pause",
-      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\MUS_In_Game_Pause",
-      "GUID": "{625786AA-6356-4531-8DF5-0619F4BCC497}",
-      "MaxAttenuation": "0.000000",
-      "DurationType": "OneShot",
-      "DurationMin": "0.000000",
-      "DurationMax": "0.000000"
-     },
-     {
-      "Id": "2465552598",
-      "Name": "MUS_In_Game_Play",
-      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\MUS_In_Game_Play",
+      "Id": "3712071255",
+      "Name": "MUS_InGame_Play",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\InGame\\MUS_InGame_Play",
       "GUID": "{AACD6CF5-0B02-45C4-8CF0-AD4DCC5E914E}",
       "DurationType": "Infinite"
      },
      {
-      "Id": "581076801",
-      "Name": "MUS_In_Game_Resume",
-      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\MUS_In_Game_Resume",
-      "GUID": "{0610022F-D4A3-453C-913B-FD4DE68F3F39}",
+      "Id": "1634603124",
+      "Name": "MUS_InGame_Resume",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\InGame\\MUS_InGame_Resume",
+      "GUID": "{A911B35C-44E2-4034-87CA-7F5A717B210C}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
       "DurationMax": "0.000000"
      },
      {
-      "Id": "3237563496",
-      "Name": "MUS_In_Game_Stop",
-      "ObjectPath": "\\Events\\Octo_Main\\Music\\In_Game\\MUS_In_Game_Stop",
-      "GUID": "{F116988F-C5E7-44A2-BDD6-CDFA5DFBED08}",
+      "Id": "2442090117",
+      "Name": "MUS_InGame_Stop",
+      "ObjectPath": "\\Events\\Octo_Main\\Music\\InGame\\MUS_InGame_Stop",
+      "GUID": "{48F39E3F-FF15-4B83-89DE-4A7B38470969}",
       "MaxAttenuation": "0.000000",
       "DurationType": "OneShot",
       "DurationMin": "0.000000",
@@ -501,22 +448,13 @@
       "DurationMax": "2.794667"
      },
      {
-      "Id": "488351568",
-      "Name": "Octo_Fuel_Latch",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_Fuel_Latch",
-      "GUID": "{6485378F-5CBC-4564-A2E5-9086DFC75C84}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.900896",
-      "DurationMax": "0.900896"
-     },
-     {
       "Id": "269952755",
       "Name": "Octo_GooGlue",
       "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_GooGlue",
       "GUID": "{294D6CF9-2F1F-47AC-9F0F-E864AA693E1E}",
       "DurationType": "OneShot",
-      "DurationMin": "0.842667",
-      "DurationMax": "0.842667"
+      "DurationMin": "1.237333",
+      "DurationMax": "1.237333"
      },
      {
       "Id": "2765733061",
@@ -547,22 +485,13 @@
       "DurationMax": "4.421333"
      },
      {
-      "Id": "3836538128",
-      "Name": "Octo_Tether_Grab",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_Tether_Grab",
-      "GUID": "{65D6789F-9946-4239-B258-46BF3FAB6FCF}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.720000",
-      "DurationMax": "0.720000"
-     },
-     {
-      "Id": "314769330",
-      "Name": "Octo_Tether_Rope",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_Tether_Rope",
+      "Id": "1089170435",
+      "Name": "Octo_Tether",
+      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\SFX\\Octo_Tether",
       "GUID": "{FD013A5D-A231-4541-9E75-0BAFDA3C416D}",
       "DurationType": "OneShot",
-      "DurationMin": "0.949333",
-      "DurationMax": "0.949333"
+      "DurationMin": "1.509333",
+      "DurationMax": "1.509333"
      },
      {
       "Id": "3778246708",
@@ -832,69 +761,6 @@
       "DurationMax": "0.000000"
      },
      {
-      "Id": "2175833802",
-      "Name": "TEMP_VO_Oakley1",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Oakley\\TEMP_VO_Oakley1",
-      "GUID": "{CB21DA99-BA0F-4E3C-9C60-AEE8AD1C9D0C}",
-      "DurationType": "OneShot",
-      "DurationMin": "2.269456",
-      "DurationMax": "2.269456"
-     },
-     {
-      "Id": "2175833801",
-      "Name": "TEMP_VO_Oakley2",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Oakley\\TEMP_VO_Oakley2",
-      "GUID": "{9A090BEC-3734-48F5-87C8-76681E1B78D5}",
-      "DurationType": "OneShot",
-      "DurationMin": "1.296213",
-      "DurationMax": "1.296213"
-     },
-     {
-      "Id": "2175833800",
-      "Name": "TEMP_VO_Oakley3",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Oakley\\TEMP_VO_Oakley3",
-      "GUID": "{51CE60AE-8C96-4772-B175-AFB3BABABECE}",
-      "DurationType": "OneShot",
-      "DurationMin": "7.031225",
-      "DurationMax": "7.031225"
-     },
-     {
-      "Id": "2175833807",
-      "Name": "TEMP_VO_Oakley4",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Oakley\\TEMP_VO_Oakley4",
-      "GUID": "{3AFBC34F-51FD-4F2F-9AE6-C01F1E385DE4}",
-      "DurationType": "OneShot",
-      "DurationMin": "2.493084",
-      "DurationMax": "2.493084"
-     },
-     {
-      "Id": "131276932",
-      "Name": "TEMP_VO_Octo1",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\VO\\TEMP_VO_Octo1",
-      "GUID": "{9F364FA0-8284-40BF-A9B5-D05FE9767CBC}",
-      "DurationType": "OneShot",
-      "DurationMin": "13.771270",
-      "DurationMax": "13.771270"
-     },
-     {
-      "Id": "131276935",
-      "Name": "TEMP_VO_Octo2",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\VO\\TEMP_VO_Octo2",
-      "GUID": "{5A279D3A-90F4-470E-8059-01F889D3DE3D}",
-      "DurationType": "OneShot",
-      "DurationMin": "11.346780",
-      "DurationMax": "11.346780"
-     },
-     {
-      "Id": "131276934",
-      "Name": "TEMP_VO_Octo3",
-      "ObjectPath": "\\Events\\Octo_Main\\Characters\\Octo\\VO\\TEMP_VO_Octo3",
-      "GUID": "{347AF92A-6D49-4EAB-A35B-C94050D9623D}",
-      "DurationType": "OneShot",
-      "DurationMin": "4.171996",
-      "DurationMax": "4.171996"
-     },
-     {
       "Id": "2903534464",
       "Name": "Voice_Log_01",
       "ObjectPath": "\\Events\\Octo_Main\\Characters\\Oakley\\Voice_Log_01",
@@ -994,478 +860,394 @@
     ],
     "IncludedMemoryFiles": [
      {
+      "Id": "11608101",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Pad.wav",
+      "Path": "SFX/Music/Music_Jordan/Oct0_MUS_Threat_Theme/Oct0_MUS_Threat_Theme Pad_D79FB2B7.wem"
+     },
+     {
       "Id": "11884812",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Light\\TEMP_SFX_Character_Octo_MetalHurt_Light1.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Light\\TEMP_SFX_Character_Octo_MetalHurt_Light1_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Light/TEMP_SFX_Character_Octo_MetalHurt_Light1_10C4C929.wem"
      },
      {
       "Id": "20534154",
       "Language": "SFX",
       "ShortName": "Satellite\\Satellite_William\\SFX_Satellite_FStation_01.wav",
-      "Path": "SFX\\Satellite\\Satellite_William\\SFX_Satellite_FStation_01_D79FB2B7.wem"
+      "Path": "SFX/Satellite/Satellite_William/SFX_Satellite_FStation_01_D79FB2B7.wem"
      },
      {
       "Id": "46841482",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Heavy\\Temp_SFX_Character_Octo_MetalHurt_Heavy3.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Heavy\\Temp_SFX_Character_Octo_MetalHurt_Heavy3_10C4C929.wem"
-     },
-     {
-      "Id": "58531680",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Pad.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Pad_4E642330.wem"
-     },
-     {
-      "Id": "59167524",
-      "Language": "SFX",
-      "ShortName": "TEMP_SFX_Characters_Octo_GooGlue_2.wav",
-      "Path": "SFX\\TEMP_SFX_Characters_Octo_GooGlue_2_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Heavy/Temp_SFX_Character_Octo_MetalHurt_Heavy3_10C4C929.wem"
      },
      {
       "Id": "77478241",
       "Language": "SFX",
       "ShortName": "VO\\VO_Nancy\\TEMP_VO_Characters_Octo_CraftFail.wav",
-      "Path": "SFX\\VO\\VO_Nancy\\TEMP_VO_Characters_Octo_CraftFail_10C4C929.wem"
+      "Path": "SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_CraftFail_10C4C929.wem"
+     },
+     {
+      "Id": "91937598",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Main_End_Theme\\Oct0_MUS_Main_End_Theme Bells.wav",
+      "Path": "SFX/Music/Music_Jordan/Oct0_MUS_Main_End_Theme/Oct0_MUS_Main_End_Theme Bells_D79FB2B7.wem"
+     },
+     {
+      "Id": "100563868",
+      "Language": "SFX",
+      "ShortName": "Character\\Octo_Patrick\\Tether\\TEMP_SFX_Characters_Octo_Tether.wav",
+      "Path": "SFX/Character/Octo_Patrick/Tether/TEMP_SFX_Characters_Octo_Tether_10C4C929.wem"
      },
      {
       "Id": "118279958",
       "Language": "SFX",
       "ShortName": "UI\\UI_Jordan\\TEMP_SFX_IGMenu_Deactivation.wav",
-      "Path": "SFX\\UI\\UI_Jordan\\TEMP_SFX_IGMenu_Deactivation_10C4C929.wem"
+      "Path": "SFX/UI/UI_Jordan/TEMP_SFX_IGMenu_Deactivation_10C4C929.wem"
      },
      {
       "Id": "120990432",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Grab\\TEMP_SFX_Characters_Octo_Grab_Dry.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Grab\\TEMP_SFX_Characters_Octo_Grab_Dry_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Grab/TEMP_SFX_Characters_Octo_Grab_Dry_10C4C929.wem"
      },
      {
       "Id": "129229025",
       "Language": "SFX",
       "ShortName": "VO\\VO_Nancy\\TEMP_VO_Characters_Octo_Death-01.wav",
-      "Path": "SFX\\VO\\VO_Nancy\\TEMP_VO_Characters_Octo_Death-01_10C4C929.wem"
+      "Path": "SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_Death-01_10C4C929.wem"
      },
      {
       "Id": "148606001",
       "Language": "SFX",
       "ShortName": "UI\\UI_Jordan\\TEMP_HUD_Asteroid_Warninng.wav",
-      "Path": "SFX\\UI\\UI_Jordan\\TEMP_HUD_Asteroid_Warninng_10C4C929.wem"
+      "Path": "SFX/UI/UI_Jordan/TEMP_HUD_Asteroid_Warninng_10C4C929.wem"
      },
      {
-      "Id": "161335797",
-      "Language": "English(US)",
-      "ShortName": "TEMP_Octo\\Robot_Voice1a.wav",
-      "Path": "Voices\\English(US)\\TEMP_Octo\\Robot_Voice1a_10C4C929.wem"
-     },
-     {
-      "Id": "175835246",
+      "Id": "169859635",
       "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Percussion.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Percussion_4E642330.wem"
+      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Main_End_Theme\\Oct0_MUS_Main_End_Theme Chords.wav",
+      "Path": "SFX/Music/Music_Jordan/Oct0_MUS_Main_End_Theme/Oct0_MUS_Main_End_Theme Chords_D79FB2B7.wem"
      },
      {
       "Id": "182288180",
       "Language": "SFX",
       "ShortName": "VO\\VO_Nancy\\TEMP_VO_Characters_Octo_NoResc.wav",
-      "Path": "SFX\\VO\\VO_Nancy\\TEMP_VO_Characters_Octo_NoResc_10C4C929.wem"
+      "Path": "SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_NoResc_10C4C929.wem"
      },
      {
-      "Id": "193035624",
+      "Id": "204647853",
       "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Arpeggio.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Arpeggio_4E642330.wem"
-     },
-     {
-      "Id": "212056436",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Chords.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Chords_4E642330.wem"
+      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Percussion.wav",
+      "Path": "SFX/Music/Music_Jordan/Oct0_MUS_Threat_Theme/Oct0_MUS_Threat_Theme Percussion_D79FB2B7.wem"
      },
      {
       "Id": "215021301",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Heavy\\Temp_SFX_Character_Octo_MetalHurt_Heavy2.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Heavy\\Temp_SFX_Character_Octo_MetalHurt_Heavy2_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Heavy/Temp_SFX_Character_Octo_MetalHurt_Heavy2_10C4C929.wem"
      },
      {
       "Id": "229623687",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\SalvageBeam\\TEMP_SFX_Characters_Octo_SalvageBeam.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\SalvageBeam\\TEMP_SFX_Characters_Octo_SalvageBeam_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/SalvageBeam/TEMP_SFX_Characters_Octo_SalvageBeam_10C4C929.wem"
      },
      {
       "Id": "232319810",
       "Language": "SFX",
       "ShortName": "UI\\UI_Jordan\\TEMP_SFX_IGMenu_Activation.wav",
-      "Path": "SFX\\UI\\UI_Jordan\\TEMP_SFX_IGMenu_Activation_10C4C929.wem"
+      "Path": "SFX/UI/UI_Jordan/TEMP_SFX_IGMenu_Activation_10C4C929.wem"
      },
      {
       "Id": "258896262",
       "Language": "SFX",
       "ShortName": "UI\\UI_Jordan\\TEMP_HUD_Elec_Warning.wav",
-      "Path": "SFX\\UI\\UI_Jordan\\TEMP_HUD_Elec_Warning_10C4C929.wem"
+      "Path": "SFX/UI/UI_Jordan/TEMP_HUD_Elec_Warning_10C4C929.wem"
      },
      {
       "Id": "261604052",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Medium\\TEMP_SFX_Character_Octo_MetalHurt_Medium1.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Medium\\TEMP_SFX_Character_Octo_MetalHurt_Medium1_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Medium/TEMP_SFX_Character_Octo_MetalHurt_Medium1_10C4C929.wem"
      },
      {
       "Id": "261610866",
       "Language": "SFX",
       "ShortName": "VO\\VO_Nancy\\TEMP_VO_Chatacters_Octo_Low_1-01.wav",
-      "Path": "SFX\\VO\\VO_Nancy\\TEMP_VO_Chatacters_Octo_Low_1-01_10C4C929.wem"
+      "Path": "SFX/VO/VO_Nancy/TEMP_VO_Chatacters_Octo_Low_1-01_10C4C929.wem"
      },
      {
       "Id": "264370326",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Light\\TEMP_SFX_Character_Octo_MetalHurt_Light2.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Light\\TEMP_SFX_Character_Octo_MetalHurt_Light2_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Light/TEMP_SFX_Character_Octo_MetalHurt_Light2_10C4C929.wem"
      },
      {
       "Id": "287153768",
       "Language": "SFX",
       "ShortName": "UI\\UI_Patrick\\TEMP_SFX_Button_Press_V2.wav",
-      "Path": "SFX\\UI\\UI_Patrick\\TEMP_SFX_Button_Press_V2_10C4C929.wem"
+      "Path": "SFX/UI/UI_Patrick/TEMP_SFX_Button_Press_V2_10C4C929.wem"
      },
      {
-      "Id": "288622880",
+      "Id": "314161546",
       "Language": "SFX",
-      "ShortName": "TEMP_SFX_STATIC_1.wav",
-      "Path": "SFX\\TEMP_SFX_STATIC_1_B3824D27.wem"
-     },
-     {
-      "Id": "293685926",
-      "Language": "English(US)",
-      "ShortName": "TEMP_Octo\\Robot_Voice3a.wav",
-      "Path": "Voices\\English(US)\\TEMP_Octo\\Robot_Voice3a_10C4C929.wem"
-     },
-     {
-      "Id": "307610933",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Game_Theme\\Oct0_MUS_Game_Theme Pad.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Game_Theme\\Oct0_MUS_Game_Theme Pad_4E642330.wem"
+      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Arpeggio.wav",
+      "Path": "SFX/Music/Music_Jordan/Oct0_MUS_Threat_Theme/Oct0_MUS_Threat_Theme Arpeggio_D79FB2B7.wem"
      },
      {
       "Id": "315560273",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Thrusters\\TEMP_SFX_Characters_Octo_HoriThrusters3_NoDrone.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Thrusters\\TEMP_SFX_Characters_Octo_HoriThrusters3_NoDrone_665F6F3E.wem"
-     },
-     {
-      "Id": "323153600",
-      "Language": "English(US)",
-      "ShortName": "TEMP_Oakley\\Oakley3a.wav",
-      "Path": "Voices\\English(US)\\TEMP_Oakley\\Oakley3a_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Thrusters/TEMP_SFX_Characters_Octo_HoriThrusters3_NoDrone_6BF4DC35.wem"
      },
      {
       "Id": "330056047",
       "Language": "SFX",
       "ShortName": "VO\\VO_Nancy\\TEMP_VO_Characters_Octo_CraftSuccess.wav",
-      "Path": "SFX\\VO\\VO_Nancy\\TEMP_VO_Characters_Octo_CraftSuccess_10C4C929.wem"
-     },
-     {
-      "Id": "353090537",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Bass.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Bass_4E642330.wem"
+      "Path": "SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_CraftSuccess_10C4C929.wem"
      },
      {
       "Id": "356573128",
       "Language": "SFX",
       "ShortName": "Environment\\Environment_Nancy\\SFX_Environment_Fire_01.wav",
-      "Path": "SFX\\Environment\\Environment_Nancy\\SFX_Environment_Fire_01_D79FB2B7.wem"
+      "Path": "SFX/Environment/Environment_Nancy/SFX_Environment_Fire_01_D79FB2B7.wem"
+     },
+     {
+      "Id": "361273445",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Game_Theme\\Oct0_MUS_Game_Theme Pad.wav",
+      "Path": "SFX/Music/Music_Jordan/Oct0_MUS_Game_Theme/Oct0_MUS_Game_Theme Pad_D79FB2B7.wem"
+     },
+     {
+      "Id": "389396725",
+      "Language": "SFX",
+      "ShortName": "Character\\Octo_Patrick\\GooGlue\\TEMP_SFX_Characters_Octo_GooGlue.wav",
+      "Path": "SFX/Character/Octo_Patrick/GooGlue/TEMP_SFX_Characters_Octo_GooGlue_10C4C929.wem"
      },
      {
       "Id": "433677184",
       "Language": "SFX",
       "ShortName": "VO\\VO_Nancy\\TEMP_VO_Chatacters_Octo_Complete-01.wav",
-      "Path": "SFX\\VO\\VO_Nancy\\TEMP_VO_Chatacters_Octo_Complete-01_10C4C929.wem"
+      "Path": "SFX/VO/VO_Nancy/TEMP_VO_Chatacters_Octo_Complete-01_10C4C929.wem"
      },
      {
       "Id": "435418463",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Heavy\\TEMP_SFX_Characters_Octo_RockHurt_Heavy1.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Heavy\\TEMP_SFX_Characters_Octo_RockHurt_Heavy1_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Heavy/TEMP_SFX_Characters_Octo_RockHurt_Heavy1_10C4C929.wem"
      },
      {
-      "Id": "445313113",
-      "Language": "English(US)",
-      "ShortName": "TEMP_Oakley\\Oakley2a.wav",
-      "Path": "Voices\\English(US)\\TEMP_Oakley\\Oakley2a_10C4C929.wem"
+      "Id": "437485444",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Chords.wav",
+      "Path": "SFX/Music/Music_Jordan/Oct0_MUS_Threat_Theme/Oct0_MUS_Threat_Theme Chords_D79FB2B7.wem"
      },
      {
       "Id": "466905773",
       "Language": "SFX",
       "ShortName": "Ambience\\Ambience_Nancy\\SFX_Ambience_WhiteNoise_02.wav",
-      "Path": "SFX\\Ambience\\Ambience_Nancy\\SFX_Ambience_WhiteNoise_02_D79FB2B7.wem"
+      "Path": "SFX/Ambience/Ambience_Nancy/SFX_Ambience_WhiteNoise_02_D79FB2B7.wem"
      },
      {
-      "Id": "469233554",
-      "Language": "English(US)",
-      "ShortName": "TEMP_Octo\\Robot_Voice2a.wav",
-      "Path": "Voices\\English(US)\\TEMP_Octo\\Robot_Voice2a_10C4C929.wem"
+      "Id": "479691218",
+      "Language": "SFX",
+      "ShortName": "Satellite\\Satellite_William\\SFX_Satellite_FuelRestore_01.wav",
+      "Path": "SFX/Satellite/Satellite_William/SFX_Satellite_FuelRestore_01_D79FB2B7.wem"
      },
      {
       "Id": "489796827",
       "Language": "SFX",
       "ShortName": "Environment\\Environment_William\\SFX_Environment_Explosion_02.wav",
-      "Path": "SFX\\Environment\\Environment_William\\SFX_Environment_Explosion_02_10C4C929.wem"
+      "Path": "SFX/Environment/Environment_William/SFX_Environment_Explosion_02_10C4C929.wem"
      },
      {
       "Id": "490977933",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Light\\TEMP_SFX_Character_Octo_MetalHurt_Light3.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Light\\TEMP_SFX_Character_Octo_MetalHurt_Light3_10C4C929.wem"
-     },
-     {
-      "Id": "497470435",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Main_Theme\\Oct0_MUS_Main_Theme Bass.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Main_Theme\\Oct0_MUS_Main_Theme Bass_4E642330.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Light/TEMP_SFX_Character_Octo_MetalHurt_Light3_10C4C929.wem"
      },
      {
       "Id": "501136152",
       "Language": "SFX",
       "ShortName": "UI\\UI_Patrick\\TEMP_SFX_Button_Hover.wav",
-      "Path": "SFX\\UI\\UI_Patrick\\TEMP_SFX_Button_Hover_10C4C929.wem"
+      "Path": "SFX/UI/UI_Patrick/TEMP_SFX_Button_Hover_10C4C929.wem"
      },
      {
       "Id": "535864946",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Light\\TEMP_SFX_Character_Octo_RockHurt_Light3.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Light\\TEMP_SFX_Character_Octo_RockHurt_Light3_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Light/TEMP_SFX_Character_Octo_RockHurt_Light3_10C4C929.wem"
      },
      {
       "Id": "555738453",
       "Language": "SFX",
       "ShortName": "VO\\VO_Nancy\\TEMP_VO_Chatacters_Octo_Low_2.wav",
-      "Path": "SFX\\VO\\VO_Nancy\\TEMP_VO_Chatacters_Octo_Low_2_10C4C929.wem"
+      "Path": "SFX/VO/VO_Nancy/TEMP_VO_Chatacters_Octo_Low_2_10C4C929.wem"
      },
      {
       "Id": "597288651",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Medium\\TEMP_SFX_Character_Octo_MetalHurt_Medium2.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Medium\\TEMP_SFX_Character_Octo_MetalHurt_Medium2_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Medium/TEMP_SFX_Character_Octo_MetalHurt_Medium2_10C4C929.wem"
      },
      {
       "Id": "602255027",
       "Language": "SFX",
       "ShortName": "Satellite\\Satellite_William\\SFX_Satellite_Comm_01.wav",
-      "Path": "SFX\\Satellite\\Satellite_William\\SFX_Satellite_Comm_01_D79FB2B7.wem"
-     },
-     {
-      "Id": "602761245",
-      "Language": "SFX",
-      "ShortName": "TEMP_SFX_Fuel_Latch.wav",
-      "Path": "SFX\\TEMP_SFX_Fuel_Latch_10C4C929.wem"
-     },
-     {
-      "Id": "604458596",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Main_Theme\\Oct0_MUS_Main_Theme Chords.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Main_Theme\\Oct0_MUS_Main_Theme Chords_4E642330.wem"
-     },
-     {
-      "Id": "605708393",
-      "Language": "SFX",
-      "ShortName": "Character\\Octo_Patrick\\TetherGrab\\TEMP_SFX_Characters_Octo_TetherGrab.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\TetherGrab\\TEMP_SFX_Characters_Octo_TetherGrab_10C4C929.wem"
+      "Path": "SFX/Satellite/Satellite_William/SFX_Satellite_Comm_01_D79FB2B7.wem"
      },
      {
       "Id": "620159721",
       "Language": "SFX",
       "ShortName": "UI\\UI_Patrick\\TEMP_SFX_Menu_Transition.wav",
-      "Path": "SFX\\UI\\UI_Patrick\\TEMP_SFX_Menu_Transition_10C4C929.wem"
-     },
-     {
-      "Id": "621816765",
-      "Language": "SFX",
-      "ShortName": "Character\\Octo_Patrick\\TetherRope\\TEMP_SFX_Characters_Octo_TetherRope.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\TetherRope\\TEMP_SFX_Characters_Octo_TetherRope_10C4C929.wem"
+      "Path": "SFX/UI/UI_Patrick/TEMP_SFX_Menu_Transition_10C4C929.wem"
      },
      {
       "Id": "639821822",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Medium\\TEMP_SFX_Character_Octo_MetalHurt_Medium3.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Medium\\TEMP_SFX_Character_Octo_MetalHurt_Medium3_10C4C929.wem"
-     },
-     {
-      "Id": "656330783",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Nostalgic\\Oct0_MUS_Nostalgic.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Nostalgic\\Oct0_MUS_Nostalgic_4E642330.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Medium/TEMP_SFX_Character_Octo_MetalHurt_Medium3_10C4C929.wem"
      },
      {
       "Id": "657202420",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Medium\\TEMP_SFX_Character_Octo_RockHurt_Medium1.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Medium\\TEMP_SFX_Character_Octo_RockHurt_Medium1_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Medium/TEMP_SFX_Character_Octo_RockHurt_Medium1_10C4C929.wem"
      },
      {
       "Id": "678154635",
       "Language": "SFX",
       "ShortName": "UI\\UI_Jordan\\TEMP_HUD_Gas_Warning.wav",
-      "Path": "SFX\\UI\\UI_Jordan\\TEMP_HUD_Gas_Warning_10C4C929.wem"
+      "Path": "SFX/UI/UI_Jordan/TEMP_HUD_Gas_Warning_10C4C929.wem"
+     },
+     {
+      "Id": "686596013",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Game_Theme\\Oct0_MUS_Game_Theme Chords.wav",
+      "Path": "SFX/Music/Music_Jordan/Oct0_MUS_Game_Theme/Oct0_MUS_Game_Theme Chords_D79FB2B7.wem"
      },
      {
       "Id": "686607910",
       "Language": "SFX",
       "ShortName": "Satellite\\Satellite_William\\SFX_Satellite_Idle_01.wav",
-      "Path": "SFX\\Satellite\\Satellite_William\\SFX_Satellite_Idle_01_D79FB2B7.wem"
+      "Path": "SFX/Satellite/Satellite_William/SFX_Satellite_Idle_01_D79FB2B7.wem"
+     },
+     {
+      "Id": "698608471",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Threat_Theme\\Oct0_MUS_Threat_Theme Bass.wav",
+      "Path": "SFX/Music/Music_Jordan/Oct0_MUS_Threat_Theme/Oct0_MUS_Threat_Theme Bass_D79FB2B7.wem"
      },
      {
       "Id": "730586012",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Medium\\TEMP_SFX_Character_Octo_RockHurt_Medium3.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Medium\\TEMP_SFX_Character_Octo_RockHurt_Medium3_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Medium/TEMP_SFX_Character_Octo_RockHurt_Medium3_10C4C929.wem"
      },
      {
-      "Id": "730673491",
-      "Language": "English(US)",
-      "ShortName": "TEMP_Oakley\\Oakley1a.wav",
-      "Path": "Voices\\English(US)\\TEMP_Oakley\\Oakley1a_10C4C929.wem"
+      "Id": "744293969",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Game_Theme\\Oct0_MUS_Game_Theme Bells.wav",
+      "Path": "SFX/Music/Music_Jordan/Oct0_MUS_Game_Theme/Oct0_MUS_Game_Theme Bells_D79FB2B7.wem"
      },
      {
       "Id": "752814949",
       "Language": "SFX",
       "ShortName": "Environment\\Environment_Nancy\\SFX_Environment_Gas_01.wav",
-      "Path": "SFX\\Environment\\Environment_Nancy\\SFX_Environment_Gas_01_D79FB2B7.wem"
+      "Path": "SFX/Environment/Environment_Nancy/SFX_Environment_Gas_01_C5579977.wem"
      },
      {
       "Id": "761286886",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Light\\TEMP_SFX_Character_Octo_RockHurt_Light2.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Light\\TEMP_SFX_Character_Octo_RockHurt_Light2_10C4C929.wem"
-     },
-     {
-      "Id": "767309291",
-      "Language": "SFX",
-      "ShortName": "CDCK Drone Low 07-1.wav",
-      "Path": "SFX\\CDCK Drone Low 07-1_F1412611.wem"
-     },
-     {
-      "Id": "804099293",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Main_End_Theme\\Oct0_MUS_Main_End_Theme Chords.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Main_End_Theme\\Oct0_MUS_Main_End_Theme Chords_4E642330.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Light/TEMP_SFX_Character_Octo_RockHurt_Light2_10C4C929.wem"
      },
      {
       "Id": "811125717",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Medium\\TEMP_SFX_Character_Octo_RockHurt_Medium2.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Medium\\TEMP_SFX_Character_Octo_RockHurt_Medium2_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Medium/TEMP_SFX_Character_Octo_RockHurt_Medium2_10C4C929.wem"
+     },
+     {
+      "Id": "826866158",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Nostalgic\\Oct0_MUS_Nostalgic.wav",
+      "Path": "SFX/Music/Music_Jordan/Oct0_MUS_Nostalgic/Oct0_MUS_Nostalgic_D79FB2B7.wem"
      },
      {
       "Id": "840942234",
       "Language": "SFX",
       "ShortName": "Ambience\\Ambience_Nancy\\SFX_Ambience_WhiteNoise_01.wav",
-      "Path": "SFX\\Ambience\\Ambience_Nancy\\SFX_Ambience_WhiteNoise_01_D79FB2B7.wem"
-     },
-     {
-      "Id": "856693127",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Main_Theme\\Oct0_MUS_Main_Theme Bells.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Main_Theme\\Oct0_MUS_Main_Theme Bells_4E642330.wem"
+      "Path": "SFX/Ambience/Ambience_Nancy/SFX_Ambience_WhiteNoise_01_D79FB2B7.wem"
      },
      {
       "Id": "875442297",
       "Language": "SFX",
       "ShortName": "VO\\VO_Nancy\\TEMP_VO_Characters_Octo_Hurt-01.wav",
-      "Path": "SFX\\VO\\VO_Nancy\\TEMP_VO_Characters_Octo_Hurt-01_10C4C929.wem"
-     },
-     {
-      "Id": "875679401",
-      "Language": "English(US)",
-      "ShortName": "TEMP_Oakley\\Oakley4a.wav",
-      "Path": "Voices\\English(US)\\TEMP_Oakley\\Oakley4a_10C4C929.wem"
+      "Path": "SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_Hurt-01_10C4C929.wem"
      },
      {
       "Id": "893144292",
       "Language": "SFX",
       "ShortName": "Ambience\\Ambience_Nancy\\SFX_Ambience_WhiteNoise_03.wav",
-      "Path": "SFX\\Ambience\\Ambience_Nancy\\SFX_Ambience_WhiteNoise_03_D79FB2B7.wem"
+      "Path": "SFX/Ambience/Ambience_Nancy/SFX_Ambience_WhiteNoise_03_D79FB2B7.wem"
      },
      {
       "Id": "903916431",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Light\\TEMP_SFX_Character_Octo_RockHurt_Light1.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\RockHurt\\RockHurt_Light\\TEMP_SFX_Character_Octo_RockHurt_Light1_10C4C929.wem"
-     },
-     {
-      "Id": "904879127",
-      "Language": "SFX",
-      "ShortName": "56 Very Low, Reverberant Wood Creaks And Groans. Could Use For Underwater.wav",
-      "Path": "SFX\\56 Very Low, Reverberant Wood Creaks And Groans. Could Use For Underwater_7E3309C2.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/RockHurt/RockHurt_Light/TEMP_SFX_Character_Octo_RockHurt_Light1_10C4C929.wem"
      },
      {
       "Id": "931655080",
       "Language": "SFX",
       "ShortName": "Ambience\\SFX_Ambience_WhiteNoise_01.wav",
-      "Path": "SFX\\Ambience\\SFX_Ambience_WhiteNoise_01_D79FB2B7.wem"
+      "Path": "SFX/Ambience/SFX_Ambience_WhiteNoise_01_D79FB2B7.wem"
      },
      {
-      "Id": "969775143",
+      "Id": "933841550",
       "Language": "SFX",
-      "ShortName": "Satellite\\Satellite_Patrick\\TEMP_SFX_Satellite_FuelRestore.wav",
-      "Path": "SFX\\Satellite\\Satellite_Patrick\\TEMP_SFX_Satellite_FuelRestore_DC58D7C4.wem"
+      "ShortName": "Character\\Octo_Patrick\\Thrusters\\TEMP_SFX_Characters_Octo_HoriThrusters3_DroneOnly.wav",
+      "Path": "SFX/Character/Octo_Patrick/Thrusters/TEMP_SFX_Characters_Octo_HoriThrusters3_DroneOnly_0734FFE3.wem"
      },
      {
       "Id": "979814336",
       "Language": "SFX",
       "ShortName": "Satellite\\Satellite_William\\SFX_Satellite_Incin_01.wav",
-      "Path": "SFX\\Satellite\\Satellite_William\\SFX_Satellite_Incin_01_D79FB2B7.wem"
+      "Path": "SFX/Satellite/Satellite_William/SFX_Satellite_Incin_01_D79FB2B7.wem"
      },
      {
       "Id": "1004792168",
       "Language": "SFX",
       "ShortName": "Environment\\Environment_William\\SFX_Environment_Explosion_01.wav",
-      "Path": "SFX\\Environment\\Environment_William\\SFX_Environment_Explosion_01_10C4C929.wem"
-     },
-     {
-      "Id": "1018330215",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Game_Theme\\Oct0_MUS_Game_Theme Bells.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Game_Theme\\Oct0_MUS_Game_Theme Bells_4E642330.wem"
+      "Path": "SFX/Environment/Environment_William/SFX_Environment_Explosion_01_10C4C929.wem"
      },
      {
       "Id": "1020501719",
       "Language": "SFX",
       "ShortName": "Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Heavy\\Temp_SFX_Character_Octo_MetalHurt_Heavy1.wav",
-      "Path": "SFX\\Character\\Octo_Patrick\\Damage\\MetalHurt\\MetalHurt_Heavy\\Temp_SFX_Character_Octo_MetalHurt_Heavy1_10C4C929.wem"
+      "Path": "SFX/Character/Octo_Patrick/Damage/MetalHurt/MetalHurt_Heavy/Temp_SFX_Character_Octo_MetalHurt_Heavy1_10C4C929.wem"
      },
      {
       "Id": "1031879202",
       "Language": "SFX",
       "ShortName": "VO\\VO_Nancy\\TEMP_VO_Characters_Octo_Remembered.wav",
-      "Path": "SFX\\VO\\VO_Nancy\\TEMP_VO_Characters_Octo_Remembered_10C4C929.wem"
-     },
-     {
-      "Id": "1036469334",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Game_Theme\\Oct0_MUS_Game_Theme Chords.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Game_Theme\\Oct0_MUS_Game_Theme Chords_4E642330.wem"
+      "Path": "SFX/VO/VO_Nancy/TEMP_VO_Characters_Octo_Remembered_10C4C929.wem"
      },
      {
       "Id": "1036990484",
       "Language": "SFX",
       "ShortName": "Satellite\\Satellite_William\\SFX_Satellite_Crafting_01.wav",
-      "Path": "SFX\\Satellite\\Satellite_William\\SFX_Satellite_Crafting_01_D79FB2B7.wem"
-     },
-     {
-      "Id": "1042347517",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Jordan\\Oct0_MUS_Main_End_Theme\\Oct0_MUS_Main_End_Theme Bells.wav",
-      "Path": "SFX\\Music\\Music_Jordan\\Oct0_MUS_Main_End_Theme\\Oct0_MUS_Main_End_Theme Bells_4E642330.wem"
+      "Path": "SFX/Satellite/Satellite_William/SFX_Satellite_Crafting_01_D79FB2B7.wem"
      },
      {
       "Id": "1061797133",
       "Language": "SFX",
       "ShortName": "Satellite\\Satellite_William\\SFX_Satellite_Radar_01.wav",
-      "Path": "SFX\\Satellite\\Satellite_William\\SFX_Satellite_Radar_01_D79FB2B7.wem"
+      "Path": "SFX/Satellite/Satellite_William/SFX_Satellite_Radar_01_D79FB2B7.wem"
      }
     ]
    }

@@ -67,7 +67,10 @@ public class Crafting : MonoBehaviour
     public bool canCraft = false;
     public bool canConsumableCraft = false;
     public bool canSatCraft = false;
-    
+
+    [Header("Sound Related")]
+    public bool isSoundPlayed;
+
     public void UpdateCraftButton()
     {
         if(canCraft || canConsumableCraft || canSatCraft)
@@ -106,6 +109,7 @@ public class Crafting : MonoBehaviour
 
     void Start()
     {
+        isSoundPlayed = false;
         playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();        
 
         //correlate tab panels with tab buttons - note, buttons and content groups need to be in the correct order in editor
@@ -233,6 +237,7 @@ public class Crafting : MonoBehaviour
                 //add new products and ingredients
                 var product = Instantiate(Product);
                 product.transform.SetParent(ProductGroup.transform);
+                product.GetComponentInChildren<Image>().sprite = recipe.Output.item.Icon;
                 //there's two text portions on the UI element, the name and the amount
                 var outputText = product.GetComponentsInChildren<TextMeshProUGUI>();
                 outputText[0].SetText(recipe.DisplayName);
@@ -249,7 +254,9 @@ public class Crafting : MonoBehaviour
                     var resourceIcon = input.resource.resourceIcon;
                     if (resourceIcon != null)
                     {
-                        ingredient.GetComponentInChildren<Image>().sprite = resourceIcon;
+                        var image = ingredient.GetComponentInChildren<Image>();
+                        image.sprite = resourceIcon;
+                        image.color = input.resource.ResourceColor;
                     }
 
                     var inputText = ingredient.GetComponentsInChildren<TextMeshProUGUI>();
@@ -339,6 +346,12 @@ public class Crafting : MonoBehaviour
     {
         //EVAN - a little timer dial pops up and might need a sound for when it's filling
         //if you click & hold something to craft you'll see it
+        if (!isSoundPlayed)
+        {
+            AkSoundEngine.PostEvent("Octo_Tether_Grab", gameObject);
+            isSoundPlayed = true;            
+        }
+
         if (craftTimer != 0)
         {
             timerDial.gameObject.SetActive(true);
@@ -349,7 +362,7 @@ public class Crafting : MonoBehaviour
                 DoCraft();
                 craftTimer = 0;
                 timerDial.gameObject.SetActive(false);
-                timerDial.fillAmount = 0f;
+                timerDial.fillAmount = 0f;    
                 isCrafting = false;
             }
         }
@@ -379,6 +392,7 @@ public class Crafting : MonoBehaviour
     private void DoCraft()
     {
         //EVAN - some sort of ding or "crafting complete!" sound
+        AkSoundEngine.PostEvent("Crafting_Success", gameObject);
         CraftingModule.CraftItem(shipInventory, playerInventory, playerInventory, queuedRecipe);
         var poptext = Instantiate(popText);
         poptext.popText.SetText($"{queuedRecipe.DisplayName} crafted");
@@ -389,6 +403,7 @@ public class Crafting : MonoBehaviour
 
         queuedRecipe = null;
         popTextMSG = null;
+        isSoundPlayed = false;
     }
 
     //instantiate a new button and put it in the sidebar

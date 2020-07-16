@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
 
 public class MovementController : MonoBehaviour
 {
@@ -24,6 +21,8 @@ public class MovementController : MonoBehaviour
     [SerializeField] private bool NormalizeInput = true;
 
     [SerializeField] private float ThrusterImpulse = 10;
+    //modified thruster is the Thruster * _InventoryWeight
+    private float _ModifiedThrusterImpulse;
 
     [SerializeField] private float ThrusterTorque = 10f;
     [SerializeField] private float VelocityMax = -1.0f;
@@ -40,6 +39,10 @@ public class MovementController : MonoBehaviour
     
     private float _VelocityMax;
     private float _SetVelocityMax;
+    //_InventoryWeight is used for slowing octo down when he's carrying a lot
+    //It's based on chunks so it's not really "mass"
+    private float _InventoryWeight = 1;
+    private float speedModifier;
     public Vector3 Throttle = new Vector3();
 
   
@@ -59,6 +62,42 @@ public class MovementController : MonoBehaviour
 
     public Vector3 RawInput{get => _RawInput;}
     public Vector3 NormalizedInput{get => _NormalizedInput;}
+
+    public int GetSpeedModifier()
+    {
+        Debug.LogWarning("Speed modifier " + speedModifier * 100);
+        return (int)(speedModifier * 100);
+    }
+
+    //used to change octo's speed depending how much stuff he's holding
+    public void SetInventoryWeight(float newWeight)
+    {
+        _InventoryWeight = newWeight;
+        CalculateModifiedThruster();
+        //Debug.LogWarning(_InventoryWeight);
+    }
+
+    //used to upgrade thruster power via events
+    public void AddThrusterImpulse(float addImpulse)
+    {
+        ThrusterImpulse += addImpulse;
+        CalculateModifiedThruster();
+    }
+    //calculate octo's speed modifier
+    public void CalculateModifiedThruster()
+    {
+        if(_InventoryWeight == 0)
+        {
+            _InventoryWeight = 1;
+        }
+        speedModifier = 1 - (_InventoryWeight / 500);
+        if(speedModifier < 0.5)
+        {
+            speedModifier = 0.5f;
+        }
+        _ModifiedThrusterImpulse = ThrusterImpulse * speedModifier;
+        //Debug.LogWarning(_ModifiedThrusterImpulse);
+    }
 
     public void SetRotationTarget(Vector3 NewRotationIn)
     {
@@ -104,6 +143,8 @@ public class MovementController : MonoBehaviour
         ThrottleUI.SetMaxVelocity(_VelocityMax);
         if (ThrottleSensitivity <=0) ThrottleSensitivity = 0.001f;//minimum throttle sensitivity that can be set
         Debug.Assert(_Rigidbody != null); //Assert if rigid body is undefined
+
+        CalculateModifiedThruster();
 
     }
 
@@ -160,9 +201,9 @@ public class MovementController : MonoBehaviour
        
         for (int i = 0; i < 3; i++)
         { //componentwise clamp of impulse to maximum thruster values
-            Impulse[i] = Mathf.Clamp(Impulse[i],-ThrusterImpulse,ThrusterImpulse);
+            Impulse[i] = Mathf.Clamp(Impulse[i],-_ModifiedThrusterImpulse, _ModifiedThrusterImpulse);
 
-            Throttle[i] = Impulse[i]/ThrusterImpulse; //get the throttle value for sound and vfx
+            Throttle[i] = Impulse[i]/ _ModifiedThrusterImpulse; //get the throttle value for sound and vfx
             fuelUsage += Mathf.Abs(Impulse[i])*(FuelPerImpulseUnit/FuelEfficency);
         }
         LinkedResourceBehavior.RemoveResource(FuelResource,fuelUsage);
