@@ -18,7 +18,9 @@ public class SalvageStorm : MonoBehaviour
     }
 
 
-    [SerializeField] private WeatherData BaseCondition;
+    [SerializeField] private _WeatherData _BaseCondition;
+
+    private WeatherData BaseCondition;
     [SerializeField] private List<_WeatherData> WeatherConditions = new List<_WeatherData>();
 
     private List<WeatherData> _Conditions = new List<WeatherData>();
@@ -199,18 +201,29 @@ public class SalvageStorm : MonoBehaviour
 
     public void Awake()
     {
-        float weightSum = 0;
-        foreach (var DictData in WeatherConditions)
-        {   
-            weightSum = 0;
-            foreach (var item in DictData.Data.SalvagePrefabs)
+        Dictionary<GameObject,float> temp;
+        float WeightSum = 0;
+        foreach (var item in WeatherConditions)
+        {
+            WeightSum = 0;
+            temp = new Dictionary<GameObject, float>();
+            foreach (var PrefabData in item.SalvagePrefabs)
             {
-                weightSum+= item.Value;
+                temp.Add(PrefabData.Object,PrefabData.Weight);
+                WeightSum += PrefabData.Weight;
             }
-            Conditions.Add(DictData.Name,new WeatherData(DictData.Data,weightSum));
+
+            _Conditions.Add(new WeatherData(item.MinSpeed,item.MaxSpeed,item.MinSeparation,item.WaveInterval,item.LifeTime,item.Density,temp,WeightSum));
         }
 
-
+        WeightSum = 0;
+        temp = new Dictionary<GameObject, float>();
+            foreach (var PrefabData in _BaseCondition.SalvagePrefabs)
+            {
+                temp.Add(PrefabData.Object,PrefabData.Weight);
+                WeightSum += PrefabData.Weight;
+            }
+        BaseCondition = (new WeatherData(_BaseCondition.MinSpeed,_BaseCondition.MaxSpeed,_BaseCondition.MinSeparation,_BaseCondition.WaveInterval,_BaseCondition.LifeTime,_BaseCondition.Density,temp,WeightSum));
 
         SetConditionData(BaseCondition);
         PlayingGameState.RegisterWeatherController(this);        
@@ -231,11 +244,11 @@ public class SalvageStorm : MonoBehaviour
         float RandomSum = Random.Range(0,SumOfWeights);
         foreach (var Dict in WeightedDict)
         {
-            RandomSum-=Dict.Value;
             if (RandomSum < Dict.Value)
             {
                 return Dict.Key;
             }
+            RandomSum-=Dict.Value;
         }
         return default(T);
     }
