@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4776680180105303684}
   - component: {fileID: 8276937225079105073}
   - component: {fileID: 1216476053299433110}
+  - component: {fileID: 4173219681594929244}
+  - component: {fileID: 3811825029471011991}
   m_Layer: 10
   m_Name: Salvage_BrokenSolarSmall
   m_TagString: Untagged
@@ -82,6 +84,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4173219681594929244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2679190024885612267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a383b9ec6f1a454d87ac445661c5df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 63df456d802c37d45ab8343304528447,
+      type: 2}
+--- !u!114 &3811825029471011991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2679190024885612267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d195de73b9f084098e39a98eee8728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerObject: {fileID: 489913433233796651, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+    type: 3}
 --- !u!1 &4086416247913742933
 GameObject:
   m_ObjectHideFlags: 0

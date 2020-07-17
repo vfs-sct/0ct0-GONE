@@ -12,13 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2dd94377ea40447a380e05c1a4928e, type: 3}
   m_Name: Medium
   m_EditorClassIdentifier: 
-  SalvagePrefabs:
-  - {fileID: 6332566556522365008, guid: 23df0ceafd51814468b08a279aea5bb0, type: 3}
-  - {fileID: 0}
-  MinSpeed: 31.4
-  MaxSpeed: 58
-  MinSeparation: 1.86
-  WaveInterval: 1.1
-  LifeTime: 17.41
-  _Density: 0.12
-  Density: 0.88
+  Data:
+    Name: Medium
+    Weather:
+      MinSpeed: 0
+      MaxSpeed: 0
+      MinSeparation: 0
+      WaveInterval: 0
+      LifeTime: 0
+      Density: 0
+      SalvageWeights:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0

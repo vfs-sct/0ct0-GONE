@@ -12,12 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2dd94377ea40447a380e05c1a4928e, type: 3}
   m_Name: Calm
   m_EditorClassIdentifier: 
-  SalvagePrefabs:
-  - {fileID: 6332566556522365008, guid: 23df0ceafd51814468b08a279aea5bb0, type: 3}
-  - {fileID: 1049115481071579171, guid: 9b04817774f0a034ebd1a0ff88505a04, type: 3}
-  MinSpeed: 15
-  MaxSpeed: 25
-  MinSeparation: 1.86
-  WaveInterval: 0.98
-  LifeTime: 60
-  _Density: 0.05
+  Data:
+    Name: Calm
+    Weather:
+      MinSpeed: 15
+      MaxSpeed: 25
+      MinSeparation: 1.9
+      WaveInterval: 0.9
+      LifeTime: 30
+      Density: 0.05
+      SalvageWeights:
+      - 10
+      - 10
+      - 5
+      - 6
+      - 3
+      - 2
+      - 1
+      - 2
+      - 0
+      - 0
+      - 0
