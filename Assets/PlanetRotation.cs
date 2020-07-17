@@ -24,11 +24,11 @@ public class PlanetRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlanetSphere.transform.Rotate(0,0,PlanetRotationRate,Space.Self);
+        PlanetSphere.transform.Rotate(0,PlanetRotationRate,0,Space.Self);
         
-        CloudSphere.transform.Rotate(0,0,CloudRotationRate,Space.Self);
-        AtmoSphere1.transform.Rotate(0,0,PlanetRotationRate,Space.Self);
-        AtmoSphere2.transform.Rotate(0,0,PlanetRotationRate,Space.Self);
+        CloudSphere.transform.Rotate(0,CloudRotationRate,0,Space.Self);
+        AtmoSphere1.transform.Rotate(0,PlanetRotationRate,0,Space.Self);
+        AtmoSphere2.transform.Rotate(0,PlanetRotationRate,0,Space.Self);
 
     }
 }
