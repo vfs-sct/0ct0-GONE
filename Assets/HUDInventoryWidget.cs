@@ -59,7 +59,7 @@ public class HUDInventoryWidget : MonoBehaviour
         foreach(var kvp in updateFill)
         {
             //Debug.Log((float)bucketInventory.GetResourceAmount(kvp.Key) / 10);
-            kvp.Value.fillAmount = ((float)bucketInventory.GetResourceAmount(kvp.Key) / 10);
+            kvp.Value.fillAmount = ((float)bucketInventory.GetResourceAmount(kvp.Key) / 100);
         }
     }
 }

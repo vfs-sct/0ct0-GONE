@@ -19,6 +19,7 @@ public class Item : ScriptableObject
     [SerializeField] private string _Name;
     [SerializeField] private string _ItemDesc;
     [SerializeField] private Sprite _Icon;
+    [SerializeField] private int _ChunkSize;
     [SerializeField] private int _Size;
     [SerializeField] private float _Mass;
     [SerializeField] private Resource _ResourceType;
@@ -30,6 +31,7 @@ public class Item : ScriptableObject
     public string Name{get =>_Name;}
     public string ItemDesc { get => _ItemDesc; }
     public Sprite Icon { get => _Icon; }
+    public int ChunkSize { get => _ChunkSize; }
     public int Size{get =>_Size;}
     public float Mass{get =>_Mass;}
     public bool IsSalvage{get=> ItemType == EnumItemType.Salvage ;}

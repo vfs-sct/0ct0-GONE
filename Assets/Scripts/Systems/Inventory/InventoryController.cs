@@ -187,12 +187,12 @@ public class InventoryController : MonoBehaviour
 
     public bool CanAddItem(int BucketIndex, Item itemToAdd)
     {
-        return ItemBuckets[BucketIndex].FillAmount + itemToAdd.Size <= ItemBuckets[BucketIndex].ItemCap;
+        return ItemBuckets[BucketIndex].FillAmount + itemToAdd.ChunkSize <= ItemBuckets[BucketIndex].ItemCap;
     }
 
     public bool CanAddResource(Resource resource, Item itemToAdd)
     {
-        return ResourceBuckets_Dict[resource].FillAmount + itemToAdd.Size <= ResourceBuckets_Dict[resource].ItemCap;
+        return ResourceBuckets_Dict[resource].FillAmount + itemToAdd.ChunkSize <= ResourceBuckets_Dict[resource].ItemCap;
     }
 
 
@@ -253,7 +253,7 @@ public class InventoryController : MonoBehaviour
         bool success = false;
 
         //update octo's carry weight modifier
-        totalInvWeight += (itemToAdd.Size * amount);
+        totalInvWeight += (itemToAdd.ChunkSize * amount);
         player.GetComponent<MovementController>().SetInventoryWeight(totalInvWeight);
         //Debug.LogWarning(totalInvWeight);
 
@@ -270,7 +270,7 @@ public class InventoryController : MonoBehaviour
         bool success = false;
 
         //update octo's carry weight modifier
-        totalInvWeight -= (itemToRemove.Size * amount);
+        totalInvWeight -= (itemToRemove.ChunkSize * amount);
         player.GetComponent<MovementController>().SetInventoryWeight(totalInvWeight);
         //Debug.LogWarning(totalInvWeight);
 

@@ -65,7 +65,7 @@ public class MovementController : MonoBehaviour
 
     public int GetSpeedModifier()
     {
-        Debug.LogWarning("Speed modifier " + speedModifier * 100);
+        //Debug.LogWarning("Speed modifier " + speedModifier * 100);
         return (int)(speedModifier * 100);
     }
 

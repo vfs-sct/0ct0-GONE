@@ -191,8 +191,8 @@ public class InventoryV2 : MonoBehaviour
                 {
                     //Debug.Log("HEY" + item.Size);
                     //figure out if the item takes more than 1 slot
-                    float chunkSize = (float)item.Key.Size;
-                    int j = item.Key.Size;
+                    float chunkSize = (float)item.Key.ChunkSize;
+                    int j = item.Key.ChunkSize;
                     if (j != 0)
                     {
                         //assign the appropriate number of slots for that item
