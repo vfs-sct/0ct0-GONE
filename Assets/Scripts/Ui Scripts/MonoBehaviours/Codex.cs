@@ -30,6 +30,7 @@ public class Codex : MonoBehaviour
     [Header("Audio Log Sound Files")]
     [SerializeField] PlayButtonSound soundScript = null;
     public string[] audioLogFile = null;
+    public string[] stopAudioLogFile = null;
 
     //Here we'll put all our codex entries in a string Dictionary. The first string will be the title of the entry,
     //and the second will be the body
@@ -245,7 +246,7 @@ public class Codex : MonoBehaviour
 
                     //EVAN
                     //stop sound function
-                    //soundScript.OnClickPlayDialogue(audioLogFile[audioLog]);
+                    soundScript.OnClickPlayDialogue(stopAudioLogFile[audioLog]);
                 });
 
                 buttonContainer.SetActive(true);
