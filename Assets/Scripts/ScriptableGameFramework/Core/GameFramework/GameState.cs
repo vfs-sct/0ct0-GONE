@@ -14,7 +14,6 @@ public abstract class GameState : ScriptableObject
     [Header("State Registries")]
     [SerializeField] private List<string> DefaultBoolStates;
     [SerializeField] private List<string> DefaultIntStates;
-
     public Dictionary<string,bool> _BoolStateRegistry = new Dictionary<string, bool>();
     public Dictionary<string,int> _IntStateRegistry = new Dictionary<string, int>();
 

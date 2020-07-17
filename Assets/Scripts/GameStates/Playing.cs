@@ -27,8 +27,26 @@ public class Playing : GameState
     [SerializeField] private CommunicationModule RelayController;
     
     
-    [SerializeField] private List<WeatherCondData> WeatherConditions = new List<WeatherCondData>(); // the times MUST be in ascending order other shit breaks
+    /*[SerializeField]*/ private List<WeatherCondData> WeatherConditions = new List<WeatherCondData>(); // the times MUST be in ascending order other shit breaks
     
+    [SerializeField] private string StormWeatherCondition = "Storm";    
+
+
+    [SerializeField] private float StartingTimeBetweenStorms = 90;
+
+    [SerializeField] private float StartingStormDuration = 5;
+
+    [SerializeField] private float TimeDecreasePerCycle = 10; //the decrease in time between storms each storm cycle
+
+    [SerializeField] private float StormDurationIncreasePerCycle = 1;
+
+    [SerializeField] private float StormlerpTime = 5;
+    float TimeBetweenStorms; //time in seconds
+    float StormDuration;
+    float NextStormTime;
+
+    float NextStormFinishTime;
+
     public Player ActivePlayer{get=>_ActivePlayer;}
 
 
@@ -45,6 +63,7 @@ public class Playing : GameState
 
     public override void OnInitialize()
     {
+       
         foreach (var WeatherDat in WeatherConditions)
         {
             _WeatherData.Add(WeatherDat.Time,new WeatherCondData(-1,WeatherDat.Delta,WeatherDat.WeatherCond));
@@ -69,7 +88,16 @@ public class Playing : GameState
         RelayController.SetPlayer(_ActivePlayer.gameObject);
         RelayController.Start();
         PlayStartTime = Time.time;
-       
+        TimeBetweenStorms = StartingTimeBetweenStorms;
+        EndTutorial();//FOR TESTING
+    }
+
+
+
+    public void EndTutorial()
+    {
+        NextStormTime = Time.time + StartingTimeBetweenStorms;
+        IsTutorial = false;
     }
 
 
@@ -77,24 +105,28 @@ public class Playing : GameState
 
 
 
-
-
-    float TimeBetweenStorms = 90; //time in seconds
-    float TimeDecreasePerCycle = 10; //the decrease in time between storms each storm cycle
-
-    bool IsTutorial = true;
+    bool IsTutorial = true; //false for testing
 
     public override void OnUpdate()
     {
         if (!IsTutorial) // dont run incremental storms until the player has finished the tutorial, that would be too evil
         {
-
-
-
-
-
-
-
+            if (Time.time >= NextStormTime)
+            {
+                Debug.Log("STORM");
+                WeatherController.SetNewWeatherCondition(StormWeatherCondition,StormlerpTime);
+                NextStormFinishTime = Time.time+StormlerpTime+ StormDuration;
+                NextStormTime += 9999999;
+            }
+            if (Time.time >= NextStormFinishTime)
+            {
+                Debug.Log("STORM Done");
+                WeatherController.SetNewWeatherCondition("base",StormlerpTime);
+                TimeBetweenStorms -= TimeDecreasePerCycle;
+                StormDuration += StormDurationIncreasePerCycle;
+                NextStormTime = Time.time + TimeBetweenStorms+StormlerpTime;
+                NextStormFinishTime = NextStormTime+999;
+            }
         }
     }
 
