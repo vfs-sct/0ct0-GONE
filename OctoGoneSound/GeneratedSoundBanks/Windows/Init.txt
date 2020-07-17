@@ -1,5 +1,6 @@
 State Group	ID	Name			Wwise Object Path	Notes
 	133642231	General			\Music\General	
+	392736999	GameFlow			\Music\GameFlow	
 	4086088495	BackEnd			\Music\BackEnd	
 	4212191649	FrontEnd			\Music\FrontEnd	
 
@@ -7,9 +8,13 @@ State	ID	Name	State Group			Notes
 	0	None	General			
 	4086088495	BackEnd	General			
 	4212191649	FrontEnd	General			
+	0	None	GameFlow			
+	953277036	Resume	GameFlow			
+	3092587493	Pause	GameFlow			
 	0	None	BackEnd			
 	89505537	Gameplay	BackEnd			
 	1959898597	Threat	BackEnd			
+	3181406844	Home	BackEnd			
 	4158285989	GameOver	BackEnd			
 	0	None	FrontEnd			
 	1838596016	Cinematic	FrontEnd			
@@ -22,16 +27,14 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	2918011349	MasterVolume			\Volume\MasterVolume	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
-	85412153	AMBIENCE			\Default Work Unit\Master Audio Bus\AMBIENCE	
+	85412153	AMBIENCE			\Default Work Unit\Master Audio Bus\SFX_MAIN\AMBIENCE	
+	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX_MAIN\SFX	
+	1534528548	VO			\Default Work Unit\Master Audio Bus\SFX_MAIN\VO	
 	3023356346	SFX_MAIN			\Default Work Unit\Master Audio Bus\SFX_MAIN	
 	3031508118	MUS_MAIN			\Default Work Unit\Master Audio Bus\MUS_MAIN	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
-Effect plug-ins	ID	Name	Type				Notes
-	2038996943	Plate_Sizzle	Wwise RoomVerb			
-
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			
 	3859886410	System	System			
-	4230635974	Default_Motion_Device	Wwise Motion			
 
