@@ -43,7 +43,7 @@ public class Playing : GameState
 
     private float PlayStartTime;
 
-    public override void Initalize()
+    public override void OnInitialize()
     {
         foreach (var WeatherDat in WeatherConditions)
         {
@@ -79,13 +79,23 @@ public class Playing : GameState
 
 
 
+    float TimeBetweenStorms = 90; //time in seconds
+    float TimeDecreasePerCycle = 10; //the decrease in time between storms each storm cycle
+
+    bool IsTutorial = true;
+
     public override void OnUpdate()
     {
+        if (!IsTutorial) // dont run incremental storms until the player has finished the tutorial, that would be too evil
+        {
 
 
 
 
 
+
+
+        }
     }
 
 
@@ -98,5 +108,6 @@ public class Playing : GameState
     public override void Reset()
     {
         _ActivePlayer = null;
+        IsTutorial = true;
     }
 }
