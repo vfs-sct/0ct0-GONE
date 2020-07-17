@@ -57,16 +57,18 @@ public class Options : MonoBehaviour
 
     void Awake()
     {
-        if(PlayerPrefs.GetFloat("InvertedCam") == -1)
+        if(PlayerPrefs.GetInt("InvertedCam") == -1)
         {
             InvertCamToggle.isOn = false;
         }
-        else if (PlayerPrefs.GetFloat("InvertedCam") == 1)
+        else if (PlayerPrefs.GetInt("InvertedCam") == 1)
         {
             InvertCamToggle.isOn = true;
         }
         else
         {
+            PlayerPrefs.SetInt("InvertedCam", 1);
+            PlayerPrefs.Save();
             InvertCamToggle.isOn = false;
         }
 
@@ -117,14 +119,14 @@ public class Options : MonoBehaviour
         if (InvertCamToggle.isOn)
         {
             //1 makes the camera inverted
-            PlayerPrefs.SetFloat("InvertedCam", 1);
+            PlayerPrefs.SetInt("InvertedCam", 1);
         }
         else
         {
             //-1 makes the camera not inverted
-            PlayerPrefs.SetFloat("InvertedCam", -1);
+            PlayerPrefs.SetInt("InvertedCam", -1);
         }
-        Debug.LogError(PlayerPrefs.GetFloat("InvertedCam"));
+        Debug.LogError(PlayerPrefs.GetInt("InvertedCam"));
         PlayerPrefs.Save();
         UIAwake.UpdateInvertCam();
     }
