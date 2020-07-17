@@ -25,9 +25,6 @@ public class RefuelEvent : Event
 
             previousAmount = CollectResource.GetInstanceValue(playerInventory);
 
-            //tutorial
-            //UIRootModule.UIRoot.GetScreen<Tutorial>().FirstPrompt();
-
             //objective text
             UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
             //var shortenCurrentAmount = (float)Math.Floor(CollectResource.GetInstanceValue(playerInventory));
@@ -54,8 +51,7 @@ public class RefuelEvent : Event
             if (currentAmount > previousAmount)
             {
                 ObjectivePopup(isFirstEvent);
-                NextTutorialPrompt();
-                Debug.Log("EVENT CONDITION MET");
+                //Debug.Log("EVENT CONDITION MET");
                 EventTrigger = true;
                 CodexProgression();
                 UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
@@ -79,11 +75,6 @@ public class RefuelEvent : Event
     private void ObjectivePopup(bool isFirst)
     {
         UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePopUp.SetObjectiveText(isFirst);
-    }
-
-    private void NextTutorialPrompt()
-    {
-        UIRootModule.UIRoot.GetScreen<Tutorial>().NextPrompt(5f);
     }
 
     private void CodexProgression()

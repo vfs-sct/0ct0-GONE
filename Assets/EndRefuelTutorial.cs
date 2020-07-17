@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class EndRefuelTutorial : MonoBehaviour
 {
+    [SerializeField] Tutorial tutorialController = null;
     [SerializeField] private UIAwake UIRoot = null;
     [SerializeField] private FillBar fuelFillBar = null;
     [SerializeField] Resource fuel;
+    [SerializeField] float bufferTime = 5f;
     private ResourceInventory playerInventory;
     private float startFuel;
 
@@ -19,7 +21,7 @@ public class EndRefuelTutorial : MonoBehaviour
     {
         if (fuel.GetInstanceValue(playerInventory) > startFuel)
         {
-            this.gameObject.SetActive(false);
+            tutorialController.NextPrompt(bufferTime);
         }
     }
 }
