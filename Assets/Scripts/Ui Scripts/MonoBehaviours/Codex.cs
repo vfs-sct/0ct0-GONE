@@ -111,11 +111,17 @@ public class Codex : MonoBehaviour
             {
                 //make it unlocked
                 isLocked[i] = false;
-                //UpdateButtons();
+
+                //play audiolog associated with that entry
+                soundScript.OnClickPlayDialogue(audioLogFile[i]);
+                UpdateButtons();
+
                 unlockedCount++;
+
                 //exit out
                 return;
             }
+            unlockedCount++;
         }
         if(unlockedCount == isLocked.Length - 1)
         {
