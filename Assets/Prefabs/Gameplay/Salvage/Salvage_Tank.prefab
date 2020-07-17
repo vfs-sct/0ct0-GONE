@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3904359635588628350}
   - component: {fileID: 4909315949323482400}
   - component: {fileID: 4535579870011547183}
+  - component: {fileID: -2641416835814177525}
+  - component: {fileID: 4650604041015629328}
   m_Layer: 10
   m_Name: Salvage_Tank
   m_TagString: Untagged
@@ -77,6 +79,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _SalvageItem: {fileID: 11400000, guid: fb62e7b645ffe154dab2fe65fe685a47, type: 2}
   _Amount: 1
+--- !u!114 &-2641416835814177525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767867292494933302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a383b9ec6f1a454d87ac445661c5df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 63df456d802c37d45ab8343304528447,
+      type: 2}
+--- !u!114 &4650604041015629328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767867292494933302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d195de73b9f084098e39a98eee8728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerObject: {fileID: 489913433233796651, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+    type: 3}
 --- !u!65 &4249405855503887020
 BoxCollider:
   m_ObjectHideFlags: 0

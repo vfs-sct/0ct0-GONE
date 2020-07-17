@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6440295300925557056}
   - component: {fileID: 3574037754033832913}
   - component: {fileID: -2501237730486759673}
+  - component: {fileID: 7132534246402981381}
+  - component: {fileID: -5267925871522602441}
   m_Layer: 10
   m_Name: Salvage_HeatSink
   m_TagString: Untagged
@@ -77,6 +79,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7132534246402981381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3827800401327970806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a383b9ec6f1a454d87ac445661c5df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 63df456d802c37d45ab8343304528447,
+      type: 2}
+--- !u!114 &-5267925871522602441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3827800401327970806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d195de73b9f084098e39a98eee8728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerObject: {fileID: 489913433233796651, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+    type: 3}
 --- !u!1001 &2605320516723093518
 PrefabInstance:
   m_ObjectHideFlags: 0

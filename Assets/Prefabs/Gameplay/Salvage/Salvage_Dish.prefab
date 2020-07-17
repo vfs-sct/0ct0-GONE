@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: -7656822720602049944}
   - component: {fileID: 4124352786646662336}
   - component: {fileID: 7733280274409977940}
+  - component: {fileID: -1176265118016944421}
+  - component: {fileID: 8487539527748105723}
   m_Layer: 10
   m_Name: Salvage_Dish
   m_TagString: Untagged
@@ -77,6 +79,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.13, y: 1.65, z: 2.2}
   m_Center: {x: -0.04, y: 0.53, z: 0.1}
+--- !u!114 &-1176265118016944421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049115481071579171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a383b9ec6f1a454d87ac445661c5df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 63df456d802c37d45ab8343304528447,
+      type: 2}
+--- !u!114 &8487539527748105723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049115481071579171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d195de73b9f084098e39a98eee8728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerObject: {fileID: 489913433233796651, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+    type: 3}
 --- !u!65 &8050484437583660298
 BoxCollider:
   m_ObjectHideFlags: 0
