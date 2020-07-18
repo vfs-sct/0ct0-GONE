@@ -378,7 +378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Approach debris and hold click to salvage
+  m_text: Click and hold debris to salvage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f1cdd07e639eafe4abe058e90a838344, type: 2}
   m_sharedMaterial: {fileID: 6124843639809782622, guid: f1cdd07e639eafe4abe058e90a838344,
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialController: {fileID: 6866696762855018061}
   clawTool: {fileID: 11400000, guid: cb6028535fa32d747b7bfcd2be2a8707, type: 2}
-  bufferTime: 2
+  bufferTime: 3
 --- !u!114 &4318390982871434358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialController: {fileID: 6866696762855018061}
-  bufferTime: 3
+  bufferTime: 1
 --- !u!114 &6091497079640685669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click debris to bring it toward Octo
+  m_text: Click debris to grab it
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f1cdd07e639eafe4abe058e90a838344, type: 2}
   m_sharedMaterial: {fileID: 6124843639809782622, guid: f1cdd07e639eafe4abe058e90a838344,
@@ -2066,11 +2066,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac506020437a554e99f5e6172ba6274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playing: {fileID: 11400000, guid: 73b932a297dd65a4eb2e226d7ff47152, type: 2}
   tutorialPrompts:
   - {fileID: 7173498287683100979}
   - {fileID: 7173498289198442980}
   - {fileID: 1218174208062693096}
   - {fileID: 1964763371717298002}
+  - {fileID: 3483726919638278257}
   - {fileID: 5580126975350801404}
   - {fileID: 7813846063264285133}
   - {fileID: 6865957212427720672}
@@ -2654,7 +2656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialController: {fileID: 6866696762855018061}
-  bufferTime: 3
+  bufferTime: 1
 --- !u!1 &7509011566025839983
 GameObject:
   m_ObjectHideFlags: 0
@@ -3251,7 +3253,7 @@ MonoBehaviour:
 
 
     Unwanted salvage can be dropped
-    by clicking it in the resource wheel'
+    by clicking the chunks on the resource wheel'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f1cdd07e639eafe4abe058e90a838344, type: 2}
   m_sharedMaterial: {fileID: 6124843639809782622, guid: f1cdd07e639eafe4abe058e90a838344,

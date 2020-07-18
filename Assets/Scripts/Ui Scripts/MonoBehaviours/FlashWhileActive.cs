@@ -70,7 +70,7 @@ public class FlashWhileActive : MonoBehaviour
 
             Color lerpToColor = new Color(imageColours[i].color.r, imageColours[i].color.g, imageColours[i].color.b, endAlpha);
 
-            imageColours[i].color = Color.Lerp(imageColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
+            imageColours[i].color = Color.Lerp(imageColours[i].color, lerpToColor, Time.unscaledDeltaTime * 1f / flashSpeed);
         }
     }
     public void FlashText()
@@ -89,7 +89,7 @@ public class FlashWhileActive : MonoBehaviour
 
             Color lerpToColor = new Color(textColours[i].color.r, textColours[i].color.g, textColours[i].color.b, endAlpha);
 
-            textColours[i].color = Color.Lerp(textColours[i].color, lerpToColor, Time.deltaTime * 1f / flashSpeed);
+            textColours[i].color = Color.Lerp(textColours[i].color, lerpToColor, Time.unscaledDeltaTime * 1f / flashSpeed);
         }
     }
 

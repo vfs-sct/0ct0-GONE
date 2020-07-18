@@ -2,7 +2,11 @@
 
 public class Tutorial : MonoBehaviour
 {
+    [SerializeField] Playing playing = null;
+
     [SerializeField] GameObject[] tutorialPrompts;
+
+    [Header("Do not touch:")]
     public int currentPrompt = 0;
 
     public void Start()
@@ -36,12 +40,14 @@ public class Tutorial : MonoBehaviour
     public void StartNextPrompt()
     {
         currentPrompt++;
-        if(tutorialPrompts[currentPrompt] != null)
+        if(currentPrompt < tutorialPrompts.Length)
         {
             tutorialPrompts[currentPrompt].SetActive(true);
         }
         else
         {
+            playing.EndTutorial();
+            Debug.LogWarning("Tutorial ended");
             gameObject.SetActive(false);
         }
     }
