@@ -12,6 +12,12 @@ public class RepairableComponent : MonoBehaviour
     [SerializeField] private float GooGluePerRepairCycle = 1;
     [SerializeField] private Resource GoGlueResourceName;
 
+    //if this object is not already repaired, can't repair this object
+    [SerializeField] private RepairableComponent previousRepair = null;
+    //next repairable object needs to know if this one's been repaired
+    private bool _isRepaired;
+    private bool isRepaired { get => _isRepaired; }
+
     public RepairObjectEvent LinkedEvent;
 
     public UnityEvent OnRepairComplete = new UnityEvent();
@@ -49,6 +55,11 @@ public class RepairableComponent : MonoBehaviour
 
     public bool CanRepair(GameObject parent)
     {
+        if (previousRepair != null && !previousRepair.isRepaired)
+        {
+            Debug.Log("Previous repair object not completed");
+            return false;
+        }
         if (!itemInventory.CheckIfItemBucket()) return false;
         foreach (var ComponentData in _RequiredComponents)
         {
@@ -82,7 +93,9 @@ public class RepairableComponent : MonoBehaviour
     {
         Debug.LogWarning("Repair Completed");
 
-        repairInfo.SetIsRepaired(true);
+        _isRepaired = true;
+
+        repairInfo.SetIsRepaired(_isRepaired);
 
         OnRepairComplete.Invoke();
     }
