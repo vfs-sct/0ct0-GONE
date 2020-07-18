@@ -229,7 +229,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         PlayingState.RegisterPlayer(this);
-        invertedCam = (int)PlayerPrefs.GetFloat("InvertedCam");
+        invertedCam = PlayerPrefs.GetInt("InvertedCam");
         HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
         Debug.Log("Inversion value: " + PlayerPrefs.GetInt("InvertedCam"));
     }

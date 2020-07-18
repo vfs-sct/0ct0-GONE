@@ -20,6 +20,11 @@ public class RepairEvent : Event
     [SerializeField] private Playing Playstate;
     [SerializeField] protected UIModule UIRootModule = null;
 
+    [Header("Highlighting")]
+    [SerializeField] private Material highlightMat = null;
+    private GameObject highlightObject = null;
+    private Material prevMat = null;
+
     private RepairableInfo targetSat = null;
     private GameHUD gameHUD = null;
 
@@ -41,6 +46,14 @@ public class RepairEvent : Event
             {
                 UIRootModule.UIRoot.player.gameObject.GetComponent<MovementController>().AddThrusterImpulse(thrusterIncrease);
             }
+
+            //reset material on object
+            var mesh = targetSat.gameObject.GetComponentInChildren<MeshRenderer>();
+            if (mesh != null)
+            {
+                mesh.material = prevMat;
+            }
+
             //todo update widget
             ObjectivePopup(isFirstEvent);
             Debug.Log("EVENT CONDITION MET");
@@ -49,6 +62,7 @@ public class RepairEvent : Event
             //reset scriptable object values
             targetSat = null;
             gameHUD = null;
+            prevMat = null;
             return true;
         }
         return false;
@@ -74,6 +88,13 @@ public class RepairEvent : Event
 
         //get our specific satellite's repair info off the repairableroot
         targetSat = EventModule.RepairableRoot.GetRepairable(repairStation).GetComponent<RepairableInfo>();
+
+        var mesh = targetSat.gameObject.GetComponentInChildren<MeshRenderer>();
+        if (mesh != null)
+        {
+            prevMat = mesh.material;
+            mesh.material = highlightMat;
+        }
 
         gameHUD = UIRootModule.UIRoot.GetScreen<GameHUD>();
 

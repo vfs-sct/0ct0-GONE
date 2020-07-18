@@ -138,7 +138,7 @@ public class GameFrameworkManager : ScriptableObject
             if (StateData.State != null)
             {
                 Debug.Log("Initializing "+ StateData.State + ":\n");
-                StateData.State.Initalize();
+                StateData.State.Initialize();
                 if (StateData.IsLinkedToScene)
                 {
                     StateSceneLinkDict.Add(StateData.LinkedScene,StateData.State);

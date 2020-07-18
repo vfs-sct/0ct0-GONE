@@ -46,10 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repairInfo: {fileID: 8417284611672127967}
-  _RequiredComponents: []
+  _RequiredComponents:
+  - item: {fileID: 11400000, guid: 702bc8a114d57044680804ee18c4d32f, type: 2}
+    amount: 1
   TimeToRepair: 1
   GooGluePerRepairCycle: 1
-  GoGlueResourceName: {fileID: 0}
+  GoGlueResourceName: {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
   LinkedEvent: {fileID: 0}
   OnRepairComplete:
     m_PersistentCalls:
@@ -233,8 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _DisplayName: Station Power Storage
-  _ID: 3
   repairableComponent: {fileID: 2827824115908151460}
+  previousRepair: {fileID: 0}
 --- !u!1 &5800567816831685346
 GameObject:
   m_ObjectHideFlags: 0

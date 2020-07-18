@@ -114,11 +114,9 @@ public class Codex : MonoBehaviour
 
                 //play audiolog associated with that entry
                 soundScript.OnClickPlayDialogue(audioLogFile[i]);
-                UpdateButtons();
 
-                unlockedCount++;
-
-                //exit out
+                //UpdateButtons();
+                //exit out of function
                 return;
             }
             unlockedCount++;
@@ -131,13 +129,25 @@ public class Codex : MonoBehaviour
 
     private void UpdateButtons()
     {
-        for(int i = 0; i < isLocked.Length; i++)
+        if (entryButtons.Count != 0)
         {
-            if (isLocked[i] == false)
+            for (int i = 0; i < isLocked.Length; i++)
             {
-                entryButtons[i].GetComponentInChildren<TextMeshProUGUI>().SetText(logEntries.Keys.ElementAt(i));
-                entryButtons[i].GetComponent<Button>().interactable = true;
+                if (isLocked[i] == false)
+                {
+                    entryButtons[i].GetComponentInChildren<TextMeshProUGUI>().SetText(logEntries.Keys.ElementAt(i));
+                    entryButtons[i].GetComponent<Button>().interactable = true;
+                }
+                else
+                {
+                    entryButtons[i].GetComponentInChildren<TextMeshProUGUI>().SetText("MEMORY CORRUPT");
+                    entryButtons[i].GetComponent<Button>().interactable = false;
+                }
             }
+        }
+        else
+        {
+            Debug.LogWarning("Codex buttons have not yet been created");
         }
     }
 
@@ -160,22 +170,18 @@ public class Codex : MonoBehaviour
 
         //Now I'm going to populate the Memory Logs section with buttons to the content in the logEntries dictionary
         //Using a foreach we'll loop through every pair in the logEntries dictionary and create a button for it
-        int index = 0;
         int audioLog = 0;
         foreach (var kvp in logEntries)
         {
             var newButton = AddNewButton(logEntries, kvp.Key, audioLog);
             entryButtons.Add(newButton);
             
-            //lock all codex entries if the first entries locked
-            if (isLocked[index] == true)
-            {
-                newButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Memory Corrupt");
-                newButton.GetComponent<Button>().interactable = false;
-            }
-
             audioLog++;
         }
+        
+        //makesure buttons are properly locked/unlock
+        UpdateButtons();
+        
         //Debug.Log("Number of buttons created" + entryButtons.Count);
 
         //New section header
