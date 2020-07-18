@@ -113,7 +113,7 @@ public class SalvageStorm : MonoBehaviour
 
     WeatherData NewCondition;
 
-    private void SetConditionData(WeatherData Condition)
+    public void SetConditionData(WeatherData Condition)
     {
         CurrentCondition = Condition;
         
@@ -121,10 +121,18 @@ public class SalvageStorm : MonoBehaviour
 
     private void LerpWeather(WeatherData OldCondition,WeatherData newCondition,float delta)
     {
+        if (delta > 1)
+        {
+            ChangingWeather = false;
+            return;
+        }
+        Debug.Log("Delta = "+ delta);
         List<float> temp = new List<float>();
+        float tempWeightsum = 0;
         for (int i = 0; i < OldCondition.SalvageWeights.Count; i++)
         {
             temp.Add(Mathf.Lerp(OldCondition.SalvageWeights[i],NewCondition.SalvageWeights[i],delta));
+            tempWeightsum += temp[i];
         }
 
 
@@ -135,14 +143,15 @@ public class SalvageStorm : MonoBehaviour
         Mathf.Lerp(OldCondition.WaveInterval,newCondition.WaveInterval,delta),
         Mathf.Lerp(OldCondition.LifeTime,newCondition.LifeTime,delta),
         Mathf.Lerp(OldCondition.Density,newCondition.Density,delta),
-        temp
+        temp,
+        tempWeightsum
         );
 
-        Debug.Log(newCondition.Density);
-    
+        Debug.Log(CurrentCondition.Density);
+        Debug.Log(CurrentCondition.MinSeparation);
     }
 
-    private void SetNewWeatherCondition(string Condition, float time = 0)
+    public void SetNewWeatherCondition(string Condition, float time = 0)
     {
         OldCondition = CurrentCondition;
         NewCondition=  new WeatherData(Conditions[Condition]);
@@ -156,7 +165,6 @@ public class SalvageStorm : MonoBehaviour
     public void Awake()
     {
         SalvagePrefabs = SalvagePool.SalvagePrefabs;
-        Dictionary<string,WeatherData> temp;
         WeatherData tempData;
         WeatherConditionData Weather;
         float WeightSum = 0;
@@ -179,8 +187,7 @@ public class SalvageStorm : MonoBehaviour
                 Weather.Weather.SalvageWeights,
                 WeightSum
             );
-            temp = new Dictionary<string, WeatherData>();
-            temp.Add(Weather.Name,tempData);
+            Conditions.Add(Weather.Name,tempData);
         }
 
         WeightSum = 0;
@@ -200,8 +207,7 @@ public class SalvageStorm : MonoBehaviour
             NewBaseCondition.Weather.SalvageWeights,
             WeightSum
         );
-        temp = new Dictionary<string, WeatherData>();
-        temp.Add("base",tempData);
+        Conditions.Add("base",tempData);
         _BaseCondition = tempData;
 
         SetConditionData(_BaseCondition);
@@ -237,7 +243,7 @@ public class SalvageStorm : MonoBehaviour
         float RandomSum = Random.Range(0,SumOfWeights);
         for (int i = 0; i < Data.Count; i++)
         {
-            if (RandomSum < Weights[i])
+            if (RandomSum <= Weights[i])
             {
                 return Data[i];
             }
@@ -302,11 +308,7 @@ public class SalvageStorm : MonoBehaviour
         gameObject.transform.position = new Vector3(gameObject.transform.position.x,LinkedGameObject.transform.position.y,LinkedGameObject.transform.position.z);
         if (ChangingWeather && Time.time-LerpStartTime <= WeatherTimeChange)
         {
-            LerpWeather(OldCondition,NewCondition,Time.time-LerpStartTime/WeatherTimeChange);
-            if (WeatherTimeChange == Time.time-LerpStartTime)
-            {
-                ChangingWeather = false;
-            }
+            LerpWeather(OldCondition,NewCondition,(Time.time-LerpStartTime)/WeatherTimeChange);
         }
 
         if (NextWaveTime <= Time.time)
