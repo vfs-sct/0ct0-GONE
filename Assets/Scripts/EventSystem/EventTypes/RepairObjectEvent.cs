@@ -12,15 +12,15 @@ public class RepairObjectEvent : Event
 
     public override bool Condition(GameObject target)
     {
-        Debug.LogWarning(LinkedComponent);
+        //Debug.LogWarning(LinkedComponent);
         return (LinkedComponent.RepairPercentage >= 1);
     }
 
     public void RegisterNewComponent(RepairableComponent newComp)
     {
-        Debug.LogWarning("Register Comp");
+        //Debug.LogWarning("Register Comp");
         LinkedComponent = newComp;
-        Debug.Log(LinkedComponent);
+        //Debug.Log(LinkedComponent);
         
     }
 

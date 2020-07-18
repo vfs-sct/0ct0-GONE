@@ -26,7 +26,7 @@ public class GetResourceEvent : Event
             previousAmount.Clear();
             totalAdded.Clear();
             UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
-            Debug.Log("EVENT" + this.name);
+            //Debug.Log("EVENT" + this.name);
 
             for (int i = 0; i < CollectResource.Length; i++)
             {
@@ -126,7 +126,7 @@ public class GetResourceEvent : Event
             if (incompletedTally == 0)
             {
                 ObjectivePopup(isFirstEvent);
-                Debug.Log("EVENT CONDITION MET");
+                //Debug.Log("EVENT CONDITION MET");
                 EventTrigger = true;
                 CodexProgression();
                 UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();

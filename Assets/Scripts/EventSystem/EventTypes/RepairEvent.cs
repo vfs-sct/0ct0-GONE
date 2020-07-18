@@ -56,7 +56,7 @@ public class RepairEvent : Event
 
             //todo update widget
             ObjectivePopup(isFirstEvent);
-            Debug.Log("EVENT CONDITION MET");
+            //Debug.Log("EVENT CONDITION MET");
             CodexProgression();
             gameHUD.objectivePanel.ClearObjectives();
             //reset scriptable object values
@@ -84,7 +84,7 @@ public class RepairEvent : Event
     }
     override public void InitializeEvent()
     {
-        Debug.Log("EVENT" + this.name);
+        //Debug.Log("EVENT" + this.name);
 
         //get our specific satellite's repair info off the repairableroot
         targetSat = EventModule.RepairableRoot.GetRepairable(repairStation).GetComponent<RepairableInfo>();
