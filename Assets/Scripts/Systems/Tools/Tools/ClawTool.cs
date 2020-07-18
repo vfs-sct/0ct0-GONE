@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Systems/Tools/Claw Tool")]
 public class ClawTool : Tool
@@ -12,6 +10,16 @@ public class ClawTool : Tool
 
     [SerializeField] private AK.Wwise.Event PlayGrabSound;
     [SerializeField] private float MaxHoldDistance;
+
+    //used by tutorial to see if player has correctly used claw tool
+    public bool HasObject()
+    {
+        if(TargetRB != null)
+        {
+            return true;
+        }
+        return false;
+    }
 
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
@@ -53,8 +61,15 @@ public class ClawTool : Tool
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
-        TargetRB.MovePosition(HoldPos.position);
-        TargetRB.velocity = OwnerRB.velocity;
+        if (TargetRB != null)
+        {
+            TargetRB.MovePosition(HoldPos.position);
+            TargetRB.velocity = OwnerRB.velocity;
+        }
+        else
+        {
+            Debug.LogError("Clawtool Target has no Rigidbody!");
+        }
         //TargetRB.MoveRotation(HoldPos.rotation);
     }
 }
