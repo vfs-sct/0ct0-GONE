@@ -126,7 +126,7 @@ public class Options : MonoBehaviour
             //-1 makes the camera not inverted
             PlayerPrefs.SetInt("InvertedCam", -1);
         }
-        Debug.LogError(PlayerPrefs.GetInt("InvertedCam"));
+        //Debug.LogError(PlayerPrefs.GetInt("InvertedCam"));
         PlayerPrefs.Save();
         UIAwake.UpdateInvertCam();
     }
