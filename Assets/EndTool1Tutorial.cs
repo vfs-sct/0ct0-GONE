@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public class EndToolTutorial : MonoBehaviour
+public class EndTool1Tutorial : MonoBehaviour
 {
     [SerializeField] Tutorial tutorialController = null;
     //time before the next popup appears after this ones deactivated
