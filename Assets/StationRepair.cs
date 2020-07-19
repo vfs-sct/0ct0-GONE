@@ -10,10 +10,25 @@ public class StationRepair : MonoBehaviour
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject HUDPrefab = null;
     [SerializeField] GameObject ComponentBox = null;
+
+    [Header("Unrepaired Panel")]
+    [SerializeField] GameObject repairPanel = null;
+    [SerializeField] TextMeshProUGUI titleTxt = null;
+    [SerializeField] Button repairButton = null;
+
     [SerializeField] HorizontalLayoutGroup[] rows = null;
+
+    [Header("Prerequisite Section")]
+    [SerializeField] private GameObject prerequisiteGO = null;
+    [SerializeField] private TextMeshProUGUI repairObjectTxt = null;
+
+    [Header("Completed Panel")]
+    [SerializeField] private GameObject completePanel = null;
+    [SerializeField] private TextMeshProUGUI completedTxt = null;
 
     [Header("Do not touch")]
     public RepairableComponent currentSat = null;
+    public RepairableInfo currentSatInfo = null;
 
     private void Start()
     {
@@ -36,6 +51,35 @@ public class StationRepair : MonoBehaviour
             for (int j = 0; j < childCount; j++)
             {
                 Destroy(rows[i].transform.GetChild(j).gameObject);
+            }
+        }
+    }
+
+    public void PrerequisitesUpdate()
+    {
+        var previousRepair = currentSat.previousRepair;
+
+        if (currentSat.previousRepair == null || previousRepair.isRepaired)
+        {
+            //enable repairing
+            repairButton.gameObject.SetActive(true);
+            repairButton.GetComponentInChildren<TextMeshProUGUI>().SetText($"Repair {currentSatInfo.AbrName}");
+
+            prerequisiteGO.SetActive(false);
+            return;
+        }
+        else
+        {
+            //turn on the prerequisite info box
+            prerequisiteGO.SetActive(true);
+
+            //set the info
+            if (!previousRepair.isRepaired)
+            {
+                //prevent repairing
+                repairButton.gameObject.SetActive(false);
+
+                repairObjectTxt.SetText(previousRepair.gameObject.GetComponentInParent<RepairableInfo>().DisplayName);
             }
         }
     }
@@ -75,10 +119,50 @@ public class StationRepair : MonoBehaviour
         }
     }
 
+    public void UpdateRepairButton()
+    {
+        if(!repairButton.gameObject.activeSelf)
+        {
+            return;
+        }
+        currentSat.SetupRepair(player.gameObject);
+        if (!currentSat.CanRepair(player.gameObject))
+        {
+            repairButton.interactable = false;
+            return;
+        }
+        repairButton.interactable = true;
+    }
+
     private void OnEnable()
     {
         Cursor.visible = true;
-        PopulateIngredients();
+        titleTxt.SetText(currentSatInfo.DisplayName);
+        ChooseDisplayPanel();
+    }
+
+    private void ChooseDisplayPanel()
+    {
+        if (currentSat.isRepaired)
+        {
+            if (!completePanel.activeSelf)
+            {
+                completePanel.SetActive(true);
+                repairPanel.SetActive(false);
+            }
+            completedTxt.SetText($"{currentSatInfo.DisplayName} Repaired");
+        }
+        else
+        {
+            if (!repairPanel.activeSelf)
+            {
+                repairPanel.SetActive(true);
+                completePanel.SetActive(false);
+            }
+            PopulateIngredients();
+            PrerequisitesUpdate();
+            UpdateRepairButton();
+        }
     }
 
     private void OnDisable()
@@ -87,9 +171,12 @@ public class StationRepair : MonoBehaviour
         ClearRows();
     }
 
+
+    //used to get the current sat and then enabled the screen - dont use SetActive on stationrepair.gameobject directly
     public void OpenScreen(RepairableComponent newSat)
     {
         currentSat = newSat;
+        currentSatInfo = currentSat.gameObject.GetComponentInParent<RepairableInfo>();
         this.gameObject.SetActive(true);
     }
 

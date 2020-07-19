@@ -50,7 +50,7 @@ public class GetItemEvent : Event
 
         //todo update widget
         ObjectivePopup(isFirstEvent);
-        Debug.Log("EVENT CONDITION MET");
+        //Debug.Log("EVENT CONDITION MET");
         CodexProgression();
         UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
         Inventory = null;
@@ -73,7 +73,7 @@ public class GetItemEvent : Event
     }
     override public void InitializeEvent()
     {
-        Debug.Log("EVENT" + this.name);
+        //Debug.Log("EVENT" + this.name);
 
         Inventory = Playstate.ActivePlayer.GetComponent<InventoryController>(); //TODO If we add respawning this will break!
 

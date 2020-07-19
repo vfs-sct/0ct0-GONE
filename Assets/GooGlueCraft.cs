@@ -11,7 +11,7 @@ public class GooGlueCraft : MonoBehaviour
     [SerializeField] InventoryController playerInv = null;
     [SerializeField] ResourceInventory playerResourceInv = null;
     [SerializeField] Button naniteCraftButton = null;
-    [SerializeField] GameObject poptext = null;
+    [SerializeField] GameObject poptextGO = null;
     private string popTextMSG = null;
 
     [Header("Recipe:")]
@@ -52,6 +52,22 @@ public class GooGlueCraft : MonoBehaviour
         entry.callback.AddListener((eventData) =>
         {
             ReleaseTimer();
+        });
+        trigger.triggers.Add(entry);
+
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
+        entry.callback.AddListener((eventData) =>
+        {
+            ShowTooltip();
+        });
+        trigger.triggers.Add(entry);
+
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerExit;
+        entry.callback.AddListener((eventData) =>
+        {
+            HideTooltip();
         });
         trigger.triggers.Add(entry);
     }
@@ -114,6 +130,10 @@ public class GooGlueCraft : MonoBehaviour
             if (craftTimer <= 0)
             {
                 DoCraft();
+                var popText = Instantiate(poptextGO);
+                popText.GetComponentInChildren<TextMeshProUGUI>().SetText("+30 Goo Glue");
+                popText.transform.SetParent(naniteCraftButton.transform);
+                popText.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
                 craftTimer = 0;
                 timerDial.gameObject.SetActive(false);
                 timerDial.fillAmount = 0f;
