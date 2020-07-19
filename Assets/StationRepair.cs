@@ -10,6 +10,9 @@ public class StationRepair : MonoBehaviour
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject HUDPrefab = null;
     [SerializeField] GameObject ComponentBox = null;
+
+    [Header("Unrepaired Panel")]
+    [SerializeField] GameObject repairPanel = null;
     [SerializeField] TextMeshProUGUI titleTxt = null;
     [SerializeField] Button repairButton = null;
 
@@ -18,6 +21,10 @@ public class StationRepair : MonoBehaviour
     [Header("Prerequisite Section")]
     [SerializeField] private GameObject prerequisiteGO = null;
     [SerializeField] private TextMeshProUGUI repairObjectTxt = null;
+
+    [Header("Completed Panel")]
+    [SerializeField] private GameObject completePanel = null;
+    [SerializeField] private TextMeshProUGUI completedTxt = null;
 
     [Header("Do not touch")]
     public RepairableComponent currentSat = null;
@@ -112,12 +119,50 @@ public class StationRepair : MonoBehaviour
         }
     }
 
+    public void UpdateRepairButton()
+    {
+        if(!repairButton.gameObject.activeSelf)
+        {
+            return;
+        }
+        currentSat.SetupRepair(player.gameObject);
+        if (!currentSat.CanRepair(player.gameObject))
+        {
+            repairButton.interactable = false;
+            return;
+        }
+        repairButton.interactable = true;
+    }
+
     private void OnEnable()
     {
         Cursor.visible = true;
         titleTxt.SetText(currentSatInfo.DisplayName);
-        PopulateIngredients();
-        PrerequisitesUpdate();
+        ChooseDisplayPanel();
+    }
+
+    private void ChooseDisplayPanel()
+    {
+        if (currentSat.isRepaired)
+        {
+            if (!completePanel.activeSelf)
+            {
+                completePanel.SetActive(true);
+                repairPanel.SetActive(false);
+            }
+            completedTxt.SetText($"{currentSatInfo.DisplayName} Repaired");
+        }
+        else
+        {
+            if (!repairPanel.activeSelf)
+            {
+                repairPanel.SetActive(true);
+                completePanel.SetActive(false);
+            }
+            PopulateIngredients();
+            PrerequisitesUpdate();
+            UpdateRepairButton();
+        }
     }
 
     private void OnDisable()

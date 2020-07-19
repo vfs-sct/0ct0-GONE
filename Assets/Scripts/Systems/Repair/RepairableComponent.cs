@@ -62,6 +62,7 @@ public class RepairableComponent : MonoBehaviour
             Debug.Log("Previous repair object not completed");
             return false;
         }
+        if(itemInventory == null) return false;
         if (!itemInventory.CheckIfItemBucket()) return false;
         foreach (var ComponentData in _RequiredComponents)
         {
