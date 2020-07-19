@@ -5,7 +5,7 @@ public class ResourceGainedPopTxt : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI popText;
     private Color lerpToColor;
-    private float lerpTime = 0.2f;
+    [SerializeField] private float lerpTime = 0.2f;
     private float upSpeed = 100f;
 
     private void Awake()

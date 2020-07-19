@@ -9,6 +9,7 @@ public class ShipStorageHUD : MonoBehaviour
     [SerializeField] ResourceInventory storageOwner = null;
     [SerializeField] HorizontalLayoutGroup dialLayout = null;
     [SerializeField] GameObject dial = null;
+    [SerializeField] GameObject popTextGO = null;
 
     private List<Resource> resourceList = null;
     private Dictionary<Resource, GameObject> updateDial = new Dictionary<Resource, GameObject>();
@@ -69,6 +70,11 @@ public class ShipStorageHUD : MonoBehaviour
 
             getObjects.GetCapacityText().SetText($"{storageOwner.GetResource(kvp.Key).ToString()}/{kvp.Key.GetMaximum().ToString()}");
             getObjects.GetFillImage().fillAmount = storageOwner.GetResource(kvp.Key) / kvp.Key.GetMaximum();
+
+            var popText = Instantiate(popTextGO);
+            popText.transform.SetParent(kvp.Value.GetComponentInChildren<Image>().transform);
+            popText.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+            popText.GetComponentInChildren<TextMeshProUGUI>().SetText("Transferred");
         }
     }
 }
