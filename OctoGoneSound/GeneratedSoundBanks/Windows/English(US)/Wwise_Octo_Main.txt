@@ -1,6 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
 	13776098	Explosion			\Octo_Main\Environment\Environmental\Explosion	
-	41405203	White_Noise_Spaceship_Play			\Octo_Main\Environment\Ambience\White_Noise_Spaceship_Play	
 	78924448	Satellite_Idle_Stop			\Octo_Main\Environment\Satellite\Satellite_Idle_Stop	
 	131276932	TEMP_VO_Octo1			\Octo_Main\Characters\Octo\VO\TEMP_VO_Octo1	
 	131276934	TEMP_VO_Octo3			\Octo_Main\Characters\Octo\VO\TEMP_VO_Octo3	
@@ -22,6 +21,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	609952641	Gas_Play			\Octo_Main\Environment\Environmental\Gas_Play	
 	636935130	LeavingCommRange			\Octo_Main\Characters\Octo\Computer\LeavingCommRange	
 	642867601	Electricity_Play			\Octo_Main\Environment\Environmental\Electricity_Play	
+	647411290	White_Noise_Env_Stop			\Octo_Main\Environment\Ambience\White_Noise_Env_Stop	
 	694886012	Options_Video_Resolution_Button_Apply			\Octo_Main\FE\MainMenu\Options\Options_Video\Options_Video_Resolution\Options_Video_Resolution_Button_Apply	
 	779278001	Death			\Octo_Main\Characters\Octo\Voice\Death	
 	781891296	ShutDownDamage			\Octo_Main\Characters\Octo\Computer\ShutDownDamage	
@@ -79,6 +79,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2465552598	MUS_In_Game_Play			\Octo_Main\Music\In_Game\MUS_In_Game_Play	
 	2470499543	Menu_Activation			\Octo_Main\UI\Menu_Activation	
 	2586944717	MainMenu_All_Button_Hover			\Octo_Main\FE\MainMenu\MainMenu_All_Button_Hover	
+	2606285032	White_Noise_Env_Play			\Octo_Main\Environment\Ambience\White_Noise_Env_Play	
 	2688229436	Voice_Log_08_Stop			\Octo_Main\VO\Voice_Log_08_Stop	
 	2765733061	Octo_Grab			\Octo_Main\Characters\Octo\SFX\Octo_Grab	
 	2866339600	Satellite_Radar_Stop			\Octo_Main\Environment\Satellite\Satellite_Radar_Stop	
@@ -102,7 +103,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	3355890559	ShutDownFuel			\Octo_Main\Characters\Octo\Computer\ShutDownFuel	
 	3362106049	MainMenu_Button_Options			\Octo_Main\FE\MainMenu\MainMenu_Button_Options	
 	3372377107	Quit_Button_No			\Octo_Main\FE\MainMenu\Quit\Quit_Button_No	
-	3466494713	White_Noise_Spaceship_Stop			\Octo_Main\Environment\Ambience\White_Noise_Spaceship_Stop	
 	3567146260	Octo_Damage_Rock			\Octo_Main\Characters\Octo\SFX\Octo_Damage_Rock	
 	3593654154	Options_Video_Resolution_Button_Revert			\Octo_Main\FE\MainMenu\Options\Options_Video\Options_Video_Resolution\Options_Video_Resolution_Button_Revert	
 	3719034323	Options_Button_Audio			\Octo_Main\FE\MainMenu\Options\Options_Button_Audio	
@@ -237,7 +237,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	455030064	VA_Colin_Oakley_Log2_03	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\Voices\English(US)\Oakley\VA_Colin_Oakley_Log2_03_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Nancy\VO\VO_Characters_Octo\Log2\Log2\VA_Colin_Oakley_Log2_03		679008
 	457464765	VO_Ash_Oct0_Log4_02	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\Voices\English(US)\Oct0\VO_Ash_Oct0_Log4_02_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Nancy\VO\VO_Characters_Octo\Log4\Log4\VO_Ash_Oct0_Log4_02		159840
 	461348371	VO_Ash_Oct0_Hurt	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\Voices\English(US)\Oct0\VO_Ash_Oct0_Hurt_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Nancy\VO\VO_Characters_Octo\Octo\VO_Ash_Oct0_Hurt		103008
-	466905773	SFX_Ambience_WhiteNoise_02	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\SFX\Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_02_13D75834.wem		\Actor-Mixer Hierarchy\TEMP_Nancy\SFX\SFX_Ambience\SFX_Ambience_WhiteNoise\SFX_Ambience_WhiteNoise_02		5522680
 	469233554	TEMP_VO_Octo2	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\Voices\English(US)\TEMP_Octo\Robot_Voice2a_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Patrick\VO_TEMP\TEMP_VO_Octo\TEMP_VO_Octo2		1000882
 	473101170	SFX_Button_Hover_01	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\SFX\UI\UI_Jordan\SFX_Button_Hover\SFX_Button_Hover_01_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Jordan\SFX\UI_SFX_FE\SFX_Button_Hover\SFX_Button_Hover_01		72096
 	473116086	VA_Colin_Oakley_Log3_02	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\Voices\English(US)\Oakley\VA_Colin_Oakley_Log3_02_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Nancy\VO\VO_Characters_Octo\Log3\Log3\VA_Colin_Oakley_Log3_02		223328
@@ -314,6 +313,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	875679401	TEMP_VO_Oakley4	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\Voices\English(US)\TEMP_Oakley\Oakley4a_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Patrick\VO_TEMP\TEMP_VO_Oakley\TEMP_VO_Oakley4		219986
 	881923386	VA_Ash_Computer_Warning_Damage_2	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\Voices\English(US)\Computer\Warning_Damage_2_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Nancy\VO\VO_Characters_Octo\Computer\CriticalDamage\VA_Ash_Computer_Warning_Damage_2		258144
 	889545855	VA_Ash_Computer_Warning_FuelLow_4	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\Voices\English(US)\Computer\Warning_FuelLow_4_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Nancy\VO\VO_Characters_Octo\Computer\FuelLow\VA_Ash_Computer_Warning_FuelLow_4		317536
+	893144292	SFX_Ambience_WhiteNoise_03	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\SFX\Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_03_EF66E883.wem		\Actor-Mixer Hierarchy\TEMP_Nancy\SFX\SFX_Ambience\SFX_Ambience_WhiteNoise\SFX_Ambience_WhiteNoise_03		8315568
 	919751778	VA_Colin_Oakley_Log4_02	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\Voices\English(US)\Oakley\VA_Colin_Oakley_Log4_02_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Nancy\VO\VO_Characters_Octo\Log4\Log4\VA_Colin_Oakley_Log4_02		264288
 	927093984	VA_Colin_Oakley_Log2_04	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\Voices\English(US)\Oakley\VA_Colin_Oakley_Log2_04_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Nancy\VO\VO_Characters_Octo\Log2\Log2\VA_Colin_Oakley_Log2_04		211040
 	930149629	SFX_Button_Hover_03	D:\FINALPROJECT\0ct0-GONE\OctoGoneSound\.cache\Windows\SFX\UI\UI_Jordan\SFX_Button_Hover\SFX_Button_Hover_03_BFB259A6.wem		\Actor-Mixer Hierarchy\TEMP_Jordan\SFX\UI_SFX_FE\SFX_Button_Hover\SFX_Button_Hover_03		56140
