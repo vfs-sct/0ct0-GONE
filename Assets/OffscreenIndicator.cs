@@ -7,38 +7,60 @@ public class OffscreenIndicator : MonoBehaviour
     [SerializeField] private Image indicator = null;
     [SerializeField] private Image shipHealthBar = null;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private int skipFrame = 5;
+
+    //uncomment if changing ship health bar to worldspace instead of camera overlay
+    //private void Start()
+    //{
+    //    shipHealthBar.gameObject.transform.position = spaceStation.transform.position;
+    //}
 
     // Update is called once per frame
     void Update()
     {
-        ShipHealth();
+        UpdateShipHUD();
     }
 
-    public void ShipHealth()
+    public void UpdateShipHUD()
     {
         Vector3 screenpos = Camera.main.WorldToScreenPoint(spaceStation.transform.position);
 
-        if(screenpos.z > 0 && 
-            screenpos.x > 0 && 
-            screenpos.x < Screen.width && 
-            screenpos.y > 0 && 
+        shipHealthBar.gameObject.transform.position = spaceStation.transform.position;
+
+        if (screenpos.z > 0 &&
+            screenpos.x > 0 &&
+            screenpos.x < Screen.width &&
+            screenpos.y > 0 &&
             screenpos.y < Screen.height)
         {
-            shipHealthBar.gameObject.SetActive(true);
+            //if (skipFrame == 5)
+            //{
+            //    if (!shipHealthBar.gameObject.activeSelf)
+            //    {
+            //        shipHealthBar.gameObject.SetActive(true);
+            //        indicator.gameObject.SetActive(false);
+            //    }
+            //    shipHealthBar.transform.position = screenpos;
+            //    skipFrame = 0;
+            //}
+            //else
+            //{
+            //    skipFrame++;
+            //}
+
             indicator.gameObject.SetActive(false);
-            shipHealthBar.transform.position = screenpos;
         }
         else
         {
-            shipHealthBar.gameObject.SetActive(false);
+            //if (shipHealthBar.gameObject.activeSelf)
+            //{
+            //    shipHealthBar.gameObject.SetActive(false);
+            //    indicator.gameObject.SetActive(true);
+            //}
+
             indicator.gameObject.SetActive(true);
 
-            if(screenpos.z<0)
+            if (screenpos.z < 0)
             {
                 screenpos *= -1;
             }
@@ -60,7 +82,7 @@ public class OffscreenIndicator : MonoBehaviour
             Vector3 screenBounds = screenCenter * 0.9f;
 
             //check up/down
-            if(cos>0)
+            if (cos > 0)
             {
                 screenpos = new Vector3(screenBounds.y / m, screenBounds.y, 0);
             }
@@ -69,11 +91,11 @@ public class OffscreenIndicator : MonoBehaviour
                 screenpos = new Vector3(-screenBounds.y / m, -screenBounds.y, 0);
             }
             //if out of bounds, get correct side
-            if(screenpos.x > screenBounds.x)
+            if (screenpos.x > screenBounds.x)
             {
                 screenpos = new Vector3(screenBounds.x, screenBounds.x * m, 0);
             }
-            else if (screenpos.x <-screenBounds.x)
+            else if (screenpos.x < -screenBounds.x)
             {
                 screenpos = new Vector3(-screenBounds.x, -screenBounds.x * m, 0);
             }
