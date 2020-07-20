@@ -37,7 +37,7 @@ public class Tutorial : MonoBehaviour
         StartNextPrompt();
     }
 
-    public void StartNextPrompt()
+    private void StartNextPrompt()
     {
         currentPrompt++;
         if(currentPrompt < tutorialPrompts.Length)
