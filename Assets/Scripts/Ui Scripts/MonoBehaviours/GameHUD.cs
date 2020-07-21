@@ -42,6 +42,7 @@ public class GameHUD : MonoBehaviour
 
     [Header("Grabbed by Tool Controller")]
     [SerializeField] public TextMeshProUGUI equippedToolText = null;
+    [SerializeField] public RawImage equippedToolIcon = null;
 
     [Header("Do not touch")]
     public Player player = null;

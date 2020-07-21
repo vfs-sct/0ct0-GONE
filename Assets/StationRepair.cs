@@ -86,7 +86,9 @@ public class StationRepair : MonoBehaviour
 
     private void DoCraft()
     {
-        //EVAN - some sort of ding or "crafting complete!" sound
+        //EVAN - if you have a bigger sounding "Complete!" sound it should go here,
+        //since completing this repairs part of the main station and unlocks a codex
+
         AkSoundEngine.PostEvent("Crafting_Success", gameObject);
 
         currentSat.InstantComplete(player.gameObject);
@@ -237,6 +239,9 @@ public class StationRepair : MonoBehaviour
 
     private void OnEnable()
     {
+        //EVAN 
+        //sound for when you open the panel where you can inspect the large station objects
+        //that can be repaired for narrative events - ie, Station Antenna, Station Solar Array, Station Power Storage etc
         Cursor.visible = true;
         titleTxt.SetText(currentSatInfo.DisplayName);
         ChooseDisplayPanel();
