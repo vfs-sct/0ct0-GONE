@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -15,6 +16,9 @@ public class StationRepair : MonoBehaviour
     [SerializeField] GameObject repairPanel = null;
     [SerializeField] TextMeshProUGUI titleTxt = null;
     [SerializeField] Button repairButton = null;
+    [SerializeField] GameObject popTextGO = null;
+    [SerializeField] Image timerDial = null;
+    [SerializeField] float buttonHoldTime = 0.5f;
 
     [SerializeField] HorizontalLayoutGroup[] rows = null;
 
@@ -26,13 +30,81 @@ public class StationRepair : MonoBehaviour
     [SerializeField] private GameObject completePanel = null;
     [SerializeField] private TextMeshProUGUI completedTxt = null;
 
+    [Header("Sound Related")]
+    public bool isSoundPlayed;
+
     [Header("Do not touch")]
     public RepairableComponent currentSat = null;
     public RepairableInfo currentSatInfo = null;
 
+    private float craftTimer = 4f;
+    private bool isCrafting = false;
+
     private void Start()
     {
         rows[1].gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (isCrafting == true)
+        {
+            UpdateTimer();
+        }
+    }
+
+    public void UpdateTimer()
+    {
+        //EVAN - a little timer dial pops up and might need a sound for when it's filling
+        //if you click & hold something to craft you'll see it
+        if (!isSoundPlayed)
+        {
+            AkSoundEngine.PostEvent("Octo_Tether_Grab", gameObject);
+            isSoundPlayed = true;
+        }
+
+        if (craftTimer != 0)
+        {
+            timerDial.gameObject.SetActive(true);
+            craftTimer -= Time.unscaledDeltaTime;
+            timerDial.fillAmount = (buttonHoldTime - craftTimer) / buttonHoldTime;
+            if (craftTimer <= 0)
+            {
+                DoCraft();
+                var popText = Instantiate(popTextGO);
+                popText.GetComponentInChildren<TextMeshProUGUI>().SetText("Repaired");
+                popText.transform.SetParent(repairButton.transform);
+                popText.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+                craftTimer = 0;
+                timerDial.gameObject.SetActive(false);
+                timerDial.fillAmount = 0f;
+                isCrafting = false;
+            }
+        }
+    }
+
+    private void DoCraft()
+    {
+        //EVAN - some sort of ding or "crafting complete!" sound
+        AkSoundEngine.PostEvent("Crafting_Success", gameObject);
+
+        currentSat.InstantComplete(player.gameObject);
+
+        isSoundPlayed = false;
+    }
+
+    public void HoldTimer()
+    {
+        isCrafting = true;
+        craftTimer = buttonHoldTime;
+    }
+    public void ReleaseTimer()
+    {
+        //Debug.Log("Release Timer");
+        craftTimer = 0;
+        timerDial.gameObject.SetActive(false);
+        timerDial.fillAmount = 0f;
+        isCrafting = false;
     }
 
     public void ClearRows()
@@ -132,6 +204,34 @@ public class StationRepair : MonoBehaviour
             return;
         }
         repairButton.interactable = true;
+
+        //button clicking setup
+        EventTrigger trigger = repairButton.GetComponent<EventTrigger>();
+
+        trigger.triggers.Clear();
+
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerDown;
+        entry.callback.AddListener((eventData) =>
+        {
+            if (!currentSat.CanRepair(player.gameObject))
+            {
+                return;
+            }
+            var pointerData = (PointerEventData)eventData;
+            timerDial.transform.position = pointerData.position;
+            HoldTimer();
+        });
+
+        trigger.triggers.Add(entry);
+
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerUp;
+        entry.callback.AddListener((eventData) =>
+        {
+            ReleaseTimer();
+        });
+        trigger.triggers.Add(entry);
     }
 
     private void OnEnable()

@@ -67,8 +67,7 @@ public class RepairableComponent : MonoBehaviour
         foreach (var ComponentData in _RequiredComponents)
         {
             if (!itemInventory.GetItemBucket()[0].Bucket.ContainsKey(ComponentData.item)) return false;
-            if (ComponentData.amount > itemInventory.GetItemBucket()[0].Bucket[ComponentData.item]) return false;
-            
+            if (ComponentData.amount > itemInventory.GetItemBucket()[0].Bucket[ComponentData.item]) return false;   
         }
         //if (resourceInventory.GetResource(GoGlueResourceName) < GooGluePerRepairCycle*(TimeToRepair/RepairTickrate)) return false;
         if (_RepairPercentage >=  1) 
@@ -92,8 +91,19 @@ public class RepairableComponent : MonoBehaviour
         }
     }
 
+    public void InstantComplete(GameObject parent)
+    {
+        CompleteRepair(parent);
+    }
+
     protected void CompleteRepair(GameObject parent)
     {
+        //wasn't removing required components before
+        foreach (var ComponentData in _RequiredComponents)
+        {
+            itemInventory.RemoveFromItemBucket(ComponentData.item, ComponentData.amount);
+        }
+
         Debug.LogWarning("Repair Completed");
 
         _isRepaired = true;
