@@ -65,7 +65,7 @@
 				<Event Id="2470499543" Name="Menu_Activation" ObjectPath="\Events\Octo_Main\UI\Menu_Activation" GUID="{8EDA8723-1F3B-48E3-BECD-CE272329FC1E}" DurationType="OneShot" DurationMin="1.567958" DurationMax="1.567958"/>
 				<Event Id="3752642990" Name="Menu_Deactivation" ObjectPath="\Events\Octo_Main\UI\Menu_Deactivation" GUID="{BB014FF4-CABC-4F0A-B9B2-1EF7839D453A}" DurationType="OneShot" DurationMin="2.125000" DurationMax="2.125000"/>
 				<Event Id="1341439083" Name="Metal_Collision" ObjectPath="\Events\Octo_Main\Environment\Environmental\Metal_Collision" GUID="{E904720B-AE69-4394-940B-135432007B5F}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1006438764" Name="Metal_Moving_Play" ObjectPath="\Events\Octo_Main\Environment\Environmental\Metal_Moving_Play" GUID="{52279B18-0A21-4A69-B784-5493FAE1A633}" DurationType="Infinite"/>
+				<Event Id="1006438764" Name="Metal_Moving_Play" ObjectPath="\Events\Octo_Main\Environment\Environmental\Metal_Moving_Play" GUID="{52279B18-0A21-4A69-B784-5493FAE1A633}" MaxAttenuation="100.000000" DurationType="Infinite"/>
 				<Event Id="2976223350" Name="Metal_Moving_Stop" ObjectPath="\Events\Octo_Main\Environment\Environmental\Metal_Moving_Stop" GUID="{14E11FE2-2B87-457B-A0D8-B9B5F250B5AC}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1832975494" Name="MUS_In_Game_Pause" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_In_Game_Pause" GUID="{625786AA-6356-4531-8DF5-0619F4BCC497}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2465552598" Name="MUS_In_Game_Play" ObjectPath="\Events\Octo_Main\Music\In_Game\MUS_In_Game_Play" GUID="{AACD6CF5-0B02-45C4-8CF0-AD4DCC5E914E}" DurationType="Infinite"/>
@@ -141,8 +141,8 @@
 				<Event Id="3980982613" Name="Voice_Log_07_Stop" ObjectPath="\Events\Octo_Main\VO\Voice_Log_07_Stop" GUID="{69BEB62F-9A06-46FB-8F43-8289D2BA59AC}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2086793442" Name="Voice_Log_08_Play" ObjectPath="\Events\Octo_Main\VO\Voice_Log_08_Play" GUID="{66B975C9-CBF9-4D6A-B375-C76C5517E830}" DurationType="OneShot" DurationMin="17.076000" DurationMax="17.076000"/>
 				<Event Id="2688229436" Name="Voice_Log_08_Stop" ObjectPath="\Events\Octo_Main\VO\Voice_Log_08_Stop" GUID="{8CC52083-8C4B-4E24-8B4D-0FD24BFA38B3}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="41405203" Name="White_Noise_Spaceship_Play" ObjectPath="\Events\Octo_Main\Environment\Ambience\White_Noise_Spaceship_Play" GUID="{7E923973-46E1-4F94-9D7D-F8495CF87789}" DurationType="Infinite"/>
-				<Event Id="3466494713" Name="White_Noise_Spaceship_Stop" ObjectPath="\Events\Octo_Main\Environment\Ambience\White_Noise_Spaceship_Stop" GUID="{E2F5A719-78CE-46CC-85ED-427B30836353}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2606285032" Name="White_Noise_Env_Play" ObjectPath="\Events\Octo_Main\Environment\Ambience\White_Noise_Env_Play" GUID="{7E923973-46E1-4F94-9D7D-F8495CF87789}" DurationType="Infinite"/>
+				<Event Id="647411290" Name="White_Noise_Env_Stop" ObjectPath="\Events\Octo_Main\Environment\Ambience\White_Noise_Env_Stop" GUID="{E2F5A719-78CE-46CC-85ED-427B30836353}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="7371432" Language="English(US)">
@@ -444,10 +444,6 @@
 				<File Id="461348371" Language="English(US)">
 					<ShortName>Oct0\VO_Ash_Oct0_Hurt.wav</ShortName>
 					<Path>Voices\English(US)\Oct0\VO_Ash_Oct0_Hurt_BFB259A6.wem</Path>
-				</File>
-				<File Id="466905773" Language="SFX">
-					<ShortName>Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_02.wav</ShortName>
-					<Path>SFX\Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_02_13D75834.wem</Path>
 				</File>
 				<File Id="469233554" Language="English(US)">
 					<ShortName>TEMP_Octo\Robot_Voice2a.wav</ShortName>
@@ -752,6 +748,10 @@
 				<File Id="889545855" Language="English(US)">
 					<ShortName>Computer\Warning_FuelLow_4.wav</ShortName>
 					<Path>Voices\English(US)\Computer\Warning_FuelLow_4_BFB259A6.wem</Path>
+				</File>
+				<File Id="893144292" Language="SFX">
+					<ShortName>Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_03.wav</ShortName>
+					<Path>SFX\Ambience\Ambience_Nancy\SFX_Ambience_WhiteNoise_03_EF66E883.wem</Path>
 				</File>
 				<File Id="919751778" Language="English(US)">
 					<ShortName>Oakley\VA_Colin_Oakley_Log4_02.wav</ShortName>
