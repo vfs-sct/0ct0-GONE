@@ -79,6 +79,7 @@ public class StationRepair : MonoBehaviour
                 timerDial.gameObject.SetActive(false);
                 timerDial.fillAmount = 0f;
                 isCrafting = false;
+                ChooseDisplayPanel();
             }
         }
     }

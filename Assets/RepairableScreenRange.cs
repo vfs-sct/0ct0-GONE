@@ -32,7 +32,15 @@ public class RepairableScreenRange : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Did not find Repairable Component on passed collision");
+                var repairedComponent = currentSat.GetComponentInParent<RepairedInfo>();
+                if (repairedComponent != null)
+                {
+                    StationRepairScreen.OpenScreen(repairedComponent.GetRepairedComponent()); ;
+                }
+                else
+                {
+                    Debug.LogError("Did not find Repairable Component on passed collision");
+                }
             }
         }
     }
