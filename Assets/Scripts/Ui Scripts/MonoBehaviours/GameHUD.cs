@@ -128,7 +128,7 @@ public class GameHUD : MonoBehaviour
             getObject.GetToolText().SetText(tool.displayName);
             getObject.GetHotkeyText().SetText("[ " + hotkey.ToString() + " ]");
             getObject.GetButtonImage().sprite = enabledSprite;
-            //getObject.GetToolIcon().sprite = tool.toolIcon;
+            getObject.GetToolIcon().sprite = tool.toolIcon;
             getObject.GetToolIcon().color = disabledTextColour;
 
             toolList.Add(newTool);
