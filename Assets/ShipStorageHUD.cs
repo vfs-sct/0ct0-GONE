@@ -22,6 +22,14 @@ public class ShipStorageHUD : MonoBehaviour
         {
             GenerateDial(resource);
         }
+
+        foreach (var kvp in updateDial)
+        {
+            var popText = Instantiate(popTextGO);
+            popText.transform.SetParent(kvp.Value.GetComponentInChildren<Image>().transform);
+            popText.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+            popText.GetComponentInChildren<TextMeshProUGUI>().SetText("Transferred");
+        }
     }
 
     public void SetStorageOwner(ResourceInventory newOwner)
@@ -34,6 +42,14 @@ public class ShipStorageHUD : MonoBehaviour
         if(resourceList == null)
         {
             resourceList = storageOwner.GetActiveResourceList();
+        }
+
+        foreach (var kvp in updateDial)
+        {
+            var popText = Instantiate(popTextGO);
+            popText.transform.SetParent(kvp.Value.GetComponentInChildren<Image>().transform);
+            popText.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+            popText.GetComponentInChildren<TextMeshProUGUI>().SetText("Transferred");
         }
 
         UpdateDials();
@@ -70,11 +86,6 @@ public class ShipStorageHUD : MonoBehaviour
 
             getObjects.GetCapacityText().SetText($"{storageOwner.GetResource(kvp.Key).ToString()}/{kvp.Key.GetMaximum().ToString()}");
             getObjects.GetFillImage().fillAmount = storageOwner.GetResource(kvp.Key) / kvp.Key.GetMaximum();
-
-            var popText = Instantiate(popTextGO);
-            popText.transform.SetParent(kvp.Value.GetComponentInChildren<Image>().transform);
-            popText.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
-            popText.GetComponentInChildren<TextMeshProUGUI>().SetText("Transferred");
         }
     }
 }
