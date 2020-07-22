@@ -21,7 +21,7 @@ public class FuelSatelliteBehavior : SatelliteBehavior
             FoundCloud = collider.GetComponentInParent<GasCloud>();
             if (FoundCloud != null)
             {
-                if (!FoundCloud.HasFuelSatellite)
+                if (!FoundCloud.HasNaniteSat)
                 {
                     return true;
                 }
@@ -31,6 +31,6 @@ public class FuelSatelliteBehavior : SatelliteBehavior
     }
     public override void OnPlacePreview(ToolController Owner)
     {
-        FoundCloud.HasFuelSatellite = true;
+        FoundCloud.HasNaniteSat = true;
     }
 }

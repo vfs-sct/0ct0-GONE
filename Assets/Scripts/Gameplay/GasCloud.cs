@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class GasCloud : MonoBehaviour
 {
-    public bool HasFuelSatellite = false;
+    public bool HasNaniteSat = false;
 }

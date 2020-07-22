@@ -89,6 +89,12 @@ public class ResourceInventory : MonoBehaviour
 
     }
 
+    public bool CanAdd(Resource resource, float amount)
+    {
+        return resource.CanAdd(this,amount);
+    }
+
+
     public void SetResource(Resource resource, float amount)
     {
         resource.SetInstanceValue(this,amount);
