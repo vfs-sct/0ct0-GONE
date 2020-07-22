@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 17542406}
   - component: {fileID: 17542405}
   - component: {fileID: 17542409}
+  - component: {fileID: 17542410}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -329,6 +330,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &17542410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17542404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingHealth: 0
+  _MaxHealth: 100
+  MinimumSpeed: 5
+  DamageMultiplier: 1
+  DamageModifier: 0.5
 --- !u!1 &64001469
 GameObject:
   m_ObjectHideFlags: 0
@@ -16719,6 +16737,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &551546136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551546134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingHealth: 100
+  _MaxHealth: 100
+  MinimumSpeed: 5
+  DamageMultiplier: 1
+  DamageModifier: 0.5
 --- !u!114 &557481069 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 997335207557337859, guid: 3219ccd55e0001b4c8703f7dc571d41e,
@@ -18153,6 +18188,7 @@ GameObject:
   - component: {fileID: 1571843482}
   - component: {fileID: 1571843481}
   - component: {fileID: 1571843485}
+  - component: {fileID: 1571843486}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -18250,6 +18286,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1571843486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571843480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingHealth: 0
+  _MaxHealth: 100
+  MinimumSpeed: 5
+  DamageMultiplier: 1
+  DamageModifier: 0.5
 --- !u!1 &1626336799
 GameObject:
   m_ObjectHideFlags: 0
