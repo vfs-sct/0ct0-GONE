@@ -33,30 +33,20 @@ public class OffscreenIndicator : MonoBehaviour
             screenpos.y > 0 &&
             screenpos.y < Screen.height)
         {
-            //if (skipFrame == 5)
-            //{
-            //    if (!shipHealthBar.gameObject.activeSelf)
-            //    {
-            //        shipHealthBar.gameObject.SetActive(true);
-            //        indicator.gameObject.SetActive(false);
-            //    }
-            //    shipHealthBar.transform.position = screenpos;
-            //    skipFrame = 0;
-            //}
-            //else
-            //{
-            //    skipFrame++;
-            //}
-
-            indicator.gameObject.SetActive(false);
+            if (!shipHealthBar.gameObject.activeSelf)
+            {
+                shipHealthBar.gameObject.SetActive(true);
+                indicator.gameObject.SetActive(false);
+            }
+            shipHealthBar.transform.position = screenpos;
         }
         else
         {
-            //if (shipHealthBar.gameObject.activeSelf)
-            //{
-            //    shipHealthBar.gameObject.SetActive(false);
-            //    indicator.gameObject.SetActive(true);
-            //}
+            if (shipHealthBar.gameObject.activeSelf)
+            {
+                shipHealthBar.gameObject.SetActive(false);
+                indicator.gameObject.SetActive(true);
+            }
 
             indicator.gameObject.SetActive(true);
 

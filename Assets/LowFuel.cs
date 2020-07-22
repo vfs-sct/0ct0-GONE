@@ -20,6 +20,8 @@ public class LowFuel : MonoBehaviour
 
     public void TurnOn()
     {
+        //EVAN - sound for when octo has low energy and is about to die - this is a continuous state
+        //so it could be a single sound or a loop
         this.gameObject.SetActive(true);
         flashScript.enabled = true;
         fadeOut = false;
@@ -27,6 +29,7 @@ public class LowFuel : MonoBehaviour
 
     public void TurnOff()
     {
+        //EVAN - if the "low energy" sound is a loop, this is where to end it
         fadeOut = true;
         flashScript.enabled = false;
     }

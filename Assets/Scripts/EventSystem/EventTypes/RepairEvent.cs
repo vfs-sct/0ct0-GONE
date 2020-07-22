@@ -100,7 +100,8 @@ public class RepairEvent : Event
 
         //set objective text
         gameHUD.objectivePanel.ClearObjectives();
-        string objectiveUpdate = $"0/1 - {actionVerb} the {targetSat.DisplayName}";
+
+        string objectiveUpdate = string.Format("0/1 - {0} the <color=#FFC63B>{1}</color>", actionVerb, targetSat.DisplayName);
         gameHUD.objectivePanel.AddObjective(objectiveUpdate);
     }
 }
