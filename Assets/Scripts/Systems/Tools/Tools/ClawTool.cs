@@ -52,6 +52,7 @@ public class ClawTool : Tool
         if (LastPressedTime + AntiSpamDelay <= Time.unscaledTime)
         {
             //EVAN - if there's a "failed tool" sound
+            AkSoundEngine.PostEvent("Crafting_Failure", popTextGO); 
             var popText = Instantiate(popTextGO);
             popText.GetComponentInChildren<TextMeshProUGUI>().SetText("Can't Grab");
             LastPressedTime = Time.unscaledTime;

@@ -72,8 +72,9 @@ public class RepairableComponent : MonoBehaviour
         //if (resourceInventory.GetResource(GoGlueResourceName) < GooGluePerRepairCycle*(TimeToRepair/RepairTickrate)) return false;
         if (_RepairPercentage >=  1) 
             {
-                //EVAN - repair over time complete from in game world (probably repairing normal damage to the station)
-                CompleteRepair(parent);
+            //EVAN - repair over time complete from in game world (probably repairing normal damage to the station)
+            AkSoundEngine.PostEvent("Octo_Tether_Rope", gameObject);
+            CompleteRepair(parent);
                 return false; //complete the repair
             }
         return true;
@@ -84,6 +85,7 @@ public class RepairableComponent : MonoBehaviour
     public void RepairUpdate(GameObject parent)
     {
         //EVAN - repairs being done over time in-game
+        AkSoundEngine.PostEvent("Octo_Tether_Grab", gameObject);
         if (Time.time > NextRepairTick)
         {
             //resourceInventory.RemoveResource(GoGlueResourceName,GooGluePerRepairCycle);
@@ -96,6 +98,9 @@ public class RepairableComponent : MonoBehaviour
     public void InstantComplete(GameObject parent)
     {
         //EVAN - repair of major station component completed from within UI, completes event objective
+        AkSoundEngine.PostEvent("Octo_Grab", gameObject);
+        AkSoundEngine.PostEvent("Octo_Salvage", gameObject);
+        AkSoundEngine.PostEvent("Complete_Objective", gameObject);
         CompleteRepair(parent);
     }
 
