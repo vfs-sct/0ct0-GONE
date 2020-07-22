@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Systems/Tools/Claw Tool")]
 public class ClawTool : Tool
@@ -10,6 +11,10 @@ public class ClawTool : Tool
 
     [SerializeField] private AK.Wwise.Event PlayGrabSound;
     [SerializeField] private float MaxHoldDistance;
+    [SerializeField] private GameObject popTextGO = null;
+
+    private float LastPressedTime;
+    private float AntiSpamDelay = 0.2f;
 
     //used by tutorial to see if player has correctly used claw tool
     public bool HasObject()
@@ -24,6 +29,20 @@ public class ClawTool : Tool
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
         TargetRB = target.GetComponent<Rigidbody>();
+        
+        //target has a mesh visible to the player but isn't a grabbable object
+        var TargetMesh = target.GetComponent<MeshRenderer>();
+        if (TargetMesh != null && TargetRB == null)
+        {
+            //anti spam
+            if (LastPressedTime + AntiSpamDelay <= Time.unscaledTime)
+            {
+                var popText = Instantiate(popTextGO);
+                popText.GetComponentInChildren<TextMeshProUGUI>().SetText("Can't Grab");
+                LastPressedTime = Time.unscaledTime;
+            }
+        }
+
         PlayGrabSound.Post(target);
         return (TargetRB != null);
     }
@@ -57,6 +76,7 @@ public class ClawTool : Tool
     {
         HoldPos = owner.GetComponent<Player>().ObjectHoldPosition;
         OwnerRB = owner.GetComponent<Rigidbody>();
+        LastPressedTime = Time.unscaledTime;
     }
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
