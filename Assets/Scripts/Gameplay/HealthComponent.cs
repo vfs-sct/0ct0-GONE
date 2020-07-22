@@ -14,6 +14,9 @@ public class HealthComponent : MonoBehaviour
     private HealthEventDeltaDelegate OnDelta = null;
 
     float _Health;
+
+    [SerializeField] private ShipHealthBar shipHealthBar = null;
+
     [SerializeField] private float StartingHealth = 0f;
     [SerializeField] private float _MaxHealth = 100f;
 
@@ -30,6 +33,13 @@ public class HealthComponent : MonoBehaviour
     private void Awake()
     {
         _Health = StartingHealth;
+        if (shipHealthBar != null)
+        {
+            //give max health to the UI bar
+            shipHealthBar.SetMaxHealth(_MaxHealth);
+            shipHealthBar.SetFill(_Health);
+        }
+        Debug.Log(_Health);
     }
 
     private void SetHealth_Internal(float healthValue)
@@ -39,6 +49,12 @@ public class HealthComponent : MonoBehaviour
         if (OnDelta != null)
         {
             OnDelta(this,OldHealth-_Health);
+        }
+
+        if (shipHealthBar != null)
+        {
+            //update the UI bar
+            shipHealthBar.SetFill(_Health);
         }
         
     }

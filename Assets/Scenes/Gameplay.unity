@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipHealthBar: {fileID: 0}
   StartingHealth: 0
   _MaxHealth: 100
   MinimumSpeed: 5
@@ -986,6 +987,11 @@ PrefabInstance:
       propertyPath: lowFuelOverlay
       value: 
       objectReference: {fileID: 714129642}
+    - target: {fileID: 4399867385289436927, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6837312819164111146, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: NoSatTooltip
@@ -5660,6 +5666,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipArrow
       objectReference: {fileID: 0}
+    - target: {fileID: 3080246857773803707, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3082715661191088257, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -6853,7 +6864,17 @@ PrefabInstance:
     - target: {fileID: 3781567988214087609, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859919357728743448, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859919357728743448, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3863715492345309837, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
@@ -12958,7 +12979,7 @@ PrefabInstance:
     - target: {fileID: 7559092790589955406, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7565420817765927371, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
@@ -15650,6 +15671,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 376850737}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &376850748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2019938459581195759, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+    type: 3}
+  m_PrefabInstance: {fileID: 376850737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4576622c75f42d43968b947800e900c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &393177072
 GameObject:
   m_ObjectHideFlags: 0
@@ -16352,6 +16385,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
+        type: 3}
+      propertyPath: shipHealthBar
+      value: 
+      objectReference: {fileID: 376850748}
     - target: {fileID: 2215880452067278697, guid: 20690aa1823b1b24386de633e8aa3fd9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -16769,45 +16807,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f378fee6472fe954b84d393d3821aca7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20690aa1823b1b24386de633e8aa3fd9, type: 3}
---- !u!1 &551546134 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7000755827852074401, guid: 20690aa1823b1b24386de633e8aa3fd9,
-    type: 3}
-  m_PrefabInstance: {fileID: 551546133}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &551546135
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551546134}
-  serializedVersion: 2
-  m_Mass: 1400
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &551546136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551546134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingHealth: 100
-  _MaxHealth: 100
-  MinimumSpeed: 5
-  DamageMultiplier: 1
-  DamageModifier: 0.5
 --- !u!114 &557481069 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 997335207557337859, guid: 3219ccd55e0001b4c8703f7dc571d41e,
@@ -18143,7 +18142,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 551546133}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551546134}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35215f6ef2c16d244857908585185b42, type: 3}
@@ -18353,6 +18352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipHealthBar: {fileID: 0}
   StartingHealth: 0
   _MaxHealth: 100
   MinimumSpeed: 5
@@ -19751,6 +19751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipHealthBar: {fileID: 0}
   StartingHealth: 100
   _MaxHealth: 100
   MinimumSpeed: 5
@@ -19922,6 +19923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipHealthBar: {fileID: 0}
   StartingHealth: 100
   _MaxHealth: 100
   MinimumSpeed: 5

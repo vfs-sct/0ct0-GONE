@@ -12,6 +12,8 @@ public class ClawTool : Tool
     [SerializeField] private AK.Wwise.Event PlayGrabSound;
     [SerializeField] private float MaxHoldDistance;
     [SerializeField] private GameObject popTextGO = null;
+    //largest mass object Octo can grab
+    [SerializeField] private float massMax = 150;
 
     private float LastPressedTime;
     private float AntiSpamDelay = 0.2f;
@@ -30,22 +32,30 @@ public class ClawTool : Tool
     {
         TargetRB = target.GetComponent<Rigidbody>();
         
-        //target has a mesh visible to the player but isn't a grabbable object
-        var TargetMesh = target.GetComponent<MeshRenderer>();
-        if (TargetMesh != null && TargetRB == null)
+        if (TargetRB == null)
         {
-            //anti spam
-            if (LastPressedTime + AntiSpamDelay <= Time.unscaledTime)
-            {
-                //EVAN - if there's a "failed tool" sound
-                var popText = Instantiate(popTextGO);
-                popText.GetComponentInChildren<TextMeshProUGUI>().SetText("Can't Grab");
-                LastPressedTime = Time.unscaledTime;
-            }
+            NoGrabPopText();
+        } //there was a bug where Octo could grab one of the 250 mass shields but it was too big for him to move so he rocketed toward it and then glitched out into space and died, lol. Now he can only grab certain size things
+        else if (TargetRB.mass > 150)
+        {
+            NoGrabPopText();
+            return false;
         }
 
         PlayGrabSound.Post(target);
         return (TargetRB != null);
+    }
+
+    //UI
+    public void NoGrabPopText()
+    {
+        if (LastPressedTime + AntiSpamDelay <= Time.unscaledTime)
+        {
+            //EVAN - if there's a "failed tool" sound
+            var popText = Instantiate(popTextGO);
+            popText.GetComponentInChildren<TextMeshProUGUI>().SetText("Can't Grab");
+            LastPressedTime = Time.unscaledTime;
+        }
     }
 
     protected override bool DeactivateCondition(ToolController owner, GameObject target)
