@@ -72,6 +72,7 @@ public class RepairableComponent : MonoBehaviour
         //if (resourceInventory.GetResource(GoGlueResourceName) < GooGluePerRepairCycle*(TimeToRepair/RepairTickrate)) return false;
         if (_RepairPercentage >=  1) 
             {
+                //EVAN - repair over time complete from in game world (probably repairing normal damage to the station)
                 CompleteRepair(parent);
                 return false; //complete the repair
             }
@@ -82,6 +83,7 @@ public class RepairableComponent : MonoBehaviour
 
     public void RepairUpdate(GameObject parent)
     {
+        //EVAN - repairs being done over time in-game
         if (Time.time > NextRepairTick)
         {
             //resourceInventory.RemoveResource(GoGlueResourceName,GooGluePerRepairCycle);
@@ -93,6 +95,7 @@ public class RepairableComponent : MonoBehaviour
 
     public void InstantComplete(GameObject parent)
     {
+        //EVAN - repair of major station component completed from within UI, completes event objective
         CompleteRepair(parent);
     }
 

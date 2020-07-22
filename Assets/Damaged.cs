@@ -19,6 +19,7 @@ public class Damaged : MonoBehaviour
     {
         if (!isLowFuel)
         {
+            //EVAN - octo hurt sound, already buffered so cant be spammed
             StartCoroutine(BufferTime(flashTime));
         }
     }
