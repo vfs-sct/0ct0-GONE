@@ -42,6 +42,7 @@ public class GameHUD : MonoBehaviour
 
     [Header("Grabbed by Tool Controller")]
     [SerializeField] public TextMeshProUGUI equippedToolText = null;
+    [SerializeField] public RawImage equippedToolIcon = null;
 
     [Header("Do not touch")]
     public Player player = null;
@@ -129,7 +130,7 @@ public class GameHUD : MonoBehaviour
             getObject.GetHotkeyText().SetText("[ " + hotkey.ToString() + " ]");
             getObject.GetButtonImage().sprite = enabledSprite;
             getObject.GetToolIcon().sprite = tool.toolIcon;
-            getObject.GetToolIcon().color = disabledTextColour;
+            getObject.GetToolIcon().color = enabledTextColour;
 
             toolList.Add(newTool);
             hotkey++;
@@ -190,8 +191,10 @@ public class GameHUD : MonoBehaviour
         {
             var lastToolObj = toolList[currentTool].GetComponent<GetObjects>();
             lastToolObj.GetButtonImage().color = enabledBGColour;
+            lastToolObj.GetButtonImage().sprite = enabledSprite;
             lastToolObj.GetToolText().color = enabledTextColour;
             lastToolObj.GetHotkeyText().color = enabledTextColour;
+            lastToolObj.GetToolIcon().color = enabledTextColour;
             lastToolObj.GetToolText().SetText(playerTools.GetEquiptTools()[currentTool].displayName);
         }
         gooGlueBar.SetActive(false);
