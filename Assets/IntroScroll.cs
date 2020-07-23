@@ -12,22 +12,67 @@ public class IntroScroll : MonoBehaviour
 
     private string[] introScroll = new string[]
     {
-        "...",
-        " BOOTING",
-        "\n\nModel: 0CT0-314",
-        "\n\nTool systems: OK",
-        "\n\nMovement systems: OK",
-        "\n\nEnergy storage: Critical",
+        "...", //2,
+        " DIAG", //.25f,
+        "NOSTICS ", //.25f,
+        "COMPLETE", //.5f,
+        "\n\nModel: ", //2,
+        "0CT0", //.5f,
+        "-", //.07f
+        "3", //.07f,
+        "1", //.075f,
+        "4", //1,
+        "\n\nTool ", //.25f,
+        "and ", //.25f,
+        "movement ", //.25f,
+        "systems: ", //1.5f,
+        "Functional", //1.25f,
+        "\n\n! WARNING !", //1,
+        "\n\nMEMORY ",//.5f,
+        "CORRUPTION: ", //5f,
+        " 77", //1
+        ".5%", //1,
+        "\n\nFUEL ", //.5f,
+        "LEVELS: ", //.5f,
+        "Low", //1,
+        "\n\nPlease ", //.25f,
+        "return ", //.25f,
+        "to ", //.25f,
+        "station ", //.25f,
+        "for ", //.25f,
+        "refueling ", //4,
     };
 
     private float[] waitTimes = new float[]
     {
-        1,
-        1,
         2,
-        3,
-        3,
-        3,
+        .25f,
+        .25f,
+        .5f,
+        2,
+        .5f,
+        .07f,
+        .09f,
+        .075f,
+        1,
+        .25f,
+        .25f,
+        .25f,
+        1.5f,
+        1.25f,
+        1,
+        .5f,
+        .5f,
+        1,
+        .5f,
+        .5f,
+        1,
+        .25f,
+        .25f,
+        .25f,
+        .25f,
+        .25f,
+        4,
     };
 
     private bool fadingIn = true;
@@ -73,7 +118,7 @@ public class IntroScroll : MonoBehaviour
     {
         doneWaiting = false;
         yield return new WaitForSeconds(waitTime);
-        if (current + 1 < introScroll.Length)
+        if (current < introScroll.Length)
         {
             NewText();
         }
