@@ -145,7 +145,7 @@ public class Resource : ScriptableObject
         //}
 
         //don't show pop text when AddInstanceValue is being used to subtract resources
-        if (isAdd && valueToAdd != 0)
+        if (isAdd && valueToAdd != 0 && owner.gameObject.GetComponent<Player>() != null)
         {
             //do nothing if the resource is already at max
             if (Maximum != 0 && Data[owner].Value == Maximum)
