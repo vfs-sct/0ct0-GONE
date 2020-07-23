@@ -35,8 +35,9 @@ public class ClawTool : Tool
         if (TargetRB == null)
         {
             NoGrabPopText();
+            
         } //there was a bug where Octo could grab one of the 250 mass shields but it was too big for him to move so he rocketed toward it and then glitched out into space and died, lol. Now he can only grab certain size things
-        else if (TargetRB.mass > 150)
+        else if (TargetRB.mass > 150) //TODO Fix this properly lol, for now I'll decrease the mass of the shields
         {
             NoGrabPopText();
             return false;

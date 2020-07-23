@@ -84,15 +84,18 @@ public class SalvageTool : Tool
             {
                 Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Full");
                 Deactivate(owner,target);
+                return;
             }
         }
         else 
         {
             //error pop text
             Instantiate(popText).popText.SetText("Cannot Salvage");
+            return;
             //Debug.Log("Could not salvage");
             //Debug.Log(SalvComp.SalvageItem + " is not a resource");
         }  
+        //EVAN: Start the salvage sound
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
@@ -105,6 +108,8 @@ public class SalvageTool : Tool
             {
                 //Debug.Log(owner.PlayerInventory.GetResourceAmount(SalvComp.SalvageItem.ResourceType));
                 Destroy(OriginalTarget);
+                
+                //EVAN: Play salvaged success sound here
                 //resource gained pop text
                 Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");
                 //Debug.Log("Salvaged Object");
@@ -112,12 +117,16 @@ public class SalvageTool : Tool
         else 
         {
             Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Full");
-        }   
+        } 
+
+        //EVAN: finish the salvage sound  
+        
         //error pop text
         //Debug.Log("Not enough space");
         SalvComp = null;
         SwitchedTargets = true;
         OriginalTarget = null;
+        
     }
 
     protected override void OnSelect(ToolController owner)
@@ -145,5 +154,6 @@ public class SalvageTool : Tool
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
+        //EVAN: While loop when tool is active, play some laser noises
     }
 }
