@@ -16,6 +16,7 @@ public class CommunicationModule : Module
         public bool IsActive;
 
         public bool ShowWarning;
+        public bool ShowBounds;
         public GameObject RangeIndicator;
 
         public CommRelayData(CommunicationZone G,float R, bool A)
@@ -25,6 +26,7 @@ public class CommunicationModule : Module
             IsActive = A;
             RangeIndicator = null;
             ShowWarning = false;
+            ShowBounds = false;
         }
         public CommRelayData(CommunicationZone G,float R, bool A,GameObject RA)
         {
@@ -33,14 +35,16 @@ public class CommunicationModule : Module
             IsActive = A;
             RangeIndicator = RA;
             ShowWarning = false;
+            ShowBounds = false;
         }
-        public CommRelayData(CommRelayData Data,bool SW)
+        public CommRelayData(CommRelayData Data,bool SW,bool SB)
         {
             LinkedObject = Data.LinkedObject;
             Radius = Data.Radius;
             IsActive = Data.IsActive;
             RangeIndicator = Data.RangeIndicator;
             ShowWarning = SW;
+            ShowBounds = SB;
         }
         public CommRelayData(CommRelayData Data,float R)
         {
@@ -49,6 +53,7 @@ public class CommunicationModule : Module
             IsActive = Data.IsActive;
             RangeIndicator = Data.RangeIndicator;
             ShowWarning = Data.ShowWarning;
+            ShowBounds = Data.ShowBounds;
         }
     }
 
@@ -64,6 +69,7 @@ public class CommunicationModule : Module
 
     [SerializeField] private GameObject CommRelayRangeIndicatorPrefab;
     [SerializeField] private float WarningDistance = 20; 
+    [SerializeField] private float ShowBoundsDistance = 75;
     [SerializeField] private UIModule UIController;
 
     public override void Initialize()
@@ -138,18 +144,28 @@ public class CommunicationModule : Module
                     NearestRelay = Zones[i].LinkedObject;
                 }
                 PlayerInRange = PlayerInRange |(distance <= Zones[i].Radius);
-                if (Zones[i].ShowWarning == false && distance >= (Zones[i].Radius-WarningDistance))
-                {
-                    warningUI.GetWarning(0).SetActive(true);
-                    ShowRangeIndicator(i);
-                    Zones[i] = new CommRelayData(Zones[i],true);
-                }
-                else if (Zones[i].ShowWarning == true &&  distance < (Zones[i].Radius-WarningDistance))
-                {
-                    warningUI.GetWarning(0).SetActive(false);
-                    HideRangeIndicator(i);
-                    Zones[i] = new CommRelayData(Zones[i],false);
-                }
+                
+                    if (!Zones[i].ShowWarning && distance >= (Zones[i].Radius-WarningDistance))
+                    {
+                        warningUI.GetWarning(0).SetActive(true);
+                        Zones[i] = new CommRelayData(Zones[i],true,Zones[i].ShowBounds);
+                    }
+                    if (!Zones[i].ShowBounds &&distance >= (Zones[i].Radius-ShowBoundsDistance))
+                    {
+                        ShowRangeIndicator(i);
+                        Zones[i] = new CommRelayData(Zones[i],Zones[i].ShowWarning,true);
+                    }
+                    if (Zones[i].ShowWarning && distance < (Zones[i].Radius-WarningDistance))
+                    {
+                        warningUI.GetWarning(0).GetComponent<ActivateWarning>().DisableWarning();
+                        Zones[i] = new CommRelayData(Zones[i],false,Zones[i].ShowBounds);
+                    }
+
+                    if (Zones[i].ShowBounds && distance < (Zones[i].Radius-ShowBoundsDistance))
+                    {
+                        HideRangeIndicator(i);
+                        Zones[i] = new CommRelayData(Zones[i],Zones[i].ShowWarning,false);
+                    }
             }
         }
     }

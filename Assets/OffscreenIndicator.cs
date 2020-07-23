@@ -25,7 +25,7 @@ public class OffscreenIndicator : MonoBehaviour
     {
         Vector3 screenpos = Camera.main.WorldToScreenPoint(spaceStation.transform.position);
 
-        shipHealthBar.gameObject.transform.position = spaceStation.transform.position;
+        //shipHealthBar.gameObject.transform.position = spaceStation.transform.position;
 
         if (screenpos.z > 0 &&
             screenpos.x > 0 &&
@@ -33,22 +33,22 @@ public class OffscreenIndicator : MonoBehaviour
             screenpos.y > 0 &&
             screenpos.y < Screen.height)
         {
-            if (!shipHealthBar.gameObject.activeSelf)
+            if (indicator.gameObject.activeSelf)
             {
-                shipHealthBar.gameObject.SetActive(true);
+                //shipHealthBar.gameObject.SetActive(true);
                 indicator.gameObject.SetActive(false);
             }
-            shipHealthBar.transform.position = screenpos;
+            //shipHealthBar.transform.position = screenpos;
         }
         else
         {
-            if (shipHealthBar.gameObject.activeSelf)
+            if (!indicator.gameObject.activeSelf)
             {
-                shipHealthBar.gameObject.SetActive(false);
+                //shipHealthBar.gameObject.SetActive(false);
                 indicator.gameObject.SetActive(true);
             }
 
-            indicator.gameObject.SetActive(true);
+            //indicator.gameObject.SetActive(true);
 
             if (screenpos.z < 0)
             {
