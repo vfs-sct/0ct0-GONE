@@ -67,7 +67,7 @@ public class GasCloudPostProcessing : MonoBehaviour
 
     private void Disabling()
     {
-        Debug.LogWarning("DISABLING IS HAPPENING");
+        //Debug.LogWarning("DISABLING IS HAPPENING");
         chromAb.intensity.value = Mathf.Lerp(chromAb.intensity.value, chromAbMin, Time.deltaTime * 1f / (flashSpeed / 2));
         vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, vigMin, Time.deltaTime * 1f / (flashSpeed / 2));
         colorgrad.colorFilter.value = Color.Lerp(colorgrad.colorFilter.value, colorgradMin, Time.deltaTime * 1f / (flashSpeed / 2));
@@ -78,7 +78,7 @@ public class GasCloudPostProcessing : MonoBehaviour
             vignette.intensity.value = vigMin;
             colorgrad.colorFilter.value = colorgradMin;
 
-            Debug.LogWarning("DISABLED");
+            //Debug.LogWarning("DISABLED");
 
             isDisabling = false;
             warningPanel.SetActive(false);  
