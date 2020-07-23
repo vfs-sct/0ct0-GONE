@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{077540BE-B990-4076-A0E9-AD908753CB5C}" SchemaVersion="94" RootDocumentID="{9922E05F-4015-4112-8E88-3A6D761122FE}">
+	<Events>
+		<WorkUnit Name="UI" ID="{077540BE-B990-4076-A0E9-AD908753CB5C}" OwnerID="{9922E05F-4015-4112-8E88-3A6D761122FE}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="Gas_Warning" ID="{B270E39C-E49E-4D76-99A0-C9E0820A5299}">
+					<ChildrenList>
+						<Action Name="" ID="{FE0123FD-998A-4346-892E-2C65EC14E7CF}" ShortID="658399371">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_HUD_Gas_Warning" ID="{1F181A69-90D8-4D46-9D6B-88B87D878253}" WorkUnitID="{CBEB9F3F-168A-4B51-AFD0-2E6F7DF60156}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Asteroid_Warning" ID="{02EC627F-A7D2-42CE-BCB7-5BF508749265}">
+					<ChildrenList>
+						<Action Name="" ID="{950C4079-8187-4C6F-95E6-C21706FD284A}" ShortID="761323331">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_HUD_Asteroid_Warning" ID="{C0F16AA3-BFC6-4935-93D5-ED2153A130EC}" WorkUnitID="{CBEB9F3F-168A-4B51-AFD0-2E6F7DF60156}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Electrical_Spark_Warning" ID="{16CA0B55-FD49-4012-B6D3-C776689B35C8}">
+					<ChildrenList>
+						<Action Name="" ID="{65D7DBA3-5363-4D6C-A9D8-FA011981A7BA}" ShortID="314537958">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_HUD_Elec_Warning" ID="{F04A73A3-07DA-48EA-AA50-7F473C5948B7}" WorkUnitID="{CBEB9F3F-168A-4B51-AFD0-2E6F7DF60156}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Menu_Activation" ID="{8EDA8723-1F3B-48E3-BECD-CE272329FC1E}">
+					<ChildrenList>
+						<Action Name="" ID="{00EBE490-4716-470E-8264-4A2F8647956B}" ShortID="418092959">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_IGMenu_Activation" ID="{36BA0F9B-04D1-434C-B158-2720C72E32B7}" WorkUnitID="{CBEB9F3F-168A-4B51-AFD0-2E6F7DF60156}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Menu_Deactivation" ID="{BB014FF4-CABC-4F0A-B9B2-1EF7839D453A}">
+					<ChildrenList>
+						<Action Name="" ID="{CEA5F425-21E8-4BEC-8D7B-72ABA4ED846E}" ShortID="760003307">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_IGMenu_Deactivation" ID="{49768C9B-A30F-4DC1-A46F-09242DBCE517}" WorkUnitID="{CBEB9F3F-168A-4B51-AFD0-2E6F7DF60156}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Objective_New_Banner" ID="{0753B100-66C6-4E3E-A9BC-D44929E371D5}">
+					<ChildrenList>
+						<Action Name="" ID="{0F1EA5FA-D35E-4F0C-AF27-F2BF3AC9A082}" ShortID="807085691">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Objective_Popup" ID="{FC46EE6F-A5BF-4279-9378-08BAE245C032}" WorkUnitID="{CBEB9F3F-168A-4B51-AFD0-2E6F7DF60156}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
