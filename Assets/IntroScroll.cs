@@ -45,6 +45,7 @@ public class IntroScroll : MonoBehaviour
 
     private float[] waitTimes = new float[]
     {
+        0f,
         2,
         .25f,
         .25f,
@@ -52,7 +53,7 @@ public class IntroScroll : MonoBehaviour
         2,
         .5f,
         .07f,
-        .09f,
+        .07f,
         .075f,
         1,
         .25f,
@@ -63,6 +64,7 @@ public class IntroScroll : MonoBehaviour
         1,
         .5f,
         .5f,
+        1,
         1,
         .5f,
         .5f,
@@ -118,7 +120,7 @@ public class IntroScroll : MonoBehaviour
     {
         doneWaiting = false;
         yield return new WaitForSeconds(waitTime);
-        if (current < introScroll.Length)
+        if (current + 1 <= introScroll.Length)
         {
             NewText();
         }
