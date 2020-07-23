@@ -146,7 +146,7 @@ public class CommunicationModule : Module
                 }
                 else if (Zones[i].ShowWarning == true &&  distance < (Zones[i].Radius-WarningDistance))
                 {
-                    warningUI.GetWarning(0).SetActive(false);
+                    warningUI.GetWarning(0).GetComponent<ActivateWarning>().DisableWarning();
                     HideRangeIndicator(i);
                     Zones[i] = new CommRelayData(Zones[i],false);
                 }
