@@ -42,7 +42,7 @@ public class StationRepair : MonoBehaviour
 
     private void Start()
     {
-        rows[1].gameObject.SetActive(false);
+        //rows[1].gameObject.SetActive(false);
     }
 
     private void Update()
