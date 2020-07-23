@@ -58,6 +58,7 @@ public class IntroScroll : MonoBehaviour
         //keep the game running in the background but disable player controller so that
         //debris has had a chance to spawn and get into a nice place before player enters game
         playerMovement.enabled = false;
+        AkSoundEngine.PostEvent("Leave_Comm_Play", gameObject);
         text.SetText(introScroll.ElementAt(current).Key);
     }
 
@@ -79,6 +80,7 @@ public class IntroScroll : MonoBehaviour
     public void NewText()
     {
         //EVAN - if you want to accompany text appearing on the screen during the intro with a sound
+        AkSoundEngine.PostEvent("Octo_Systems_Text", gameObject);
         scrollText = scrollText + introScroll.ElementAt(current).Key;
         text.SetText(scrollText);
         doneWaiting = true;
@@ -114,6 +116,7 @@ public class IntroScroll : MonoBehaviour
             gameObject.SetActive(false);
         }
         AkSoundEngine.PostEvent("Leave_Comm_Stop", gameObject);
+        AkSoundEngine.PostEvent("MainMenu_Transition", gameObject);
         AkSoundEngine.PostEvent("Remembering_Oakley", gameObject);
     }
 }
