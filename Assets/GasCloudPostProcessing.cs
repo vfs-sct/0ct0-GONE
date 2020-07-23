@@ -11,11 +11,11 @@ public class GasCloudPostProcessing : MonoBehaviour
     [Header("Animation Values")]
     [SerializeField] public float flashSpeed;
     [SerializeField] public float vigMax;
-    [SerializeField] public float vigMin;
+    private float vigMin;
     [SerializeField] public float chromAbMax;
-    [SerializeField] public float chromAbMin;
+    private float chromAbMin;
     [SerializeField] public Color colorgradMax;
-    [SerializeField] public Color colorgradMin;
+    private Color colorgradMin;
 
     private Vignette vignette;
     private ChromaticAberration chromAb;
@@ -31,6 +31,11 @@ public class GasCloudPostProcessing : MonoBehaviour
         post.profile.TryGetSettings<Vignette>(out vignette);
         post.profile.TryGetSettings<ChromaticAberration>(out chromAb);
         post.profile.TryGetSettings<ColorGrading>(out colorgrad);
+
+        vigMin = vignette.intensity.value;
+        chromAbMin = chromAb.intensity.value;
+        colorgradMin = colorgrad.colorFilter.value;
+
         isEnabling = true;
     }
     private void OnEnable()
@@ -62,13 +67,19 @@ public class GasCloudPostProcessing : MonoBehaviour
 
     private void Disabling()
     {
-        //Debug.LogWarning("DISABLING IS HAPPENING");
+        Debug.LogWarning("DISABLING IS HAPPENING");
         chromAb.intensity.value = Mathf.Lerp(chromAb.intensity.value, chromAbMin, Time.deltaTime * 1f / (flashSpeed / 2));
         vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, vigMin, Time.deltaTime * 1f / (flashSpeed / 2));
         colorgrad.colorFilter.value = Color.Lerp(colorgrad.colorFilter.value, colorgradMin, Time.deltaTime * 1f / (flashSpeed / 2));
 
         if (chromAb.intensity.value <= chromAbMin + 0.04f)
         {
+            chromAb.intensity.value = chromAbMin;
+            vignette.intensity.value = vigMin;
+            colorgrad.colorFilter.value = colorgradMin;
+
+            Debug.LogWarning("DISABLED");
+
             isDisabling = false;
             warningPanel.SetActive(false);  
             parent.SetActive(false);
