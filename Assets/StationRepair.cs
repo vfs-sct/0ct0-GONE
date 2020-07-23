@@ -243,6 +243,7 @@ public class StationRepair : MonoBehaviour
         //sound for when you open the panel where you can inspect the large station objects
         //that can be repaired for narrative events - ie, Station Antenna, Station Solar Array, Station Power Storage etc
         Cursor.visible = true;
+        AkSoundEngine.PostEvent("Complete_Objective", gameObject);
         titleTxt.SetText(currentSatInfo.DisplayName);
         ChooseDisplayPanel();
     }

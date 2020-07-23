@@ -47,6 +47,7 @@ public class EnterAreaWarning : MonoBehaviour
         else if (other.gameObject == player.gameObject)
         {
             alert.gameObject.SetActive(true);
+            AkSoundEngine.PostEvent("GasDetected", gameObject);
             inGasCloud = true;
         }
     }
