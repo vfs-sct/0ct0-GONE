@@ -97,13 +97,14 @@ public class Playing : GameState
         PlayStartTime = Time.time;
         TimeBetweenStorms = StartingTimeBetweenStorms;
         warningUI = UIController.UIRoot.GetScreen<GetWarnings>();
-        EndTutorial();//FOR TESTING
+        //EndTutorial();//FOR TESTING
     }
 
 
 
     public void EndTutorial()
     {
+        if (IsTutorial == false) return;
         NextStormTime = Time.time + StartingTimeBetweenStorms;
         IsTutorial = false;
     }

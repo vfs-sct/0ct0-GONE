@@ -46,7 +46,7 @@ public class Tutorial : MonoBehaviour
         }
         else
         {
-            playing.EndTutorial();
+            //playing.EndTutorial(); //Jesse - Moving this to be triggered when the player repairs their first component
             Debug.LogWarning("Tutorial ended");
             gameObject.SetActive(false);
         }
