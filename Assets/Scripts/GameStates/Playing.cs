@@ -42,6 +42,10 @@ public class Playing : GameState
     [SerializeField] private float StormlerpTime = 5;
 
     [SerializeField] private float StormWarningTime = 30;
+
+    [SerializeField] private UIModule UIController;
+    private GetWarnings warningUI = null;
+
     float TimeBetweenStorms; //time in seconds
     float StormDuration;
     float NextStormTime;
@@ -67,7 +71,6 @@ public class Playing : GameState
 
     public override void OnInitialize()
     {
-       
         foreach (var WeatherDat in WeatherConditions)
         {
             _WeatherData.Add(WeatherDat.Time,new WeatherCondData(-1,WeatherDat.Delta,WeatherDat.WeatherCond));
@@ -93,6 +96,7 @@ public class Playing : GameState
         RelayController.Start();
         PlayStartTime = Time.time;
         TimeBetweenStorms = StartingTimeBetweenStorms;
+        warningUI = UIController.UIRoot.GetScreen<GetWarnings>();
         EndTutorial();//FOR TESTING
     }
 
@@ -120,6 +124,7 @@ public class Playing : GameState
             if (!WarningTriggered && Time.time >= NextStormTime-StormWarningTime)
             {
                 //Kris do the storm warning stuff here
+                warningUI.GetWarning(2).SetActive(true);
                 WarningTriggered =  true;
             }
 
@@ -128,6 +133,7 @@ public class Playing : GameState
             if (Time.time >= NextStormTime)
             {
                 Debug.Log("STORM");
+                warningUI.GetWarning(2).GetComponent<ActivateWarning>().DisableWarning();
                 //EVAN: Start storm sounds here
                 AkSoundEngine.SetSwitch(akSwitchGroup, akSwitchValueEnter, _ActivePlayer.gameObject);
                 WeatherController.SetNewWeatherCondition(StormWeatherCondition,StormlerpTime);
