@@ -15,7 +15,7 @@
 			<IncludedEvents>
 				<Event Id="1880505272" Name="Asteroid_Moving_Play" ObjectPath="\Events\Octo_Main\Environment\Environmental\Asteroid_Moving_Play" GUID="{DC2DD57B-6CE3-47B9-AFB6-BF9680620454}" MaxAttenuation="25.000000" DurationType="Infinite"/>
 				<Event Id="4252952586" Name="Asteroid_Moving_Stop" ObjectPath="\Events\Octo_Main\Environment\Environmental\Asteroid_Moving_Stop" GUID="{5D342677-B951-4499-BD82-927A288E2FFC}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1329011239" Name="Asteroid_Warning" ObjectPath="\Events\Octo_Main\UI\Asteroid_Warning" GUID="{02EC627F-A7D2-42CE-BCB7-5BF508749265}" DurationType="Infinite"/>
+				<Event Id="1329011239" Name="Asteroid_Warning" ObjectPath="\Events\Octo_Main\UI\Asteroid_Warning" GUID="{02EC627F-A7D2-42CE-BCB7-5BF508749265}" DurationType="OneShot" DurationMin="1.628563" DurationMax="1.628563"/>
 				<Event Id="4137153305" Name="Communications_Array_Play" ObjectPath="\Events\Octo_Main\Environment\Satellite\Communications_Array_Play" GUID="{36A88353-19CB-4303-B222-608847F64F94}" DurationType="Infinite"/>
 				<Event Id="2433250911" Name="Communications_Array_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Communications_Array_Stop" GUID="{CF5687F1-9335-4229-B2FA-794EBDC21B5A}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3263450676" Name="Complete_Objective" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Complete_Objective" GUID="{0EBF1E3F-5FEB-4B85-AD04-BCBEC4244FED}" DurationType="OneShot" DurationMin="0.909333" DurationMax="0.909333"/>
@@ -25,7 +25,7 @@
 				<Event Id="2275245449" Name="CriticalDamage" ObjectPath="\Events\Octo_Main\Characters\Octo\Computer\CriticalDamage" GUID="{93130446-DBE5-4E9E-9455-1864ACF2DD19}" DurationType="OneShot" DurationMin="2.410667" DurationMax="3.754667"/>
 				<Event Id="1786804762" Name="Damage" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Damage" GUID="{1B159936-312B-40CF-BABB-F1E542DBD807}" DurationType="OneShot" DurationMin="1.072000" DurationMax="1.072000"/>
 				<Event Id="779278001" Name="Death" ObjectPath="\Events\Octo_Main\Characters\Octo\Voice\Death" GUID="{BE1CCA83-3705-44A3-8AB3-F04FE383A46F}" DurationType="OneShot" DurationMin="1.749333" DurationMax="3.328000"/>
-				<Event Id="3147538972" Name="Electrical_Spark_Warning" ObjectPath="\Events\Octo_Main\UI\Electrical_Spark_Warning" GUID="{16CA0B55-FD49-4012-B6D3-C776689B35C8}" DurationType="Infinite"/>
+				<Event Id="3147538972" Name="Electrical_Spark_Warning" ObjectPath="\Events\Octo_Main\UI\Electrical_Spark_Warning" GUID="{16CA0B55-FD49-4012-B6D3-C776689B35C8}" DurationType="OneShot" DurationMin="2.074875" DurationMax="2.074875"/>
 				<Event Id="642867601" Name="Electricity_Play" ObjectPath="\Events\Octo_Main\Environment\Environmental\Electricity_Play" GUID="{2875C9A0-D28F-4878-956D-7F3B06DE19F7}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1894282823" Name="Electricity_Stop" ObjectPath="\Events\Octo_Main\Environment\Environmental\Electricity_Stop" GUID="{832A18C1-809E-4442-93D3-5B0317481464}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="13776098" Name="Explosion" ObjectPath="\Events\Octo_Main\Environment\Environmental\Explosion" GUID="{F4B616F3-4551-42C5-B9A6-CFAFF501EF24}" DurationType="OneShot" DurationMin="6.846000" DurationMax="6.944667"/>
@@ -36,7 +36,7 @@
 				<Event Id="2427503841" Name="FuelLow" ObjectPath="\Events\Octo_Main\Characters\Octo\Computer\FuelLow" GUID="{D1BE435E-6962-433E-87B6-0879227C2B2C}" DurationType="OneShot" DurationMin="2.624000" DurationMax="5.397333"/>
 				<Event Id="609952641" Name="Gas_Play" ObjectPath="\Events\Octo_Main\Environment\Environmental\Gas_Play" GUID="{D2C4D6E0-8DA0-402B-87F2-D63D21535349}" DurationType="Infinite"/>
 				<Event Id="2929912663" Name="Gas_Stop" ObjectPath="\Events\Octo_Main\Environment\Environmental\Gas_Stop" GUID="{77F072F4-517A-48B7-80CF-991587DAAB55}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3096260197" Name="Gas_Warning" ObjectPath="\Events\Octo_Main\UI\Gas_Warning" GUID="{B270E39C-E49E-4D76-99A0-C9E0820A5299}" DurationType="Infinite"/>
+				<Event Id="3096260197" Name="Gas_Warning" ObjectPath="\Events\Octo_Main\UI\Gas_Warning" GUID="{B270E39C-E49E-4D76-99A0-C9E0820A5299}" DurationType="OneShot" DurationMin="2.357188" DurationMax="2.357188"/>
 				<Event Id="3221598706" Name="GasDetected" ObjectPath="\Events\Octo_Main\Characters\Octo\Computer\GasDetected" GUID="{CB4816E4-12F1-4503-B7CB-ECC8F1ACB448}" DurationType="OneShot" DurationMin="3.861333" DurationMax="4.117333"/>
 				<Event Id="1617374610" Name="HighRadiation" ObjectPath="\Events\Octo_Main\Characters\Octo\Computer\HighRadiation" GUID="{5183D375-1391-4E68-A103-0DCDEA566C04}" DurationType="OneShot" DurationMin="3.328000" DurationMax="3.498667"/>
 				<Event Id="3257506471" Name="Impact" ObjectPath="\Events\Octo_Main\Environment\Environmental\Impact" GUID="{82648A3C-1AFB-4EF4-8D6B-931595C18637}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
