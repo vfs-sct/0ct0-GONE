@@ -23,16 +23,23 @@ State	ID	Name	State Group			Notes
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	988953028	SFXVolume			\Volume\SFXVolume	
+	1866264637	DialogueVolume			\Volume\DialogueVolume	
 	2346531308	MusicVolume			\Volume\MusicVolume	
 	2918011349	MasterVolume			\Volume\MasterVolume	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	85412153	AMBIENCE			\Default Work Unit\Master Audio Bus\SFX_MAIN\AMBIENCE	
 	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX_MAIN\SFX	
-	1534528548	VO			\Default Work Unit\Master Audio Bus\SFX_MAIN\VO	
+	648308099	DX_MAIN			\Default Work Unit\Master Audio Bus\DX_MAIN	
 	3023356346	SFX_MAIN			\Default Work Unit\Master Audio Bus\SFX_MAIN	
 	3031508118	MUS_MAIN			\Default Work Unit\Master Audio Bus\MUS_MAIN	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	348963605	Reverb			\Default Work Unit\Master Audio Bus\SFX_MAIN\Reverb	
+
+Effect plug-ins	ID	Name	Type				Notes
+	3216246379	Space_Dreaming	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

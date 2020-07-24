@@ -6,20 +6,12 @@
 				<SoundcasterSession Name="Ambience" ID="{94999464-5FBC-44BB-8518-53C9E5BEF3FF}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="Env_01_Play" ID="{E5D5C823-487B-44CA-9D5A-1EC4C67A0338}" WorkUnitID="{69CD5BAB-84C7-4771-A7E4-DC88181E0059}"/>
-							<Position X="0" Y="0"/>
-						</Module>
-						<Module>
 							<ObjectRef Name="System_Sounds" ID="{E9262F05-9D38-41E9-B092-95F58BA76EE3}" WorkUnitID="{69CD5BAB-84C7-4771-A7E4-DC88181E0059}"/>
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="White_Noise_Env_Play" ID="{7E923973-46E1-4F94-9D7D-F8495CF87789}" WorkUnitID="{69CD5BAB-84C7-4771-A7E4-DC88181E0059}"/>
 							<Position X="0" Y="2"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Env_01_Stop" ID="{AE1EBB30-7FAD-4C4C-B5F1-4EA08F40B12F}" WorkUnitID="{69CD5BAB-84C7-4771-A7E4-DC88181E0059}"/>
-							<Position X="1" Y="0"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="White_Noise_Env_Stop" ID="{E2F5A719-78CE-46CC-85ED-427B30836353}" WorkUnitID="{69CD5BAB-84C7-4771-A7E4-DC88181E0059}"/>
@@ -46,10 +38,6 @@
 						<RTPCValue>
 							<GameParameterRef Name="MusicVolume" ID="{3A667E9E-FA9E-487F-A811-E5471CEA9770}"/>
 							<Value>0.75</Value>
-						</RTPCValue>
-						<RTPCValue>
-							<GameParameterRef Name="Voice" ID="{5E807511-ACF3-4A70-AD40-758D20FE95C6}"/>
-							<Value>50</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="MasterVolume" ID="{56B4D46F-A292-4D18-9B8D-7B65B0CCC99F}"/>
@@ -96,6 +84,10 @@
 							<Position X="0" Y="6"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="MUS_Play" ID="{8DFE3319-CBFB-4BC5-9764-2DBDD10D93D3}" WorkUnitID="{7792AB4D-CC2D-4EF4-B60C-EC9DBDF6B3EE}"/>
+							<Position X="0" Y="7"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Octo_Damage_Rock" ID="{FE7D622A-F983-4FB4-9E3D-7E4883414655}" WorkUnitID="{35A634F6-0CAF-4CC4-B826-77937AE1B49A}"/>
 							<Position X="1" Y="0"/>
 						</Module>
@@ -106,6 +98,10 @@
 						<Module>
 							<ObjectRef Name="Octo_Thrusters_Stop" ID="{4F81146E-5B91-41F1-A03E-C42FE491B36E}" WorkUnitID="{35A634F6-0CAF-4CC4-B826-77937AE1B49A}"/>
 							<Position X="1" Y="6"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="MUS_Stop" ID="{C02BEA90-B06F-478A-9AF4-48F50062298B}" WorkUnitID="{7792AB4D-CC2D-4EF4-B60C-EC9DBDF6B3EE}"/>
+							<Position X="1" Y="7"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Complete_Objective" ID="{0EBF1E3F-5FEB-4B85-AD04-BCBEC4244FED}" WorkUnitID="{35A634F6-0CAF-4CC4-B826-77937AE1B49A}"/>
@@ -151,7 +147,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="throttle" ID="{2BFD54AC-865B-43EF-8B4D-8250ED545EE3}"/>
-							<Value>0.18</Value>
+							<Value>0.21</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="fuel" ID="{C3FFDBBA-59FA-4628-BD35-649756FD7BCA}"/>
@@ -166,10 +162,6 @@
 							<Value>1</Value>
 						</RTPCValue>
 						<RTPCValue>
-							<GameParameterRef Name="Voice" ID="{5E807511-ACF3-4A70-AD40-758D20FE95C6}"/>
-							<Value>50</Value>
-						</RTPCValue>
-						<RTPCValue>
 							<GameParameterRef Name="MasterVolume" ID="{56B4D46F-A292-4D18-9B8D-7B65B0CCC99F}"/>
 							<Value>1</Value>
 						</RTPCValue>
@@ -178,7 +170,7 @@
 						<CurrentStateRef Name="FrontEnd" ID="{7A64EB9E-2652-45F4-A974-5DD70982E3BB}"/>
 						<CurrentStateRef Name="Resume" ID="{51672F26-6CBD-401D-9B7B-0FBAB6107F26}"/>
 						<CurrentStateRef Name="MainMenu" ID="{C7583B0D-CFE0-4F66-88A0-9DAC22E6D5EB}"/>
-						<CurrentStateRef Name="Threat" ID="{D6815025-A490-4CCC-B7FF-3CEB24E1160E}"/>
+						<CurrentStateRef Name="Home" ID="{8FD89270-18FF-45A3-94BB-C85BFC02C6EB}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Heavy" ID="{B456AF25-B007-4381-9FD3-900FD8FC3D1D}"/>
@@ -241,10 +233,6 @@
 							<Value>1</Value>
 						</RTPCValue>
 						<RTPCValue>
-							<GameParameterRef Name="Voice" ID="{5E807511-ACF3-4A70-AD40-758D20FE95C6}"/>
-							<Value>50</Value>
-						</RTPCValue>
-						<RTPCValue>
 							<GameParameterRef Name="MasterVolume" ID="{56B4D46F-A292-4D18-9B8D-7B65B0CCC99F}"/>
 							<Value>1</Value>
 						</RTPCValue>
@@ -302,10 +290,6 @@
 						<RTPCValue>
 							<GameParameterRef Name="MusicVolume" ID="{3A667E9E-FA9E-487F-A811-E5471CEA9770}"/>
 							<Value>1</Value>
-						</RTPCValue>
-						<RTPCValue>
-							<GameParameterRef Name="Voice" ID="{5E807511-ACF3-4A70-AD40-758D20FE95C6}"/>
-							<Value>50</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="MasterVolume" ID="{56B4D46F-A292-4D18-9B8D-7B65B0CCC99F}"/>
@@ -410,10 +394,6 @@
 							<Value>1</Value>
 						</RTPCValue>
 						<RTPCValue>
-							<GameParameterRef Name="Voice" ID="{5E807511-ACF3-4A70-AD40-758D20FE95C6}"/>
-							<Value>50</Value>
-						</RTPCValue>
-						<RTPCValue>
 							<GameParameterRef Name="MasterVolume" ID="{56B4D46F-A292-4D18-9B8D-7B65B0CCC99F}"/>
 							<Value>1</Value>
 						</RTPCValue>
@@ -430,10 +410,6 @@
 				</SoundcasterSession>
 				<SoundcasterSession Name="SFX_Environmental" ID="{487C2EAF-E7FB-4C6F-AAD2-ACB8F67BE105}">
 					<ModuleList>
-						<Module>
-							<ObjectRef Name="Asteroid_Collision" ID="{76330FA2-F6E4-48C1-9379-81D5812CCEB0}" WorkUnitID="{9409E0E2-1E02-44C5-8E7E-AE839C8E59ED}"/>
-							<Position X="0" Y="0"/>
-						</Module>
 						<Module>
 							<ObjectRef Name="Electricity_Play" ID="{2875C9A0-D28F-4878-956D-7F3B06DE19F7}" WorkUnitID="{9409E0E2-1E02-44C5-8E7E-AE839C8E59ED}"/>
 							<Position X="0" Y="1"/>
@@ -479,10 +455,6 @@
 							<Position X="1" Y="4"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Metal_Collision" ID="{E904720B-AE69-4394-940B-135432007B5F}" WorkUnitID="{9409E0E2-1E02-44C5-8E7E-AE839C8E59ED}"/>
-							<Position X="1" Y="5"/>
-						</Module>
-						<Module>
 							<ObjectRef Name="Leave_Comm_Stop" ID="{73309B72-8707-4E1C-852C-CF06FA1F18BD}" WorkUnitID="{9409E0E2-1E02-44C5-8E7E-AE839C8E59ED}"/>
 							<Position X="1" Y="6"/>
 						</Module>
@@ -515,10 +487,6 @@
 						<RTPCValue>
 							<GameParameterRef Name="MusicVolume" ID="{3A667E9E-FA9E-487F-A811-E5471CEA9770}"/>
 							<Value>1</Value>
-						</RTPCValue>
-						<RTPCValue>
-							<GameParameterRef Name="Voice" ID="{5E807511-ACF3-4A70-AD40-758D20FE95C6}"/>
-							<Value>50</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="MasterVolume" ID="{56B4D46F-A292-4D18-9B8D-7B65B0CCC99F}"/>

@@ -3,199 +3,6 @@
 	<AudioObjects>
 		<WorkUnit Name="TEMP_Patrick" ID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}" PersistMode="Standalone">
 			<ChildrenList>
-				<ActorMixer Name="VO_TEMP" ID="{CEC7029B-770A-41A6-B24E-DCD205DA4B89}" ShortID="914241255">
-					<PropertyList>
-						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<ActorMixer Name="TEMP_VO_Oakley" ID="{8626E326-AB17-4D69-B733-1C32E357B6A7}" ShortID="722014075">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="TEMP_VO_Oakley1" ID="{12A16A7D-909B-437C-A60E-44FB1E4DEE4E}" ShortID="563535273">
-									<PropertyList>
-										<Property Name="IsVoice" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Oakley1a" ID="{B4809828-1A5B-450F-A4AD-DF7035C67306}" ShortID="730673491">
-											<Language>English(US)</Language>
-											<AudioFile>TEMP_Oakley\Oakley1a.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Oakley1a" ID="{B4809828-1A5B-450F-A4AD-DF7035C67306}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="TEMP_VO_Oakley2" ID="{035E35BB-4412-4CC9-BFF9-874A4D1869E3}" ShortID="619119729">
-									<PropertyList>
-										<Property Name="IsVoice" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Oakley2a" ID="{BBBDA5FD-3FFA-4F7E-B218-CF37030B8348}" ShortID="445313113">
-											<Language>English(US)</Language>
-											<AudioFile>TEMP_Oakley\Oakley2a.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Oakley2a" ID="{BBBDA5FD-3FFA-4F7E-B218-CF37030B8348}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="TEMP_VO_Oakley3" ID="{5C0B7974-812B-4798-A427-69237A9C69FA}" ShortID="98046842">
-									<PropertyList>
-										<Property Name="IsVoice" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Oakley3a" ID="{90BC9A5F-BAC4-4451-9943-49C0D3489D0C}" ShortID="323153600">
-											<Language>English(US)</Language>
-											<AudioFile>TEMP_Oakley\Oakley3a.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Oakley3a" ID="{90BC9A5F-BAC4-4451-9943-49C0D3489D0C}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="TEMP_VO_Oakley4" ID="{3A6418B5-3E59-43E7-B1BD-965D420335B2}" ShortID="208266454">
-									<PropertyList>
-										<Property Name="IsVoice" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Oakley4a" ID="{94816EA2-5CBB-4C7E-9C2F-A65EE951810B}" ShortID="875679401">
-											<Language>English(US)</Language>
-											<AudioFile>TEMP_Oakley\Oakley4a.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Oakley4a" ID="{94816EA2-5CBB-4C7E-9C2F-A65EE951810B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-						</ActorMixer>
-						<ActorMixer Name="TEMP_VO_Octo" ID="{5ADEC2B2-6DD7-4F6C-9ABB-5A26955969F5}" ShortID="818078295">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="TEMP_VO_Octo1" ID="{7C71A499-A3AA-49B9-8CA6-D37BEE809F15}" ShortID="997636447">
-									<PropertyList>
-										<Property Name="IsVoice" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Robot_Voice1a" ID="{9BF698A1-E6B3-403A-B931-E8D9D9191031}" ShortID="161335797">
-											<Language>English(US)</Language>
-											<AudioFile>TEMP_Octo\Robot_Voice1a.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Robot_Voice1a" ID="{9BF698A1-E6B3-403A-B931-E8D9D9191031}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="TEMP_VO_Octo2" ID="{03932504-D1B2-43E1-B6CD-8E9AA53BF188}" ShortID="306711144">
-									<PropertyList>
-										<Property Name="IsVoice" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Robot_Voice2a" ID="{640EF406-F088-46DB-9348-407359D5B7F2}" ShortID="469233554">
-											<Language>English(US)</Language>
-											<AudioFile>TEMP_Octo\Robot_Voice2a.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Robot_Voice2a" ID="{640EF406-F088-46DB-9348-407359D5B7F2}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="TEMP_VO_Octo3" ID="{4F68D5F5-73CA-4333-BB0A-E9773E0DC6DC}" ShortID="367643783">
-									<PropertyList>
-										<Property Name="IsVoice" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Robot_Voice3a" ID="{FEA44F2C-DC3C-481D-BA3A-27EAB74A4515}" ShortID="293685926">
-											<Language>English(US)</Language>
-											<AudioFile>TEMP_Octo\Robot_Voice3a.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Robot_Voice3a" ID="{FEA44F2C-DC3C-481D-BA3A-27EAB74A4515}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-						</ActorMixer>
-					</ChildrenList>
-				</ActorMixer>
 				<ActorMixer Name="SFX" ID="{674D84EA-5F01-46A6-A077-FBC72305E35D}" ShortID="1008834556">
 					<PropertyList>
 						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
@@ -263,7 +70,7 @@
 												</Sound>
 											</ChildrenList>
 										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="Tether_Rope" ID="{72F3A685-61EF-48D2-B937-337AEBACD62B}" ShortID="1053749076">
+										<RandomSequenceContainer Name="Resc_Deposit" ID="{72F3A685-61EF-48D2-B937-337AEBACD62B}" ShortID="1053749076">
 											<PropertyList>
 												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 											</PropertyList>
@@ -340,6 +147,7 @@
 														<Value>1</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 												<Property Name="UseMaxSoundPerInstance" Type="bool">
 													<ValueList>
 														<Value>True</Value>
@@ -358,6 +166,9 @@
 												</Reference>
 												<Reference Name="SwitchGroupOrStateGroup">
 													<ObjectRef Name="Damage" ID="{B87F1FC2-0131-4C24-A845-79D69792D75A}" WorkUnitID="{76B80A24-F761-4CC4-BFD7-91E468498E16}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Reverb" ID="{CAEA2544-B462-4079-9075-93ED58431138}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -621,6 +432,7 @@
 														<Value>1</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 												<Property Name="UseMaxSoundPerInstance" Type="bool">
 													<ValueList>
 														<Value>True</Value>
@@ -639,6 +451,9 @@
 												</Reference>
 												<Reference Name="SwitchGroupOrStateGroup">
 													<ObjectRef Name="Damage" ID="{B87F1FC2-0131-4C24-A845-79D69792D75A}" WorkUnitID="{76B80A24-F761-4CC4-BFD7-91E468498E16}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Reverb" ID="{CAEA2544-B462-4079-9075-93ED58431138}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -1116,7 +931,7 @@
 												</BlendTrack>
 											</BlendTrackList>
 										</BlendContainer>
-										<RandomSequenceContainer Name="Tether_Grab" ID="{A6762E3D-42BE-4237-A4C9-6B81D81D27D0}" ShortID="995117452">
+										<RandomSequenceContainer Name="Repair_Start" ID="{A6762E3D-42BE-4237-A4C9-6B81D81D27D0}" ShortID="995117452">
 											<PropertyList>
 												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 											</PropertyList>
@@ -1129,7 +944,7 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="TEMP_SFX_Characters_Octo_TetherGrab" ID="{2319E59B-1400-4BCA-9902-5C1D2E217DCA}" ShortID="299648460">
+												<Sound Name="TEMP_SFX_Characters_Octo_Repair_Start" ID="{2319E59B-1400-4BCA-9902-5C1D2E217DCA}" ShortID="299648460">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
@@ -1177,6 +992,40 @@
 													</ChildrenList>
 													<ActiveSourceList>
 														<ActiveSource Name="TEMP_SFX_Fuel_Latch" ID="{2DD739A2-8E39-42FA-8EA9-2C07CC2C966E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Systems_Text" ID="{D7E3B7BF-DCC5-404D-82DD-A16F27CC19E2}" ShortID="884701241">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="TEMP_SFX_Octo_Systems_Text" ID="{6DA11FC1-644A-45A2-9A85-1341B50C00DC}" ShortID="809576718">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="TEMP_SFX_Button_Hover" ID="{99963403-0134-4D4D-9D53-C7312F2F9B8A}" ShortID="866152388">
+															<Language>SFX</Language>
+															<AudioFile>UI\UI_Patrick\TEMP_SFX_Button_Hover.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="TEMP_SFX_Button_Hover" ID="{99963403-0134-4D4D-9D53-C7312F2F9B8A}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
 											</ChildrenList>
