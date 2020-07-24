@@ -129,7 +129,7 @@ public class Playing : GameState
             {
                 Debug.Log("STORM");
                 //EVAN: Start storm sounds here
-                // AkSoundEngine.SetSwitch(akSwitchGroup, akSwitchValueEnter, gameObject);
+                AkSoundEngine.SetSwitch(akSwitchGroup, akSwitchValueEnter, _ActivePlayer.gameObject);
                 WeatherController.SetNewWeatherCondition(StormWeatherCondition,StormlerpTime);
                 NextStormFinishTime = Time.time+StormlerpTime+ StormDuration;
                 NextStormTime += 9999999;
@@ -138,7 +138,7 @@ public class Playing : GameState
             {
                 Debug.Log("STORM Done");
                 //EVAN: Transition back to calm sounds here (with some delay)
-                // AkSoundEngine.SetSwitch(akSwitchGroup, akSwitchValueExit, gameObject);
+                AkSoundEngine.SetSwitch(akSwitchGroup, akSwitchValueExit, _ActivePlayer.gameObject);
                 WeatherController.SetNewWeatherCondition("base",StormlerpTime);
                 TimeBetweenStorms -= TimeDecreasePerCycle;
                 StormDuration += StormDurationIncreasePerCycle;
