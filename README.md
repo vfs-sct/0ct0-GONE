@@ -1,7 +1,7 @@
-0ct0-GONE M3
+0ct0-GONE ALPHA
 ---------------------------------------------------
 
-This is the Milestone Three submission for 0CT0-GONE.
+This is the Alpha submission for 0CT0-GONE.
 
 Josh Paquette			Jesse Rougeau
 Evan Landry			Kristin Ruff-Frederickson
@@ -29,23 +29,21 @@ F1 - Debug menu
 
 INSTRUCTIONS
 ===================
-In this iteration, Octo has two objectives to complete to demonstrate how narrative events will work.
+In this iteration, all narrative objectives are implemented and can be played through. In-game tutorial prompts should guide the player through completing them.
 
-Octo will begin with low fuel and must approach the space station and press & hold F to refill it. Refilling Octo's fuel completes objective 1.
-
-Press 1 to equip the salvager tool and fly toward space debris. When you are close enough that it becomes highlighted, click the debris to harvest it using the salvager.
-You can see in the bottom left-hand corner which tool is currently equipped. Salvage 100 iron to complete objective two. This currently wins the game.
-
-Note: While not yet tied to objectives, Octo can return to the ship to craft objects. To craft, Octo must return to the base ship and open the crafting menu.
-When you are close enough to the ship to craft, tooltips will be displayed. Press C to open the crafting menu.
-
-V can also be pressed at any time to open the inventory screen and manage the debris that Octo is currently carrying.
+Not currently communicated in this build is that ship health is now vital to completing the game, and Octo will have to periodically repair damage sustained by
+the ship during storms using the Repair tool. The Repair tool requires Goo Glue to operate, which can be refilled using Silicon in the Crafting screen.
 ===================
 
 BUGS/WARNINGS
 ===================
--Click-hold has not yet been implemented on salvaging/crafting/inventory chunk buttons. Clicking once will immediately activate the button.
--Some resource types are not yet available in the game and will throttle crafting progression.
+-Previous iterations of the game included a look inversion bug that would disable the ability to look up and down. This has since been fixed, but if you've
+opened a version of the game on your PC before, you may have persistent player preferences that retain the issue. This can be fixed by opening the Options
+screen and toggling look inversion.
+-There is a bug in the salvage event that will cause it to autocomplete if the player deposits any amount of salvage in the station.
+-There is a UI bug that causes the objective banner to get stuck if the player refuels before the first banner has fully faded away. This is because the new
+banner is trying to lerp in at the same rate the old banner is trying to lerp out.
+-There is a progress bar that pops up while salvaging, but it does not properly update to reflect salvage progress.
 ===================
 
 
@@ -53,7 +51,23 @@ In this build:
 
 GAMEPLAY
 ===================
-M3
+Alpha
+---------------------------------------------------------------------------------------------
+-New asteroid weather system
+	-Debris for salvaging is generated and flies through the playing field. Static debris fields are deprecated.
+	-Storms trigger periodically, causing the player to need to dodge and look for cover to avoid taking damage.
+	-Storms ramp up over time, creating a time constraint for the player to complete the game.
+-Health deprecated. Octo's fuel (energy) drains both by using his thrusters and by taking physical damage.
+-Refueling Satellite rework
+	-Refuel satellite is now used to produce Goo Glue over time instead of fuel.
+-Station repair
+	-The main station now takes damage which can be repaired with Goo Glue
+	-If the station hits 0 health, the game is over
+-New shield/asteroid barrier
+	-Large objects in the world that can shelter Octo during storms
+-Added/reworked narrative events
+
+Old
 ---------------------------------------------------------------------------------------------
 -New inventory system!
 	-Octo's inventory is now made up of a "chunk" system
@@ -69,25 +83,28 @@ M3
 -Comm range
 	-Range becomes visible and pops a warning as Octo nears its edge
 	-Leaving comm range results in death
--Removed targetting. Hovering a resource now directly enables salvaging.
--Crafting rework. Complicated tier categories have now been replaced with basic components, advanced components, upgrades and craftable satellites.
--Added random asteroid storm encounter.
--Added new refuelling objective to introduce player to concept of refuelling.
-
-
-Old
----------------------------------------------------------------------------------------------
--Added Crafting screen for converting collected resources into items.
--Movement system. The player can move in six degrees of freedom, including rotation.
--Tool framework. Player can choose between the salvage tool and goo glue (repair glue).
--Crafting. After gathering resources, players can craft basic materials when near the space station.
--Narrative progression. Game now has objectives implemented that can be completed to win the game.
--Fuel. Players must use fuel to move. They will lose if fuel runs out. Fuel can be regained at the space station.
 ===================
 
 UI
 ===================
-M3
+Alpha
+---------------------------------------------------------------------------------------------
+-New intro scroll when entering the game
+-New offscreen indicator points in direction of the space station when the station is off screen
+-New ship health bar
+-New UI icons for tools, items and HUD
+-Added interface for repairing major narrative objects on the ship (Antenna, Batteries, Solar Array and Signal Processor)
+-Added Goo Glue button to crafting screen
+-Added additional tutorial prompts
+-Added item description text to all items
+-Added audio play/stop buttons to codex to revisit previously unlocked audiologs
+-Colour coded text on objectives (ie for resource colours)
+-General poptext and feedback additions
+-Fixed toolbar selection bug
+-Fixed bug causing comm range warnings to get stuck
+-Fixed bug causing gas cloud post processing effects to not fade away
+
+Old
 ---------------------------------------------------------------------------------------------
 -Codex entries are locked by default and unlocked as the player completes narrative objectives
 -New objective banners appear, telling the player when they have completed an objective and what their next objective is
@@ -112,32 +129,18 @@ M3
 -Adjusted sorting layer order on canvases
 -Adjusting colours and visuals on all UI
 -Added tutorial prompts (not yet activated in game)
-
-Old
----------------------------------------------------------------------------------------------
--Added Crafting screen for converting collected resources into items.
--Added Look Inversion and Look Sensitivity options, saved using PlayerPrefs.
--Tooltips now display when approaching a space station or highlighting an object.
--Added pop up text when resources are added to the inventory.
--WIP HUD widget for displaying what tool is equipped.
--Targeting now visually highlights objects using a shader.
--Narrative audio log text added to Codex.
--Mouse hides when in gameplay, and reappears when in menus.
--Fade in from black when switching scenes.
--Bug in scrollbars fixed.
--Basic UI Framework. All menu screens are navigable and the player can close the application.
--Start Game takes player into gameplay scene.
--Pause Menu, Options, Back, Controls, Exit Game implemented and functional.
--Functional Gamma slider.
--Functional Sound sliders.
--Functional Codex menu that generates buttons/page text based off entries added codeside.
--Credit screen that generates credits codeside.
--Debug Menu
 ===================
 
 SOUND
 ===================
-M3
+Alpha
+---------------------------------------------------------------------------------------------
+-Added in audio logs which play when narrative events are completed
+-Added doppler effect for near-miss projectiles
+-Added Octo personality chirps
+-Added multiple new sound effects, mixed levels and adjusted music
+
+Old
 ---------------------------------------------------------------------------------------------
 -New preload scene for managing sound between scenes
 -New main theme music
@@ -146,25 +149,21 @@ M3
 -Sound sliders begin at correct levels
 -Fixed thruster sound bug
 -Added VO button with WIP voice log audio to codex
-
-Old
----------------------------------------------------------------------------------------------
--Thruster sounds when Octo is moving.
--"Bonk" sound on collision with objects.
--Warning alarm when entering a gas cloud.
--Placeholder menu sounds.
--Distance-based space station ambience.
--Main menu music.
--Sound sliders appropriately receiving settings from Wwise channels.
--Solved Wwise bug caused by scriptable object framework.
--WWise integration completed.
--Stubbed in WIP button sounds. Sounds will be replaced but currently demonstrate functionality.
--Separate busses exist for Master, Music, SFX and Dialogue.
 ===================
 
 ART
 ===================
-M3
+Alpha
+---------------------------------------------------------------------------------------------
+-Octo rig complete
+-Added idle animation (in-game) and movement animation (not in-game) to Octo
+-Added more debris model types
+-Added rock shield model
+-Added planet texture
+-Added UI icons
+-Fixed and updated skybox
+
+Old
 ---------------------------------------------------------------------------------------------
 -Added basic lighting to the scene
 -Added Post Processing
@@ -173,13 +172,6 @@ M3
 -Added temp matte materials to objects, including Space Station and debris
 -Added salvage model variants
 -Added Octo texturing
-
-Old
----------------------------------------------------------------------------------------------
--Final Octo model.
--Space debris.
--WIP gas clouds.
--Broken and fixed state satellite models (not implemented in game).
 -Hub area space ship.
 ===================
 
