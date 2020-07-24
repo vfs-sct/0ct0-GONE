@@ -61,6 +61,9 @@ public class Playing : GameState
 
 
     private float PlayStartTime;
+    private string akSwitchGroup = "BackEnd";
+    private string akSwitchValueEnter = "Threat";
+    private string akSwitchValueExit = "Gameplay";
 
     public override void OnInitialize()
     {
@@ -126,6 +129,7 @@ public class Playing : GameState
             {
                 Debug.Log("STORM");
                 //EVAN: Start storm sounds here
+                // AkSoundEngine.SetSwitch(akSwitchGroup, akSwitchValueEnter, gameObject);
                 WeatherController.SetNewWeatherCondition(StormWeatherCondition,StormlerpTime);
                 NextStormFinishTime = Time.time+StormlerpTime+ StormDuration;
                 NextStormTime += 9999999;
@@ -134,6 +138,7 @@ public class Playing : GameState
             {
                 Debug.Log("STORM Done");
                 //EVAN: Transition back to calm sounds here (with some delay)
+                // AkSoundEngine.SetSwitch(akSwitchGroup, akSwitchValueExit, gameObject);
                 WeatherController.SetNewWeatherCondition("base",StormlerpTime);
                 TimeBetweenStorms -= TimeDecreasePerCycle;
                 StormDuration += StormDurationIncreasePerCycle;
