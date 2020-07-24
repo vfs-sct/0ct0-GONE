@@ -363,7 +363,7 @@ public class Crafting : MonoBehaviour
         //if you click & hold something to craft you'll see it
         if (!isSoundPlayed)
         {
-            AkSoundEngine.PostEvent("Octo_Tether_Grab", gameObject);
+            AkSoundEngine.PostEvent("Octo_Repair_Start", gameObject);
             isSoundPlayed = true;            
         }
 

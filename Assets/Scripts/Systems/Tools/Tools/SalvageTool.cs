@@ -94,8 +94,9 @@ public class SalvageTool : Tool
             return;
             //Debug.Log("Could not salvage");
             //Debug.Log(SalvComp.SalvageItem + " is not a resource");
-        }  
+        }
         //EVAN: Start the salvage sound
+        AkSoundEngine.PostEvent("Octo_Repair_Start", target);
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
@@ -108,19 +109,19 @@ public class SalvageTool : Tool
             {
                 //Debug.Log(owner.PlayerInventory.GetResourceAmount(SalvComp.SalvageItem.ResourceType));
                 Destroy(OriginalTarget);
-                
-                //EVAN: Play salvaged success sound here
-                //resource gained pop text
-                Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");
+
+            //EVAN: Play salvaged success sound here
+            AkSoundEngine.PostEvent("Octo_Systems_Text", target);
+            //resource gained pop text
+            Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");
                 //Debug.Log("Salvaged Object");
             } 
         else 
         {
             Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Full");
-        } 
+        }
 
         //EVAN: finish the salvage sound  
-        
         //error pop text
         //Debug.Log("Not enough space");
         SalvComp = null;
