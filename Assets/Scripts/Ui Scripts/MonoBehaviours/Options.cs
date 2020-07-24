@@ -94,16 +94,19 @@ public class Options : MonoBehaviour
     public void ClickAudioTab()
     {
         SwitchActiveTab(AudioTabPanel);
+        AkSoundEngine.PostEvent("Options_Button_Audio", gameObject);
     }
 
     public void ClickVideoTab()
     {
         SwitchActiveTab(VideoTabPanel);
+        AkSoundEngine.PostEvent("Options_Button_Video", gameObject);
     }
 
     public void ClickControlsTab()
     {
         SwitchActiveTab(ControlTabPanel);
+        AkSoundEngine.PostEvent("Options_Button_Controls", gameObject);
     }
 
     public void SetSensitivitySlider()
@@ -116,6 +119,7 @@ public class Options : MonoBehaviour
 
     public void SetInvertCam()
     {
+        AkSoundEngine.PostEvent("Octo_System_Text", gameObject);
         if (InvertCamToggle.isOn)
         {
             //1 makes the camera inverted
