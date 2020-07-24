@@ -257,58 +257,6 @@
 									<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="SFX_Environment_Fire_01" ID="{10B35DC0-138E-4CB2-9682-E0940D1ABE67}" ShortID="1028686795">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="SFX_Environment_Fire_01" ID="{308FCE82-EA4A-445E-B887-BC2F3914FB88}" ShortID="356573128">
-											<Language>SFX</Language>
-											<AudioFile>Environment\Environment_Nancy\SFX_Environment_Fire_01.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="SFX_Environment_Fire_01" ID="{308FCE82-EA4A-445E-B887-BC2F3914FB88}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="SFX_Environment_Gas_01" ID="{934C7259-2386-4436-A7C3-93C099C81DD6}" ShortID="312307948">
-									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="SFX_Environment_Gas_01" ID="{670DFFC1-DA73-4B0B-9F25-6710E666C163}" ShortID="752814949">
-											<PropertyList>
-												<Property Name="CrossfadeDuration" Type="Real64" Value="195.818"/>
-												<Property Name="LoopBegin" Type="Real64" Value="1.09807407407407"/>
-												<Property Name="LoopEnd" Type="Real64" Value="36.2364444444444"/>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-											</PropertyList>
-											<Language>SFX</Language>
-											<AudioFile>Environment\Environment_Nancy\SFX_Environment_Gas_01.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="SFX_Environment_Gas_01" ID="{670DFFC1-DA73-4B0B-9F25-6710E666C163}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
 						</ActorMixer>
 					</ChildrenList>
 				</ActorMixer>
@@ -321,7 +269,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+							<ObjectRef Name="DX_MAIN" ID="{770A3C9C-EFCC-46DA-9C54-D3B75A19DA2D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -348,48 +296,6 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Folder Name="VO_Octo_Crafting" ID="{246CFDE0-6833-4802-91B7-34DF1F74C695}" ShortID="309267438">
-									<ChildrenList>
-										<Sound Name="TEMP_VO_Characters_Octo_CraftFail" ID="{3C650C80-F4CA-4CB6-B47A-E20460ADD849}" ShortID="409557536">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="TEMP_VO_Characters_Octo_CraftFail" ID="{1508C348-6303-4A77-9BF5-577B909520F7}" ShortID="77478241">
-													<Language>SFX</Language>
-													<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_CraftFail.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="TEMP_VO_Characters_Octo_CraftFail" ID="{1508C348-6303-4A77-9BF5-577B909520F7}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="TEMP_VO_Characters_Octo_CraftSuccess" ID="{E03673CE-FEAA-4E6B-8166-CA498A4FFE81}" ShortID="60579769">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="TEMP_VO_Characters_Octo_CraftSuccess" ID="{99D0E6B6-0E2F-45BA-8AD8-540B8111607B}" ShortID="330056047">
-													<Language>SFX</Language>
-													<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_CraftSuccess.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="TEMP_VO_Characters_Octo_CraftSuccess" ID="{99D0E6B6-0E2F-45BA-8AD8-540B8111607B}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</Folder>
 								<ActorMixer Name="Log1" ID="{C850EEB6-5B62-493A-BB1C-7CAC66B0F191}" ShortID="293126731">
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -424,7 +330,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -484,7 +390,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -510,7 +416,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -536,7 +442,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -562,7 +468,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -588,7 +494,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -614,7 +520,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -640,7 +546,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -663,7 +569,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -730,7 +636,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -756,7 +662,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -782,7 +688,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -808,7 +714,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -834,7 +740,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -860,7 +766,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -886,7 +792,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -952,7 +858,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -978,7 +884,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1004,7 +910,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1030,7 +936,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1056,7 +962,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1082,7 +988,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1108,7 +1014,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1134,7 +1040,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1160,7 +1066,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1228,7 +1134,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1254,7 +1160,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1280,7 +1186,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1306,7 +1212,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1332,7 +1238,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1396,7 +1302,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1422,7 +1328,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1448,7 +1354,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1474,7 +1380,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1500,7 +1406,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1564,7 +1470,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1590,7 +1496,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1616,7 +1522,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1642,7 +1548,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1668,7 +1574,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1696,6 +1602,15 @@
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Octo" ID="{43E99AE4-6816-4268-A510-CCA14FD91F01}" ShortID="762287526">
+									<PropertyList>
+										<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+										<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
@@ -1780,81 +1695,6 @@
 												<ActiveSource Name="VO_Ash_Oct0_CraftFail" ID="{0D5D4920-F5D8-4AD3-AB01-18EB395E1CB2}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="VO_Ash_Oct0_CraftSuccess" ID="{ABEEDE70-4C63-4DFF-B844-F20FA2510867}" ShortID="1008250754">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_CraftSuccess" ID="{2DD0588D-3D10-4024-A1B8-ACE1CBD444DF}" ShortID="1051674398">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_CraftSuccess.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="335077673"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_CraftSuccess" ID="{2DD0588D-3D10-4024-A1B8-ACE1CBD444DF}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Death" ID="{9C7980C6-8FAD-4AE6-8A12-FA9EE2A9C66B}" ShortID="1020364466">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Death" ID="{5E0915B8-1CC4-4407-B164-4C09B5E0CE8D}" ShortID="436264463">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Death.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="236020135"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Death" ID="{5E0915B8-1CC4-4407-B164-4C09B5E0CE8D}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="VO_Ash_Oct0_Death_Ex" ID="{E0513B25-B4C4-4787-9FDC-AA1E4A3B4126}" ShortID="439558829">
-											<PropertyList>
-												<Property Name="IsVoice" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="VO_Ash_Oct0_Death_Ex" ID="{92F1BF63-4486-4281-A5A2-8431D356F873}" ShortID="1009594765">
-													<Language>English(US)</Language>
-													<AudioFile>Oct0\VO_Ash_Oct0_Death_Ex.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="578569492"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="VO_Ash_Oct0_Death_Ex" ID="{92F1BF63-4486-4281-A5A2-8431D356F873}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
 										<Sound Name="VO_Ash_Oct0_Hurt" ID="{BE6CA009-BF52-4156-BD15-A2D88A486360}" ShortID="586254218">
 											<PropertyList>
 												<Property Name="IsVoice" Type="bool" Value="True"/>
@@ -1914,7 +1754,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+													<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -1939,7 +1779,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+													<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -1955,6 +1795,186 @@
 												<ActiveSource Name="VO_Ash_Oct0_Low_2" ID="{3E6A182E-E7AC-48E1-94BE-B68CB08B9590}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<RandomSequenceContainer Name="Oct0_Death" ID="{20C4F60D-4919-4526-92F4-8CA5206E38FF}" ShortID="1026586469">
+											<PropertyList>
+												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VO_Ash_Oct0_Death" ID="{9C7980C6-8FAD-4AE6-8A12-FA9EE2A9C66B}" ShortID="1020364466">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>3</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="DX_MAIN" ID="{770A3C9C-EFCC-46DA-9C54-D3B75A19DA2D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Death" ID="{5E0915B8-1CC4-4407-B164-4C09B5E0CE8D}" ShortID="436264463">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Death.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="236020135"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Death" ID="{5E0915B8-1CC4-4407-B164-4C09B5E0CE8D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Oct0_Death_Ex" ID="{E0513B25-B4C4-4787-9FDC-AA1E4A3B4126}" ShortID="439558829">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+														<Property Name="Weight" Type="Real64">
+															<ValueList>
+																<Value>5</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="DX_MAIN" ID="{770A3C9C-EFCC-46DA-9C54-D3B75A19DA2D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_Death_Ex" ID="{92F1BF63-4486-4281-A5A2-8431D356F873}" ShortID="1009594765">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_Death_Ex.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="578569492"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_Death_Ex" ID="{92F1BF63-4486-4281-A5A2-8431D356F873}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Craft_Success" ID="{4A9758F2-1E7C-4B96-9685-7F86A80DE3CB}" ShortID="583591623">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="VO_Ash_Oct0_CraftSuccess" ID="{ABEEDE70-4C63-4DFF-B844-F20FA2510867}" ShortID="1008250754">
+													<PropertyList>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsVoice" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="DX_MAIN" ID="{770A3C9C-EFCC-46DA-9C54-D3B75A19DA2D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Oct0_CraftSuccess" ID="{2DD0588D-3D10-4024-A1B8-ACE1CBD444DF}" ShortID="1051674398">
+															<Language>English(US)</Language>
+															<AudioFile>Oct0\VO_Ash_Oct0_CraftSuccess.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="335077673"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Oct0_CraftSuccess" ID="{2DD0588D-3D10-4024-A1B8-ACE1CBD444DF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Octo_CraftSuccess_01" ID="{8EDE695E-A8CB-4A5D-BA0E-F6F9637828BE}" ShortID="795120611">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Octo_CraftSuccess_01" ID="{DABB6A27-7F38-48F7-ABE0-C474FDF9297E}" ShortID="672570699">
+															<Language>SFX</Language>
+															<AudioFile>VO_Ash_Octo_CraftSuccess_01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Octo_CraftSuccess_01" ID="{DABB6A27-7F38-48F7-ABE0-C474FDF9297E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Octo_CraftSuccess_02" ID="{99712859-20A9-4967-8AB0-E8A4D204C213}" ShortID="359357389">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Octo_CraftSuccess_02" ID="{CEE9981A-36DA-42E1-A2B7-5E617139B9EC}" ShortID="60181905">
+															<Language>SFX</Language>
+															<AudioFile>VO_Ash_Octo_CraftSuccess_02.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Octo_CraftSuccess_02" ID="{CEE9981A-36DA-42E1-A2B7-5E617139B9EC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="VO_Ash_Octo_CraftSuccess_03" ID="{1CE72C55-058E-419C-AAE1-2ADE95472B84}" ShortID="946207007">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="VO_Ash_Octo_CraftSuccess_03" ID="{BA0AB1BD-6F5D-4B01-AEAE-D9E36E94E49F}" ShortID="123197639">
+															<Language>SFX</Language>
+															<AudioFile>VO_Ash_Octo_CraftSuccess_03.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="VO_Ash_Octo_CraftSuccess_03" ID="{BA0AB1BD-6F5D-4B01-AEAE-D9E36E94E49F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Computer" ID="{C8862A50-AB24-4779-871E-E3E6F784F729}" ShortID="289718772">
@@ -1990,7 +2010,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2013,7 +2033,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2036,7 +2056,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2059,7 +2079,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2082,7 +2102,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2105,7 +2125,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2128,7 +2148,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2151,7 +2171,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2174,7 +2194,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2212,7 +2232,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2235,7 +2255,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2258,7 +2278,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2281,7 +2301,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2304,7 +2324,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2342,7 +2362,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2365,7 +2385,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2388,7 +2408,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2411,7 +2431,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2434,7 +2454,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2457,7 +2477,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2480,7 +2500,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2503,7 +2523,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2541,7 +2561,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2564,7 +2584,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2602,7 +2622,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2625,7 +2645,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2648,7 +2668,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2671,7 +2691,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2694,7 +2714,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2732,7 +2752,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2755,7 +2775,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2778,7 +2798,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2816,7 +2836,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2839,7 +2859,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2862,7 +2882,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2900,7 +2920,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2923,7 +2943,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2946,7 +2966,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2969,7 +2989,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -2992,7 +3012,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3015,7 +3035,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3038,7 +3058,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3061,7 +3081,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3084,7 +3104,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3122,7 +3142,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3145,7 +3165,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3168,7 +3188,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3191,7 +3211,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3214,7 +3234,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3240,7 +3260,7 @@
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+											<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -3271,7 +3291,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3297,7 +3317,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -3323,160 +3343,6 @@
 								</ActorMixer>
 							</ChildrenList>
 						</ActorMixer>
-						<Sound Name="TEMP_VO_Characters_Octo_Remembered" ID="{94541264-96D2-4514-8373-054D15B4D7B4}" ShortID="86072054">
-							<PropertyList>
-								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="TEMP_VO_Characters_Octo_Remembered" ID="{850DE542-CF43-4D76-BE8C-B098ED9D78C6}" ShortID="1031879202">
-									<Language>SFX</Language>
-									<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_Remembered.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="TEMP_VO_Characters_Octo_Remembered" ID="{850DE542-CF43-4D76-BE8C-B098ED9D78C6}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="TEMP_VO_Chatacters_Octo_Complete-01" ID="{70BC860E-AB5F-48A7-9BB6-CA1ED70A7801}" ShortID="963696719">
-							<PropertyList>
-								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="TEMP_VO_Chatacters_Octo_Complete-01" ID="{37A01987-415B-47F9-A958-A5910A337AB1}" ShortID="433677184">
-									<Language>SFX</Language>
-									<AudioFile>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Complete-01.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="TEMP_VO_Chatacters_Octo_Complete-01" ID="{37A01987-415B-47F9-A958-A5910A337AB1}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="TEMP_VO_Characters_Octo_NoResc" ID="{E60A5F90-88F6-477A-915C-B1B7B603C1BD}" ShortID="1067574204">
-							<PropertyList>
-								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="TEMP_VO_Characters_Octo_NoResc" ID="{6C909E8B-B3F3-4EBB-97B5-13BBF97188E4}" ShortID="182288180">
-									<Language>SFX</Language>
-									<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_NoResc.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="TEMP_VO_Characters_Octo_NoResc" ID="{6C909E8B-B3F3-4EBB-97B5-13BBF97188E4}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="TEMP_VO_Chatacters_Octo_Low_2" ID="{D941A77B-CED0-4EF5-979A-DEA36993B484}" ShortID="308926419">
-							<PropertyList>
-								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="TEMP_VO_Chatacters_Octo_Low_2" ID="{BB73684B-0AD8-4433-8B6B-1F2A715CAEBF}" ShortID="555738453">
-									<Language>SFX</Language>
-									<AudioFile>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Low_2.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="TEMP_VO_Chatacters_Octo_Low_2" ID="{BB73684B-0AD8-4433-8B6B-1F2A715CAEBF}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="TEMP_VO_Chatacters_Octo_Low_1-01" ID="{43D6DD73-06E2-497C-BA22-0D57798E2F03}" ShortID="565634000">
-							<PropertyList>
-								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="TEMP_VO_Chatacters_Octo_Low_1-01" ID="{BC659248-4A62-4802-B1CE-0D6E17447CB6}" ShortID="261610866">
-									<Language>SFX</Language>
-									<AudioFile>VO\VO_Nancy\TEMP_VO_Chatacters_Octo_Low_1-01.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="TEMP_VO_Chatacters_Octo_Low_1-01" ID="{BC659248-4A62-4802-B1CE-0D6E17447CB6}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="TEMP_VO_Characters_Octo_Hurt-01" ID="{07672AD1-14E6-4CC5-B0B6-82E240661ECE}" ShortID="481666269">
-							<PropertyList>
-								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="TEMP_VO_Characters_Octo_Hurt-01" ID="{35BFCC15-F49A-4921-99D2-2B57D4E9A74B}" ShortID="875442297">
-									<Language>SFX</Language>
-									<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_Hurt-01.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="TEMP_VO_Characters_Octo_Hurt-01" ID="{35BFCC15-F49A-4921-99D2-2B57D4E9A74B}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="TEMP_VO_Characters_Octo_Death-01" ID="{D13C36A6-BFF9-4DAA-ABD0-889B68E4732E}" ShortID="117872568">
-							<PropertyList>
-								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="VO" ID="{952C3A6F-C81B-4C4E-8B91-02BBF38A5C67}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="TEMP_VO_Characters_Octo_Death-01" ID="{4E3A5ECB-76D0-4F48-B634-E31BA79A411A}" ShortID="129229025">
-									<Language>SFX</Language>
-									<AudioFile>VO\VO_Nancy\TEMP_VO_Characters_Octo_Death-01.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="TEMP_VO_Characters_Octo_Death-01" ID="{4E3A5ECB-76D0-4F48-B634-E31BA79A411A}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>

@@ -16,5 +16,6 @@ public class ActivateWarning : MonoBehaviour
     public void DisableWarning()
     {
         postProcessing.Disable(warningPanel.gameObject);
+        warningPanel.gameObject.SetActive(false);
     }
 }

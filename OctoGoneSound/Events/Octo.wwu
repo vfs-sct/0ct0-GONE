@@ -57,7 +57,7 @@
 								<Action Name="" ID="{A85EB6BC-F3FF-49F4-B339-25137630D814}" ShortID="827776777">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Tether_Rope" ID="{72F3A685-61EF-48D2-B937-337AEBACD62B}" WorkUnitID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}"/>
+											<ObjectRef Name="Resc_Deposit" ID="{72F3A685-61EF-48D2-B937-337AEBACD62B}" WorkUnitID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -105,7 +105,7 @@
 								<Action Name="" ID="{016BEC82-ADD8-4D2A-B0F0-73F395E0A475}" ShortID="310632639">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Tether_Grab" ID="{A6762E3D-42BE-4237-A4C9-6B81D81D27D0}" WorkUnitID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}"/>
+											<ObjectRef Name="Repair_Start" ID="{A6762E3D-42BE-4237-A4C9-6B81D81D27D0}" WorkUnitID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -117,6 +117,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Fuel_Latch" ID="{31681784-B453-431D-8891-84D146B78113}" WorkUnitID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Octo_Systems_Text" ID="{B78CABE6-E3F6-4232-B908-9757B1C31DB1}">
+							<ChildrenList>
+								<Action Name="" ID="{7802319F-3A27-48B3-A67C-7D48D269D8EE}" ShortID="567243750">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TEMP_SFX_Octo_Systems_Text" ID="{6DA11FC1-644A-45A2-9A85-1341B50C00DC}" WorkUnitID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -153,7 +164,7 @@
 								<Action Name="" ID="{2BA7A86C-0A7A-44B6-AB01-CF412B05F588}" ShortID="558892445">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="VO_Ash_Oct0_Death" ID="{9C7980C6-8FAD-4AE6-8A12-FA9EE2A9C66B}" WorkUnitID="{63B17F3F-1C86-41C1-83BD-0C30B41A279B}"/>
+											<ObjectRef Name="Oct0_Death" ID="{20C4F60D-4919-4526-92F4-8CA5206E38FF}" WorkUnitID="{63B17F3F-1C86-41C1-83BD-0C30B41A279B}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -164,7 +175,7 @@
 								<Action Name="" ID="{E741DDF1-541F-4DFE-B44E-8665FE027017}" ShortID="156383039">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="VO_Ash_Oct0_CraftSuccess" ID="{ABEEDE70-4C63-4DFF-B844-F20FA2510867}" WorkUnitID="{63B17F3F-1C86-41C1-83BD-0C30B41A279B}"/>
+											<ObjectRef Name="Craft_Success" ID="{4A9758F2-1E7C-4B96-9685-7F86A80DE3CB}" WorkUnitID="{63B17F3F-1C86-41C1-83BD-0C30B41A279B}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -220,43 +231,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="VO_Ash_Oct0_Remembered" ID="{024B3FC8-1F9F-48CB-99A2-3D14A852D7CE}" WorkUnitID="{63B17F3F-1C86-41C1-83BD-0C30B41A279B}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-					</ChildrenList>
-				</Folder>
-				<Folder Name="VO" ID="{CFAB4253-4268-4A8C-9708-E4ADB3656A80}" ShortID="269182364">
-					<ChildrenList>
-						<Event Name="TEMP_VO_Octo1" ID="{9F364FA0-8284-40BF-A9B5-D05FE9767CBC}">
-							<ChildrenList>
-								<Action Name="" ID="{90602C86-27F1-4BBF-BF16-CEEB1BD504B4}" ShortID="1062696714">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="TEMP_VO_Octo1" ID="{7C71A499-A3AA-49B9-8CA6-D37BEE809F15}" WorkUnitID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="TEMP_VO_Octo2" ID="{5A279D3A-90F4-470E-8059-01F889D3DE3D}">
-							<ChildrenList>
-								<Action Name="" ID="{A0FCEC0C-3CB9-482F-A1FB-57059CC76D53}" ShortID="699135689">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="TEMP_VO_Octo2" ID="{03932504-D1B2-43E1-B6CD-8E9AA53BF188}" WorkUnitID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="TEMP_VO_Octo3" ID="{347AF92A-6D49-4EAB-A35B-C94050D9623D}">
-							<ChildrenList>
-								<Action Name="" ID="{6F381238-EEE0-49A0-B170-6F49F37D5F08}" ShortID="165881201">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="TEMP_VO_Octo3" ID="{4F68D5F5-73CA-4333-BB0A-E9773E0DC6DC}" WorkUnitID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

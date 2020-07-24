@@ -3,35 +3,6 @@
 	<Events>
 		<WorkUnit Name="Ambience" ID="{69CD5BAB-84C7-4771-A7E4-DC88181E0059}" OwnerID="{BE4EA438-161A-46B2-8259-8A1681C6BA2F}" PersistMode="Nested">
 			<ChildrenList>
-				<Event Name="Env_01_Play" ID="{E5D5C823-487B-44CA-9D5A-1EC4C67A0338}">
-					<ChildrenList>
-						<Action Name="" ID="{CFDDFB05-3372-40B1-91D5-833B0FC29B0E}" ShortID="229405033">
-							<PropertyList>
-								<Property Name="FadeTime" Type="Real64" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="SFX_Ambience_WhiteNoise_01" ID="{43E090A2-893F-4F7E-8CCE-AB1F6E19CA8B}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Env_01_Stop" ID="{AE1EBB30-7FAD-4C4C-B5F1-4EA08F40B12F}">
-					<ChildrenList>
-						<Action Name="" ID="{52810EF7-B0BE-4A26-AEBC-D1D52A7E426F}" ShortID="421659412">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-								<Property Name="FadeTime" Type="Real64" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="SFX_Ambience_WhiteNoise_01" ID="{43E090A2-893F-4F7E-8CCE-AB1F6E19CA8B}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="White_Noise_Env_Play" ID="{7E923973-46E1-4F94-9D7D-F8495CF87789}">
 					<ChildrenList>
 						<Action Name="" ID="{C183D950-D91F-4DE3-BE9D-DBFC2456350F}" ShortID="587238057">
@@ -40,7 +11,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Ambience_WhiteNoise" ID="{B207A974-ADDA-4B08-BB03-27F6CE66F0F9}" WorkUnitID="{63B17F3F-1C86-41C1-83BD-0C30B41A279B}"/>
+									<ObjectRef Name="SFX_Ambience_WhiteNoise" ID="{A365FE09-3074-4096-BFF6-38BACC27D713}" WorkUnitID="{90D07D3A-1463-40F1-AAC6-412303D188FD}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -56,7 +27,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Ambience_WhiteNoise" ID="{B207A974-ADDA-4B08-BB03-27F6CE66F0F9}" WorkUnitID="{63B17F3F-1C86-41C1-83BD-0C30B41A279B}"/>
+									<ObjectRef Name="SFX_Ambience_WhiteNoise" ID="{A365FE09-3074-4096-BFF6-38BACC27D713}" WorkUnitID="{90D07D3A-1463-40F1-AAC6-412303D188FD}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

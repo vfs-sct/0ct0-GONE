@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class ShipHealthBar : MonoBehaviour
 {
     [SerializeField] private Image barFill = null;
+    [SerializeField] private Image barOverlay = null;
     private float maxHealth = 100;
 
     public void SetMaxHealth(float newMax)
@@ -13,6 +14,8 @@ public class ShipHealthBar : MonoBehaviour
 
     public void SetFill(float newHealth)
     {
-        barFill.fillAmount = newHealth / maxHealth;
+        var newAmount = newHealth / maxHealth;
+        barFill.fillAmount = newAmount;
+        barOverlay.fillAmount = newAmount;
     }
 }

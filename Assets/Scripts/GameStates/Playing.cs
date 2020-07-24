@@ -40,6 +40,8 @@ public class Playing : GameState
     [SerializeField] private float StormDurationIncreasePerCycle = 1;
 
     [SerializeField] private float StormlerpTime = 5;
+
+    [SerializeField] private float StormWarningTime = 30;
     float TimeBetweenStorms; //time in seconds
     float StormDuration;
     float NextStormTime;
@@ -106,13 +108,24 @@ public class Playing : GameState
 
     bool IsTutorial = true; //false for testing
 
+    bool WarningTriggered = false;
+
     public override void OnUpdate()
     {
         if (!IsTutorial) // dont run incremental storms until the player has finished the tutorial, that would be too evil
         {
+            if (!WarningTriggered && Time.time >= NextStormTime-StormWarningTime)
+            {
+                //Kris do the storm warning stuff here
+                WarningTriggered =  true;
+            }
+
+
+
             if (Time.time >= NextStormTime)
             {
                 Debug.Log("STORM");
+                //EVAN: Start storm sounds here
                 WeatherController.SetNewWeatherCondition(StormWeatherCondition,StormlerpTime);
                 NextStormFinishTime = Time.time+StormlerpTime+ StormDuration;
                 NextStormTime += 9999999;
@@ -120,11 +133,13 @@ public class Playing : GameState
             if (Time.time >= NextStormFinishTime)
             {
                 Debug.Log("STORM Done");
+                //EVAN: Transition back to calm sounds here (with some delay)
                 WeatherController.SetNewWeatherCondition("base",StormlerpTime);
                 TimeBetweenStorms -= TimeDecreasePerCycle;
                 StormDuration += StormDurationIncreasePerCycle;
                 NextStormTime = Time.time + TimeBetweenStorms+StormlerpTime;
                 NextStormFinishTime = NextStormTime+999;
+                WarningTriggered = false;
             }
         }
     }
