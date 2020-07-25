@@ -6,6 +6,11 @@
 				<ActorMixer Name="SFX" ID="{60F79110-5A74-4EAC-91C3-5573602D0075}" ShortID="434934424">
 					<PropertyList>
 						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -263,6 +268,11 @@
 				<ActorMixer Name="VO" ID="{BBB2402D-FF44-45FA-9243-455B862E9F5C}" ShortID="356206395">
 					<PropertyList>
 						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>5</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
