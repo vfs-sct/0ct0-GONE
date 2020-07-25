@@ -24,8 +24,21 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: f900c26f10d8334a9904ef23286ce5ab
     GuidInternal: 
-    m_lastTime: -8586067318275201787
-    List: []
+    m_lastTime: -8586059479839974235
+    List:
+    - name: Reverb
+      guid: 4425eaca62b47940907593ed58431138
+      id: 348963605
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: SFX_MAIN
+        ObjectType: 2
+      - ElementName: Reverb
+        ObjectType: 1
+      Path: Default Work Unit\Master Audio Bus\SFX_MAIN\Reverb
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
@@ -53,40 +66,8 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Environment.wwu
     guid: ab5bcd69c7847147a7e4dc88181e0059
     GuidInternal: 
-    m_lastTime: -8586068492893758623
+    m_lastTime: -8586060614195089739
     List:
-    - name: Env_01_Play
-      guid: 23c8d5e57b48ca449d5a1ec4c67a0338
-      id: 1660813893
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Environment
-        ObjectType: 12
-      - ElementName: Ambience
-        ObjectType: 12
-      - ElementName: Env_01_Play
-        ObjectType: 3
-      Path: Octo_Main\Environment\Ambience\Env_01_Play
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Env_01_Stop
-      guid: 30bb1eaead7f4c4cb5f14ea08f40b12f
-      id: 3085466819
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Environment
-        ObjectType: 12
-      - ElementName: Ambience
-        ObjectType: 12
-      - ElementName: Env_01_Stop
-        ObjectType: 3
-      Path: Octo_Main\Environment\Ambience\Env_01_Stop
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
     - name: System_Sounds
       guid: 052f26e9389de941b09295f58ba76ee3
       id: 2357789153
@@ -103,9 +84,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: White_Noise_Spaceship_Play
+    - name: White_Noise_Env_Play
       guid: 7339927ee146944f9d7df8495cf87789
-      id: 41405203
+      id: 2606285032
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -113,15 +94,15 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Ambience
         ObjectType: 12
-      - ElementName: White_Noise_Spaceship_Play
+      - ElementName: White_Noise_Env_Play
         ObjectType: 3
-      Path: Octo_Main\Environment\Ambience\White_Noise_Spaceship_Play
+      Path: Octo_Main\Environment\Ambience\White_Noise_Env_Play
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: White_Noise_Spaceship_Stop
+      maxDuration: Infinity
+      minDuration: 71.33867
+    - name: White_Noise_Env_Stop
       guid: 19a7f5e2ce78cc4685ed427b30836353
-      id: 3466494713
+      id: 647411290
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -129,9 +110,9 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Ambience
         ObjectType: 12
-      - ElementName: White_Noise_Spaceship_Stop
+      - ElementName: White_Noise_Env_Stop
         ObjectType: 3
-      Path: Octo_Main\Environment\Ambience\White_Noise_Spaceship_Stop
+      Path: Octo_Main\Environment\Ambience\White_Noise_Env_Stop
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -139,7 +120,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: c86910c84b6743438fd566dc929dbe39
     GuidInternal: 
-    m_lastTime: -8586068492893758623
+    m_lastTime: -8586060614195079739
     List: []
   - PhysicalPath: Events\Credits.wwu
     ParentPhysicalPath: Events\MainMenu.wwu
@@ -181,24 +162,8 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Environment.wwu
     guid: e2e00994021ec5448e7eae839c8e59ed
     GuidInternal: 
-    m_lastTime: -8586068491153220797
+    m_lastTime: -8586060614195069734
     List:
-    - name: Asteroid_Collision
-      guid: a20f3376e4f6c148937981d5812cceb0
-      id: 494181607
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Environment
-        ObjectType: 12
-      - ElementName: Environmental
-        ObjectType: 12
-      - ElementName: Asteroid_Collision
-        ObjectType: 3
-      Path: Octo_Main\Environment\Environmental\Asteroid_Collision
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
     - name: Asteroid_Moving_Play
       guid: 7bd52ddce36cb947afb6bf9680620454
       id: 1880505272
@@ -212,7 +177,7 @@ MonoBehaviour:
       - ElementName: Asteroid_Moving_Play
         ObjectType: 3
       Path: Octo_Main\Environment\Environmental\Asteroid_Moving_Play
-      maxAttenuation: 100
+      maxAttenuation: 25
       maxDuration: -1
       minDuration: -1
     - name: Asteroid_Moving_Stop
@@ -278,7 +243,7 @@ MonoBehaviour:
       Path: Octo_Main\Environment\Environmental\Explosion
       maxAttenuation: 0
       maxDuration: 6.944667
-      minDuration: 6.944667
+      minDuration: 6.846
     - name: Fire_Play
       guid: c4fa23d0c5781341af7dabb4de5986f5
       id: 1379753762
@@ -391,22 +356,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: Metal_Collision
-      guid: 0b7204e969ae9443940b135432007b5f
-      id: 1341439083
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Environment
-        ObjectType: 12
-      - ElementName: Environmental
-        ObjectType: 12
-      - ElementName: Metal_Collision
-        ObjectType: 3
-      Path: Octo_Main\Environment\Environmental\Metal_Collision
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
     - name: Metal_Moving_Play
       guid: 189b2752210a694ab7845493fae1a633
       id: 1006438764
@@ -420,7 +369,7 @@ MonoBehaviour:
       - ElementName: Metal_Moving_Play
         ObjectType: 3
       Path: Octo_Main\Environment\Environmental\Metal_Moving_Play
-      maxAttenuation: 100
+      maxAttenuation: 25
       maxDuration: -1
       minDuration: -1
     - name: Metal_Moving_Stop
@@ -693,81 +642,11 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8586068492893738625
     List: []
-  - PhysicalPath: Events\Oakley.wwu
-    ParentPhysicalPath: Events\Characters.wwu
-    guid: adf6d36ce72ced4eb04c57e83f3fdefd
-    GuidInternal: 
-    m_lastTime: -8586066824382398024
-    List:
-    - name: TEMP_VO_Oakley1
-      guid: 99da21cb0fba3c4e9c60aee8ad1c9d0c
-      id: 2175833802
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
-      - ElementName: Oakley
-        ObjectType: 12
-      - ElementName: TEMP_VO_Oakley1
-        ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\TEMP_VO_Oakley1
-      maxAttenuation: 0
-      maxDuration: 2.269456
-      minDuration: 2.269456
-    - name: TEMP_VO_Oakley2
-      guid: ec0b099a3437f54887c876681e1b78d5
-      id: 2175833801
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
-      - ElementName: Oakley
-        ObjectType: 12
-      - ElementName: TEMP_VO_Oakley2
-        ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\TEMP_VO_Oakley2
-      maxAttenuation: 0
-      maxDuration: 1.296213
-      minDuration: 1.296213
-    - name: TEMP_VO_Oakley3
-      guid: ae60ce51968c7247b175afb3bababece
-      id: 2175833800
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
-      - ElementName: Oakley
-        ObjectType: 12
-      - ElementName: TEMP_VO_Oakley3
-        ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\TEMP_VO_Oakley3
-      maxAttenuation: 0
-      maxDuration: 7.031225
-      minDuration: 7.031225
-    - name: TEMP_VO_Oakley4
-      guid: 4fc3fb3afd512f4f9ae6c01f1e385de4
-      id: 2175833807
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
-      - ElementName: Oakley
-        ObjectType: 12
-      - ElementName: TEMP_VO_Oakley4
-        ObjectType: 3
-      Path: Octo_Main\Characters\Oakley\TEMP_VO_Oakley4
-      maxAttenuation: 0
-      maxDuration: 2.493084
-      minDuration: 2.493084
   - PhysicalPath: Events\Octo.wwu
     ParentPhysicalPath: Events\Characters.wwu
     guid: f634a635af0cc44cb82677937ae1b49a
     GuidInternal: 
-    m_lastTime: -8586068491153210800
+    m_lastTime: -8586060614195059734
     List:
     - name: Complete_Objective
       guid: 3f1ebf0eeb5f854bad04bcbec4244fed
@@ -821,8 +700,26 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\Characters\Octo\Voice\Crafting_Success
       maxAttenuation: 0
-      maxDuration: 1.061333
-      minDuration: 1.061333
+      maxDuration: 1.077333
+      minDuration: 0.970667
+    - name: CriticalDamage
+      guid: 46041393e5db9e4e94551864acf2dd19
+      id: 2275245449
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Computer
+        ObjectType: 4
+      - ElementName: CriticalDamage
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Computer\CriticalDamage
+      maxAttenuation: 0
+      maxDuration: 3.754667
+      minDuration: 2.410667
     - name: Damage
       guid: 3699151b2b31cf40babbf1e542dbd807
       id: 1786804762
@@ -858,7 +755,79 @@ MonoBehaviour:
       Path: Octo_Main\Characters\Octo\Voice\Death
       maxAttenuation: 0
       maxDuration: 3.328
+      minDuration: 1.749333
+    - name: FuelLow
+      guid: 5e43bed162693e4387b60879227c2b2c
+      id: 2427503841
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Computer
+        ObjectType: 4
+      - ElementName: FuelLow
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Computer\FuelLow
+      maxAttenuation: 0
+      maxDuration: 5.397333
+      minDuration: 2.624
+    - name: GasDetected
+      guid: e41648cbf1120345b7cbecc8f1acb448
+      id: 3221598706
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Computer
+        ObjectType: 4
+      - ElementName: GasDetected
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Computer\GasDetected
+      maxAttenuation: 0
+      maxDuration: 4.117333
+      minDuration: 3.861333
+    - name: HighRadiation
+      guid: 75d383519113684ea1030dcdea566c04
+      id: 1617374610
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Computer
+        ObjectType: 4
+      - ElementName: HighRadiation
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Computer\HighRadiation
+      maxAttenuation: 0
+      maxDuration: 3.498667
       minDuration: 3.328
+    - name: LeavingCommRange
+      guid: c91847595dcdda41b39dcbfe731464bf
+      id: 636935130
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Computer
+        ObjectType: 4
+      - ElementName: LeavingCommRange
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Computer\LeavingCommRange
+      maxAttenuation: 0
+      maxDuration: 3.072
+      minDuration: 2.645333
     - name: Low_Fuel
       guid: 7ef514f0ca49ea4ab7244fb430a4bdee
       id: 4123804492
@@ -913,6 +882,24 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.034667
       minDuration: 1.034667
+    - name: ObjectiveComplete
+      guid: 934e17fee1ee1541b058a13f58a999e8
+      id: 2432414539
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: Computer
+        ObjectType: 4
+      - ElementName: ObjectiveComplete
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\Computer\ObjectiveComplete
+      maxAttenuation: 0
+      maxDuration: 2.645333
+      minDuration: 1.429333
     - name: Octo_Damage_Metal
       guid: b891293d1f0a0f4289c5582f380286fe
       id: 1805563388
@@ -1003,9 +990,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.834667
       minDuration: 1.834667
-    - name: Octo_Moving
-      guid: b1f2942db8fc1d49926a8f309a576498
-      id: 2120872765
+    - name: Octo_Repair_Start
+      guid: 9f78d66546993942b25846bf3fab6fcf
+      id: 3264271601
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -1015,12 +1002,30 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
-      - ElementName: Octo_Moving
+      - ElementName: Octo_Repair_Start
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_Moving
+      Path: Octo_Main\Characters\Octo\SFX\Octo_Repair_Start
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.72
+      minDuration: 0.72
+    - name: Octo_Resc_Deposit
+      guid: 5d3a01fd31a241459e750bafda3c416d
+      id: 2772431037
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 12
+      - ElementName: Octo
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: Octo_Resc_Deposit
+        ObjectType: 3
+      Path: Octo_Main\Characters\Octo\SFX\Octo_Resc_Deposit
+      maxAttenuation: 0
+      maxDuration: 0.949333
+      minDuration: 0.949333
     - name: Octo_Salvage
       guid: f48c6cf94ae5d54e85d09aed4a574c16
       id: 1840358926
@@ -1039,9 +1044,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 4.421333
       minDuration: 4.421333
-    - name: Octo_Tether_Grab
-      guid: 9f78d66546993942b25846bf3fab6fcf
-      id: 3836538128
+    - name: Octo_Systems_Text
+      guid: e6ab8cb7f6e33242b9089757b1c31db1
+      id: 3034747479
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -1051,30 +1056,12 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
-      - ElementName: Octo_Tether_Grab
+      - ElementName: Octo_Systems_Text
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_Tether_Grab
+      Path: Octo_Main\Characters\Octo\SFX\Octo_Systems_Text
       maxAttenuation: 0
-      maxDuration: 0.72
-      minDuration: 0.72
-    - name: Octo_Tether_Rope
-      guid: 5d3a01fd31a241459e750bafda3c416d
-      id: 314769330
-      PathAndIcons:
-      - ElementName: Octo_Main
-        ObjectType: 12
-      - ElementName: Characters
-        ObjectType: 12
-      - ElementName: Octo
-        ObjectType: 12
-      - ElementName: SFX
-        ObjectType: 4
-      - ElementName: Octo_Tether_Rope
-        ObjectType: 3
-      Path: Octo_Main\Characters\Octo\SFX\Octo_Tether_Rope
-      maxAttenuation: 0
-      maxDuration: 0.949333
-      minDuration: 0.949333
+      maxDuration: 0.0855
+      minDuration: 0.0855
     - name: Octo_Thrusters_Play
       guid: 882b55f01d835845ad1b375295da4bef
       id: 3778246708
@@ -1129,9 +1116,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.938667
       minDuration: 0.938667
-    - name: TEMP_VO_Octo1
-      guid: a04f369f8482bf40a9b5d05fe9767cbc
-      id: 131276932
+    - name: ShutDown
+      guid: 379c69540e31fa459b1bf12cb3774ef9
+      id: 198343527
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -1139,17 +1126,17 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
-      - ElementName: VO
+      - ElementName: Computer
         ObjectType: 4
-      - ElementName: TEMP_VO_Octo1
+      - ElementName: ShutDown
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\VO\TEMP_VO_Octo1
+      Path: Octo_Main\Characters\Octo\Computer\ShutDown
       maxAttenuation: 0
-      maxDuration: 13.77127
-      minDuration: 13.77127
-    - name: TEMP_VO_Octo2
-      guid: 3a9d275af4900e47805901f889d3de3d
-      id: 131276935
+      maxDuration: 1.834667
+      minDuration: 1.130667
+    - name: ShutDownDamage
+      guid: afcba579268ae348bbcee982abcfbfb2
+      id: 781891296
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -1157,17 +1144,17 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
-      - ElementName: VO
+      - ElementName: Computer
         ObjectType: 4
-      - ElementName: TEMP_VO_Octo2
+      - ElementName: ShutDownDamage
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\VO\TEMP_VO_Octo2
+      Path: Octo_Main\Characters\Octo\Computer\ShutDownDamage
       maxAttenuation: 0
-      maxDuration: 11.34678
-      minDuration: 11.34678
-    - name: TEMP_VO_Octo3
-      guid: 2af97a34496dab4ea35bc94050d9623d
-      id: 131276934
+      maxDuration: 6.997334
+      minDuration: 3.968
+    - name: ShutDownFuel
+      guid: 1f2ccd6fb63a6b479b349527741dc7cd
+      id: 3355890559
       PathAndIcons:
       - ElementName: Octo_Main
         ObjectType: 12
@@ -1175,14 +1162,14 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: Octo
         ObjectType: 12
-      - ElementName: VO
+      - ElementName: Computer
         ObjectType: 4
-      - ElementName: TEMP_VO_Octo3
+      - ElementName: ShutDownFuel
         ObjectType: 3
-      Path: Octo_Main\Characters\Octo\VO\TEMP_VO_Octo3
+      Path: Octo_Main\Characters\Octo\Computer\ShutDownFuel
       maxAttenuation: 0
-      maxDuration: 4.171996
-      minDuration: 4.171996
+      maxDuration: 7.850667
+      minDuration: 3.84
   - PhysicalPath: Events\Octo_Main.wwu
     ParentPhysicalPath: 
     guid: 5fe02299154012418e883a6d761122fe
@@ -1497,7 +1484,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Environment.wwu
     guid: 001220ee6376c9419a2982aa893f2257
     GuidInternal: 
-    m_lastTime: -8586068491153210800
+    m_lastTime: -8586060614195059734
     List:
     - name: Communications_Array_Play
       guid: 5383a836cb190343b222608847f64f94
@@ -1723,6 +1710,38 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Satellite_Pulse_Play
+      guid: a9fd3cfdad86d84bac343c7841081849
+      id: 149643007
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Satellite_Pulse_Play
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Satellite_Pulse_Play
+      maxAttenuation: 0
+      maxDuration: 14.698667
+      minDuration: 9.045333
+    - name: Satellite_Pulse_Stop
+      guid: eb6ad96eaf8972419daffc011c2db1ff
+      id: 3977394973
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 12
+      - ElementName: Satellite
+        ObjectType: 12
+      - ElementName: Satellite_Pulse_Stop
+        ObjectType: 3
+      Path: Octo_Main\Environment\Satellite\Satellite_Pulse_Stop
+      maxAttenuation: 0
+      maxDuration: 14.698667
+      minDuration: 9.045333
     - name: Satellite_Radar_Play
       guid: 1cb775cb2735c5439e1e02c3dd4af972
       id: 1823223854
@@ -1759,7 +1778,7 @@ MonoBehaviour:
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: be40750790b97640a0e9ad908753cb5c
     GuidInternal: 
-    m_lastTime: -8586068492893718619
+    m_lastTime: -8586060614195039729
     List:
     - name: Asteroid_Warning
       guid: 7f62ec02d2a7ce42bcb75bf508749265
@@ -1773,8 +1792,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\UI\Asteroid_Warning
       maxAttenuation: 0
-      maxDuration: 1.042708
-      minDuration: 1.042708
+      maxDuration: 1.628563
+      minDuration: 1.628563
     - name: Electrical_Spark_Warning
       guid: 550bca1649fd1240b6d3c776689b35c8
       id: 3147538972
@@ -1787,8 +1806,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\UI\Electrical_Spark_Warning
       maxAttenuation: 0
-      maxDuration: 1.626625
-      minDuration: 1.626625
+      maxDuration: 2.074875
+      minDuration: 2.074875
     - name: Gas_Warning
       guid: 9ce370b29ee4764d99a0c9e0820a5299
       id: 3096260197
@@ -1801,8 +1820,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Octo_Main\UI\Gas_Warning
       maxAttenuation: 0
-      maxDuration: 2.377375
-      minDuration: 2.377375
+      maxDuration: 2.357188
+      minDuration: 2.357188
     - name: Menu_Activation
       guid: 2387da8e3b1fe348becdce272329fc1e
       id: 2470499543
@@ -1831,6 +1850,20 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.125
       minDuration: 2.125
+    - name: Objective_New_Banner
+      guid: 00b15307c6663e4ea9bcd44929e371d5
+      id: 117612074
+      PathAndIcons:
+      - ElementName: Octo_Main
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 12
+      - ElementName: Objective_New_Banner
+        ObjectType: 3
+      Path: Octo_Main\UI\Objective_New_Banner
+      maxAttenuation: 0
+      maxDuration: 1.676813
+      minDuration: 1.676813
   - PhysicalPath: Events\VO.wwu
     ParentPhysicalPath: Events\Octo_Main.wwu
     guid: 80fd9ad2e910b34f8d39ce87f0c04344
@@ -2061,616 +2094,7 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-  - PhysicalPath: Events\VO_Nancy.wwu
-    ParentPhysicalPath: 
-    guid: 27d6b9c69f1acb4f932bb756c450beb8
-    GuidInternal: 
-    m_lastTime: -8586066830577181016
-    List:
-    - name: ComputerLog_01
-      guid: 7cb8ceaaafb1e5468211dde98f979b4c
-      id: 2060833634
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log1
-        ObjectType: 4
-      - ElementName: ComputerLog_01
-        ObjectType: 3
-      Path: VO_Nancy\Log1\ComputerLog_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: ComputerLog_02
-      guid: 0dc627da537600418560490f87bf12ac
-      id: 2060833633
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log2
-        ObjectType: 4
-      - ElementName: ComputerLog_02
-        ObjectType: 3
-      Path: VO_Nancy\Log2\ComputerLog_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: ComputerLog_03
-      guid: 026c5c0032515241a6220acfcfef2382
-      id: 2060833632
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log3
-        ObjectType: 4
-      - ElementName: ComputerLog_03
-        ObjectType: 3
-      Path: VO_Nancy\Log3\ComputerLog_03
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: ComputerLog_04
-      guid: afc52a73c8f63d48a7c3a4f04a1e88b9
-      id: 2060833639
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log4
-        ObjectType: 4
-      - ElementName: ComputerLog_04
-        ObjectType: 3
-      Path: VO_Nancy\Log4\ComputerLog_04
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: ComputerLog_05
-      guid: f4f858d496496947867f30fbc866dc84
-      id: 2060833638
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log5
-        ObjectType: 4
-      - ElementName: ComputerLog_05
-        ObjectType: 3
-      Path: VO_Nancy\Log5\ComputerLog_05
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: ComputerLog_06
-      guid: ac6b0f892bb4704b9d392fd80710bb9f
-      id: 2060833637
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log6
-        ObjectType: 4
-      - ElementName: ComputerLog_06
-        ObjectType: 3
-      Path: VO_Nancy\Log6\ComputerLog_06
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: ComputerLog_07_01
-      guid: 7795fd80e5f80a4fbb2f79f938b57fbf
-      id: 1556014154
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log7
-        ObjectType: 4
-      - ElementName: ComputerLog_07_01
-        ObjectType: 3
-      Path: VO_Nancy\Log7\ComputerLog_07_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: ComputerLog_07_02
-      guid: 047a508b8897484c8a616863b33759ab
-      id: 1556014153
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log7
-        ObjectType: 4
-      - ElementName: ComputerLog_07_02
-        ObjectType: 3
-      Path: VO_Nancy\Log7\ComputerLog_07_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log2_01
-      guid: 1d1d29c30cea784d921656fa24c4846c
-      id: 1784329477
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log2
-        ObjectType: 4
-      - ElementName: Oakley_Log2_01
-        ObjectType: 3
-      Path: VO_Nancy\Log2\Oakley_Log2_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log2_02
-      guid: 4783383664e41c4b8850d21677d74c5c
-      id: 1784329478
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log2
-        ObjectType: 4
-      - ElementName: Oakley_Log2_02
-        ObjectType: 3
-      Path: VO_Nancy\Log2\Oakley_Log2_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log2_03
-      guid: cc39cf0d6517d644889483be81d641f0
-      id: 1784329479
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log2
-        ObjectType: 4
-      - ElementName: Oakley_Log2_03
-        ObjectType: 3
-      Path: VO_Nancy\Log2\Oakley_Log2_03
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log2_04
-      guid: 35b74935635bcc448280e2f9a5ce9ee1
-      id: 1784329472
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log2
-        ObjectType: 4
-      - ElementName: Oakley_Log2_04
-        ObjectType: 3
-      Path: VO_Nancy\Log2\Oakley_Log2_04
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log3_01
-      guid: 9607b4bc8bdd6843b11f86bdf993555e
-      id: 1876006510
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log3
-        ObjectType: 4
-      - ElementName: Oakley_Log3_01
-        ObjectType: 3
-      Path: VO_Nancy\Log3\Oakley_Log3_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log3_02
-      guid: eba1abff931cac49bbe532e091b7d4c4
-      id: 1876006509
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log3
-        ObjectType: 4
-      - ElementName: Oakley_Log3_02
-        ObjectType: 3
-      Path: VO_Nancy\Log3\Oakley_Log3_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log3_03
-      guid: bf28392e0934fd47b4f020876062e755
-      id: 1876006508
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log3
-        ObjectType: 4
-      - ElementName: Oakley_Log3_03
-        ObjectType: 3
-      Path: VO_Nancy\Log3\Oakley_Log3_03
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log3_04
-      guid: e3b1e119378c94429561368388bb25ee
-      id: 1876006507
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log3
-        ObjectType: 4
-      - ElementName: Oakley_Log3_04
-        ObjectType: 3
-      Path: VO_Nancy\Log3\Oakley_Log3_04
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log4_01
-      guid: b4c64e9ff9ae034c908b281d9c9f10e4
-      id: 3959953955
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log4
-        ObjectType: 4
-      - ElementName: Oakley_Log4_01
-        ObjectType: 3
-      Path: VO_Nancy\Log4\Oakley_Log4_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log4_02
-      guid: 93839be33125ea448384726f3f5bf388
-      id: 3959953952
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log4
-        ObjectType: 4
-      - ElementName: Oakley_Log4_02
-        ObjectType: 3
-      Path: VO_Nancy\Log4\Oakley_Log4_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log4_03
-      guid: f979ac4477be9641a7b2802e0b75beed
-      id: 3959953953
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log4
-        ObjectType: 4
-      - ElementName: Oakley_Log4_03
-        ObjectType: 3
-      Path: VO_Nancy\Log4\Oakley_Log4_03
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log4_04
-      guid: 992658d0b0e7c64c957c3ab6bd59743b
-      id: 3959953958
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log4
-        ObjectType: 4
-      - ElementName: Oakley_Log4_04
-        ObjectType: 3
-      Path: VO_Nancy\Log4\Oakley_Log4_04
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log5_01
-      guid: 0f1d2fda3e722147b5427fea327a2e74
-      id: 2451425260
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log5
-        ObjectType: 4
-      - ElementName: Oakley_Log5_01
-        ObjectType: 3
-      Path: VO_Nancy\Log5\Oakley_Log5_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log5_02
-      guid: 56602d2cee4aff4bbf45add0c2c6386b
-      id: 2451425263
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log5
-        ObjectType: 4
-      - ElementName: Oakley_Log5_02
-        ObjectType: 3
-      Path: VO_Nancy\Log5\Oakley_Log5_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log6_01
-      guid: 52017cf2cef45c498b77adc0b648a4fa
-      id: 395670201
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log6
-        ObjectType: 4
-      - ElementName: Oakley_Log6_01
-        ObjectType: 3
-      Path: VO_Nancy\Log6\Oakley_Log6_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log6_02
-      guid: d4641fc5d7a4df469d51dadcba409eab
-      id: 395670202
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log6
-        ObjectType: 4
-      - ElementName: Oakley_Log6_02
-        ObjectType: 3
-      Path: VO_Nancy\Log6\Oakley_Log6_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log6_03
-      guid: ac473dcb1bf0d8418e4b7aa992cbed82
-      id: 395670203
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log6
-        ObjectType: 4
-      - ElementName: Oakley_Log6_03
-        ObjectType: 3
-      Path: VO_Nancy\Log6\Oakley_Log6_03
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log7_01
-      guid: 1e9dec2f24efc743a9764b3b806e790f
-      id: 477004482
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log7
-        ObjectType: 4
-      - ElementName: Oakley_Log7_01
-        ObjectType: 3
-      Path: VO_Nancy\Log7\Oakley_Log7_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log7_02
-      guid: d29894c00c4b4e4f94e42d625e4a6475
-      id: 477004481
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log7
-        ObjectType: 4
-      - ElementName: Oakley_Log7_02
-        ObjectType: 3
-      Path: VO_Nancy\Log7\Oakley_Log7_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log7_03
-      guid: c1ec3d7a465bc5479b126d80c2044ebc
-      id: 477004480
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log7
-        ObjectType: 4
-      - ElementName: Oakley_Log7_03
-        ObjectType: 3
-      Path: VO_Nancy\Log7\Oakley_Log7_03
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log7_04
-      guid: c35fade683c6124ead41cd122e651986
-      id: 477004487
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log7
-        ObjectType: 4
-      - ElementName: Oakley_Log7_04
-        ObjectType: 3
-      Path: VO_Nancy\Log7\Oakley_Log7_04
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Oakley_Log7_05
-      guid: fd94288d10cf57459438aa2a359bc653
-      id: 477004486
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log7
-        ObjectType: 4
-      - ElementName: Oakley_Log7_05
-        ObjectType: 3
-      Path: VO_Nancy\Log7\Oakley_Log7_05
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log2_01
-      guid: fb58166dd0cd724088df7f22bbb703e5
-      id: 1896913719
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log2
-        ObjectType: 4
-      - ElementName: Octo_Log2_01
-        ObjectType: 3
-      Path: VO_Nancy\Log2\Octo_Log2_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log2_02
-      guid: ed8885212eaf45498dce847178050df5
-      id: 1896913716
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log2
-        ObjectType: 4
-      - ElementName: Octo_Log2_02
-        ObjectType: 3
-      Path: VO_Nancy\Log2\Octo_Log2_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log2_03
-      guid: a4c0c275e3c2ea439d46a86003bc5aa9
-      id: 1896913717
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log2
-        ObjectType: 4
-      - ElementName: Octo_Log2_03
-        ObjectType: 3
-      Path: VO_Nancy\Log2\Octo_Log2_03
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log3_01
-      guid: fb6a5f975ff93b4e92448ec1908f678a
-      id: 2525474464
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log3
-        ObjectType: 4
-      - ElementName: Octo_Log3_01
-        ObjectType: 3
-      Path: VO_Nancy\Log3\Octo_Log3_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log3_02
-      guid: d8c02a43ff179f4e83948cfac380d96c
-      id: 2525474467
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log3
-        ObjectType: 4
-      - ElementName: Octo_Log3_02
-        ObjectType: 3
-      Path: VO_Nancy\Log3\Octo_Log3_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log4_01
-      guid: 56a8b4836cb232419fbe670039ab662c
-      id: 1166230177
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log4
-        ObjectType: 4
-      - ElementName: Octo_Log4_01
-        ObjectType: 3
-      Path: VO_Nancy\Log4\Octo_Log4_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log4_02
-      guid: d9a680bfac369545b243bedb9ed10df3
-      id: 1166230178
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log4
-        ObjectType: 4
-      - ElementName: Octo_Log4_02
-        ObjectType: 3
-      Path: VO_Nancy\Log4\Octo_Log4_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log4_03
-      guid: f6f24a75348df14d9fd87ec77bb159ba
-      id: 1166230179
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log4
-        ObjectType: 4
-      - ElementName: Octo_Log4_03
-        ObjectType: 3
-      Path: VO_Nancy\Log4\Octo_Log4_03
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log4_04
-      guid: 35312efe4595e345844ab438c9ba8603
-      id: 1166230180
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log4
-        ObjectType: 4
-      - ElementName: Octo_Log4_04
-        ObjectType: 3
-      Path: VO_Nancy\Log4\Octo_Log4_04
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log5_01
-      guid: 1a5f062b47bec84d8c8eb14c9f7461dd
-      id: 1794790954
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log5
-        ObjectType: 4
-      - ElementName: Octo_Log5_01
-        ObjectType: 3
-      Path: VO_Nancy\Log5\Octo_Log5_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log5_02
-      guid: 0f0ca0fb792d02418fc39bd8f23a1636
-      id: 1794790953
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log5
-        ObjectType: 4
-      - ElementName: Octo_Log5_02
-        ObjectType: 3
-      Path: VO_Nancy\Log5\Octo_Log5_02
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Octo_Log6_01
-      guid: 8e22b1934a26c34ea7d8e8c0a2c007f1
-      id: 1024349707
-      PathAndIcons:
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Log6
-        ObjectType: 4
-      - ElementName: Octo_Log6_01
-        ObjectType: 3
-      Path: VO_Nancy\Log6\Octo_Log6_01
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
   RtpcWwu:
-  - PhysicalPath: Game Parameters\Ambience_Nancy.wwu
-    ParentPhysicalPath: 
-    guid: 08aea509a8dcc34b9c0d955867552018
-    GuidInternal: 
-    m_lastTime: -8586070230894775808
-    List:
-    - name: Voice
-      guid: 1175805ef3ac704aad40758d20fe95c6
-      id: 3170124113
-      PathAndIcons:
-      - ElementName: Ambience_Nancy
-        ObjectType: 12
-      - ElementName: Voice
-        ObjectType: 13
-      Path: Ambience_Nancy\Voice
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 16ab4c859cf4d549a5c53e9b19139d92
@@ -2681,7 +2105,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: cb8b8ab241089f479f32a560a1e5b2a3
     GuidInternal: 
-    m_lastTime: -8586067306747636610
+    m_lastTime: -8586061214664775808
     List:
     - name: DistanceDoppler
       guid: e4d423f4f0d342408054edf7431885e5
@@ -2714,8 +2138,17 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 295e2b7d85002742b4d603debe586bd2
     GuidInternal: 
-    m_lastTime: -8586068492893708617
+    m_lastTime: -8586060614195029730
     List:
+    - name: DialogueVolume
+      guid: 9a9706a220b8d1428e2ae4da68fe283e
+      id: 1866264637
+      PathAndIcons:
+      - ElementName: Volume
+        ObjectType: 12
+      - ElementName: DialogueVolume
+        ObjectType: 13
+      Path: Volume\DialogueVolume
     - name: MasterVolume
       guid: 6fd4b45692a2184d9b8d7b65b0ccc99f
       id: 2918011349
@@ -2754,7 +2187,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 31b003b25aa463438a044a6258588903
     GuidInternal: 
-    m_lastTime: -8586067318275161779
+    m_lastTime: -8586060613474022760
     List:
     - name: BackEnd
       guid: 24809a1fb11b624e9008c3a9c89d2383
@@ -2779,7 +2212,7 @@ MonoBehaviour:
         - ElementName: Gameplay
           ObjectType: 8
       - name: Home
-        guid: 4e189bb74a2ed442ab4bd2343cadbf23
+        guid: 7092d88fff18a34594bbc85bfc02c6eb
         id: 3181406844
         PathAndIcons:
         - ElementName: Home
@@ -2942,177 +2375,6 @@ MonoBehaviour:
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
-  - PhysicalPath: Switches\VO.wwu
-    ParentPhysicalPath: 
-    guid: ee83c5615f429b4fa483a90bf8dc4df6
-    GuidInternal: 
-    m_lastTime: -8586069146944775808
-    List: []
-  - PhysicalPath: Switches\VO_Nancy.wwu
-    ParentPhysicalPath: Switches\VO.wwu
-    guid: f52960825bf9524d8024c37c779f9188
-    GuidInternal: 
-    m_lastTime: -8586069146944775808
-    List:
-    - name: Character
-      guid: 0b6ffe6c4fbaca439d802eb99f2ff2d1
-      id: 436743010
-      PathAndIcons:
-      - ElementName: VO
-        ObjectType: 12
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Character
-        ObjectType: 11
-      Path: VO\VO_Nancy\Character
-      values:
-      - name: Compuer
-        guid: 68199e18fedb2940955a344ee909b54f
-        id: 56055896
-        PathAndIcons:
-        - ElementName: Compuer
-          ObjectType: 10
-      - name: Octo
-        guid: 9fa05fcd33232f479c1301cb01605715
-        id: 3628908392
-        PathAndIcons:
-        - ElementName: Octo
-          ObjectType: 10
-      ValueGuids: []
-      ValueIcons: []
-      valuesInternal: []
-    - name: Octo
-      guid: 908704d6e2badf42ba9590a9696adb12
-      id: 3628908392
-      PathAndIcons:
-      - ElementName: VO
-        ObjectType: 12
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: Octo
-        ObjectType: 11
-      Path: VO\VO_Nancy\Octo
-      values:
-      - name: Complete
-        guid: 9b2f70d6af581f4c9fce4fa1317fe149
-        id: 2631133988
-        PathAndIcons:
-        - ElementName: Complete
-          ObjectType: 10
-      - name: CraftFail
-        guid: 4644836757bfa74a83be118f58dc51e9
-        id: 913200349
-        PathAndIcons:
-        - ElementName: CraftFail
-          ObjectType: 10
-      - name: CraftSuccess
-        guid: 3ff616138497e64c8b49bc0f38a1f131
-        id: 178542290
-        PathAndIcons:
-        - ElementName: CraftSuccess
-          ObjectType: 10
-      - name: Death
-        guid: 169211183467d04283af019f38863bcf
-        id: 779278001
-        PathAndIcons:
-        - ElementName: Death
-          ObjectType: 10
-      - name: Dmage
-        guid: 979f9199272e71499c9c00791ca9446f
-        id: 2986994445
-        PathAndIcons:
-        - ElementName: Dmage
-          ObjectType: 10
-      - name: FuelLow
-        guid: e65dce869db97a45a5cbcb6d5d8b73c4
-        id: 2427503841
-        PathAndIcons:
-        - ElementName: FuelLow
-          ObjectType: 10
-      - name: NoResource
-        guid: 01fa4866014ca24f9386bc665ab1fa76
-        id: 3070723656
-        PathAndIcons:
-        - ElementName: NoResource
-          ObjectType: 10
-      - name: Remembered
-        guid: fb8a9ebd307fe745976b8f732306ef91
-        id: 392510107
-        PathAndIcons:
-        - ElementName: Remembered
-          ObjectType: 10
-      ValueGuids: []
-      ValueIcons: []
-      valuesInternal: []
-    - name: System
-      guid: 13761c2fcb430348ab86cf81419b52b3
-      id: 3859886410
-      PathAndIcons:
-      - ElementName: VO
-        ObjectType: 12
-      - ElementName: VO_Nancy
-        ObjectType: 12
-      - ElementName: System
-        ObjectType: 11
-      Path: VO\VO_Nancy\System
-      values:
-      - name: Damage
-        guid: 0857999bc58d4242a929d8b4148cb139
-        id: 1786804762
-        PathAndIcons:
-        - ElementName: Damage
-          ObjectType: 10
-      - name: FuelLow
-        guid: 786d48d95056bd4fa89672b37c59c0a8
-        id: 2427503841
-        PathAndIcons:
-        - ElementName: FuelLow
-          ObjectType: 10
-      - name: GasDetected
-        guid: 1467204c25fcf946bf6d1d8a671c27c9
-        id: 3221598706
-        PathAndIcons:
-        - ElementName: GasDetected
-          ObjectType: 10
-      - name: HighRadiation
-        guid: f710194e59940942ab2b1d9aa69e3c78
-        id: 1617374610
-        PathAndIcons:
-        - ElementName: HighRadiation
-          ObjectType: 10
-      - name: LeavingCommRange
-        guid: 1dff0ea7f41fc54689e4805250aa1e5c
-        id: 636935130
-        PathAndIcons:
-        - ElementName: LeavingCommRange
-          ObjectType: 10
-      - name: ObjectiveComplete
-        guid: b990bebb104fbe45b58ab9bebe97db7f
-        id: 2432414539
-        PathAndIcons:
-        - ElementName: ObjectiveComplete
-          ObjectType: 10
-      - name: ShutDown
-        guid: ac5646ad3aa1524eab046bd07d5dbe09
-        id: 198343527
-        PathAndIcons:
-        - ElementName: ShutDown
-          ObjectType: 10
-      - name: ShutDown_Damage
-        guid: 129be6370d871949bf3cfe3283fa10e2
-        id: 1242195097
-        PathAndIcons:
-        - ElementName: ShutDown_Damage
-          ObjectType: 10
-      - name: ShutDown_Fuel
-        guid: 834e83667c69b848b65e6e3a5db78b08
-        id: 12500730
-        PathAndIcons:
-        - ElementName: ShutDown_Fuel
-          ObjectType: 10
-      ValueGuids: []
-      ValueIcons: []
-      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPhysicalPath: 
@@ -3124,9 +2386,7 @@ MonoBehaviour:
   - /WWise_OctoGone_SD95
   - /WWise_OctoGone_SD95/Events
   - /WWise_OctoGone_SD95/Events/Octo_Main
-  - /WWise_OctoGone_SD95/Events/Octo_Main/Characters
-  - /WWise_OctoGone_SD95/Events/Octo_Main/Characters/Octo
-  - /WWise_OctoGone_SD95/Events/Octo_Main/Characters/Octo/SFX
   - /WWise_OctoGone_SD95/Events/Octo_Main/Environment
+  - /WWise_OctoGone_SD95/Events/Octo_Main/Environment/Environmental
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
