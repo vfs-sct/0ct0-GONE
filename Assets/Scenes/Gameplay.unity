@@ -342,6 +342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   shipHealthBar: {fileID: 0}
   StartingHealth: 0
   _MaxHealth: 100
@@ -16559,6 +16562,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
         type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
+        type: 3}
       propertyPath: shipHealthBar
       value: 
       objectReference: {fileID: 376850748}
@@ -16571,6 +16579,37 @@ PrefabInstance:
         type: 3}
       propertyPath: StartingHealth
       value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 5702b96ca489514478bf9db49ec2d5ff,
+        type: 2}
+    - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetShipDestroyed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2215880452067278697, guid: 20690aa1823b1b24386de633e8aa3fd9,
         type: 3}
@@ -18653,6 +18692,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   shipHealthBar: {fileID: 0}
   StartingHealth: 0
   _MaxHealth: 100
@@ -20052,6 +20094,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   shipHealthBar: {fileID: 0}
   StartingHealth: 100
   _MaxHealth: 100
@@ -20224,6 +20269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   shipHealthBar: {fileID: 0}
   StartingHealth: 100
   _MaxHealth: 100
