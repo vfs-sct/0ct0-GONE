@@ -39,6 +39,7 @@ public class HealthComponent : MonoBehaviour
             shipHealthBar.SetMaxHealth(_MaxHealth);
             shipHealthBar.SetFill(_Health);
         }
+        gameObject.GetComponent<Rigidbody>().detectCollisions = true;
         Debug.Log(_Health);
     }
 
@@ -46,6 +47,7 @@ public class HealthComponent : MonoBehaviour
     {
         float OldHealth = _Health;
         _Health = Mathf.Clamp(healthValue,0,_MaxHealth);
+        Debug.Log("Damaging Health: Old Health = "+ OldHealth + " New Health = "+ _Health);
         if (OnDelta != null)
         {
             OnDelta(this,OldHealth-_Health);
