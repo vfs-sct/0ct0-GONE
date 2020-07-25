@@ -9,7 +9,8 @@ public class GameOverState : GameState
     [SerializeField] private CommunicationModule RelayController;
     [SerializeField] private Resource FuelResource;
 
-    bool OutOfFuel = false;
+
+    bool ShipDestroyed = false;
 
     public override bool ConditionCheck(GameFrameworkManager GameManager,GameState CurrentState)
     {
@@ -20,6 +21,7 @@ public class GameOverState : GameState
         return (
             (PlayingState.ActivePlayer.Inventory.GetResource(FuelResource) <= 0) //check if the player is out of fuel
             || ((!RelayController.InRange)) //check if the player is out of range
+            || ShipDestroyed
             );
     }
 
@@ -28,12 +30,18 @@ public class GameOverState : GameState
         PlayingState.ActivePlayer.GameOver();
     }
 
+    public void SetShipDestroyed(bool b)
+    {
+        ShipDestroyed = b;
+    }
+
     public override void OnDeactivate(GameState NewState)
     {
-        
+        ShipDestroyed = false;
     }
 
     public override void Reset()
     {
+        ShipDestroyed = false;
     }
 }
