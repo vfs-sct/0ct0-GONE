@@ -90,7 +90,11 @@
 								</Sound>
 								<Sound Name="SFX_Ambience_WhiteNoise_04" ID="{D91C2305-DC37-420F-A03F-F0408870B290}" ShortID="535690722">
 									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">

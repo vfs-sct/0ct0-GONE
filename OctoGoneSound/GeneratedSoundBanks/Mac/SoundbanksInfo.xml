@@ -110,8 +110,8 @@
 				<Event Id="78924448" Name="Satellite_Idle_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Idle_Stop" GUID="{8D4D1954-D1DE-4ED2-9B16-656C85CA8623}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1016344566" Name="Satellite_Incinerator_Play" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Incinerator_Play" GUID="{96018280-ACCA-4FBD-AF32-E16775DD8D52}" DurationType="Infinite"/>
 				<Event Id="1788458376" Name="Satellite_Incinerator_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Incinerator_Stop" GUID="{FAC53AF0-AE7E-4100-961F-0E70E851C272}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="149643007" Name="Satellite_Pulse_Play" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Pulse_Play" GUID="{FD3CFDA9-86AD-4BD8-AC34-3C7841081849}" DurationType="Infinite"/>
-				<Event Id="3977394973" Name="Satellite_Pulse_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Pulse_Stop" GUID="{6ED96AEB-89AF-4172-9DAF-FC011C2DB1FF}" DurationType="Infinite"/>
+				<Event Id="149643007" Name="Satellite_Pulse_Play" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Pulse_Play" GUID="{FD3CFDA9-86AD-4BD8-AC34-3C7841081849}" DurationType="OneShot" DurationMin="9.045333" DurationMax="14.698667"/>
+				<Event Id="3977394973" Name="Satellite_Pulse_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Pulse_Stop" GUID="{6ED96AEB-89AF-4172-9DAF-FC011C2DB1FF}" DurationType="OneShot" DurationMin="9.045333" DurationMax="14.698667"/>
 				<Event Id="1823223854" Name="Satellite_Radar_Play" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Radar_Play" GUID="{CB75B71C-3527-43C5-9E1E-02C3DD4AF972}" DurationType="Infinite"/>
 				<Event Id="2866339600" Name="Satellite_Radar_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Radar_Stop" GUID="{2033BB77-A3E6-4E1C-8738-9AAA2C0BBBEE}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="198343527" Name="ShutDown" ObjectPath="\Events\Octo_Main\Characters\Octo\Computer\ShutDown" GUID="{54699C37-310E-45FA-9B1B-F12CB3774EF9}" DurationType="OneShot" DurationMin="1.130667" DurationMax="1.834667"/>
@@ -134,7 +134,7 @@
 				<Event Id="3980982613" Name="Voice_Log_07_Stop" ObjectPath="\Events\Octo_Main\VO\Voice_Log_07_Stop" GUID="{69BEB62F-9A06-46FB-8F43-8289D2BA59AC}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2086793442" Name="Voice_Log_08_Play" ObjectPath="\Events\Octo_Main\VO\Voice_Log_08_Play" GUID="{66B975C9-CBF9-4D6A-B375-C76C5517E830}" DurationType="OneShot" DurationMin="17.076000" DurationMax="17.076000"/>
 				<Event Id="2688229436" Name="Voice_Log_08_Stop" ObjectPath="\Events\Octo_Main\VO\Voice_Log_08_Stop" GUID="{8CC52083-8C4B-4E24-8B4D-0FD24BFA38B3}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2606285032" Name="White_Noise_Env_Play" ObjectPath="\Events\Octo_Main\Environment\Ambience\White_Noise_Env_Play" GUID="{7E923973-46E1-4F94-9D7D-F8495CF87789}" DurationType="Infinite"/>
+				<Event Id="2606285032" Name="White_Noise_Env_Play" ObjectPath="\Events\Octo_Main\Environment\Ambience\White_Noise_Env_Play" GUID="{7E923973-46E1-4F94-9D7D-F8495CF87789}" DurationType="Mixed" DurationMin="71.338669" DurationMax="Infinite"/>
 				<Event Id="647411290" Name="White_Noise_Env_Stop" ObjectPath="\Events\Octo_Main\Environment\Ambience\White_Noise_Env_Stop" GUID="{E2F5A719-78CE-46CC-85ED-427B30836353}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
@@ -380,7 +380,7 @@
 				</File>
 				<File Id="348778383" Language="SFX">
 					<ShortName>Ambience\Ambience_William\SFX_Ambience_WhiteNoise_04.wav</ShortName>
-					<Path>SFX\Ambience\Ambience_William\SFX_Ambience_WhiteNoise_04_D79FB2B7.wem</Path>
+					<Path>SFX\Ambience\Ambience_William\SFX_Ambience_WhiteNoise_04_10C4C929.wem</Path>
 				</File>
 				<File Id="352102148" Language="English(US)">
 					<ShortName>Oakley\VA_Colin_Oakley_Log7_02.wav</ShortName>
@@ -508,7 +508,7 @@
 				</File>
 				<File Id="544873528" Language="SFX">
 					<ShortName>Satellite\Satellite_William\SFX_Satellite_Pulse_01.wav</ShortName>
-					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Pulse_01_4E642330.wem</Path>
+					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Pulse_01_BFB259A6.wem</Path>
 				</File>
 				<File Id="552123820" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\RockHurt\RockHurt_Light\TEMP_SFX_Characters_Octo_RockHurt_Light1A.wav</ShortName>
@@ -588,7 +588,7 @@
 				</File>
 				<File Id="660653180" Language="SFX">
 					<ShortName>Satellite\Satellite_William\SFX_Satellite_Pulse_02.wav</ShortName>
-					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Pulse_02_4E642330.wem</Path>
+					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Pulse_02_BFB259A6.wem</Path>
 				</File>
 				<File Id="672150812" Language="English(US)">
 					<ShortName>Oct0\VO_Ash_Oct0_Complete.wav</ShortName>
@@ -616,7 +616,7 @@
 				</File>
 				<File Id="721059804" Language="SFX">
 					<ShortName>Satellite\Satellite_William\SFX_Satellite_Pulse_03.wav</ShortName>
-					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Pulse_03_4E642330.wem</Path>
+					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Pulse_03_BFB259A6.wem</Path>
 				</File>
 				<File Id="722772679" Language="English(US)">
 					<ShortName>Computer\Warning_ShutDown_Damage_1_03.wav</ShortName>
