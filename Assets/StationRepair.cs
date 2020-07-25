@@ -59,7 +59,7 @@ public class StationRepair : MonoBehaviour
         //if you click & hold something to craft you'll see it
         if (!isSoundPlayed)
         {
-            AkSoundEngine.PostEvent("Octo_Tether_Grab", gameObject);
+            AkSoundEngine.PostEvent("Octo_Repair_Start", gameObject);
             isSoundPlayed = true;
         }
 
@@ -282,6 +282,7 @@ public class StationRepair : MonoBehaviour
     //used to get the current sat and then enabled the screen - dont use SetActive on stationrepair.gameobject directly
     public void OpenScreen(RepairableComponent newSat)
     {
+        AkSoundEngine.PostEvent("Octo_Systems_Text", gameObject);
         currentSat = newSat;
         currentSatInfo = currentSat.gameObject.GetComponentInParent<RepairableInfo>();
         this.gameObject.SetActive(true);
@@ -299,6 +300,7 @@ public class StationRepair : MonoBehaviour
 
     public void Close()
     {
+        AkSoundEngine.PostEvent("Octo_Systems_Text", gameObject);
         GameManager.UnPause();
         Debug.Log("Unpaused");
         SwitchViewTo(HUDPrefab);

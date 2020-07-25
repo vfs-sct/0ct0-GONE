@@ -84,7 +84,7 @@ public class Pause : MonoBehaviour
         }
         else
         {
-            AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
+            AkSoundEngine.PostEvent("White_Noise_Env_Stop", AudioReferences2);
             AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
         }
 
@@ -99,6 +99,8 @@ public class Pause : MonoBehaviour
         confirmation.titleText.SetText("Quit?");
 
         confirmation.bodyText.GetComponent<TMPro.TMP_Text>().SetText("Are you sure you want to quit to desktop?");
+
+        AkSoundEngine.PostEvent("Not_Enough_Resources", gameObject);
 
         confirmation.clickConfirmCallback = DoQuit;
 

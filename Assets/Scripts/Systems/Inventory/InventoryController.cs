@@ -225,6 +225,7 @@ public class InventoryController : MonoBehaviour
         }
         playerRB.mass -= CarriedResourceMassRaw * InventoryMassMultiplier;
         CarriedResourceMassRaw = 0;
+        AkSoundEngine.PostEvent("Octo_Resc_Deposit", gameObject);
     }
 
     public Dictionary<Item,int> GetResourceSalvageList(Resource resource)
