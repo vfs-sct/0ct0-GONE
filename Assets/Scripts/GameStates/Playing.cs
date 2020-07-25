@@ -127,6 +127,7 @@ public class Playing : GameState
             if (!WarningTriggered && Time.time >= NextStormTime-StormWarningTime)
             {
                 //Kris do the storm warning stuff here
+                AkSoundEngine.PostEvent("Asteroid_Warning", _ActivePlayer.gameObject);
                 warningUI.GetWarning(2).SetActive(true);
                 WarningTriggered =  true;
             }

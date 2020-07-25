@@ -15,6 +15,7 @@ public class ChunkHoverInfo : MonoBehaviour
         title.SetText(titleText);
         slotAmount.SetText(amountText);
         GO.SetActive(true);
+        AkSoundEngine.PostEvent("Octo_Systems_Text", GO);
     }
 
     public void OnHoverEnd()
