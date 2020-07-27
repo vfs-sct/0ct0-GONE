@@ -92,10 +92,8 @@ namespace AK
         static const AkUniqueID QUIT_BUTTON_NO = 3372377107U;
         static const AkUniqueID QUIT_BUTTON_YES = 2275034407U;
         static const AkUniqueID REMEMBERING_OAKLEY = 3812427620U;
-        static const AkUniqueID SATELLITE_COMPONENT = 1580704404U;
         static const AkUniqueID SATELLITE_CRAFTING_PLAY = 4216614258U;
         static const AkUniqueID SATELLITE_CRAFTING_STOP = 1633307628U;
-        static const AkUniqueID SATELLITE_FOUNDRY = 3028867906U;
         static const AkUniqueID SATELLITE_FUEL_STATION_PLAY = 2944926723U;
         static const AkUniqueID SATELLITE_FUEL_STATION_STOP = 1006400969U;
         static const AkUniqueID SATELLITE_IDLE_PLAY = 3335895774U;

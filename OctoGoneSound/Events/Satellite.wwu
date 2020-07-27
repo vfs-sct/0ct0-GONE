@@ -6,9 +6,12 @@
 				<Event Name="Satellite_Idle_Play" ID="{5C6FFF13-2378-4F71-B9D2-68C5CCE04F8B}">
 					<ChildrenList>
 						<Action Name="" ID="{B4857DAD-D0EC-48EA-9B77-1B2C3D7E146A}" ShortID="504236901">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Idle_01" ID="{4F63D733-5792-4772-918D-747A84668499}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Idle_01" ID="{4F63D733-5792-4772-918D-747A84668499}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -17,21 +20,26 @@
 				<Event Name="Satellite_Incinerator_Play" ID="{96018280-ACCA-4FBD-AF32-E16775DD8D52}">
 					<ChildrenList>
 						<Action Name="" ID="{E0A7CB2C-7ED3-484C-8602-A8EE848C7963}" ShortID="695001845">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Incin_01" ID="{29AF9C4C-F795-4654-9463-0CF7E8B7FC3A}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Incin_01" ID="{29AF9C4C-F795-4654-9463-0CF7E8B7FC3A}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Satellite_Foundry" ID="{CFDFA428-5315-44CA-87BA-CAD4BA606D75}"/>
 				<Event Name="Satellite_Radar_Play" ID="{CB75B71C-3527-43C5-9E1E-02C3DD4AF972}">
 					<ChildrenList>
 						<Action Name="" ID="{972CFD4D-F4B8-4FDC-9AE0-3946DD452822}" ShortID="839088087">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Radar_01" ID="{ED03F50A-6882-4B56-BBF4-A44499EB4A85}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Radar_01" ID="{ED03F50A-6882-4B56-BBF4-A44499EB4A85}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -40,9 +48,12 @@
 				<Event Name="Satellite_Fuel_Station_Play" ID="{F2AED4A8-3FCB-4349-9BFA-5C50EE17E8CE}">
 					<ChildrenList>
 						<Action Name="" ID="{DAB434BE-9481-45BD-92A1-1763A0A86996}" ShortID="869443968">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_FStation_01" ID="{F6F33AE1-4329-4B9D-8FFE-0EF836C967E7}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_FStation_01" ID="{F6F33AE1-4329-4B9D-8FFE-0EF836C967E7}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -56,13 +67,12 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Comm_01" ID="{933318B3-3FE6-4614-A371-27FA06AD34A1}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Comm_01" ID="{933318B3-3FE6-4614-A371-27FA06AD34A1}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Satellite_Component" ID="{58B85219-1D3F-4CF9-97CB-7986B7BE0052}"/>
 				<Event Name="Fuel_Restoration_Play" ID="{B0D988BF-7852-4E61-BB21-386B2AE8D6A4}">
 					<ChildrenList>
 						<Action Name="" ID="{5CB2B310-8168-4724-8D9E-DFA846CCBD7C}" ShortID="1054137382">
@@ -71,7 +81,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="TEMP_SFX_Satellite_FuelRestore" ID="{D3AC49EA-7A84-4CAC-8679-A86B37ABCAA5}" WorkUnitID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}"/>
+									<ObjectRef Name="TEMP_SFX_Satellite_FuelRestore" ID="{D3AC49EA-7A84-4CAC-8679-A86B37ABCAA5}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -80,9 +90,12 @@
 				<Event Name="Satellite_Crafting_Play" ID="{963C813E-0F8A-4657-961B-50ED0D932A3C}">
 					<ChildrenList>
 						<Action Name="" ID="{FAE7DC4F-4173-4766-B282-1CED4F4A6AC5}" ShortID="1035402944">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Crafting_01" ID="{05042B04-1281-4B79-B5FE-CDBDAB5B0E69}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Crafting_01" ID="{05042B04-1281-4B79-B5FE-CDBDAB5B0E69}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -97,7 +110,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Comm_01" ID="{933318B3-3FE6-4614-A371-27FA06AD34A1}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Comm_01" ID="{933318B3-3FE6-4614-A371-27FA06AD34A1}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -108,10 +121,11 @@
 						<Action Name="" ID="{8CD6FBE2-0482-45D9-A8AB-1E3584AEC984}" ShortID="51331115">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Idle_01" ID="{4F63D733-5792-4772-918D-747A84668499}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Idle_01" ID="{4F63D733-5792-4772-918D-747A84668499}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -122,10 +136,11 @@
 						<Action Name="" ID="{06AC3D24-5D34-47C3-9296-64F96E5BC428}" ShortID="982828760">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Radar_01" ID="{ED03F50A-6882-4B56-BBF4-A44499EB4A85}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Radar_01" ID="{ED03F50A-6882-4B56-BBF4-A44499EB4A85}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -136,10 +151,11 @@
 						<Action Name="" ID="{3774546B-E8E7-4FC6-9894-C018D9C56987}" ShortID="61737183">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Crafting_01" ID="{05042B04-1281-4B79-B5FE-CDBDAB5B0E69}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Crafting_01" ID="{05042B04-1281-4B79-B5FE-CDBDAB5B0E69}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -150,10 +166,11 @@
 						<Action Name="" ID="{A1000722-B6B2-4BBD-B76A-72CD0A90654D}" ShortID="738194968">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Incin_01" ID="{29AF9C4C-F795-4654-9463-0CF7E8B7FC3A}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Incin_01" ID="{29AF9C4C-F795-4654-9463-0CF7E8B7FC3A}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -164,10 +181,11 @@
 						<Action Name="" ID="{CA36A7C6-0038-425B-B8F6-56E9C4D7373E}" ShortID="137125524">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_FStation_01" ID="{F6F33AE1-4329-4B9D-8FFE-0EF836C967E7}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_FStation_01" ID="{F6F33AE1-4329-4B9D-8FFE-0EF836C967E7}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -182,7 +200,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="TEMP_SFX_Satellite_FuelRestore" ID="{D3AC49EA-7A84-4CAC-8679-A86B37ABCAA5}" WorkUnitID="{9190C268-BE13-4024-A21F-4AEAF4A0DB6C}"/>
+									<ObjectRef Name="TEMP_SFX_Satellite_FuelRestore" ID="{D3AC49EA-7A84-4CAC-8679-A86B37ABCAA5}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -191,9 +209,12 @@
 				<Event Name="Satellite_Pulse_Play" ID="{FD3CFDA9-86AD-4BD8-AC34-3C7841081849}">
 					<ChildrenList>
 						<Action Name="" ID="{6A36C7BC-5AE3-45A6-919E-147F1B19449E}" ShortID="756569856">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Pulse" ID="{8A21D246-3E87-47C2-ACD3-E3197A46C3EA}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Pulse" ID="{8A21D246-3E87-47C2-ACD3-E3197A46C3EA}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -204,7 +225,7 @@
 						<Action Name="" ID="{7C815909-4563-4040-BFCA-4FBBFEA3B419}" ShortID="335234597">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SFX_Satellite_Pulse" ID="{8A21D246-3E87-47C2-ACD3-E3197A46C3EA}" WorkUnitID="{ED85015C-CB69-4E90-BCDC-234AAF25918D}"/>
+									<ObjectRef Name="SFX_Satellite_Pulse" ID="{8A21D246-3E87-47C2-ACD3-E3197A46C3EA}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
