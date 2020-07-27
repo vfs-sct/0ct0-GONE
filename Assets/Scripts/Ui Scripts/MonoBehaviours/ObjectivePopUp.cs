@@ -24,9 +24,9 @@ public class ObjectivePopUp : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> text;
     private string[] objectiveShort = new string[7]
     {
-        "Refuel at the station",
+        "Recharge at the station",
         "Salvage Iron and Silicon",
-        "Build a Refuel Satellite",
+        "Craft and place a Goo Glue Satellite",
         "Repair the Station's Antenna",
         "Repair the Station's Solar Array",
         "Repair the Station's Power Storage",

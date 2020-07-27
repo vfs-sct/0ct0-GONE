@@ -7,7 +7,7 @@ public class RefuelEvent : Event
 {
     private bool EventTrigger = false;
     [SerializeField] Resource CollectResource;
-    [SerializeField] public string actionVerb = "Refuel";
+    [SerializeField] public string actionVerb = "Recharge";
     [SerializeField] protected UIModule UIRootModule = null;
     private ResourceInventory playerInventory;
     private bool isInitialized = false;
