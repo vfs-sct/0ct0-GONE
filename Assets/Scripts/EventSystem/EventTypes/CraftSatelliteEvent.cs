@@ -36,7 +36,7 @@ public class CraftSatelliteEvent : Event
             if (SatInv.GetSatellite() == satelliteType)
             {
                 craftComplete = true;
-                string objectiveUpdate = $"1/1 {actionVerb[0]} {satelliteType.name}";
+                string objectiveUpdate = $"1/1 {actionVerb[0]} <color=#FFC63B>{satelliteType.DisplayName}</color>";
                 UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(0, objectiveUpdate);
             }
         }
@@ -77,7 +77,7 @@ public class CraftSatelliteEvent : Event
         if(satPlaced == satelliteType)
         {
             placeComplete = true;
-            string objectiveUpdate = $"1/1 {actionVerb[1]} {satelliteType.name}";
+            string objectiveUpdate = $"1/1 {actionVerb[1]} <color=#FFC63B>{satelliteType.DisplayName}</color>";
             UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.UpdateObjective(1, objectiveUpdate);
         }
     }
@@ -91,10 +91,10 @@ public class CraftSatelliteEvent : Event
         //objective text
         UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
 
-        string objectiveUpdate = $"0/1 {actionVerb[0]} {satelliteType.name}";
+        string objectiveUpdate = $"0/1 {actionVerb[0]} <color=#FFC63B>{satelliteType.DisplayName}</color>";
         UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.AddObjective(objectiveUpdate);
 
-        objectiveUpdate = $"0/1 {actionVerb[1]} {satelliteType.name}";
+        objectiveUpdate = $"0/1 {actionVerb[1]} <color=#FFC63B>{satelliteType.DisplayName}</color>";
         UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.AddObjective(objectiveUpdate);
     }
 }

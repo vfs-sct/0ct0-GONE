@@ -29,7 +29,7 @@ public class RefuelEvent : Event
             UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.ClearObjectives();
             //var shortenCurrentAmount = (float)Math.Floor(CollectResource.GetInstanceValue(playerInventory));
             //string objectiveUpdate = $"{shortenCurrentAmount}/{CollectResource.GetMaximum()} - {actionVerb} {CollectResource.DisplayName}";
-            string objectiveUpdate = $"{actionVerb} at the station";
+            string objectiveUpdate = $"{actionVerb} at the <color=#FFC63B>Station</color>";
             UIRootModule.UIRoot.GetScreen<GameHUD>().objectivePanel.AddObjective(objectiveUpdate);
             
             //state of event

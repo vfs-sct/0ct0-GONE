@@ -6,4 +6,5 @@ public class Satellite : ScriptableObject
     public Sprite satIcon;
     public GameObject PlacePrefab;   
     public GameObject PreviewPrefab;
+    public string DisplayName;
 }
