@@ -23,7 +23,7 @@ public class RepairTool : Tool
 
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
-        if(target.GetComponent<RepairableComponent>() == null)
+        if(target.GetComponentInParent<HealthComponent>() == null && inventoryComponent.GetResource(RepairNaniteResource) >= NanitesPerCycle)
         {
             Debug.Log("Target in LoopCondition() returned null");
             var popTxt = Instantiate(popText);
@@ -45,7 +45,7 @@ public class RepairTool : Tool
 
     protected override void OnActivate(ToolController owner, GameObject target)
     {        
-       healthComponent = target.GetComponent<HealthComponent>();
+       healthComponent = target.GetComponentInParent<HealthComponent>();
        NextUpdateTime = Time.time + CycleInterval;
     }
 
