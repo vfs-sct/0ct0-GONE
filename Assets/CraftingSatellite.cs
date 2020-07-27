@@ -56,6 +56,9 @@ public class CraftingSatellite : MonoBehaviour
     private SatelliteRecipe queuedRecipe = null;
     public bool isCrafting = false;
 
+    [Header("Sound Related")]
+    public bool isSoundPlayed;
+
     private void OnEnable()
     {
         UpdateOwnedAmounts();
@@ -279,6 +282,12 @@ public class CraftingSatellite : MonoBehaviour
 
     public void UpdateTimer()
     {
+        if (!isSoundPlayed)
+        {
+            AkSoundEngine.PostEvent("Octo_Repair_Start", gameObject);
+            isSoundPlayed = true;
+        }
+
         if (craftTimer != 0)
         {
             timerDial.gameObject.SetActive(true);
@@ -318,6 +327,8 @@ public class CraftingSatellite : MonoBehaviour
 
     private void DoCraft()
     {
+        //EVAN - some sort of ding or "crafting complete!" sound
+        AkSoundEngine.PostEvent("Crafting_Success", gameObject);
         CraftingModule.CraftSatellite(shipInventory, playerInventory, satInventory, queuedRecipe);
         var poptext = Instantiate(popText);
         poptext.popText.SetText($"{queuedRecipe.DisplayName} crafted");
