@@ -5,10 +5,21 @@ using TMPro;
 [CreateAssetMenu(menuName = "Systems/Tools/Repair Tool")]
 public class RepairTool : Tool
 {
-    private RepairableComponent repairableComponent;
+    private HealthComponent healthComponent;
     private ResourceInventory inventoryComponent;
 
     [SerializeField] private GameObject popText = null;
+
+    [SerializeField] private Resource RepairNaniteResource;
+
+    [SerializeField] private float NanitesPerCycle = 5;
+
+    [SerializeField] private float HealthPerCycle = 100;
+
+    [SerializeField] private float CycleInterval = 1;
+
+
+    private float NextUpdateTime = 0;
 
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
@@ -29,18 +40,19 @@ public class RepairTool : Tool
 
     protected override bool LoopCondition(ToolController owner, GameObject target)
     {
-       return repairableComponent.CanRepair(owner.gameObject);
+       return healthComponent.CanRepair(owner.gameObject) && inventoryComponent.GetResource(RepairNaniteResource) >= NanitesPerCycle;
     }
 
     protected override void OnActivate(ToolController owner, GameObject target)
     {        
-       repairableComponent = target.GetComponent<RepairableComponent>();
-       repairableComponent.SetupRepair(owner.gameObject);
+       healthComponent = target.GetComponent<HealthComponent>();
+       NextUpdateTime = Time.time + CycleInterval;
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
     {
-        repairableComponent = null;
+        healthComponent = null;
+        NextUpdateTime = 0;
     }
 
     protected override void OnDeselect(ToolController owner)
@@ -57,7 +69,14 @@ public class RepairTool : Tool
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
-        repairableComponent.RepairUpdate(owner.gameObject);
-        Debug.Log("Repairing Target");
+        if (NextUpdateTime <= Time.time)
+        {
+            healthComponent.Heal(HealthPerCycle);
+            inventoryComponent.RemoveResource(RepairNaniteResource,NanitesPerCycle);
+            Debug.Log("Repairing Target");
+        }
+
+        
+        
     }
 }

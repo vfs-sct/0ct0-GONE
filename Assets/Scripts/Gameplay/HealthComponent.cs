@@ -48,6 +48,12 @@ public class HealthComponent : MonoBehaviour
         Debug.Log(_Health);
     }
 
+    public bool CanRepair(GameObject owner)
+    {
+        return (_Health < _MaxHealth);
+    }
+
+
     private void SetHealth_Internal(float healthValue)
     {
         float OldHealth = _Health;
