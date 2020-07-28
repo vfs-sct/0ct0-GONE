@@ -215,6 +215,8 @@ public class Crafting : MonoBehaviour
             //recipe info on the crafting panel (# of ingredients, names, amount needed, etc)
             newButton.GetComponent<Button>().onClick.AddListener(() =>
             {
+                //EVAN - this is where you place a sound for clicking a specific recipe button
+
                 TitleText.SetText(recipe.DisplayName);
                 if (RequiresText.activeSelf != true)
                 {
@@ -321,6 +323,9 @@ public class Crafting : MonoBehaviour
                 entry.eventID = EventTriggerType.PointerDown;
                 entry.callback.AddListener((eventData) => 
                 {
+                    //EVAN - this is where clicking the "craft" button first happens - you already have a sound further down for
+                    //holding the craft button down
+
                     if(!CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
                     {
                         return;

@@ -128,6 +128,8 @@ public class CraftingSatellite : MonoBehaviour
     {
         foreach (var recipe in recipeList)
         {
+            //EVAN - this is where you place a sound for clicking a specific recipe button
+
             var newButton = AddNewButton(recipe.DisplayName, contentGroups[contentGroup].GetComponent<VerticalLayoutGroup>());
 
             //set up what the recipe button does when you click it - used to fill in all the
@@ -243,7 +245,10 @@ public class CraftingSatellite : MonoBehaviour
                 entry.eventID = EventTriggerType.PointerDown;
                 entry.callback.AddListener((eventData) =>
                 {
-                    if(!CraftingModule.CanCraftSatellite(shipInventory, playerInventory, satInventory, currentRecipe))
+                    //EVAN - this is where clicking the "craft" button first happens - you already have a sound further down for
+                    //holding the craft button down
+
+                    if (!CraftingModule.CanCraftSatellite(shipInventory, playerInventory, satInventory, currentRecipe))
                     {
                         return;
                     }
