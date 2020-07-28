@@ -129,6 +129,7 @@ public class CraftingSatellite : MonoBehaviour
         foreach (var recipe in recipeList)
         {
             //EVAN - this is where you place a sound for clicking a specific recipe button
+            AkSoundEngine.PostEvent("MainMenu_Button_Play", gameObject);
 
             var newButton = AddNewButton(recipe.DisplayName, contentGroups[contentGroup].GetComponent<VerticalLayoutGroup>());
 

@@ -216,6 +216,7 @@ public class Crafting : MonoBehaviour
             newButton.GetComponent<Button>().onClick.AddListener(() =>
             {
                 //EVAN - this is where you place a sound for clicking a specific recipe button
+                AkSoundEngine.PostEvent("MainMenu_Button_Play", gameObject);
 
                 TitleText.SetText(recipe.DisplayName);
                 if (RequiresText.activeSelf != true)
