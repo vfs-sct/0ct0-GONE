@@ -50,7 +50,7 @@ public class HealthComponent : MonoBehaviour
 
     public bool CanRepair(GameObject owner)
     {
-        return (_Health < _MaxHealth);
+        return (_Health != _MaxHealth);
     }
 
 
