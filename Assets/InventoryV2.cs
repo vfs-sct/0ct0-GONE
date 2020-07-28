@@ -96,7 +96,7 @@ public class InventoryV2 : MonoBehaviour
     {
         if(UIRoot.GetPlayer() == null)
         {
-            Debug.LogError("NULL PLAYER");
+            //Debug.LogError("NULL PLAYER");
             return;
         }
         //playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
@@ -205,7 +205,7 @@ public class InventoryV2 : MonoBehaviour
                                 kvp.Value.SetChunkTooltip(k, item.Key.Name, chunkSize.ToString() + " Slots");
                                 kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
                                 {
-                                    Debug.LogWarning("CHUNK CLICKED!");
+                                    //Debug.LogWarning("CHUNK CLICKED!");
                                     Rigidbody newChunkRB = Instantiate(item.Key.RespawnGO).GetComponent<Rigidbody>();
                                     newChunkRB.transform.position = debrisDropPos.position;
                                     newChunkRB.velocity = playerInventory.GetComponent<Rigidbody>().velocity + (playerInventory.transform.forward * 2);
