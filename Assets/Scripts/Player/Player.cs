@@ -76,6 +76,8 @@ public class Player : MonoBehaviour
 
     private Stack<HMatData> HighlightedObjects = new Stack<HMatData>();
 
+    private bool disableCam = false;
+
     private struct HMatData
     {
         public MeshRenderer Owner;
@@ -91,7 +93,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void DisableCam()
+    {
+        disableCam = true;
+    }
 
+    public void EnableCam()
+    {
+        disableCam = false;
+    }
 
     public void OnSelectTool1(InputAction.CallbackContext context)//goo glue
     {
@@ -428,8 +438,11 @@ public class Player : MonoBehaviour
         mouseCollisionRoot = GetMouseCollisionRoot(mouseCollision);
         TryHighlight();
         ShowTooltips();
-        EventModule.UpdateEvents(gameObject);
-        UpdateCamera();
-        UpdateCharacterRotation();
+        if (disableCam == false)
+        {
+            EventModule.UpdateEvents(gameObject);
+            UpdateCamera();
+            UpdateCharacterRotation();
+        }
     }
 }

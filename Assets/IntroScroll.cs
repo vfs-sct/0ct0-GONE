@@ -11,6 +11,7 @@ public class IntroScroll : MonoBehaviour
 
     [Header("Disable Player Control")]
     [SerializeField] MovementController playerMovement = null;
+    [SerializeField] Player playerCam = null;
 
     private Dictionary<string, float> introScroll = new Dictionary<string, float>
     {
@@ -60,6 +61,7 @@ public class IntroScroll : MonoBehaviour
         //keep the game running in the background but disable player controller so that
         //debris has had a chance to spawn and get into a nice place before player enters game
         playerMovement.enabled = false;
+        playerCam.DisableCam();
         AkSoundEngine.PostEvent("Leave_Comm_Play", gameObject);
         text.SetText(introScroll.ElementAt(current).Key);
     }
@@ -99,6 +101,7 @@ public class IntroScroll : MonoBehaviour
         else
         {
             playerMovement.enabled = true;
+            playerCam.EnableCam();
             fadingOut = true;
         }
     }
