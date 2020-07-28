@@ -21,12 +21,18 @@
 					</ReferenceList>
 					<ChildrenList>
 						<ActorMixer Name="Characters" ID="{0F028FC1-AA9B-4958-A7E5-280325AD4DC5}" ShortID="849264217">
+							<PropertyList>
+								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="Reverb" ID="{CAEA2544-B462-4079-9075-93ED58431138}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -40,6 +46,471 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
+										<RandomSequenceContainer Name="Fuel_Latch" ID="{31681784-B453-431D-8891-84D146B78113}" ShortID="399493095">
+											<PropertyList>
+												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX_Fuel_Latch" ID="{C8F42DF2-8338-4ECA-B0CC-5E5A2D74A8E1}" ShortID="216298596">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="TEMP_SFX_Fuel_Latch" ID="{2DD739A2-8E39-42FA-8EA9-2C07CC2C966E}" ShortID="602761245">
+															<Language>SFX</Language>
+															<AudioFile>Character\Octo_Patrick\FuelLatch\TEMP_SFX_Fuel_Latch.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="TEMP_SFX_Fuel_Latch" ID="{2DD739A2-8E39-42FA-8EA9-2C07CC2C966E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="GooGlue" ID="{B99F51E6-93E5-4C6E-9808-D79755BADD3A}" ShortID="189570762">
+											<PropertyList>
+												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="TEMP_SFX_Characters_Octo_GooGlue_2" ID="{166C2BDD-7F46-433E-A37F-8AD47038A020}" ShortID="820672489">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="TEMP_SFX_Characters_Octo_GooGlue_2" ID="{864DC9F0-284E-43EB-B61A-DA45006C53E2}" ShortID="59167524">
+															<Language>SFX</Language>
+															<AudioFile>Character\Octo_Patrick\GooGlue\TEMP_SFX_Characters_Octo_GooGlue_2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="TEMP_SFX_Characters_Octo_GooGlue_2" ID="{864DC9F0-284E-43EB-B61A-DA45006C53E2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Resc_Deposit" ID="{72F3A685-61EF-48D2-B937-337AEBACD62B}" ShortID="1053749076">
+											<PropertyList>
+												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX_Characters_Octo_Resc_Deposit" ID="{C500586E-109B-45A9-B172-F549F00869CB}" ShortID="14999154">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="TEMP_SFX_Characters_Octo_TetherRope" ID="{22AEEB23-B730-453B-BADE-7B5F4C773BB0}" ShortID="621816765">
+															<Language>SFX</Language>
+															<AudioFile>Character\Octo_Patrick\TetherRope\TEMP_SFX_Characters_Octo_TetherRope.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="TEMP_SFX_Characters_Octo_TetherRope" ID="{22AEEB23-B730-453B-BADE-7B5F4C773BB0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Grab" ID="{55D3ADEF-5AF3-4F85-AD70-C6E0EE5DC112}" ShortID="385613977">
+											<PropertyList>
+												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX_Characters_Octo_Grab_Dry" ID="{333D11A6-AB19-4237-9C03-A8B284CC77E2}" ShortID="397630519">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="TEMP_SFX_Characters_Octo_Grab_Dry" ID="{C52D0822-CDAD-489A-BB0E-C893F79D5C2A}" ShortID="120990432">
+															<Language>SFX</Language>
+															<AudioFile>Character\Octo_Patrick\Grab\TEMP_SFX_Characters_Octo_Grab_Dry.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="TEMP_SFX_Characters_Octo_Grab_Dry" ID="{C52D0822-CDAD-489A-BB0E-C893F79D5C2A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<SwitchContainer Name="Damage_Metal" ID="{12446156-0D6A-4977-B3B1-F91A2E07020A}" ShortID="1045584356">
+											<PropertyList>
+												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="DefaultSwitchOrState">
+													<ObjectRef Name="Medium" ID="{47A75121-E185-48CF-BFCF-FABFFF5CF9DC}" WorkUnitID="{76B80A24-F761-4CC4-BFD7-91E468498E16}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+												<Reference Name="SwitchGroupOrStateGroup">
+													<ObjectRef Name="Damage" ID="{B87F1FC2-0131-4C24-A845-79D69792D75A}" WorkUnitID="{76B80A24-F761-4CC4-BFD7-91E468498E16}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Reverb" ID="{CAEA2544-B462-4079-9075-93ED58431138}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<RandomSequenceContainer Name="Damage_Metal_Light" ID="{8E6176C7-72D6-4E61-8315-0FF6297448A0}" ShortID="550963026">
+													<PropertyList>
+														<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="SFX_Character_Octo_MetalHurt_Light2" ID="{491B0A66-BE7A-40C8-A035-55900F09C26C}" ShortID="500614281">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light2" ID="{A2E34488-B033-48B5-9F89-043351F33236}" ShortID="264370326">
+																	<Language>SFX</Language>
+																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light2.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light2" ID="{A2E34488-B033-48B5-9F89-043351F33236}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="SFX_Character_Octo_MetalHurt_Light1" ID="{8D898EAB-7482-4399-92A5-0232FDC59541}" ShortID="727801564">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light1" ID="{772D0A8F-7D92-4B00-B944-111D9F14A686}" ShortID="11884812">
+																	<Language>SFX</Language>
+																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light1.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light1" ID="{772D0A8F-7D92-4B00-B944-111D9F14A686}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="SFX_Character_Octo_MetalHurt_Light3" ID="{51D05B56-10AE-406E-BFFA-FF845BA78105}" ShortID="633978603">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light3" ID="{8CA3E0E0-88B0-4A86-871E-30211CE02E33}" ShortID="490977933">
+																	<Language>SFX</Language>
+																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light3.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light3" ID="{8CA3E0E0-88B0-4A86-871E-30211CE02E33}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="Damage_Metal_Medium" ID="{D98D91E4-6A2D-487E-805B-65BEE5889FB6}" ShortID="232534850">
+													<PropertyList>
+														<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="SFX_Character_Octo_MetalHurt_Medium1" ID="{9AB51BBE-E153-413D-8AEF-66BD1DDD46C0}" ShortID="867512567">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium1" ID="{B8CA4AB9-3CB7-45DA-AE4B-8D11A2DB5476}" ShortID="261604052">
+																	<Language>SFX</Language>
+																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium1.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium1" ID="{B8CA4AB9-3CB7-45DA-AE4B-8D11A2DB5476}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="SFX_Character_Octo_MetalHurt_Medium3" ID="{1B157F61-8349-4C23-99E2-D37B1A888A44}" ShortID="709104704">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium3" ID="{40DE646A-A3EF-4327-AB14-A1D4D4E46DDA}" ShortID="639821822">
+																	<Language>SFX</Language>
+																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium3.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium3" ID="{40DE646A-A3EF-4327-AB14-A1D4D4E46DDA}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="SFX_Character_Octo_MetalHurt_Medium2" ID="{FA0C573D-1978-4420-A40E-6C0ED827C9F0}" ShortID="874146818">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium2" ID="{E1E4F283-6B0A-438A-A3EA-77020955BF97}" ShortID="597288651">
+																	<Language>SFX</Language>
+																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium2.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium2" ID="{E1E4F283-6B0A-438A-A3EA-77020955BF97}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="Damage_Metal_Heavy" ID="{9AE8BD09-2535-4C7C-8BAD-09F84946222D}" ShortID="280246154">
+													<PropertyList>
+														<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="SFX_Character_Octo_MetalHurt_Heavy3" ID="{81A71FF6-ED23-46C9-B934-B644A20BCC63}" ShortID="285553311">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy3" ID="{805DF91F-8D8E-4759-9CFE-7A766D5AF470}" ShortID="46841482">
+																	<Language>SFX</Language>
+																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy3.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy3" ID="{805DF91F-8D8E-4759-9CFE-7A766D5AF470}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="SFX_Character_Octo_MetalHurt_Heavy2" ID="{8B317C7F-A0C8-4F2D-8462-5E0655611CC1}" ShortID="1023801203">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy2" ID="{8C6F092B-121D-4E55-AE2E-5A1F0B0D2561}" ShortID="215021301">
+																	<Language>SFX</Language>
+																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy2.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy2" ID="{8C6F092B-121D-4E55-AE2E-5A1F0B0D2561}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="SFX_Character_Octo_MetalHurt_Heavy1" ID="{0183F12F-5BD1-4956-AEB3-995E65BFCDCC}" ShortID="679681085">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy1" ID="{F87CA21E-BC48-45E5-A9DE-5DD0EAEDED29}" ShortID="1020501719">
+																	<Language>SFX</Language>
+																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy1.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy1" ID="{F87CA21E-BC48-45E5-A9DE-5DD0EAEDED29}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+											</ChildrenList>
+											<GroupingInfo>
+												<GroupingBehaviorList>
+													<GroupingBehavior>
+														<ItemRef Name="Damage_Metal_Heavy" ID="{9AE8BD09-2535-4C7C-8BAD-09F84946222D}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="Damage_Metal_Light" ID="{8E6176C7-72D6-4E61-8315-0FF6297448A0}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="Damage_Metal_Medium" ID="{D98D91E4-6A2D-487E-805B-65BEE5889FB6}"/>
+													</GroupingBehavior>
+												</GroupingBehaviorList>
+												<GroupingList>
+													<Grouping>
+														<SwitchRef Name="Medium" ID="{47A75121-E185-48CF-BFCF-FABFFF5CF9DC}"/>
+														<ItemList>
+															<ItemRef Name="Damage_Metal_Medium" ID="{D98D91E4-6A2D-487E-805B-65BEE5889FB6}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Heavy" ID="{B456AF25-B007-4381-9FD3-900FD8FC3D1D}"/>
+														<ItemList>
+															<ItemRef Name="Damage_Metal_Heavy" ID="{9AE8BD09-2535-4C7C-8BAD-09F84946222D}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Light" ID="{F3BD2AF2-BF83-455D-B74C-945F7414DB09}"/>
+														<ItemList>
+															<ItemRef Name="Damage_Metal_Light" ID="{8E6176C7-72D6-4E61-8315-0FF6297448A0}"/>
+														</ItemList>
+													</Grouping>
+												</GroupingList>
+											</GroupingInfo>
+										</SwitchContainer>
+										<RandomSequenceContainer Name="SalvageBeam" ID="{0FD41EED-6A22-4F64-87C9-8229D27149D6}" ShortID="395388447">
+											<PropertyList>
+												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX_Characters_Octo_SalvageBeam" ID="{877020EC-06B4-4725-A682-1F0B25B2722D}" ShortID="79382246">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="TEMP_SFX_Characters_Octo_SalvageBeam" ID="{80E744EC-E0E3-48F4-97A9-4A06CDB657C9}" ShortID="229623687">
+															<Language>SFX</Language>
+															<AudioFile>Character\Octo_Patrick\SalvageBeam\TEMP_SFX_Characters_Octo_SalvageBeam.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="TEMP_SFX_Characters_Octo_SalvageBeam" ID="{80E744EC-E0E3-48F4-97A9-4A06CDB657C9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
 										<BlendContainer Name="Thrusters" ID="{1DF20E58-A71B-499B-9206-CD61E136BDC8}" ShortID="787453488">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
@@ -51,6 +522,9 @@
 												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-5</Value>
+													</ValueList>
 													<RTPCList>
 														<RTPC Name="" ID="{11F4E7CA-0767-4022-BA3F-4A3955F81F2E}" ShortID="624687760">
 															<ReferenceList>
@@ -193,6 +667,41 @@
 												</BlendTrack>
 											</BlendTrackList>
 										</BlendContainer>
+										<RandomSequenceContainer Name="Repair_Start" ID="{A6762E3D-42BE-4237-A4C9-6B81D81D27D0}" ShortID="995117452">
+											<PropertyList>
+												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX_Characters_Octo_Repair_Start" ID="{2319E59B-1400-4BCA-9902-5C1D2E217DCA}" ShortID="299648460">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="TEMP_SFX_Characters_Octo_TetherGrab" ID="{1A70397E-400C-4A7D-809E-10DB22FD7267}" ShortID="605708393">
+															<Language>SFX</Language>
+															<AudioFile>Character\Octo_Patrick\TetherGrab\TEMP_SFX_Characters_Octo_TetherGrab.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="TEMP_SFX_Characters_Octo_TetherGrab" ID="{1A70397E-400C-4A7D-809E-10DB22FD7267}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Systems_Text" ID="{D7E3B7BF-DCC5-404D-82DD-A16F27CC19E2}" ShortID="884701241">
 											<PropertyList>
 												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
@@ -242,6 +751,11 @@
 												<Property Name="UseMaxSoundPerInstance" Type="bool">
 													<ValueList>
 														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>5</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -519,501 +1033,6 @@
 												</GroupingList>
 											</GroupingInfo>
 										</SwitchContainer>
-										<RandomSequenceContainer Name="Repair_Start" ID="{A6762E3D-42BE-4237-A4C9-6B81D81D27D0}" ShortID="995117452">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="SFX_Characters_Octo_Repair_Start" ID="{2319E59B-1400-4BCA-9902-5C1D2E217DCA}" ShortID="299648460">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="TEMP_SFX_Characters_Octo_TetherGrab" ID="{1A70397E-400C-4A7D-809E-10DB22FD7267}" ShortID="605708393">
-															<Language>SFX</Language>
-															<AudioFile>Character\Octo_Patrick\TetherGrab\TEMP_SFX_Characters_Octo_TetherGrab.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="TEMP_SFX_Characters_Octo_TetherGrab" ID="{1A70397E-400C-4A7D-809E-10DB22FD7267}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="Grab" ID="{55D3ADEF-5AF3-4F85-AD70-C6E0EE5DC112}" ShortID="385613977">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="SFX_Characters_Octo_Grab_Dry" ID="{333D11A6-AB19-4237-9C03-A8B284CC77E2}" ShortID="397630519">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="TEMP_SFX_Characters_Octo_Grab_Dry" ID="{C52D0822-CDAD-489A-BB0E-C893F79D5C2A}" ShortID="120990432">
-															<Language>SFX</Language>
-															<AudioFile>Character\Octo_Patrick\Grab\TEMP_SFX_Characters_Octo_Grab_Dry.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="TEMP_SFX_Characters_Octo_Grab_Dry" ID="{C52D0822-CDAD-489A-BB0E-C893F79D5C2A}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="SalvageBeam" ID="{0FD41EED-6A22-4F64-87C9-8229D27149D6}" ShortID="395388447">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="SFX_Characters_Octo_SalvageBeam" ID="{877020EC-06B4-4725-A682-1F0B25B2722D}" ShortID="79382246">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="TEMP_SFX_Characters_Octo_SalvageBeam" ID="{80E744EC-E0E3-48F4-97A9-4A06CDB657C9}" ShortID="229623687">
-															<Language>SFX</Language>
-															<AudioFile>Character\Octo_Patrick\SalvageBeam\TEMP_SFX_Characters_Octo_SalvageBeam.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="TEMP_SFX_Characters_Octo_SalvageBeam" ID="{80E744EC-E0E3-48F4-97A9-4A06CDB657C9}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<SwitchContainer Name="Damage_Metal" ID="{12446156-0D6A-4977-B3B1-F91A2E07020A}" ShortID="1045584356">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
-												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
-												<Property Name="MaxSoundPerInstance" Type="int16">
-													<ValueList>
-														<Value>1</Value>
-													</ValueList>
-												</Property>
-												<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
-												<Property Name="UseMaxSoundPerInstance" Type="bool">
-													<ValueList>
-														<Value>True</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="DefaultSwitchOrState">
-													<ObjectRef Name="Medium" ID="{47A75121-E185-48CF-BFCF-FABFFF5CF9DC}" WorkUnitID="{76B80A24-F761-4CC4-BFD7-91E468498E16}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-												<Reference Name="SwitchGroupOrStateGroup">
-													<ObjectRef Name="Damage" ID="{B87F1FC2-0131-4C24-A845-79D69792D75A}" WorkUnitID="{76B80A24-F761-4CC4-BFD7-91E468498E16}"/>
-												</Reference>
-												<Reference Name="UserAuxSend0">
-													<ObjectRef Name="Reverb" ID="{CAEA2544-B462-4079-9075-93ED58431138}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<RandomSequenceContainer Name="Damage_Metal_Light" ID="{8E6176C7-72D6-4E61-8315-0FF6297448A0}" ShortID="550963026">
-													<PropertyList>
-														<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<Sound Name="SFX_Character_Octo_MetalHurt_Light2" ID="{491B0A66-BE7A-40C8-A035-55900F09C26C}" ShortID="500614281">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light2" ID="{A2E34488-B033-48B5-9F89-043351F33236}" ShortID="264370326">
-																	<Language>SFX</Language>
-																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light2.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light2" ID="{A2E34488-B033-48B5-9F89-043351F33236}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="SFX_Character_Octo_MetalHurt_Light1" ID="{8D898EAB-7482-4399-92A5-0232FDC59541}" ShortID="727801564">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light1" ID="{772D0A8F-7D92-4B00-B944-111D9F14A686}" ShortID="11884812">
-																	<Language>SFX</Language>
-																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light1.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light1" ID="{772D0A8F-7D92-4B00-B944-111D9F14A686}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="SFX_Character_Octo_MetalHurt_Light3" ID="{51D05B56-10AE-406E-BFFA-FF845BA78105}" ShortID="633978603">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light3" ID="{8CA3E0E0-88B0-4A86-871E-30211CE02E33}" ShortID="490977933">
-																	<Language>SFX</Language>
-																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Light\TEMP_SFX_Character_Octo_MetalHurt_Light3.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Light3" ID="{8CA3E0E0-88B0-4A86-871E-30211CE02E33}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-													</ChildrenList>
-												</RandomSequenceContainer>
-												<RandomSequenceContainer Name="Damage_Metal_Medium" ID="{D98D91E4-6A2D-487E-805B-65BEE5889FB6}" ShortID="232534850">
-													<PropertyList>
-														<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<Sound Name="SFX_Character_Octo_MetalHurt_Medium1" ID="{9AB51BBE-E153-413D-8AEF-66BD1DDD46C0}" ShortID="867512567">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium1" ID="{B8CA4AB9-3CB7-45DA-AE4B-8D11A2DB5476}" ShortID="261604052">
-																	<Language>SFX</Language>
-																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium1.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium1" ID="{B8CA4AB9-3CB7-45DA-AE4B-8D11A2DB5476}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="SFX_Character_Octo_MetalHurt_Medium3" ID="{1B157F61-8349-4C23-99E2-D37B1A888A44}" ShortID="709104704">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium3" ID="{40DE646A-A3EF-4327-AB14-A1D4D4E46DDA}" ShortID="639821822">
-																	<Language>SFX</Language>
-																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium3.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium3" ID="{40DE646A-A3EF-4327-AB14-A1D4D4E46DDA}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="SFX_Character_Octo_MetalHurt_Medium2" ID="{FA0C573D-1978-4420-A40E-6C0ED827C9F0}" ShortID="874146818">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium2" ID="{E1E4F283-6B0A-438A-A3EA-77020955BF97}" ShortID="597288651">
-																	<Language>SFX</Language>
-																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Medium\TEMP_SFX_Character_Octo_MetalHurt_Medium2.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="TEMP_SFX_Character_Octo_MetalHurt_Medium2" ID="{E1E4F283-6B0A-438A-A3EA-77020955BF97}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-													</ChildrenList>
-												</RandomSequenceContainer>
-												<RandomSequenceContainer Name="Damage_Metal_Heavy" ID="{9AE8BD09-2535-4C7C-8BAD-09F84946222D}" ShortID="280246154">
-													<PropertyList>
-														<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<Sound Name="SFX_Character_Octo_MetalHurt_Heavy3" ID="{81A71FF6-ED23-46C9-B934-B644A20BCC63}" ShortID="285553311">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy3" ID="{805DF91F-8D8E-4759-9CFE-7A766D5AF470}" ShortID="46841482">
-																	<Language>SFX</Language>
-																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy3.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy3" ID="{805DF91F-8D8E-4759-9CFE-7A766D5AF470}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="SFX_Character_Octo_MetalHurt_Heavy2" ID="{8B317C7F-A0C8-4F2D-8462-5E0655611CC1}" ShortID="1023801203">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy2" ID="{8C6F092B-121D-4E55-AE2E-5A1F0B0D2561}" ShortID="215021301">
-																	<Language>SFX</Language>
-																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy2.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy2" ID="{8C6F092B-121D-4E55-AE2E-5A1F0B0D2561}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="SFX_Character_Octo_MetalHurt_Heavy1" ID="{0183F12F-5BD1-4956-AEB3-995E65BFCDCC}" ShortID="679681085">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy1" ID="{F87CA21E-BC48-45E5-A9DE-5DD0EAEDED29}" ShortID="1020501719">
-																	<Language>SFX</Language>
-																	<AudioFile>Character\Octo_Patrick\Damage\MetalHurt\MetalHurt_Heavy\Temp_SFX_Character_Octo_MetalHurt_Heavy1.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Temp_SFX_Character_Octo_MetalHurt_Heavy1" ID="{F87CA21E-BC48-45E5-A9DE-5DD0EAEDED29}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-													</ChildrenList>
-												</RandomSequenceContainer>
-											</ChildrenList>
-											<GroupingInfo>
-												<GroupingBehaviorList>
-													<GroupingBehavior>
-														<ItemRef Name="Damage_Metal_Heavy" ID="{9AE8BD09-2535-4C7C-8BAD-09F84946222D}"/>
-													</GroupingBehavior>
-													<GroupingBehavior>
-														<ItemRef Name="Damage_Metal_Light" ID="{8E6176C7-72D6-4E61-8315-0FF6297448A0}"/>
-													</GroupingBehavior>
-													<GroupingBehavior>
-														<ItemRef Name="Damage_Metal_Medium" ID="{D98D91E4-6A2D-487E-805B-65BEE5889FB6}"/>
-													</GroupingBehavior>
-												</GroupingBehaviorList>
-												<GroupingList>
-													<Grouping>
-														<SwitchRef Name="Medium" ID="{47A75121-E185-48CF-BFCF-FABFFF5CF9DC}"/>
-														<ItemList>
-															<ItemRef Name="Damage_Metal_Medium" ID="{D98D91E4-6A2D-487E-805B-65BEE5889FB6}"/>
-														</ItemList>
-													</Grouping>
-													<Grouping>
-														<SwitchRef Name="Heavy" ID="{B456AF25-B007-4381-9FD3-900FD8FC3D1D}"/>
-														<ItemList>
-															<ItemRef Name="Damage_Metal_Heavy" ID="{9AE8BD09-2535-4C7C-8BAD-09F84946222D}"/>
-														</ItemList>
-													</Grouping>
-													<Grouping>
-														<SwitchRef Name="Light" ID="{F3BD2AF2-BF83-455D-B74C-945F7414DB09}"/>
-														<ItemList>
-															<ItemRef Name="Damage_Metal_Light" ID="{8E6176C7-72D6-4E61-8315-0FF6297448A0}"/>
-														</ItemList>
-													</Grouping>
-												</GroupingList>
-											</GroupingInfo>
-										</SwitchContainer>
-										<RandomSequenceContainer Name="Resc_Deposit" ID="{72F3A685-61EF-48D2-B937-337AEBACD62B}" ShortID="1053749076">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="SFX_Characters_Octo_Resc_Deposit" ID="{C500586E-109B-45A9-B172-F549F00869CB}" ShortID="14999154">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="TEMP_SFX_Characters_Octo_TetherRope" ID="{22AEEB23-B730-453B-BADE-7B5F4C773BB0}" ShortID="621816765">
-															<Language>SFX</Language>
-															<AudioFile>Character\Octo_Patrick\TetherRope\TEMP_SFX_Characters_Octo_TetherRope.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="TEMP_SFX_Characters_Octo_TetherRope" ID="{22AEEB23-B730-453B-BADE-7B5F4C773BB0}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="GooGlue" ID="{B99F51E6-93E5-4C6E-9808-D79755BADD3A}" ShortID="189570762">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="TEMP_SFX_Characters_Octo_GooGlue_2" ID="{166C2BDD-7F46-433E-A37F-8AD47038A020}" ShortID="820672489">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="TEMP_SFX_Characters_Octo_GooGlue_2" ID="{864DC9F0-284E-43EB-B61A-DA45006C53E2}" ShortID="59167524">
-															<Language>SFX</Language>
-															<AudioFile>Character\Octo_Patrick\GooGlue\TEMP_SFX_Characters_Octo_GooGlue_2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="TEMP_SFX_Characters_Octo_GooGlue_2" ID="{864DC9F0-284E-43EB-B61A-DA45006C53E2}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="Fuel_Latch" ID="{31681784-B453-431D-8891-84D146B78113}" ShortID="399493095">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="SFX_Fuel_Latch" ID="{C8F42DF2-8338-4ECA-B0CC-5E5A2D74A8E1}" ShortID="216298596">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="TEMP_SFX_Fuel_Latch" ID="{2DD739A2-8E39-42FA-8EA9-2C07CC2C966E}" ShortID="602761245">
-															<Language>SFX</Language>
-															<AudioFile>Character\Octo_Patrick\FuelLatch\TEMP_SFX_Fuel_Latch.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="TEMP_SFX_Fuel_Latch" ID="{2DD739A2-8E39-42FA-8EA9-2C07CC2C966E}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 							</ChildrenList>
@@ -1029,6 +1048,9 @@
 							</ReferenceList>
 							<ChildrenList>
 								<ActorMixer Name="Satellite" ID="{EBB721FF-E228-456A-896C-B178419BD45B}" ShortID="109475564">
+									<PropertyList>
+										<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
@@ -1036,11 +1058,19 @@
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="Reverb" ID="{CAEA2544-B462-4079-9075-93ED58431138}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+										</Reference>
 									</ReferenceList>
 									<ChildrenList>
 										<RandomSequenceContainer Name="Satellite_Comm" ID="{1E3B664D-2EC3-4F40-98FB-09F6069A3D93}" ShortID="590331186">
 											<PropertyList>
 												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-10</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -1054,11 +1084,6 @@
 												<Sound Name="SFX_Satellite_Comm_01" ID="{933318B3-3FE6-4614-A371-27FA06AD34A1}" ShortID="552279765">
 													<PropertyList>
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>-10</Value>
-															</ValueList>
-														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -1096,6 +1121,7 @@
 												<Sound Name="SFX_Satellite_Pulse_03" ID="{2096438D-73E5-43C1-A672-4DABA7C1C099}" ShortID="870700079">
 													<PropertyList>
 														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -1118,6 +1144,7 @@
 												<Sound Name="SFX_Satellite_Pulse_02" ID="{67B40DC2-E09E-4857-ACE0-8D90891F3CD7}" ShortID="340317009">
 													<PropertyList>
 														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -1140,6 +1167,7 @@
 												<Sound Name="SFX_Satellite_Pulse_01" ID="{BADB5A93-1173-4CD5-AA99-26D77108D3D6}" ShortID="275555785">
 													<PropertyList>
 														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -1253,29 +1281,6 @@
 												<ActiveSource Name="SFX_Satellite_Idle_01" ID="{E2C2C78F-09C4-4705-A696-FA884F8FBBB5}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="SFX_Satellite_Radar_01" ID="{ED03F50A-6882-4B56-BBF4-A44499EB4A85}" ShortID="292192706">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="SFX_Satellite_Radar_01" ID="{DF9C40A0-7AE7-46EA-A972-710906A7FF40}" ShortID="60188523">
-													<Language>SFX</Language>
-													<AudioFile>Satellite\Satellite_William\SFX_Satellite_Radar_01.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="SFX_Satellite_Radar_01" ID="{DF9C40A0-7AE7-46EA-A972-710906A7FF40}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
 										<Sound Name="SFX_Satellite_Incin_01" ID="{29AF9C4C-F795-4654-9463-0CF7E8B7FC3A}" ShortID="894524704">
 											<PropertyList>
 												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
@@ -1297,6 +1302,29 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="SFX_Satellite_Incin_01" ID="{4DCC457B-6EF3-41BF-85E1-AC7753542BDF}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX_Satellite_Radar_01" ID="{ED03F50A-6882-4B56-BBF4-A44499EB4A85}" ShortID="292192706">
+											<PropertyList>
+												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX_Satellite_Radar_01" ID="{DF9C40A0-7AE7-46EA-A972-710906A7FF40}" ShortID="60188523">
+													<Language>SFX</Language>
+													<AudioFile>Satellite\Satellite_William\SFX_Satellite_Radar_01.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX_Satellite_Radar_01" ID="{DF9C40A0-7AE7-46EA-A972-710906A7FF40}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 										<RandomSequenceContainer Name="Satellite_FuelRestore" ID="{86652084-393A-44C5-B375-DA00629BB6C3}" ShortID="269715353">
@@ -1375,6 +1403,9 @@
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Environmental" ID="{D4C51111-01B2-4B7B-B09C-40AC1673D186}" ShortID="653418786">
+									<PropertyList>
+										<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
@@ -1382,18 +1413,11 @@
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="Reverb" ID="{CAEA2544-B462-4079-9075-93ED58431138}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<RandomSequenceContainer Name="Gas" ID="{B7281D1E-FA82-43D9-ABF0-1B4FE421FCE5}" ShortID="1055780783">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Asteroid_Moving" ID="{A28C24E8-9C19-4D95-B9FE-C863B7E6BE7C}" ShortID="914295384">
 											<PropertyList>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -1473,22 +1497,12 @@
 												</Sound>
 											</ChildrenList>
 										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="Fire" ID="{F21803C4-1151-4FB2-8D09-77D0D4439C3A}" ShortID="824319400">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Metal_Moving" ID="{52CDBF50-22A9-4E63-ABFE-A60178B0F3EE}" ShortID="1061821091">
 											<PropertyList>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-5</Value>
+														<Value>-3</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1659,6 +1673,11 @@
 												<Sound Name="SFX_Ambience_WhiteNoise_03" ID="{A401FC22-23BE-4E5C-8A2D-6D45CBF5B491}" ShortID="624866887">
 													<PropertyList>
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-10</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -1687,18 +1706,13 @@
 												<Sound Name="SFX_Ambience_WhiteNoise_04" ID="{D91C2305-DC37-420F-A03F-F0408870B290}" ShortID="535690722">
 													<PropertyList>
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>-10</Value>
-															</ValueList>
-														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="AMBIENCE" ID="{2D3CA495-EA30-4271-B753-01E8A2A8F933}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="Ambience" ID="{2D3CA495-EA30-4271-B753-01E8A2A8F933}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1720,7 +1734,7 @@
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="AMBIENCE" ID="{2D3CA495-EA30-4271-B753-01E8A2A8F933}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+															<ObjectRef Name="Ambience" ID="{2D3CA495-EA30-4271-B753-01E8A2A8F933}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
@@ -1766,7 +1780,6 @@
 										<Sound Name="SFX_Ambience_Gas_Loop" ID="{B6C07AB7-5150-4281-AAC5-58C748F64271}" ShortID="226012934">
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-												<Property Name="OverrideColor" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -2071,6 +2084,11 @@
 										<Sound Name="SFX_IGMenu_Activation" ID="{36BA0F9B-04D1-434C-B158-2720C72E32B7}" ShortID="290885672">
 											<PropertyList>
 												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-7</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -2093,6 +2111,11 @@
 										<Sound Name="SFX_IGMenu_Deactivation" ID="{49768C9B-A30F-4DC1-A46F-09242DBCE517}" ShortID="775040223">
 											<PropertyList>
 												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-7</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -2113,6 +2136,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="SFX_Objective_Popup" ID="{FC46EE6F-A5BF-4279-9378-08BAE245C032}" ShortID="948407745">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-7</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
