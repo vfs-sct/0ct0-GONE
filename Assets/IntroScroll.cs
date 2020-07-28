@@ -121,6 +121,5 @@ public class IntroScroll : MonoBehaviour
             gameObject.SetActive(false);
         }
         AkSoundEngine.PostEvent("Leave_Comm_Stop", gameObject);
-        AkSoundEngine.PostEvent("Remembering_Oakley", gameObject);
     }
 }
