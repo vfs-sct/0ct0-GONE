@@ -215,9 +215,12 @@ namespace AK
     namespace BUSSES
     {
         static const AkUniqueID AMBIENCE = 85412153U;
+        static const AkUniqueID CHARACTERS = 1557941045U;
         static const AkUniqueID DX_MAIN = 648308099U;
+        static const AkUniqueID ENVIRONMENT = 1229948536U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUS_MAIN = 3031508118U;
+        static const AkUniqueID SATELLITE = 3753754380U;
         static const AkUniqueID SFX = 393239870U;
         static const AkUniqueID SFX_MAIN = 3023356346U;
     } // namespace BUSSES
