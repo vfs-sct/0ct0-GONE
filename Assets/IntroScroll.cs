@@ -49,7 +49,6 @@ public class IntroScroll : MonoBehaviour
     };
 
     private bool fadingIn = true;
-    // Start is called before the first frame update
     private float waitTime = 1f;
     private string scrollText;
     private int current = 0;
