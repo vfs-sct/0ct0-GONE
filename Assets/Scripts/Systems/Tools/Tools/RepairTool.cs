@@ -23,6 +23,7 @@ public class RepairTool : Tool
 
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
+        if (target == null) return false;
         if(target.GetComponentInParent<HealthComponent>() == null && inventoryComponent.GetResource(RepairNaniteResource) < NanitesPerCycle)
         {
             Debug.Log("Target in LoopCondition() returned null");
@@ -40,6 +41,11 @@ public class RepairTool : Tool
 
     protected override bool LoopCondition(ToolController owner, GameObject target)
     {
+        if(healthComponent == null || target == null)
+        {
+            Debug.LogWarning("Nothing to repair");
+            return false;
+        }
        return healthComponent.CanRepair(owner.gameObject) && inventoryComponent.GetResource(RepairNaniteResource) >= NanitesPerCycle;
     }
 

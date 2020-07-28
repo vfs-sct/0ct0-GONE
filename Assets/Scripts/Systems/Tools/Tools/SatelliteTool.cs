@@ -12,6 +12,7 @@ public class SatelliteTool : Tool
 
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
+        if (SatBehavior == null || target == null) return false;
         return (SatBehavior.PlacementConditionCheck(owner) &&(satInv.StoredSatellites[0] != null));
     }
 

@@ -106,7 +106,7 @@ public class ToolController : MonoBehaviour
     private void DeactiveTool_Internal()
     {
         CurrentToolIsActive = false;
-        gameHUD.NoToolSelected();
+        //gameHUD.NoToolSelected();
         if (_CurrentTool == null) return;
         _CurrentTool.Deactivate(this,_LinkedPlayer.TargetedObject);
         
