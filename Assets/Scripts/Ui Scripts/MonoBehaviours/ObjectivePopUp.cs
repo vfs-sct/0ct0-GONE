@@ -41,6 +41,8 @@ public class ObjectivePopUp : MonoBehaviour
 
     private bool _isPreText = false;
 
+    private bool bannerQueued = false;
+
     private void OnEnable()
     {
         foreach(var image in images)
@@ -57,22 +59,31 @@ public class ObjectivePopUp : MonoBehaviour
     public void SetObjectiveText(bool isPreText)
     {
         _isPreText = isPreText;
-        if (objectiveShort[currentEvent] != null)
-        {
-            if (isPreText)
-            {
-                titleText.SetText(objectiveComplete);
-                objectiveText.SetText(memoryReconstruction + ((currentEvent) * 12.5).ToString() + "%");
-            }
-            else
-            {
-                titleText.SetText(newObjective);
-                objectiveText.SetText(objectiveShort[currentEvent]);
-                currentEvent++;
-            }
 
-            gameObject.SetActive(true);
-            fadingIn = true;
+        if (fadingIn == true && fadingOut == true)
+        {
+            //queue this banner there's already a banner playing when we try to start it
+            bannerQueued = true;
+        }
+        else
+        {
+            if (objectiveShort[currentEvent] != null)
+            {
+                if (isPreText)
+                {
+                    titleText.SetText(objectiveComplete);
+                    objectiveText.SetText(memoryReconstruction + ((currentEvent) * 12.5).ToString() + "%");
+                }
+                else
+                {
+                    titleText.SetText(newObjective);
+                    objectiveText.SetText(objectiveShort[currentEvent]);
+                    currentEvent++;
+                }
+
+                gameObject.SetActive(true);
+                fadingIn = true;
+            }
         }
     }
 
@@ -241,6 +252,12 @@ public class ObjectivePopUp : MonoBehaviour
             }
             fadingOut = false;
             gameObject.SetActive(false);
+
+            if(bannerQueued == true && _isPreText == false)
+            {
+                bannerQueued = false;
+                SetObjectiveText(true);
+            }
         }
     }
 
