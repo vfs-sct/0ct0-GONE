@@ -17,7 +17,7 @@ public class ObjectPool : ScriptableObject
 
     private GameObject PooledGameObject;
     private System.Type ObjectType;
-    private Stack<object> ActivePool = new Stack<object>();
+    private Queue<object> ActivePool = new Queue<object>();
     private Stack<object> InActivePool = new Stack<object>();
 
     private HashSet<object> AllObjects = new HashSet<object>();
@@ -39,6 +39,7 @@ public class ObjectPool : ScriptableObject
         {
             PooledGameObject = null;
         }
+
     }
 
     private void InstantiateObject() //this initializes an object of the pooled type, uses reflection to initialize
@@ -80,18 +81,19 @@ public class ObjectPool : ScriptableObject
         {
             while (curCount <CheckDistance && ActivePool.Count > 0)
             {
-               temp=  ActivePool.Pop() as GameObject;
-                if (temp.activeSelf){ActivePool.Push(temp);} else {InActivePool.Push(temp);};
+               temp=  ActivePool.Dequeue() as GameObject;
+                if (temp.activeSelf){ActivePool.Enqueue(temp);} else {InActivePool.Push(temp);};
+                curCount++;
             }
-            curCount++;
         }
+
 
         //if the inactive stack is empty, grow the stack if enabled or throw an error
         if (InActivePool.Count == 0) if (!FixedSize){InstantiateObject();}else {throw new System.Exception(this +": uses fixed size. Error: Object Pool Empty");};
         if (PooledGameObject != null)
         {
             temp = (GameObject)InActivePool.Pop();
-            ActivePool.Push(temp);
+            ActivePool.Enqueue(temp);
             temp.SetActive(true);
             return temp as T;
         }
@@ -99,7 +101,7 @@ public class ObjectPool : ScriptableObject
         { //I love generics
             //Note: This will break shit if used without cycling
             T tempT = (T)InActivePool.Pop();
-            ActivePool.Push(tempT);
+            ActivePool.Enqueue(tempT);
             return tempT;
         }
     }
