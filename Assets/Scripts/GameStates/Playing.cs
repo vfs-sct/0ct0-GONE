@@ -44,6 +44,8 @@ public class Playing : GameState
     [SerializeField] private float StormWarningTime = 30;
 
     [SerializeField] private UIModule UIController;
+
+    [SerializeField] private PoolingModule PoolManager;
     private GetWarnings warningUI = null;
 
     float TimeBetweenStorms; //time in seconds
@@ -99,6 +101,7 @@ public class Playing : GameState
         PlayStartTime = Time.time;
         TimeBetweenStorms = StartingTimeBetweenStorms;
         warningUI = UIController.UIRoot.GetScreen<GetWarnings>();
+        PoolManager.InitializePools();
         //EndTutorial();//FOR TESTING
     }
 

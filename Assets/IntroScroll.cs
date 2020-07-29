@@ -6,6 +6,9 @@ using System.Linq;
 
 public class IntroScroll : MonoBehaviour
 {
+
+    [SerializeField] private bool InEditorSkipIntro = false;
+
     [SerializeField] TextMeshProUGUI text = null;
     [SerializeField] Image bgImg = null;
 
@@ -55,6 +58,18 @@ public class IntroScroll : MonoBehaviour
     private bool doneWaiting = true;
     private float lerpTime = 1f;
     private bool fadingOut = false;
+
+
+    void Awake()
+    {
+        if (InEditorSkipIntro && Application.isEditor)
+        {
+            Debug.LogWarning("SKIPPING INTRO!");
+            gameObject.SetActive(false);
+        }
+    }
+
+
     void Start()
     {
         //keep the game running in the background but disable player controller so that

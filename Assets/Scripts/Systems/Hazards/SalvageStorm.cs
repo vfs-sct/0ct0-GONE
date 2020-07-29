@@ -24,7 +24,7 @@ public class SalvageStorm : MonoBehaviour
 
     [SerializeField] private  WeatherSalvagePool SalvagePool;
 
-    private List<GameObject> SalvagePrefabs;
+    private List<WeatherSalvagePool.SalvagePoolData> SalvagePrefabs = new List<WeatherSalvagePool.SalvagePoolData>();
 
     [SerializeField] private WeatherCondition BaseCondition;
     private WeatherData _BaseCondition;
@@ -164,7 +164,8 @@ public class SalvageStorm : MonoBehaviour
 
     public void Awake()
     {
-        SalvagePrefabs = SalvagePool.SalvagePrefabs;
+        SalvagePrefabs = SalvagePool.SalvageData;
+
         WeatherData tempData;
         WeatherConditionData Weather;
         float WeightSum = 0;
@@ -253,6 +254,15 @@ public class SalvageStorm : MonoBehaviour
     }
 
 
+    private GameObject InstantiateSalvage(WeatherSalvagePool.SalvagePoolData Data,Vector3 position, Quaternion rotation)
+    {
+        GameObject temp = Data.Pool.GetObject();
+        temp.transform.position = position;
+        temp.transform.rotation = rotation;
+        return temp;
+    }
+
+
 
     private void SpawnWave()
     {
@@ -269,7 +279,7 @@ public class SalvageStorm : MonoBehaviour
             {
                 if(SamplePerlinNoise(y,z,WaveSeed) >= (1-CurrentCondition.Density)) //subtract from 1 to check blackvalue
                 {
-                    Temp = Instantiate(SelectRandomWeighted<GameObject>(SalvagePrefabs,CurrentCondition.SalvageWeights,CurrentCondition.WeightSum),new Vector3(gameObject.transform.position.x + Random.Range(-xBounds,xBounds),y+gameObject.transform.position.y,z+gameObject.transform.position.z),Random.rotation);
+                    Temp = InstantiateSalvage(SelectRandomWeighted<WeatherSalvagePool.SalvagePoolData>(SalvagePrefabs,CurrentCondition.SalvageWeights,CurrentCondition.WeightSum),new Vector3(gameObject.transform.position.x + Random.Range(-xBounds,xBounds),y+gameObject.transform.position.y,z+gameObject.transform.position.z),Random.rotation);
                     NewWave.Add(Temp);
                     //Debug.Log(Temp);
                     TempRB =  Temp.GetComponent<Rigidbody>();
@@ -297,7 +307,7 @@ public class SalvageStorm : MonoBehaviour
         {
             if (salvage!= null)
             {
-                Destroy(salvage);
+                salvage.SetActive(false);
             }
         }
     }
