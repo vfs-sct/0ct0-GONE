@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-
-
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Systems/Tools/Place Satellite")]
 public class SatelliteTool : Tool
@@ -9,6 +8,8 @@ public class SatelliteTool : Tool
     SatelliteInventory satInv;
     GameObject SatellitePreview;
     SatelliteBehavior SatBehavior;
+
+    public List<PlacementVisualizer> cloudVisualizers = new List<PlacementVisualizer>();
 
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
@@ -52,6 +53,13 @@ public class SatelliteTool : Tool
 
     protected override void OnDeselect(ToolController owner)
     {
+        if (cloudVisualizers[0].enabled == true)
+        {
+            foreach (var cloud in cloudVisualizers)
+            {
+                cloud.DisableVisualizer();
+            }
+        }
         Debug.Log("Satellite Tool DeSelected");
         //turn off tooltips from satinv
         satInv.NoSatTooltip.SetActive(false);
@@ -73,6 +81,16 @@ public class SatelliteTool : Tool
             //Debug.Log("NoSat Found");
             return;
         }
+
+        //this is such a gross way of checking what satellite type a thing is im sorry
+        if(satInv.StoredSatellites[0].name == "FuelSatellite")
+        {
+            foreach(var cloud in cloudVisualizers)
+            {
+                cloud.VisualizeArea();
+            }
+        }
+
         SatellitePreview = GameObject.Instantiate(satInv.StoredSatellites[0].PreviewPrefab);
         SatellitePreview.transform.position = satInv.SatelliteSpawnPos.position;
         SatellitePreview.transform.rotation = satInv.SatelliteSpawnPos.rotation;

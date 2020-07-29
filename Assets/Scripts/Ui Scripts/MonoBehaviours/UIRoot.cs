@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIRoot : MonoBehaviour
 {
     [SerializeField] UIModule UIModule = null;
+    [SerializeField] SatelliteTool satTool = null;
     //UIAwake will try to get the player and pass it here on its Awake
     public Player player = null;
 
@@ -12,6 +13,18 @@ public class UIRoot : MonoBehaviour
     private void Awake()
     {
         UIModule.UIRoot = this;
+
+        //satellite tool is a scriptable so we need to give it all the clouds in the scene when we start up
+        //otherwise it doesn't know how to turn them on when placing sats
+        satTool.cloudVisualizers.Clear();
+        var gasClouds = FindObjectsOfType<PlacementVisualizer>();
+        if (gasClouds != null || gasClouds.Length != 0)
+        {
+            foreach (var cloud in gasClouds)
+            {
+                satTool.cloudVisualizers.Add(cloud);
+            }
+        }
     }
 
     //grab a screen by the component - so if the name of a screen changes the code doesn't break
