@@ -18,7 +18,9 @@ public class ObjectPool : ScriptableObject
 
     private HashSet<GameObject> AllObjects = new HashSet<GameObject>();
 
+    private GameObject temp;
 
+    private int curCount;
     protected void OnEnable()
     {
         ActivePool.Clear();
@@ -29,7 +31,6 @@ public class ObjectPool : ScriptableObject
 
     private void InstantiateObject() //this initializes an object of the pooled type, uses reflection to initialize
     {
-        GameObject temp;
         temp = GameObject.Instantiate(PooledObject);
         temp.SetActive(false);
         InActivePool.Push(temp);
@@ -46,22 +47,18 @@ public class ObjectPool : ScriptableObject
     public GameObject GetObject()
     {
         //TODO Implement cycling of raw Objects
-
-        int curCount= 0;
-        GameObject temp;
-            while (curCount <CheckDistance && ActivePool.Count > 0)
+        if (InActivePool.Count == 0) if (!FixedSize){InstantiateObject();}else {throw new System.Exception(this +": uses fixed size. Error: Object Pool Empty");};
+        curCount = 0;
+        while (curCount <CheckDistance && ActivePool.Count > 0)
             {
-               temp=  ActivePool.Dequeue();
-                if (temp.activeSelf){ActivePool.Enqueue(temp);} else {InActivePool.Push(temp);};
+               temp = ActivePool.Dequeue();
+                if (temp.activeSelf){ActivePool.Enqueue(temp);temp.SetActive(true);} else {InActivePool.Push(temp);};
                 curCount++;
             }
-
-
-        //if the inactive stack is empty, grow the stack if enabled or throw an error
-        if (InActivePool.Count == 0) if (!FixedSize){InstantiateObject();}else {throw new System.Exception(this +": uses fixed size. Error: Object Pool Empty");};
-        temp = (GameObject)InActivePool.Pop();
+        temp = InActivePool.Pop();
         ActivePool.Enqueue(temp);
         temp.SetActive(true);
+        
         return temp;
     }
 
