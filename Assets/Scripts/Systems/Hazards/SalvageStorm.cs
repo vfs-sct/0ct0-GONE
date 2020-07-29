@@ -256,7 +256,7 @@ public class SalvageStorm : MonoBehaviour
 
     private GameObject InstantiateSalvage(WeatherSalvagePool.SalvagePoolData Data,Vector3 position, Quaternion rotation)
     {
-        GameObject temp = Data.Pool.GetObject<GameObject>();
+        GameObject temp = Data.Pool.GetObject();
         temp.transform.position = position;
         temp.transform.rotation = rotation;
         return temp;
