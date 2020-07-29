@@ -45,7 +45,7 @@ public class HealthComponent : MonoBehaviour
             shipHealthBar.SetFill(_Health);
         }
         gameObject.GetComponent<Rigidbody>().detectCollisions = true;
-        Debug.Log(_Health);
+        //Debug.Log(_Health);
     }
 
     public bool CanRepair(GameObject owner)

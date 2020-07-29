@@ -271,7 +271,7 @@ public class SalvageStorm : MonoBehaviour
                 {
                     Temp = Instantiate(SelectRandomWeighted<GameObject>(SalvagePrefabs,CurrentCondition.SalvageWeights,CurrentCondition.WeightSum),new Vector3(gameObject.transform.position.x + Random.Range(-xBounds,xBounds),y+gameObject.transform.position.y,z+gameObject.transform.position.z),Random.rotation);
                     NewWave.Add(Temp);
-                    Debug.Log(Temp);
+                    //Debug.Log(Temp);
                     TempRB =  Temp.GetComponent<Rigidbody>();
                     TempRB.velocity = new Vector3(-Random.Range(CurrentCondition.MinSpeed,CurrentCondition.MaxSpeed),0,0);
                     TempRB.angularVelocity = new Vector3(Random.Range(-1.2f,1.2f),Random.Range(-1.2f,1.2f),Random.Range(-1.2f,1.2f));

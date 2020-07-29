@@ -11,9 +11,9 @@ public class AudioManager : MonoBehaviour
         {
             MusicManager.transform.SetParent(gameObject.transform);
         }
-        else
-        {
-            Debug.LogWarning("Music manager was null!");
-        }
+        //else
+        //{
+        //    Debug.LogWarning("Music manager was null!");
+        //}
     }
 }

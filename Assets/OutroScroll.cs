@@ -1,33 +1,45 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class OutroScroll : MonoBehaviour
 {
+    [SerializeField] private Codex codex;
     [SerializeField] TextMeshProUGUI text = null;
     [SerializeField] Image bgImg = null;
-    [SerializeField] float endPosY;
+    [SerializeField] public float endPosY;
 
     [Header("Disable Player Control")]
     [SerializeField] MovementController playerMovement = null;
     [SerializeField] Player playerCam = null;
 
-    private bool fadingIn = true;
+    private bool fadingIn = false;
     private float waitTime = 1f;
-    private int current = 0;
     private bool doneWaiting = true;
     private float fadeInLerpTime = 1f;
     private float fadeOutLerpTime = 5f;
-    private float scrollLerpTime = 30f;
+    private float scrollLerpTime = 4f;
     private bool fadingOut = false;
     private bool isScrolling = false;
     private Vector3 endPos;
 
-    private void Start()
+    private List<string> outroScroll = new List<string>
     {
-        var textPos = text.transform.position;
-        endPos = new Vector3(textPos.x, endPosY, textPos.z);
-        fadingIn = true;
+        "Memory Reconstruction: ",
+        "<color=#1BD918>Complete</color>",
+    };
+
+    private void Awake()
+    {
+        var textPos = text.transform.localPosition;
+        endPos = new Vector3(textPos.x, 0, textPos.z);
+
+        text.SetText(outroScroll[0]);
+
+        //fadingIn = true;
+        StartOutro();
+        codex.UnlockNextEntry();
     }
 
     public void StartOutro()
@@ -47,6 +59,7 @@ public class OutroScroll : MonoBehaviour
 
         if (fadingIn == true)
         {
+            Debug.LogWarning("Fading in");
             FadeIn();
         }
 
@@ -74,29 +87,31 @@ public class OutroScroll : MonoBehaviour
 
     public void Scroll()
     {
-        var textPos = text.transform.position;
-        if (textPos.y < endPosY - 10)
+        if (text.transform.localPosition.y < 0)
         {
-            textPos = Vector3.Lerp(textPos, endPos, Time.deltaTime * 1f / scrollLerpTime);
+            Vector3 tarPos = new Vector3(endPos.x, endPos.y + 20, endPos.z);
+            text.transform.localPosition = Vector3.Lerp(text.transform.localPosition, tarPos, Time.deltaTime * 1f / scrollLerpTime);
         }
         else
         {
-            textPos = endPos;
-            fadingOut = true;
+            isScrolling = false;
+            text.transform.localPosition = endPos;
+            text.SetText(text.text + outroScroll[1]);
+            StartCoroutine(Wait(5f));
         }
-
-        text.transform.position = textPos;
     }
+
+
 
     public void FadeOut()
     {
-        if (bgImg.color.a > 0.01f)
+        if (text.color.a > 0.01f)
         {
-            var lerpBG = new Color(bgImg.color.r, bgImg.color.g, bgImg.color.b, 0f);
-            bgImg.color = Color.Lerp(bgImg.color, lerpBG, Time.deltaTime * 1f / fadeOutLerpTime);
+            //var lerpBG = new Color(bgImg.color.r, bgImg.color.g, bgImg.color.b, 0f);
+            //bgImg.color = Color.Lerp(bgImg.color, lerpBG, Time.deltaTime * 1f / fadeOutLerpTime);
 
             var lerpTxt = new Color(text.color.r, text.color.g, text.color.b, 0f);
-            text.color = Color.Lerp(text.color, lerpBG, Time.deltaTime * 1f / fadeOutLerpTime);
+            text.color = Color.Lerp(text.color, lerpTxt, Time.deltaTime * 1f / fadeOutLerpTime);
         }
         else
         {
@@ -106,7 +121,7 @@ public class OutroScroll : MonoBehaviour
 
     System.Collections.IEnumerator Wait(float waitTime)
     {
-        doneWaiting = false;
         yield return new WaitForSeconds(waitTime);
+        fadingOut = true;
     }
 }
