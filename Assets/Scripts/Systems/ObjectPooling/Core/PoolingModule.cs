@@ -9,7 +9,14 @@ public class PoolingModule : Module
 
     [SerializeField] private List<ObjectPool> ObjectPools = new List<ObjectPool>();
 
-
+    public void InitializePools()
+    {
+        foreach (var pool in ObjectPools)
+        {
+            pool.InitializePool();
+        }
+    }
+    
     public override void Initialize()
     {
         Reset();

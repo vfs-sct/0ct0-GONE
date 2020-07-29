@@ -39,8 +39,6 @@ public class ObjectPool : ScriptableObject
         {
             PooledGameObject = null;
         }
-
-        InitializePool();
     }
 
     private void InstantiateObject() //this initializes an object of the pooled type, uses reflection to initialize
