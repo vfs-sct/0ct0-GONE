@@ -163,6 +163,8 @@ public class Playing : GameState
 
     public override void OnDeactivate(GameState NewState)
     {
+        NextStormFinishTime = Time.time+999;
+        IsTutorial = true;
         RelayController.Reset();
     }
 
