@@ -66,7 +66,7 @@ Shader "Custom/GasCloudArea"
                 //float distance_mask = pow(saturate(1 - length(i.pos - _WorldSpaceCameraPos) / _FadeDistance), _FadeFalloff);
                   
                 float opacity = _Color.a * mask;
-                return float4(_Color.rgb * 27, opacity);
+                return float4(_Color.rgb * 22, opacity);
             }
             ENDCG
         }
