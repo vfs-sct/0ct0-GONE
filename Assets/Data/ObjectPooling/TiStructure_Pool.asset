@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34a46aae8b998e045ba5c4ae0ef18ca5, type: 3}
-  m_Name: PoolingModule
+  m_Script: {fileID: 11500000, guid: 564fb942839c08846b46187de7d5d8b2, type: 3}
+  m_Name: TiStructure_Pool
   m_EditorClassIdentifier: 
-  _ModuleManager: {fileID: 11400000, guid: a8ad8f5b34e76a8419a49041976582b5, type: 2}
-  RunUpdate: 0
-  StartOnSceneLoad: 0
-  ObjectPools: []
+  PooledObject: {fileID: 4232753836307716126, guid: b1bffbf8e9fe8b649addb07ab19c23e7,
+    type: 3}
+  PoolSize: 100
+  CheckDistance: 3
+  FixedSize: 0

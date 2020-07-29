@@ -24,7 +24,7 @@ public class SalvageStorm : MonoBehaviour
 
     [SerializeField] private  WeatherSalvagePool SalvagePool;
 
-    private List<WeatherSalvagePool.SalvagePoolData> SalvagePrefabs;
+    private List<WeatherSalvagePool.SalvagePoolData> SalvagePrefabs = new List<WeatherSalvagePool.SalvagePoolData>();
 
     [SerializeField] private WeatherCondition BaseCondition;
     private WeatherData _BaseCondition;
@@ -164,6 +164,8 @@ public class SalvageStorm : MonoBehaviour
 
     public void Awake()
     {
+        SalvagePrefabs = SalvagePool.SalvageData;
+
         WeatherData tempData;
         WeatherConditionData Weather;
         float WeightSum = 0;

@@ -10,6 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 564fb942839c08846b46187de7d5d8b2, type: 3}
-  m_Name: ObjectPool
+  m_Name: Dish_Pool
   m_EditorClassIdentifier: 
-  PoolSize: 0
+  PooledObject: {fileID: 1049115481071579171, guid: 9b04817774f0a034ebd1a0ff88505a04,
+    type: 3}
+  PoolSize: 100
+  CheckDistance: 3
+  FixedSize: 0
