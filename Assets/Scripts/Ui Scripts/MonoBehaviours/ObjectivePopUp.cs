@@ -36,7 +36,7 @@ public class ObjectivePopUp : MonoBehaviour
     private bool fadingIn = false;
     private bool fadingOut = false;
 
-    private float bkImageAlpha = 0.85f;
+    private float bkImageAlpha = 1f;
     private bool fadingOutText = false;
 
     private bool _isPreText = false;
