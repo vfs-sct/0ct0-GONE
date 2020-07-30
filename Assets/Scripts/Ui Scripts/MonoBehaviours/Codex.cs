@@ -235,6 +235,7 @@ public class Codex : MonoBehaviour
             entryTitleText.SetText(buttonText);
             //Use the dictionary key to get the dictionary value, then set the body text
             entryBodyText.SetText(dict[buttonText]);
+            entryBodyText.gameObject.SetActive(true);
 
             if (audioLog != -1)
             {
