@@ -60,25 +60,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: X
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Y
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: DONOTTOUCH
     m_Type: 1
     m_DefaultFloat: 0.5
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -156,25 +156,34 @@ BlendTree:
   m_Name: TiltMovement
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: a97f6250d495d9c49baf153c85a991d2,
+    m_Motion: {fileID: 1827226128182048838, guid: 23ce7ed872b64434e9176aa6fd32f5e8,
       type: 3}
     m_Threshold: 0.25
+    m_Position: {x: 0, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Speed
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1827226128182048838, guid: f4ecd442921e9cc4ca3cb5ba94ac442b,
+      type: 3}
+    m_Threshold: 0.4166667
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: f6703e18ae2f95046a6420f9c5430ded,
+    m_Motion: {fileID: 1827226128182048838, guid: e093c4994c395f84da3206c5b4266e88,
       type: 3}
-    m_Threshold: 0.5
+    m_Threshold: 0.5833334
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: 40c54bfb7a24c6740b3d82bf2a9ae038,
+    m_Motion: {fileID: 1827226128182048838, guid: c71c52d3bd223cd449628b5f05ab18a1,
       type: 3}
     m_Threshold: 0.75
     m_Position: {x: 1, y: 0}
