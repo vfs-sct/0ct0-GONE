@@ -22,6 +22,10 @@ public class Codex : MonoBehaviour
     [SerializeField] TextMeshProUGUI entryTitleText = null;
     [SerializeField] TextMeshProUGUI entryBodyText = null;
 
+    [SerializeField] Scrollbar buttonPanelScrollbar = null;
+    //used to set the scrollbar back to the top when clicking a new entry
+    [SerializeField] Scrollbar entryScrollbar = null;
+
     //used to start/stop audio logs from a particular entry's codex page
     [SerializeField] GameObject buttonContainer = null;
     [SerializeField] Button playButton = null;
@@ -59,6 +63,11 @@ public class Codex : MonoBehaviour
     };
 
     List<GameObject> entryButtons = new List<GameObject>();
+
+    private void Start()
+    {
+        buttonPanelScrollbar.value = 1f;
+    }
 
     //enable to debug unlock all entries with "C"
     //public void OnCraftHotkey(InputValue value)
@@ -229,8 +238,9 @@ public class Codex : MonoBehaviour
         //Buttons have a built-in "onClick" function and we'll add a listener to wait for the player to click the button to pop up our codex entry text.
         newButton.GetComponent<Button>().onClick.AddListener(() =>
         {
+            entryScrollbar.value = 1f;
+
             //EVAN - not sure if buttons need a click sound here or if thats done in editor
-            
             //Use the dictionary key to set the entry title
             entryTitleText.SetText(buttonText);
             //Use the dictionary key to get the dictionary value, then set the body text
@@ -293,6 +303,7 @@ public class Codex : MonoBehaviour
 
     private void OnEnable()
     {
+        buttonPanelScrollbar.value = 1f;
         UpdateButtons();
         Cursor.visible = true;
     }
