@@ -69,8 +69,10 @@ public class IntroScroll : MonoBehaviour
             Debug.LogWarning("SKIPPING INTRO!");
             gameObject.SetActive(false);
         }
-
-        gameHUD.SetActive(false);
+        else
+        {
+            gameHUD.SetActive(false);
+        }
     }
 
 
