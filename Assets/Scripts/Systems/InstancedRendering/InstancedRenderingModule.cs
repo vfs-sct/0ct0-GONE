@@ -5,7 +5,7 @@ using UnityEngine;
 public class InstancedRenderingModule : Module
 {
 
-    struct IMeshData
+    public struct IMeshData
     {
         public Mesh mesh;
         public int subMeshIndex;
@@ -24,32 +24,52 @@ public class InstancedRenderingModule : Module
             this.layer = layer;
         }
 
-      /*  public override bool Equals(object obj) //not sure how well this works;
+        public override bool Equals(object obj) //not sure how well this works;
         {
             return obj is IMeshData data &&
-                   active == data.active &&
                    EqualityComparer<Mesh>.Default.Equals(mesh, data.mesh) &&
                    subMeshIndex == data.subMeshIndex &&
                    EqualityComparer<Material>.Default.Equals(material, data.material) &&
                    EqualityComparer<MaterialPropertyBlock>.Default.Equals(properties, data.properties) &&
                    recieveShadows == data.recieveShadows &&
                    layer == data.layer;
-        }*/
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 233193393;
+            hashCode = hashCode * -1521134295 + EqualityComparer<Mesh>.Default.GetHashCode(mesh);
+            hashCode = hashCode * -1521134295 + subMeshIndex.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<Material>.Default.GetHashCode(material);
+            hashCode = hashCode * -1521134295 + EqualityComparer<MaterialPropertyBlock>.Default.GetHashCode(properties);
+            hashCode = hashCode * -1521134295 + recieveShadows.GetHashCode();
+            hashCode = hashCode * -1521134295 + layer.GetHashCode();
+            return hashCode;
+        }
     }
-
-    struct IRenderData
-    {
-        
-
-
-
-    }
-
-
     private Dictionary<IMeshData,HashSet<GameObject>> RenderData = new Dictionary<IMeshData, HashSet<GameObject>>();
 
-    private Dictionary<GameObject,Matrix4x4 matrix> RenderData = new Dictionary<GameObject,Matrix4x4 matrix>();
 
+    public void AddInstancedMesh(GameObject Owner,IMeshData MeshData)
+    {
+        bool foundData = false;
+        foreach (var item in RenderData)
+        {
+            if (item.Key.Equals(MeshData))
+            {
+                RenderData[item.Key].Add(Owner);
+                foundData = true;
+                break;
+            }
+        }
+            if (!foundData)
+            {
+
+            }
+
+
+
+    }
 
 
 
