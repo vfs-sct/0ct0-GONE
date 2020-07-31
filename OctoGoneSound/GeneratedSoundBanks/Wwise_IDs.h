@@ -218,6 +218,8 @@ namespace AK
         static const AkUniqueID CHARACTERS = 1557941045U;
         static const AkUniqueID DX_MAIN = 648308099U;
         static const AkUniqueID ENVIRONMENT = 1229948536U;
+        static const AkUniqueID FEEDBACK = 4228153068U;
+        static const AkUniqueID LOG = 545371381U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUS_MAIN = 3031508118U;
         static const AkUniqueID SATELLITE = 3753754380U;

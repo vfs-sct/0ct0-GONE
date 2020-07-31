@@ -495,6 +495,52 @@
 						<CurrentSwitchRef Name="Heavy" ID="{B456AF25-B007-4381-9FD3-900FD8FC3D1D}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
+				<SoundcasterSession Name="DX_Ducking" ID="{864BA26A-54C9-413E-86D0-5894E2217B45}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Log2" ID="{342B7E9F-163F-43F7-8619-84411B7F8559}" WorkUnitID="{FC8085BF-EA3E-4298-8894-1EF9B688AAAF}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="GasDetected" ID="{8C3B63D0-04E7-4233-801C-D5D9F43AD2DB}" WorkUnitID="{FC8085BF-EA3E-4298-8894-1EF9B688AAAF}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="DistanceDoppler" ID="{F423D4E4-D3F0-4042-8054-EDF7431885E5}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DialogueVolume" ID="{A206979A-B820-42D1-8E2A-E4DA68FE283E}"/>
+							<Value>0.75</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="throttle" ID="{2BFD54AC-865B-43EF-8B4D-8250ED545EE3}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="fuel" ID="{C3FFDBBA-59FA-4628-BD35-649756FD7BCA}"/>
+							<Value>4</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SFXVolume" ID="{2812E78F-5F44-470A-8E63-79EC190D8D1E}"/>
+							<Value>0.75</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MusicVolume" ID="{3A667E9E-FA9E-487F-A811-E5471CEA9770}"/>
+							<Value>0.75</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MasterVolume" ID="{56B4D46F-A292-4D18-9B8D-7B65B0CCC99F}"/>
+							<Value>0.75</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Heavy" ID="{B456AF25-B007-4381-9FD3-900FD8FC3D1D}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundcasterSessions>
