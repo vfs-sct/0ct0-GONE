@@ -103,7 +103,6 @@ public class Playing : GameState
         PlayStartTime = Time.time;
         TimeBetweenStorms = StartingTimeBetweenStorms;
         warningUI = UIController.UIRoot.GetScreen<GetWarnings>();
-        PoolManager.InitializePools();
         //EndTutorial();//FOR TESTING
     }
 
