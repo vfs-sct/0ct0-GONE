@@ -99,6 +99,8 @@ public class Crafting : MonoBehaviour
         RequiresText.SetActive(false);
         amountInInventory.gameObject.SetActive(false);
 
+        CraftButton.gameObject.SetActive(false);
+
         //save craft text and set up craft button as uninteractable
         CraftButton.interactable = false;
         craftButtonText = CraftButton.GetComponentInChildren<TextMeshProUGUI>();
@@ -215,6 +217,8 @@ public class Crafting : MonoBehaviour
             //recipe info on the crafting panel (# of ingredients, names, amount needed, etc)
             newButton.GetComponent<Button>().onClick.AddListener(() =>
             {
+                CraftButton.gameObject.SetActive(true);
+
                 //EVAN - this is where you place a sound for clicking a specific recipe button
                 AkSoundEngine.PostEvent("MainMenu_Button_Play", gameObject);
 
