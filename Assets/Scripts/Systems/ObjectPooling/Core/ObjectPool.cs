@@ -51,8 +51,15 @@ public class ObjectPool : ScriptableObject
         curCount = 0;
         while (curCount <CheckDistance && ActivePool.Count > 0)
             {
-               temp = ActivePool.Dequeue();
-                if (temp.activeSelf){ActivePool.Enqueue(temp);temp.SetActive(true);} else {InActivePool.Push(temp);};
+                temp = ActivePool.Dequeue();
+
+                if (temp == null)
+                {
+                    Debug.LogWarning("The object you were attempting to access in the object pool has been destroy (perhaps it was salvaged?). Instantiating new object");
+                    InstantiateObject();
+                }
+
+                if (temp.activeSelf) { ActivePool.Enqueue(temp); temp.SetActive(true); } else { InActivePool.Push(temp); };
                 curCount++;
             }
         temp = InActivePool.Pop();
