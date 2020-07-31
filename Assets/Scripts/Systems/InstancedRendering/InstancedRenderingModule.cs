@@ -34,60 +34,40 @@ public class InstancedRenderingModule : Module
                    recieveShadows == other.recieveShadows &&
                    layer == other.layer;
         }
-
-        public override int GetHashCode()
-        {
-            int hashCode = 233193393;
-            hashCode = hashCode * -1521134295 + mesh.GetHashCode();
-            hashCode = hashCode * -1521134295 + subMeshIndex.GetHashCode();
-            hashCode = hashCode * -1521134295 + material.GetHashCode();
-            hashCode = hashCode * -1521134295 + recieveShadows.GetHashCode();
-            hashCode = hashCode * -1521134295 + layer.GetHashCode();
-            return hashCode;
-        }
     }
-    
+
     public struct IRenderData
     {
-        public List<GameObject> gameObjects;
-        public ComputeBuffer TransformBuffer;
+        public List<Transform> transforms;
 
-        public IRenderData(List<GameObject> GOS, ComputeBuffer transformBuffer)
-        {
-            gameObjects = GOS;
-            TransformBuffer = transformBuffer;
-        }
-        public IRenderData(List<GameObject> GOS)
-        {
-            gameObjects = GOS;
-            TransformBuffer = null;
-        }
-    }
-    
-    public struct CBufferPhysicsData
-    {
-        public Matrix4x4 TransformMatrix;
-        public Vector3 VelocityVector;
-        public Vector3 AngVelocityVector;
+        public MaterialPropertyBlock RenderProperties;
 
-        public CBufferPhysicsData(Matrix4x4 transformMatrix, Vector3 velocityVector, Vector3 angVelocityVector)
+        public IRenderData(List<Transform> t)
         {
-            TransformMatrix = transformMatrix;
-            VelocityVector = velocityVector;
-            AngVelocityVector = angVelocityVector;
+            transforms = t;
+            RenderProperties = new MaterialPropertyBlock();
+        }
+        public IRenderData(List<Transform> t, MaterialPropertyBlock MPB)
+        {
+            transforms = t;
+            RenderProperties = MPB;
         }
     }
-    
-    private Dictionary<IMeshData,IRenderData> RenderData = new Dictionary<IMeshData,IRenderData>();
 
-    private Dictionary<IMeshData,List<Matrix4x4>> ObjectData = new Dictionary<IMeshData, List<Matrix4x4>>();
+
+
+
+
+    private Dictionary<IMeshData, IRenderData> RenderData = new Dictionary<IMeshData, IRenderData>();
+    private Dictionary<IMeshData, List<Matrix4x4>> ObjectData = new Dictionary<IMeshData, List<Matrix4x4>>();
+
 
 
     private int LastFramecount = 0;//draw once per frame
 
-    public static IMeshData GenerateIMeshData(GameObject Owner,Mesh mesh,MeshRenderer meshRenderer)
+    public static IMeshData GenerateIMeshData(GameObject Owner, Mesh mesh, MeshRenderer meshRenderer)
     {
-        IMeshData temp = new IMeshData(mesh,meshRenderer.subMeshStartIndex,meshRenderer.material,false,Owner.layer);
+        IMeshData temp = new IMeshData(mesh, meshRenderer.subMeshStartIndex, meshRenderer.material, false, Owner.layer);
         return temp;
     }
 
@@ -96,111 +76,61 @@ public class InstancedRenderingModule : Module
         Reset();
     }
 
-    private void UpdateTransformMaxtrices(IMeshData meshData)
-    {
-        GameObject GO;
-        for (int i = 0; i < RenderData[meshData].gameObjects.Count; i++)
-        {
-            GO = RenderData[meshData].gameObjects[i];
-            Debug.Log("Drawing: "+ GO);
-            if (GO.activeSelf)
-            {
-                ObjectData[meshData][i] = (Matrix4x4.TRS(GO.transform.position,GO.transform.rotation,GO.transform.lossyScale));
-            }
-        }
-
-    }
-
-    public void UpdateTransforms()
-    {
-        foreach (var Data in RenderData)
-        {
-            UpdateTransformMaxtrices(Data.Key);
-        }
-    }
-
-
 
     public override void Update()
     {
         if (LastFramecount != Time.frameCount)
         {
-        
-        //Debug.Log(RenderData.Count);
-        foreach (var Data in RenderData)
-        {
-            UpdateTransformMaxtrices(Data.Key);
-            //foreach (var GO in RenderData[Data.Key])
-            //{
-            //    Debug.Log("Drawing: "+ GO);
-            //}
+
+            //Debug.Log(RenderData.Count);
+            foreach (var Data in RenderData)
+            {
+                //foreach (var GO in RenderData[Data.Key])
+                //{
+                //    Debug.Log("Drawing: "+ GO);
+                //}
 
 
-            Debug.Log("Drawing "+ObjectData[Data.Key].Count + " "+ Data.Key.mesh);
-            Graphics.DrawMeshInstanced(
-                Data.Key.mesh,
-                Data.Key.subMeshIndex,
-                Data.Key.material,
-                ObjectData[Data.Key],
-                new MaterialPropertyBlock(),
-                ShadowCastingMode.Off,
-                Data.Key.recieveShadows,
-                Data.Key.layer
-                );
+
+                Graphics.DrawMeshInstanced(
+                    Data.Key.mesh,
+                    Data.Key.subMeshIndex,
+                    Data.Key.material,
+                    ObjectData[Data.Key],
+                    Data.Value.RenderProperties,
+                    ShadowCastingMode.Off,
+                    Data.Key.recieveShadows,
+                    Data.Key.layer
+                    );
+            }
+            LastFramecount = Time.frameCount;
         }
-        LastFramecount = Time.frameCount;    
-        }
-
-
-
     }
 
 
 
-    public void AddInstancedMesh(GameObject Owner,IMeshData MeshData)
+    public void AddInstancedMesh(GameObject Owner, IMeshData MeshData)
     {
-        bool foundData = false;
-        Matrix4x4 posMatrix;
-        Rigidbody OwnerRB = Owner.GetComponentInParent<Rigidbody>();
-        Debug.Log("AddingInstance");
-
-
-        ComputeBuffer tempbuffer;
-        ComputeBuffer oldBuffer;
-        CBufferPhysicsData[] TempDataArray;
-        foreach (var item in RenderData.ToList())
+        for (int i = 0; i < RenderData.Count; i++)
         {
+            
 
-            posMatrix = Matrix4x4.TRS(Owner.transform.position,Owner.transform.rotation,Owner.transform.localScale);
-            if (item.Key.mesh == (MeshData.mesh))
-            {
-                RenderData[item.Key].gameObjects.Add(Owner);
 
-                ObjectData[item.Key].Add(posMatrix);
-                oldBuffer = item.Value.TransformBuffer;
-                TempDataArray = new CBufferPhysicsData[oldBuffer.count];
-                oldBuffer.GetData(TempDataArray);
-                oldBuffer.Release();
-                TempDataArray[TempDataArray.Length-1] = new CBufferPhysicsData(posMatrix,OwnerRB.velocity,OwnerRB.angularVelocity);
-                tempbuffer = new ComputeBuffer(TempDataArray.Length,88);
-                tempbuffer.SetData(TempDataArray);
-                RenderData[item.Key] = new IRenderData(item.Value.gameObjects,tempbuffer);
-                foundData = true;
-            }
+
+
+
+
+
+
+
+
+
         }
-        if (!foundData) // this needs to stay outside of the for loop, it initializes the render data if it's not present
-            {
-                posMatrix = Matrix4x4.TRS(Owner.transform.position,Owner.transform.rotation,Owner.transform.localScale);
-                List<GameObject> temp = new List<GameObject>();
-                ObjectData.Add(MeshData,new List<Matrix4x4>());
-                ObjectData[MeshData].Add(Matrix4x4.TRS(Owner.transform.position,Owner.transform.rotation,Owner.transform.lossyScale));
-                temp.Add(Owner);
-                CBufferPhysicsData[] physBufferData = {new CBufferPhysicsData(posMatrix,OwnerRB.velocity,OwnerRB.angularVelocity)};
-                tempbuffer = new ComputeBuffer(physBufferData.Length,88);
-                tempbuffer.SetData(physBufferData);
-                RenderData.Add(MeshData,new IRenderData(temp,tempbuffer));
-            }
-        
+
+
+
+
+
     }
 
 
