@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{6663C81A-809E-4F81-9C65-9D54B7BF3E99}" SchemaVersion="94" RootDocumentID="{9922E05F-4015-4112-8E88-3A6D761122FE}">
+	<Events>
+		<WorkUnit Name="Quit" ID="{6663C81A-809E-4F81-9C65-9D54B7BF3E99}" OwnerID="{830B57F1-2E85-490F-92EB-4EE6B133EB97}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="Quit_Button_Yes" ID="{2AFCB709-5C97-4030-B790-C27B487F41D4}">
+					<ChildrenList>
+						<Action Name="" ID="{48FFE707-56EC-4C3D-822C-637DECD0DDE2}" ShortID="776415833">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Button_Press" ID="{53C735C0-03ED-4692-9E8F-B9F2D68816A2}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Quit_Button_No" ID="{CC3D89EA-E9EF-4463-B772-E51ECB2C15A6}">
+					<ChildrenList>
+						<Action Name="" ID="{041FBF62-4FA6-40DD-86F6-689A024ED92E}" ShortID="882599064">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Button_Press" ID="{53C735C0-03ED-4692-9E8F-B9F2D68816A2}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
