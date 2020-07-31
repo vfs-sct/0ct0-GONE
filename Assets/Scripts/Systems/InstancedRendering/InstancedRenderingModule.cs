@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Rendering;
 
 [CreateAssetMenu(menuName = "Systems/InstancedRendering/IRender Module")]
 public class InstancedRenderingModule : Module
@@ -50,7 +50,10 @@ public class InstancedRenderingModule : Module
         }
     }
     private Dictionary<IMeshData,HashSet<GameObject>> RenderData = new Dictionary<IMeshData, HashSet<GameObject>>();
+    private List<Matrix4x4> TempTransformData = new List<Matrix4x4>();
 
+
+    private int LastFramecount = 0;
 
     public static IMeshData GenerateIMeshData(GameObject Owner,Mesh mesh,MeshRenderer meshRenderer)
     {
@@ -58,6 +61,58 @@ public class InstancedRenderingModule : Module
         return temp;
         throw new System.Exception(Owner+": Mesh Data could not be generated!");
     }
+
+    public override void Initialize()
+    {
+        Reset();
+    }
+
+
+    private void UpdateTransformMaxtrices(IMeshData meshData)
+    {
+        TempTransformData.Clear();
+        foreach (var GO in RenderData[meshData])
+        {
+            if (GO.activeSelf)
+            {
+                TempTransformData.Add(Matrix4x4.TRS(GO.transform.position,GO.transform.rotation,GO.transform.lossyScale));
+            }
+        }
+
+    }
+
+
+
+
+
+    public override void Update()
+    {
+        if (LastFramecount != Time.frameCount)
+        {
+        Debug.Log("Frame");
+        
+
+        foreach (var Data in RenderData)
+        {
+            UpdateTransformMaxtrices(Data.Key);
+            Graphics.DrawMeshInstanced(
+                Data.Key.mesh,
+                Data.Key.subMeshIndex,
+                Data.Key.material,
+                TempTransformData,
+                Data.Key.properties,
+                ShadowCastingMode.Off,
+                Data.Key.recieveShadows,
+                Data.Key.layer
+                );
+        }
+        LastFramecount = Time.frameCount;    
+        }
+
+
+
+    }
+
 
 
     public void AddInstancedMesh(GameObject Owner,IMeshData MeshData)
@@ -88,6 +143,7 @@ public class InstancedRenderingModule : Module
 
     public override void Reset()
     {
-        
+        RenderData.Clear();
+        TempTransformData.Clear();
     }
 }
