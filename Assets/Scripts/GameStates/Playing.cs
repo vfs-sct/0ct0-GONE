@@ -104,7 +104,6 @@ public class Playing : GameState
         TimeBetweenStorms = StartingTimeBetweenStorms;
         warningUI = UIController.UIRoot.GetScreen<GetWarnings>();
         PoolManager.InitializePools();
-        IRenderModule.Reset();
         //EndTutorial();//FOR TESTING
     }
 
@@ -172,6 +171,7 @@ public class Playing : GameState
         NextStormFinishTime = Time.time+999;
         IsTutorial = true;
         RelayController.Reset();
+        IRenderModule.Reset();
     }
 
     public override void Reset()

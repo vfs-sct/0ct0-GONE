@@ -7,15 +7,16 @@ public class InstanceMeshReplacer : MonoBehaviour
 
     [SerializeField] private InstancedRenderingModule IRenderingManager;
 
-    [SerializeField] private Mesh LinkedMesh;
+    [SerializeField] private MeshFilter LinkedMesh;
 
     [SerializeField] private MeshRenderer LinkedRenderer;
 
     private void Awake()
     {
-        IRenderingManager.AddInstancedMesh(gameObject,InstancedRenderingModule.GenerateIMeshData(gameObject,LinkedMesh,LinkedRenderer));
+        IRenderingManager.AddInstancedMesh(transform.parent.gameObject,InstancedRenderingModule.GenerateIMeshData(gameObject,LinkedMesh.sharedMesh,LinkedRenderer));
         Destroy(LinkedMesh);
         Destroy(LinkedRenderer);
+        Destroy(this); //remove this script
     }
 
 }

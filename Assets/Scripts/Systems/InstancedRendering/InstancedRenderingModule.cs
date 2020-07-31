@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,43 +8,38 @@ using UnityEngine.Rendering;
 public class InstancedRenderingModule : Module
 {
 
-    public struct IMeshData
+    public struct IMeshData : IEquatable<IMeshData>
     {
         public Mesh mesh;
         public int subMeshIndex;
         public Material material;
-        public MaterialPropertyBlock properties;
         public bool recieveShadows;
         public int layer;
 
-        public IMeshData(Mesh mesh, int subMeshIndex, Material material, MaterialPropertyBlock properties, bool recieveShadows, int layer)
+        public IMeshData(Mesh mesh, int subMeshIndex, Material material, bool recieveShadows, int layer)
         {
             this.mesh = mesh;
             this.subMeshIndex = subMeshIndex;
             this.material = material;
-            this.properties = properties;
             this.recieveShadows = recieveShadows;
             this.layer = layer;
         }
 
-        public override bool Equals(object obj) //not sure how well this works;
+        public bool Equals(IMeshData other)
         {
-            return obj is IMeshData data &&
-                   EqualityComparer<Mesh>.Default.Equals(mesh, data.mesh) &&
-                   subMeshIndex == data.subMeshIndex &&
-                   EqualityComparer<Material>.Default.Equals(material, data.material) &&
-                   EqualityComparer<MaterialPropertyBlock>.Default.Equals(properties, data.properties) &&
-                   recieveShadows == data.recieveShadows &&
-                   layer == data.layer;
+            return (mesh == other.mesh) &&
+                   subMeshIndex == other.subMeshIndex &&
+                   (material == other.material) &&
+                   recieveShadows == other.recieveShadows &&
+                   layer == other.layer;
         }
 
         public override int GetHashCode()
         {
             int hashCode = 233193393;
-            hashCode = hashCode * -1521134295 + EqualityComparer<Mesh>.Default.GetHashCode(mesh);
+            hashCode = hashCode * -1521134295 + mesh.GetHashCode();
             hashCode = hashCode * -1521134295 + subMeshIndex.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<Material>.Default.GetHashCode(material);
-            hashCode = hashCode * -1521134295 + EqualityComparer<MaterialPropertyBlock>.Default.GetHashCode(properties);
+            hashCode = hashCode * -1521134295 + material.GetHashCode();
             hashCode = hashCode * -1521134295 + recieveShadows.GetHashCode();
             hashCode = hashCode * -1521134295 + layer.GetHashCode();
             return hashCode;
@@ -57,9 +53,8 @@ public class InstancedRenderingModule : Module
 
     public static IMeshData GenerateIMeshData(GameObject Owner,Mesh mesh,MeshRenderer meshRenderer)
     {
-        IMeshData temp = new IMeshData(mesh,meshRenderer.subMeshStartIndex,meshRenderer.material,new MaterialPropertyBlock(),false,Owner.layer);
+        IMeshData temp = new IMeshData(mesh,meshRenderer.subMeshStartIndex,meshRenderer.material,false,Owner.layer);
         return temp;
-        throw new System.Exception(Owner+": Mesh Data could not be generated!");
     }
 
     public override void Initialize()
@@ -73,6 +68,7 @@ public class InstancedRenderingModule : Module
         TempTransformData.Clear();
         foreach (var GO in RenderData[meshData])
         {
+            Debug.Log("Drawing: "+ GO);
             if (GO.activeSelf)
             {
                 TempTransformData.Add(Matrix4x4.TRS(GO.transform.position,GO.transform.rotation,GO.transform.lossyScale));
@@ -89,18 +85,18 @@ public class InstancedRenderingModule : Module
     {
         if (LastFramecount != Time.frameCount)
         {
-        Debug.Log("Frame");
         
-
+        Debug.Log(RenderData.Count);
         foreach (var Data in RenderData)
         {
             UpdateTransformMaxtrices(Data.Key);
+            Debug.Log(TempTransformData.Count);
             Graphics.DrawMeshInstanced(
                 Data.Key.mesh,
                 Data.Key.subMeshIndex,
                 Data.Key.material,
                 TempTransformData,
-                Data.Key.properties,
+                new MaterialPropertyBlock(),
                 ShadowCastingMode.Off,
                 Data.Key.recieveShadows,
                 Data.Key.layer
@@ -118,13 +114,13 @@ public class InstancedRenderingModule : Module
     public void AddInstancedMesh(GameObject Owner,IMeshData MeshData)
     {
         bool foundData = false;
+        Debug.Log("AddingInstance");
         foreach (var item in RenderData)
         {
-            if (item.Key.Equals(MeshData))
+            if (item.Key.mesh == (MeshData.mesh))
             {
                 RenderData[item.Key].Add(Owner);
                 foundData = true;
-                break;
             }
         }
         if (!foundData)
