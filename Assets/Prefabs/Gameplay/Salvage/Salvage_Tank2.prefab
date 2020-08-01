@@ -1,18 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &6140880485179219754
-BoxCollider:
+--- !u!114 &1543841084884641880
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506515214692324805}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.999577, y: 1.5, z: 1}
-  m_Center: {x: -0.00000011920929, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a29180546c658348a22e3ef49306144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IRenderingManager: {fileID: 11400000, guid: b4e007787bce3e540aa300e9b4edd27b, type: 2}
+  LinkedMesh: {fileID: 6910889063585996256}
+  LinkedRenderer: {fileID: 924611865024602393}
 --- !u!1 &3548351882739809607
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +324,18 @@ GameObject:
 --- !u!4 &2500463456254420950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7666636331076714996, guid: e85d4eb1c0f5ba542b5d9a90e77746de,
+    type: 3}
+  m_PrefabInstance: {fileID: 5248438887789717026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &6910889063585996256 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 1674876856481987522, guid: e85d4eb1c0f5ba542b5d9a90e77746de,
+    type: 3}
+  m_PrefabInstance: {fileID: 5248438887789717026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &924611865024602393 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4900711117173180219, guid: e85d4eb1c0f5ba542b5d9a90e77746de,
     type: 3}
   m_PrefabInstance: {fileID: 5248438887789717026}
   m_PrefabAsset: {fileID: 0}

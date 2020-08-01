@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &414809292235455125
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3448964082228363987}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.010526718, y: 0.01985193, z: 0.010280488}
-  m_Center: {x: -0.0002633596, y: -0.004925966, z: 0.00014024459}
 --- !u!114 &3295555788036419727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,13 +26,13 @@ GameObject:
   - component: {fileID: 471531438969796216}
   - component: {fileID: -2883111939453209164}
   - component: {fileID: 4517973285230827103}
-  - component: {fileID: 4697512527852661043}
   - component: {fileID: -7191035733781951840}
   - component: {fileID: -6565610061308211397}
   - component: {fileID: 6181258521130819989}
   - component: {fileID: 6114466985531323408}
   - component: {fileID: 4157240449324138072}
   - component: {fileID: 1481160687287978295}
+  - component: {fileID: 6236962323233325247}
   m_Layer: 10
   m_Name: Salvage_IronPanel
   m_TagString: Untagged
@@ -62,7 +49,7 @@ Transform:
   m_GameObject: {fileID: 6332566556522365008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 202.5848, y: 15.69011, z: 202.5848}
   m_Children:
   - {fileID: 1839288717061877952}
   m_Father: {fileID: 0}
@@ -98,19 +85,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &4697512527852661043
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6332566556522365008}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.4, y: 0.79, z: 2.59}
-  m_Center: {x: -0.06, y: -0.09, z: 0.04}
 --- !u!114 &-7191035733781951840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +223,19 @@ MonoBehaviour:
   eventIdInternal: 0
   valueGuidInternal: 
   m_callbackDataInternal: {fileID: 0}
+--- !u!65 &6236962323233325247
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6332566556522365008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.010518968, y: 0.012113736, z: 0.01047972}
+  m_Center: {x: -0.0001926428, y: -0.000051472747, z: 0.00014267411}
 --- !u!1001 &6700445409032199130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -310,6 +297,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6a72b5308021a8a44833a9feea36d8cb,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6a72b5308021a8a44833a9feea36d8cb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6a72b5308021a8a44833a9feea36d8cb,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 6a72b5308021a8a44833a9feea36d8cb,
         type: 3}

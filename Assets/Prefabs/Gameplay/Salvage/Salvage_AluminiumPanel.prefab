@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7056520124622536894}
   - component: {fileID: 8631109937985959615}
   - component: {fileID: 4701780353386212535}
-  - component: {fileID: 3897335882283977957}
+  - component: {fileID: 4303874530012672413}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3146258868396025184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.0166, y: 3.7749, z: 0.119389236}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5282396066164313823}
   m_RootOrder: 0
@@ -80,19 +80,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3897335882283977957
-BoxCollider:
+--- !u!114 &4303874530012672413
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3146258868396025184}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a29180546c658348a22e3ef49306144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IRenderingManager: {fileID: 11400000, guid: b4e007787bce3e540aa300e9b4edd27b, type: 2}
+  LinkedMesh: {fileID: 8631109937985959615}
+  LinkedRenderer: {fileID: 4701780353386212535}
 --- !u!1 &4108445174622467187
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 4108445174622467187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.0166, y: 3.7749, z: 0.1193892}
   m_Children:
   - {fileID: 7056520124622536894}
   m_Father: {fileID: 0}
@@ -144,7 +146,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.12, y: 3.88, z: 0.23}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4093799036312669339
 MonoBehaviour:

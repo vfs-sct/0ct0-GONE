@@ -5,8 +5,8 @@ using UnityEngine;
 public class MeshCombiner : MonoBehaviour
 {
     // Start is called before the first frame update
-
-    void Start()
+    [SerializeField] public Mesh Target;
+    void Awake()
     {
         MeshFilter[] meshFilters = GetComponentsInChildren<MeshFilter>();
         CombineInstance[] combine = new CombineInstance[meshFilters.Length];
@@ -20,9 +20,8 @@ public class MeshCombiner : MonoBehaviour
 
             i++;
         }
-        MeshFilter newmesh =gameObject.AddComponent<MeshFilter>();
-        newmesh.mesh = new Mesh();
-        newmesh.mesh.CombineMeshes(combine);
+        Target = new Mesh();
+        Target.CombineMeshes(combine);
     }
 
 }
