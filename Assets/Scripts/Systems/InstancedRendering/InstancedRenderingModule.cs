@@ -98,13 +98,14 @@ public class InstancedRenderingModule : Module
 
     private void UpdateTransformMaxtrices(IMeshData meshData)
     {
+        ObjectData[meshData].Clear();
         GameObject GO;
         for (int i = 0; i < RenderData[meshData].gameObjects.Count; i++)
         {
             GO = RenderData[meshData].gameObjects[i];
             if (GO.activeSelf)
             {
-                ObjectData[meshData][i] = (Matrix4x4.TRS(GO.transform.position,GO.transform.rotation,GO.transform.lossyScale));
+                ObjectData[meshData].Add((Matrix4x4.TRS(GO.transform.position,GO.transform.rotation,GO.transform.lossyScale)));
             }
         }
 
@@ -160,11 +161,6 @@ public class InstancedRenderingModule : Module
         bool foundData = false;
         Matrix4x4 posMatrix;
         Rigidbody OwnerRB = Owner.GetComponentInParent<Rigidbody>();
-
-
-        ComputeBuffer tempbuffer;
-        ComputeBuffer oldBuffer;
-        CBufferPhysicsData[] TempDataArray;
         foreach (var item in RenderData.ToList())
         {
 
@@ -174,14 +170,7 @@ public class InstancedRenderingModule : Module
                 RenderData[item.Key].gameObjects.Add(Owner);
 
                 ObjectData[item.Key].Add(posMatrix);
-                oldBuffer = item.Value.TransformBuffer;
-                TempDataArray = new CBufferPhysicsData[oldBuffer.count];
-                oldBuffer.GetData(TempDataArray);
-                oldBuffer.Release();
-                TempDataArray[TempDataArray.Length-1] = new CBufferPhysicsData(posMatrix,OwnerRB.velocity,OwnerRB.angularVelocity);
-                tempbuffer = new ComputeBuffer(TempDataArray.Length,88);
-                tempbuffer.SetData(TempDataArray);
-                RenderData[item.Key] = new IRenderData(item.Value.gameObjects,tempbuffer);
+                RenderData[item.Key] = new IRenderData(item.Value.gameObjects);
                 foundData = true;
             }
         }
@@ -192,10 +181,7 @@ public class InstancedRenderingModule : Module
                 ObjectData.Add(MeshData,new List<Matrix4x4>());
                 ObjectData[MeshData].Add(Matrix4x4.TRS(Owner.transform.position,Owner.transform.rotation,Owner.transform.lossyScale));
                 temp.Add(Owner);
-                CBufferPhysicsData[] physBufferData = {new CBufferPhysicsData(posMatrix,OwnerRB.velocity,OwnerRB.angularVelocity)};
-                tempbuffer = new ComputeBuffer(physBufferData.Length,88);
-                tempbuffer.SetData(physBufferData);
-                RenderData.Add(MeshData,new IRenderData(temp,tempbuffer));
+                RenderData.Add(MeshData,new IRenderData(temp));
             }
         
     }

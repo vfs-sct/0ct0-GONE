@@ -9,11 +9,13 @@ public class PoolingModule : Module
 
     [SerializeField] private List<ObjectPool> ObjectPools = new List<ObjectPool>();
 
+    [SerializeField] private Vector3 ZeroPos = new Vector3();
+
     public void InitializePools()
     {
         foreach (var pool in ObjectPools)
         {
-            pool.InitializePool();
+            pool.InitializePool(ZeroPos);
         }
     }
     

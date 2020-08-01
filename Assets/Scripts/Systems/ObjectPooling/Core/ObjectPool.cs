@@ -28,18 +28,26 @@ public class ObjectPool : ScriptableObject
         AllObjects.Clear();
 
     }
-
-    private void InstantiateObject() //this initializes an object of the pooled type, uses reflection to initialize
+    private void InstantiateObject()
     {
-        temp = GameObject.Instantiate(PooledObject);
+        InstantiateObject(new Vector3(0,0,0));
+    }
+    private void InstantiateObject(Vector3 ZeroPos) //this initializes an object of the pooled type, uses reflection to initialize
+    {
+        temp = GameObject.Instantiate(PooledObject,ZeroPos,new Quaternion());
         temp.SetActive(false);
         InActivePool.Push(temp);
         AllObjects.Add(temp);
     }
 
-    public virtual void InitializePool()
+    public void InitializePool()
     {
-        for (int i = 0; i < PoolSize; i++){InstantiateObject();} //oh baby this is CLEEEEAAAAN!
+        InitializePool(new Vector3(0,0,0));
+    }
+
+    public virtual void InitializePool(Vector3 ZeroPos)
+    {
+        for (int i = 0; i < PoolSize; i++){InstantiateObject(ZeroPos);} //oh baby this is CLEEEEAAAAN!
     }
 
 
