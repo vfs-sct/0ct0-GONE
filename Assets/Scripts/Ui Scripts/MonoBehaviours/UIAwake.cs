@@ -82,7 +82,7 @@ public class UIAwake : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-        Debug.LogWarning("Awake: " + PlayerPrefs.GetInt("TutorialEnabled"));
+        //Debug.LogWarning("Awake: " + PlayerPrefs.GetInt("TutorialEnabled"));
 
         //set camera inversion base on player prefs, or set to default
         if (PlayerPrefs.HasKey("InvertedCam"))

@@ -2,7 +2,6 @@
 
 public class EndSpeedPrompt : MonoBehaviour
 {
-    [SerializeField] Tutorial tutorialController = null;
     [SerializeField] GameObject resourceInv = null;
     [SerializeField] GameObject resourceInvContent = null;
     //time before the next popup appears after this ones deactivated
@@ -21,7 +20,7 @@ public class EndSpeedPrompt : MonoBehaviour
         {
             if(hasBeenActivated)
             {
-                TriggerNextPrompt();
+                Close();
             }
         }
 
@@ -29,13 +28,13 @@ public class EndSpeedPrompt : MonoBehaviour
         {
             if (hasBeenActivated)
             {
-                TriggerNextPrompt();
+                Close();
             }
         }
     }
 
-    public void TriggerNextPrompt()
+    public void Close()
     {
-        tutorialController.NextPrompt(bufferTime);
+        gameObject.SetActive(false);
     }
 }

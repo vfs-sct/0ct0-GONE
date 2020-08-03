@@ -6,11 +6,18 @@ public class Tutorial : MonoBehaviour
     [SerializeField] Playing playing = null;
 
     [SerializeField] GameObject[] tutorialPrompts;
+    [SerializeField] public GameObject CarryWeightPrompt = null;
 
-    [SerializeField] Canvas[] canvases = null;
+    [SerializeField] public Canvas[] canvases = null;
 
     [Header("Do not touch:")]
     public int currentPrompt = 0;
+
+    public void EnableInventoryTutorial()
+    {
+        canvases[1].gameObject.SetActive(true);
+        CarryWeightPrompt.SetActive(true);
+    }
 
     public void Hide()
     {
@@ -30,7 +37,7 @@ public class Tutorial : MonoBehaviour
 
     public void Start()
     {
-        Debug.LogWarning("Tutorial: " + PlayerPrefs.GetInt("TutorialEnabled"));
+        //Debug.LogWarning("Tutorial: " + PlayerPrefs.GetInt("TutorialEnabled"));
         if (PlayerPrefs.GetInt("TutorialEnabled") == 0)
         {
             //if(!GameManager.isPaused)
