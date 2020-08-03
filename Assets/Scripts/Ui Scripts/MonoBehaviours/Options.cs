@@ -137,7 +137,7 @@ public class Options : MonoBehaviour
             PlayerPrefs.SetInt("TutorialEnabled", 0);
         }
         PlayerPrefs.Save();
-        Debug.LogWarning("Options: " + PlayerPrefs.GetInt("TutorialEnabled"));
+        //Debug.LogWarning("Options: " + PlayerPrefs.GetInt("TutorialEnabled"));
     }
 
     public void SetSensitivitySlider()
