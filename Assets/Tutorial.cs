@@ -2,16 +2,48 @@
 
 public class Tutorial : MonoBehaviour
 {
+    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] Playing playing = null;
 
     [SerializeField] GameObject[] tutorialPrompts;
 
+    [SerializeField] Canvas[] canvases = null;
+
     [Header("Do not touch:")]
     public int currentPrompt = 0;
 
+    public void Hide()
+    {
+        foreach (var entry in canvases)
+        {
+            entry.gameObject.SetActive(false);
+        }
+    }
+
+    public void Show()
+    {
+        foreach (var entry in canvases)
+        {
+            entry.gameObject.SetActive(true);
+        }
+    }
+
     public void Start()
     {
-        StartCoroutine(StartBufferTime(7f));
+        Debug.LogWarning("Tutorial: " + PlayerPrefs.GetInt("TutorialEnabled"));
+        if (PlayerPrefs.GetInt("TutorialEnabled") == 0)
+        {
+            //if(!GameManager.isPaused)
+            //{
+            //    Time.timeScale = 1;
+            //}
+            playing.EndTutorial();
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            StartCoroutine(StartBufferTime(4f));
+        }
     }
 
     System.Collections.IEnumerator StartBufferTime(float waitTime)

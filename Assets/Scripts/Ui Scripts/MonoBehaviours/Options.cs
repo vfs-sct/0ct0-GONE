@@ -16,6 +16,7 @@ public class Options : MonoBehaviour
     [SerializeField] GameObject VideoTabPanel = null;
     [SerializeField] GameObject ControlTabPanel = null;
 
+    [SerializeField] Toggle TutorialToggle = null;
     [SerializeField] Toggle InvertCamToggle = null;
     [SerializeField] public Slider lookSensitivitySlider;
     [SerializeField] TextMeshProUGUI ControlsText = null;
@@ -57,6 +58,21 @@ public class Options : MonoBehaviour
 
     void Awake()
     {
+        if(PlayerPrefs.GetInt("TutorialEnabled") == 0)
+        {
+            TutorialToggle.isOn = false;
+        }
+        else if (PlayerPrefs.GetInt("TutorialEnabled") == 1)
+        {
+            TutorialToggle.isOn = true;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("TutorialEnabled", 1);
+            PlayerPrefs.Save();
+            TutorialToggle.isOn = true;
+        }
+
         if(PlayerPrefs.GetInt("InvertedCam") == -1)
         {
             InvertCamToggle.isOn = false;
@@ -107,6 +123,21 @@ public class Options : MonoBehaviour
     {
         SwitchActiveTab(ControlTabPanel);
         AkSoundEngine.PostEvent("Options_Button_Controls", gameObject);
+    }
+
+    public void SetTutorial()
+    {
+        //AkSoundEngine.PostEvent("Octo_System_Text", gameObject);
+        if (TutorialToggle.isOn)
+        {
+            PlayerPrefs.SetInt("TutorialEnabled", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("TutorialEnabled", 0);
+        }
+        PlayerPrefs.Save();
+        Debug.LogWarning("Options: " + PlayerPrefs.GetInt("TutorialEnabled"));
     }
 
     public void SetSensitivitySlider()

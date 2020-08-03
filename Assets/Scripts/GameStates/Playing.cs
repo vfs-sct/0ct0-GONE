@@ -43,7 +43,7 @@ public class Playing : GameState
 
     [SerializeField] private float StormWarningTime = 30;
 
-    [SerializeField] private UIModule UIController;
+    [SerializeField] private UIModule UIModule = null;
 
     [SerializeField] private PoolingModule PoolManager;
     private GetWarnings warningUI = null;
@@ -100,7 +100,7 @@ public class Playing : GameState
         RelayController.Start();
         PlayStartTime = Time.time;
         TimeBetweenStorms = StartingTimeBetweenStorms;
-        warningUI = UIController.UIRoot.GetScreen<GetWarnings>();
+        warningUI = UIModule.UIRoot.GetScreen<GetWarnings>();
         PoolManager.InitializePools();
         //EndTutorial();//FOR TESTING
     }
@@ -110,7 +110,7 @@ public class Playing : GameState
     public void EndTutorial()
     {
         if (IsTutorial == false) return;
-        NextStormTime = Time.time + StartingTimeBetweenStorms;
+        NextStormTime = Time.time + 1f + StartingTimeBetweenStorms;
         IsTutorial = false;
     }
 
@@ -167,13 +167,20 @@ public class Playing : GameState
     public override void OnDeactivate(GameState NewState)
     {
         NextStormFinishTime = Time.time+999;
-        IsTutorial = true;
+        warningUI = null;
+        if (PlayerPrefs.GetInt("TutorialEnabled") == 1)
+        {
+            IsTutorial = true;
+        }
         RelayController.Reset();
     }
 
     public override void Reset()
     {
         _ActivePlayer = null;
-        IsTutorial = true;
+        if (PlayerPrefs.GetInt("TutorialEnabled") == 1)
+        {
+            IsTutorial = true;
+        }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class UIAwake : MonoBehaviour
 {
+    [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] GameObject DebugPrefab = null;
     [SerializeField] public float gammaDefault = 2.2f;
     //invertedCamDefault must be either 1 or -1
@@ -74,6 +75,14 @@ public class UIAwake : MonoBehaviour
 
         //fade in from black when switching screens
         fadeIn.SetActive(true);
+
+        if (PlayerPrefs.HasKey("TutorialEnabled") == false)
+        {
+            PlayerPrefs.SetInt("TutorialEnabled", 1);
+            PlayerPrefs.Save();
+        }
+
+        Debug.LogWarning("Awake: " + PlayerPrefs.GetInt("TutorialEnabled"));
 
         //set camera inversion base on player prefs, or set to default
         if (PlayerPrefs.HasKey("InvertedCam"))
