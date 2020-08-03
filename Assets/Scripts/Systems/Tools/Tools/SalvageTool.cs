@@ -96,7 +96,7 @@ public class SalvageTool : Tool
             //Debug.Log(SalvComp.SalvageItem + " is not a resource");
         }
         //EVAN: Start the salvage sound
-        AkSoundEngine.PostEvent("Octo_Repair_Start", target);
+        AkSoundEngine.PostEvent("SFX_Debris_Select", target);
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
@@ -111,7 +111,7 @@ public class SalvageTool : Tool
                 Destroy(OriginalTarget);
 
             //EVAN: Play salvaged success sound here
-            AkSoundEngine.PostEvent("Octo_Systems_Text", target);
+            AkSoundEngine.PostEvent("SFX_Debris_Collect", target);
             //resource gained pop text
             Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");
                 //Debug.Log("Salvaged Object");
