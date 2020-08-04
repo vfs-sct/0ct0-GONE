@@ -65,6 +65,9 @@ public class UIAwake : MonoBehaviour
         //find and set the camera so we can apply gamma changes
         var camera = Camera.main;
 
+        //stop cursor from going off the screen
+        Cursor.lockState = CursorLockMode.Confined;
+
         foreach (var canvas in GameObject.FindObjectsOfType<Canvas>())
         {
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
