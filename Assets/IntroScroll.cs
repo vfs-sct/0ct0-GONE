@@ -10,6 +10,8 @@ public class IntroScroll : MonoBehaviour
 
     [SerializeField] private bool InEditorSkipIntro = false;
 
+    [SerializeField] private GameObject TutorialPrefab = null;
+
     [SerializeField] TextMeshProUGUI text = null;
     [SerializeField] Image bgImg = null;
 
@@ -144,6 +146,7 @@ public class IntroScroll : MonoBehaviour
 
     public void FinishIntro()
     {
+        TutorialPrefab.SetActive(true);
         gameHUD.SetActive(true);
         playerMovement.enabled = true;
         playerCam.EnableCam();
