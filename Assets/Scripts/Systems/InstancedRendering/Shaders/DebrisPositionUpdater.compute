@@ -1,0 +1,23 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+
+struct PhysicsData
+{
+    float4x4 TransformMatrix;
+    float3 Velocity;
+    float3 AngVelocity;
+};
+//88 bytes per element
+
+RWStructuredBuffer<PhysicsData> dataBuffer;
+
+
+
+[numthreads(8,1,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    //dataBuffer[id.x].TransformMatrix; //set stuff here
+}

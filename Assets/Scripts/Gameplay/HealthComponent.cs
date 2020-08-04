@@ -58,7 +58,6 @@ public class HealthComponent : MonoBehaviour
     {
         float OldHealth = _Health;
         _Health = Mathf.Clamp(healthValue,0,_MaxHealth);
-        Debug.Log("Damaging Health: Old Health = "+ OldHealth + " New Health = "+ _Health);
         if (OnDelta != null)
         {
             OnDelta(this,OldHealth-_Health);
@@ -105,6 +104,5 @@ public class HealthComponent : MonoBehaviour
             damageToApply = collision.relativeVelocity.magnitude * (collision.rigidbody.mass) * DamageModifier * DamageMultiplier;
         }
         Damage(damageToApply);
-        Debug.Log(this + " "+damageToApply);
     }
 }
