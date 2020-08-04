@@ -69,6 +69,7 @@ public class IntroScroll : MonoBehaviour
         if (InEditorSkipIntro && Application.isEditor)
         {
             Debug.LogWarning("SKIPPING INTRO!");
+            TutorialPrefab.SetActive(true);
             gameObject.SetActive(false);
         }
         else
