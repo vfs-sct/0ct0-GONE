@@ -75,6 +75,28 @@ public class SalvageTool : Tool
     {
         Debug.Log("Activated");
         SalvComp = target.GetComponent<Salvagable>();
+        if (SalvComp.Instanced)
+        {
+
+            Rigidbody TargetRB = target.GetComponent<Rigidbody>();
+            target.SetActive(false);
+            GameObject NewSalvageObj = GameObject.Instantiate(SalvComp.UnInstancedPrefab);
+            NewSalvageObj.transform.position = target.transform.position;
+            NewSalvageObj.transform.rotation = target.transform.rotation;
+            Rigidbody NewRB = NewSalvageObj.GetComponent<Rigidbody>();
+            NewRB.velocity = TargetRB.velocity;
+            NewRB.angularVelocity = TargetRB.angularVelocity;
+            target = NewSalvageObj;
+            owner.GetComponent<Player>().SetTarget(NewSalvageObj);
+            TargetRB = NewRB;
+        }
+
+
+
+
+
+
+
         OriginalTarget = target;
         salvageTime = SalvComp.SalvageItem.SalvageTime;
         SalvageStartTime = Time.unscaledTime;
@@ -102,7 +124,6 @@ public class SalvageTool : Tool
     protected override void OnDeactivate(ToolController owner, GameObject target)
     {
         if (SalvComp == null | SwitchedTargets |!FinishedSalvage | OutOfRange) return;
-        Debug.Log(OriginalTarget + " " + target );
         Debug.Log("Deactivated");
 
         if (owner.PlayerInventory.AddToResourceBucket(SalvComp.SalvageItem,SalvComp.Amount))

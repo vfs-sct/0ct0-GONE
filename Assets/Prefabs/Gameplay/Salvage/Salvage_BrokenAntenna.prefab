@@ -219,6 +219,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _SalvageItem: {fileID: 11400000, guid: 108f2dc7d9393f643be1055100a14930, type: 2}
   _Amount: 1
+  Instanced: 1
+  UnInstancedPrefab: {fileID: 5127632080429327098, guid: c4a8405afd839d54385eb4ef8aa7fdbb,
+    type: 3}
 --- !u!136 &5002511545654456576
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -399,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2134d02b6dceff14cafecdba3a26b576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Target: {fileID: 0}
 --- !u!1 &5757364477227960784
 GameObject:
   m_ObjectHideFlags: 0

@@ -72,7 +72,18 @@ public class ClawTool : Tool
 
     protected override void OnActivate(ToolController owner, GameObject target)
     {
-        
+        Salvagable oldSalvage = target.GetComponentInChildren<Salvagable>();
+        if (oldSalvage.Instanced)
+        {
+            target.SetActive(false);
+            GameObject NewSalvageObj = GameObject.Instantiate(oldSalvage.UnInstancedPrefab);
+            NewSalvageObj.transform.position = target.transform.position;
+            NewSalvageObj.transform.rotation = target.transform.rotation;
+            Rigidbody NewRB = NewSalvageObj.GetComponent<Rigidbody>();
+            NewRB.velocity = TargetRB.velocity;
+            NewRB.angularVelocity = TargetRB.angularVelocity;
+            TargetRB = NewRB;
+        }
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
