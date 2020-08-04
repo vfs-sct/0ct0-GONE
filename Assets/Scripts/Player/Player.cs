@@ -238,6 +238,7 @@ public class Player : MonoBehaviour
     public void Win()
     {
         GameManager.Pause();
+        if(WinScreen == null) WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
         WinScreen.gameObject.SetActive(true);
         //UIRootModule.UIRoot.GetScreen<Codex>().ResetCodexLocks();
     }
@@ -248,12 +249,9 @@ public class Player : MonoBehaviour
         invertedCam = PlayerPrefs.GetInt("InvertedCam");
         HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
         //Debug.Log("Inversion value: " + PlayerPrefs.GetInt("InvertedCam"));
-    }
-
-    private void Start()
-    {
         GameOverScreen = UIRootModule.UIRoot.GetScreen<GameOver>();
         WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
+        //Debug.LogWarning(WinScreen);
     }
 
     public void ShowTooltips()
