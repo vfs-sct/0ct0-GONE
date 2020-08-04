@@ -102,7 +102,6 @@ public class Playing : GameState
         RelayController.Start();
         PlayStartTime = Time.time;
         TimeBetweenStorms = StartingTimeBetweenStorms;
-        warningUI = UIModule.UIRoot.GetScreen<GetWarnings>();
         PoolManager.InitializePools();
         //EndTutorial();//FOR TESTING
     }
@@ -129,6 +128,11 @@ public class Playing : GameState
     {
         if (!IsTutorial) // dont run incremental storms until the player has finished the tutorial, that would be too evil
         {
+
+            if (warningUI == null)
+            {
+                warningUI = UIModule.UIRoot.GetScreen<GetWarnings>();
+            }
             if (!WarningTriggered && Time.time >= NextStormTime-StormWarningTime)
             {
                 //Kris do the storm warning stuff here
