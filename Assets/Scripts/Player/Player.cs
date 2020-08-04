@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
     private Win WinScreen = null;
 
     [SerializeField] private ScannerComponent Scanner;
+    [SerializeField] private MovementController LinkedMovementController;
+    [SerializeField] private ToolController LinkedToolController;
 
     [Header("PlayerPref Options:")]
     //used by UI/playerprefs to invert camera
@@ -54,8 +56,7 @@ public class Player : MonoBehaviour
     public GameObject mouseCollisionRoot = null;
     public float collisionDistance;
 
-    private MovementController LinkedMovementController;
-    private ToolController LinkedToolController;
+    
 
     private Collider _TargetCollider;
 
@@ -253,8 +254,6 @@ public class Player : MonoBehaviour
     {
         GameOverScreen = UIRootModule.UIRoot.GetScreen<GameOver>();
         WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
-        LinkedMovementController = GetComponent<MovementController>();
-        LinkedToolController = GetComponent<ToolController>();
     }
 
     public void ShowTooltips()
