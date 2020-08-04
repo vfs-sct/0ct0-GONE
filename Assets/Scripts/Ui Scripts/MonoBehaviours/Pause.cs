@@ -10,6 +10,7 @@ using UnityEditor;
 public class Pause : MonoBehaviour
 {
     [SerializeField] GameFrameworkManager GameManager = null;
+    [SerializeField] Tutorial TutorialPrefab = null;
     [SerializeField] GameObject CodexPrefab = null;
     [SerializeField] GameObject OptionsPrefab = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
@@ -75,6 +76,8 @@ public class Pause : MonoBehaviour
     //used by the Confirmation screen
     void DoMainMenu()
     {
+        TutorialPrefab.enabled = false;
+
         // ========================
         //          AUDIO
         // ========================

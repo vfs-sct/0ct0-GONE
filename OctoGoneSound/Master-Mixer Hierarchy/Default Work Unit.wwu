@@ -149,6 +149,31 @@
 									</RTPCList>
 								</Property>
 							</PropertyList>
+							<ChildrenList>
+								<Bus Name="Feedback" ID="{61FA4E81-C598-486E-B919-D1B6978635D4}"/>
+								<Bus Name="Log" ID="{B77B6A2D-FF0A-424C-B7D7-365DDBA50129}">
+									<DuckingList>
+										<DuckItem>
+											<BusRef Name="Feedback" ID="{61FA4E81-C598-486E-B919-D1B6978635D4}"/>
+											<DuckingParam>
+												<Volume>-42</Volume>
+												<FadeInTime>0.300000011920929</FadeInTime>
+												<FadeOutTime>0.300000011920929</FadeOutTime>
+												<FadeCurve>FadeLinear</FadeCurve>
+											</DuckingParam>
+										</DuckItem>
+										<DuckItem>
+											<BusRef Name="SFX_MAIN" ID="{817B8F49-920F-4487-B346-BEADA47C3F4D}"/>
+											<DuckingParam>
+												<Volume>-15</Volume>
+												<FadeInTime>0.300000011920929</FadeInTime>
+												<FadeOutTime>0.300000011920929</FadeOutTime>
+												<FadeCurve>FadeLinear</FadeCurve>
+											</DuckingParam>
+										</DuckItem>
+									</DuckingList>
+								</Bus>
+							</ChildrenList>
 						</Bus>
 					</ChildrenList>
 				</Bus>

@@ -1063,48 +1063,6 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<RandomSequenceContainer Name="Satellite_Comm" ID="{1E3B664D-2EC3-4F40-98FB-09F6069A3D93}" ShortID="590331186">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-10</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="SFX_Satellite_Comm_01" ID="{933318B3-3FE6-4614-A371-27FA06AD34A1}" ShortID="552279765">
-													<PropertyList>
-														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="SFX_Satellite_Comm_01" ID="{E687CE6D-6B7D-41BC-9BB3-C3FF8CCE2DEA}" ShortID="475124764">
-															<Language>SFX</Language>
-															<AudioFile>Satellite\Satellite_William\SFX_Satellite_Comm_01.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="SFX_Satellite_Comm_01" ID="{E687CE6D-6B7D-41BC-9BB3-C3FF8CCE2DEA}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="SFX_Satellite_Pulse" ID="{8A21D246-3E87-47C2-ACD3-E3197A46C3EA}" ShortID="559020729">
 											<PropertyList>
 												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
@@ -1189,29 +1147,6 @@
 												</Sound>
 											</ChildrenList>
 										</RandomSequenceContainer>
-										<Sound Name="SFX_Satellite_Crafting_01" ID="{05042B04-1281-4B79-B5FE-CDBDAB5B0E69}" ShortID="646240837">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="SFX_Satellite_Crafting_01" ID="{79B7BAEE-B4BD-40C0-BB57-B4A238D5818B}" ShortID="394185018">
-													<Language>SFX</Language>
-													<AudioFile>Satellite\Satellite_William\SFX_Satellite_Crafting_01.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="SFX_Satellite_Crafting_01" ID="{79B7BAEE-B4BD-40C0-BB57-B4A238D5818B}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
 										<Sound Name="SFX_Satellite_FStation_01" ID="{F6F33AE1-4329-4B9D-8FFE-0EF836C967E7}" ShortID="259901268">
 											<PropertyList>
 												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
@@ -1279,29 +1214,6 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="SFX_Satellite_Idle_01" ID="{E2C2C78F-09C4-4705-A696-FA884F8FBBB5}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="SFX_Satellite_Incin_01" ID="{29AF9C4C-F795-4654-9463-0CF7E8B7FC3A}" ShortID="894524704">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="SFX_Satellite_Incin_01" ID="{4DCC457B-6EF3-41BF-85E1-AC7753542BDF}" ShortID="252417609">
-													<Language>SFX</Language>
-													<AudioFile>Satellite\Satellite_William\SFX_Satellite_Incin_01.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="SFX_Satellite_Incin_01" ID="{4DCC457B-6EF3-41BF-85E1-AC7753542BDF}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="SFX_Satellite_Radar_01" ID="{ED03F50A-6882-4B56-BBF4-A44499EB4A85}" ShortID="292192706">
@@ -1400,6 +1312,215 @@
 												</Sound>
 											</ChildrenList>
 										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Satellite_Comm" ID="{B4F8C794-8923-4866-9121-04265FB4F8F4}" ShortID="125164560">
+											<PropertyList>
+												<Property Name="3DPosition" Type="int16" Value="1"/>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-14</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX_Satellite_Comm_01" ID="{0F4C5F1E-9D04-44C5-9CCE-20657D800904}" ShortID="1034208444">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_Satellite_Comm_01" ID="{A066AA67-FC04-4986-90D2-27EE33C56D00}" ShortID="222833019">
+															<Language>SFX</Language>
+															<AudioFile>Satellite\Satellite_William\SFX_Satellite_Comm_01.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="475124764"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_Satellite_Comm_01" ID="{A066AA67-FC04-4986-90D2-27EE33C56D00}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<PositioningInfo>
+												<Position Name="" ID="{181D3B91-1D71-4F27-930F-18B751D87AEE}">
+													<PropertyList>
+														<Property Name="PlayMechanismRandomOrSequence" Type="int16" Value="1"/>
+														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+													</PropertyList>
+													<ChildrenList>
+														<Path2D Name="Satellite_Comm_Path" ID="{142CFC36-5645-489B-97CC-3C0344831251}">
+															<PointList>
+																<Point>
+																	<XPos>-0.63291</XPos>
+																	<YPos>50</YPos>
+																	<Flags>12</Flags>
+																	<Time>0</Time>
+																</Point>
+																<Point>
+																	<XPos>50</XPos>
+																	<YPos>50</YPos>
+																	<Flags>0</Flags>
+																	<Time>1666</Time>
+																</Point>
+																<Point>
+																	<XPos>-50</XPos>
+																	<YPos>50</YPos>
+																	<Flags>0</Flags>
+																	<Time>3333</Time>
+																</Point>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>50</YPos>
+																	<Flags>0</Flags>
+																	<Time>5000</Time>
+																</Point>
+															</PointList>
+														</Path2D>
+													</ChildrenList>
+												</Position>
+											</PositioningInfo>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SFX_Satellite_Crafting" ID="{84E05C15-8055-40B6-A40D-C1D07C25D95E}" ShortID="867673640">
+											<PropertyList>
+												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX_Satellite_Crafting_01" ID="{05042B04-1281-4B79-B5FE-CDBDAB5B0E69}" ShortID="646240837">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+														<Reference Name="UserAuxSend0">
+															<ObjectRef Name="Reverb" ID="{CAEA2544-B462-4079-9075-93ED58431138}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_Satellite_Crafting_01" ID="{79B7BAEE-B4BD-40C0-BB57-B4A238D5818B}" ShortID="394185018">
+															<Language>SFX</Language>
+															<AudioFile>Satellite\Satellite_William\SFX_Satellite_Crafting_01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_Satellite_Crafting_01" ID="{79B7BAEE-B4BD-40C0-BB57-B4A238D5818B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_Satellite_Crafting_02" ID="{B70237E5-CED4-4ACE-8204-C6CE623DA1E1}" ShortID="403900562">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_Satellite_Crafting_02" ID="{9F2B687F-49A1-4584-B670-D0B922FB8E6A}" ShortID="1058964470">
+															<Language>SFX</Language>
+															<AudioFile>Satellite\Satellite_William\SFX_Satellite_Crafting_02.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_Satellite_Crafting_02" ID="{9F2B687F-49A1-4584-B670-D0B922FB8E6A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SFX_Satellite_Incin" ID="{A93243B7-41A8-49A5-8F6B-3FD6C205E46C}" ShortID="337808409">
+											<PropertyList>
+												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="SFX_Satellite_Incin_01" ID="{29AF9C4C-F795-4654-9463-0CF7E8B7FC3A}" ShortID="894524704">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+														<Reference Name="UserAuxSend0">
+															<ObjectRef Name="Reverb" ID="{CAEA2544-B462-4079-9075-93ED58431138}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_Satellite_Incin_01" ID="{4DCC457B-6EF3-41BF-85E1-AC7753542BDF}" ShortID="252417609">
+															<Language>SFX</Language>
+															<AudioFile>Satellite\Satellite_William\SFX_Satellite_Incin_01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_Satellite_Incin_01" ID="{4DCC457B-6EF3-41BF-85E1-AC7753542BDF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="SFX_Satellite_Incin_02" ID="{B3766AEB-EB8D-4720-BFF5-8EEA2D309C1D}" ShortID="665868851">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_Satellite_Incin_02" ID="{000CB5DB-167A-4719-A574-9EEB6A2D7CAB}" ShortID="836148198">
+															<Language>SFX</Language>
+															<AudioFile>Satellite\Satellite_William\SFX_Satellite_Incin_02.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_Satellite_Incin_02" ID="{000CB5DB-167A-4719-A574-9EEB6A2D7CAB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Environmental" ID="{D4C51111-01B2-4B7B-B09C-40AC1673D186}" ShortID="653418786">
@@ -1482,7 +1603,7 @@
 														<AudioFileSource Name="TEMP_SFX_Environment_Asteroid_Moving" ID="{D9C4601E-EAEE-4D1C-9C1E-0CF31A006EA7}" ShortID="767309291">
 															<PropertyList>
 																<Property Name="FadeInDuration" Type="Real64" Value="0.110738389756944"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="7.38255931712963E-02"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.0738255931712963"/>
 																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 																<Property Name="TrimBegin" Type="Real64" Value="5.24161711516204"/>
 																<Property Name="TrimEnd" Type="Real64" Value="14.691293041088"/>
@@ -2081,60 +2202,6 @@
 												<ActiveSource Name="SFX_HUD_Gas_Warning" ID="{444C3567-BEB4-4FC1-8F52-DA4995ABACB6}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="SFX_IGMenu_Activation" ID="{36BA0F9B-04D1-434C-B158-2720C72E32B7}" ShortID="290885672">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-7</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="SFX_IGMenu_Activation" ID="{9D237755-9470-4645-B17F-4AF70F413AF5}" ShortID="791830322">
-													<Language>SFX</Language>
-													<AudioFile>UI\UI_Jordan\InGame\SFX_IGMenu_Activation.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="SFX_IGMenu_Activation" ID="{9D237755-9470-4645-B17F-4AF70F413AF5}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="SFX_IGMenu_Deactivation" ID="{49768C9B-A30F-4DC1-A46F-09242DBCE517}" ShortID="775040223">
-											<PropertyList>
-												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-7</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="SFX_IGMenu_Deactivation" ID="{93F44A5E-A660-48B0-A23E-2A709E40A64B}" ShortID="606555558">
-													<Language>SFX</Language>
-													<AudioFile>UI\UI_Jordan\InGame\SFX_IGMenu_Deactivation.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="SFX_IGMenu_Deactivation" ID="{93F44A5E-A660-48B0-A23E-2A709E40A64B}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
 										<Sound Name="SFX_Objective_Popup" ID="{FC46EE6F-A5BF-4279-9378-08BAE245C032}" ShortID="948407745">
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
@@ -2159,6 +2226,90 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="SFX_Objective_Popup" ID="{5A3FED69-1038-41E9-BD0B-965F005236F9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX_IGMenu_Deactivation" ID="{DA85E888-4EC2-4088-8D60-EF93B9DBB5FF}" ShortID="364880961">
+											<PropertyList>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-7</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX_IGMenu_Deactivation" ID="{E102C542-F86F-44A1-A1C7-C9134C1E3D63}" ShortID="1001190849">
+													<Language>SFX</Language>
+													<AudioFile>UI\UI_Jordan\InGame\SFX_IGMenu_Deactivation.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="606555558"/>
+													</ConvertedFileIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX_IGMenu_Deactivation" ID="{E102C542-F86F-44A1-A1C7-C9134C1E3D63}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="SFX_IGMenu_Activation" ID="{A2396A2A-9A37-4A0E-89EA-FF29F58AFA4A}" ShortID="747149850">
+											<PropertyList>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-7</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D445054-5E66-4F45-AC90-2705F1C9F01C}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{A1F88A5E-3F10-4F10-ACDB-BE06683C58A9}" WorkUnitID="{6FC200F9-D810-4A33-9904-EF23286CE5AB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="SFX_IGMenu_Activation" ID="{57889C10-040F-4406-9AF6-73CC3B427C5F}" ShortID="399484440">
+													<Language>SFX</Language>
+													<AudioFile>UI\UI_Jordan\InGame\SFX_IGMenu_Activation.wav</AudioFile>
+													<ConvertedFileIDList>
+														<File ID="791830322"/>
+													</ConvertedFileIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="SFX_IGMenu_Activation" ID="{57889C10-040F-4406-9AF6-73CC3B427C5F}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>

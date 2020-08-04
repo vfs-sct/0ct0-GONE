@@ -131,7 +131,7 @@ public class GooGlueCraft : MonoBehaviour
             {
                 DoCraft();
                 var popText = Instantiate(poptextGO);
-                popText.GetComponentInChildren<TextMeshProUGUI>().SetText("+30 Goo Glue");
+                popText.GetComponentInChildren<TextMeshProUGUI>().SetText("+30 Repair Paste");
                 popText.transform.SetParent(naniteCraftButton.transform);
                 popText.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
                 craftTimer = 0;

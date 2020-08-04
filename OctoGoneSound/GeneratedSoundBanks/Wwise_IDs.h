@@ -104,6 +104,8 @@ namespace AK
         static const AkUniqueID SATELLITE_PULSE_STOP = 3977394973U;
         static const AkUniqueID SATELLITE_RADAR_PLAY = 1823223854U;
         static const AkUniqueID SATELLITE_RADAR_STOP = 2866339600U;
+        static const AkUniqueID SFX_DEBRIS_COLLECT = 3273925315U;
+        static const AkUniqueID SFX_DEBRIS_SELECT = 2375891975U;
         static const AkUniqueID SHUTDOWN = 198343527U;
         static const AkUniqueID SHUTDOWNDAMAGE = 781891296U;
         static const AkUniqueID SHUTDOWNFUEL = 3355890559U;
@@ -193,6 +195,18 @@ namespace AK
             } // namespace SWITCH
         } // namespace DAMAGE
 
+        namespace DEBRIS_COLLECT
+        {
+            static const AkUniqueID GROUP = 3372216259U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID HEAVY = 2732489590U;
+                static const AkUniqueID LIGHT = 1935470627U;
+                static const AkUniqueID MEDIUM = 2849147824U;
+            } // namespace SWITCH
+        } // namespace DEBRIS_COLLECT
+
     } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
@@ -218,6 +232,8 @@ namespace AK
         static const AkUniqueID CHARACTERS = 1557941045U;
         static const AkUniqueID DX_MAIN = 648308099U;
         static const AkUniqueID ENVIRONMENT = 1229948536U;
+        static const AkUniqueID FEEDBACK = 4228153068U;
+        static const AkUniqueID LOG = 545371381U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUS_MAIN = 3031508118U;
         static const AkUniqueID SATELLITE = 3753754380U;

@@ -46,26 +46,33 @@ public class SalvageTool : Tool
         if (target == null) return false;
 
         OutOfRange = Vector3.Distance(target.transform.position,owner.transform.position) >= _ToolRange;
-
+        if(OutOfRange)
+        {
+            progressBarFill.fillAmount = 0f;
+            ToggleBars(false);
+        }
         if(!OutOfRange && progressBarBG.gameObject.activeSelf == false)
         {
-            progressBarBG.gameObject.SetActive(true);
-            progressBarFill.gameObject.SetActive(true);
-
             progressBarFill.fillAmount = 0f;
+            ToggleBars(true);
         }
 
         FinishedSalvage = ((SalvageStartTime+salvageTime) <= Time.unscaledTime);
         
-        if(!finishedSalvage && !OutOfRange)
+        if(!FinishedSalvage && !OutOfRange)
         {
-            progressBarFill.fillAmount += (Time.unscaledTime / SalvageStartTime + salvageTime) / 100;
+            progressBarFill.fillAmount = ((Time.unscaledTime - SalvageStartTime) / (salvageTime));
+            Debug.LogWarning(((Time.unscaledTime - SalvageStartTime )/ (salvageTime)));
         }
         else if(SwitchedTargets || FinishedSalvage || OutOfRange)
         {
-            progressBarBG.gameObject.SetActive(false);
-            progressBarFill.gameObject.SetActive(false);
             progressBarFill.fillAmount = 0f;
+            ToggleBars(false);
+        }
+
+        if(FinishedSalvage)
+        {
+            var number = 0;
         }
 
         return !(OutOfRange || SwitchedTargets || FinishedSalvage);
@@ -118,7 +125,7 @@ public class SalvageTool : Tool
             //Debug.Log(SalvComp.SalvageItem + " is not a resource");
         }
         //EVAN: Start the salvage sound
-        AkSoundEngine.PostEvent("Octo_Repair_Start", target);
+        AkSoundEngine.PostEvent("SFX_Debris_Select", target);
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
@@ -132,7 +139,7 @@ public class SalvageTool : Tool
                 Destroy(OriginalTarget);
 
             //EVAN: Play salvaged success sound here
-            AkSoundEngine.PostEvent("Octo_Systems_Text", target);
+            AkSoundEngine.PostEvent("SFX_Debris_Collect", target);
             //resource gained pop text
             Instantiate(popText).popText.SetText(SalvComp.SalvageItem.ResourceType.DisplayName + " Gained");
                 //Debug.Log("Salvaged Object");
@@ -159,23 +166,27 @@ public class SalvageTool : Tool
         //progressBarBG.gameObject.SetActive(true);
         //progressBarFill.gameObject.SetActive(true);
 
-        //progressBarFill.fillAmount = 0f;
+        progressBarFill.fillAmount = 0f;
     }
 
     protected override void OnDeselect(ToolController owner)
     {
         //Debug.Log("Salvager DeSelected");
         SalvComp = null; //cleanup
-        progressBarBG.gameObject.SetActive(false);
-        progressBarFill.gameObject.SetActive(false);
+        ToggleBars(false);
         progressBarBG = null;
         progressBarFill = null;
     }
 
-    
+    private void ToggleBars(bool isOn)
+    {
+        progressBarBG.gameObject.SetActive(isOn);
+        progressBarFill.gameObject.SetActive(isOn);
+    }
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
+        Debug.LogWarning("Active");
         //EVAN: While loop when tool is active, play some laser noises
     }
 }

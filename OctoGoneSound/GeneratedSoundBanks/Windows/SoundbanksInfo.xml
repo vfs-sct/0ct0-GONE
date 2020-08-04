@@ -112,6 +112,8 @@
 				<Event Id="3977394973" Name="Satellite_Pulse_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Pulse_Stop" GUID="{6ED96AEB-89AF-4172-9DAF-FC011C2DB1FF}" DurationType="Infinite"/>
 				<Event Id="1823223854" Name="Satellite_Radar_Play" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Radar_Play" GUID="{CB75B71C-3527-43C5-9E1E-02C3DD4AF972}" DurationType="Infinite"/>
 				<Event Id="2866339600" Name="Satellite_Radar_Stop" ObjectPath="\Events\Octo_Main\Environment\Satellite\Satellite_Radar_Stop" GUID="{2033BB77-A3E6-4E1C-8738-9AAA2C0BBBEE}" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3273925315" Name="SFX_Debris_Collect" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\SFX_Debris_Collect" GUID="{DEFD0BB2-6D76-4406-9761-F30E47DAB8CD}" DurationType="OneShot" DurationMin="1.246333" DurationMax="1.961708"/>
+				<Event Id="2375891975" Name="SFX_Debris_Select" ObjectPath="\Events\Octo_Main\Characters\Octo\SFX\SFX_Debris_Select" GUID="{5D3FA0EE-F6C5-4003-A56A-10166369B248}" DurationType="OneShot" DurationMin="0.143000" DurationMax="0.143000"/>
 				<Event Id="198343527" Name="ShutDown" ObjectPath="\Events\Octo_Main\Characters\Octo\Computer\ShutDown" GUID="{54699C37-310E-45FA-9B1B-F12CB3774EF9}" DurationType="OneShot" DurationMin="1.130667" DurationMax="1.834667"/>
 				<Event Id="781891296" Name="ShutDownDamage" ObjectPath="\Events\Octo_Main\Characters\Octo\Computer\ShutDownDamage" GUID="{79A5CBAF-8A26-48E3-BBCE-E982ABCFBFB2}" DurationType="OneShot" DurationMin="3.968000" DurationMax="6.997334"/>
 				<Event Id="3355890559" Name="ShutDownFuel" ObjectPath="\Events\Octo_Main\Characters\Octo\Computer\ShutDownFuel" GUID="{6FCD2C1F-3AB6-476B-9B34-9527741DC7CD}" DurationType="OneShot" DurationMin="3.840000" DurationMax="7.850667"/>
@@ -311,6 +313,10 @@
 				<File Id="237717402" Language="English(US)">
 					<ShortName>Oakley\VA_Colin_Oakley_Log7_04.wav</ShortName>
 					<Path>Voices\English(US)\Oakley\VA_Colin_Oakley_Log7_04_10C4C929.wem</Path>
+				</File>
+				<File Id="248236220" Language="SFX">
+					<ShortName>Environment\Environment_Jordan\SFX_Debris_Collect\SFX_Debris_Collect_Light.wav</ShortName>
+					<Path>SFX\Environment\Environment_Jordan\SFX_Debris_Collect\SFX_Debris_Collect_Light_10C4C929.wem</Path>
 				</File>
 				<File Id="252380341" Language="English(US)">
 					<ShortName>Computer\Warning_ShutDown_1_01.wav</ShortName>
@@ -556,6 +562,10 @@
 					<ShortName>Oakley\VA_Colin_Oakley_Log6_02.wav</ShortName>
 					<Path>Voices\English(US)\Oakley\VA_Colin_Oakley_Log6_02_10C4C929.wem</Path>
 				</File>
+				<File Id="610455350" Language="SFX">
+					<ShortName>Environment\Environment_Jordan\SFX_Debris_Select.wav</ShortName>
+					<Path>SFX\Environment\Environment_Jordan\SFX_Debris_Select_10C4C929.wem</Path>
+				</File>
 				<File Id="621816765" Language="SFX">
 					<ShortName>Character\Octo_Patrick\TetherRope\TEMP_SFX_Characters_Octo_TetherRope.wav</ShortName>
 					<Path>SFX\Character\Octo_Patrick\TetherRope\TEMP_SFX_Characters_Octo_TetherRope_10C4C929.wem</Path>
@@ -579,6 +589,10 @@
 				<File Id="651433309" Language="English(US)">
 					<ShortName>Computer\Warning_Leaving_2.wav</ShortName>
 					<Path>Voices\English(US)\Computer\Warning_Leaving_2_10C4C929.wem</Path>
+				</File>
+				<File Id="656570546" Language="SFX">
+					<ShortName>Environment\Environment_Jordan\SFX_Debris_Collect\SFX_Debris_Collect_Heavy.wav</ShortName>
+					<Path>SFX\Environment\Environment_Jordan\SFX_Debris_Collect\SFX_Debris_Collect_Heavy_10C4C929.wem</Path>
 				</File>
 				<File Id="657202420" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\RockHurt\RockHurt_Medium\TEMP_SFX_Character_Octo_RockHurt_Medium1.wav</ShortName>
@@ -660,6 +674,10 @@
 					<ShortName>Environment\Environment_Patrick\TEMP_SFX_Environment_Asteroid_Moving.wav</ShortName>
 					<Path>SFX\Environment\Environment_Patrick\TEMP_SFX_Environment_Asteroid_Moving_F1412611.wem</Path>
 				</File>
+				<File Id="771981390" Language="SFX">
+					<ShortName>Environment\Environment_Jordan\SFX_Debris_Collect\SFX_Debris_Collect_Medium.wav</ShortName>
+					<Path>SFX\Environment\Environment_Jordan\SFX_Debris_Collect\SFX_Debris_Collect_Medium_10C4C929.wem</Path>
+				</File>
 				<File Id="781911393" Language="English(US)">
 					<ShortName>Oakley\VA_Colin_Oakley_Log7_01.wav</ShortName>
 					<Path>Voices\English(US)\Oakley\VA_Colin_Oakley_Log7_01_10C4C929.wem</Path>
@@ -711,6 +729,10 @@
 				<File Id="832518898" Language="English(US)">
 					<ShortName>Computer\Warning_Complete_2.wav</ShortName>
 					<Path>Voices\English(US)\Computer\Warning_Complete_2_10C4C929.wem</Path>
+				</File>
+				<File Id="836148198" Language="SFX">
+					<ShortName>Satellite\Satellite_William\SFX_Satellite_Incin_02.wav</ShortName>
+					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Incin_02_D79FB2B7.wem</Path>
 				</File>
 				<File Id="845140361" Language="English(US)">
 					<ShortName>Computer\Warning_Complete_1.wav</ShortName>
@@ -863,6 +885,10 @@
 				<File Id="1056017884" Language="SFX">
 					<ShortName>Character\Octo_Patrick\Damage\RockHurt\RockHurt_Heavy\TEMP_SFX_Characters_Octo_RockHurt_Heavy3.wav</ShortName>
 					<Path>SFX\Character\Octo_Patrick\Damage\RockHurt\RockHurt_Heavy\TEMP_SFX_Characters_Octo_RockHurt_Heavy3_10C4C929.wem</Path>
+				</File>
+				<File Id="1058964470" Language="SFX">
+					<ShortName>Satellite\Satellite_William\SFX_Satellite_Crafting_02.wav</ShortName>
+					<Path>SFX\Satellite\Satellite_William\SFX_Satellite_Crafting_02_D79FB2B7.wem</Path>
 				</File>
 				<File Id="1068159997" Language="SFX">
 					<ShortName>Environment\Environment_Patrick\TEMP_SFX_Environment_Metal_Moving.wav</ShortName>

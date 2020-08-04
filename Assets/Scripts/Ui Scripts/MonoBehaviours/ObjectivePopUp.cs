@@ -26,7 +26,7 @@ public class ObjectivePopUp : MonoBehaviour
     {
         "Recharge at the station",
         "Salvage Iron and Silicon",
-        "Craft and place a Goo Glue Satellite",
+        "Craft and place a Repair Paste Satellite",
         "Repair the Station's Antenna",
         "Repair the Station's Solar Array",
         "Repair the Station's Power Storage",
@@ -36,7 +36,7 @@ public class ObjectivePopUp : MonoBehaviour
     private bool fadingIn = false;
     private bool fadingOut = false;
 
-    private float bkImageAlpha = 0.85f;
+    private float bkImageAlpha = 1f;
     private bool fadingOutText = false;
 
     private bool _isPreText = false;

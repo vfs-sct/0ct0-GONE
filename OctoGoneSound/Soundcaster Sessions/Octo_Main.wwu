@@ -495,6 +495,61 @@
 						<CurrentSwitchRef Name="Heavy" ID="{B456AF25-B007-4381-9FD3-900FD8FC3D1D}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
+				<SoundcasterSession Name="DX_Ducking" ID="{72C4846E-5143-4EE7-9913-667745B0C8A7}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Voice_Log_01_Play" ID="{BE6F8504-75D6-4AC3-99FC-2C390E1F86CC}" WorkUnitID="{D29AFD80-10E9-4FB3-8D39-CE87F0C04344}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Voice_Log_02_Play" ID="{70474174-DC35-4C85-BC2A-1D0E68ED9BCF}" WorkUnitID="{D29AFD80-10E9-4FB3-8D39-CE87F0C04344}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="GasDetected" ID="{8C3B63D0-04E7-4233-801C-D5D9F43AD2DB}" WorkUnitID="{FC8085BF-EA3E-4298-8894-1EF9B688AAAF}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_Satellite_Crafting" ID="{84E05C15-8055-40B6-A40D-C1D07C25D95E}" WorkUnitID="{64EC78DE-9C94-4645-A488-876F20AD7DE7}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="DistanceDoppler" ID="{F423D4E4-D3F0-4042-8054-EDF7431885E5}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="DialogueVolume" ID="{A206979A-B820-42D1-8E2A-E4DA68FE283E}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="throttle" ID="{2BFD54AC-865B-43EF-8B4D-8250ED545EE3}"/>
+							<Value>6.57993730407524E-02</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="fuel" ID="{C3FFDBBA-59FA-4628-BD35-649756FD7BCA}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SFXVolume" ID="{2812E78F-5F44-470A-8E63-79EC190D8D1E}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MusicVolume" ID="{3A667E9E-FA9E-487F-A811-E5471CEA9770}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MasterVolume" ID="{56B4D46F-A292-4D18-9B8D-7B65B0CCC99F}"/>
+							<Value>1</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Heavy" ID="{0E31C027-A1B3-41A5-95FC-2AA1E432CA0A}"/>
+						<CurrentSwitchRef Name="Heavy" ID="{B456AF25-B007-4381-9FD3-900FD8FC3D1D}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundcasterSessions>

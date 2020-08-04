@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.InputSystem;
 
 public class IntroScroll : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class IntroScroll : MonoBehaviour
     [Header("Disable Player Control")]
     [SerializeField] MovementController playerMovement = null;
     [SerializeField] Player playerCam = null;
+    [SerializeField] GameObject gameHUD = null;
 
     private Dictionary<string, float> introScroll = new Dictionary<string, float>
     {
@@ -67,6 +69,10 @@ public class IntroScroll : MonoBehaviour
             Debug.LogWarning("SKIPPING INTRO!");
             gameObject.SetActive(false);
         }
+        else
+        {
+            gameHUD.SetActive(false);
+        }
     }
 
 
@@ -114,9 +120,8 @@ public class IntroScroll : MonoBehaviour
         }
         else
         {
-            playerMovement.enabled = true;
-            playerCam.EnableCam();
-            fadingOut = true;
+            //restores control, turns on game HUD and starts fade out of intro
+            FinishIntro();
         }
     }
 
@@ -135,5 +140,18 @@ public class IntroScroll : MonoBehaviour
             gameObject.SetActive(false);
         }
         AkSoundEngine.PostEvent("Leave_Comm_Stop", gameObject);
+    }
+
+    public void FinishIntro()
+    {
+        gameHUD.SetActive(true);
+        playerMovement.enabled = true;
+        playerCam.EnableCam();
+        fadingOut = true;
+    }
+
+    public void OnEsc(InputValue value)
+    {
+        FinishIntro();
     }
 }

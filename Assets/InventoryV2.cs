@@ -8,6 +8,9 @@ using UnityEngine.EventSystems;
 
 public class InventoryV2 : MonoBehaviour
 {
+
+    [SerializeField] EndInventoryTutorial OpenInventoryTutorial = null;
+    [SerializeField] Tutorial TutorialController = null;
     [SerializeField] UIAwake UIRoot = null;
     [SerializeField] GameFrameworkManager GameManager = null;
     //used to grab the speed modifier off of
@@ -58,7 +61,9 @@ public class InventoryV2 : MonoBehaviour
 
     private void Awake()
     {
-        for(int i = 0; i < tabs.Length; i++)
+        OpenInventoryTutorial.completed = true;
+
+        for (int i = 0; i < tabs.Length; i++)
         {
             //set up which tab should be active first
             if (i == 0)
@@ -94,7 +99,11 @@ public class InventoryV2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(UIRoot.GetPlayer() == null)
+        TutorialController.EnableInventoryTutorial();
+        //tutorialCanvas.gameObject.SetActive(true);
+        //carryWeightPrompt.SetActive(true);
+
+        if (UIRoot.GetPlayer() == null)
         {
             //Debug.LogError("NULL PLAYER");
             return;

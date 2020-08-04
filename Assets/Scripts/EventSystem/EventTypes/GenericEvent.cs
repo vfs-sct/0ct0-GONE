@@ -44,7 +44,11 @@ public class GenericEvent : Event
 
     private void NextTutorialPrompt()
     {
-        UIRootModule.UIRoot.GetScreen<Tutorial>().NextPrompt(5f);
+        var tutorial = UIRootModule.UIRoot.GetScreen<Tutorial>();
+        if (tutorial != null)
+        {
+            tutorial.NextPrompt(5f);
+        }
     }
 
     private void CodexProgression()

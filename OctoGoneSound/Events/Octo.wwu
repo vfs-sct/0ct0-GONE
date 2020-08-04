@@ -133,6 +133,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="SFX_Debris_Select" ID="{5D3FA0EE-F6C5-4003-A56A-10166369B248}">
+							<ChildrenList>
+								<Action Name="" ID="{1329D156-A3DD-4E5E-B36D-A991261E67F8}" ShortID="634903638">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX_Debris_Select" ID="{ACB2578B-19DE-4394-9F8B-64E22AA15B95}" WorkUnitID="{CBEB9F3F-168A-4B51-AFD0-2E6F7DF60156}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFX_Debris_Collect" ID="{DEFD0BB2-6D76-4406-9761-F30E47DAB8CD}">
+							<ChildrenList>
+								<Action Name="" ID="{8B5BF3CA-97AB-4E8F-AF02-F460FFD09931}" ShortID="595585602">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX_Debris_Collect" ID="{FF177C9B-8CD1-41D0-AEE7-E55235C458BA}" WorkUnitID="{CBEB9F3F-168A-4B51-AFD0-2E6F7DF60156}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Voice" ID="{E976A66A-528F-4182-9598-867F4CCDD9F3}" ShortID="964914634">
