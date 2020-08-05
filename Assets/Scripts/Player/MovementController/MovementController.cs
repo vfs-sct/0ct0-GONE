@@ -36,6 +36,10 @@ public class MovementController : MonoBehaviour
 
     [SerializeField] private Throttle ThrottleUI;
     
+    [SerializeField] private Animator OctoAnimator;
+
+    [SerializeField]  private float AnimatorLerpSpeed = 20;
+
     
     private float _VelocityMax;
     private float _SetVelocityMax;
@@ -150,7 +154,9 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        
+        OctoAnimator.SetFloat("X",(_Rigidbody.transform.InverseTransformVector(_Rigidbody.velocity)).x/AnimatorLerpSpeed);
+        OctoAnimator.SetFloat("Y",(_Rigidbody.transform.InverseTransformVector(_Rigidbody.velocity)).y/AnimatorLerpSpeed);
+        OctoAnimator.SetFloat("Speed",Mathf.Clamp(_Rigidbody.velocity.magnitude/AnimatorLerpSpeed,-1,1) );
     }
 
     private void FixedUpdate()
