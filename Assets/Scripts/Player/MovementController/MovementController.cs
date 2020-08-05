@@ -1,10 +1,91 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MovementController : MonoBehaviour
 {
 
+    [System.Serializable]
+    public struct ThrusterData
+    {
+        public List<ParticleSystem> XThrustersPos;
+        public List<ParticleSystem> XThrustersNeg;
+        public List<ParticleSystem> YThrustersPos;
+        public List<ParticleSystem> YThrustersNeg;
+        public List<ParticleSystem> ZThrustersPos;
+        public List<ParticleSystem> ZThrustersNeg;
+
+        public ThrusterData(List<ParticleSystem> xThrustersPos, List<ParticleSystem> xThrustersNeg, List<ParticleSystem> yThrustersPos, List<ParticleSystem> yThrustersNeg, List<ParticleSystem> zThrustersPos, List<ParticleSystem> zThrustersNeg)
+        {
+            XThrustersPos = xThrustersPos;
+            XThrustersNeg = xThrustersNeg;
+            YThrustersPos = yThrustersPos;
+            YThrustersNeg = yThrustersNeg;
+            ZThrustersPos = zThrustersPos;
+            ZThrustersNeg = zThrustersNeg;
+        }
+
+        private List<List<ParticleSystem>> GetValue(int key)
+        {
+            List<List<ParticleSystem>> temp =   new List<List<ParticleSystem>>();
+            switch (key)
+            {
+                case 0: {
+                    
+                    temp.Add(XThrustersPos);
+                    temp.Add(XThrustersNeg);
+                    break;
+                    }
+                case 1: {
+                    temp =   new List<List<ParticleSystem>>();
+                    temp.Add(YThrustersPos);
+                    temp.Add(YThrustersNeg);
+                    break;
+                    }
+                case 2: {
+                    temp =   new List<List<ParticleSystem>>();
+                    temp.Add(ZThrustersPos);
+                    temp.Add(ZThrustersNeg);
+                    break;
+                    }
+                default: {return null;}
+            }
+            return temp;
+        }
+
+        private void SetValue(int key,List<List<ParticleSystem>>  value)
+        {
+            switch (key)
+            {
+                case 0: {
+                    XThrustersPos = value[0]; 
+                    XThrustersNeg = value[1];
+                    break;
+                    }
+                case 1: {
+                    YThrustersPos = value[0]; 
+                    YThrustersNeg = value[1];
+                    break;
+                }
+                case 2: {
+                    ZThrustersPos = value[0]; 
+                    ZThrustersNeg = value[1];
+                    break;
+                    }
+                default: {break;}
+            }
+        }
+
+        public List<List<ParticleSystem>> this[int key]
+        {
+            get => GetValue(key);
+            set => SetValue(key, value);
+        }
+    }
     
+
+
     private Vector3 _RawInput = new Vector3();
 
     private Vector3  _RotationTarget = new Vector3();
@@ -60,12 +141,25 @@ public class MovementController : MonoBehaviour
     [SerializeField] private ResourceInventory LinkedResourceBehavior;
     [SerializeField] private Resource FuelResource = null;
 
+    [SerializeField] private ThrusterData _TranslationThrusters;
+    [SerializeField] private ThrusterData _RotationThrusters;
 
+    [SerializeField] private float ThrusterCutoff = 0.05f;
+    private Vector3 AngularThrottle = new Vector3();
 
 
 
     public Vector3 RawInput{get => _RawInput;}
     public Vector3 NormalizedInput{get => _NormalizedInput;}
+
+
+
+
+    private void Awake()
+    {
+       
+    }
+
 
     public int GetSpeedModifier()
     {
@@ -155,7 +249,7 @@ public class MovementController : MonoBehaviour
     private void Update()
     {
         OctoAnimator.SetFloat("X",(_Rigidbody.transform.InverseTransformVector(_Rigidbody.velocity)).x/AnimatorLerpSpeed);
-        OctoAnimator.SetFloat("Y",(_Rigidbody.transform.InverseTransformVector(_Rigidbody.velocity)).y/AnimatorLerpSpeed);
+        OctoAnimator.SetFloat("Y",(_Rigidbody.transform.InverseTransformVector(_Rigidbody.velocity)).z/AnimatorLerpSpeed);
         OctoAnimator.SetFloat("Speed",Mathf.Clamp(_Rigidbody.velocity.magnitude/AnimatorLerpSpeed,-1,1) );
     }
 
@@ -248,6 +342,7 @@ public class MovementController : MonoBehaviour
             AngleDelta = DeltaRot.eulerAngles[i];
             if (AngleDelta > 180) AngleDelta = -((AngleDelta)-180);
             Torques[i] = Mathf.Clamp(AngleDelta,-ThrusterTorque,ThrusterTorque);
+            AngularThrottle[i] = Torques[i]/ThrusterTorque;
             fuelUsage += Mathf.Abs(Torques[i])*(FuelPerTorqueUnit/FuelEfficency);
         }
 
@@ -255,6 +350,93 @@ public class MovementController : MonoBehaviour
         _Rigidbody.AddRelativeTorque(new Vector3(0,1,0) * Torques.y,ForceMode.Impulse);
         _Rigidbody.AddRelativeTorque(new Vector3(0,0,1) * Torques.z,ForceMode.Impulse);
         LinkedResourceBehavior.RemoveResource(FuelResource,fuelUsage);
+    }
+
+
+    private void UpdateThrusters()
+    {
+        
+        for (int i = 0; i < 3; i++)
+        {
+
+                if (Mathf.Abs(AngularThrottle[i]) > ThrusterCutoff)
+                {
+                if (AngularThrottle[i] > 0)
+                {
+                    foreach (var item in _RotationThrusters[i][0])
+                    {
+                        item.gameObject.SetActive(true);
+                    }
+                    foreach (var item in _RotationThrusters[i][1])
+                    {
+                        item.gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    foreach (var item in _RotationThrusters[i][1])
+                    {
+                        item.gameObject.SetActive(true);
+                    }
+                    foreach (var item in _RotationThrusters[i][0])
+                    {
+                        item.gameObject.SetActive(false);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var item in _RotationThrusters[i][0])
+                {
+                        item.gameObject.SetActive(false);
+                }
+                foreach (var item in _RotationThrusters[i][1])
+                {
+                    item.gameObject.SetActive(false);
+                }
+            }
+
+
+
+            if (Mathf.Abs(Throttle[i]) > ThrusterCutoff)
+                {
+                if (Throttle[i] > 0)
+                {
+                    foreach (var item in _TranslationThrusters[i][0])
+                    {
+                        item.gameObject.SetActive(true);
+                    }
+                    foreach (var item in _TranslationThrusters[i][1])
+                    {
+                        item.gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    foreach (var item in _TranslationThrusters[i][1])
+                    {
+                        item.gameObject.SetActive(true);
+                    }
+                    foreach (var item in _TranslationThrusters[i][0])
+                    {
+                        item.gameObject.SetActive(false);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var item in _TranslationThrusters[i][0])
+                {
+                        item.gameObject.SetActive(false);
+                }
+                foreach (var item in _TranslationThrusters[i][1])
+                {
+                    item.gameObject.SetActive(false);
+                }
+            }
+        }
+
+
     }
 
 
@@ -285,6 +467,7 @@ public class MovementController : MonoBehaviour
     {
         _Rigidbody.AddRelativeForce(CalculateImpulse(), ForceMode.Impulse);
         ApplyTorque();
+        UpdateThrusters();
     }
 
 }
