@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class speedometer : MonoBehaviour
 {
     [SerializeField] Rigidbody rigidBody = null;
+    [SerializeField] private string noun = "Velocity";
     [SerializeField] private TextMeshProUGUI speedText = null;
     [SerializeField] private Image barFill = null;
 
@@ -17,15 +18,15 @@ public class speedometer : MonoBehaviour
         speed = rigidBody.velocity.magnitude;
         if (speed < 10)
         {
-            speedText.SetText($"Speed: {Math.Round(speed, 1)}m/s");
+            speedText.SetText($"{noun}: {Math.Round(speed, 1)}m/s");
         }
         else if(speed > 100)
         {
-            speedText.SetText($"Speed: FAST!!");
+            speedText.SetText($"{noun}: FAST!!");
         }
         else
         {
-            speedText.SetText($"Speed: {Math.Round(speed, 0)}m/s");
+            speedText.SetText($"{noun}: {Math.Round(speed, 0)}m/s");
         }
         barFill.fillAmount = speed / 30;
     }
