@@ -62,17 +62,12 @@ public class SalvageTool : Tool
         if(!FinishedSalvage && !OutOfRange)
         {
             progressBarFill.fillAmount = ((Time.unscaledTime - SalvageStartTime) / (salvageTime));
-            Debug.LogWarning(((Time.unscaledTime - SalvageStartTime )/ (salvageTime)));
+            //Debug.LogWarning(((Time.unscaledTime - SalvageStartTime )/ (salvageTime)));
         }
         else if(SwitchedTargets || FinishedSalvage || OutOfRange)
         {
             progressBarFill.fillAmount = 0f;
             ToggleBars(false);
-        }
-
-        if(FinishedSalvage)
-        {
-            var number = 0;
         }
 
         return !(OutOfRange || SwitchedTargets || FinishedSalvage);
@@ -186,7 +181,7 @@ public class SalvageTool : Tool
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
-        Debug.LogWarning("Active");
+        //Debug.LogWarning("Active");
         //EVAN: While loop when tool is active, play some laser noises
     }
 }

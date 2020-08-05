@@ -43,6 +43,9 @@ public class CraftingSatellite : MonoBehaviour
     Dictionary<TextMeshProUGUI, Resource> TextToResource = new Dictionary<TextMeshProUGUI, Resource>();
     Dictionary<TextMeshProUGUI, Item> TextToItem = new Dictionary<TextMeshProUGUI, Item>();
 
+    //associate button with its recipe
+    Dictionary<Button, SatelliteRecipe> ButtonToRecipe = new Dictionary<Button, SatelliteRecipe>();
+
     private SatelliteRecipe currentRecipe;
     private TextMeshProUGUI craftButtonText = null;
     private Color interactableTextCol;
@@ -62,6 +65,7 @@ public class CraftingSatellite : MonoBehaviour
     private void OnEnable()
     {
         UpdateOwnedAmounts();
+        UpdateCraftableRecipes();
     }
 
     void Start()
@@ -132,6 +136,13 @@ public class CraftingSatellite : MonoBehaviour
             AkSoundEngine.PostEvent("MainMenu_Button_Play", gameObject);
 
             var newButton = AddNewButton(recipe.DisplayName, contentGroups[contentGroup].GetComponent<VerticalLayoutGroup>());
+
+            //save association between button and its recipe so we can sort recipes by which ones you have the ingredients for
+            ButtonToRecipe.Add(newButton, recipe);
+            if (!CraftingModule.CanCraftSatellite(shipInventory, playerInventory, satInventory, recipe))
+            {
+                newButton.gameObject.GetComponent<Image>().color = newButton.colors.disabledColor;
+            }
 
             //set up what the recipe button does when you click it - used to fill in all the
             //recipe info on the crafting panel (# of ingredients, names, amount needed, etc)
@@ -270,6 +281,31 @@ public class CraftingSatellite : MonoBehaviour
                 trigger.triggers.Add(entry);
             });
         }
+        //after instantiating all buttons, sort them all by which can be crafted
+        UpdateCraftableRecipes();
+    }
+
+    //update recipe buttons to show which ones the player has the materials to craft
+    public void UpdateCraftableRecipes()
+    {
+        foreach (var kvp in ButtonToRecipe)
+        {
+            if (kvp.Key.gameObject.activeSelf)
+            {
+                if (!CraftingModule.CanCraftSatellite(shipInventory, playerInventory, satInventory, kvp.Value))
+                {
+                    //set to uncraftable color
+                    kvp.Key.gameObject.GetComponent<Image>().color = kvp.Key.colors.disabledColor;
+
+                    //re-add to the content group so it goes to the bottom of the list (making craftable ones stay on top)
+                    kvp.Key.transform.SetAsLastSibling();
+                }
+                else
+                {
+                    kvp.Key.gameObject.GetComponent<Image>().color = new Color(0.745283f, 0.5156953f, 0, 1);
+                }
+            }
+        }
     }
 
     public void UpdateOwnedAmounts()
@@ -329,6 +365,7 @@ public class CraftingSatellite : MonoBehaviour
         timerDial.gameObject.SetActive(false);
         timerDial.fillAmount = 0f;
         isCrafting = false;
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     private void DoCraft()
@@ -354,6 +391,10 @@ public class CraftingSatellite : MonoBehaviour
 
         storageDials.UpdateDials();
         UpdateOwnedAmounts();
+        UpdateCraftableRecipes();
+        mainCrafting.UpdateCraftableRecipes();
+
+        EventSystem.current.SetSelectedGameObject(null);
 
         queuedRecipe = null;
         popTextMSG = null;

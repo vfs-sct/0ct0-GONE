@@ -195,7 +195,7 @@ public class Player : MonoBehaviour
 
     public void OnActivateTool(InputAction.CallbackContext context)
     {
-        Debug.Log("Press");
+        //Debug.Log("Press");
         LinkedToolController.ActivateTool();
 
         //testing code for satellite placement
@@ -204,7 +204,7 @@ public class Player : MonoBehaviour
 
     public void OnDeactivateTool(InputAction.CallbackContext context)
     {
-        Debug.Log("Release");
+        //Debug.Log("Release");
         LinkedToolController.DeactivateTool();
     }
 

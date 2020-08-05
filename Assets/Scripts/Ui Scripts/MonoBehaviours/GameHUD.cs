@@ -217,7 +217,7 @@ public class GameHUD : MonoBehaviour
         {
             PausePrefab.SetActive(true);
             GameManager.Pause();
-            Debug.Log("Paused");
+            //Debug.Log("Paused");
         }
     }
 
@@ -226,7 +226,7 @@ public class GameHUD : MonoBehaviour
         if (!GameManager.isPaused)
         {
             GameManager.Pause();
-            Debug.Log("Paused");
+            //Debug.Log("Paused");
         }
         AkSoundEngine.PostEvent("Death", gameObject);
         GameoverPrefab.SetActive(true);
