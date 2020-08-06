@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
 
     public void SetTarget(GameObject newTarget)
     {
-        targetObject = newTarget;
+        _TargetedObject = newTarget;
     }
 
     public void DisableCam()
