@@ -15,6 +15,10 @@ public class EndRefuelTutorial : MonoBehaviour
     {
         playerInventory = UIRoot.GetPlayer().GetComponent<ResourceInventory>();
         startFuel = fuelFillBar.startAmount;
+        if (fuel.GetInstanceValue(playerInventory) > startFuel)
+        {
+            tutorialController.NextPrompt(3f);
+        }
     }
 
     private void Update()

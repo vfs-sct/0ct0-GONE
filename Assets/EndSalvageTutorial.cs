@@ -7,17 +7,18 @@ public class EndSalvageTutorial : MonoBehaviour
     //time before the next popup appears after this ones deactivated
     [SerializeField] float bufferTime = 3f;
 
-    private int startMass;
-
-    void OnEnable()
+    private void OnEnable()
     {
-        startMass = inventory.CalculateTotalMass();
+        if (inventory.CalculateTotalMass() > 0)
+        {
+            tutorialController.NextPrompt(0f);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(inventory.CalculateTotalMass() > startMass)
+        if(inventory.CalculateTotalMass() > 0)
         {
             tutorialController.NextPrompt(bufferTime);
         }
