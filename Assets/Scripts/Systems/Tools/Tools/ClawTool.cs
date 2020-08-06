@@ -30,7 +30,7 @@ public class ClawTool : Tool
 
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
-        TargetRB = target.GetComponent<Rigidbody>();
+        TargetRB = target.GetComponentInParent<Rigidbody>();
         
         if (TargetRB == null)
         {
