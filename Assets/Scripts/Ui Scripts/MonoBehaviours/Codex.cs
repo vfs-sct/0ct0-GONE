@@ -9,6 +9,7 @@ using System.Linq;
 
 public class Codex : MonoBehaviour
 {
+    [SerializeField] OutroScroll outroScrollPrefab = null;
     [SerializeField] GameObject PausePrefab = null;
     //contentGroup is a navigation bar I have on the side to contain all my buttons to entries
     [SerializeField] VerticalLayoutGroup contentGroup = null;
@@ -53,13 +54,6 @@ public class Codex : MonoBehaviour
     private bool[] isLocked = new bool[]
     {
         true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true
     };
 
     List<GameObject> entryButtons = new List<GameObject>();
@@ -121,8 +115,15 @@ public class Codex : MonoBehaviour
                 //make it unlocked
                 isLocked[i] = false;
 
-                //play audiolog associated with that entry
-                soundScript.OnClickPlayDialogue(audioLogFile[i]);
+                if (i != isLocked.Length - 1)
+                {
+                    //play audiolog associated with that entry
+                    soundScript.OnClickPlayDialogue(audioLogFile[i]);
+                }
+                else
+                {
+                    outroScrollPrefab.CodexCallback = PlayFinalLog;
+                }
 
                 //UpdateButtons();
                 //exit out of function
@@ -134,6 +135,11 @@ public class Codex : MonoBehaviour
         {
             Debug.LogWarning("UnlockNextEntry was called, but all codex entries are already unlocked.");
         }
+    }
+
+    public void PlayFinalLog()
+    {
+        soundScript.OnClickPlayDialogue(audioLogFile[isLocked.Length - 1]);
     }
 
     private void UpdateButtons()

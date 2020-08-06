@@ -18,11 +18,13 @@ public class OutroScroll : MonoBehaviour
     private float waitTime = 1f;
     private bool doneWaiting = true;
     private float fadeInLerpTime = 1f;
-    private float fadeOutLerpTime = 5f;
+    private float fadeOutLerpTime = 3f;
     private float scrollLerpTime = 4f;
     private bool fadingOut = false;
     private bool isScrolling = false;
     private Vector3 endPos;
+
+    public System.Action CodexCallback;
 
     private List<string> outroScroll = new List<string>
     {
@@ -37,16 +39,26 @@ public class OutroScroll : MonoBehaviour
 
         text.SetText(outroScroll[0]);
 
+        codex.UnlockNextEntry();
         //fadingIn = true;
         StartOutro();
-        codex.UnlockNextEntry();
+        StartCoroutine(FinalLog(2f));
+    }
+
+    System.Collections.IEnumerator FinalLog(float holdTime)
+    {
+        yield return new WaitForSeconds(holdTime);
+        CodexCallback();
     }
 
     public void StartOutro()
     {
         fadingIn = true;
-        playerMovement.enabled = false;
-        playerCam.DisableCam();
+        if (playerMovement != null)
+        {
+            playerMovement.enabled = false;
+            playerCam.DisableCam();
+        }
     }
 
     // Update is called once per frame
@@ -87,7 +99,7 @@ public class OutroScroll : MonoBehaviour
 
     public void Scroll()
     {
-        if (text.transform.localPosition.y < 0)
+        if (text.transform.localPosition.y < 0 - 2)
         {
             Vector3 tarPos = new Vector3(endPos.x, endPos.y + 20, endPos.z);
             text.transform.localPosition = Vector3.Lerp(text.transform.localPosition, tarPos, Time.deltaTime * 1f / scrollLerpTime);
@@ -96,7 +108,7 @@ public class OutroScroll : MonoBehaviour
         {
             isScrolling = false;
             text.transform.localPosition = endPos;
-            text.SetText(text.text + outroScroll[1]);
+            StartCoroutine(DramaticHold(2f));
             StartCoroutine(Wait(5f));
         }
     }
@@ -117,6 +129,12 @@ public class OutroScroll : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    System.Collections.IEnumerator DramaticHold(float holdTime)
+    {
+        yield return new WaitForSeconds(holdTime);
+        text.SetText(text.text + outroScroll[1]);
     }
 
     System.Collections.IEnumerator Wait(float waitTime)
