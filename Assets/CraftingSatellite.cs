@@ -64,6 +64,18 @@ public class CraftingSatellite : MonoBehaviour
 
     private void OnEnable()
     {
+        if(currentRecipe != null)
+        {
+            //show the player how many of the output item they already have
+            if (satInventory.GetSatellite() != null)
+            {
+                amountInInventory.SetText($"Satellite Inventory: <b><color=#FF1B00>FULL</color></b>\nCurrently Equipped: {satInventory.GetSatellite().DisplayName}");
+            }
+            else
+            {
+                amountInInventory.SetText($"Satellite Inventory: <b><color=#06FF00>Empty</color></b>");
+            }
+        }
         UpdateOwnedAmounts();
         UpdateCraftableRecipes();
     }

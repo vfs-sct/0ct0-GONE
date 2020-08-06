@@ -39,8 +39,12 @@ public class SatelliteInventory : MonoBehaviour
 
     public Satellite GetSatellite()
     {
-        //currently assumes satellite inventory remains 1
-        if(_StoredSatellites[0] != null)
+        //assumes you can only ever have 1 satellite in inventory
+        if (_StoredSatellites.Count == 0)
+        {
+            return null;
+        }
+        else if(_StoredSatellites[0] != null)
         {
             return _StoredSatellites[0];
         }
