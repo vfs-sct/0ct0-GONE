@@ -3,12 +3,13 @@
 public class EndCraftingPrompt : MonoBehaviour
 {
     [SerializeField] Tutorial tutorialController = null;
-    [SerializeField] GameObject craftMenu = null;
     //time before the next popup appears after this ones deactivated
     [SerializeField] float bufferTime = 3f;
+
+    public bool craftMenuOpened = false;
     private void Update()
     {
-        if(craftMenu.activeSelf)
+        if(craftMenuOpened)
         {
             tutorialController.NextPrompt(bufferTime);   
         }

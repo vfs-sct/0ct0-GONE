@@ -9,6 +9,9 @@ using UnityEngine.EventSystems;
 
 public class Crafting : MonoBehaviour
 {
+    //tutorial
+    [SerializeField] EndCraftingPrompt craftingTutorial = null;
+
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] CraftingModule CraftingModule = null;
     [SerializeField] UIAwake UIRoot = null; 
@@ -98,6 +101,8 @@ public class Crafting : MonoBehaviour
 
     private void Awake()
     {
+        craftingTutorial.craftMenuOpened = true;
+
         //hide title before a recipe has been clicked
         TitleText.gameObject.SetActive(false);
         RequiresText.SetActive(false);
@@ -118,6 +123,7 @@ public class Crafting : MonoBehaviour
 
     void Start()
     {
+
         isSoundPlayed = false;
         playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();        
 
