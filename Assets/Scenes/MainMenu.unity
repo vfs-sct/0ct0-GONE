@@ -1132,6 +1132,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -25
       objectReference: {fileID: 0}
+    - target: {fileID: 1722371753212319532, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: audioLogFile.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722371753212319532, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: stopAudioLogFile.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722371753212319532, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: audioLogFile.Array.data[0]
+      value: Voice_Log_08_Play
+      objectReference: {fileID: 0}
     - target: {fileID: 1725204644993191884, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1754,10 +1769,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7951111150231750656, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+        type: 3}
+      propertyPath: codex
+      value: 
+      objectReference: {fileID: 1001023748}
     - target: {fileID: 7951302562292028853, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8028212830223055923, guid: 3219ccd55e0001b4c8703f7dc571d41e,
         type: 3}
@@ -1926,6 +1946,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3219ccd55e0001b4c8703f7dc571d41e, type: 3}
+--- !u!114 &1001023748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1722371753212319532, guid: 3219ccd55e0001b4c8703f7dc571d41e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1001023747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86adc024427ad244ea6b384f67b68362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1087761420
 GameObject:
   m_ObjectHideFlags: 0

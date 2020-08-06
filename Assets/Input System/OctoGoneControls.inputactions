@@ -30,6 +30,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "NaniteHotkey",
+                    "type": "Button",
+                    "id": "bb8ee8f4-9c75-4032-a528-26d28a9ab5cd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "RepairScreenHotkey",
                     "type": "Button",
                     "id": "ef8498aa-3188-4acb-9d73-a110d8d2dd82",
@@ -456,6 +464,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "RepairScreenHotkey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca97dd01-0c19-492b-86f9-a001df78f6a1",
+                    "path": "<Keyboard>/T",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "NaniteHotkey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

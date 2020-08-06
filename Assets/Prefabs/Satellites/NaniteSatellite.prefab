@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 917455640186918715}
   m_Layer: 0
   m_Name: NaniteSatellite
-  m_TagString: Untagged
+  m_TagString: NaniteFactory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,8 @@ MonoBehaviour:
     min: 0
     max: 200
     value: 0
-  resourceAddedPopTxt: {fileID: 0}
+  resourceAddedPopTxt: {fileID: 8981721532894141398, guid: 6082956a558828445afc6a77b3e25ac6,
+    type: 3}
 --- !u!114 &-8105751195382572248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +150,7 @@ MonoBehaviour:
   NaniteOffloadAmount: 5
   OffloadEmptyMsg: No Nanites Left
   OffloadFullMsg: Nanites Full
+  popText: {fileID: 7001259176512481598, guid: 6082956a558828445afc6a77b3e25ac6, type: 3}
 --- !u!54 &1389718726411926219
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject CraftingTooltip = null;
     [SerializeField] private GameObject RefuellingTooltip = null;
     [SerializeField] private GameObject RepairableScreenTooltip = null;
+    [SerializeField] private GameObject OffloadNanitesTooltip = null;
 
     private GameOver GameOverScreen = null;
     private Win WinScreen = null;
@@ -261,6 +262,7 @@ public class Player : MonoBehaviour
             CraftingTooltip.SetActive(false);
             RefuellingTooltip.SetActive(false);
             RepairableScreenTooltip.SetActive(false);
+            OffloadNanitesTooltip.SetActive(false);
             return;
         }
 
@@ -277,16 +279,26 @@ public class Player : MonoBehaviour
             RefuellingTooltip.SetActive(true);
             RepairableScreenTooltip.SetActive(false);
         }
-        if (root.tag == "Refuel")
+        else if(root.tag == "Crafting")
+        {
+            CraftingTooltip.SetActive(true);
+            RefuellingTooltip.SetActive(false);
+            RepairableScreenTooltip.SetActive(false);
+        }
+        else if (root.tag == "Refuel")
         {
             RefuellingTooltip.SetActive(true);
             RepairableScreenTooltip.SetActive(false);
         }
-        if(root.tag == "Repairable")
+        else if(root.tag == "Repairable")
         {
             RepairableScreenTooltip.SetActive(true);
             CraftingTooltip.SetActive(false);
             RefuellingTooltip.SetActive(false);
+        }
+        else if(root.tag == "NaniteFactory")
+        {
+            OffloadNanitesTooltip.SetActive(true);
         }
     }
 

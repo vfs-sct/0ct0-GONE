@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NaniteSatellite : MonoBehaviour
 {
@@ -16,6 +14,8 @@ public class NaniteSatellite : MonoBehaviour
 
     [SerializeField] private string OffloadEmptyMsg = "No Nanites Left";
     [SerializeField] private string OffloadFullMsg = "Nanites Full";
+
+    [SerializeField] private ResourceGainedPopTxt popText = null;
 
     private float NextTimeShiftValue;
     private float NanitesPerTick;
@@ -52,12 +52,19 @@ public class NaniteSatellite : MonoBehaviour
         {
             if (LinkedInventory.GetResource(NaniteResource)>= NaniteOffloadAmount)
             {
+                //player-facing poptext
+                var poptext = Instantiate(popText);
+                poptext.popText.SetText($"{NaniteResource.DisplayName} added");
+
                 Target.AddResource(NaniteResource,NaniteOffloadAmount);
                 LinkedInventory.RemoveResource(NaniteResource,NaniteOffloadAmount);
                 Debug.Log("Offloading Nanites:");
                 Debug.Log(Target.GetResource(NaniteResource));
             }
             else{
+                //player-facing poptext
+                var poptext = Instantiate(popText);
+                poptext.popText.SetText($"No {NaniteResource.DisplayName} available");
                 Debug.Log("Not enough Nanites");
                 error = OffloadEmptyMsg;
                 return;
@@ -65,6 +72,10 @@ public class NaniteSatellite : MonoBehaviour
             
         }
         else{
+                //player-facing poptext
+                var poptext = Instantiate(popText);
+                poptext.popText.SetText($"{NaniteResource.DisplayName} full");
+
                 error = OffloadFullMsg;
                 Debug.Log("Player Inv Full");
                 return;

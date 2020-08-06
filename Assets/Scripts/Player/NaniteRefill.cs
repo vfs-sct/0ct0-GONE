@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class NaniteRefill : MonoBehaviour
@@ -22,7 +20,7 @@ public class NaniteRefill : MonoBehaviour
         
         
         TargetSat = Player.mouseCollisionRoot.GetComponent<NaniteSatellite>();
-        
+
         Debug.Log(TargetSat);
         if (context.performed)
         {
