@@ -7,14 +7,17 @@ public class CraftRange : MonoBehaviour
     [SerializeField] UIModule UIModule = null;
     [SerializeField] Player Player = null;
     [SerializeField] private float AntiSpamDelay = 0.2f;
-    Crafting CraftingPrefab = null;
+    [SerializeField] Crafting CraftingPrefab = null;
 
     private bool canCraft = false;
     private float LastPressedTime;
 
     void Start()
     {
-        CraftingPrefab = UIModule.UIRoot.GetScreen<Crafting>();
+        if (CraftingPrefab == null)
+        {
+            CraftingPrefab = UIModule.UIRoot.GetScreen<Crafting>();
+        }
         canCraft = false;
     }
 
