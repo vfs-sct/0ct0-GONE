@@ -736,7 +736,7 @@ MonoBehaviour:
   tutorialController: {fileID: 6866696762855018061}
   clawTool: {fileID: 11400000, guid: cb6028535fa32d747b7bfcd2be2a8707, type: 2}
   bufferTime: 3
---- !u!114 &4318390982871434358
+--- !u!114 &1798445887800631677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -745,11 +745,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1964763371717298002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66b7a6fdb84be7b4b8b5ac1379307975, type: 3}
+  m_Script: {fileID: 11500000, guid: 3048bde515269814e90dd099d7c35b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialController: {fileID: 6866696762855018061}
-  bufferTime: 1
+  bufferTime: 3
 --- !u!114 &6091497079640685669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3700,6 +3700,20 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1165577060313962325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173498289198442980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b7a6fdb84be7b4b8b5ac1379307975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialController: {fileID: 6866696762855018061}
+  bufferTime: 3
 --- !u!114 &3186968942421025150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3731,20 +3745,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &7436290509244120513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7173498289198442980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3048bde515269814e90dd099d7c35b32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorialController: {fileID: 6866696762855018061}
-  bufferTime: 1
 --- !u!1 &7269995082269101558
 GameObject:
   m_ObjectHideFlags: 0
