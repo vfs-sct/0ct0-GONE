@@ -70,16 +70,15 @@ public class Player : MonoBehaviour
 
     private GameObject _TargetedObject;
     public GameObject TargetedObject {get=> _TargetedObject;}
-    private GameObject LastHighlightObject = null;
-    private Material lastHighlightMat = null;
-    private Material HighlightMaterial = null;
+    //private GameObject LastHighlightObject = null;
+    //private Material lastHighlightMat = null;
+    //private Material HighlightMaterial = null;
 
 
-    private Stack<HMatData> HighlightedObjects = new Stack<HMatData>();
 
     private bool disableCam = false;
 
-    private struct HMatData
+   /* private struct HMatData
     {
         public MeshRenderer Owner;
 
@@ -92,7 +91,7 @@ public class Player : MonoBehaviour
             OldMat = mat;
             color = c;
         }
-    }
+    }*/
 
     public void SetTarget(GameObject newTarget)
     {
@@ -247,7 +246,7 @@ public class Player : MonoBehaviour
     {
         PlayingState.RegisterPlayer(this);
         invertedCam = PlayerPrefs.GetInt("InvertedCam");
-        HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
+        //HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
         //Debug.Log("Inversion value: " + PlayerPrefs.GetInt("InvertedCam"));
         GameOverScreen = UIRootModule.UIRoot.GetScreen<GameOver>();
         WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
@@ -294,7 +293,7 @@ public class Player : MonoBehaviour
 
 
 
-
+    /*
     private void TryHighlight()
     {
         HMatData data;
@@ -326,6 +325,8 @@ public class Player : MonoBehaviour
             LastHighlightObject = mouseCollision.gameObject;
         }
     }
+
+    */
     public bool StationInRange(out Collider target)
     {
         bool canInteract = false;
@@ -438,7 +439,7 @@ public class Player : MonoBehaviour
         mouseCollision = GetMouseCollision();
         //if the thing hit by the raycast is a child, mouseCollisionRoot will get the top level parent gameobject
         mouseCollisionRoot = GetMouseCollisionRoot(mouseCollision);
-        TryHighlight();
+        //TryHighlight();
         ShowTooltips();
         if (disableCam == false)
         {

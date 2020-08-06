@@ -50,17 +50,12 @@ public class InstancedRenderingModule : Module
     public struct IRenderData
     {
         public List<GameObject> gameObjects;
-        public ComputeBuffer TransformBuffer;
+        public Material HighlightMaterial;
 
-        public IRenderData(List<GameObject> GOS, ComputeBuffer transformBuffer)
+        public IRenderData(List<GameObject> GOS, Material hightlightMaterial)
         {
             gameObjects = GOS;
-            TransformBuffer = transformBuffer;
-        }
-        public IRenderData(List<GameObject> GOS)
-        {
-            gameObjects = GOS;
-            TransformBuffer = null;
+            HighlightMaterial = hightlightMaterial;
         }
     }
     
@@ -83,7 +78,10 @@ public class InstancedRenderingModule : Module
     private Dictionary<IMeshData,List<Matrix4x4>> ObjectData = new Dictionary<IMeshData, List<Matrix4x4>>();
 
 
+    public bool IsHighlighted = false; 
     private int LastFramecount = 0;//draw once per frame
+
+    private Material DrawMaterial = null;// I think this is more efficent, doesn't allocate memory inside a loop
 
     public static IMeshData GenerateIMeshData(GameObject Owner,Mesh mesh,MeshRenderer meshRenderer)
     {
@@ -135,11 +133,18 @@ public class InstancedRenderingModule : Module
             //    Debug.Log("Drawing: "+ GO);
             //}
 
-
+            if (IsHighlighted)
+            {
+                DrawMaterial = Data.Value.HighlightMaterial;
+            }
+            else
+            {
+                DrawMaterial = Data.Key.material;
+            }
             Graphics.DrawMeshInstanced(
                 Data.Key.mesh,
                 Data.Key.subMeshIndex,
-                Data.Key.material,
+                DrawMaterial,
                 ObjectData[Data.Key],
                 new MaterialPropertyBlock(),
                 ShadowCastingMode.Off,
@@ -170,7 +175,7 @@ public class InstancedRenderingModule : Module
                 RenderData[item.Key].gameObjects.Add(Owner);
 
                 ObjectData[item.Key].Add(posMatrix);
-                RenderData[item.Key] = new IRenderData(item.Value.gameObjects);
+                RenderData[item.Key] = new IRenderData(item.Value.gameObjects,item.Value.HighlightMaterial);
                 foundData = true;
             }
         }
@@ -181,7 +186,13 @@ public class InstancedRenderingModule : Module
                 ObjectData.Add(MeshData,new List<Matrix4x4>());
                 ObjectData[MeshData].Add(Matrix4x4.TRS(Owner.transform.position,Owner.transform.rotation,Owner.transform.lossyScale));
                 temp.Add(Owner);
-                RenderData.Add(MeshData,new IRenderData(temp));
+
+
+                Resource tempResource = Owner.GetComponentInParent<Salvagable>().SalvageItem.ResourceType;
+                Material TempMat = new Material(tempResource.ResourceHighlight);
+                TempMat.enableInstancing = true;
+                TempMat.color = tempResource.ResourceColor;
+                RenderData.Add(MeshData,new IRenderData(temp,TempMat));
             }
         
     }
@@ -194,6 +205,7 @@ public class InstancedRenderingModule : Module
 
     public override void Reset()
     {
+        IsHighlighted = false;
         RenderData.Clear();
         ObjectData.Clear();
     }
