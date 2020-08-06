@@ -144,6 +144,18 @@ public class Crafting : MonoBehaviour
     private void OnEnable()
     {
         Cursor.visible = true;
+
+        if(currentRecipe != null)
+        {
+            var amountOwned = playerInventory.GetItemAmount(currentRecipe.Output.item);
+            if (amountOwned < 0)
+            {
+                amountOwned = 0;
+            }
+            //show the player how many of the output item they already have
+            amountInInventory.SetText($"{currentRecipe.Output.item.Name} in inventory: {amountOwned}");
+        }
+
         UpdateOwnedAmounts();
         UpdateCraftableRecipes();
         craftTimer = 0f;
