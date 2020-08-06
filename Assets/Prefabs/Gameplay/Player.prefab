@@ -317,6 +317,8 @@ MonoBehaviour:
   RefuellingTooltip: {fileID: 0}
   RepairableScreenTooltip: {fileID: 0}
   Scanner: {fileID: 4417704602333966887}
+  LinkedMovementController: {fileID: 0}
+  LinkedToolController: {fileID: 0}
   invertedCam: 1
   lookSensitivity: 0.4
   mouseCollision: {fileID: 0}
@@ -344,11 +346,28 @@ MonoBehaviour:
   FuelEfficency: 100
   ScrollMult: 0.05
   ThrottleUI: {fileID: 0}
+  OctoAnimator: {fileID: 0}
+  AnimatorLerpSpeed: 20
   Throttle: {x: 0, y: 0, z: 0}
   _CameraScript: {fileID: 4399867385289436927}
   _Rigidbody: {fileID: 489913433233796652}
   LinkedResourceBehavior: {fileID: 4701804487490555839}
   FuelResource: {fileID: 11400000, guid: b6161ff0f0ac1b34a9e64a74aaffeb30, type: 2}
+  _TranslationThrusters:
+    XThrustersPos: []
+    XThrustersNeg: []
+    YThrustersPos: []
+    YThrustersNeg: []
+    ZThrustersPos: []
+    ZThrustersNeg: []
+  _RotationThrusters:
+    XThrustersPos: []
+    XThrustersNeg: []
+    YThrustersPos: []
+    YThrustersNeg: []
+    ZThrustersPos: []
+    ZThrustersNeg: []
+  ThrusterCutoff: 0.05
 --- !u!114 &-2061200388978773683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,8 +383,8 @@ MonoBehaviour:
   GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
   UIModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
   EquiptTools:
-  - {fileID: 11400000, guid: cb6028535fa32d747b7bfcd2be2a8707, type: 2}
   - {fileID: 11400000, guid: 41cedef85c35ccb428399bdbd6368a25, type: 2}
+  - {fileID: 11400000, guid: cb6028535fa32d747b7bfcd2be2a8707, type: 2}
   - {fileID: 11400000, guid: ca59628b57f88144ca9eb049e6609693, type: 2}
   - {fileID: 11400000, guid: 991bec23faab22f45a11174402d5a5f7, type: 2}
   _PlayerInventory: {fileID: 7434593028492650845}

@@ -845,7 +845,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click debris with the claw tool to grab it
+  m_text: Click debris with the grab tool to catch it
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f1cdd07e639eafe4abe058e90a838344, type: 2}
   m_sharedMaterial: {fileID: 6124843639809782622, guid: f1cdd07e639eafe4abe058e90a838344,
@@ -5155,6 +5155,11 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 6410464418906113498, guid: 3d6d40fda15240e4bb4f8adb27106190,
+        type: 3}
+      propertyPath: m_text
+      value: Use [ 2 ] to equip your Grab tool
+      objectReference: {fileID: 0}
     - target: {fileID: 6410464419035561010, guid: 3d6d40fda15240e4bb4f8adb27106190,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5560,7 +5565,7 @@ PrefabInstance:
     - target: {fileID: 6410464418906113498, guid: 3d6d40fda15240e4bb4f8adb27106190,
         type: 3}
       propertyPath: m_text
-      value: Use [ 2 ] to equip your Salvage tool
+      value: Use [ 1 ] to equip your Salvage tool
       objectReference: {fileID: 0}
     - target: {fileID: 6410464419035561010, guid: 3d6d40fda15240e4bb4f8adb27106190,
         type: 3}
