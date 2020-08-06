@@ -6,6 +6,7 @@ public class UIAwake : MonoBehaviour
 {
     [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] GameObject DebugPrefab = null;
+    [SerializeField] Texture2D customCursor = null;
     [SerializeField] public float gammaDefault = 2.2f;
     //invertedCamDefault must be either 1 or -1
     //If it is set to 1, the camera will be inverted by default
@@ -13,6 +14,9 @@ public class UIAwake : MonoBehaviour
     [SerializeField] public float lookSensitivityDefault = 0.5f;
     [SerializeField] public GameObject fadeIn = null;
     [SerializeField] public Codex codex = null;
+
+    private CursorMode cursorMode = CursorMode.Auto;
+    private Vector2 hotSpot = Vector2.zero;
 
     private Player player = null;
 
@@ -67,6 +71,8 @@ public class UIAwake : MonoBehaviour
 
         //stop cursor from going off the screen
         Cursor.lockState = CursorLockMode.Confined;
+        //set custom cursor
+        Cursor.SetCursor(customCursor, hotSpot, cursorMode);
 
         foreach (var canvas in GameObject.FindObjectsOfType<Canvas>())
         {
