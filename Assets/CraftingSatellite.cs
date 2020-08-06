@@ -184,9 +184,9 @@ public class CraftingSatellite : MonoBehaviour
 
                 //show the player how many of the output item they already have
                 var ownedSat = satInventory.GetSatellite();
-                if (ownedSat != null && ownedSat == recipe.Output)
+                if (ownedSat != null)
                 {
-                    amountInInventory.SetText($"Satellite Inventory: <b><color=#FF1B00>FULL</color></b> (1 {queuedRecipe.DisplayName})");
+                    amountInInventory.SetText($"Satellite Inventory: <b><color=#FF1B00>FULL</color></b>\nCurrently Equipped: {ownedSat.DisplayName}");
                 }
                 else
                 {
@@ -378,9 +378,9 @@ public class CraftingSatellite : MonoBehaviour
 
         //show the player how many of the output item they already have
         var ownedSat = satInventory.GetSatellite();
-        if (ownedSat != null && ownedSat == queuedRecipe.Output)
+        if (ownedSat != null)
         {
-            amountInInventory.SetText($"Satellite Inventory: <b><color=#FF1B00>FULL</color></b> (1 {queuedRecipe.DisplayName})");
+            amountInInventory.SetText($"Satellite Inventory: <b><color=#FF1B00>FULL</color></b>\nCurrently Equipped: {queuedRecipe.DisplayName}");
         }
         else
         {
