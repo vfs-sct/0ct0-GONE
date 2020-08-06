@@ -91,18 +91,16 @@ public class CraftingSatellite : MonoBehaviour
         {
             UpdateTimer();
         }
-        if (contentGroups[0].activeSelf)
-        {
-            if (currentRecipe != null && CraftingModule.CanCraftSatellite(shipInventory, playerInventory, satInventory, currentRecipe))
-            {
-                mainCrafting.canSatCraft = true;
-            }
-            else
-            {
-                mainCrafting.canSatCraft = false;
-            }
 
-            mainCrafting.UpdateCraftButton();
+        if(currentRecipe == null)
+        {
+            mainCrafting.canSatCraft = false;
+            return;
+        }
+
+        if (CraftingModule.CanCraftSatellite(shipInventory, playerInventory, satInventory, currentRecipe))
+        {
+            mainCrafting.canSatCraft = true;
         }
         else
         {
@@ -188,11 +186,11 @@ public class CraftingSatellite : MonoBehaviour
                 var ownedSat = satInventory.GetSatellite();
                 if (ownedSat != null && ownedSat == recipe.Output)
                 {
-                    amountInInventory.SetText($"{recipe.DisplayName} in inventory: 1");
+                    amountInInventory.SetText($"Satellite Inventory: <b><color=#FF1B00>FULL</color></b> (1 {queuedRecipe.DisplayName})");
                 }
                 else
                 {
-                    amountInInventory.SetText($"{recipe.DisplayName} in inventory: 0");
+                    amountInInventory.SetText($"Satellite Inventory: <b><color=#06FF00>Empty</color></b>");
                 }
 
                 foreach (var input in recipe.ResourceInput)
@@ -382,11 +380,11 @@ public class CraftingSatellite : MonoBehaviour
         var ownedSat = satInventory.GetSatellite();
         if (ownedSat != null && ownedSat == queuedRecipe.Output)
         {
-            amountInInventory.SetText($"{queuedRecipe.DisplayName} in inventory: 1");
+            amountInInventory.SetText($"Satellite Inventory: <b><color=#FF1B00>FULL</color></b> (1 {queuedRecipe.DisplayName})");
         }
         else
         {
-            amountInInventory.SetText($"{queuedRecipe.DisplayName} in inventory: 0");
+            amountInInventory.SetText($"Satellite Inventory: <b><color=#06FF00>Empty</color></b>");
         }
 
         storageDials.UpdateDials();

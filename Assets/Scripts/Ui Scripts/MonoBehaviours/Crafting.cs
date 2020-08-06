@@ -162,22 +162,16 @@ public class Crafting : MonoBehaviour
         {
             UpdateTimer();
         }
-        if (contentGroups[0].activeSelf || contentGroups[1].activeSelf)
+
+        if (currentRecipe != null && CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
         {
-            if (currentRecipe != null && CraftingModule.CanCraft(shipInventory, playerInventory, playerInventory, currentRecipe))
-            {
-                canCraft = true;
-            }
-            else
-            {
-                canCraft = false;
-            }
-            UpdateCraftButton();
+            canCraft = true;
         }
         else
         {
             canCraft = false;
         }
+        UpdateCraftButton();
     }
 
     //crafting screen can either be closed with ESC or the hotkey to open it (or clicking the close button on the panel)
