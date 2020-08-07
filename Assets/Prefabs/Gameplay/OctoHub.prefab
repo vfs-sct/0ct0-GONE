@@ -663,7 +663,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a465a5ba04c1524a8a871615edf4c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  shipHealthBar: {fileID: 0}
   StartingHealth: 100
+  _Health: 0
   _MaxHealth: 100
   MinimumSpeed: 5
   DamageMultiplier: 1
