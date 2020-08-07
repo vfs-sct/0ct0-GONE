@@ -29967,8 +29967,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _StoredSatellites.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: b757358b94765404b86721cd5bf212b6,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8777384577728220895, guid: 7de9c50c04b650e4fa5a1b2c16083f87,
         type: 3}
       propertyPath: lowFuelOverlay
@@ -48897,12 +48896,12 @@ PrefabInstance:
     - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
         type: 3}
       propertyPath: _MaxHealth
-      value: 20000000
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
         type: 3}
       propertyPath: StartingHealth
-      value: 20000000
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
         type: 3}
@@ -48934,6 +48933,16 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
+        type: 3}
+      propertyPath: _Health
+      value: 50000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161221914076970931, guid: 20690aa1823b1b24386de633e8aa3fd9,
+        type: 3}
+      propertyPath: MinimumSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2215880452067278697, guid: 20690aa1823b1b24386de633e8aa3fd9,
         type: 3}
@@ -91337,16 +91346,17 @@ MonoBehaviour:
   - Player
   willTriggerEnter: 1
   willTriggerExit: 1
-  akEventsEnter:
+  akEventsPlay:
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 2484a92bab055c74a881e55df0a66675,
       type: 2}
-  akEventsExit:
+  akEventsStop:
   - idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 76e479eed913cc34ea0f47384f3f4e76,
       type: 2}
+  stopOnDestroy: 1
 --- !u!114 &1925041300
 MonoBehaviour:
   m_ObjectHideFlags: 0
