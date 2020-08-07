@@ -39,14 +39,14 @@ public class NaniteSatellite : MonoBehaviour
         }
     }
 
-    public void TryOffload(ResourceInventory Target)
+   /* public void TryOffload(ResourceInventory Target)
     {
         string temp;
         TryOffload(Target,out temp);
-    }
+    }*/
 
 
-    public void TryOffload(ResourceInventory Target, out string error)
+    public void TryOffload(ResourceInventory Target)
     {
         if (Target.CanAdd(NaniteResource,NaniteOffloadAmount))
         {
@@ -66,7 +66,7 @@ public class NaniteSatellite : MonoBehaviour
                 var poptext = Instantiate(popText);
                 poptext.popText.SetText($"No {NaniteResource.DisplayName} available");
                 Debug.Log("Not enough Nanites");
-                error = OffloadEmptyMsg;
+                //error = OffloadEmptyMsg;
                 return;
             }
             
@@ -76,11 +76,11 @@ public class NaniteSatellite : MonoBehaviour
                 var poptext = Instantiate(popText);
                 poptext.popText.SetText($"{NaniteResource.DisplayName} full");
 
-                error = OffloadFullMsg;
+                //error = OffloadFullMsg;
                 Debug.Log("Player Inv Full");
                 return;
         }
-        error = null;
+        //error = null;
     }
 
 }
