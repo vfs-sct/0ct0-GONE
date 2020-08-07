@@ -11,23 +11,6 @@ public class AkEventManager : AkManager
     [Header("Trigger Behaviours")]
     [SerializeField] private bool stopOnDestroy;
 
-    [Header("Trigger Properties")]
-    [SerializeField] private bool addAudioTriggerVolume;
-    // [SerializeField][Range(0.5f, 10f)]
-    [SerializeField,Range(0.5f, 10f)] private float volumeTriggerRadius;
-
-    private void Awake()
-    {
-        if (addAudioTriggerVolume == true)
-        {
-            SphereCollider sphereCollider = gameObject.AddComponent<SphereCollider>();
-            // trigger first
-            sphereCollider.isTrigger = true;
-            // resize
-            sphereCollider.radius = volumeTriggerRadius;
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(willTriggerEnter)
