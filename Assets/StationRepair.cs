@@ -177,10 +177,14 @@ public class StationRepair : MonoBehaviour
             int amountOwned = playerInventory.GetItemAmount(component.item);
             if (amountOwned < 0) amountOwned = 0;
 
+            //set the text for the item needed by the repair recipe
             var outputText = newUIBox.GetComponentsInChildren<TextMeshProUGUI>();
             outputText[0].SetText(component.item.Name);
             outputText[1].SetText(amountOwned.ToString());
             outputText[2].SetText($"/ {component.amount}");
+
+            //set the icon for the item
+            newUIBox.GetComponentInChildren<Image>().sprite = component.item.Icon;
 
             componentCount++;
         }
