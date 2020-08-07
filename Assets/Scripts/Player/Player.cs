@@ -237,7 +237,7 @@ public class Player : MonoBehaviour
 
     public void Win()
     {
-        GameManager.Pause();
+        //GameManager.Pause();
         if(WinScreen == null) WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
         WinScreen.gameObject.SetActive(true);
         //UIRootModule.UIRoot.GetScreen<Codex>().ResetCodexLocks();

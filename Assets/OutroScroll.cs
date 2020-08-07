@@ -9,6 +9,9 @@ public class OutroScroll : MonoBehaviour
     [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] private MainMenuState mainMenuState = null;
 
+    [SerializeField] GameObject CommSatAudioReference = null;
+    [SerializeField] GameObject AmbienceAudioReference = null;
+
     //screen the outro sends you to after it's complete, in this case the main menu
     [SerializeField] string nextScene = null;
 
@@ -46,7 +49,9 @@ public class OutroScroll : MonoBehaviour
 
         text.SetText(outroScroll[0]);
 
-        codex.UnlockNextEntry();
+        //Debug.LogError("ON");
+
+        //codex.UnlockNextEntry();
         //fadingIn = true;
         StartOutro();
         StartCoroutine(FinalLog(4.4f));
@@ -135,6 +140,26 @@ public class OutroScroll : MonoBehaviour
         else
         {
             mainMenuState.SetGameCompleted(true);
+
+            // ========================
+            //          AUDIO
+            // ========================
+            if (CommSatAudioReference == null || AmbienceAudioReference == null)
+            {
+                Debug.LogError("One or both sound references has not been hooked up on the GameOver prefab");
+            }
+            else
+            {
+                AkSoundEngine.PostEvent("Env_01_Stop", AmbienceAudioReference);
+                AkSoundEngine.PostEvent("Communications_Array_Stop", CommSatAudioReference);
+            }
+
+            if (GameManager.isPaused)
+            {
+                GameManager.UnPause();
+            }
+
+
             GameManager.LoadScene($"{nextScene}");
         }
     }
