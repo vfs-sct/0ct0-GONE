@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3226872598868006801}
   - component: {fileID: 7715473201278698529}
+  - component: {fileID: 3165883500123518167}
   m_Layer: 10
   m_Name: === Audio ===
   m_TagString: Untagged
@@ -58,6 +59,19 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: 3c9b7e98623b4b246bc5662ca69a551f,
       type: 2}
   stopOnDestroy: 1
+--- !u!135 &3165883500123518167
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3345444796669280782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4438299010667608891
 GameObject:
   m_ObjectHideFlags: 0
