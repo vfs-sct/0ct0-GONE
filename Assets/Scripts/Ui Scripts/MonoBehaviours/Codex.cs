@@ -54,13 +54,6 @@ public class Codex : MonoBehaviour
     private bool[] isLocked = new bool[]
     {
         true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
     };
 
     List<GameObject> entryButtons = new List<GameObject>();

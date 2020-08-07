@@ -83,6 +83,11 @@ public class MainMenu : MonoBehaviour
 
     private void OnEnable()
     {
+        if((MainMenuState as MainMenuState).IsGameCompleted())
+        {
+            CreditsPrefab.SetActive(true);
+            (MainMenuState as MainMenuState).SetGameCompleted(false);
+        }
         Debug.Log("HEY - MENU STATE:" + MainMenuState);
         GameManager.ChangeGameState(MainMenuState);
         Cursor.visible = true;

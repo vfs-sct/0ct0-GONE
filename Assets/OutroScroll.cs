@@ -1,10 +1,17 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class OutroScroll : MonoBehaviour
 {
+    [SerializeField] private GameFrameworkManager GameManager = null;
+    [SerializeField] private MainMenuState mainMenuState = null;
+
+    //screen the outro sends you to after it's complete, in this case the main menu
+    [SerializeField] string nextScene = null;
+
     [SerializeField] private Codex codex;
     [SerializeField] TextMeshProUGUI text = null;
     [SerializeField] Image bgImg = null;
@@ -19,7 +26,7 @@ public class OutroScroll : MonoBehaviour
     private bool doneWaiting = true;
     private float fadeInLerpTime = 1f;
     private float fadeOutLerpTime = 3f;
-    private float scrollLerpTime = 4f;
+    private float scrollLerpTime = 3.2f;
     private bool fadingOut = false;
     private bool isScrolling = false;
     private Vector3 endPos;
@@ -42,7 +49,7 @@ public class OutroScroll : MonoBehaviour
         codex.UnlockNextEntry();
         //fadingIn = true;
         StartOutro();
-        StartCoroutine(FinalLog(2f));
+        StartCoroutine(FinalLog(4.4f));
     }
 
     System.Collections.IEnumerator FinalLog(float holdTime)
@@ -108,7 +115,7 @@ public class OutroScroll : MonoBehaviour
         {
             isScrolling = false;
             text.transform.localPosition = endPos;
-            StartCoroutine(DramaticHold(2f));
+            StartCoroutine(DramaticHold(5.2f));
             StartCoroutine(Wait(5f));
         }
     }
@@ -127,13 +134,15 @@ public class OutroScroll : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            mainMenuState.SetGameCompleted(true);
+            GameManager.LoadScene($"{nextScene}");
         }
     }
 
     System.Collections.IEnumerator DramaticHold(float holdTime)
     {
         yield return new WaitForSeconds(holdTime);
+        AkSoundEngine.PostEvent("Octo_Systems_Text", gameObject);
         text.SetText(text.text + outroScroll[1]);
     }
 
