@@ -58,8 +58,6 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: 3c9b7e98623b4b246bc5662ca69a551f,
       type: 2}
   stopOnDestroy: 1
-  addAudioTriggerVolume: 0
-  volumeTriggerRadius: 10
 --- !u!1 &4438299010667608891
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +231,6 @@ GameObject:
   - component: {fileID: 7088550168121603194}
   - component: {fileID: -9087902691513295950}
   - component: {fileID: 280677119570215767}
-  - component: {fileID: 5198691831288327083}
   - component: {fileID: 4074825698776864789}
   m_Layer: 10
   m_Name: Salvage_BrokenAntenna
@@ -367,19 +364,6 @@ MonoBehaviour:
   groupIdInternal: 0
   valueGuidInternal: 
   groupGuidInternal: 
---- !u!114 &5198691831288327083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5127632080429327098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2134d02b6dceff14cafecdba3a26b576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 0}
 --- !u!114 &4074825698776864789
 MonoBehaviour:
   m_ObjectHideFlags: 0
