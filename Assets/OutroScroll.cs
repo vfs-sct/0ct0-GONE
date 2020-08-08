@@ -168,7 +168,7 @@ public class OutroScroll : MonoBehaviour
     {
         yield return new WaitForSeconds(holdTime);
         AkSoundEngine.PostEvent("Octo_Systems_Text", gameObject);
-        text.SetText(text.text + outroScroll[1]);
+        text.SetText(outroScroll[0] + outroScroll[1]);
     }
 
     System.Collections.IEnumerator Wait(float waitTime)
