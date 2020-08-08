@@ -67,7 +67,7 @@ public class ObjectivePopUp : MonoBehaviour
         }
         else
         {
-            if (currentEvent > objectiveShort.Length)
+            if (currentEvent <= objectiveShort.Length)
             {
                 if (isPreText)
                 {
