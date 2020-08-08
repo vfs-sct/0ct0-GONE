@@ -31,6 +31,9 @@ public class PoolingModule : Module
 
     public override void Reset()
     {
-        
+        foreach (var pool in ObjectPools)
+        {
+            pool.Reset();
+        }
     }
 }

@@ -23,10 +23,7 @@ public class ObjectPool : ScriptableObject
     private int curCount;
     protected void OnEnable()
     {
-        ActivePool.Clear();
-        InActivePool.Clear();
-        AllObjects.Clear();
-
+        Reset();
     }
     private void InstantiateObject()
     {
@@ -69,6 +66,14 @@ public class ObjectPool : ScriptableObject
         temp.SetActive(true);
         
         return temp;
+    }
+
+    public void Reset()
+    {
+        ActivePool.Clear();
+        InActivePool.Clear();
+        AllObjects.Clear();
+
     }
 
 }

@@ -180,11 +180,13 @@ public class Playing : GameState
         }
         RelayController.Reset();
         IRenderModule.Reset();
+        PoolManager.Reset();
     }
 
     public override void Reset()
     {
         _ActivePlayer = null;
+        IRenderModule.Reset();
         if (PlayerPrefs.GetInt("TutorialEnabled") == 1)
         {
             IsTutorial = true;
