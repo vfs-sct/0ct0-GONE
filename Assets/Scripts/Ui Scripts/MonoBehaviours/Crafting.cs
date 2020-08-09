@@ -312,6 +312,11 @@ public class Crafting : MonoBehaviour
                     //adding owned amount to dictionary for updating
                     TextToResource.Add(inputText[1], input.resource);
                     inputText[2].SetText($"/ {input.amount}");
+
+                    var tooltip = ingredient.GetComponent<GetTooltip>().GetTooltipScript();
+                    tooltip.GetTitle().color = input.resource.ResourceColor;
+                    tooltip.SetTitle(input.resource.DisplayName);
+                    tooltip.SetDesc(input.resource.Desc);
                 }
 
                 foreach (var input in recipe.ItemInput)
@@ -333,6 +338,12 @@ public class Crafting : MonoBehaviour
                     //adding owned amount to dictionary for updating
                     TextToItem.Add(inputText[1], input.item);
                     inputText[2].SetText($"/ {input.amount}");
+
+                    var tooltip = ingredient.GetComponent<GetTooltip>().GetTooltipScript();
+                    tooltip.SetTitle(input.item.Name);
+                    tooltip.SetDesc(input.item.ItemDesc);
+
+                    tooltip.AddSubIngredients(input.item.CraftingRecipe, shipInventory, playerInventory);
                 }
 
                 //show how much of each mat they have
