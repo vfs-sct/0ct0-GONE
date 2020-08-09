@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class StationRepair : MonoBehaviour
 {
     [SerializeField] Player player = null;
+    [SerializeField] ResourceInventory shipInventory = null;
     [SerializeField] InventoryController playerInventory = null;
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject HUDPrefab = null;
@@ -185,6 +186,13 @@ public class StationRepair : MonoBehaviour
 
             //set the icon for the item
             newUIBox.GetComponentInChildren<Image>().sprite = component.item.Icon;
+
+            //add tooltip for component
+            var tooltip = newUIBox.GetComponent<GetTooltip>().GetTooltipScript();
+            tooltip.SetTitle(component.item.Name);
+            tooltip.SetDesc(component.item.ItemDesc);
+
+            tooltip.AddSubIngredients(component.item.CraftingRecipe, shipInventory, playerInventory);
 
             componentCount++;
         }
