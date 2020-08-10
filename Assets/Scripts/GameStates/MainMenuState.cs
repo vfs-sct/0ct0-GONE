@@ -10,7 +10,20 @@ public class MainMenuState : GameState
     //[SerializeField] private ScriptedUI MainMenuUI = null;
     //[SerializeField] private ScriptedUI OptionsUI = null;
     //[SerializeField] private ScriptedUI CreditsUI = null;
-    
+
+
+    private bool _completedGame = false;
+
+    public bool IsGameCompleted()
+    {
+        return _completedGame;
+    }
+
+    public void SetGameCompleted(bool isComplete)
+    {
+        _completedGame = isComplete;
+    }
+
 
     public override bool ConditionCheck(GameFrameworkManager GameManager,GameState CurrentState)
     {
@@ -38,5 +51,6 @@ public class MainMenuState : GameState
 
     public override void Reset()
     {
+        _completedGame = false;
     }
 }

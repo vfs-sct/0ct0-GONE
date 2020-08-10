@@ -16,6 +16,13 @@ public class GameHUD : MonoBehaviour
     [SerializeField] public GameObject GasCloudAlertPrefab = null;
     [SerializeField] TextMeshProUGUI objectDistance = null;
     [SerializeField] public ObjectivePopUp objectivePopUp = null;
+    //[SerializeField] public UpgradeBar healthUpgrade = null;
+    [SerializeField] public UpgradeBar fuelUpgrade = null;
+    [SerializeField] public ObjectivePanel objectivePanel = null;
+
+    [Header("Tool Progress Bar")]
+    [SerializeField] public Image progressBarBG = null;
+    [SerializeField] public Image progressBarFill = null;
 
     [Header("Tools")]
     [SerializeField] ToolController playerTools = null;
@@ -29,13 +36,18 @@ public class GameHUD : MonoBehaviour
     [SerializeField] Color enabledTextColour;
     [SerializeField] Color disabledTextColour;
 
+    [SerializeField] private Color ToolInRangeColor;
+
+    [SerializeField] private Color ToolOutOfRangeColor;
+
     [Header("Grabbed by Tool Controller")]
     [SerializeField] public TextMeshProUGUI equippedToolText = null;
+    [SerializeField] public RawImage equippedToolIcon = null;
 
     [Header("Do not touch")]
     public Player player = null;
     public GameObject selectedToolText = null;
-    public TextMeshProUGUI objectiveText = null;
+    public List<TextMeshProUGUI> objectiveText = new List<TextMeshProUGUI>();
 
     private List<GameObject> toolList = new List<GameObject>();
     //keep track of which tool in the list is goo glue since it needs an additional bar
@@ -52,7 +64,40 @@ public class GameHUD : MonoBehaviour
         }
         else
         {
-            objectDistance.SetText(player.collisionDistance.ToString() + "m");
+            if (player.TargetedObject == null)
+            {
+                objectDistance.SetText("");
+            }
+            else
+            {
+                Salvagable TargetSalvage = player.TargetedObject.GetComponentInChildren<Salvagable>();
+                if (TargetSalvage != null)
+                {
+                    objectDistance.SetText(TargetSalvage.SalvageItem.Name + " | " + player.collisionDistance.ToString() + "m");
+                }
+                else
+                {
+                    objectDistance.SetText(player.collisionDistance.ToString() + "m");
+                }
+            }
+           
+            if (playerTools.CurrentTool != null)
+            {
+                if ( playerTools.CurrentTool.ToolRange > 0)
+                {
+                    if (playerTools.CurrentTool.ToolRange >= player.collisionDistance)
+                    {
+                        objectDistance.color = Color.green;
+                    }
+                    else 
+                    {
+                        objectDistance.color = Color.red;
+                    }
+                    return;
+                }
+            }
+            objectDistance.color = Color.white;
+            
         }
     }
 
@@ -73,7 +118,7 @@ public class GameHUD : MonoBehaviour
         //Debug.Log(playerTools.GetEquiptTools().Count);
         foreach (var tool in playerTools.GetEquiptTools())
         {
-            if(tool.GetType() == typeof(RepairTool))
+            if (tool.GetType() == typeof(RepairTool))
             {
                 gooGlueIndex = hotkey - 1;
             }
@@ -84,8 +129,8 @@ public class GameHUD : MonoBehaviour
             getObject.GetToolText().SetText(tool.displayName);
             getObject.GetHotkeyText().SetText("[ " + hotkey.ToString() + " ]");
             getObject.GetButtonImage().sprite = enabledSprite;
-            //getObject.GetToolIcon().sprite = tool.toolIcon;
-            getObject.GetToolIcon().color = disabledTextColour;
+            getObject.GetToolIcon().sprite = tool.toolIcon;
+            getObject.GetToolIcon().color = enabledTextColour;
 
             toolList.Add(newTool);
             hotkey++;
@@ -109,7 +154,7 @@ public class GameHUD : MonoBehaviour
         //make the current tool look selectable again
         if(currentTool != -1)
         {
-            if(currentTool == gooGlueIndex)
+            if (currentTool == gooGlueIndex)
             {
                 gooGlueBar.SetActive(false);
             }
@@ -123,10 +168,10 @@ public class GameHUD : MonoBehaviour
         }
 
         //turn on the goo glue fuel bar if the new tool is the repair tool
-        //if (newTool == gooGlueIndex)
-        //{
-        //    gooGlueBar.SetActive(true);
-        //}
+        if (newTool == gooGlueIndex)
+        {
+            gooGlueBar.SetActive(true);
+        }
 
         //make the new tool look unselectable
         var newToolObj = toolList[newTool].GetComponent<GetObjects>();
@@ -146,8 +191,10 @@ public class GameHUD : MonoBehaviour
         {
             var lastToolObj = toolList[currentTool].GetComponent<GetObjects>();
             lastToolObj.GetButtonImage().color = enabledBGColour;
+            lastToolObj.GetButtonImage().sprite = enabledSprite;
             lastToolObj.GetToolText().color = enabledTextColour;
             lastToolObj.GetHotkeyText().color = enabledTextColour;
+            lastToolObj.GetToolIcon().color = enabledTextColour;
             lastToolObj.GetToolText().SetText(playerTools.GetEquiptTools()[currentTool].displayName);
         }
         gooGlueBar.SetActive(false);
@@ -159,9 +206,9 @@ public class GameHUD : MonoBehaviour
         return Instantiate(defaultToolBox);
     }
 
-    public void SetObjectiveText(string updateObjective)
+    public void SetObjectiveText(string updateObjective, int index)
     {
-        objectiveText.SetText(updateObjective);
+        objectiveText[index].SetText(updateObjective);
     }
 
     public void OnEsc(InputValue value)
@@ -170,7 +217,7 @@ public class GameHUD : MonoBehaviour
         {
             PausePrefab.SetActive(true);
             GameManager.Pause();
-            Debug.Log("Paused");
+            //Debug.Log("Paused");
         }
     }
 
@@ -179,8 +226,9 @@ public class GameHUD : MonoBehaviour
         if (!GameManager.isPaused)
         {
             GameManager.Pause();
-            Debug.Log("Paused");
+            //Debug.Log("Paused");
         }
+        AkSoundEngine.PostEvent("Death", gameObject);
         GameoverPrefab.SetActive(true);
     }
 

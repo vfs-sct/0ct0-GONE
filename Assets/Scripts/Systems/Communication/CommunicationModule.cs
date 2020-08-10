@@ -16,6 +16,7 @@ public class CommunicationModule : Module
         public bool IsActive;
 
         public bool ShowWarning;
+        public bool ShowBounds;
         public GameObject RangeIndicator;
 
         public CommRelayData(CommunicationZone G,float R, bool A)
@@ -25,6 +26,7 @@ public class CommunicationModule : Module
             IsActive = A;
             RangeIndicator = null;
             ShowWarning = false;
+            ShowBounds = false;
         }
         public CommRelayData(CommunicationZone G,float R, bool A,GameObject RA)
         {
@@ -33,16 +35,26 @@ public class CommunicationModule : Module
             IsActive = A;
             RangeIndicator = RA;
             ShowWarning = false;
+            ShowBounds = false;
         }
-        public CommRelayData(CommRelayData Data,bool SW)
+        public CommRelayData(CommRelayData Data,bool SW,bool SB)
         {
             LinkedObject = Data.LinkedObject;
             Radius = Data.Radius;
             IsActive = Data.IsActive;
             RangeIndicator = Data.RangeIndicator;
             ShowWarning = SW;
+            ShowBounds = SB;
         }
-
+        public CommRelayData(CommRelayData Data,float R)
+        {
+            LinkedObject = Data.LinkedObject;
+            Radius = R;
+            IsActive = Data.IsActive;
+            RangeIndicator = Data.RangeIndicator;
+            ShowWarning = Data.ShowWarning;
+            ShowBounds = Data.ShowBounds;
+        }
     }
 
     private CommRelayEvent OnLoseConnection = null;
@@ -57,6 +69,7 @@ public class CommunicationModule : Module
 
     [SerializeField] private GameObject CommRelayRangeIndicatorPrefab;
     [SerializeField] private float WarningDistance = 20; 
+    [SerializeField] private float ShowBoundsDistance = 75;
     [SerializeField] private UIModule UIController;
 
     public override void Initialize()
@@ -69,6 +82,27 @@ public class CommunicationModule : Module
         warningUI = UIController.UIRoot.GetScreen<GetWarnings>();
         Debug.Assert(PlayerObject != null); //at this point the gamestate should have assigned these values
         RunUpdate = true;
+    }
+
+    //show and hide are used by CommunicationZone.cs when visibly expanding the radius when upgraded by the player
+    public void ShowRangeIndicator(int index)
+    {
+        Zones[index].RangeIndicator.SetActive(true);
+    }
+
+    public void HideRangeIndicator(int index)
+    {
+        Zones[index].RangeIndicator.SetActive(false);
+    }
+
+    public void ResizeRangeIndicator(int index, float size)
+    {
+        Zones[index].RangeIndicator.transform.localScale = new Vector3(size, size, size);
+    }
+
+    public void SetRange( float size,int index = 0)
+    {
+        Zones[index] = new CommRelayData(Zones[index],size);
     }
 
     public int AddZone(CommunicationZone NewZone)
@@ -95,9 +129,6 @@ public class CommunicationModule : Module
         PlayerObject = PlayerObj;
     }
 
-
-
-
     private void CommunicationUpdate()
     {
         PlayerInRange = false;
@@ -113,18 +144,28 @@ public class CommunicationModule : Module
                     NearestRelay = Zones[i].LinkedObject;
                 }
                 PlayerInRange = PlayerInRange |(distance <= Zones[i].Radius);
-                if (Zones[i].ShowWarning == false && distance >= (Zones[i].Radius-WarningDistance))
-                {
-                    warningUI.GetWarning(0).SetActive(true);
-                    Zones[i].RangeIndicator.SetActive(true);
-                    Zones[i] = new CommRelayData(Zones[i],true);
-                }
-                else if (Zones[i].ShowWarning == true &&  distance < (Zones[i].Radius-WarningDistance))
-                {
-                    warningUI.GetWarning(0).SetActive(false);
-                    Zones[i].RangeIndicator.SetActive(false);
-                    Zones[i] = new CommRelayData(Zones[i],false);
-                }
+                
+                    if (!Zones[i].ShowWarning && distance >= (Zones[i].Radius-WarningDistance))
+                    {
+                        warningUI.GetWarning(0).SetActive(true);
+                        Zones[i] = new CommRelayData(Zones[i],true,Zones[i].ShowBounds);
+                    }
+                    if (!Zones[i].ShowBounds &&distance >= (Zones[i].Radius-ShowBoundsDistance))
+                    {
+                        ShowRangeIndicator(i);
+                        Zones[i] = new CommRelayData(Zones[i],Zones[i].ShowWarning,true);
+                    }
+                    if (Zones[i].ShowWarning && distance < (Zones[i].Radius-WarningDistance))
+                    {
+                        warningUI.GetWarning(0).GetComponent<ActivateWarning>().DisableWarning();
+                        Zones[i] = new CommRelayData(Zones[i],false,Zones[i].ShowBounds);
+                    }
+
+                    if (Zones[i].ShowBounds && distance < (Zones[i].Radius-ShowBoundsDistance))
+                    {
+                        HideRangeIndicator(i);
+                        Zones[i] = new CommRelayData(Zones[i],Zones[i].ShowWarning,false);
+                    }
             }
         }
     }
@@ -134,10 +175,10 @@ public class CommunicationModule : Module
         if (PlayerObject == null) return;//don't run checks if there is no linked player!
         CommunicationUpdate();
 
-        if (!PlayerInRange)
-        {
-            Debug.Log("Left Comm range");
-        }
+        //if (!PlayerInRange)
+        //{
+        //    Debug.Log("Left Comm range");
+        //}
         if (!PlayerInRange && OnLoseConnection != null)
         {
             OnLoseConnection(NearestRelay);

@@ -21,7 +21,7 @@ public class ThrusterAudioPlayer : MonoBehaviour
 
     private void Update()
     {
-        throttle = (Movement.ActiveMode as SpaceMovement).Throttle;
+        throttle = Movement.Throttle;
         ThrusterVolume = 0;
 
         for (int i = 0; i < 3; i++) //use the largest throttle value for the sound

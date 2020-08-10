@@ -8,10 +8,15 @@ using UnityEngine.EventSystems;
 
 public class InventoryV2 : MonoBehaviour
 {
+
+    [SerializeField] EndInventoryTutorial OpenInventoryTutorial = null;
+    [SerializeField] Tutorial TutorialController = null;
     [SerializeField] UIAwake UIRoot = null;
-    [SerializeField] private InventoryController playerInventory = null;
     [SerializeField] GameFrameworkManager GameManager = null;
+    //used to grab the speed modifier off of
+    [SerializeField] MovementController playerMovement = null;
     [SerializeField] GameObject ResourceBox = null;
+    [SerializeField] GameObject MassHUD = null;
     [SerializeField] HorizontalLayoutGroup RowOne = null;
     [SerializeField] HorizontalLayoutGroup RowTwo = null;
     //place item in the item inventory screen
@@ -25,11 +30,20 @@ public class InventoryV2 : MonoBehaviour
 
     [SerializeField] VerticalLayoutGroup[] inventoryVertRows = null;
 
+    private InventoryController playerInventory = null;
+    private Transform debrisDropPos;
     //association between a resource box and the resource it's displaying
     private Dictionary<Resource, GetObjectsResourceBox> ResourceBoxes = new Dictionary<Resource, GetObjectsResourceBox>();
 
     //save an association between the chunk and the specific item that's filling it in - multiple chunks can use the same item
     private Dictionary<Button, Item> ItemButtonAssociation = new Dictionary<Button, Item>();
+    
+    //used to display how octo's speed is changed by how much he's carrying
+    private TextMeshProUGUI massText;
+    private TextMeshProUGUI speedModText;
+
+    private int currentTotalMass;
+    private float speedModifier;
 
     private bool[] isActive = new bool[10]
     {
@@ -47,7 +61,9 @@ public class InventoryV2 : MonoBehaviour
 
     private void Awake()
     {
-        for(int i = 0; i < tabs.Length; i++)
+        OpenInventoryTutorial.completed = true;
+
+        for (int i = 0; i < tabs.Length; i++)
         {
             //set up which tab should be active first
             if (i == 0)
@@ -83,29 +99,51 @@ public class InventoryV2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
+        TutorialController.EnableInventoryTutorial();
+        //tutorialCanvas.gameObject.SetActive(true);
+        //carryWeightPrompt.SetActive(true);
+
+        if (UIRoot.GetPlayer() == null)
+        {
+            //Debug.LogError("NULL PLAYER");
+            return;
+        }
+        //playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
         PopulateResources();
         UpdateAllChunks();
+        AddMassHUD();
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentTotalMass = 0;
         foreach(var kvp in ResourceBoxes)
         {
-            float fillAmount = (playerInventory.GetResourceAmount(kvp.Key) / 10);
+            int currentAmount = playerInventory.GetResourceAmount(kvp.Key);
+            float fillAmount = (currentAmount);
             kvp.Value.GetCapacityText().SetText($"Capacity:\n{fillAmount}/10");
+
+            currentTotalMass += currentAmount;
         }
+
+        UpdateMassHUD();
     }
 
     private void OnEnable()
     {
         Cursor.visible = true;
-        UpdateAllChunks();
+        AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
+        if(playerInventory == null)
+        {
+            playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();
+            debrisDropPos = UIRoot.GetPlayer().GetComponentInChildren<SatelliteInventory>().SatelliteSpawnPos;
+        }
         if (playerInventory.CheckIfItemBucket())
         {
             PopulateItemInventory();
         }
+        UpdateAllChunks();
     }
 
     private void OnDisable()
@@ -125,6 +163,7 @@ public class InventoryV2 : MonoBehaviour
 
     public void Close()
     {
+        AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
         GameManager.UnPause();
         gameObject.SetActive(false);
     }
@@ -147,11 +186,11 @@ public class InventoryV2 : MonoBehaviour
 
             var bucket = playerInventory.GetResourceBucket(kvp.Key);
 
-            foreach (var item in bucket.Bucket)
-            {
-                Debug.Log(item.Key.name);
-                Debug.Log(item.Value);
-            }
+            //foreach (var item in bucket.Bucket)
+            //{
+            //    Debug.Log(item.Key.name);
+            //    Debug.Log(item.Value);
+            //}
 
             //Debug.Log("BUCKET COUNT" + bucket.Bucket.Count);
             //get all the items in the bucket
@@ -159,10 +198,10 @@ public class InventoryV2 : MonoBehaviour
             {
                 for (int instances = 0; instances < item.Value; instances++)
                 {
-                    //Debug.Log("HEY" + item.Size / 10);
+                    //Debug.Log("HEY" + item.Size);
                     //figure out if the item takes more than 1 slot
-                    float chunkSize = (float)item.Key.Size / 10;
-                    int j = item.Key.Size / 10;
+                    float chunkSize = (float)item.Key.ChunkSize;
+                    int j = item.Key.ChunkSize;
                     if (j != 0)
                     {
                         //assign the appropriate number of slots for that item
@@ -172,11 +211,14 @@ public class InventoryV2 : MonoBehaviour
                             {
                                 kvp.Value.SetChunkBool(k, true);
                                 kvp.Value.GetChunkButtons()[k].SetActive(true);
-                                kvp.Value.SetTooltip(k, item.Key.Name, chunkSize.ToString() + " Slots");
+                                kvp.Value.SetChunkTooltip(k, item.Key.Name, chunkSize.ToString() + " Slots");
                                 kvp.Value.GetChunkButtons()[k].GetComponent<Button>().onClick.AddListener(() =>
                                 {
-                                //Debug.Log("CHUNK CLICKED!");
-                                playerInventory.RemoveFromResourceBucket(item.Key);
+                                    //Debug.LogWarning("CHUNK CLICKED!");
+                                    Rigidbody newChunkRB = Instantiate(item.Key.RespawnGO).GetComponent<Rigidbody>();
+                                    newChunkRB.transform.position = debrisDropPos.position;
+                                    newChunkRB.velocity = playerInventory.GetComponent<Rigidbody>().velocity + (playerInventory.transform.forward * 2);
+                                    playerInventory.RemoveFromResourceBucket(item.Key);
                                     UpdateAllChunks();
                                 });
 
@@ -226,6 +268,7 @@ public class InventoryV2 : MonoBehaviour
             var getObjects = newItemBox.GetComponent<GetObjectsResourceBox>();
             getObjects.GetTitleText().SetText(kvp.Key.Name);
             getObjects.GetCapacityText().SetText($"x{kvp.Value.ToString()}");
+            getObjects.SetItemToolTip(kvp.Key.ItemDesc);
         }
     }
 
@@ -248,7 +291,7 @@ public class InventoryV2 : MonoBehaviour
             var getObjects = newBox.GetComponent<GetObjectsResourceBox>();
             getObjects.GetBGImage().color = new Color(resource.ResourceColor.r, resource.ResourceColor.g, resource.ResourceColor.b, 0.3f);
             getObjects.GetTitleText().SetText(resource.DisplayName.ToString() + "   (" + resource.Abreviation.ToString() + ")");
-            getObjects.GetCapacityText().SetText("Capacity:\n" + (playerInventory.GetResourceAmount(resource) / 10) + "/10");
+            getObjects.GetCapacityText().SetText("Capacity:\n" + playerInventory.GetResourceAmount(resource) + "/10");
 
             foreach(var chunk in getObjects.GetChunkButtons())
             {
@@ -257,6 +300,25 @@ public class InventoryV2 : MonoBehaviour
 
             ResourceBoxes.Add(resource, getObjects);
         }
+    }
+
+    public void AddMassHUD()
+    {
+        var newBox = Instantiate(MassHUD);
+        newBox.transform.SetParent(RowTwo.transform);
+        var getObjects = newBox.GetComponent<GetObjectMassHUD>();
+
+        massText = getObjects.GetMassText();
+        speedModText = getObjects.GetSpeedText();
+
+        UpdateMassHUD();
+    }
+
+    public void UpdateMassHUD()
+    {
+        var speedModifier = playerMovement.GetSpeedModifier();
+        massText.SetText($"{currentTotalMass}/500");
+        speedModText.SetText($"{speedModifier}% Speed");
     }
 
     public void SwitchViewTo(GameObject newPanel)

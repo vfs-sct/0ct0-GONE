@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -7,7 +6,7 @@ using UnityEngine;
 public class SatelliteRecipe : ScriptableObject
 {
     public string DisplayName = "";
-    
+    public string ItemDesc = "";
 
     public List<CraftingModule.ItemRecipeData> ItemInput;
 
@@ -43,7 +42,6 @@ public class SatelliteRecipe : ScriptableObject
         CreatesByProducts = false;
         ItemByProducts = null;
         ResourceByProducts = null;
-        
     }
 
     //private void OnValidate()

@@ -8,6 +8,9 @@ public abstract class Tool : ScriptableObject
     [SerializeField] private bool _ActivateIsToggle = false;
     [SerializeField] public string displayName = "";
     [SerializeField] public Sprite toolIcon = null;
+    [SerializeField] public Texture toolIconLarge = null;
+    [SerializeField] protected float _ToolRange = 5.0f;
+    public float ToolRange{get=>_ToolRange;}
     public bool ActivateIsToggle{get=>_ActivateIsToggle;}
 
     public ToolEvent OnActivateEvent;
@@ -26,7 +29,7 @@ public abstract class Tool : ScriptableObject
     protected abstract bool DeactivateCondition(ToolController owner,GameObject target);
     protected abstract bool LoopCondition(ToolController owner,GameObject target);
 
-
+    private bool IsActive = false;
 
     public void Select(ToolController owner)
     {
@@ -45,6 +48,7 @@ public abstract class Tool : ScriptableObject
         if (!ActivateCondition(owner,target)) return false;
         OnActivate(owner,target);
         if (OnActivateEvent != null) OnActivateEvent(owner,target);
+        IsActive = true;
         return true;
     }
 
@@ -53,6 +57,7 @@ public abstract class Tool : ScriptableObject
         if (!DeactivateCondition(owner,target)) return false;
         OnDeactivate(owner,target);
         if (OnDeactivateEvent != null) OnDeactivateEvent(owner,target);
+        IsActive = false;
         return true;
     }
 

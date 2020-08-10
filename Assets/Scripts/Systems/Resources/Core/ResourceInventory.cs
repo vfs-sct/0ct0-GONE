@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class ResourceInventory : MonoBehaviour
 {
@@ -82,8 +81,6 @@ public class ResourceInventory : MonoBehaviour
 
     public void AddResource(Resource resource, float amount)
     {
-        //var popText = Instantiate(resourceAddedPopTxt);
-        //popText.GetComponentInChildren<TextMeshProUGUI>().SetText("+" + amount.ToString() + " " + resource.DisplayName);
         resource.AddInstanceValue(true, this,amount);
     }
 
@@ -91,6 +88,12 @@ public class ResourceInventory : MonoBehaviour
     {
 
     }
+
+    public bool CanAdd(Resource resource, float amount)
+    {
+        return resource.CanAdd(this,amount);
+    }
+
 
     public void SetResource(Resource resource, float amount)
     {
@@ -108,10 +111,14 @@ public class ResourceInventory : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //void Update()
+    //{
+    //    //for viewing health
+    //    if (3 <= ActiveResources.Count && this.name != "OctoHub")
+    //    {
+    //        Debug.Log(this.ToString() + ActiveResources[2].GetInstanceValue(this));
+    //    }
+    //}
 
     private void OnDestroy()//possibly implement cleanup in this function (May create race condition/coupling issues)
     {

@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class RefuelRange : MonoBehaviour
 {
-
     [SerializeField] private Playing playing;
+    [SerializeField] private LowFuel lowFuelOverlay;
     [SerializeField] public Resource fuel = null;
     [SerializeField] public float amountAdd = 30;
 
@@ -12,21 +12,17 @@ public class RefuelRange : MonoBehaviour
 
     private bool canRefuel = true;
     private bool isFueling = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
-    public void OnRefuelHotkey(InputValue value)
+    public void OnRefuelHotkey(InputAction.CallbackContext context)
     {
-        isFueling = value.isPressed;
+        isFueling = context.performed;
         refuelTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        canRefuel = playing.ActivePlayer.StationInRange(canRefuel);
+        canRefuel = playing.ActivePlayer.RefuelInRange();
         if (isFueling == true)
         {
             if (canRefuel)
@@ -34,7 +30,16 @@ public class RefuelRange : MonoBehaviour
                 refuelTimer -= Time.deltaTime;
                 if (refuelTimer < 0)
                 {
-                    playing.ActivePlayer.Inventory.AddResource(fuel, amountAdd);
+                    //EVAN - refuelling sound
+                    var playerInv = playing.ActivePlayer.Inventory;
+                    playerInv.AddResource(fuel, amountAdd);
+
+                    var newHealth = fuel.GetInstanceValue(playerInv) / fuel.GetMaximum();
+                    if (newHealth >= 0.25f)
+                    {
+                        lowFuelOverlay.TurnOff();
+                    }
+
                     refuelTimer = 0.1f;
                 }
             }

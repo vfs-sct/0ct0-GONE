@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947f3744e3b6d6b4695b9dd070752ffe, type: 3}
   m_Name: RepairTool
   m_EditorClassIdentifier: 
-  _ActivateIsToggle: 1
-  displayName: Repair Goo
-  toolIcon: {fileID: 0}
+  _ActivateIsToggle: 0
+  displayName: Repair
+  toolIcon: {fileID: 21300000, guid: c805640483f349746b97cb1292300b9f, type: 3}
+  toolIconLarge: {fileID: 2800000, guid: c805640483f349746b97cb1292300b9f, type: 3}
+  _ToolRange: -1
   popText: {fileID: 8981721532894141398, guid: 6082956a558828445afc6a77b3e25ac6, type: 3}
+  RepairNaniteResource: {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927,
+    type: 2}
+  NanitesPerCycle: 2
+  HealthPerCycle: 100
+  CycleInterval: 0.3

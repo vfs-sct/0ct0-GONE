@@ -1,27 +1,92 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.InputSystem;
 
 public class IntroScroll : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI text;
 
-    private string[] introScroll = new string[]
+    [SerializeField] private bool InEditorSkipIntro = false;
+
+    [SerializeField] private GameObject TutorialPrefab = null;
+
+    [SerializeField] TextMeshProUGUI text = null;
+    [SerializeField] Image bgImg = null;
+
+    [Header("Disable Player Control")]
+    [SerializeField] MovementController playerMovement = null;
+    [SerializeField] Player playerCam = null;
+    [SerializeField] GameObject gameHUD = null;
+
+    private Dictionary<string, float> introScroll = new Dictionary<string, float>
     {
-        "...",
-        " BOOTING",
-        "\n\nModel: 0CT0-314",
-        "",
+        { "...", 2},
+        { " DIAG", .25f },
+        { "NOSTICS: ", .3f },
+        { "COMPLETE", 2f },
+        { "\n\nModel: ", .75f},
+        { "0CT0", .6f },
+        { "-", .1f },
+        { "3", .07f},
+        { "1", .075f},
+        { "4", 1.3f},
+        { "\n\nTool ", .25f },
+        { "and ", .25f },
+        { "movement ", .25f},
+        { "systems: ", 1.3f},
+        { "<color=#1BD918>Functional</color>", 1.3f},
+        { "\n\n<color=#DB2D2D>! WARNING !</color>", 1},
+        { "\n\nMEMORY ", .5f},
+        { "CORRUPTION: ", .5f},
+        { "<color=#DB2D2D> 77", 1.1f },
+        { ".", .1f},
+        { "5", .075f},
+        { "%</color>", 1f},
+        { "\n\nFUEL ", .5f},
+        { "LEVELS: ", .5f},
+        { "<color=#DB2D2D>Low</color>", 1},
+        { "\n\nPlease ", .25f},
+        { "return ", .25f},
+        { "to ", .25f},
+        { "<color=#FFC63B>station</color> ", .25f},
+        { "for ", .25f},
+        { "refueling ", 4},
     };
 
     private bool fadingIn = true;
-    // Start is called before the first frame update
     private float waitTime = 1f;
     private string scrollText;
     private int current = 0;
     private bool doneWaiting = true;
+    private float lerpTime = 1f;
+    private bool fadingOut = false;
+
+
+    void Awake()
+    {
+        if (InEditorSkipIntro && Application.isEditor)
+        {
+            Debug.LogWarning("SKIPPING INTRO!");
+            TutorialPrefab.SetActive(true);
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameHUD.SetActive(false);
+        }
+    }
+
+
     void Start()
     {
-        text.SetText(introScroll[current]);
+        //keep the game running in the background but disable player controller so that
+        //debris has had a chance to spawn and get into a nice place before player enters game
+        playerMovement.enabled = false;
+        playerCam.DisableCam();
+        AkSoundEngine.PostEvent("Leave_Comm_Play", gameObject);
+        text.SetText(introScroll.ElementAt(current).Key);
     }
 
     // Update is called once per frame
@@ -29,15 +94,22 @@ public class IntroScroll : MonoBehaviour
     {
         if (doneWaiting == true)
         {
-            StartCoroutine(Wait(waitTime));
+            StartCoroutine(Wait(introScroll.ElementAt(current).Value));
+            current++;
+        }
+
+        if (fadingOut == true)
+        {
+            FadeOut();
         }
     }
 
     public void NewText()
     {
-        scrollText = scrollText + introScroll[current];
+        //EVAN - if you want to accompany text appearing on the screen during the intro with a sound
+        AkSoundEngine.PostEvent("Octo_Systems_Text", gameObject);
+        scrollText = scrollText + introScroll.ElementAt(current).Key;
         text.SetText(scrollText);
-        current++;
         doneWaiting = true;
     }
 
@@ -45,13 +117,45 @@ public class IntroScroll : MonoBehaviour
     {
         doneWaiting = false;
         yield return new WaitForSeconds(waitTime);
-        if (introScroll[current + 1] != null)
+        if (current + 1 <= introScroll.Count)
         {
             NewText();
         }
         else
         {
+            //restores control, turns on game HUD and starts fade out of intro
+            FinishIntro();
+        }
+    }
+
+    public void FadeOut()
+    {
+        if (bgImg.color.a > 0.01f)
+        {
+            var lerpBG = new Color(bgImg.color.r, bgImg.color.g, bgImg.color.b, 0f);
+            bgImg.color = Color.Lerp(bgImg.color, lerpBG, Time.deltaTime * 1f / lerpTime);
+
+            var lerpTxt = new Color(text.color.r, text.color.g, text.color.b, 0f);
+            text.color = Color.Lerp(text.color, lerpBG, Time.deltaTime * 1f / lerpTime);
+        }
+        else
+        {
             gameObject.SetActive(false);
         }
+        AkSoundEngine.PostEvent("Leave_Comm_Stop", gameObject);
+    }
+
+    public void FinishIntro()
+    {
+        TutorialPrefab.SetActive(true);
+        gameHUD.SetActive(true);
+        playerMovement.enabled = true;
+        playerCam.EnableCam();
+        fadingOut = true;
+    }
+
+    public void OnEsc(InputValue value)
+    {
+        FinishIntro();
     }
 }

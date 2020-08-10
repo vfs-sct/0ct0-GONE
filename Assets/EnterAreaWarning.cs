@@ -6,29 +6,36 @@ public class EnterAreaWarning : MonoBehaviour
     [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameState playing = null;
     [SerializeField] string warningType = null;
-    private GameObject alert = null;
+
+    [Header("Health Resource")]
+    [SerializeField] public Resource health = null;
+
+    [Header("Damage Per Second")]
+    [SerializeField] public float dmgPerSecond;
+    private ActivateWarning alert = null;
     private Player player;
 
+    private ResourceInventory playerInventory;
+
+    private bool inGasCloud = false;
+    
     private void Start()
     {
         if (warningType == "GasCloud")
         {
-            alert = UIModule.UIRoot.GetScreen<GameHUD>().GasCloudAlertPrefab;
-        }
-        else if (warningType == "CommRange")
-        {
-
+            alert = UIModule.UIRoot.GetScreen<GameHUD>().GasCloudAlertPrefab.GetComponent<ActivateWarning>();
         }
         player = UIModule.UIRoot.player;
+        playerInventory = UIModule.UIRoot.player.GetComponent<ResourceInventory>();
     }
 
-    //private void Update()
-    //{
-    //    if(GameManager.ActiveGameState == playing && player == null)
-    //    {
-    //        player = UIModule.UIRoot.player;
-    //    }
-    //}
+    private void Update()
+    {
+        if (inGasCloud)
+        {
+            playerInventory.RemoveResource(health, dmgPerSecond * Time.deltaTime);
+        }
+    }
 
     //turn on warning when you enter
     private void OnTriggerEnter(Collider other)
@@ -39,7 +46,9 @@ public class EnterAreaWarning : MonoBehaviour
         }
         else if (other.gameObject == player.gameObject)
         {
-            alert.SetActive(true);
+            alert.gameObject.SetActive(true);
+            AkSoundEngine.PostEvent("GasDetected", gameObject);
+            inGasCloud = true;
         }
     }
 
@@ -49,7 +58,8 @@ public class EnterAreaWarning : MonoBehaviour
     {
         if (other.gameObject == player.gameObject)
         {
-            alert.SetActive(false);
+            alert.DisableWarning();
+            inGasCloud = false;
         }
     }
 }

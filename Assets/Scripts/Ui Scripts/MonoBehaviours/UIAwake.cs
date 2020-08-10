@@ -4,14 +4,19 @@ using UnityEngine.InputSystem;
 
 public class UIAwake : MonoBehaviour
 {
+    [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] GameObject DebugPrefab = null;
+    [SerializeField] Texture2D customCursor = null;
     [SerializeField] public float gammaDefault = 2.2f;
     //invertedCamDefault must be either 1 or -1
     //If it is set to 1, the camera will be inverted by default
     [SerializeField] public int invertedCamDefault = 1;
-    [SerializeField] public float lookSensitivityDefault = 0.9f;
+    [SerializeField] public float lookSensitivityDefault = 0.5f;
     [SerializeField] public GameObject fadeIn = null;
     [SerializeField] public Codex codex = null;
+
+    private CursorMode cursorMode = CursorMode.Auto;
+    private Vector2 hotSpot = Vector2.zero;
 
     private Player player = null;
 
@@ -60,8 +65,14 @@ public class UIAwake : MonoBehaviour
 
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
         //find and set the camera so we can apply gamma changes
         var camera = Camera.main;
+
+        //stop cursor from going off the screen
+        Cursor.lockState = CursorLockMode.Confined;
+        //set custom cursor
+        Cursor.SetCursor(customCursor, hotSpot, cursorMode);
 
         foreach (var canvas in GameObject.FindObjectsOfType<Canvas>())
         {
@@ -74,6 +85,14 @@ public class UIAwake : MonoBehaviour
         //fade in from black when switching screens
         fadeIn.SetActive(true);
 
+        if (PlayerPrefs.HasKey("TutorialEnabled") == false)
+        {
+            PlayerPrefs.SetInt("TutorialEnabled", 1);
+            PlayerPrefs.Save();
+        }
+
+        //Debug.LogWarning("Awake: " + PlayerPrefs.GetInt("TutorialEnabled"));
+
         //set camera inversion base on player prefs, or set to default
         if (PlayerPrefs.HasKey("InvertedCam"))
         {
@@ -85,7 +104,7 @@ public class UIAwake : MonoBehaviour
             {
                 player.invertedCam = invertedCamDefault;
             }
-            PlayerPrefs.SetFloat("InvertedCam", invertedCamDefault);
+            PlayerPrefs.SetInt("InvertedCam", invertedCamDefault);
             PlayerPrefs.Save();
         }
 

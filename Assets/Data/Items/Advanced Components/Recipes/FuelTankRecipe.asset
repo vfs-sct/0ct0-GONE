@@ -13,13 +13,19 @@ MonoBehaviour:
   m_Name: FuelTankRecipe
   m_EditorClassIdentifier: 
   DisplayName: Fuel Tank
-  ItemInput: []
+  ItemDesc: Fuel Tanks are an advanced component used to craft satellites and make
+    ship repairs.
+  ItemInput:
+  - item: {fileID: 11400000, guid: 7261ccb9bd53e744fb76a04dbb4134da, type: 2}
+    amount: 5
+  - item: {fileID: 11400000, guid: ed7e42726027cb1428869ffc4d975d13, type: 2}
+    amount: 5
   ResourceInput: []
   Output:
     item: {fileID: 11400000, guid: 7d4e4803d3e5a244ca8cf144e67be697, type: 2}
-    amount: 0
+    amount: 1
   CreatesByProducts: 0
-  RequiredItemInputSpace: 0
-  ItemOuputSpace: 0
   ItemByProducts: []
   ResourceByProducts: []
+  RequiredItemInputSpace: 0
+  ItemOuputSpace: 0

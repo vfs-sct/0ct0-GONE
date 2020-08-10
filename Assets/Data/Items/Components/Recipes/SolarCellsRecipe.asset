@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: SolarCellsRecipe
   m_EditorClassIdentifier: 
   DisplayName: Solar Cells
+  ItemDesc: Solar Cells are a basic component used to craft more advanced items.
   ItemInput: []
   ResourceInput:
   - resource: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
-    amount: 10
-  - resource: {fileID: 11400000, guid: 817b9d6fe54926b47b141284265e21a3, type: 2}
     amount: 5
+  - resource: {fileID: 11400000, guid: 817b9d6fe54926b47b141284265e21a3, type: 2}
+    amount: 10
   Output:
     item: {fileID: 11400000, guid: 676a1ab1a1a93cc49870eef3a1ba3c40, type: 2}
-    amount: 5
+    amount: 10
   CreatesByProducts: 0
   ItemByProducts: []
   ResourceByProducts: []

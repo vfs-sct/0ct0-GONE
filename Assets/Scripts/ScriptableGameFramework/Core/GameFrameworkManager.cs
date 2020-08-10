@@ -11,7 +11,9 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "GameFramework/Core/GameManager")]
 public class GameFrameworkManager : ScriptableObject
-{   
+{
+    [SerializeField] UIModule UIModule = null;
+
     [SerializeField] 
     private ModuleManager LinkedModuleManager = null;
     public ModuleManager moduleManager{get =>LinkedModuleManager;}
@@ -36,6 +38,9 @@ public class GameFrameworkManager : ScriptableObject
     private GameManagerDelegate OnExitGame;
     private GameManagerDelegate OnPauseGame;
     private GameManagerDelegate OnResumeGame;
+
+    //used to hide tutorial info when paused
+    private Tutorial tutorialPrefab;
 
 
     [System.Serializable]
@@ -67,6 +72,8 @@ public class GameFrameworkManager : ScriptableObject
     {
         Time.timeScale = 0;
         moduleManager.StopTicking = true;
+        if(tutorialPrefab == null) tutorialPrefab = UIModule.UIRoot.GetScreen<Tutorial>();
+        if (tutorialPrefab != null && tutorialPrefab.isActiveAndEnabled) tutorialPrefab.Hide();
         if (OnPauseGame != null) OnPauseGame(this);
     }
 
@@ -74,6 +81,7 @@ public class GameFrameworkManager : ScriptableObject
     {
         Time.timeScale = 1;
         moduleManager.StopTicking = false;
+        if (tutorialPrefab != null && tutorialPrefab.isActiveAndEnabled) tutorialPrefab.Show();
         if (OnPauseGame != null) OnResumeGame(this);
     }
 
@@ -138,7 +146,7 @@ public class GameFrameworkManager : ScriptableObject
             if (StateData.State != null)
             {
                 Debug.Log("Initializing "+ StateData.State + ":\n");
-                StateData.State.Initalize();
+                StateData.State.Initialize();
                 if (StateData.IsLinkedToScene)
                 {
                     StateSceneLinkDict.Add(StateData.LinkedScene,StateData.State);
@@ -187,6 +195,7 @@ public class GameFrameworkManager : ScriptableObject
 
     private void OnEnable()
     {
+        tutorialPrefab = null;
         //prevent timescale editor bug
         UnPause();
         //Application.targetFrameRate = 60;

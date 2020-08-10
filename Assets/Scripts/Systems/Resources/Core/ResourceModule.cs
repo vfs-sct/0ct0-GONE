@@ -69,6 +69,8 @@ public class ResourceModule : Module
                 return;
             }
         }
+
+        Debug.LogError($"{owner}'s {resource.name} not in active list");
     }
 
     public ResourceInventory GetInventory(ResourceInventory inventory)

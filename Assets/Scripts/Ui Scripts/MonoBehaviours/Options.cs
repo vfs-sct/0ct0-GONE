@@ -16,6 +16,7 @@ public class Options : MonoBehaviour
     [SerializeField] GameObject VideoTabPanel = null;
     [SerializeField] GameObject ControlTabPanel = null;
 
+    [SerializeField] Toggle TutorialToggle = null;
     [SerializeField] Toggle InvertCamToggle = null;
     [SerializeField] public Slider lookSensitivitySlider;
     [SerializeField] TextMeshProUGUI ControlsText = null;
@@ -57,13 +58,34 @@ public class Options : MonoBehaviour
 
     void Awake()
     {
+        if(PlayerPrefs.GetInt("TutorialEnabled") == 0)
+        {
+            TutorialToggle.isOn = false;
+        }
+        else if (PlayerPrefs.GetInt("TutorialEnabled") == 1)
+        {
+            TutorialToggle.isOn = true;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("TutorialEnabled", 1);
+            PlayerPrefs.Save();
+            TutorialToggle.isOn = true;
+        }
+
         if(PlayerPrefs.GetInt("InvertedCam") == -1)
         {
             InvertCamToggle.isOn = false;
         }
-        else
+        else if (PlayerPrefs.GetInt("InvertedCam") == 1)
         {
             InvertCamToggle.isOn = true;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("InvertedCam", 1);
+            PlayerPrefs.Save();
+            InvertCamToggle.isOn = false;
         }
 
         lookSensitivitySlider.value = PlayerPrefs.GetFloat("LookSensitivity");
@@ -88,27 +110,47 @@ public class Options : MonoBehaviour
     public void ClickAudioTab()
     {
         SwitchActiveTab(AudioTabPanel);
+        AkSoundEngine.PostEvent("Options_Button_Audio", gameObject);
     }
 
     public void ClickVideoTab()
     {
         SwitchActiveTab(VideoTabPanel);
+        AkSoundEngine.PostEvent("Options_Button_Video", gameObject);
     }
 
     public void ClickControlsTab()
     {
         SwitchActiveTab(ControlTabPanel);
+        AkSoundEngine.PostEvent("Options_Button_Controls", gameObject);
+    }
+
+    public void SetTutorial()
+    {
+        //AkSoundEngine.PostEvent("Octo_System_Text", gameObject);
+        if (TutorialToggle.isOn)
+        {
+            PlayerPrefs.SetInt("TutorialEnabled", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("TutorialEnabled", 0);
+        }
+        PlayerPrefs.Save();
+        //Debug.LogWarning("Options: " + PlayerPrefs.GetInt("TutorialEnabled"));
     }
 
     public void SetSensitivitySlider()
     {
         PlayerPrefs.SetFloat("LookSensitivity", lookSensitivitySlider.value);
         PlayerPrefs.Save();
+        //Debug.LogError(PlayerPrefs.GetFloat("LookSensitivity"));
         UIAwake.UpdateLookSensitivity();
     }
 
     public void SetInvertCam()
     {
+        AkSoundEngine.PostEvent("Octo_System_Text", gameObject);
         if (InvertCamToggle.isOn)
         {
             //1 makes the camera inverted
@@ -119,6 +161,7 @@ public class Options : MonoBehaviour
             //-1 makes the camera not inverted
             PlayerPrefs.SetInt("InvertedCam", -1);
         }
+        //Debug.LogError(PlayerPrefs.GetInt("InvertedCam"));
         PlayerPrefs.Save();
         UIAwake.UpdateInvertCam();
     }

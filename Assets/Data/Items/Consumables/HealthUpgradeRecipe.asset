@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abdeee656b212c04d8cfed22eb1fe0c2, type: 3}
+  m_Name: HealthUpgradeRecipe
+  m_EditorClassIdentifier: 
+  DisplayName: Health Upgrade
+  ItemDesc: Crafts an upgrade that permanently increases health by 30.
+  isUpgrade: 1
+  ItemInput:
+  - item: {fileID: 11400000, guid: 702bc8a114d57044680804ee18c4d32f, type: 2}
+    amount: 5
+  ResourceInput:
+  - resource: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
+    amount: 50
+  Output: {fileID: 11400000, guid: 37f250fca4dc78744ad9bc639b903bf9, type: 2}
+  OutputAmount: 50

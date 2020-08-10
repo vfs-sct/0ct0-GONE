@@ -15,6 +15,17 @@ public class HUDInventoryWidget : MonoBehaviour
 
     private InventoryController bucketInventory;
 
+    //used mainly by tutorial prompts to teach folks to salvage
+    public int CalculateTotalMass()
+    {
+        int newTotalMass = 0;
+        foreach (var entry in resources)
+        {
+            newTotalMass += bucketInventory.GetResourceAmount(entry);
+        }
+        return newTotalMass;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +58,7 @@ public class HUDInventoryWidget : MonoBehaviour
     {
         foreach(var kvp in updateFill)
         {
-            //Debug.Log((float)bucketInventory.GetResourceAmount(kvp.Key) / 100);
+            //Debug.Log((float)bucketInventory.GetResourceAmount(kvp.Key) / 10);
             kvp.Value.fillAmount = ((float)bucketInventory.GetResourceAmount(kvp.Key) / 100);
         }
     }

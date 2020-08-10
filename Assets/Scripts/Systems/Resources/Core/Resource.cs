@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Systems/Resources/New Resource")]
 public class Resource : ScriptableObject
@@ -35,6 +34,7 @@ public class Resource : ScriptableObject
     [SerializeField] private float Maximum = 100;
     [SerializeField] public string DisplayName = "";
     [SerializeField] public string Abreviation = "";
+    [SerializeField] public string Desc = "";
     [SerializeField] public Color ResourceColor;
     [SerializeField] public Material ResourceHighlight;
     [SerializeField] public Sprite resourceIcon = null;
@@ -59,6 +59,12 @@ public class Resource : ScriptableObject
     private void RegisterInstance_internal(ResourceInventory owner,ResourceData_Internal RSData)
     {
         Data.Add(owner,RSData);
+    }
+
+    //used for health & fuel upgrade
+    public void SetMaximum(float newMax)
+    {
+        Maximum = newMax;
     }
 
     //used for fuel bar HUD
@@ -140,7 +146,7 @@ public class Resource : ScriptableObject
         //}
 
         //don't show pop text when AddInstanceValue is being used to subtract resources
-        if (isAdd && valueToAdd != 0)
+        if (isAdd && valueToAdd != 0 && owner.gameObject.GetComponent<Player>() != null)
         {
             //do nothing if the resource is already at max
             if (Maximum != 0 && Data[owner].Value == Maximum)

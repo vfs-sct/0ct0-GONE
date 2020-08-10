@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -47,8 +46,14 @@ public class InventoryController : MonoBehaviour
         }
         public ItemBucket GetBucketItemCount(Item getItem, out int amount)
         {
-            if (!Bucket.ContainsKey(getItem)) amount = -1;
-            amount = Bucket[getItem];
+            if (Bucket == null || !Bucket.ContainsKey(getItem))
+            {
+                amount = -1;
+            }
+            else
+            {
+                amount = Bucket[getItem];
+            }
             return this;
         }
         public ItemBucket RemoveBucketItem(Item remItem, out bool success, int amount = 1)
@@ -87,7 +92,8 @@ public class InventoryController : MonoBehaviour
     }
 
 
-    //TODO Optimize bucket system to use dicts
+    [SerializeField] private float InventoryMassMultiplier = 1.0f;
+
     [SerializeField] private List<ItemBucket> ItemBuckets = new List<ItemBucket>();
 
     //this is for serialization
@@ -95,11 +101,37 @@ public class InventoryController : MonoBehaviour
 
     private Dictionary<Resource, ItemBucket> ResourceBuckets_Dict = new Dictionary<Resource, ItemBucket>();
 
+    private Rigidbody playerRB;
+
+    private float CarriedItemMassRaw = 0;
+
+    private float CarriedResourceMassRaw = 0;
+
+    [SerializeField] private Playing playingGameState = null;
+    private Player player = null;
+
+    private int totalInvWeight = 0;
+
+    public void Start()
+    {
+        player = playingGameState.ActivePlayer;
+    }
+
     public bool CheckIfItemBucket()
     {
         if (ItemBuckets[0].Bucket == null || ItemBuckets[0].Bucket.Count == 0)
         {
-            Debug.LogWarning("No item bucket");
+            //Debug.LogWarning("No item bucket");
+            return false;
+        }
+        return true;
+    }
+
+    public bool CheckIfResourceBucket()
+    {
+        if (ResourceBuckets == null || ResourceBuckets.Count == 0)
+        {
+            Debug.LogWarning("No resource bucket");
             return false;
         }
         return true;
@@ -145,22 +177,22 @@ public class InventoryController : MonoBehaviour
 
     private void Awake()
     {
+
+        playerRB = gameObject.GetComponent<Rigidbody>();
         foreach (var item in ResourceBuckets)
         {
             ResourceBuckets_Dict.Add(item.ItemResource, new ItemBucket(item.Cap));
         }
-
-
     }
 
     public bool CanAddItem(int BucketIndex, Item itemToAdd)
     {
-        return ItemBuckets[BucketIndex].FillAmount + itemToAdd.Size <= ItemBuckets[BucketIndex].ItemCap;
+        return ItemBuckets[BucketIndex].FillAmount + itemToAdd.ChunkSize <= ItemBuckets[BucketIndex].ItemCap;
     }
 
     public bool CanAddResource(Resource resource, Item itemToAdd)
     {
-        return ResourceBuckets_Dict[resource].FillAmount + itemToAdd.Size <= ResourceBuckets_Dict[resource].ItemCap;
+        return ResourceBuckets_Dict[resource].FillAmount + itemToAdd.ChunkSize <= ResourceBuckets_Dict[resource].ItemCap;
     }
 
 
@@ -168,6 +200,9 @@ public class InventoryController : MonoBehaviour
     {
         bool success = false;
         ItemBuckets[BucketIndex] = ItemBuckets[BucketIndex].AddBucketItem(itemToAdd, out success, amount);
+        playerRB.mass += InventoryMassMultiplier * itemToAdd.Mass * amount;
+        CarriedItemMassRaw += itemToAdd.Mass * amount;
+        Debug.Log(""+CarriedItemMassRaw );
         return success;
     }
 
@@ -175,6 +210,8 @@ public class InventoryController : MonoBehaviour
     {
         bool success = false;
         ItemBuckets[BucketIndex] = ItemBuckets[BucketIndex].RemoveBucketItem(itemToRemove, out success, amount);
+        playerRB.mass -= InventoryMassMultiplier * itemToRemove.Mass * amount;
+        CarriedItemMassRaw -= itemToRemove.Mass  * amount;
         return success;
     }
 
@@ -186,6 +223,9 @@ public class InventoryController : MonoBehaviour
             TargetInventory.AddResource(ResourceList[i].Key, ResourceList[i].Value.FillAmount);
             ResourceBuckets_Dict[ResourceList[i].Key] = new ItemBucket(ResourceList[i].Value.ItemCap);
         }
+        playerRB.mass -= CarriedResourceMassRaw * InventoryMassMultiplier;
+        CarriedResourceMassRaw = 0;
+        AkSoundEngine.PostEvent("Octo_Resc_Deposit", gameObject);
     }
 
     public Dictionary<Item,int> GetResourceSalvageList(Resource resource)
@@ -203,18 +243,42 @@ public class InventoryController : MonoBehaviour
         return returnDict;
     }
 
+
+    public bool CanAddToResourceBucket(Item itemToAdd, int amount = 1)
+    {
+        return ResourceBuckets_Dict[itemToAdd.ResourceType].FillAmount + (itemToAdd.Size * amount) <= ResourceBuckets_Dict[itemToAdd.ResourceType].ItemCap;
+    }
+
     public bool AddToResourceBucket(Item itemToAdd, int amount = 1)
     {
         bool success = false;
+
+        //update octo's carry weight modifier
+        totalInvWeight += (itemToAdd.ChunkSize * amount);
+        player.GetComponent<MovementController>().SetInventoryWeight(totalInvWeight);
+        //Debug.LogWarning(totalInvWeight);
+
         //Debug.Log("Test");
         //Debug.Log(amount);
         ResourceBuckets_Dict[itemToAdd.ResourceType] = ResourceBuckets_Dict[itemToAdd.ResourceType].AddBucketItem(itemToAdd, out success, amount);
+        CarriedResourceMassRaw += itemToAdd.Mass* amount;
+        playerRB.mass += InventoryMassMultiplier * itemToAdd.Mass* amount;
+
         return success;
     }
     public bool RemoveFromResourceBucket(Item itemToRemove, int amount = 1)
     {
         bool success = false;
+
+        //update octo's carry weight modifier
+        totalInvWeight -= (itemToRemove.ChunkSize * amount);
+        player.GetComponent<MovementController>().SetInventoryWeight(totalInvWeight);
+        //Debug.LogWarning(totalInvWeight);
+
         ResourceBuckets_Dict[itemToRemove.ResourceType] = ResourceBuckets_Dict[itemToRemove.ResourceType].RemoveBucketItem(itemToRemove, out success, amount);
+        CarriedResourceMassRaw -= itemToRemove.Mass* amount;
+        playerRB.mass -= InventoryMassMultiplier * itemToRemove.Mass* amount;
+
         return success;
     }
 }

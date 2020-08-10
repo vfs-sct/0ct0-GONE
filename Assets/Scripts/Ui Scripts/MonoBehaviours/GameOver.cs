@@ -182,7 +182,7 @@ public class GameOver : MonoBehaviour
         }
         else
         {
-            AkSoundEngine.PostEvent("Env_01_Stop", AmbienceAudioReference);
+            AkSoundEngine.PostEvent("White_Noise_Env_Stop", AmbienceAudioReference);
             AkSoundEngine.PostEvent("Communications_Array_Stop", CommSatAudioReference);
         }
 
@@ -225,6 +225,8 @@ public class GameOver : MonoBehaviour
         confirmation.titleText.SetText("Quit?");
 
         confirmation.bodyText.GetComponent<TMPro.TMP_Text>().SetText("Are you sure you want to quit to desktop?");
+
+        AkSoundEngine.PostEvent("Not_Enough_Resources", gameObject);
 
         confirmation.clickConfirmCallback = DoQuit;
 

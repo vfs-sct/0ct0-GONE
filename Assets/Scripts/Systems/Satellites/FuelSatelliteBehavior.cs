@@ -6,8 +6,31 @@ public class FuelSatelliteBehavior : SatelliteBehavior
 {
     [SerializeField] private LayerMask CloudColliderMask;
     
-        public override bool PlacementConditionCheck(ToolController Owner)
+
+    bool ReturnValue = false;
+    Collider[] CloudColliders;
+    
+    GasCloud FoundCloud = null;
+
+    public override bool PlacementConditionCheck(ToolController Owner)
     {
-        return Physics.CheckSphere(transform.position, 0.5f,CloudColliderMask,QueryTriggerInteraction.Collide);
+        ReturnValue = false;
+        CloudColliders = Physics.OverlapSphere(transform.position, 0.5f,CloudColliderMask,QueryTriggerInteraction.Collide);
+        foreach (var collider in CloudColliders)
+        {
+            FoundCloud = collider.GetComponentInParent<GasCloud>();
+            if (FoundCloud != null)
+            {
+                if (!FoundCloud.HasNaniteSat)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public override void OnPlacePreview(ToolController Owner)
+    {
+        FoundCloud.HasNaniteSat = true;
     }
 }

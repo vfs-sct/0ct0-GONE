@@ -5,13 +5,32 @@ using TMPro;
 [CreateAssetMenu(menuName = "Systems/Tools/Repair Tool")]
 public class RepairTool : Tool
 {
-    private RepairableComponent repairableComponent;
+    private HealthComponent healthComponent;
     private ResourceInventory inventoryComponent;
 
     [SerializeField] private GameObject popText = null;
 
+    [SerializeField] private Resource RepairNaniteResource;
+
+    [SerializeField] private float NanitesPerCycle = 5;
+
+    [SerializeField] private float HealthPerCycle = 100;
+
+    [SerializeField] private float CycleInterval = 1;
+
+
+    private float NextUpdateTime = 0;
+
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
+        if (target == null) return false;
+        if(target.GetComponentInParent<HealthComponent>() == null && inventoryComponent.GetResource(RepairNaniteResource) < NanitesPerCycle)
+        {
+            Debug.Log("Target in LoopCondition() returned null");
+            var popTxt = Instantiate(popText);
+            popTxt.GetComponentInChildren<TextMeshProUGUI>().SetText("Cannot repair!");
+            return false;
+        }
         return true;
     }
 
@@ -22,32 +41,30 @@ public class RepairTool : Tool
 
     protected override bool LoopCondition(ToolController owner, GameObject target)
     {
-        if(target.GetComponent<RepairableComponent>() == null)
+        if(healthComponent == null || target == null)
         {
-            Debug.Log("Target in LoopCondition() returned null");
-            var popTxt = Instantiate(popText);
-            popTxt.GetComponentInChildren<TextMeshProUGUI>().SetText("Cannot repair!");
+            Debug.LogWarning("Nothing to repair");
             return false;
         }
-        repairableComponent = target.GetComponent<RepairableComponent>();
-        Debug.Log(repairableComponent);
-        return repairableComponent.DoRepair(inventoryComponent);
+       return healthComponent.CanRepair(owner.gameObject) && inventoryComponent.GetResource(RepairNaniteResource) >= NanitesPerCycle;
     }
 
     protected override void OnActivate(ToolController owner, GameObject target)
-    {
-       
+    {        
+       healthComponent = target.GetComponentInParent<HealthComponent>();
+       NextUpdateTime = Time.time + CycleInterval;
     }
 
     protected override void OnDeactivate(ToolController owner, GameObject target)
     {
-        repairableComponent = null;
+        NextUpdateTime = 0;
     }
 
     protected override void OnDeselect(ToolController owner)
     {
         Debug.Log("Repair Tool DeSelected");
         inventoryComponent = null;
+        healthComponent = null;
     }
 
     protected override void OnSelect(ToolController owner)
@@ -58,6 +75,16 @@ public class RepairTool : Tool
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
-        Debug.Log("Repairing Target");
+        if (NextUpdateTime <= Time.time)
+        {
+            healthComponent.Heal(HealthPerCycle);
+            inventoryComponent.RemoveResource(RepairNaniteResource,NanitesPerCycle);
+            Debug.Log("Repairing Target");
+            Debug.Log(healthComponent.Health);
+            NextUpdateTime += CycleInterval;
+        }
+
+        
+        
     }
 }

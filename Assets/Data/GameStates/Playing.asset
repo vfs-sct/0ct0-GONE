@@ -14,5 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanTick: 1
   TickRate: 0
-  _ActivePlayer: {fileID: 0}
+  DefaultBoolStates: []
+  DefaultIntStates: []
   RelayController: {fileID: 11400000, guid: 4b06e9352e2fd884dac2415878899387, type: 2}
+  StormWeatherCondition: Storm
+  StartingTimeBetweenStorms: 90
+  StartingStormDuration: 35
+  TimeDecreasePerCycle: 10
+  StormDurationIncreasePerCycle: 5
+  StormlerpTime: 10
+  StormWarningTime: 30
+  UIModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
+  PoolManager: {fileID: 11400000, guid: 1ae76656c9c31754e8905b2341f580d6, type: 2}
+  IRenderModule: {fileID: 11400000, guid: b4e007787bce3e540aa300e9b4edd27b, type: 2}
+  akStateGroup: BackEnd
+  akStateValueEnter: Threat
+  akStateValueExit: Gameplay

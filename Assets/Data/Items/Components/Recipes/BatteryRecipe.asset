@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: BatteryRecipe
   m_EditorClassIdentifier: 
   DisplayName: Battery
-  ItemInput: []
+  ItemDesc: Batteries are a basic component used to craft more advanced items.
+  ItemInput:
+  - item: {fileID: 11400000, guid: ee73bcf48f8ff51438cb185d9c669ae3, type: 2}
+    amount: 1
   ResourceInput:
   - resource: {fileID: 11400000, guid: 1cb4ab760de28e54aa94c48fc6d9bb76, type: 2}
-    amount: 1
-  - resource: {fileID: 11400000, guid: 733f38e14956f944da3bfb9804cf8314, type: 2}
-    amount: 1
-  - resource: {fileID: 11400000, guid: 9be095ef983d9a54fb658a0baa9fa362, type: 2}
-    amount: 3
+    amount: 15
+  - resource: {fileID: 11400000, guid: 817b9d6fe54926b47b141284265e21a3, type: 2}
+    amount: 5
   Output:
     item: {fileID: 11400000, guid: f4e1d8844bc727b4ead0f5d464e68620, type: 2}
     amount: 1

@@ -10,6 +10,7 @@ using UnityEditor;
 public class Pause : MonoBehaviour
 {
     [SerializeField] GameFrameworkManager GameManager = null;
+    [SerializeField] Tutorial TutorialPrefab = null;
     [SerializeField] GameObject CodexPrefab = null;
     [SerializeField] GameObject OptionsPrefab = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
@@ -21,6 +22,7 @@ public class Pause : MonoBehaviour
     private void OnEnable()
     {
         Cursor.visible = true;
+        AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
     }
 
     public void OnClickResume()
@@ -28,6 +30,7 @@ public class Pause : MonoBehaviour
         Cursor.visible = false;
         GameManager.UnPause();
         gameObject.SetActive(false);
+        AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
         Debug.Log("Unpaused");
     }
 
@@ -73,6 +76,8 @@ public class Pause : MonoBehaviour
     //used by the Confirmation screen
     void DoMainMenu()
     {
+        TutorialPrefab.enabled = false;
+
         // ========================
         //          AUDIO
         // ========================
@@ -82,7 +87,7 @@ public class Pause : MonoBehaviour
         }
         else
         {
-            AkSoundEngine.PostEvent("Env_01_Stop", AudioReferences2);
+            AkSoundEngine.PostEvent("White_Noise_Env_Stop", AudioReferences2);
             AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
         }
 
@@ -97,6 +102,8 @@ public class Pause : MonoBehaviour
         confirmation.titleText.SetText("Quit?");
 
         confirmation.bodyText.GetComponent<TMPro.TMP_Text>().SetText("Are you sure you want to quit to desktop?");
+
+        AkSoundEngine.PostEvent("Not_Enough_Resources", gameObject);
 
         confirmation.clickConfirmCallback = DoQuit;
 

@@ -22,25 +22,26 @@ public class ObjectivePopUp : MonoBehaviour
     private string memoryReconstruction = "Reconstruction at ";
     [SerializeField] private List<Image> images;
     [SerializeField] private List<TextMeshProUGUI> text;
-    private string[] objectiveShort = new string[8]
+    private string[] objectiveShort = new string[7]
     {
-        "Refuel at the station",
-        "Salvage Iron Debris",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
+        "Recharge at the station",
+        "Salvage Iron and Silicon",
+        "Craft and place a Nanite Satellite",
+        "Repair the Station's Antenna",
+        "Repair the Station's Solar Array",
+        "Repair the Station's Power Storage",
+        "Get a message home",
     };
 
     private bool fadingIn = false;
     private bool fadingOut = false;
 
-    private float bkImageAlpha = 0.85f;
+    private float bkImageAlpha = 1f;
     private bool fadingOutText = false;
 
     private bool _isPreText = false;
+
+    private bool bannerQueued = false;
 
     private void OnEnable()
     {
@@ -58,22 +59,31 @@ public class ObjectivePopUp : MonoBehaviour
     public void SetObjectiveText(bool isPreText)
     {
         _isPreText = isPreText;
-        if (objectiveShort[currentEvent] != null)
-        {
-            if (isPreText)
-            {
-                titleText.SetText(objectiveComplete);
-                objectiveText.SetText(memoryReconstruction + ((currentEvent) * 12.5).ToString() + "%");
-            }
-            else
-            {
-                titleText.SetText(newObjective);
-                objectiveText.SetText(objectiveShort[currentEvent]);
-                currentEvent++;
-            }
 
-            gameObject.SetActive(true);
-            fadingIn = true;
+        if (fadingIn == true && fadingOut == true)
+        {
+            //queue this banner there's already a banner playing when we try to start it
+            bannerQueued = true;
+        }
+        else
+        {
+            if (currentEvent <= objectiveShort.Length)
+            {
+                if (isPreText)
+                {
+                    titleText.SetText(objectiveComplete);
+                    objectiveText.SetText(memoryReconstruction + ((currentEvent) * 12.5).ToString() + "%");
+                }
+                else
+                {
+                    titleText.SetText(newObjective);
+                    objectiveText.SetText(objectiveShort[currentEvent]);
+                    currentEvent++;
+                }
+
+                gameObject.SetActive(true);
+                fadingIn = true;
+            }
         }
     }
 
@@ -242,6 +252,12 @@ public class ObjectivePopUp : MonoBehaviour
             }
             fadingOut = false;
             gameObject.SetActive(false);
+
+            if(bannerQueued == true && _isPreText == false)
+            {
+                bannerQueued = false;
+                SetObjectiveText(true);
+            }
         }
     }
 

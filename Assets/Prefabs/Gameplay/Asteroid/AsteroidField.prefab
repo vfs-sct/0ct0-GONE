@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1929646020116948115}
   - component: {fileID: -6351023738921630526}
+  - component: {fileID: 2980486781352608611}
   m_Layer: 0
   m_Name: AsteroidField
   m_TagString: ThreatField
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4822959680187600159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3397323, y: -7.2803226, z: 84.96093}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,5 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnTimer: 5
-  SpawnHeight: 0
+  SpawnHeight: 27
+  SpawnWidth: 17
   Asteroid: {fileID: 697024593604275433, guid: cb17a44b2ff91d74b8391e14686c57dd, type: 3}
+--- !u!65 &2980486781352608611
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822959680187600159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 51.8, y: 27.93, z: 17.85}
+  m_Center: {x: 0, y: 0, z: 0}

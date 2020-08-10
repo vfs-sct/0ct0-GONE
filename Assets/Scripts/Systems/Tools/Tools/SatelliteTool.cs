@@ -1,22 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-
-
 
 [CreateAssetMenu(menuName = "Systems/Tools/Place Satellite")]
 public class SatelliteTool : Tool
 {
+    [SerializeField] EventModule EventModule = null;
     SatelliteInventory satInv;
     GameObject SatellitePreview;
     SatelliteBehavior SatBehavior;
 
+    public List<PlacementVisualizer> cloudVisualizers = new List<PlacementVisualizer>();
 
     protected override bool ActivateCondition(ToolController owner, GameObject target)
     {
+        if (SatBehavior == null || target == null) return false;
         return (SatBehavior.PlacementConditionCheck(owner) &&(satInv.StoredSatellites[0] != null));
-        
-
     }
 
     protected override bool DeactivateCondition(ToolController owner, GameObject target)
@@ -32,10 +30,18 @@ public class SatelliteTool : Tool
     protected override void OnActivate(ToolController owner, GameObject target)
     {
         Debug.Log("Satellite Tool Activated");
+        SatellitePreview.GetComponent<SatelliteBehavior>().OnPlacePreview(owner);
         Destroy(SatellitePreview);
         GameObject PlacedSat = GameObject.Instantiate(satInv.StoredSatellites[0].PlacePrefab);
         PlacedSat.transform.position = satInv.SatelliteSpawnPos.position;
         PlacedSat.transform.rotation = satInv.SatelliteSpawnPos.rotation;
+
+        if(EventModule.CurrentEvent.GetType() == typeof(CraftSatelliteEvent))
+        {
+            var craft_satellite_event = (CraftSatelliteEvent)EventModule.CurrentEvent;
+            craft_satellite_event.SatPlaced(satInv.StoredSatellites[0]);
+        }
+
         satInv.RemoveSat(0);
         owner.DeselectTool();
     }
@@ -47,7 +53,19 @@ public class SatelliteTool : Tool
 
     protected override void OnDeselect(ToolController owner)
     {
+        if (cloudVisualizers[0].enabled == true)
+        {
+            foreach (var cloud in cloudVisualizers)
+            {
+                cloud.DisableVisualizer();
+            }
+        }
         Debug.Log("Satellite Tool DeSelected");
+        //turn off tooltips from satinv
+        satInv.NoSatTooltip.SetActive(false);
+        satInv.SatNotInCloud.SetActive(false);
+        satInv.PlaceSat.SetActive(false);
+        //nullify satinv
         satInv = null;
         SatBehavior = null;
         Destroy(SatellitePreview);
@@ -57,11 +75,22 @@ public class SatelliteTool : Tool
     {
         Debug.Log("Satellite Tool Selected");
         satInv = owner.GetComponent<SatelliteInventory>();
-        if (satInv == null || satInv.StoredSatellites[0] == null)
+        if (satInv == null || satInv.StoredSatellites.Count == 0 || satInv.StoredSatellites[0] == null)
         {
-            Debug.Log("NoSat Found");
+            satInv.NoSatTooltip.SetActive(true);
+            //Debug.Log("NoSat Found");
             return;
         }
+
+        //this is such a gross way of checking what satellite type a thing is im sorry
+        if(satInv.StoredSatellites[0].name == "FuelSatellite")
+        {
+            foreach(var cloud in cloudVisualizers)
+            {
+                cloud.VisualizeArea();
+            }
+        }
+
         SatellitePreview = GameObject.Instantiate(satInv.StoredSatellites[0].PreviewPrefab);
         SatellitePreview.transform.position = satInv.SatelliteSpawnPos.position;
         SatellitePreview.transform.rotation = satInv.SatelliteSpawnPos.rotation;
@@ -71,5 +100,21 @@ public class SatelliteTool : Tool
 
     protected override void OnWhileActive(ToolController owner, GameObject target)
     {
+        if (satInv == null || satInv.StoredSatellites[0] == null)
+        {
+            return;
+        }
+        if(SatBehavior.PlacementConditionCheck(owner) && (satInv.StoredSatellites[0] != null))
+        {
+            satInv.PlaceSat.SetActive(true);
+            satInv.NoSatTooltip.SetActive(false);
+            satInv.SatNotInCloud.SetActive(false);
+        }
+        else
+        {
+            satInv.PlaceSat.SetActive(false);
+            satInv.NoSatTooltip.SetActive(false);
+            satInv.SatNotInCloud.SetActive(true);
+        }
     }
 }

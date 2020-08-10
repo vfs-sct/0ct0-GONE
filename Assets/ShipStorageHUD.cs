@@ -9,6 +9,7 @@ public class ShipStorageHUD : MonoBehaviour
     [SerializeField] ResourceInventory storageOwner = null;
     [SerializeField] HorizontalLayoutGroup dialLayout = null;
     [SerializeField] GameObject dial = null;
+    [SerializeField] GameObject popTextGO = null;
 
     private List<Resource> resourceList = null;
     private Dictionary<Resource, GameObject> updateDial = new Dictionary<Resource, GameObject>();
@@ -21,6 +22,19 @@ public class ShipStorageHUD : MonoBehaviour
         {
             GenerateDial(resource);
         }
+
+        foreach (var kvp in updateDial)
+        {
+            var popText = Instantiate(popTextGO);
+            popText.transform.SetParent(kvp.Value.GetComponentInChildren<Image>().transform);
+            popText.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+            popText.GetComponentInChildren<TextMeshProUGUI>().SetText("Transferred");
+        }
+    }
+
+    public void SetStorageOwner(ResourceInventory newOwner)
+    {
+        storageOwner = newOwner;
     }
 
     private void OnEnable()
@@ -28,6 +42,14 @@ public class ShipStorageHUD : MonoBehaviour
         if(resourceList == null)
         {
             resourceList = storageOwner.GetActiveResourceList();
+        }
+
+        foreach (var kvp in updateDial)
+        {
+            var popText = Instantiate(popTextGO);
+            popText.transform.SetParent(kvp.Value.GetComponentInChildren<Image>().transform);
+            popText.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+            popText.GetComponentInChildren<TextMeshProUGUI>().SetText("Transferred");
         }
 
         UpdateDials();
@@ -60,10 +82,6 @@ public class ShipStorageHUD : MonoBehaviour
     {
         foreach (var kvp in updateDial)
         {
-            Debug.Log("RESOURCE:");
-            Debug.Log(kvp.Key.DisplayName);
-            Debug.Log(storageOwner.GetResource(kvp.Key));
-
             var getObjects = kvp.Value.GetComponent<GetObjectsDial>();
 
             getObjects.GetCapacityText().SetText($"{storageOwner.GetResource(kvp.Key).ToString()}/{kvp.Key.GetMaximum().ToString()}");
