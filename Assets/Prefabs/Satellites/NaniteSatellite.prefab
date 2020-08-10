@@ -61,16 +61,9 @@ MonoBehaviour:
   - Player
   willTriggerEnter: 1
   willTriggerExit: 1
-  akEventsEnter:
-  - idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 87a90f9a72fadb24c9d4f7fdd83ebd58,
-      type: 2}
-  akEventsExit:
-  - idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 38323e66add66da47834e13d5359e480,
-      type: 2}
+  akEventsPlay: []
+  akEventsStop: []
+  stopOnDestroy: 0
 --- !u!1 &1312012451193740564
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,12 +138,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LinkedInventory: {fileID: 1601580445543466040}
   NaniteResource: {fileID: 11400000, guid: 0c2a059b144e0f144864c43c77534927, type: 2}
-  NanitesPerSecond: 1
-  UpdatesPerSecond: 10
+  NanitesPerSecond: 10
+  UpdatesPerSecond: 40
   NaniteOffloadAmount: 5
   OffloadEmptyMsg: No Nanites Left
   OffloadFullMsg: Nanites Full
   popText: {fileID: 7001259176512481598, guid: 6082956a558828445afc6a77b3e25ac6, type: 3}
+  AntiSpam: 0.4
 --- !u!54 &1389718726411926219
 Rigidbody:
   m_ObjectHideFlags: 0

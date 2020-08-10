@@ -17,8 +17,12 @@ public class NaniteSatellite : MonoBehaviour
 
     [SerializeField] private ResourceGainedPopTxt popText = null;
 
+    [SerializeField] private float AntiSpam = 0.05f;
+
     private float NextTimeShiftValue;
     private float NanitesPerTick;
+
+    private float AntiSpamTimer = 0;
 
     private float NextUpdate = 0;
 
@@ -53,19 +57,27 @@ public class NaniteSatellite : MonoBehaviour
             if (LinkedInventory.GetResource(NaniteResource)>= NaniteOffloadAmount)
             {
                 //player-facing poptext
-                var poptext = Instantiate(popText);
-                poptext.popText.SetText($"{NaniteResource.DisplayName} added");
+                if (AntiSpamTimer <= Time.time)
+                {
+                    var poptext = Instantiate(popText); //No this doesn't cause memleaks, I know it looks bad but it doesn't
+                    poptext.popText.SetText($"{NaniteResource.DisplayName} added");
+                    AntiSpamTimer = Time.time+AntiSpam;
+                }
+
 
                 Target.AddResource(NaniteResource,NaniteOffloadAmount);
                 LinkedInventory.RemoveResource(NaniteResource,NaniteOffloadAmount);
-                Debug.Log("Offloading Nanites:");
                 Debug.Log(Target.GetResource(NaniteResource));
             }
             else{
                 //player-facing poptext
-                var poptext = Instantiate(popText);
-                poptext.popText.SetText($"No {NaniteResource.DisplayName} available");
-                Debug.Log("Not enough Nanites");
+                if (AntiSpamTimer <= Time.time)
+                {
+                    var poptext = Instantiate(popText);
+                    poptext.popText.SetText($"No {NaniteResource.DisplayName} available");
+                    AntiSpamTimer = Time.time+AntiSpam;
+                }
+
                 //error = OffloadEmptyMsg;
                 return;
             }
