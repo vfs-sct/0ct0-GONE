@@ -227,6 +227,16 @@ public class CraftingSatellite : MonoBehaviour
                     //adding owned amount to dictionary for updating
                     TextToResource.Add(inputText[1], input.resource);
                     inputText[2].SetText($"/ {input.amount}");
+
+                    var tooltip = ingredient.GetComponent<GetTooltip>().GetTooltipScript();
+                    tooltip.GetTitle().color = input.resource.ResourceColor;
+                    tooltip.SetTitle(input.resource.DisplayName);
+                    tooltip.SetDesc(input.resource.Desc);
+
+                    //tooltips for resources dont have the extra panel for ingredients at the bottom
+                    var sizeDelta = tooltip.GetBkImg().GetComponent<RectTransform>().sizeDelta;
+                    sizeDelta.y -= 50;
+                    tooltip.GetBkImg().GetComponent<RectTransform>().sizeDelta = sizeDelta;
                 }
 
                 foreach (var input in recipe.ItemInput)
@@ -248,6 +258,12 @@ public class CraftingSatellite : MonoBehaviour
                     //adding owned amount to dictionary for updating
                     TextToItem.Add(inputText[1], input.item);
                     inputText[2].SetText($"/ {input.amount}");
+
+                    var tooltip = ingredient.GetComponent<GetTooltip>().GetTooltipScript();
+                    tooltip.SetTitle(input.item.Name);
+                    tooltip.SetDesc(input.item.ItemDesc);
+
+                    tooltip.AddSubIngredients(input.item.CraftingRecipe, shipInventory, playerInventory);
                 }
 
                 //show how much of each mat they have

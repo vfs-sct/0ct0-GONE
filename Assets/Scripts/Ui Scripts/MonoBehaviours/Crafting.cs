@@ -317,6 +317,11 @@ public class Crafting : MonoBehaviour
                     tooltip.GetTitle().color = input.resource.ResourceColor;
                     tooltip.SetTitle(input.resource.DisplayName);
                     tooltip.SetDesc(input.resource.Desc);
+
+                    //tooltips for resources dont have the extra panel for ingredients at the bottom
+                    var sizeDelta = tooltip.GetBkImg().GetComponent<RectTransform>().sizeDelta;
+                    sizeDelta.y -= 50;
+                    tooltip.GetBkImg().GetComponent<RectTransform>().sizeDelta = sizeDelta;
                 }
 
                 foreach (var input in recipe.ItemInput)

@@ -7,6 +7,7 @@ public class IngredientTooltip : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI title = null;
     [SerializeField] TextMeshProUGUI desc = null;
+    [SerializeField] Image bkImg = null;
     [SerializeField] TextMeshProUGUI requires = null;
     [SerializeField] HorizontalLayoutGroup contentGroup = null;
     [SerializeField] GameObject subIngredientBox = null;
@@ -20,6 +21,11 @@ public class IngredientTooltip : MonoBehaviour
     private void OnEnable()
     {
         UpdateOwnedAmounts();
+    }
+
+    public Image GetBkImg()
+    {
+        return bkImg;
     }
 
     //hooked up in editor to mouse trigger
