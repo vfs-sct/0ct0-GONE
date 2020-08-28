@@ -293,8 +293,8 @@ public class Player : MonoBehaviour
         else if(root.tag == "Repairable")
         {
             RepairableScreenTooltip.SetActive(true);
-            CraftingTooltip.SetActive(true);
-            RefuellingTooltip.SetActive(true);
+            CraftingTooltip.SetActive(false);
+            RefuellingTooltip.SetActive(false);
         }
         else if(root.tag == "NaniteFactory")
         {
