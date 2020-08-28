@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using System;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class Crafting : MonoBehaviour
 {
@@ -70,6 +71,7 @@ public class Crafting : MonoBehaviour
 
     [Header("System")]
     [SerializeField] private EventModule EventController;
+    [SerializeField] private SaveFile saveFile;
 
     [Header("Do Not Touch")]
     public bool isCrafting = false;
@@ -123,7 +125,6 @@ public class Crafting : MonoBehaviour
 
     void Start()
     {
-
         isSoundPlayed = false;
         playerInventory = UIRoot.GetPlayer().GetComponent<InventoryController>();        
 
@@ -422,6 +423,11 @@ public class Crafting : MonoBehaviour
 
     public void UpdateOwnedAmounts()
     {
+        var activeResource = shipInventory.GetActiveResourceList();
+        for (int i = 0; i < activeResource.Count; i++)
+        {
+            saveFile.hubResource[i] = shipInventory.GetResource(activeResource.ElementAt(i));
+        }
         foreach(var kvp in TextToResource)
         {
             kvp.Key.SetText(shipInventory.GetResource(kvp.Value).ToString());

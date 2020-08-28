@@ -1,6 +1,7 @@
 ﻿//Copyright Jesse Rougeau, 2020 ©
 
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ResourceInventory : MonoBehaviour
@@ -15,6 +16,8 @@ public class ResourceInventory : MonoBehaviour
     [SerializeField] private List<ResourceModule.ResourceData> OverrideValues;
 
     [SerializeField] private GameObject resourceAddedPopTxt = null;
+
+    [SerializeField] private SaveFile saveFile = null;
 
     void Awake()
     {
@@ -41,6 +44,22 @@ public class ResourceInventory : MonoBehaviour
             foreach (var resource in ActiveResources)
             {
                 ResourceManager.CreateResourceInstance(resource,this); //create resource with default values
+            }
+        }
+
+        if (gameObject.name == "Player")
+        {
+
+        }
+        else
+        {
+            if (saveFile != null)
+            {
+                //grab saved resource amounts and give the hub that much of each resource
+                for (int i = 0; i < ActiveResources.Count; i++)
+                {
+                    SetResource(ActiveResources.ElementAt(i), saveFile.hubResource[i]);
+                }
             }
         }
     }

@@ -8,18 +8,42 @@ using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("Next Scene")]
+    [SerializeField] string nextScene = null;
+
+    [Header("System")]
     [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] private GameState MainMenuState = null;
+    [SerializeField] private SaveFile saveFile = null;
+
+    [Header("Screens")]
     [SerializeField] GameObject OptionsPrefab = null;
     [SerializeField] GameObject CreditsPrefab = null;
     [SerializeField] GameObject ConfirmationPrefab = null;
+
+    [Header("Buttons")]
+    [SerializeField] GameObject continueButton = null;
+
+    [Header("Sound")]
     [SerializeField] GameObject AudioReferences = null;
 
-    [SerializeField] string nextScene = null;
-
-    public void OnClickPlay()
+    public void OnClickContinue()
     {
         if(AudioReferences == null)
+        {
+            Debug.LogError("A sound reference has not been hooked up on the UI Main Menu prefab");
+        }
+        else
+        {
+            AkSoundEngine.PostEvent("MUS_Stop", AudioReferences);
+        }
+        GameManager.LoadScene($"{nextScene}");
+    }
+
+    public void OnClickNewGame()
+    {
+        saveFile.Reset();
+        if (AudioReferences == null)
         {
             Debug.LogError("A sound reference has not been hooked up on the UI Main Menu prefab");
         }
@@ -83,6 +107,15 @@ public class MainMenu : MonoBehaviour
 
     private void OnEnable()
     {
+        if(saveFile.HasSaveGame())
+        {
+            continueButton.SetActive(true);
+        }
+        else
+        {
+            continueButton.SetActive(false);
+        }
+
         if((MainMenuState as MainMenuState).IsGameCompleted())
         {
             CreditsPrefab.SetActive(true);

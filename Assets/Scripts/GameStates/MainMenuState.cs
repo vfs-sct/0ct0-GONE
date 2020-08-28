@@ -10,7 +10,7 @@ public class MainMenuState : GameState
     //[SerializeField] private ScriptedUI MainMenuUI = null;
     //[SerializeField] private ScriptedUI OptionsUI = null;
     //[SerializeField] private ScriptedUI CreditsUI = null;
-
+    [SerializeField] private SaveFile saveFile = null;
 
     private bool _completedGame = false;
 
@@ -21,6 +21,11 @@ public class MainMenuState : GameState
 
     public void SetGameCompleted(bool isComplete)
     {
+        if(isComplete == true)
+        {
+            //game is finished so wipe save
+            saveFile.Reset();
+        }
         _completedGame = isComplete;
     }
 

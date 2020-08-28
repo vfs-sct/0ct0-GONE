@@ -6,10 +6,12 @@ using UnityEngine.InputSystem;
 using TMPro;
 using System;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class CraftingSatellite : MonoBehaviour
 {
     [SerializeField] GameFrameworkManager GameManager = null;
+    [SerializeField] private SaveFile saveFile = null;
     [SerializeField] CraftingModule CraftingModule = null;
     [SerializeField] UIAwake UIRoot = null;
     [SerializeField] GameObject HUDPrefab = null;
@@ -38,6 +40,7 @@ public class CraftingSatellite : MonoBehaviour
     [SerializeField] GameObject Ingredient = null;
     [SerializeField] TextMeshProUGUI amountInInventory = null;
     [SerializeField] ResourceGainedPopTxt popText = null;
+    
 
     //associate number of owned ingredients with resource/ingredient
     Dictionary<TextMeshProUGUI, Resource> TextToResource = new Dictionary<TextMeshProUGUI, Resource>();
@@ -336,6 +339,11 @@ public class CraftingSatellite : MonoBehaviour
 
     public void UpdateOwnedAmounts()
     {
+        var activeResource = shipInventory.GetActiveResourceList();
+        for (int i = 0; i < activeResource.Count; i++)
+        {
+            saveFile.hubResource[i] = shipInventory.GetResource(activeResource.ElementAt(i));
+        }
         foreach (var kvp in TextToResource)
         {
             kvp.Key.SetText(shipInventory.GetResource(kvp.Value).ToString());
