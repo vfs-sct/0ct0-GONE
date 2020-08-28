@@ -10,20 +10,54 @@ public class SaveFile : ScriptableObject
     //how much of each resource is in the space station
     public float[] hubResource = new float[5] { 0f, 0f, 0f, 0f, 0f };
 
+    public void Save()
+    {
+        using (var file = new System.IO.StreamWriter(@"0CT0-save.sav"))
+        {
+            file.WriteLine($"objective={objective}");
+
+            for(int i = 0; i < hubResource.Length; i++)
+            {
+                file.WriteLine($"hubResource{i}={hubResource[i]}");
+            }
+        }
+    }
+
+    public void Load()
+    {
+        if (System.IO.File.Exists(@"0CT0-save.sav"))
+        {
+            foreach (var line in System.IO.File.ReadAllLines(@"0CT0-save.sav"))
+            {
+                if (line.StartsWith("objective="))
+                {
+                    objective = int.Parse(line.Split('=')[1]);
+                    return;
+                }
+
+                for(int i = 0; i < hubResource.Length; i++)
+                {
+                    if (line.StartsWith($"hubResource{i}="))
+                    {
+                        hubResource[i] = int.Parse(line.Split('=')[1]);
+                        return;
+                    }
+                }
+            }
+        }
+        else
+        {
+            //not necessarily an error, the player may just not have done anything that saved yet
+            Debug.Log("No save to load");
+        }
+    }
+
     //is there currently a game in progress
     public bool HasSaveGame()
     {
-        if(objective != 0)
+        if (System.IO.File.Exists(@"0CT0-save.sav"))
         {
             return true;
-        }
-
-        foreach(var entry in hubResource)
-        {
-            if(entry != 0f)
-            {
-                return true;
-            }
         }
 
         return false;
@@ -31,6 +65,8 @@ public class SaveFile : ScriptableObject
 
     public void Reset()
     {
+        System.IO.File.Delete(@"0CT0-save.sav");
+
         objective = 0;
 
         for(int i = 0; i < hubResource.Length; i++)

@@ -12,6 +12,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GameFramework/Core/GameManager")]
 public class GameFrameworkManager : ScriptableObject
 {
+    [SerializeField] SaveFile saveFile = null;
+
     [SerializeField] UIModule UIModule = null;
 
     [SerializeField] 
@@ -220,6 +222,9 @@ public class GameFrameworkManager : ScriptableObject
     //main initialization
     private void Initalize()
     {
+        saveFile.Load();
+        Debug.Log("----------------------------------\n");
+        Debug.Log("Save Loaded\n");
 
         SceneManager.sceneLoaded +=  OnSceneLoad;
 

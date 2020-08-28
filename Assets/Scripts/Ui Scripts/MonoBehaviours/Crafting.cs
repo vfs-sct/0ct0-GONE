@@ -427,6 +427,7 @@ public class Crafting : MonoBehaviour
         for (int i = 0; i < activeResource.Count; i++)
         {
             saveFile.hubResource[i] = shipInventory.GetResource(activeResource.ElementAt(i));
+            saveFile.Save();
         }
         foreach(var kvp in TextToResource)
         {

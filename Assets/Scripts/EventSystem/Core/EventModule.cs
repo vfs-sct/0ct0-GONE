@@ -43,7 +43,6 @@ public class EventModule : Module
     public override void Start()
     {
         Reset();
-
         //if no event progression is saved, proceed as if starting a new game
         if (saveFile.objective == 0)
         {
@@ -93,7 +92,8 @@ public class EventModule : Module
         if (EventQueue.Count != 0)
         {
             saveFile.objective++;
-           _CurrentEvent = EventQueue.Dequeue();
+            saveFile.Save();
+            _CurrentEvent = EventQueue.Dequeue();
             //initialize new event
            _CurrentEvent.InitializeEvent();
         } 
