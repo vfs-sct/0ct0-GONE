@@ -5,7 +5,7 @@
 public class SaveFile : ScriptableObject
 {
     //number of audio logs already unlocked
-    int objective = 0;
+    public int objective = 0;
 
     //how much of each resource is in the space station
     public float[] hubResource = new float[5] { 0f, 0f, 0f, 0f, 0f };

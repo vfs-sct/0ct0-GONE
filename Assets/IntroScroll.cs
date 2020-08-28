@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class IntroScroll : MonoBehaviour
 {
+    [SerializeField] private SaveFile saveFile = null;
 
     [SerializeField] private bool InEditorSkipIntro = false;
 
@@ -66,6 +67,14 @@ public class IntroScroll : MonoBehaviour
 
     void Awake()
     {
+        if(saveFile.HasSaveGame())
+        {
+            TutorialPrefab.SetActive(false);
+            gameHUD.SetActive(true);
+            gameObject.SetActive(false);
+            return;
+        }
+
         if (InEditorSkipIntro && Application.isEditor)
         {
             Debug.LogWarning("SKIPPING INTRO!");

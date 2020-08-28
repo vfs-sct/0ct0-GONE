@@ -6,6 +6,10 @@ using UnityEngine;
 public class EventModule : Module
 {
     [SerializeField] GameFrameworkManager gameManager = null;
+
+    [SerializeField] private SaveFile saveFile = null;
+    
+    [Header("DO NOT TOUCH")]
     //NEVER ALTER OR TOUCH THINGS IN THESE EVENTS:
     [SerializeField] private List<Event> EventSequence = new List<Event>();
 
@@ -39,20 +43,44 @@ public class EventModule : Module
     public override void Start()
     {
         Reset();
-        //making copy of event list so we dont alter the original
-        bool is_first = true;
-        foreach (var item in EventSequence)
+
+        //if no event progression is saved, proceed as if starting a new game
+        if (saveFile.objective == 0)
         {
-            var item_copy = GameObject.Instantiate(item);
-            if (is_first)
+            //making copy of event list so we dont alter the original
+            bool is_first = true;
+            foreach (var item in EventSequence)
             {
-                is_first = false;
-                _CurrentEvent = item_copy;
-                _CurrentEvent.InitializeEvent();
+                var item_copy = GameObject.Instantiate(item);
+                if (is_first)
+                {
+                    is_first = false;
+                    _CurrentEvent = item_copy;
+                    _CurrentEvent.InitializeEvent();
+                }
+                else
+                {
+                    EventQueue.Enqueue(item_copy);
+                }
             }
-            else
+        }
+        else //if event progression is saved, initiate the event the player was on when they last stopped playing
+        {
+            int isStartPoint = 0;
+            foreach (var item in EventSequence)
             {
-                EventQueue.Enqueue(item_copy);
+                var item_copy = GameObject.Instantiate(item);
+                if (isStartPoint == saveFile.objective)
+                {
+                    _CurrentEvent = item_copy;
+                    _CurrentEvent.InitializeEvent();
+                }
+                else if(isStartPoint > saveFile.objective)
+                {
+                    EventQueue.Enqueue(item_copy);
+                }
+
+                isStartPoint++;
             }
         }
     }
@@ -64,6 +92,7 @@ public class EventModule : Module
         _CurrentEvent.TriggerEffect(target);
         if (EventQueue.Count != 0)
         {
+            saveFile.objective++;
            _CurrentEvent = EventQueue.Dequeue();
             //initialize new event
            _CurrentEvent.InitializeEvent();

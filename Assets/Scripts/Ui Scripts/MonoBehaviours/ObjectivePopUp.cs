@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ObjectivePopUp : MonoBehaviour
 {
+    [SerializeField] private SaveFile saveFile = null;
+
     [SerializeField] private TextMeshProUGUI titleText = null;
     [SerializeField] private TextMeshProUGUI objectiveText = null;
     //how long does it take to fade in/out
@@ -42,6 +44,8 @@ public class ObjectivePopUp : MonoBehaviour
     private bool _isPreText = false;
 
     private bool bannerQueued = false;
+    
+    
 
     private void OnEnable()
     {
@@ -279,6 +283,10 @@ public class ObjectivePopUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(saveFile.HasSaveGame())
+        {
+            currentEvent = saveFile.objective;
+        }
         foreach (var image in images)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);

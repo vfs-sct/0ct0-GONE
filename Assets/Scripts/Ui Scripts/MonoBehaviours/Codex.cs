@@ -9,6 +9,10 @@ using System.Linq;
 
 public class Codex : MonoBehaviour
 {
+    [Header("Save")]
+    [SerializeField] private SaveFile saveFile = null;
+
+    [Header("Prefabs")]
     [SerializeField] OutroScroll outroScrollPrefab = null;
     [SerializeField] GameObject PausePrefab = null;
     //contentGroup is a navigation bar I have on the side to contain all my buttons to entries
@@ -68,6 +72,15 @@ public class Codex : MonoBehaviour
     private void Start()
     {
         buttonPanelScrollbar.value = 1f;
+
+        if(saveFile.objective != 0)
+        {
+            for(int i = 0; i <= saveFile.objective; i++)
+            {
+                isLocked[i] = false;
+            }
+            UpdateButtons();
+        }
     }
 
     //enable to debug unlock all entries with "C"
