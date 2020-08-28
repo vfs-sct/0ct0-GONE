@@ -4,6 +4,7 @@ public class Damaged : MonoBehaviour
 {
     [SerializeField] private float flashTime;
     [SerializeField] GameFrameworkManager gameManager = null;
+    [SerializeField] private FillBar healthBar = null;
 
     private bool isLowFuel = false;
 
@@ -19,6 +20,7 @@ public class Damaged : MonoBehaviour
     {
         if (!isLowFuel)
         {
+            healthBar.Damaged();
             //EVAN - octo hurt sound, already buffered so cant be spammed
             AkSoundEngine.PostEvent("Damage", gameObject);
             StartCoroutine(BufferTime(flashTime));
