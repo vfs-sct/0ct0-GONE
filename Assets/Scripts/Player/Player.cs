@@ -71,28 +71,10 @@ public class Player : MonoBehaviour
 
     private GameObject _TargetedObject;
     public GameObject TargetedObject {get=> _TargetedObject;}
-    //private GameObject LastHighlightObject = null;
-    //private Material lastHighlightMat = null;
-    //private Material HighlightMaterial = null;
 
 
 
     private bool disableCam = false;
-
-   /* private struct HMatData
-    {
-        public MeshRenderer Owner;
-
-        public Color color;
-        public Material OldMat;
-
-        public HMatData(MeshRenderer ren,Material mat,Color c)
-        {
-            Owner = ren;
-            OldMat = mat;
-            color = c;
-        }
-    }*/
 
     public void SetTarget(GameObject newTarget)
     {
@@ -198,8 +180,6 @@ public class Player : MonoBehaviour
         //Debug.Log("Press");
         LinkedToolController.ActivateTool();
 
-        //testing code for satellite placement
-        //if (LastToolSelectedIndex == -1) SatHolder.Place();
     }
 
     public void OnDeactivateTool(InputAction.CallbackContext context)
@@ -247,11 +227,9 @@ public class Player : MonoBehaviour
     {
         PlayingState.RegisterPlayer(this);
         invertedCam = PlayerPrefs.GetInt("InvertedCam");
-        //HighlightMaterial  = Resources.Load<Material>("HighlightMaterial");
-        //Debug.Log("Inversion value: " + PlayerPrefs.GetInt("InvertedCam"));
+
         GameOverScreen = UIRootModule.UIRoot.GetScreen<GameOver>();
         WinScreen = UIRootModule.UIRoot.GetScreen<Win>();
-        //Debug.LogWarning(WinScreen);
     }
 
     public void ShowTooltips()
@@ -303,42 +281,6 @@ public class Player : MonoBehaviour
     }
 
 
-
-
-    /*
-    private void TryHighlight()
-    {
-        HMatData data;
-        if (mouseCollision != LastHighlightObject && mouseCollision != null )
-        {
-
-            for (int i = 0; i < HighlightedObjects.Count; i++)
-            {
-                data = HighlightedObjects.Pop();
-                if (data.Owner != null)
-                {
-                    data.Owner.material = data.OldMat;
-                    data.Owner.material.color = data.color;
-                }
-            }
-
-            MeshRenderer Target = mouseCollision.gameObject.GetComponentInChildren<MeshRenderer>();
-            HighlightedObjects.Push(new HMatData(Target,Target.material,Target.material.color));
-            Salvagable TargetSalvage = mouseCollision.GetComponentInChildren<Salvagable>();
-           
-            if (TargetSalvage != null)
-            {
-                Target.material.color = TargetSalvage.SalvageItem.ResourceType.ResourceColor;
-                Target.material = TargetSalvage.SalvageItem.ResourceType.ResourceHighlight;
-            } else
-            {
-                Target.material = HighlightMaterial;
-            }
-            LastHighlightObject = mouseCollision.gameObject;
-        }
-    }
-
-    */
     public bool StationInRange(out Collider target)
     {
         bool canInteract = false;
