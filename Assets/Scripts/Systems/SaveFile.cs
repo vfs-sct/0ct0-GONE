@@ -5,10 +5,15 @@
 public class SaveFile : ScriptableObject
 {
     //number of audio logs already unlocked
+    [System.NonSerialized]
     public int objective = 0;
 
     //how much of each resource is in the space station
+    [System.NonSerialized]
     public float[] hubResource = new float[5] { 0f, 0f, 0f, 0f, 0f };
+
+    [System.NonSerialized]
+    public bool[] repairables = new bool[4] { false, false, false, false };
 
     public void Save()
     {
@@ -20,6 +25,11 @@ public class SaveFile : ScriptableObject
             {
                 file.WriteLine($"hubResource{i}={hubResource[i]}");
             }
+
+            for (int i = 0; i < repairables.Length; i++)
+            {
+                file.WriteLine($"repairables{i}={repairables[i]}");
+            }
         }
     }
 
@@ -29,18 +39,30 @@ public class SaveFile : ScriptableObject
         {
             foreach (var line in System.IO.File.ReadAllLines(@"0CT0-save.sav"))
             {
+                //========= CURRENT OBJECTIVE =========
+
                 if (line.StartsWith("objective="))
                 {
                     objective = int.Parse(line.Split('=')[1]);
-                    return;
                 }
 
-                for(int i = 0; i < hubResource.Length; i++)
+                //========= RESOURCES IN HUB =========
+
+                for (int i = 0; i < hubResource.Length; i++)
                 {
                     if (line.StartsWith($"hubResource{i}="))
                     {
-                        hubResource[i] = int.Parse(line.Split('=')[1]);
-                        return;
+                        hubResource[i] = float.Parse(line.Split('=')[1]);
+                    }
+                }
+
+                //========= STATION REPAIRABLES =========
+
+                for (int i = 0; i < repairables.Length; i++)
+                {
+                    if (line.StartsWith($"repairables{i}="))
+                    {
+                        repairables[i] = bool.Parse(line.Split('=')[1]);
                     }
                 }
             }
@@ -72,6 +94,11 @@ public class SaveFile : ScriptableObject
         for(int i = 0; i < hubResource.Length; i++)
         {
             hubResource[i] = 0f;
+        }
+
+        for (int i = 0; i < repairables.Length; i++)
+        {
+            repairables[i] = false;
         }
     }
 }

@@ -53,7 +53,7 @@ public class ResourceInventory : MonoBehaviour
         }
         else
         {
-            if (saveFile != null)
+            if (saveFile != null && saveFile.HasSaveGame())
             {
                 //grab saved resource amounts and give the hub that much of each resource
                 for (int i = 0; i < ActiveResources.Count; i++)

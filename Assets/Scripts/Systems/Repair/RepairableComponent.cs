@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.Events;
 public class RepairableComponent : MonoBehaviour
 {
+    [SerializeField] private SaveFile saveFile = null;
+    //used to save the objects repaired state
+    [SerializeField] int saveIndex;
 
     [SerializeField] RepairableInfo repairInfo = null;
     [SerializeField] private List<CraftingModule.ItemRecipeData> _RequiredComponents;
@@ -37,13 +40,21 @@ public class RepairableComponent : MonoBehaviour
 
     private const float RepairTickrate = 0.2f;
 
-
-
     private void Start()
     {
         if (LinkedEvent != null)
         {
             LinkedEvent.RegisterNewComponent(this);
+        }
+
+        //check the players save file to see if this component should already be repaired
+        if (saveFile != null && saveFile.HasSaveGame())
+        {
+            //saveFile.Load();
+            if (saveFile.repairables[saveIndex])
+            {
+                LoadComplete();
+            }
         }
     }
 
@@ -113,6 +124,21 @@ public class RepairableComponent : MonoBehaviour
         }
 
         Debug.LogWarning("Repair Completed");
+
+        _isRepaired = true;
+
+        repairInfo.SetIsRepaired(_isRepaired);
+
+        saveFile.repairables[saveIndex] = true;
+        saveFile.Save();
+
+        OnRepairComplete.Invoke();
+    }
+
+    //use to autocomplete an object on load via the player's save file
+    public void LoadComplete()
+    {
+        Debug.LogWarning("Load Repair Completed");
 
         _isRepaired = true;
 

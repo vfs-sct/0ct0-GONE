@@ -28,42 +28,74 @@ public class RepairEvent : Event
     private RepairableInfo targetSat = null;
     private GameHUD gameHUD = null;
 
+    private bool isInitialized = false;
+    private bool isUpdating = false;
+
     public override bool Condition(GameObject target)
     {
-        //Debug.LogError(targetSat.IsRepaired());
-
-        if(targetSat.IsRepaired())
+        if(isInitialized)
         {
-            if (commRangeIncrease != 0)
-            {
-                EventModule.CommZone.AddRange(commRangeIncrease);
-            }
-            if (fuelBarIncrease != 0)
-            {
-                gameHUD.fuelUpgrade.Upgrade(fuelBarIncrease);
-            }
-            if(thrusterIncrease != 0)
-            {
-                UIRootModule.UIRoot.player.gameObject.GetComponent<MovementController>().AddThrusterImpulse(thrusterIncrease);
-            }
+            //Debug.Log("EVENT" + this.name);
 
-            //reset material on object
+            //get our specific satellite's repair info off the repairableroot
+            targetSat = EventModule.RepairableRoot.GetRepairable(repairStation).GetComponent<RepairableInfo>();
+
             var mesh = targetSat.gameObject.GetComponentInChildren<MeshRenderer>();
             if (mesh != null)
             {
-                mesh.material = prevMat;
+                prevMat = mesh.material;
+                mesh.material = highlightMat;
             }
 
-            //todo update widget
-            ObjectivePopup(isFirstEvent);
-            //Debug.Log("EVENT CONDITION MET");
-            CodexProgression();
+            gameHUD = UIRootModule.UIRoot.GetScreen<GameHUD>();
+
+            //set objective text
             gameHUD.objectivePanel.ClearObjectives();
-            //reset scriptable object values
-            targetSat = null;
-            gameHUD = null;
-            prevMat = null;
-            return true;
+
+            string objectiveUpdate = string.Format("0/1 - {0} the <color=#FFC63B>{1}</color>", actionVerb, targetSat.DisplayName);
+            gameHUD.objectivePanel.AddObjective(objectiveUpdate);
+            isInitialized = false;
+            isUpdating = true;
+        }
+
+        //Debug.LogError(targetSat.IsRepaired());
+        if (isUpdating)
+        {
+            if (targetSat.IsRepaired())
+            {
+                if (commRangeIncrease != 0)
+                {
+                    EventModule.CommZone.AddRange(commRangeIncrease);
+                }
+                if (fuelBarIncrease != 0)
+                {
+                    gameHUD.fuelUpgrade.Upgrade(fuelBarIncrease);
+                }
+                if (thrusterIncrease != 0)
+                {
+                    UIRootModule.UIRoot.player.gameObject.GetComponent<MovementController>().AddThrusterImpulse(thrusterIncrease);
+                }
+
+                //reset material on object
+                var mesh = targetSat.gameObject.GetComponentInChildren<MeshRenderer>();
+                if (mesh != null)
+                {
+                    mesh.material = prevMat;
+                }
+
+                //todo update widget
+                ObjectivePopup(isFirstEvent);
+                //Debug.Log("EVENT CONDITION MET");
+                CodexProgression();
+                gameHUD.objectivePanel.ClearObjectives();
+                //reset scriptable object values
+                targetSat = null;
+                gameHUD = null;
+                prevMat = null;
+                isUpdating = false;
+                isInitialized = false;
+                return true;
+            }
         }
         return false;
     }
@@ -84,24 +116,6 @@ public class RepairEvent : Event
     }
     override public void InitializeEvent()
     {
-        //Debug.Log("EVENT" + this.name);
-
-        //get our specific satellite's repair info off the repairableroot
-        targetSat = EventModule.RepairableRoot.GetRepairable(repairStation).GetComponent<RepairableInfo>();
-
-        var mesh = targetSat.gameObject.GetComponentInChildren<MeshRenderer>();
-        if (mesh != null)
-        {
-            prevMat = mesh.material;
-            mesh.material = highlightMat;
-        }
-
-        gameHUD = UIRootModule.UIRoot.GetScreen<GameHUD>();
-
-        //set objective text
-        gameHUD.objectivePanel.ClearObjectives();
-
-        string objectiveUpdate = string.Format("0/1 - {0} the <color=#FFC63B>{1}</color>", actionVerb, targetSat.DisplayName);
-        gameHUD.objectivePanel.AddObjective(objectiveUpdate);
+        isInitialized = true;
     }
 }

@@ -10,6 +10,9 @@ public class RefuelEvent : Event
     [SerializeField] public string actionVerb = "Recharge";
     [SerializeField] protected UIModule UIRootModule = null;
     private ResourceInventory playerInventory;
+
+    //prevent temporal coupling
+    //if the event is initialized directly in the Initialize function, event wont save/load properly
     private bool isInitialized = false;
     private bool isUpdating = false;
 
