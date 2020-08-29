@@ -7,13 +7,14 @@ using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using ScriptableGameFramework;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] GameFrameworkManager GameManager = null;
+
     [SerializeField] GameObject ConfirmationPrefab = null;
     [SerializeField] GameObject CommSatAudioReference = null;
     [SerializeField] GameObject AmbienceAudioReference = null;
@@ -186,12 +187,12 @@ public class GameOver : MonoBehaviour
             AkSoundEngine.PostEvent("Communications_Array_Stop", CommSatAudioReference);
         }
 
-        if (GameManager.isPaused)
+        if (Game.Manager.isPaused)
         {
-            GameManager.UnPause();
+            Game.Manager.UnPause();
         }
 
-        GameManager.LoadScene($"{menuScene}");
+        Game.Manager.LoadScene($"{menuScene}");
     }
 
     public void OnClickMainMenu()

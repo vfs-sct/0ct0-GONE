@@ -2,6 +2,7 @@
 //using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ScriptableGameFramework;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -12,7 +13,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] string nextScene = null;
 
     [Header("System")]
-    [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] private GameState MainMenuState = null;
     [SerializeField] private SaveFile saveFile = null;
 
@@ -37,7 +37,7 @@ public class MainMenu : MonoBehaviour
         {
             AkSoundEngine.PostEvent("MUS_Stop", AudioReferences);
         }
-        GameManager.LoadScene($"{nextScene}");
+        Game.Manager.LoadScene($"{nextScene}");
     }
 
     public void OnClickNewGame()
@@ -51,7 +51,7 @@ public class MainMenu : MonoBehaviour
         {
             AkSoundEngine.PostEvent("MUS_Stop", AudioReferences);
         }
-        GameManager.LoadScene($"{nextScene}");
+        Game.Manager.LoadScene($"{nextScene}");
     }
 
     public void OnClickOptions()
@@ -122,7 +122,7 @@ public class MainMenu : MonoBehaviour
             (MainMenuState as MainMenuState).SetGameCompleted(false);
         }
         Debug.Log("HEY - MENU STATE:" + MainMenuState);
-        GameManager.ChangeGameState(MainMenuState);
+        Game.Manager.ChangeGameState(MainMenuState);
         Cursor.visible = true;
     }
 }

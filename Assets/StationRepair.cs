@@ -3,13 +3,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using ScriptableGameFramework;
 
 public class StationRepair : MonoBehaviour
 {
     [SerializeField] Player player = null;
     [SerializeField] ResourceInventory shipInventory = null;
     [SerializeField] InventoryController playerInventory = null;
-    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject HUDPrefab = null;
     [SerializeField] GameObject ComponentBox = null;
 
@@ -313,7 +313,7 @@ public class StationRepair : MonoBehaviour
     public void Close()
     {
         AkSoundEngine.PostEvent("Octo_Systems_Text", gameObject);
-        GameManager.UnPause();
+        Game.Manager.UnPause();
         Debug.Log("Unpaused");
         SwitchViewTo(HUDPrefab);
     }

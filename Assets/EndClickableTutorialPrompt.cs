@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using ScriptableGameFramework;
 
 public class EndClickableTutorialPrompt : MonoBehaviour
 {
-    [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] private Pause pauseScreen = null;
     [SerializeField] private Tutorial tutorialController = null;
     //time before the next popup appears after this ones deactivated
@@ -13,7 +13,7 @@ public class EndClickableTutorialPrompt : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseScreen.gameObject.SetActive(true);
-        GameManager.Pause();
+        Game.Manager.Pause();
     }
 
     private void OnEnable()

@@ -153,14 +153,6 @@ public class MovementController : MonoBehaviour
     public Vector3 NormalizedInput{get => _NormalizedInput;}
 
 
-
-
-    private void Awake()
-    {
-       
-    }
-
-
     public int GetSpeedModifier()
     {
         //Debug.LogWarning("Speed modifier " + speedModifier * 100);
@@ -322,12 +314,6 @@ public class MovementController : MonoBehaviour
         AngularVelocity = (DeltaAngle * ThrusterTorque)/50;
         return AngularVelocity;
     }
-
-
-    //private CalculateVelocityChange(MovementController Controller)
-    //{
-    //}
-
     private void ApplyTorque()
     {
         Vector3 Torques = new Vector3();

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using ScriptableGameFramework;
 
 [CreateAssetMenu(menuName = "Core/Gamemode/GameOver")]
 public class GameOverState : GameState

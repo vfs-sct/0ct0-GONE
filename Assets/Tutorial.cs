@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
+using ScriptableGameFramework;
 
 public class Tutorial : MonoBehaviour
 {
-    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] Playing playing = null;
 
     [SerializeField] GameObject[] tutorialPrompts;

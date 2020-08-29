@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using ScriptableGameFramework;
 
 [CreateAssetMenu(menuName = "GameFramework/SubSystems/UIModule")]
 public class UIModule : Module

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using ScriptableGameFramework;
 
 [CreateAssetMenu(menuName = "Core/Gamemode/Playing")]
 public class Playing : GameState
