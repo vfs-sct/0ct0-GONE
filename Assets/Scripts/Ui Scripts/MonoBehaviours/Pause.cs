@@ -3,13 +3,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using ScriptableGameFramework;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] Tutorial TutorialPrefab = null;
     [SerializeField] GameObject CodexPrefab = null;
     [SerializeField] GameObject OptionsPrefab = null;
@@ -28,7 +28,7 @@ public class Pause : MonoBehaviour
     public void OnClickResume()
     {
         Cursor.visible = false;
-        GameManager.UnPause();
+        Game.Manager.UnPause();
         gameObject.SetActive(false);
         AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
         Debug.Log("Unpaused");
@@ -91,8 +91,8 @@ public class Pause : MonoBehaviour
             AkSoundEngine.PostEvent("Communications_Array_Stop", AudioReferences);
         }
 
-        GameManager.LoadScene($"{menuScene}");
-        GameManager.UnPause();
+        Game.Manager.LoadScene($"{menuScene}");
+        Game.Manager.UnPause();
     }
 
     public void OnClickQuit()

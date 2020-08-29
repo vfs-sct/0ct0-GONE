@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
-
+using ScriptableGameFramework;
 public class CameraComponent : MonoBehaviour
 {
     [Header("Camera Control")]

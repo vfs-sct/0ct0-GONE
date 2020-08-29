@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using ScriptableGameFramework;
 
 [CreateAssetMenu(menuName = "Systems/Camera/Camera Module")]
 public class CameraModule : Module

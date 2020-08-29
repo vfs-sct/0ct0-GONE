@@ -3,6 +3,10 @@ using UnityEngine;
 
 //abstract for modules
 
+
+namespace ScriptableGameFramework
+{
+
 //[CreateAssetMenu(menuName = "Systems/<systemName>/<systemName>Module")]
 public abstract class Module: ScriptableObject
 {
@@ -32,4 +36,5 @@ public abstract class Module: ScriptableObject
     {
 
     }
+}
 }

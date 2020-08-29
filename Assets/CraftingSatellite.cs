@@ -7,10 +7,10 @@ using TMPro;
 using System;
 using UnityEngine.EventSystems;
 using System.Linq;
+using ScriptableGameFramework;
 
 public class CraftingSatellite : MonoBehaviour
 {
-    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] private SaveFile saveFile = null;
     [SerializeField] CraftingModule CraftingModule = null;
     [SerializeField] UIAwake UIRoot = null;
@@ -136,7 +136,7 @@ public class CraftingSatellite : MonoBehaviour
 
     public void Close()
     {
-        GameManager.UnPause();
+        Game.Manager.UnPause();
         SwitchViewTo(HUDPrefab);
     }
 
