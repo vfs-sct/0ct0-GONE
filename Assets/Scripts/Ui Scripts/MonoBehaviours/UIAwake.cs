@@ -65,6 +65,8 @@ public class UIAwake : MonoBehaviour
 
     void Start()
     {
+        codex.Load();
+
         //PlayerPrefs.DeleteAll();
         //find and set the camera so we can apply gamma changes
         var camera = Camera.main;

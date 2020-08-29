@@ -72,10 +72,13 @@ public class Codex : MonoBehaviour
     private void Start()
     {
         buttonPanelScrollbar.value = 1f;
+    }
 
-        if(saveFile.objective != 0)
+    public void Load()
+    {
+        if (saveFile.objective != 0)
         {
-            for(int i = 0; i <= saveFile.objective; i++)
+            for (int i = 0; i <= saveFile.objective; i++)
             {
                 isLocked[i] = false;
             }

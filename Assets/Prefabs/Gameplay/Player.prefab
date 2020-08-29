@@ -316,6 +316,7 @@ MonoBehaviour:
   CraftingTooltip: {fileID: 0}
   RefuellingTooltip: {fileID: 0}
   RepairableScreenTooltip: {fileID: 0}
+  OffloadNanitesTooltip: {fileID: 0}
   Scanner: {fileID: 4417704602333966887}
   LinkedMovementController: {fileID: 0}
   LinkedToolController: {fileID: 0}
@@ -380,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361f5aee0eb8dca45837eed6192ab92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManager: {fileID: 11400000, guid: 464a67ad116bd9a4bbd30ae05c16b6fc, type: 2}
+  GameManager: {fileID: 0}
   UIModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
   EquiptTools:
   - {fileID: 11400000, guid: 41cedef85c35ccb428399bdbd6368a25, type: 2}
@@ -473,6 +474,7 @@ MonoBehaviour:
     value: 0
   resourceAddedPopTxt: {fileID: 8981721532894141398, guid: 6082956a558828445afc6a77b3e25ac6,
     type: 3}
+  saveFile: {fileID: 0}
 --- !u!114 &1239658988473444085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,6 +491,7 @@ MonoBehaviour:
   UIModule: {fileID: 11400000, guid: ea60a145078c18f4e85b76ade1d24420, type: 2}
   Player: {fileID: 489913433233796650}
   AntiSpamDelay: 0.2
+  CraftingPrefab: {fileID: 0}
 --- !u!114 &8777384577728220895
 MonoBehaviour:
   m_ObjectHideFlags: 0
