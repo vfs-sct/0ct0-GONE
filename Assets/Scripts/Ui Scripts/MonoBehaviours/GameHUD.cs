@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
-using ScriptableGameFramework;
 
 public class GameHUD : MonoBehaviour
 {
+    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] UIAwake UIRoot = null;
     [SerializeField] GameObject PausePrefab = null;
     [SerializeField] GameObject GameoverPrefab = null;
@@ -139,10 +139,10 @@ public class GameHUD : MonoBehaviour
 
     public void OnInventoryHotkey(InputValue value)
     {
-        if (!Game.Manager.isPaused)
+        if (!GameManager.isPaused)
         {
             InventoryPrefab.SetActive(true);
-            Game.Manager.Pause();
+            GameManager.Pause();
         }
     }
 
@@ -213,19 +213,19 @@ public class GameHUD : MonoBehaviour
 
     public void OnEsc(InputValue value)
     {
-        if (!Game.Manager.isPaused)
+        if (!GameManager.isPaused)
         {
             PausePrefab.SetActive(true);
-            Game.Manager.Pause();
+            GameManager.Pause();
             //Debug.Log("Paused");
         }
     }
 
     public void GameOver()
     {
-        if (!Game.Manager.isPaused)
+        if (!GameManager.isPaused)
         {
-            Game.Manager.Pause();
+            GameManager.Pause();
             //Debug.Log("Paused");
         }
         AkSoundEngine.PostEvent("Death", gameObject);

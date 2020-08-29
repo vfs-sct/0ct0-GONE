@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ScriptableGameFramework;
 
 
 [CreateAssetMenu(menuName = "Systems/Pooling/Pooling Manager")]

@@ -7,12 +7,13 @@ using TMPro;
 using System;
 using UnityEngine.EventSystems;
 using System.Linq;
-using ScriptableGameFramework;
 
 public class Crafting : MonoBehaviour
 {
     //tutorial
     [SerializeField] EndCraftingPrompt craftingTutorial = null;
+
+    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] CraftingModule CraftingModule = null;
     [SerializeField] UIAwake UIRoot = null; 
     [SerializeField] GameObject HUDPrefab = null;
@@ -199,7 +200,7 @@ public class Crafting : MonoBehaviour
 
     public void Close()
     {
-        Game.Manager.UnPause();
+        GameManager.UnPause();
         SwitchViewTo(HUDPrefab);
     }
 

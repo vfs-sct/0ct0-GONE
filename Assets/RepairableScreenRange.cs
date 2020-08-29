@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using ScriptableGameFramework;
+
 public class RepairableScreenRange : MonoBehaviour
 {
+    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] private Playing playing = null;
     [SerializeField] public StationRepair StationRepairScreen = null;
     [SerializeField] private float AntiSpamDelay = 0.2f;
@@ -18,7 +19,7 @@ public class RepairableScreenRange : MonoBehaviour
         LastPressedTime = Time.unscaledTime;
 
         //Debug.LogError("Pressed");
-        if (canOpen && !Game.Manager.isPaused)
+        if (canOpen && !GameManager.isPaused)
         {
             RepairableComponent satComponent = currentSat.GetComponentInParent<RepairableComponent>();
             //Debug.LogWarning("Can Open");
@@ -26,7 +27,7 @@ public class RepairableScreenRange : MonoBehaviour
             if (satComponent != null)
             {
                 StationRepairScreen.OpenScreen(satComponent);
-                Game.Manager.Pause();
+                GameManager.Pause();
                 Debug.Log("Paused");
             }
             else

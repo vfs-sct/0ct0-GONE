@@ -7,13 +7,13 @@ using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
-using ScriptableGameFramework;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 public class Win : MonoBehaviour
 {
+    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] GameObject CommSatAudioReference = null;
     [SerializeField] GameObject AmbienceAudioReference = null;
     

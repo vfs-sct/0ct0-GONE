@@ -5,13 +5,14 @@ using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
-using ScriptableGameFramework;
+
 public class InventoryV2 : MonoBehaviour
 {
 
     [SerializeField] EndInventoryTutorial OpenInventoryTutorial = null;
     [SerializeField] Tutorial TutorialController = null;
     [SerializeField] UIAwake UIRoot = null;
+    [SerializeField] GameFrameworkManager GameManager = null;
     //used to grab the speed modifier off of
     [SerializeField] MovementController playerMovement = null;
     [SerializeField] GameObject ResourceBox = null;
@@ -163,7 +164,7 @@ public class InventoryV2 : MonoBehaviour
     public void Close()
     {
         AkSoundEngine.PostEvent("MainMenu_All_Button_Hover", gameObject);
-        Game.Manager.UnPause();
+        GameManager.UnPause();
         gameObject.SetActive(false);
     }
 

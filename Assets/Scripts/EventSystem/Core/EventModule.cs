@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using ScriptableGameFramework;
+
 
 [CreateAssetMenu(menuName = "Systems/Events/Event Module")]
 public class EventModule : Module

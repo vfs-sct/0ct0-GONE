@@ -2,7 +2,6 @@
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
-using ScriptableGameFramework;
 
 //[CreateAssetMenu(menuName = "Systems/Events/New Event")]
 public abstract class Event : ScriptableObject
@@ -10,6 +9,7 @@ public abstract class Event : ScriptableObject
     public string EventName;
     public bool isFirstEvent = false;
     public bool progressesStory = true;
+    protected GameFrameworkManager GameManager = null;
 
     public abstract bool Condition(GameObject target);
 

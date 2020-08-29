@@ -9,24 +9,6 @@ using System.Text;
 using UnityEngine.Scripting;
 using UnityEngine;
 
-
-namespace ScriptableGameFramework
-{
-
-public static class Game //global variable to define gamemanager
-{
-    public static GameFrameworkManager Manager;
-
-    public static T GetModule<T>() where T: Module
-    {
-        return Manager.GetModule<T>();
-    }
-
-}
-
-
-
-
 [CreateAssetMenu(menuName = "GameFramework/Core/GameManager")]
 public class GameFrameworkManager : ScriptableObject
 {
@@ -39,7 +21,6 @@ public class GameFrameworkManager : ScriptableObject
     public ModuleManager moduleManager{get =>LinkedModuleManager;}
 
     [Header("Game State System")]
-
 
 
     [SerializeField] private List<GameStateData> GameStates = new List<GameStateData>();
@@ -241,13 +222,6 @@ public class GameFrameworkManager : ScriptableObject
     //main initialization
     private void Initalize()
     {
-        if (Game.Manager != null)
-        {
-            throw new System.Exception("Could not create game manager, One already exists!");
-        }
-        Game.Manager = this;
-
-
         saveFile.Load();
         Debug.Log("----------------------------------\n");
         Debug.Log("Save Loaded\n");
@@ -350,7 +324,9 @@ public class GameFrameworkManager : ScriptableObject
     {
         return LinkedModuleManager.GetModule<T>();
     }
-}
-   
-}
 
+
+
+
+
+}

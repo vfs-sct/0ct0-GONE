@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using ScriptableGameFramework;
+
 public class EnterAreaWarning : MonoBehaviour
 {
     [SerializeField] UIModule UIModule = null;

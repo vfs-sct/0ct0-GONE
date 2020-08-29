@@ -4,9 +4,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-namespace ScriptableGameFramework
-{
-
 //[CreateAssetMenu(menuName = "Systems/<StateName>/<StateName>State")]
 public abstract class GameState : ScriptableObject
 {
@@ -75,5 +72,4 @@ public abstract class GameState : ScriptableObject
         }
         OnInitialize();
     }
-}
 }

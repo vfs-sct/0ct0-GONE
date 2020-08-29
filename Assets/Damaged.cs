@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
-using ScriptableGameFramework;
 
 public class Damaged : MonoBehaviour
 {
     [SerializeField] private float flashTime;
-
+    [SerializeField] GameFrameworkManager gameManager = null;
     [SerializeField] private FillBar healthBar = null;
 
     private bool isLowFuel = false;
 
     private void Update()
     {
-        if (Game.Manager.ActiveGameState.GetType() != typeof(Playing))
+        if (gameManager.ActiveGameState.GetType() != typeof(Playing))
         {
             this.gameObject.SetActive(false);
         }

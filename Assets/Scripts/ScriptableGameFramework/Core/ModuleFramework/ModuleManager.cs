@@ -5,9 +5,6 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-namespace ScriptableGameFramework
-{
-
 
 [CreateAssetMenu(menuName = "GameFramework/Core/ModuleManager")]
 public class ModuleManager : ScriptableObject
@@ -101,7 +98,4 @@ public class ModuleManager : ScriptableObject
     {
         return (T)moduleList[typeof(T)];
     }
-}
-
-    
 }

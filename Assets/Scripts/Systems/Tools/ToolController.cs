@@ -2,10 +2,10 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using ScriptableGameFramework;
 
 public class ToolController : MonoBehaviour
 {
+    [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] private UIModule UIModule = null;
     [SerializeField] private List<Tool> EquiptTools = new List<Tool>();
     
@@ -87,7 +87,7 @@ public class ToolController : MonoBehaviour
 
     public void ActivateTool()
     {
-        if (!Game.Manager.isPaused)
+        if (!GameManager.isPaused)
         {
             if (_CurrentTool == null | CurrentToolIsActive) return;
             CurrentToolIsActive = _CurrentTool.Activate(this, _LinkedPlayer.TargetedObject);
@@ -96,7 +96,7 @@ public class ToolController : MonoBehaviour
 
     public void DeactivateTool()
     {
-        if (!Game.Manager.isPaused)
+        if (!GameManager.isPaused)
         {
             if (_CurrentTool == null) return;
             CurrentToolIsActive = !_CurrentTool.Deactivate(this, _LinkedPlayer.TargetedObject);

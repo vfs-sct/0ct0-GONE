@@ -1,9 +1,10 @@
 ﻿//Kristin Ruff-Frederickson | Copyright 2020©
 using UnityEngine;
 using UnityEngine.InputSystem;
-using ScriptableGameFramework;
+
 public class UIAwake : MonoBehaviour
 {
+    [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] GameObject DebugPrefab = null;
     [SerializeField] Texture2D customCursor = null;
     [SerializeField] public float gammaDefault = 2.2f;

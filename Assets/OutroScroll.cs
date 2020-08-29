@@ -3,11 +3,10 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using ScriptableGameFramework;
 
 public class OutroScroll : MonoBehaviour
 {
-
+    [SerializeField] private GameFrameworkManager GameManager = null;
     [SerializeField] private MainMenuState mainMenuState = null;
 
     [SerializeField] GameObject CommSatAudioReference = null;
@@ -155,13 +154,13 @@ public class OutroScroll : MonoBehaviour
                 AkSoundEngine.PostEvent("Communications_Array_Stop", CommSatAudioReference);
             }
 
-            if (Game.Manager.isPaused)
+            if (GameManager.isPaused)
             {
-                Game.Manager.UnPause();
+                GameManager.UnPause();
             }
 
 
-            Game.Manager.LoadScene($"{nextScene}");
+            GameManager.LoadScene($"{nextScene}");
         }
     }
 

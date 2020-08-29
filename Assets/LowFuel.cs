@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using ScriptableGameFramework;
+
 public class LowFuel : MonoBehaviour
 {
     [SerializeField] private FlashWhileActive flashScript = null;
+    [SerializeField] private GameFrameworkManager gameManager = null;
 
     private Image thisImage = null;
     private Color fadeTargetCol;
@@ -39,7 +40,7 @@ public class LowFuel : MonoBehaviour
         if(thisImage.color.a > 0.1f)
         {
             //flash stops animating if the game is paused, but animates out if the game's won/lost
-            if (Game.Manager.ActiveGameState.GetType() == typeof(Playing))
+            if (gameManager.ActiveGameState.GetType() == typeof(Playing))
             {
                 thisImage.color = Color.Lerp(thisImage.color, fadeTargetCol, Time.deltaTime * 1f / fadeOutTime);
             }
@@ -65,7 +66,7 @@ public class LowFuel : MonoBehaviour
             return;
        }
 
-        if (Game.Manager.ActiveGameState.GetType() != typeof(Playing))
+        if (gameManager.ActiveGameState.GetType() != typeof(Playing))
         {
             fadeOut = true;
         }

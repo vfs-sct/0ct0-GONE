@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 using TMPro;
 using System;
 using UnityEngine.EventSystems;
-using ScriptableGameFramework;
 
 public class CraftingConsumable : MonoBehaviour
 {
+    [SerializeField] GameFrameworkManager GameManager = null;
     [SerializeField] CraftingModule CraftingModule = null;
     [SerializeField] UIAwake UIRoot = null;
     [SerializeField] GameObject HUDPrefab = null;
@@ -118,7 +118,7 @@ public class CraftingConsumable : MonoBehaviour
 
     public void Close()
     {
-        Game.Manager.UnPause();
+        GameManager.UnPause();
         SwitchViewTo(HUDPrefab);
     }
 

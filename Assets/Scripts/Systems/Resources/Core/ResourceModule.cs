@@ -4,7 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ScriptableGameFramework;
+
 
 [CreateAssetMenu(menuName = "Systems/Resources/ResourceModule")]
 public class ResourceModule : Module

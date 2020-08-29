@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ScriptableGameFramework;
+
 
 [CreateAssetMenu(menuName = "Core/Gamemode/MainMenu")]
 public class MainMenuState : GameState

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
-using ScriptableGameFramework;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(MovementController))]

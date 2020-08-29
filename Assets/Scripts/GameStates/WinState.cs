@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using ScriptableGameFramework;
-
 
 [CreateAssetMenu(menuName = "Core/Gamemode/Win State")]
 public class WinState : GameState
