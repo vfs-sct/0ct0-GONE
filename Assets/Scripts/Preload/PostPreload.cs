@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PostPreload : MonoBehaviour
-{
-    [SerializeField] private GameFrameworkManager GameManager;
-
-    [SerializeField] private GameFrameworkManager gameManager;
+{    [SerializeField] private GameFrameworkManager gameManager;
 
     private void Start()
     {
