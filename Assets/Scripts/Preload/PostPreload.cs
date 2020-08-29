@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PostPreload : MonoBehaviour
 {
+    [SerializeField] private GameFrameworkManager GameManager;
 
     [SerializeField] private GameFrameworkManager gameManager;
 

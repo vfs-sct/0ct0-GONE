@@ -219,8 +219,7 @@ public class GameFrameworkManager : ScriptableObject
         OnResumeGame += DummyGMDelegate;
     }
 
-    //main initialization
-    private void Initalize()
+    private void PreInit()
     {
         saveFile.Load();
         Debug.Log("----------------------------------\n");
